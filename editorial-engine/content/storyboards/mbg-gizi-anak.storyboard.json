@@ -1,0 +1,256 @@
+{
+  "id": "mbg-gizi-anak",
+  "version": "1.0.0",
+  "fps": 30,
+  "resolution": {
+    "width": 1080,
+    "height": 1920
+  },
+  "visualDirection": "2D Animated Editorial Storytelling — flat vector, muted earth base, mustard/brick accents, layered depth, strong silhouettes",
+  "qa": {
+    "gate3StoryboardQA": "PASS",
+    "reviewedAt": "2026-11-01"
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "narrativePurpose": "HOOK",
+      "vo": "vo01",
+      "durationTargetSec": 9.5,
+      "environment": "Ruang kelas siang hari — meja, papan tulis, jendela kiri dengan cahaya keras",
+      "visualDescription": "Kelas biasa. Dua siswa di meja depan mulai menunduk; piring makan siang belum tersentuh. Di latar, dua baris meja lain sudah kosong karena siswa dibaringkan di lantai koridor. Kamera masuk pelan ke arah anak yang memegang perut.",
+      "characterAction": "Anak A: menunduk, tangan memegang perut, ekspresi sakit. Anak B: menoleh ke arahnya, setengah berdiri membantu. Guru di latar berjalan cepat keluar frame.",
+      "camera": "Slow push-in 1.00 → 1.10, anchor di wajah anak A (x 430, y 1180).",
+      "motion": "Napas pendek, kepala menunduk bertahap, piring bergetar sekali saat anak A tersentuh meja.",
+      "textOverlay": [
+        "ILUSTRASI"
+      ],
+      "sourceTag": "Kejadian nyata: Kudus, Januari 2026 (BBC News Indonesia)",
+      "sound": [
+        "ambience: ruang kelas rendah",
+        "foley: piring keramik bergeser",
+        "musik: pulsa pelan masuk di frame 120"
+      ],
+      "requiredAssets": [
+        "kelas",
+        "meja sekolah",
+        "siswa (rig anak)",
+        "guru (rig)",
+        "piring MBG"
+      ]
+    },
+    {
+      "id": "s02",
+      "narrativePurpose": "BEAT (jeda bernapas)",
+      "vo": null,
+      "durationTargetSec": 2.4,
+      "environment": "Koridor sekolah — deretan kursi di dinding, cahaya jendela dari kiri",
+      "visualDescription": "Tanpa narasi. Koridor kosong dengan tiga kursi plastik berjajar; dua siswa duduk menunduk, satu kursi kosong. Kamera menggeser pelan ke kanan.",
+      "characterAction": "Siswa duduk diam, satu menopang kepala. Tidak ada gerakan besar.",
+      "camera": "Lateral pan 90px ke kanan, skala tetap 1.06.",
+      "motion": "Hanya napas dan bayangan cahaya yang bergeser halus.",
+      "textOverlay": [],
+      "sourceTag": null,
+      "sound": [
+        "ambience: koridor, langkah jauh",
+        "musik: pulsa berhenti"
+      ],
+      "requiredAssets": [
+        "koridor",
+        "kursi",
+        "rig anak"
+      ]
+    },
+    {
+      "id": "s03",
+      "narrativePurpose": "CONTEXT",
+      "vo": "vo02",
+      "durationTargetSec": 9.5,
+      "environment": "Dapur SPPG — counter stainless, piring berjajar di atas nampan berjalan",
+      "visualDescription": "Piring-piring bergerak satu per satu dari kanan ke kiri di atas counter. Di atas setiap piring, satu angka kecil muncul. Kamera pull-back memperlihatkan ratusan piring dalam antrean panjang yang keluar frame.",
+      "characterAction": "Petugas dapur (hairnet, apron mustard) meletakkan piring dengan ritme tetap. Gerakan repetitif, bukan dramatis.",
+      "camera": "Pull-back 1.14 → 0.96 sepanjang scene.",
+      "motion": "Piring meluncur konstan; counter angka anggaran naik di kanan atas (71 → 268 triliun).",
+      "textOverlay": [
+        "71 T",
+        "268 T",
+        "SEJAK 6 JANUARI 2025"
+      ],
+      "sourceTag": "Sumber: Kemenkeu, CNN Indonesia (Jul 2026)",
+      "sound": [
+        "foley: keramik bergeser berirama",
+        "musik: pulsa stabil, ada denyut"
+      ],
+      "requiredAssets": [
+        "dapur",
+        "piring",
+        "rig petugas",
+        "counter angka"
+      ]
+    },
+    {
+      "id": "s04",
+      "narrativePurpose": "CONFLICT",
+      "vo": "vo03",
+      "durationTargetSec": 10.5,
+      "environment": "Ruang sidang gelap — layar besar, podium, siluet kursi penonton",
+      "visualDescription": "Layar raksasa menampilkan '0,0017%'. Kamera tilt-up dari podium ke layar. Setelah itu angka kedua masuk dari bawah: 37.693 — ukurannya jauh lebih besar daripada persentase di layar, memaksa layar mengecil.",
+      "characterAction": "Siluet institusional berdiri di podium, tanpa wajah, tanpa identitas. Tidak ada karikatur tokoh nyata.",
+      "camera": "Tilt-up dari y 1400 ke y 900, lalu slow push 1.05.",
+      "motion": "Angka 0,0017% stabil; angka 37.693 naik pelan menutupi sepertiga layar.",
+      "textOverlay": [
+        "0,0017%",
+        "37.693",
+        "SEPT 2025",
+        "s.d. MEI 2026"
+      ],
+      "sourceTag": "Sumber: pernyataan resmi 29 Sep 2025; JPPI (Mei 2026)",
+      "sound": [
+        "musik: nada rendah menahan",
+        "foley: klik proyektor",
+        "impact halus saat angka kedua muncul"
+      ],
+      "requiredAssets": [
+        "hall",
+        "podium",
+        "siluet institusional",
+        "tipografi angka"
+      ]
+    },
+    {
+      "id": "s05",
+      "narrativePurpose": "BEAT (kontras ruang)",
+      "vo": null,
+      "durationTargetSec": 3.6,
+      "environment": "Ruang tunggu puskesmas — bangku panjang, tiang infus, jendela sore",
+      "visualDescription": "Ruangan tenang. Ibu duduk di bangku dengan anak yang bersandar di pangkuannya. Tiang infus di sebelah. Cahaya sore dari jendela. Kamera diam, hanya napas.",
+      "characterAction": "Ibu mengusap kepala anak; anak memejamkan mata, napas pendek.",
+      "camera": "Statis dengan handheld sangat kecil (1.2px).",
+      "motion": "Napas ibu, kedipan anak, gorden bergerak 2px.",
+      "textOverlay": [
+        "ILUSTRASI"
+      ],
+      "sourceTag": null,
+      "sound": [
+        "ambience: ruang tunggu, kipas langit-langit",
+        "musik: pulsa kembali, lebih pelan"
+      ],
+      "requiredAssets": [
+        "ruang tunggu",
+        "bangku",
+        "tiang infus",
+        "rig ibu",
+        "rig anak"
+      ]
+    },
+    {
+      "id": "s06",
+      "narrativePurpose": "DEVELOPMENT",
+      "vo": "vo04",
+      "durationTargetSec": 9.5,
+      "environment": "Dapur SPPG — dinding keramik, rak stainless, sertifikat terbingkai di dinding",
+      "visualDescription": "Kamera mengikuti dinding dari sertifikat (stempel muncul) turun ke counter: termometri digital turun dari 68°C ke 42°C saat jam dinding bergerak. Kontras antara dokumen rapi dan suhu yang gagal.",
+      "characterAction": "Petugas melewati frame membawa nampan; tidak ada yang memeriksa suhu.",
+      "camera": "Tracking vertikal dari y 420 ke y 980, lalu tahan.",
+      "motion": "Stempel sertifikat jatuh (impact), jarum jam berputar, angka suhu turun.",
+      "textOverlay": [
+        "SLHS",
+        "68°C → 42°C",
+        "SUHU AMAN: ≥60°C"
+      ],
+      "sourceTag": "Sumber: Ombudsman RI Perwakilan Sumut (Okt 2026)",
+      "sound": [
+        "foley: cap kertas",
+        "foley: detik jam",
+        "musik: nada menurun"
+      ],
+      "requiredAssets": [
+        "dapur",
+        "sertifikat",
+        "termometer",
+        "jam dinding",
+        "rig petugas"
+      ]
+    },
+    {
+      "id": "s07",
+      "narrativePurpose": "DEVELOPMENT",
+      "vo": "vo05",
+      "durationTargetSec": 9.5,
+      "environment": "Ruang kelas — meja guru di depan, siswa menunggu",
+      "visualDescription": "Guru mencicipi sesendok makanan sambil siswa menunggu dengan piring masing-masing. Setelah itu, satu per satu stempel 'DITUTUP SEMENTARA' jatuh menutupi dapur di latar, berulang tiga kali, lalu hilang dan dapur kembali beroperasi.",
+      "characterAction": "Guru: sendok ke mulut, ekspresi menahan. Siswa: menunggu, ada yang melihat guru, ada yang melihat piring.",
+      "camera": "Medium shot statis, potongan kecil 1.02 → 1.06.",
+      "motion": "Sendok naik, jeda, turun. Stempel berturut-turut dengan ritme 12 frame.",
+      "textOverlay": [
+        "JURU CICIP",
+        "DITUTUP SEMENTARA",
+        "1.999 SPPG"
+      ],
+      "sourceTag": "Sumber: The Conversation/CELIOS (Sep 2026)",
+      "sound": [
+        "foley: sendok logam",
+        "impact: stempel x3",
+        "musik: denyut berhenti"
+      ],
+      "requiredAssets": [
+        "kelas",
+        "rig guru",
+        "rig anak",
+        "piring",
+        "stempel"
+      ]
+    },
+    {
+      "id": "s08",
+      "narrativePurpose": "PERSPECTIVE",
+      "vo": "vo06",
+      "durationTargetSec": 8.5,
+      "environment": "Meja kayu gelap, latar ruang tunggu yang diburamkan",
+      "visualDescription": "Foreground: satu piring penuh, belum disentuh. Di belakangnya, tangan ibu menggenggam tangan anak. Kamera fokus ke genggaman tangan, piring bergeser ke luar fokus. Di kanan atas, penghitung 'piring terkirim' terus naik tanpa berhenti.",
+      "characterAction": "Jari ibu menggenggam lebih kuat pada akhir scene; anak tidak bergerak.",
+      "camera": "Rack-focus simulasi: piring turun ketajaman (opacity/blur), push-in 1.0 → 1.12 ke tangan.",
+      "motion": "Penghitung naik terus; genggaman mengencang 4px.",
+      "textOverlay": [
+        "PIRING TERKIRIM: 1.204.339.000",
+        "ANAK SELAMAT: —"
+      ],
+      "sourceTag": "Metafora visual — bukan data resmi",
+      "sound": [
+        "musik: satu nada panjang",
+        "foley: tarikan napas pelan"
+      ],
+      "requiredAssets": [
+        "piring",
+        "tangan ibu",
+        "tangan anak",
+        "penghitung"
+      ]
+    },
+    {
+      "id": "s09",
+      "narrativePurpose": "CLOSING",
+      "vo": "vo07",
+      "durationTargetSec": 8.5,
+      "environment": "Ruang kelas kosong saat senja — cahaya jendela miring, kursi kosong, tas sekolah di kursi",
+      "visualDescription": "Kelas kosong. Satu tas sekolah tergantung di kursi. Debu terlihat di berkas cahaya. Kamera pull-back lambat sampai ruangan terasa terlalu besar. Pertanyaan penutup muncul di ruang kosong papan tulis, lalu seluruh frame meredup.",
+      "characterAction": "Tidak ada karakter. Ketiadaan manusia adalah subjeknya.",
+      "camera": "Pull-back 1.16 → 0.94, lalu fade to dark 24 frame.",
+      "motion": "Debu bergerak naik pelan; cahaya menyempit.",
+      "textOverlay": [
+        "Kalau semua dokumen sudah lengkap,",
+        "kenapa anak-anak masih jatuh sakit?"
+      ],
+      "sourceTag": "Data per November 2026",
+      "sound": [
+        "ambience: ruang kosong",
+        "musik: akor terakhir, tidak selesai (unresolved)"
+      ],
+      "requiredAssets": [
+        "ruang kosong",
+        "tas sekolah",
+        "tipografi penutup"
+      ]
+    }
+  ]
+}

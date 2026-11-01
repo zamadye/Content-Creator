@@ -1,0 +1,14 @@
+node_modules/
+.venv/
+rendering/frames/
+rendering/previews/tmp/
+*.pyc
+
+# generated media (reproducible from pipeline/)
+audio/processing/generated/*.wav
+audio/voiceovers/*.wav
+# narration clips ARE tracked (328 KB): the TTS service cannot be re-run offline
+audio/mix/*.wav
+rendering/frames/
+tmp/*.png
+rendering/previews/contact*.png

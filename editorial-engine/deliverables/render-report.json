@@ -1,0 +1,16 @@
+{
+  "video": "deliverables/B_mbg-gizi-anak_1080x1920.mp4",
+  "frames": 2660,
+  "fps": 30,
+  "durationSec": 88.67,
+  "audioSec": 88.27,
+  "encodeSec": 62.5,
+  "sizeMB": 14.56,
+  "settings": {
+    "codec": "h264 high",
+    "crf": 18,
+    "pixFmt": "yuv420p",
+    "audio": "aac 192k 48k",
+    "faststart": true
+  }
+}

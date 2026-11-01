@@ -1,0 +1,41 @@
+{
+  "name": "@editorial/engine",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Editorial Content Production Engine — 2D animated editorial storytelling",
+  "scripts": {
+    "fonts": "node pipeline/prepare-fonts.mjs",
+    "timeline": "tsx pipeline/build-timeline.ts",
+    "voiceover:measure": "tsx pipeline/measure-voiceover.ts",
+    "subtitles": "tsx pipeline/build-subtitles.ts",
+    "render:frames": "tsx pipeline/render-frames.ts",
+    "render:still": "tsx pipeline/render-still.ts",
+    "sheets": "tsx pipeline/render-sheets.ts",
+    "audio:score": "python3 audio/processing/synth_score.py",
+    "audio:mix": "tsx pipeline/mix-audio.ts",
+    "encode": "tsx pipeline/encode.ts",
+    "qa": "tsx pipeline/qa.ts",
+    "studio": "remotion studio remotion/src/index.ts",
+    "render:remotion": "remotion render remotion/src/index.ts EditorialVideo rendering/final/editorial-video.remotion.mp4",
+    "build": "bash pipeline/build-all.sh"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@fontsource/archivo": "^5.2.5",
+    "@fontsource/instrument-serif": "^5.2.5",
+    "@resvg/resvg-js": "^2.6.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "remotion": "^4.0.380",
+    "wawoff2": "^2.0.1"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.380",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

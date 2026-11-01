@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-11-01T08:59:46.421Z",
+  "levelTargetDb": -18,
+  "totalSpeechSec": 76.53,
+  "segments": [
+    {
+      "id": "vo01",
+      "scene": "s01",
+      "file": "audio/voiceovers/vo01.mp3",
+      "durationSec": 10.42,
+      "meanDb": -19.5,
+      "gainDb": 1.5,
+      "words": 24,
+      "wordsPerSec": 2.3
+    },
+    {
+      "id": "vo02",
+      "scene": "s03",
+      "file": "audio/voiceovers/vo02.mp3",
+      "durationSec": 11.3,
+      "meanDb": -19,
+      "gainDb": 1,
+      "words": 28,
+      "wordsPerSec": 2.48
+    },
+    {
+      "id": "vo03",
+      "scene": "s04",
+      "file": "audio/voiceovers/vo03.mp3",
+      "durationSec": 15.62,
+      "meanDb": -19.2,
+      "gainDb": 1.2,
+      "words": 35,
+      "wordsPerSec": 2.24
+    },
+    {
+      "id": "vo04",
+      "scene": "s06",
+      "file": "audio/voiceovers/vo04.mp3",
+      "durationSec": 6.98,
+      "meanDb": -19.2,
+      "gainDb": 1.2,
+      "words": 12,
+      "wordsPerSec": 1.72
+    },
+    {
+      "id": "vo05",
+      "scene": "s07",
+      "file": "audio/voiceovers/vo05.mp3",
+      "durationSec": 10.46,
+      "meanDb": -19.7,
+      "gainDb": 1.7,
+      "words": 18,
+      "wordsPerSec": 1.72
+    },
+    {
+      "id": "vo06",
+      "scene": "s08",
+      "file": "audio/voiceovers/vo06.mp3",
+      "durationSec": 11.45,
+      "meanDb": -19.7,
+      "gainDb": 1.7,
+      "words": 24,
+      "wordsPerSec": 2.1
+    },
+    {
+      "id": "vo07",
+      "scene": "s09",
+      "file": "audio/voiceovers/vo07.mp3",
+      "durationSec": 10.3,
+      "meanDb": -19.4,
+      "gainDb": 1.4,
+      "words": 21,
+      "wordsPerSec": 2.04
+    }
+  ],
+  "missing": []
+}

@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-11-01T08:29:17.012Z",
+  "fonts": [
+    {
+      "pkg": "@fontsource/instrument-serif",
+      "file": "instrument-serif-latin-400-normal.woff2",
+      "family": "Instrument Serif",
+      "weight": 400,
+      "style": "normal",
+      "path": "assets/fonts/instrument-serif-latin-400-normal.ttf",
+      "bytes": 48612
+    },
+    {
+      "pkg": "@fontsource/instrument-serif",
+      "file": "instrument-serif-latin-400-italic.woff2",
+      "family": "Instrument Serif",
+      "weight": 400,
+      "style": "italic",
+      "path": "assets/fonts/instrument-serif-latin-400-italic.ttf",
+      "bytes": 50908
+    },
+    {
+      "pkg": "@fontsource/archivo",
+      "file": "archivo-latin-400-normal.woff2",
+      "family": "Archivo",
+      "weight": 400,
+      "style": "normal",
+      "path": "assets/fonts/archivo-latin-400-normal.ttf",
+      "bytes": 40764
+    },
+    {
+      "pkg": "@fontsource/archivo",
+      "file": "archivo-latin-500-normal.woff2",
+      "family": "Archivo",
+      "weight": 500,
+      "style": "normal",
+      "path": "assets/fonts/archivo-latin-500-normal.ttf",
+      "bytes": 41220
+    },
+    {
+      "pkg": "@fontsource/archivo",
+      "file": "archivo-latin-600-normal.woff2",
+      "family": "Archivo",
+      "weight": 600,
+      "style": "normal",
+      "path": "assets/fonts/archivo-latin-600-normal.ttf",
+      "bytes": 41140
+    },
+    {
+      "pkg": "@fontsource/archivo",
+      "file": "archivo-latin-700-normal.woff2",
+      "family": "Archivo",
+      "weight": 700,
+      "style": "normal",
+      "path": "assets/fonts/archivo-latin-700-normal.ttf",
+      "bytes": 41076
+    }
+  ]
+}

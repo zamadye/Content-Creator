@@ -69,14 +69,22 @@ Selain tipe dasar:
 
 | Konfigurasi | Hasil |
 | --- | --- |
-| 60 frame, 1080×1920, `concurrency 2` | ~85 detik render (>1 s/frame) |
-| 1500 frame, 1080×1920 | ~30–35 menit |
+| 60 frame, 1080×1920, `concurrency 2` | ~85 detik (>1 s/frame) |
+| Episode penuh 1500 frame | ~1,5–2,2 s/frame (≈35–50 menit) |
 | Still per frame (QC) | ~4 detik/frame |
+| Master H.264 `crf 20` | **153 MB** (≈25 Mbps — grain sangat mahal) |
+| Delivery `crf 23`, maxrate 9M | **54 MB** (2,5 menit encode) |
 
-Implikasi untuk blueprint §8: pembatasan satu render aktif dan `concurrency 1–2`
-bukan sekadar saran — di mesin kecil ini render memang I/O + CPU bound dan
-menaikkan concurrency tidak menolong. Untuk produksi 30 video/bulan, render worker
-sebaiknya dipisah (VPS lain) atau memakai instance dengan core lebih banyak.
+Catatan penting:
+
+- Gerakan kamera yang benar-benar berubah tiap frame menghapus cache raster
+  Chromium, jadi render dengan motion nyata lebih lambat daripada render statis.
+  Itu biaya yang memang dibayar untuk hasil yang tidak terlihat seperti slideshow.
+- Master 153 MB tidak layak diunggah apa adanya. `pnpm encode` menurunkan ke
+  ~54 MB dengan kualitas praktis setara untuk YouTube (YouTube akan re-encode
+  lagi, jadi bitrate 25 Mbps hanya membuang waktu upload).
+- Satu render aktif dan `concurrency 1–2` bukan saran gaya, tapi batas mesin.
+  Untuk 30 video/bulan, render worker sebaiknya dipisah dari API/agen.
 
 ## Yang belum ada di Phase 1 (sengaja)
 

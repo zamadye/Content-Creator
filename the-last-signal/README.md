@@ -13,7 +13,8 @@ node scripts/make-demo-audio.mjs      # placeholder ambience + SFX
 node scripts/make-overlays.mjs        # tile grain & scanline
 pnpm test                              # test kontrak
 pnpm validate                          # validasi kontrak episode
-pnpm render                            # → renders/LS-0001.mp4
+pnpm render                            # → renders/LS-0001.mp4 (master 153 MB)
+pnpm encode                            # → renders/LS-0001-delivery.mp4 (54 MB)
 ```
 
 ---
@@ -56,7 +57,8 @@ the-last-signal/
 | Perintah | Fungsi |
 | --- | --- |
 | `pnpm validate` | validasi `episode.json` terhadap kontrak + cek aset |
-| `pnpm render` | render episode penuh → `renders/LS-0001.mp4` |
+| `pnpm render` | render episode penuh → `renders/LS-0001.mp4` (master, besar) |
+| `pnpm encode` | transcode master → `renders/LS-0001-delivery.mp4` (~54 MB) untuk upload |
 | `pnpm render -- --frames 0-59` | render potongan timeline (uji cepat) |
 | `pnpm render -- --scale 0.5` | draft setengah resolusi |
 | `pnpm studio` | Remotion Studio untuk preview interaktif |

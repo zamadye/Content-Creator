@@ -1,0 +1,105 @@
+{
+  "mission": "judol-taruhan-kecil-2026",
+  "workingTitle": "Taruhannya mengecil",
+  "compiledAt": "2026-11-02",
+  "editorialThesis": "Yang diblokir negara adalah nama rekening. Yang tidak pernah diblokir adalah kebiasaan — dan kebiasaan tidak punya rekening.",
+  "sources": [
+    {
+      "id": "S1",
+      "publisher": "Kompas.com",
+      "title": "Keterangan Kepala PPATK: perputaran judi online semester I 2026",
+      "date": "2026-08-05",
+      "url": "https://www.kompas.com/",
+      "type": "secondary-reporting-of-primary-statement",
+      "status": "VERIFIED",
+      "note": "Mengutip langsung angka yang disampaikan Kepala PPATK Ivan Yustiavandana pada 4 Agustus 2026."
+    },
+    {
+      "id": "S2",
+      "publisher": "PPATK (Pusat Pelaporan dan Analisis Transaksi Keuangan)",
+      "title": "Publikasi & keterangan resmi 2026 — jumlah pemain dan jalur setoran",
+      "date": "2026",
+      "url": "https://www.ppatk.go.id/",
+      "type": "primary-institutional",
+      "status": "VERIFIED",
+      "note": "Perkiraan ±12 juta pemain judi online; sekitar 70 persen setoran lewat QRIS (dibulatkan PPATK)."
+    },
+    {
+      "id": "S3",
+      "publisher": "Monitor Indonesia",
+      "title": "Rekapitulasi perputaran judi online 2025",
+      "date": "2026-01-29",
+      "url": "https://monitorindonesia.com/",
+      "type": "secondary",
+      "status": "VERIFIED",
+      "note": "Angka 2025 setahun penuh: Rp286,84 triliun, 422,1 juta transaksi, deposit Rp36,01 triliun, 12,3 juta penyetor."
+    },
+    {
+      "id": "S4",
+      "publisher": "PPATK & JawaPos/Liputan6",
+      "title": "Penindakan rekening dan laporan hasil analisis, Juli 2026",
+      "date": "2026-07-25",
+      "url": "https://www.liputan6.com/",
+      "type": "secondary-reporting-of-primary-statement",
+      "status": "VERIFIED",
+      "note": "5.762 rekening diblokir dengan dana Rp1,07 triliun; 51 LHA menjadi 27 lapdik."
+    },
+    {
+      "id": "S5",
+      "publisher": "Kementerian Komunikasi dan Digital (Komdigi)",
+      "title": "Rekapitulasi penindakan konten judi online",
+      "date": "2026-07-12",
+      "url": "https://www.komdigi.go.id/",
+      "type": "primary-institutional",
+      "status": "VERIFIED",
+      "note": "3,7 juta konten judi online ditindak sejak 20 Oktober 2024 sampai 12 Juli 2026."
+    }
+  ],
+  "claims": [
+    { "id": "K1", "text": "Perputaran dana judi online semester I 2026: Rp86,82 triliun", "source": ["S1"], "status": "VERIFIED" },
+    { "id": "K2", "text": "Jumlah transaksi semester I 2026: 467,32 juta", "source": ["S1"], "status": "VERIFIED" },
+    { "id": "K3", "text": "Setoran pemain semester I 2026: Rp22,05 triliun", "source": ["S1"], "status": "VERIFIED" },
+    { "id": "K4", "text": "Dibanding semester I 2025: nilai turun 12,9 persen, transaksi naik 167 persen", "source": ["S1"], "status": "VERIFIED" },
+    { "id": "K5", "text": "Setoran lewat QRIS semester I 2026: Rp12,36 triliun (56 persen) dari 198,77 juta transaksi", "source": ["S1"], "status": "VERIFIED" },
+    { "id": "K6", "text": "Tahun 2025 setahun penuh: Rp286,84 triliun, 422,1 juta transaksi, deposit Rp36,01 triliun, 12,3 juta penyetor", "source": ["S3"], "status": "VERIFIED" },
+    { "id": "K7", "text": "Jumlah pemain judi online 2026: sekitar 12 juta orang", "source": ["S2"], "status": "VERIFIED" },
+    { "id": "K8", "text": "Rekening diblokir semester I 2026: 5.762 rekening dengan dana Rp1,07 triliun", "source": ["S4"], "status": "VERIFIED" },
+    { "id": "K9", "text": "Konten judi online ditindak: 3,7 juta konten (20 Okt 2024 – 12 Jul 2026)", "source": ["S5"], "status": "VERIFIED" },
+    {
+      "id": "K10",
+      "text": "Rata-rata nilai per transaksi: sekitar Rp680 ribu (2025) turun menjadi sekitar Rp186 ribu (semester I 2026)",
+      "source": ["K1", "K2", "K6"],
+      "status": "DERIVED",
+      "method": "Rp286,84 T ÷ 422,1 juta = ±Rp679.600; Rp86,82 T ÷ 467,32 juta = ±Rp185.800. Dibulatkan ke ribuan terdekat.",
+      "note": "Wajib disebut 'hitungan sendiri' di layar, subtitle, dan caption."
+    },
+    {
+      "id": "K11",
+      "text": "Rata-rata transaksi per hari semester I 2026: sekitar 2,6 juta transaksi",
+      "source": ["K2"],
+      "status": "DERIVED",
+      "method": "467,32 juta ÷ 181 hari (Januari–Juni 2026)."
+    },
+    {
+      "id": "K12",
+      "text": "Berapa dana yang kembali ke pemain, dan berapa pemain baru per bulan",
+      "source": [],
+      "status": "UNKNOWN",
+      "note": "Tidak dipublikasikan PPATK maupun instansi lain per 2 November 2026. Di video ditampilkan sebagai 'TIDAK ADA DATA'."
+    }
+  ],
+  "knownLimits": [
+    "Semua angka utama adalah SEMESTER I 2026 (Januari–Juni), bukan setahun penuh. Pembanding 2025 memakai angka setahun penuh — perbedaan periode ini selalu disebut di narasi dan di layar.",
+    "'Transaksi' adalah transaksi yang teridentifikasi PPATK, bukan jumlah setoran pemain dan bukan jumlah orang. Jangan diterjemahkan menjadi '467 juta kali orang bertaruh'.",
+    "Rata-rata per transaksi adalah hitungan sendiri (pembagian dua angka resmi), bukan angka PPATK. Status: DERIVED, bukan VERIFIED.",
+    "PPATK menyatakan QRIS bukan instrumen bermasalah; yang disalahgunakan adalah merchant dan identitas pembayaran. Video tidak boleh menyalahkan QRIS atau pedagang.",
+    "Tidak ada nama situs, aplikasi, merek, atau logo institusi di seluruh video.",
+    "Angka pemain (±12 juta) adalah perkiraan PPATK, bukan hasil survei independen — karena itu selalu disebut 'sekitar'.",
+    "Dana yang kembali ke pemain tidak dipublikasikan. Tidak boleh diperkirakan, tidak boleh diisi angka di komentar."
+  ],
+  "verificationLog": [
+    { "at": "2026-11-02", "what": "4 pencarian web + 1 pembacaan halaman Kompas 5 Agu 2026; seluruh angka K1–K5 dikonfirmasi konsisten antar-pemberitaan.", "result": "VERIFIED" },
+    { "at": "2026-11-02", "what": "Cek silang K6 (angka 2025) dengan K1–K2 untuk hitungan turunan K10.", "result": "DERIVED" },
+    { "at": "2026-11-02", "what": "Pencarian data dana kembali ke pemain.", "result": "UNKNOWN — tidak ada rilis" }
+  ]
+}

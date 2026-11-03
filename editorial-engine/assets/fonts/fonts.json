@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-11-03T14:40:34.140Z",
+  "fonts": [
+    {
+      "pkg": "@fontsource/permanent-marker",
+      "file": "permanent-marker-latin-400-normal.woff2",
+      "family": "Permanent Marker",
+      "weight": 400,
+      "style": "normal",
+      "path": "assets/fonts/permanent-marker-latin-400-normal.ttf",
+      "bytes": 70788
+    },
+    {
+      "pkg": "@fontsource/archivo",
+      "file": "archivo-latin-400-normal.woff2",
+      "family": "Archivo",
+      "weight": 400,
+      "style": "normal",
+      "path": "assets/fonts/archivo-latin-400-normal.ttf",
+      "bytes": 40764
+    },
+    {
+      "pkg": "@fontsource/archivo",
+      "file": "archivo-latin-500-normal.woff2",
+      "family": "Archivo",
+      "weight": 500,
+      "style": "normal",
+      "path": "assets/fonts/archivo-latin-500-normal.ttf",
+      "bytes": 41220
+    },
+    {
+      "pkg": "@fontsource/archivo",
+      "file": "archivo-latin-600-normal.woff2",
+      "family": "Archivo",
+      "weight": 600,
+      "style": "normal",
+      "path": "assets/fonts/archivo-latin-600-normal.ttf",
+      "bytes": 41140
+    },
+    {
+      "pkg": "@fontsource/archivo",
+      "file": "archivo-latin-700-normal.woff2",
+      "family": "Archivo",
+      "weight": 700,
+      "style": "normal",
+      "path": "assets/fonts/archivo-latin-700-normal.ttf",
+      "bytes": 41076
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-11-03T06:31:44.582Z",
+  "levelTargetDb": -18,
+  "totalSpeechSec": 84.07,
+  "segments": [
+    {
+      "id": "vo01",
+      "scene": "k01",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo01.mp3",
+      "durationSec": 10.85,
+      "meanDb": -19.5,
+      "gainDb": 1.5,
+      "words": 22,
+      "wordsPerSec": 2.03
+    },
+    {
+      "id": "vo02",
+      "scene": "k02",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo02.mp3",
+      "durationSec": 14.42,
+      "meanDb": -19.4,
+      "gainDb": 1.4,
+      "words": 27,
+      "wordsPerSec": 1.87
+    },
+    {
+      "id": "vo03",
+      "scene": "k03",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo03.mp3",
+      "durationSec": 10.85,
+      "meanDb": -19,
+      "gainDb": 1,
+      "words": 24,
+      "wordsPerSec": 2.21
+    },
+    {
+      "id": "vo04",
+      "scene": "k04",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo04.mp3",
+      "durationSec": 10.82,
+      "meanDb": -19.4,
+      "gainDb": 1.4,
+      "words": 21,
+      "wordsPerSec": 1.94
+    },
+    {
+      "id": "vo05",
+      "scene": "k05",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo05.mp3",
+      "durationSec": 13.34,
+      "meanDb": -19.3,
+      "gainDb": 1.3,
+      "words": 28,
+      "wordsPerSec": 2.1
+    },
+    {
+      "id": "vo06",
+      "scene": "k06",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo06.mp3",
+      "durationSec": 14.81,
+      "meanDb": -19.2,
+      "gainDb": 1.2,
+      "words": 31,
+      "wordsPerSec": 2.09
+    },
+    {
+      "id": "vo07",
+      "scene": "k07",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo07.mp3",
+      "durationSec": 8.98,
+      "meanDb": -19.2,
+      "gainDb": 1.2,
+      "words": 16,
+      "wordsPerSec": 1.78
+    }
+  ],
+  "missing": []
+}

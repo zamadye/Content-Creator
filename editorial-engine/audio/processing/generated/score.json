@@ -1,0 +1,13 @@
+{
+  "sampleRate": 48000,
+  "durationSec": 80.85,
+  "bed": "audio/processing/generated/bed.wav",
+  "sfx": [
+    "whoosh",
+    "impact",
+    "stamp",
+    "tick",
+    "paper"
+  ],
+  "note": "Procedural original score \u2014 no third-party samples, no licensing dependency."
+}

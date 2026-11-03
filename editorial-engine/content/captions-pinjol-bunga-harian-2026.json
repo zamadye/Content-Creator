@@ -1,0 +1,201 @@
+[
+  {
+    "text": [
+      "Kalau ada pinjaman",
+      "bunga 0,3% per hari."
+    ],
+    "startFrame": 5,
+    "durationInFrames": 123,
+    "segment": "vo01"
+  },
+  {
+    "text": [
+      "Kelihatan kecil, kan?"
+    ],
+    "startFrame": 128,
+    "durationInFrames": 66,
+    "segment": "vo01"
+  },
+  {
+    "text": [
+      "Itu karena kamu",
+      "cuma melihat sehari."
+    ],
+    "startFrame": 194,
+    "durationInFrames": 113,
+    "segment": "vo01"
+  },
+  {
+    "text": [
+      "Pinjam Rp1 juta,",
+      "tenor 30 hari."
+    ],
+    "startFrame": 317,
+    "durationInFrames": 117,
+    "segment": "vo02"
+  },
+  {
+    "text": [
+      "Bunga Rp3.000",
+      "per hari."
+    ],
+    "startFrame": 434,
+    "durationInFrames": 87,
+    "segment": "vo02"
+  },
+  {
+    "text": [
+      "30 hari: Rp90.000."
+    ],
+    "startFrame": 521,
+    "durationInFrames": 68,
+    "segment": "vo02"
+  },
+  {
+    "text": [
+      "Masih masuk akal."
+    ],
+    "startFrame": 589,
+    "durationInFrames": 64,
+    "segment": "vo02"
+  },
+  {
+    "text": [
+      "Tapi 30 hari",
+      "bukan janji."
+    ],
+    "startFrame": 664,
+    "durationInFrames": 66,
+    "segment": "vo03"
+  },
+  {
+    "text": [
+      "Telat sehari:",
+      "denda di atas bunga."
+    ],
+    "startFrame": 730,
+    "durationInFrames": 90,
+    "segment": "vo03"
+  },
+  {
+    "text": [
+      "Bunga tetap jalan."
+    ],
+    "startFrame": 820,
+    "durationInFrames": 48,
+    "segment": "vo03"
+  },
+  {
+    "text": [
+      "Pokok belum tentu turun."
+    ],
+    "startFrame": 868,
+    "durationInFrames": 63,
+    "segment": "vo03"
+  },
+  {
+    "text": [
+      "Sekarang hitung",
+      "setahun, bukan sehari."
+    ],
+    "startFrame": 964,
+    "durationInFrames": 188,
+    "segment": "vo04"
+  },
+  {
+    "text": [
+      "0,3% × 365",
+      "= 109,5%."
+    ],
+    "startFrame": 1152,
+    "durationInFrames": 99,
+    "segment": "vo04"
+  },
+  {
+    "text": [
+      "Kalau bunganya berbunga:",
+      "198%."
+    ],
+    "startFrame": 1251,
+    "durationInFrames": 148,
+    "segment": "vo04"
+  },
+  {
+    "text": [
+      "Rp3.000 sehari",
+      "terasa seperti kopi."
+    ],
+    "startFrame": 1410,
+    "durationInFrames": 136,
+    "segment": "vo05"
+  },
+  {
+    "text": [
+      "Rp90.000 sebulan",
+      "masih terasa wajar."
+    ],
+    "startFrame": 1546,
+    "durationInFrames": 140,
+    "segment": "vo05"
+  },
+  {
+    "text": [
+      "Tapi setahun:",
+      "hampir Rp2 juta."
+    ],
+    "startFrame": 1686,
+    "durationInFrames": 116,
+    "segment": "vo05"
+  },
+  {
+    "text": [
+      "Cek tiga hal."
+    ],
+    "startFrame": 1812,
+    "durationInFrames": 50,
+    "segment": "vo06"
+  },
+  {
+    "text": [
+      "1. Cari angka hariannya."
+    ],
+    "startFrame": 1862,
+    "durationInFrames": 91,
+    "segment": "vo06"
+  },
+  {
+    "text": [
+      "2. Kalikan 365."
+    ],
+    "startFrame": 1953,
+    "durationInFrames": 57,
+    "segment": "vo06"
+  },
+  {
+    "text": [
+      "3. Baca total pengembalian,",
+      "bukan bunganya saja."
+    ],
+    "startFrame": 2010,
+    "durationInFrames": 183,
+    "segment": "vo06"
+  },
+  {
+    "text": [
+      "Angka harian membuat",
+      "utang kelihatan kecil."
+    ],
+    "startFrame": 2203,
+    "durationInFrames": 114,
+    "segment": "vo07"
+  },
+  {
+    "text": [
+      "Angka setahun",
+      "tidak bisa disembunyikan."
+    ],
+    "startFrame": 2317,
+    "durationInFrames": 103,
+    "segment": "vo07"
+  }
+]

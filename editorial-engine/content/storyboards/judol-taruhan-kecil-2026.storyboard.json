@@ -1,0 +1,165 @@
+{
+  "id": "judol-taruhan-kecil-2026",
+  "version": "1.0.0",
+  "fps": 30,
+  "resolution": { "width": 1080, "height": 1920 },
+  "visualDirection": "2D Animated Editorial Storytelling — flat vector, muted earth base, satu sumber cahaya per scene, layered FG/MG/BG. Ruang utama: meja warung malam dengan dudukan kode pembayaran generik. Cahaya hangat di k01, dingin di k05, meredup di k07.",
+  "qa": {
+    "gate3StoryboardQA": "PASS",
+    "reviewedAt": "2026-11-02",
+    "notes": [
+      "Tidak ada kode QR yang bisa dipindai di scene mana pun — mosaik kotak generik 9x9.",
+      "Tidak ada merek, nama situs, logo institusi, atau wajah nyata.",
+      "Tipografi maksimum dua keluarga huruf (Instrument Serif + Archivo).",
+      "Perubahan visual besar tiap 3–5 detik; tidak ada shot statis lebih dari 5 detik."
+    ]
+  },
+  "scenes": [
+    {
+      "id": "k01",
+      "narrativePurpose": "HOOK",
+      "vo": "vo01",
+      "durationTargetSec": 10.5,
+      "environment": "Warung malam — dinding kayu, satu baris rak sachet, lampu gantung kuning, meja kaca.",
+      "visualDescription": "Close-up meja warung. Dudukan akrilik berisi mosaik kode pembayaran berdiri di tengah kolam cahaya lampu gantung. Telepon tergelincir di kiri meja, gelas kopi di kanan. Di atas, tiga angka masuk berurutan dan berhenti seperti cap.",
+      "characterAction": "Tidak ada tokoh. Yang bergerak: cahaya pada akrilik, dan angka.",
+      "camera": "Push-in pelan 1.01 → 1.08, anchor di dudukan kode (540, 1000).",
+      "motion": "Cahaya pada akrilik menyala pada 30 persen durasi; tiga angka masuk bertahap; kampas kopi diam.",
+      "textOverlay": ["12 juta orang.", "467 juta transaksi."],
+      "sourceTag": "PPATK, 4 Agu 2026 (semester I 2026) · PPATK, 2026 (jumlah pemain)",
+      "sound": "Lampu warung (hum rendah bernada), satu whoosh saat cahaya naik, tiga tick untuk angka.",
+      "sfx": [
+        { "at": 0.2, "file": "whoosh", "gainDb": -18, "note": "cahaya naik ke akrilik" },
+        { "at": 0.42, "file": "tick", "gainDb": -16, "note": "12 juta orang" },
+        { "at": 0.62, "file": "tick", "gainDb": -16, "note": "467 juta transaksi" }
+      ],
+      "requiredAssets": ["WarungMeja", "QrisStand", "Phone", "Kopi", "Scrim"],
+      "forbidden": ["kode QR yang dapat dipindai", "logo QRIS resmi", "merek sachet"]
+    },
+    {
+      "id": "k02",
+      "narrativePurpose": "CONTEXT",
+      "vo": "vo02",
+      "durationTargetSec": 12.5,
+      "environment": "Meja kayu di ruang kerja gelap — tiga lembar angka tercetak bertumpuk seperti bukti yang baru dibuka dari amplop.",
+      "visualDescription": "Tiga blok angka cetak di atas meja kayu, lebar bertingkat. Blok teratas paling besar dan paling terang. Kamera naik pelan; tiap blok masuk berurutan dengan bunyi kertas.",
+      "characterAction": "Tidak ada tokoh. Yang bergerak: kertas masuk dan bayangan di bawahnya.",
+      "camera": "Push-in 1.00 → 1.045, anchor (540, 1000).",
+      "motion": "Tiga blok muncul pada 8 / 20 / 32 persen durasi; tidak ada gerak lain.",
+      "textOverlay": ["Angka resmi,", "bukan estimasi."],
+      "sourceTag": "Keterangan Kepala PPATK, 4 Agustus 2026 · semester I 2026",
+      "sound": "Kertas diletakkan tiga kali; ruangan sepi bernada rendah.",
+      "sfx": [
+        { "at": 0.08, "file": "paper", "gainDb": -17, "note": "blok perputaran" },
+        { "at": 0.2, "file": "paper", "gainDb": -19, "note": "blok transaksi" },
+        { "at": 0.32, "file": "paper", "gainDb": -20, "note": "blok setoran" }
+      ],
+      "requiredAssets": ["BlokAngka", "Scrim"],
+      "forbidden": ["logo PPATK", "grafik tanpa satuan", "angka tanpa periode"]
+    },
+    {
+      "id": "k03",
+      "narrativePurpose": "CONFLICT",
+      "vo": "vo03",
+      "durationTargetSec": 12.0,
+      "environment": "Dinding data gelap — dua kolom, satu pemisah tipis, garis lantai di bawah.",
+      "visualDescription": "Kiri: panah pendek menunjuk turun ke angka −12,9%. Kanan: panah panjang menunjuk naik ke +167%. Keduanya tumbuh pada waktu berbeda; panah kanan menyalip.",
+      "characterAction": "Tidak ada tokoh. Yang bergerak: dua panah.",
+      "camera": "Tanpa zoom; dorongan vertikal kecil 5 px (nafas kamera).",
+      "motion": "Panah kiri tumbuh 16–40 persen durasi; panah kanan 40–72 persen dengan easing impact.",
+      "textOverlay": ["Nilainya turun.", "Transaksinya meledak."],
+      "sourceTag": "PPATK: semester I 2026 dibanding semester I 2025 · nilai & jumlah transaksi",
+      "sound": "Dua impact berbeda tinggi nada; yang kedua lebih rendah dan lebih panjang.",
+      "sfx": [
+        { "at": 0.16, "file": "impact", "gainDb": -20, "note": "panah turun" },
+        { "at": 0.4, "file": "impact", "gainDb": -15, "note": "panah naik menyalip" }
+      ],
+      "requiredAssets": ["PanahTegak", "Scrim"],
+      "forbidden": ["dua skala berbeda tanpa label", "angka tanpa periode pembanding"]
+    },
+    {
+      "id": "k04",
+      "narrativePurpose": "DEVELOPMENT",
+      "vo": "vo04",
+      "durationTargetSec": 12.0,
+      "environment": "Meja kayu panjang — satu lembar uang besar di tengah kolam cahaya.",
+      "visualDescription": "Lembar uang utuh, lalu memudar dan pecah menjadi puluhan keping kecil yang menyebar ke seluruh meja. Dua kartu pembanding turun dari bawah: Rp680 ribu (2025) dan Rp186 ribu (2026).",
+      "characterAction": "Tidak ada tokoh.",
+      "camera": "Pull-out 1.05 → 1.00 — makin banyak keping, makin lebar yang harus dilihat.",
+      "motion": "Uang pecah pada 16–34 persen; keping menyebar 22–62 persen; kartu masuk 6 dan 50 persen.",
+      "textOverlay": ["Taruhannya mengecil.", "Jejaknya membesar."],
+      "sourceTag": "Hitungan sendiri: nilai perputaran ÷ jumlah transaksi (PPATK, semester I 2026 & 2025)",
+      "sound": "Satu sobekan bernada saat pecah, lalu gemerincing keping (semua bernada, tanpa hiss).",
+      "sfx": [
+        { "at": 0.18, "file": "paper", "gainDb": -14, "note": "uang pecah" },
+        { "at": 0.3, "file": "tick", "gainDb": -18, "note": "keping menyebar" },
+        { "at": 0.5, "file": "paper", "gainDb": -20, "note": "kartu 2026 masuk" }
+      ],
+      "requiredAssets": ["LembarUang", "Koin", "Scrim"],
+      "forbidden": ["angka turunan tanpa label 'hitungan sendiri'", "nominal uang yang terbaca sebagai merek"]
+    },
+    {
+      "id": "k05",
+      "narrativePurpose": "PERSPECTIVE",
+      "vo": "vo05",
+      "durationTargetSec": 13.0,
+      "environment": "Warung malam yang sama seperti k01 — kali ini cahayanya dingin dan neon, rak hanya satu baris.",
+      "visualDescription": "Meja yang sama, suasana berubah dingin. Titik-titik uang mengalir dari layar telepon ke dudukan kode. Di kolom gelap kanan, angka 56% dan Rp12,36 triliun masuk berurutan.",
+      "characterAction": "Tidak ada tokoh.",
+      "camera": "Push-in 1.00 → 1.05, anchor (540, 1010).",
+      "motion": "Aliran titik berjalan terus 20–95 persen; angka masuk 40 persen.",
+      "textOverlay": ["Kode yang sama", "untuk bayar kopi."],
+      "sourceTag": "PPATK, 4 Agu 2026 · PPATK: QRIS bukan instrumen bermasalah, yang disalahgunakan merchant & identitas pembayaran",
+      "sound": "Hum dingin, aliran titik sebagai bunyi tinggi berdenyut, satu tick untuk tiap angka.",
+      "sfx": [
+        { "at": 0.22, "file": "whoosh", "gainDb": -20, "note": "cahaya berubah dingin" },
+        { "at": 0.4, "file": "tick", "gainDb": -17, "note": "56 persen" },
+        { "at": 0.58, "file": "tick", "gainDb": -17, "note": "Rp12,36 triliun" }
+      ],
+      "requiredAssets": ["WarungMeja", "QrisStand", "Phone", "Kopi", "TitikAliran", "Scrim"],
+      "forbidden": ["kode QR yang dapat dipindai", "menyalahkan warung atau pedagang", "logo QRIS"]
+    },
+    {
+      "id": "k06",
+      "narrativePurpose": "EVIDENCE",
+      "vo": "vo06",
+      "durationTargetSec": 13.5,
+      "environment": "Dinding beton ruang penindakan — tiga plat logam berisi angka, satu bingkai kosong.",
+      "visualDescription": "Tiga plat menyala berurutan: 3,7 juta konten, 5.762 rekening, Rp1,07 triliun. Di bawahnya satu bingkai kosong: 'UANG YANG KEMBALI KE PEMAIN — TIDAK ADA DATA'. Kamera bergeser pelan ke kanan mencari jawaban dan tidak menemukannya.",
+      "characterAction": "Tidak ada tokoh.",
+      "camera": "Geser horizontal pelan dx +26 → −46; tidak ada zoom.",
+      "motion": "Tiga plat menyala 6/14/22 persen; bingkai kosong berdenyut pelan sejak 60 persen.",
+      "textOverlay": ["Yang diblokir dicatat.", "Yang kembali tidak."],
+      "sourceTag": "Komdigi, 20 Okt 2024–12 Jul 2026 · PPATK, semester I 2026 · uang yang kembali: tidak dipublikasikan",
+      "sound": "Tiga stamp logam berbeda nada; satu dengung rendah saat bingkai kosong muncul.",
+      "sfx": [
+        { "at": 0.06, "file": "stamp", "gainDb": -16, "note": "plat konten" },
+        { "at": 0.14, "file": "stamp", "gainDb": -16, "note": "plat rekening" },
+        { "at": 0.22, "file": "stamp", "gainDb": -15, "note": "plat dana" },
+        { "at": 0.6, "file": "impact", "gainDb": -22, "note": "bingkai kosong menyala" }
+      ],
+      "requiredAssets": ["PlatAngka", "Scrim"],
+      "forbidden": ["logo Komdigi/PPATK", "mengisi kolom kosong dengan angka", "wajah pejabat"]
+    },
+    {
+      "id": "k07",
+      "narrativePurpose": "CLOSING",
+      "vo": "vo07",
+      "durationTargetSec": 9.5,
+      "environment": "Warung yang sama, malam yang sama — lampu diredupkan bertahap, telepon sudah tidak ada di meja.",
+      "visualDescription": "Meja warung, dudukan kode masih menyala redup. Meja menghitam dari bawah; hanya akrilik yang bertahan. Tidak ada ajakan, tidak ada seruan: satu kalimat penutup di kiri atas.",
+      "characterAction": "Tidak ada tokoh. Yang berubah: cahaya turun, benda hilang satu per satu.",
+      "camera": "Pull-back 1.06 → 1.00.",
+      "motion": "Lampu turun 0.92 → 0.62 sepanjang scene; kegelapan merangkak dari bawah pada 50 persen.",
+      "textOverlay": ["Yang diblokir: rekening.", "Yang tidak: kebiasaan."],
+      "sourceTag": "Angka: PPATK, semester I 2026",
+      "sound": "Hum meredup bersama lampu; satu impact dalam dan panjang di akhir kalimat.",
+      "sfx": [
+        { "at": 0.1, "file": "whoosh", "gainDb": -24, "note": "lampu turun" },
+        { "at": 0.72, "file": "impact", "gainDb": -17, "note": "kalimat penutup" }
+      ],
+      "requiredAssets": ["WarungMeja", "QrisStand", "Kopi", "Scrim"],
+      "forbidden": ["ajakan/imbauan di layar", "nomor layanan atau tautan", "logo"]
+    }
+  ]
+}

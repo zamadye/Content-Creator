@@ -1,0 +1,203 @@
+{
+  "id": "mbg-gizi-anak",
+  "version": "1.1.0",
+  "workingTitle": "0,0017 persen punya nama",
+  "format": "9:16 editorial video, 45-90s",
+  "editorialThesis": "Keselamatan anak bukan angka di kolom evaluasi. Program yang mengukur keberhasilan dari jumlah piring, bukan dari anak yang pulang selamat, sedang mengukur hal yang salah.",
+  "voiceDirection": {
+    "tone": "Tenang, tegas, percakapan. Bukan pembaca berita, bukan iklan, bukan motivator.",
+    "pace": "Sedikit di bawah tempo bicara normal; beri jeda setelah angka.",
+    "emphasis": "Tekan kata benda konkret (anak, ambulans, sertifikat, piring) bukan kata sifat.",
+    "avoid": [
+      "nada naik-turun presenter TV",
+      "seruan emosional",
+      "kata seru",
+      "jargon birokrasi"
+    ]
+  },
+  "segments": [
+    {
+      "id": "vo01",
+      "scene": "s01",
+      "purpose": "HOOK",
+      "narration": "Januari dua ribu dua puluh enam. Di sebuah SMA di Kudus, jam makan siang berakhir dengan ratusan siswa dilarikan ke puskesmas dan rumah sakit.",
+      "claims": [
+        "C1"
+      ],
+      "beat": "Situasi yang langsung dipahami: jam makan yang berubah jadi antrean pertolongan.",
+      "subtitles": [
+        [
+          "Januari 2026."
+        ],
+        [
+          "Jam makan siang di sebuah SMA di Kudus,"
+        ],
+        [
+          "ratusan siswa dilarikan ke rumah sakit."
+        ]
+      ]
+    },
+    {
+      "id": "vo02",
+      "scene": "s03",
+      "purpose": "CONTEXT",
+      "narration": "Makan Bergizi Gratis sudah jalan sejak Januari dua ribu dua puluh lima. Anggarannya naik dari tujuh puluh satu triliun, jadi dua ratus enam puluh delapan triliun tahun ini.",
+      "claims": [
+        "C2",
+        "C3"
+      ],
+      "beat": "Skala program: cepat, besar, mahal.",
+      "subtitles": [
+        [
+          "Makan Bergizi Gratis sudah berjalan"
+        ],
+        [
+          "sejak Januari 2025."
+        ],
+        [
+          "Anggarannya naik dari Rp71 triliun,"
+        ],
+        [
+          "jadi Rp268 triliun tahun ini."
+        ]
+      ]
+    },
+    {
+      "id": "vo03",
+      "scene": "s04",
+      "purpose": "CONFLICT",
+      "narration": "September dua ribu dua puluh lima, pemerintah menyebut keracunan cuma nol koma nol nol satu tujuh persen. Kecil. Tapi sampai Mei dua ribu dua puluh enam, JPPI mencatat lebih dari tiga puluh tujuh ribu siswa.",
+      "claims": [
+        "C4",
+        "C5"
+      ],
+      "beat": "Dua angka, dua dunia: layar presentasi vs ruang tunggu.",
+      "subtitles": [
+        [
+          "September 2025, pemerintah menyebut"
+        ],
+        [
+          "keracunan cuma 0,0017 persen."
+        ],
+        [
+          "Kecil."
+        ],
+        [
+          "Tapi sampai Mei 2026, JPPI mencatat"
+        ],
+        [
+          "lebih dari 37 ribu siswa."
+        ]
+      ]
+    },
+    {
+      "id": "vo04",
+      "scene": "s06",
+      "purpose": "DEVELOPMENT",
+      "narration": "Menurut Ombudsman Sumatera Utara: sertifikatnya lengkap, pengawasannya yang tidak sampai ke dapur.",
+      "claims": [
+        "C6",
+        "C8"
+      ],
+      "beat": "Kontradiksi antara bukti administratif dan kenyataan operasional.",
+      "subtitles": [
+        [
+          "Menurut Ombudsman Sumatera Utara:",
+          "sertifikatnya lengkap,"
+        ],
+        [
+          "pengawasannya yang tidak sampai ke dapur."
+        ]
+      ]
+    },
+    {
+      "id": "vo05",
+      "scene": "s07",
+      "purpose": "DEVELOPMENT",
+      "narration": "Guru sekarang diminta mencicipi dulu sebelum anak-anak makan. Setiap ada kasus, responsnya sama: tutup, minta maaf, buka lagi.",
+      "claims": [
+        "C7"
+      ],
+      "beat": "Beban turun ke orang terdekat; respons kebijakan berulang tanpa perbaikan.",
+      "subtitles": [
+        [
+          "Guru sekarang diminta mencicipi dulu"
+        ],
+        [
+          "sebelum anak-anak makan."
+        ],
+        [
+          "Setiap ada kasus, responsnya sama:"
+        ],
+        [
+          "tutup, minta maaf, buka lagi."
+        ]
+      ]
+    },
+    {
+      "id": "vo06",
+      "scene": "s08",
+      "purpose": "PERSPECTIVE",
+      "narration": "Jadi bukan nasinya yang salah. Yang salah cara kita mengukur berhasil: dari jumlah piring yang terkirim, bukan dari jumlah anak yang pulang dengan selamat.",
+      "claims": [
+        "C9",
+        "C10"
+      ],
+      "beat": "Posisi editorial: metrik program salah arah.",
+      "subtitles": [
+        [
+          "Jadi bukan nasinya yang salah."
+        ],
+        [
+          "Yang salah cara kita mengukur berhasil:"
+        ],
+        [
+          "dari jumlah piring yang terkirim,"
+        ],
+        [
+          "bukan dari anak yang pulang selamat."
+        ]
+      ]
+    },
+    {
+      "id": "vo07",
+      "scene": "s09",
+      "purpose": "CLOSING",
+      "narration": "Kalau sertifikat lengkap, anggaran besar, dan laporan rapi belum bisa menjaga satu anak tetap aman, sebenarnya apa yang sedang kita bangun?",
+      "claims": [
+        "C10"
+      ],
+      "beat": "Pertanyaan penutup, tanpa jawaban instan, mengarah ke pembaca.",
+      "subtitles": [
+        [
+          "Kalau sertifikat lengkap, anggaran besar,"
+        ],
+        [
+          "dan laporan rapi belum bisa"
+        ],
+        [
+          "menjaga satu anak tetap aman,"
+        ],
+        [
+          "apa yang sedang kita bangun?"
+        ]
+      ]
+    }
+  ],
+  "qa": {
+    "gate2ScriptQA": "PASS",
+    "notes": [
+      "Setiap angka diberi atribusi di narasi atau di layar (source tag).",
+      "0,0017% diberi tanggal (Sep 2025) agar tidak dipakai di luar konteksnya.",
+      "Tidak ada tuduhan korupsi/niat jahat; kritik diarahkan ke desain pengukuran dan pengawasan.",
+      "Tidak menampilkan identitas, logo, atau wajah pejabat nyata.",
+      "Revisi v1.1: vo03/vo04/vo05 dipendekkan setelah pengukuran VO (total bicara 88,3 dtk melewati batas 90 dtk untuk seluruh film)."
+    ]
+  },
+  "subtitleDirection": {
+    "rule": "Baris ditulis manusia, bukan dipotong otomatis: pecah menurut makna, angka dan nama tidak boleh terbelah.",
+    "maxCharsPerLine": 42,
+    "maxLines": 2,
+    "numeralPolicy": "Tanggal dan rupiah ditulis dengan angka di layar walau narasi mengucapkannya dengan kata (keterbacaan di ponsel); angka statistik ditulis persis seperti sumbernya."
+  }
+}

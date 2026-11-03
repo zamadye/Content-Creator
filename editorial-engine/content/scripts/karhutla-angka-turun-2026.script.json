@@ -1,0 +1,214 @@
+{
+  "id": "karhutla-angka-turun-2026",
+  "version": "1.0.0",
+  "workingTitle": "Angka yang turun",
+  "format": "9:16 editorial video, 85-95s",
+  "editorialThesis": "Setiap hari negara mengumumkan angka kebakaran yang lebih kecil, dan angka itu benar. Tapi yang dihitung adalah luas yang masih terbakar hari ini — bukan luas yang sudah jadi arang, bukan orang yang sudah terlanjur sakit, dan bukan bara yang tetap menyala di bawah tanah.",
+  "voiceDirection": {
+    "tone": "Tenang, tegas, percakapan. Bukan pembaca berita, bukan iklan, bukan orator. Ini laporan, bukan khotbah.",
+    "pace": "Sedikit di bawah tempo normal; beri jeda 0,3 detik setelah setiap angka besar.",
+    "emphasis": "Tekan angka, satuan waktu (hari ini, sepuluh hari sebelumnya), dan kata kerja konkret (terbakar, membara, turun). Jangan menekan kata sifat.",
+    "avoid": [
+      "nada panik atau menuduh",
+      "kata 'miris', 'darurat', 'bencana nasional' — itu klaim politik, bukan angka",
+      "membaca angka sebagai deret digit",
+      "menyebut nama korporasi atau merek",
+      "menyebut petani atau warga sebagai penyebab"
+    ]
+  },
+  "timing": {
+    "leadIn": 0.25,
+    "tail": 0.35,
+    "musicGainDb": -8
+  },
+  "segments": [
+    {
+      "id": "vo01",
+      "scene": "h01",
+      "purpose": "HOOK",
+      "narration": "Tujuh koma sembilan juta murid kehilangan kelas. Tiga ratus tiga puluh tiga ribu orang sakit pernapasan. Dan angka kebakarannya, kata negara, turun.",
+      "claims": [
+        "K6",
+        "K5"
+      ],
+      "beat": "Dua angka manusia lebih dulu; angka yang 'turun' datang sebagai putaran di akhir, bukan sebagai pembuka.",
+      "subtitles": [
+        [
+          "7,9 juta murid",
+          "kehilangan kelas."
+        ],
+        [
+          "333 ribu orang",
+          "sakit pernapasan."
+        ],
+        [
+          "Dan angka kebakarannya,",
+          "kata negara, turun."
+        ]
+      ]
+    },
+    {
+      "id": "vo02",
+      "scene": "h02",
+      "purpose": "CONTEXT",
+      "narration": "Data B N P B, dua November. Tujuh ratus empat puluh dua hektare masih terbakar. Kalimantan Tengah turun empat puluh dua persen. Papua Selatan lima puluh enam.",
+      "claims": [
+        "K1",
+        "K2"
+      ],
+      "beat": "Angka resmi diletakkan di papan rekap, lengkap dengan lembaga dan tanggalnya.",
+      "subtitles": [
+        [
+          "BNPB, 2 November:"
+        ],
+        [
+          "742 hektare masih terbakar",
+          "di seluruh Indonesia."
+        ],
+        [
+          "Kalteng turun 42 persen."
+        ],
+        [
+          "Papua Selatan 56 persen."
+        ]
+      ]
+    },
+    {
+      "id": "vo03",
+      "scene": "h03",
+      "purpose": "CONFLICT",
+      "narration": "Tapi yang turun itu luas yang terbakar hari ini. Rekap sepuluh hari sebelumnya: empat puluh satu ribu lima ratus lima puluh empat hektare sudah terbakar. Dua puluh enam ribu enam ratus delapan puluh satu masih membara.",
+      "claims": [
+        "K4",
+        "D1"
+      ],
+      "beat": "Dua batang pada satu garis waktu: batang harian yang menyusut, batang rekap yang tetap panjang dan masih menyala di dalamnya.",
+      "subtitles": [
+        [
+          "Yang turun: luas yang",
+          "terbakar hari ini."
+        ],
+        [
+          "Rekap 23 Oktober:"
+        ],
+        [
+          "41.554 hektare",
+          "sudah terbakar."
+        ],
+        [
+          "26.681 hektare",
+          "masih membara."
+        ]
+      ]
+    },
+    {
+      "id": "vo04",
+      "scene": "h04",
+      "purpose": "DEVELOPMENT",
+      "narration": "Di gambut, api tidak tinggal di permukaan. Ia masuk ke lapisan bawah dan bertahan sampai hujan turun ke tanah. El Nino tahun ini kuat.",
+      "claims": [
+        "K12"
+      ],
+      "beat": "Potongan melintang tanah: hujan masuk dari atas, bara tetap menyala jauh di bawah garis permukaan.",
+      "subtitles": [
+        [
+          "Di gambut, api tidak",
+          "tinggal di permukaan."
+        ],
+        [
+          "Ia masuk ke lapisan bawah,"
+        ],
+        [
+          "bertahan sampai hujan",
+          "turun ke tanah."
+        ],
+        [
+          "El Nino tahun ini kuat."
+        ]
+      ]
+    },
+    {
+      "id": "vo05",
+      "scene": "h05",
+      "purpose": "PERSPECTIVE",
+      "narration": "Karena itu asapnya bertahan. Jarak pandang di Kalimantan Tengah pernah dua ratus meter. Enam puluh satu ribu enam ratus sembilan puluh tiga satuan pendidikan berhenti tatap muka. Di Johor, sekolah juga tutup dua hari.",
+      "claims": [
+        "K8",
+        "K6",
+        "K9"
+      ],
+      "beat": "Kelas kosong berkabut: efeknya bukan pada hutan, tapi pada bangku yang tidak ditempati.",
+      "subtitles": [
+        [
+          "Karena itu asapnya bertahan."
+        ],
+        [
+          "Jarak pandang di Kalteng",
+          "pernah 200 meter."
+        ],
+        [
+          "61.693 satuan pendidikan",
+          "berhenti tatap muka."
+        ],
+        [
+          "Di Johor, sekolah",
+          "tutup dua hari."
+        ]
+      ]
+    },
+    {
+      "id": "vo06",
+      "scene": "h06",
+      "purpose": "EVIDENCE",
+      "narration": "Negara bergerak. Polri menyidik sembilan puluh tujuh korporasi. Dua puluh sudah tersangka. Ancaman lima tahun, denda lima belas miliar.",
+      "claims": [
+        "K10",
+        "K11"
+      ],
+      "beat": "Papan penyidikan: angka penindakan dipasang satu per satu sampai kolomnya penuh.",
+      "subtitles": [
+        [
+          "Negara bergerak."
+        ],
+        [
+          "Polri menyidik",
+          "97 korporasi."
+        ],
+        [
+          "20 sudah tersangka."
+        ],
+        [
+          "29.168 hektare",
+          "dalam laporan polisi."
+        ],
+        [
+          "Ancaman: 5 tahun,",
+          "denda Rp15 miliar."
+        ]
+      ]
+    },
+    {
+      "id": "vo07",
+      "scene": "h07",
+      "purpose": "CLOSING",
+      "narration": "Angka harian bisa turun. Bara di bawah tanah tidak ikut membaca laporan. Yang padam dilaporkan. Yang membara tidak.",
+      "claims": [],
+      "beat": "Lahan yang sama seperti pembuka, kini gelap; satu titik bara masih menyala di bawah garis tanah.",
+      "subtitles": [
+        [
+          "Angka harian bisa turun."
+        ],
+        [
+          "Bara di bawah tanah",
+          "tidak membaca laporan."
+        ],
+        [
+          "Yang padam dilaporkan."
+        ],
+        [
+          "Yang membara tidak."
+        ]
+      ]
+    }
+  ]
+}

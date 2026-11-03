@@ -1,0 +1,323 @@
+{
+  "topic": "mbg-gizi-anak",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 2682,
+  "generatedAt": "2026-11-03T06:31:44.833Z",
+  "scenes": [
+    {
+      "id": "k01",
+      "startFrame": 0,
+      "durationInFrames": 344,
+      "purpose": "HOOK",
+      "vo": "vo01"
+    },
+    {
+      "id": "k02",
+      "startFrame": 344,
+      "durationInFrames": 451,
+      "purpose": "CONTEXT",
+      "vo": "vo02"
+    },
+    {
+      "id": "k03",
+      "startFrame": 795,
+      "durationInFrames": 360,
+      "purpose": "CONFLICT",
+      "vo": "vo03"
+    },
+    {
+      "id": "k04",
+      "startFrame": 1155,
+      "durationInFrames": 360,
+      "purpose": "DEVELOPMENT",
+      "vo": "vo04"
+    },
+    {
+      "id": "k05",
+      "startFrame": 1515,
+      "durationInFrames": 418,
+      "purpose": "PERSPECTIVE",
+      "vo": "vo05"
+    },
+    {
+      "id": "k06",
+      "startFrame": 1933,
+      "durationInFrames": 462,
+      "purpose": "EVIDENCE",
+      "vo": "vo06"
+    },
+    {
+      "id": "k07",
+      "startFrame": 2395,
+      "durationInFrames": 287,
+      "purpose": "CLOSING",
+      "vo": "vo07"
+    }
+  ],
+  "captions": [
+    {
+      "text": [
+        "12 juta orang."
+      ],
+      "startFrame": 8,
+      "durationInFrames": 47,
+      "segment": "vo01"
+    },
+    {
+      "text": [
+        "Enam bulan."
+      ],
+      "startFrame": 55,
+      "durationInFrames": 37,
+      "segment": "vo01"
+    },
+    {
+      "text": [
+        "467 juta transaksi."
+      ],
+      "startFrame": 92,
+      "durationInFrames": 63,
+      "segment": "vo01"
+    },
+    {
+      "text": [
+        "Separuh setorannya lewat kode",
+        "yang ditempel di warung."
+      ],
+      "startFrame": 155,
+      "durationInFrames": 179,
+      "segment": "vo01"
+    },
+    {
+      "text": [
+        "Catatan PPATK, semester I 2026:"
+      ],
+      "startFrame": 352,
+      "durationInFrames": 151,
+      "segment": "vo02"
+    },
+    {
+      "text": [
+        "perputaran Rp86,82 triliun."
+      ],
+      "startFrame": 503,
+      "durationInFrames": 131,
+      "segment": "vo02"
+    },
+    {
+      "text": [
+        "Setoran pemain Rp22,05 triliun."
+      ],
+      "startFrame": 634,
+      "durationInFrames": 151,
+      "segment": "vo02"
+    },
+    {
+      "text": [
+        "Dibanding setahun penuh 2025:"
+      ],
+      "startFrame": 803,
+      "durationInFrames": 120,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "nilai turun 12,9 persen."
+      ],
+      "startFrame": 923,
+      "durationInFrames": 99,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "Transaksi naik 167 persen."
+      ],
+      "startFrame": 1022,
+      "durationInFrames": 107,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "Artinya taruhannya mengecil."
+      ],
+      "startFrame": 1163,
+      "durationInFrames": 71,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Rata-rata per transaksi:"
+      ],
+      "startFrame": 1234,
+      "durationInFrames": 60,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Rp680 ribu tahun lalu."
+      ],
+      "startFrame": 1294,
+      "durationInFrames": 55,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Rp186 ribu tahun ini."
+      ],
+      "startFrame": 1349,
+      "durationInFrames": 53,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Hitungan sendiri dari angka PPATK."
+      ],
+      "startFrame": 1402,
+      "durationInFrames": 86,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Jalurnya bergeser ke QRIS."
+      ],
+      "startFrame": 1523,
+      "durationInFrames": 90,
+      "segment": "vo05"
+    },
+    {
+      "text": [
+        "Rp12,36 triliun — 56 persen setoran,"
+      ],
+      "startFrame": 1613,
+      "durationInFrames": 124,
+      "segment": "vo05"
+    },
+    {
+      "text": [
+        "198,77 juta transaksi."
+      ],
+      "startFrame": 1737,
+      "durationInFrames": 76,
+      "segment": "vo05"
+    },
+    {
+      "text": [
+        "Kode yang sama untuk bayar kopi."
+      ],
+      "startFrame": 1813,
+      "durationInFrames": 110,
+      "segment": "vo05"
+    },
+    {
+      "text": [
+        "Yang sudah diblokir:"
+      ],
+      "startFrame": 1941,
+      "durationInFrames": 75,
+      "segment": "vo06"
+    },
+    {
+      "text": [
+        "3,7 juta konten, 5.762 rekening,"
+      ],
+      "startFrame": 2016,
+      "durationInFrames": 120,
+      "segment": "vo06"
+    },
+    {
+      "text": [
+        "Rp1,07 triliun."
+      ],
+      "startFrame": 2136,
+      "durationInFrames": 56,
+      "segment": "vo06"
+    },
+    {
+      "text": [
+        "Yang tidak diumumkan:"
+      ],
+      "startFrame": 2192,
+      "durationInFrames": 79,
+      "segment": "vo06"
+    },
+    {
+      "text": [
+        "berapa yang kembali ke pemain."
+      ],
+      "startFrame": 2271,
+      "durationInFrames": 114,
+      "segment": "vo06"
+    },
+    {
+      "text": [
+        "Yang diblokir: nama rekening."
+      ],
+      "startFrame": 2403,
+      "durationInFrames": 76,
+      "segment": "vo07"
+    },
+    {
+      "text": [
+        "Yang tidak pernah diblokir:",
+        "kebiasaan."
+      ],
+      "startFrame": 2479,
+      "durationInFrames": 100,
+      "segment": "vo07"
+    },
+    {
+      "text": [
+        "Dan kebiasaan tidak punya rekening."
+      ],
+      "startFrame": 2579,
+      "durationInFrames": 93,
+      "segment": "vo07"
+    }
+  ],
+  "vo": [
+    {
+      "id": "vo01",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo01.mp3",
+      "startFrame": 8,
+      "durationInFrames": 326
+    },
+    {
+      "id": "vo02",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo02.mp3",
+      "startFrame": 352,
+      "durationInFrames": 433
+    },
+    {
+      "id": "vo03",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo03.mp3",
+      "startFrame": 803,
+      "durationInFrames": 326
+    },
+    {
+      "id": "vo04",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo04.mp3",
+      "startFrame": 1163,
+      "durationInFrames": 325
+    },
+    {
+      "id": "vo05",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo05.mp3",
+      "startFrame": 1523,
+      "durationInFrames": 400
+    },
+    {
+      "id": "vo06",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo06.mp3",
+      "startFrame": 1941,
+      "durationInFrames": 444
+    },
+    {
+      "id": "vo07",
+      "file": "audio/voiceovers/judol-taruhan-kecil-2026/vo07.mp3",
+      "startFrame": 2403,
+      "durationInFrames": 269
+    }
+  ]
+}

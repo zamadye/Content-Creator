@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-11-03T14:55:55.331Z",
+  "levelTargetDb": -18,
+  "totalSpeechSec": 77.65,
+  "segments": [
+    {
+      "id": "vo01",
+      "scene": "p01",
+      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo01.mp3",
+      "durationSec": 10.06,
+      "meanDb": -19.4,
+      "gainDb": 1.4,
+      "words": 22,
+      "wordsPerSec": 2.19
+    },
+    {
+      "id": "vo02",
+      "scene": "p02",
+      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo02.mp3",
+      "durationSec": 11.21,
+      "meanDb": -19.2,
+      "gainDb": 1.2,
+      "words": 21,
+      "wordsPerSec": 1.87
+    },
+    {
+      "id": "vo03",
+      "scene": "p03",
+      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo03.mp3",
+      "durationSec": 8.9,
+      "meanDb": -19.3,
+      "gainDb": 1.3,
+      "words": 21,
+      "wordsPerSec": 2.36
+    },
+    {
+      "id": "vo04",
+      "scene": "p04",
+      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo04.mp3",
+      "durationSec": 14.5,
+      "meanDb": -20,
+      "gainDb": 2,
+      "words": 30,
+      "wordsPerSec": 2.07
+    },
+    {
+      "id": "vo05",
+      "scene": "p05",
+      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo05.mp3",
+      "durationSec": 13.06,
+      "meanDb": -19.4,
+      "gainDb": 1.4,
+      "words": 23,
+      "wordsPerSec": 1.76
+    },
+    {
+      "id": "vo06",
+      "scene": "p06",
+      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo06.mp3",
+      "durationSec": 12.7,
+      "meanDb": -19.9,
+      "gainDb": 1.9,
+      "words": 22,
+      "wordsPerSec": 1.73
+    },
+    {
+      "id": "vo07",
+      "scene": "p07",
+      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo07.mp3",
+      "durationSec": 7.22,
+      "meanDb": -20.2,
+      "gainDb": 2.2,
+      "words": 11,
+      "wordsPerSec": 1.52
+    }
+  ],
+  "missing": []
+}

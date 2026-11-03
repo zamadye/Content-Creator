@@ -1,0 +1,159 @@
+{
+  "id": "pinjol-bunga-harian-2026",
+  "version": "1.0.0",
+  "fps": 30,
+  "resolution": { "width": 1080, "height": 1920 },
+  "styleReference": "Explain What is a StoryBoard_!.mp4 (drive: 1Gy6VsPAMooW7yKslyK1hmQb9YqTQ26Hw) — kolase kertas, tulisan spidol, elemen ditempel satu per satu",
+  "visualDirection": "Kolase kertas analog. Seluruh frame adalah selembar kertas kusut berwarna krem; semua isi hidup di atasnya sebagai potongan yang ditempel: kardus kraft sobek, nota bergaris, kertas grafik, selotip, penjepit, pensil. Garis dan tulisan digambar spidol (Permanent Marker), goresan muncul bertahap. Tanpa gradien abstrak, tanpa latar kosong tanpa tekstur. Palet dibatasi: krem kertas, arang, marun, mustard, zaitun pudar. Satu ide per scene.",
+  "layerContract": {
+    "BG": "kertas kusut (kreasi vektor: serat, lipatan, bayangan tepi)",
+    "MG": "potongan kertas/kartu yang membawa angka dan bukti",
+    "FG": "selotip, goresan spidol, panah tangan, pensil, centang"
+  },
+  "qa": {
+    "gate3StoryboardQA": "PASS",
+    "reviewedAt": "2026-11-03",
+    "notes": [
+      "Tidak ada merek, logo, tangkapan layar aplikasi, atau wajah nyata: seluruhnya ilustrasi.",
+      "Tipografi dua keluarga: Permanent Marker (tulisan spidol) + Archivo (informasi, subtitle, sumber).",
+      "Perubahan visual besar tiap 3–5 detik: minimal satu elemen ditempel/digambar per 4 detik di setiap scene.",
+      "Angka per hari, per 30 hari, dan per tahun tidak pernah tampil bersamaan tanpa label periode.",
+      "Bunga tunggal dan bunga majemuk selalu diberi label berbeda (garis lurus vs garis melengkung).",
+      "Tidak ada ajakan meminjam maupun larangan meminjam."
+    ]
+  },
+  "scenes": [
+    {
+      "id": "p01",
+      "narrativePurpose": "HOOK",
+      "vo": "vo01",
+      "durationTargetSec": 10,
+      "environment": "Meja kerja: selembar kertas kusut krem, satu sobekan kardus kraft ditempel miring di tengah.",
+      "visualDescription": "Kardus kraft sobek bertuliskan spidol '0,3% / hari'. Tulisan muncul goresan demi goresan, lalu kata 'hari' dilingkari dua kali. Di bawah, potongan kertas kecil bertuliskan 'kelihatan kecil, kan?'",
+      "characterAction": "Tidak ada tokoh. Yang bergerak: spidol yang menulis, selotip yang menempel.",
+      "camera": "Push-in pelan 1.00 → 1.05, anchor (540, 900).",
+      "motion": "0–35%: tulisan 0,3% tergores. 35–55%: kata 'hari' dilingkari. 55–80%: kertas kecil 'kelihatan kecil, kan?' ditempel. 80–100%: garis bawah marun.",
+      "textOverlay": ["0,3%", "per hari", "Kelihatan kecil, kan?"],
+      "sourceTag": "Contoh perhitungan terbuka — bukan kutipan iklan",
+      "sound": "Kertas disentuh, spidol menulis, satu tick saat lingkaran selesai.",
+      "sfx": [
+        { "at": 0.06, "file": "paper", "gainDb": -22, "note": "kardus ditempel" },
+        { "at": 0.4, "file": "tick", "gainDb": -19, "note": "kata 'hari' dilingkari" },
+        { "at": 0.62, "file": "paper", "gainDb": -24, "note": "kertas kecil ditempel" }
+      ],
+      "requiredAssets": ["PaperBg", "KraftCard", "Tape", "SketchCircle", "HandUnderline"]
+    },
+    {
+      "id": "p02",
+      "narrativePurpose": "CONTEXT",
+      "vo": "vo02",
+      "durationTargetSec": 11,
+      "environment": "Meja yang sama. Nota pinjaman bergaris ditempel di kiri atas, kertas grafik kecil di kanan bawah.",
+      "visualDescription": "Nota: 'PINJAM Rp1.000.000 / 30 HARI'. Di bawahnya, kotak hari 10 x 3 digambar spidol; setiap kotak diisi arang satu per satu sampai penuh. Di samping: 'Rp3.000 / hari' lalu '= Rp90.000'.",
+      "characterAction": "Tidak ada tokoh. Tangan tak terlihat mengisi kotak.",
+      "camera": "Statis dengan drift halus 1.00 → 1.03, anchor (540, 1000).",
+      "motion": "Nota masuk 0–12%. Kotak hari terisi 25–75% (3 kotak per detik). Angka total muncul 80%.",
+      "textOverlay": ["Rp1.000.000", "30 hari", "Rp3.000/hari", "Rp90.000"],
+      "sourceTag": "Perhitungan: 0,3% x 30 hari (S1)",
+      "sound": "Tiga puluh isapan kecil saat kotak diisi, satu stamp saat total muncul.",
+      "sfx": [
+        { "at": 0.1, "file": "paper", "gainDb": -22, "note": "nota ditempel" },
+        { "at": 0.8, "file": "stamp", "gainDb": -18, "note": "total Rp90.000" }
+      ],
+      "requiredAssets": ["Receipt", "TallyGrid", "PaperBg"]
+    },
+    {
+      "id": "p03",
+      "narrativePurpose": "CONFLICT",
+      "vo": "vo03",
+      "durationTargetSec": 10,
+      "environment": "Meja yang sama, kertas sedikit lebih gelap di tepi.",
+      "visualDescription": "Kotak hari yang tadi penuh kini dicoret. Satu kotak tambahan muncul di luar baris: 'HARI 31', marun. Panah tangan melingkar dari kotak 31 kembali ke kotak 1. Di kanan: sobekan kecil 'DENDA' dan 'POKOK BELUM TURUN'.",
+      "characterAction": "Tidak ada tokoh. Coretan dan panah yang bergerak.",
+      "camera": "Push-in 1.02 → 1.07 ke arah kotak ke-31.",
+      "motion": "0–20%: coretan menyilang kotak. 20–45%: kotak 31 muncul. 45–70%: panah melingkar tergambar. 70–100%: dua sobekan ditempel.",
+      "textOverlay": ["HARI 31", "DENDA", "POKOK BELUM TURUN"],
+      "sourceTag": "Mekanisme bunga majemuk (S2) — bukan klaim praktik penyelenggara",
+      "sound": "Coretan spidol, satu dentum rendah saat kotak 31 muncul.",
+      "sfx": [
+        { "at": 0.22, "file": "impact", "gainDb": -20, "note": "kotak 31 muncul" },
+        { "at": 0.5, "file": "paper", "gainDb": -24, "note": "sobekan DENDA" }
+      ],
+      "requiredAssets": ["TallyGrid", "SketchArrowLoop", "TornNote", "PaperBg"]
+    },
+    {
+      "id": "p04",
+      "narrativePurpose": "DEVELOPMENT",
+      "vo": "vo04",
+      "durationTargetSec": 12.5,
+      "environment": "Kertas grafik (kotak-kotak tipis) ditempel menutupi setengah frame.",
+      "visualDescription": "Sumbu digambar tangan: mendatar = hari (0–365), tegak = persen. Garis lurus putus-putus naik ke 109,5%. Garis kedua melengkung makin tajam ke 198,4%. Titik di hari ke-30 diberi label '9%'. Dua label besar di ujung: '109,5%' (arang) dan '198%' (marun).",
+      "characterAction": "Tidak ada tokoh. Dua garis yang tergambar.",
+      "camera": "Statis, drift 1.00 → 1.04 dari kiri bawah ke kanan atas.",
+      "motion": "0–15%: sumbu. 15–40%: garis lurus. 40–70%: kurva. 70–85%: label 109,5%. 85–100%: label 198%.",
+      "textOverlay": ["hari 0 → 365", "109,5%", "198%", "9% di hari 30"],
+      "sourceTag": "Perhitungan: 0,3% x 365 dan 1,003^365 (S1)",
+      "sound": "Goresan panjang saat kurva digambar, tick di setiap label.",
+      "sfx": [
+        { "at": 0.3, "file": "tick", "gainDb": -20, "note": "garis tunggal selesai" },
+        { "at": 0.72, "file": "impact", "gainDb": -20, "note": "label 198%" }
+      ],
+      "requiredAssets": ["GraphPaper", "SketchAxis", "SketchCurve", "MarkerText"]
+    },
+    {
+      "id": "p05",
+      "narrativePurpose": "PERSPECTIVE",
+      "vo": "vo05",
+      "durationTargetSec": 11,
+      "environment": "Meja yang sama. Tiga potongan kertas berbaris dari atas ke bawah.",
+      "visualDescription": "Tiga kartu: '/HARI Rp3.000', '/30 HARI Rp90.000', '/TAHUN Rp1.984.287'. Di bawah tiap kartu, batang arang tumbuh dengan skala yang sama (1 juta = 320 px), sehingga batang ketiga melampaui dua lainnya. Kartu ketiga diberi garis marun tebal.",
+      "characterAction": "Tidak ada tokoh. Batang yang tumbuh.",
+      "camera": "Statis 1.00, tanpa gerak kamera — supaya perbandingan panjang batang bisa dibaca.",
+      "motion": "Kartu 1 masuk 5%, batang 1 tumbuh 8–20%. Kartu 2 masuk 30%, batang 2 tumbuh 33–45%. Kartu 3 masuk 55%, batang 3 tumbuh 58–80%. Garis marun 85%.",
+      "textOverlay": ["Rp3.000", "Rp90.000", "Rp1.984.287"],
+      "sourceTag": "Perhitungan bunga majemuk 365 hari (S1)",
+      "sound": "Tiga whoosh pendek, satu impact saat batang ketiga berhenti.",
+      "sfx": [
+        { "at": 0.35, "file": "whoosh", "gainDb": -26, "note": "kartu 2" },
+        { "at": 0.8, "file": "impact", "gainDb": -18, "note": "batang tahun berhenti" }
+      ],
+      "requiredAssets": ["BarCard", "SketchBar", "PaperBg"]
+    },
+    {
+      "id": "p06",
+      "narrativePurpose": "EVIDENCE",
+      "vo": "vo06",
+      "durationTargetSec": 10.5,
+      "environment": "Kertas bergaris (buku tulis) ditempel penuh, tepi disobek.",
+      "visualDescription": "Tiga baris periksa: kotak centang + tulisan tangan. '1 CARI ANGKA HARIAN', '2 KALIKAN 365', '3 BACA TOTAL PENGEMBALIAN'. Centang digambar spidol marun satu per satu, makin tebal di baris ketiga.",
+      "characterAction": "Tidak ada tokoh. Tiga centang yang digambar.",
+      "camera": "Pan vertikal pelan 0 → -40 px mengikuti baris.",
+      "motion": "Baris muncul 0/20/40%. Centang pada 25%, 50%, 80%. Baris ketiga diberi kotak marun 90%.",
+      "textOverlay": ["1 CARI ANGKA HARIAN", "2 KALIKAN 365", "3 BACA TOTAL PENGEMBALIAN"],
+      "sourceTag": null,
+      "sound": "Tiga goresan centang.",
+      "sfx": [
+        { "at": 0.25, "file": "tick", "gainDb": -20, "note": "centang 1" },
+        { "at": 0.5, "file": "tick", "gainDb": -20, "note": "centang 2" },
+        { "at": 0.8, "file": "tick", "gainDb": -18, "note": "centang 3" }
+      ],
+      "requiredAssets": ["LinedPaper", "CheckRow", "SketchCheck"]
+    },
+    {
+      "id": "p07",
+      "narrativePurpose": "CLOSING",
+      "vo": "vo07",
+      "durationTargetSec": 7,
+      "environment": "Kertas yang sama, kini gelap di tepi; tidak ada elemen baru yang ditempel.",
+      "visualDescription": "Dua baris spidol di tengah: 'Angka harian bikin utang kelihatan kecil.' lalu 'Angka setahun tidak bisa disembunyikan.' Baris kedua lebih besar dan marun. Di bawahnya garis tangan pendek.",
+      "characterAction": "Tidak ada tokoh.",
+      "camera": "Pull-back 1.05 → 1.00 — satu-satunya gerak: menjauh, selesai.",
+      "motion": "Baris 1 menulis 10–40%. Baris 2 menulis 45–80%. Garis 85–95%.",
+      "textOverlay": ["Angka harian bikin utang kelihatan kecil.", "Angka setahun tidak bisa disembunyikan."],
+      "sourceTag": "Sumber: perhitungan bunga tunggal & majemuk (S1, S2)",
+      "sound": "Spidol menulis, lalu hening.",
+      "sfx": [{ "at": 0.45, "file": "paper", "gainDb": -26, "note": "kertas bergeser" }],
+      "requiredAssets": ["PaperBgDark", "MarkerText"]
+    }
+  ]
+}

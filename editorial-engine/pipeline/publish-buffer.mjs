@@ -1,33 +1,44 @@
 #!/usr/bin/env node
 /**
- * PUBLISH TO BUFFER — automation for an upload package
- * ---------------------------------------------------
- * Takes the three deliverable files of a mission (mp4 + thumbnail + caption) and turns the
- * caption into a real Buffer post on the matching channel.
+ * PUBLISH TO BUFFER — satu paket misi jadi post di semua kanal
+ * --------------------------------------------------------------
+ * Menjalankan: video + caption per platform + komentar pertama -> Buffer, lewat CLI resmi
+ * (@bufferapp/cli). Semua aturan di bawah diambil dari dokumentasi yang dibundel CLI
+ * (`buffer context pitfalls`, `buffer schema describe posts create`), bukan dari tebakan.
  *
- * What this script can and cannot do — read this before trusting it:
- *   - It talks to Buffer through the official CLI (@bufferapp/cli), so every call is a
- *     normal Buffer API call made with YOUR key. No scraping, no private endpoint.
- *   - The video asset is passed to Buffer as a **URL** (`assets[].video.url`). Buffer fetches
- *     the file itself, so the mp4 must already be reachable on the public internet.
- *     A local file path cannot be uploaded by this script — that is an API limitation.
- *   - The thumbnail PNG cannot be attached to a video post: the schema explicitly rejects
- *     `video.thumbnailUrl` ("social networks do not accept custom video thumbnail images").
- *     Upload the cover manually in the platform app if you need it.
+ * EMPAT FAKTA YANG MEMBENTUK SKRIP INI
+ * 1. CLI Buffer tidak punya perintah unggah berkas. `buffer schema list` -> 44 perintah,
+ *    tidak satu pun untuk upload media. Media WAJIB berupa URL publik
+ *    (`assets[].video.url`), dan Buffer yang mengunduh sendiri.
+ *    Artinya: menyimpan mp4 di git TIDAK cukup — git bukan server. Berkasnya harus
+ *    didorong ke repo publik / Releases / Pages dulu, lalu URL-nya dipakai di sini.
+ * 2. Thumbnail PNG tidak bisa ditempel ke post video. Deskripsi field
+ *    `assets[].video.thumbnailUrl` di schema: "Do not use: social networks do not accept
+ *    custom video thumbnail images, and the API rejects video assets that set this field."
+ *    Yang didukung hanya `metadata.thumbnailOffset` (milidetik) — memilih satu bingkai
+ *    dari video itu sendiri, dan hanya untuk Instagram, TikTok, Pinterest.
+ * 3. Tiap layanan punya syarat metadata sendiri (pitfalls -> "Per-service minimum payloads"):
+ *      instagram : aset video + metadata.instagram.type + metadata.instagram.shouldShareToFeed
+ *      facebook  : metadata.facebook.type
+ *      youtube   : aset video + metadata.youtube.title (+ categoryId)
+ *      tiktok    : aset video
+ * 4. `posts create` TIDAK idempoten. Skrip memeriksa post serupa lebih dulu, dan tidak
+ *    mengulang otomatis saat gagal.
  *
- * Usage
- *   MISSION=pinjol-bunga-harian-2026 PLATFORM=instagram MEDIA_URL=https://… mp4 \
- *     node pipeline/publish-buffer.mjs                 # dry-run by default
- *   … node pipeline/publish-buffer.mjs --send          # actually create the post
+ * PEMAKAIAN
+ *   node pipeline/publish-buffer.mjs --mission <slug>                    # validasi saja
+ *   node pipeline/publish-buffer.mjs --mission <slug> --send             # kirim
+ *   node pipeline/publish-buffer.mjs --mission <slug> --platforms instagram,tiktok
  *
- * Environment
- *   BUFFER_API_KEY            required (never stored in this repo)
- *   BUFFER_ORGANIZATION_ID    optional; falls back to `buffer config get organizationId`
- *   MEDIA_URL                 public URL of the mp4
- *   PLATFORM                  facebook | instagram | tiktok | youtube   (default: instagram)
- *   MODE                      shareNow | addToQueue | customScheduled   (default: addToQueue)
- *   DUE_AT                    ISO-8601 WITH offset, required for customScheduled
- *   CHANNEL_ID                optional; skips the lookup
+ * ENV
+ *   BUFFER_API_KEY        wajib (jangan disimpan di repo)
+ *   MEDIA_URL             URL publik mp4. Kalau kosong, script menurunkan URL dari
+ *                         MEDIA_PROVIDER (release | pages | raw) dan memverifikasinya.
+ *   MEDIA_PROVIDER        release (default) | pages | raw | custom
+ *   MODE                  addToQueue (default) | shareNext | shareNow | customScheduled
+ *   DUE_AT                ISO-8601 dengan offset, wajib untuk customScheduled
+ *   THUMBNAIL_OFFSET_MS   default 9000 (hanya IG/TikTok/Pinterest yang mendukung)
+ *   DRY_RUN=1             sama dengan tanpa --send
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -37,32 +48,49 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const p = (...a) => path.join(ROOT, ...a);
 
-const arg = (name, fallback) => {
-  const i = process.argv.indexOf(`--${name}`);
-  return i > -1 ? process.argv[i + 1] : fallback;
+/* ------------------------------------------------------------------ argumen */
+const argv = process.argv.slice(2);
+const argOf = (name, fallback) => {
+  const i = argv.indexOf(`--${name}`);
+  return i > -1 ? argv[i + 1] : fallback;
 };
-const flag = (name) => process.argv.includes(`--${name}`);
+const flag = (name) => argv.includes(`--${name}`);
 
-const MISSION = process.env.MISSION;
-const PLATFORM = (process.env.PLATFORM ?? 'instagram').toLowerCase();
+const MISSION = argOf('mission', process.env.MISSION);
+const SEND = flag('send') && process.env.DRY_RUN !== '1';
 const MODE = process.env.MODE ?? 'addToQueue';
-const MEDIA_URL = process.env.MEDIA_URL ?? '';
 const DUE_AT = process.env.DUE_AT ?? '';
-const SEND = flag('send');
+const THUMB_OFFSET = Number(process.env.THUMBNAIL_OFFSET_MS ?? 9000);
+const PLATFORMS = (argOf('platforms', 'facebook,instagram,tiktok,youtube') ?? '')
+  .split(',')
+  .map((s) => s.trim().toLowerCase())
+  .filter(Boolean);
 const API_KEY = process.env.BUFFER_API_KEY;
+const MEDIA_PROVIDER = (process.env.MEDIA_PROVIDER ?? 'release').toLowerCase();
 
-if (!MISSION) {
-  console.error('MISSION=<slug> wajib diisi');
-  process.exit(2);
-}
+const die = (msg, code = 3) => {
+  console.error(`\n✗ ${msg}`);
+  process.exit(code);
+};
+
+if (!MISSION) die('butuh --mission <slug> (mis. pinjol-bunga-harian-2026)', 2);
 if (!API_KEY) {
-  console.error('BUFFER_API_KEY belum diset. Ekspor dulu (jangan ditulis ke repo):');
-  console.error('  export BUFFER_API_KEY=...');
-  process.exit(4);
+  die('BUFFER_API_KEY belum diset.\n  export BUFFER_API_KEY=...   (jangan ditulis ke repo)', 4);
 }
 
-/* ---------------------------------------------------------------- caption */
+/* ------------------------------------------------------------------ berkas misi */
+const FILE = {
+  video: p('deliverables', `B_${MISSION}_1080x1920.mp4`),
+  thumb: p('deliverables', `T_${MISSION}_1080x1920.png`),
+  caption: p('deliverables', `caption_${MISSION}.txt`),
+};
+for (const [k, f] of Object.entries(FILE)) {
+  if (!fs.existsSync(f)) die(`${k} tidak ada: ${path.relative(ROOT, f)}`, 2);
+}
+const videoBytes = fs.statSync(FILE.video).size;
+const rawCaption = fs.readFileSync(FILE.caption, 'utf8');
 
+/* ------------------------------------------------------------------ caption */
 const HEADING = {
   facebook: 'FACEBOOK REELS',
   instagram: 'INSTAGRAM REELS',
@@ -70,153 +98,302 @@ const HEADING = {
   youtube: 'YOUTUBE SHORTS',
 };
 
-/** Ambil satu blok platform dari caption_pinjol-...txt (dipisah baris '====='). */
-const pickCaptionBlock = (raw, heading) => {
-  const blocks = raw.split(/^=+$/m);
-  for (let i = 0; i < blocks.length; i++) {
-    if (blocks[i].includes(heading)) return blocks[i + 1] ?? '';
-  }
+const blockOf = (heading) => {
+  const blocks = rawCaption.split(/^=+$/m);
+  for (let i = 0; i < blocks.length; i++) if (blocks[i].includes(heading)) return blocks[i + 1] ?? '';
   return '';
 };
 
-/** Buang petunjuk internal (baris "Panjang:", "Judul:", "Deskripsi:") sebelum dikirim. */
-const cleanCaption = (block) =>
+const stripMeta = (block) =>
   block
     .split('\n')
-    .filter((l) => !/^(Panjang:|Judul:|Deskripsi:)/i.test(l.trim()))
+    .filter((l) => !/^(Panjang:|CARA PAKAI|BATAS KEJUJUHAN|HASHTAG)/i.test(l.trim()))
+    .map((l) => l.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '')) // CLI menolak control char
     .join('\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 
-const captionFile = p('deliverables', `caption_${MISSION}.txt`);
-if (!fs.existsSync(captionFile)) {
-  console.error(`caption tidak ditemukan: ${path.relative(ROOT, captionFile)}`);
-  process.exit(2);
-}
-const rawCaption = fs.readFileSync(captionFile, 'utf8');
-const heading = HEADING[PLATFORM];
-if (!heading) {
-  console.error(`PLATFORM harus salah satu: ${Object.keys(HEADING).join(', ')}`);
-  process.exit(2);
-}
-const text = cleanCaption(pickCaptionBlock(rawCaption, heading));
-if (!text) {
-  console.error(`blok "${heading}" tidak ada di ${path.relative(ROOT, captionFile)}`);
-  process.exit(2);
-}
+/** Instagram/TikTok/Facebook: badan post. YouTube: judul + deskripsi terpisah. */
+const captionFor = (platform) => {
+  const block = blockOf(HEADING[platform]);
+  if (!block) die(`blok "${HEADING[platform]}" tidak ada di caption`, 2);
+  const lines = block.split('\n');
+  const titleLine = lines.find((l) => /^Judul:/i.test(l.trim()));
+  const descLine = lines.findIndex((l) => /^Deskripsi:/i.test(l.trim()));
+  const body = descLine > -1 ? lines.slice(descLine + 1).join('\n') : lines.filter((l) => !/^Judul:/i.test(l)).join('\n');
+  return {
+    text: stripMeta(body),
+    title: titleLine ? titleLine.replace(/^Judul:\s*/i, '').trim() : '',
+  };
+};
 
-/* ---------------------------------------------------------------- buffer cli */
+/** Blok KOMENTAR PERTAMA -> firstComment (didukung Instagram & Facebook). */
+const firstCommentOf = () => {
+  const blocks = rawCaption.split(/^=+$/m);
+  const idx = blocks.findIndex((b) => b.includes('KOMENTAR PERTAMA'));
+  return idx > -1 ? stripMeta(blocks[idx + 1] ?? '') : '';
+};
+const FIRST_COMMENT = firstCommentOf();
 
-const buffer = (args, { quiet = false } = {}) => {
+/* ------------------------------------------------------------------ buffer cli */
+const runBuffer = (args) => {
   const r = spawnSync('buffer', [...args, '--output', 'json'], {
     encoding: 'utf8',
     env: { ...process.env, BUFFER_API_KEY: API_KEY },
   });
-  const out = (r.stdout ?? '').trim();
-  const err = (r.stderr ?? '').trim();
   let json = null;
   try {
-    json = out ? JSON.parse(out) : null;
+    json = r.stdout?.trim() ? JSON.parse(r.stdout) : null;
   } catch {
     json = null;
   }
-  if (!quiet && r.status !== 0) {
-    console.error(`[buffer ${args[0]}] exit ${r.status}`);
-    if (out) console.error(out.slice(0, 800));
-    if (err) console.error(err.slice(0, 800));
-  }
-  return { status: r.status, json, out, err };
+  return { status: r.status ?? 1, json, out: (r.stdout ?? '').trim(), err: (r.stderr ?? '').trim() };
 };
 
-const readConfig = (key) => {
-  const r = buffer(['config', 'get', key], { quiet: true });
+const preflight = runBuffer(['--version']);
+if (preflight.status !== 0) die('CLI buffer tidak ditemukan. Jalankan: npm i -g @bufferapp/cli');
+
+const configValue = (key) => {
+  const r = runBuffer(['config', 'get', key]);
   return r.status === 0 ? (r.json?.value ?? null) : null;
 };
 
-/* ---------------------------------------------------------------- target */
-
-const SERVICE_OF = { facebook: 'facebook', instagram: 'instagram', tiktok: 'tiktok', youtube: 'youtube' };
-
-const resolveChannel = () => {
-  if (process.env.CHANNEL_ID) return { id: process.env.CHANNEL_ID, name: '(dari CHANNEL_ID)' };
-  const orgId = process.env.BUFFER_ORGANIZATION_ID ?? readConfig('organizationId');
-  if (!orgId) return { error: 'organizationId tidak diketahui: set BUFFER_ORGANIZATION_ID atau jalankan `buffer init`' };
-
-  const r = buffer(['channels', 'list', '--organization-id', orgId, '--fields', 'items.{id,service,name}']);
-  if (r.status !== 0 || !r.json) return { error: `gagal membaca daftar kanal (exit ${r.status})` };
-
-  const items = r.json.items ?? [];
-  const want = SERVICE_OF[PLATFORM];
-  const hit = items.find((c) => String(c.service).toLowerCase().includes(want));
-  if (!hit) {
-    return {
-      error: `tidak ada kanal ${PLATFORM} di organisasi ini. Kanal yang ada: ${items.map((c) => `${c.service}:${c.name}`).join(', ') || '(kosong)'}`,
-    };
-  }
-  return hit;
+/* ------------------------------------------------------------------ git & URL media */
+const git = (args) => {
+  const r = spawnSync('git', args, { cwd: ROOT, encoding: 'utf8' });
+  return r.status === 0 ? r.stdout.trim() : '';
 };
 
-/* ---------------------------------------------------------------- payload */
+const remoteUrl = git(['remote', 'get-url', 'origin']);
+const m = remoteUrl.match(/github\.com[:/]([^/]+)\/([^/.]+?)(?:\.git)?$/);
+const OWNER = m?.[1];
+const REPO = m?.[2];
+const BRANCH = git(['rev-parse', '--abbrev-ref', 'HEAD']) || 'main';
 
-const buildPayload = (channelId) => {
-  const payload = {
-    channelId,
-    schedulingType: 'automatic',
-    mode: MODE,
-    text,
+const relPathFromRepoRoot = () => {
+  const repoRoot = path.resolve(ROOT, '..');
+  return path.relative(repoRoot, FILE.video).split(path.sep).join('/');
+};
+
+const deriveMediaUrl = () => {
+  if (process.env.MEDIA_URL) return { url: process.env.MEDIA_URL, how: 'MEDIA_URL dari environment' };
+  if (!OWNER || !REPO) die('tidak bisa membaca owner/repo dari `git remote -v`. Set MEDIA_URL manual.');
+
+  if (MEDIA_PROVIDER === 'raw') {
+    return { url: `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${relPathFromRepoRoot()}`, how: `raw.githubusercontent (${BRANCH})` };
+  }
+  if (MEDIA_PROVIDER === 'pages') {
+    return { url: `https://${OWNER.toLowerCase()}.github.io/${REPO}/${relPathFromRepoRoot()}`, how: 'GitHub Pages' };
+  }
+  // release: aset tidak masuk riwayat git, URL stabil, dan tidak membengkakkan clone
+  const tag = `media-${MISSION}`;
+  const assetName = path.basename(FILE.video);
+  const url = `https://github.com/${OWNER}/${REPO}/releases/download/${tag}/${assetName}`;
+  return { url, how: `GitHub Release "${tag}"`, tag, assetName };
+};
+
+/** Pastikan URL benar-benar bisa diambil publik, ukurannya sama, dan tipenya video. */
+const verifyMediaUrl = async (url) => {
+  let res;
+  try {
+    res = await fetch(url, { method: 'HEAD', redirect: 'follow' });
+  } catch (e) {
+    return { ok: false, why: `tidak bisa dihubungi: ${e.message}` };
+  }
+  if (!res.ok) return { ok: false, why: `HTTP ${res.status}` };
+  const type = res.headers.get('content-type') ?? '';
+  const len = Number(res.headers.get('content-length') ?? 0);
+  const sizeOk = !len || Math.abs(len - videoBytes) / videoBytes < 0.01;
+  const typeOk = type.startsWith('video/') || type.includes('octet-stream');
+  return {
+    ok: sizeOk && typeOk,
+    type,
+    len,
+    warning: typeOk && !type.startsWith('video/') ? `content-type "${type}" — sebagian platform menolak selain video/*` : '',
+    why: !sizeOk ? `ukuran di server ${len} B ≠ lokal ${videoBytes} B (berkas belum terunggah penuh?)` : !typeOk ? `content-type "${type}" bukan video` : '',
   };
-  if (MODE === 'customScheduled') {
-    if (!DUE_AT) throw new Error('MODE=customScheduled butuh DUE_AT (ISO-8601 dengan offset, mis. 2026-11-05T19:00:00+08:00)');
-    payload.mode = 'customScheduled';
-    payload.dueAt = DUE_AT;
-  }
-  if (MEDIA_URL) payload.assets = [{ video: { url: MEDIA_URL } }];
-  return payload;
 };
 
-/* ---------------------------------------------------------------- main */
+/* ------------------------------------------------------------------ metadata per layanan */
+const buildPayload = (platform, channelId, cap, mediaUrl) => {
+  const base = { channelId, schedulingType: 'automatic', mode: MODE, text: cap.text };
+  if (MODE === 'customScheduled') {
+    if (!DUE_AT) die('MODE=customScheduled butuh DUE_AT (ISO-8601 dengan offset)', 2);
+    base.dueAt = DUE_AT;
+  }
+  const assets = mediaUrl
+    ? [{ video: { url: mediaUrl, ...(THUMB_OFFSET ? { metadata: { thumbnailOffset: THUMB_OFFSET } } : {}) } }]
+    : [];
 
-const channel = (() => {
-  const c = resolveChannel();
-  if (c.error) {
-    // Dry-run tetap berguna tanpa jaringan: pakai id placeholder supaya payload bisa divalidasi.
-    if (!SEND) {
-      console.error(`[peringatan] ${c.error}`);
-      console.error('[peringatan] memakai CHANNEL_ID placeholder untuk validasi payload');
-      return { id: 'channel_placeholder', name: '(placeholder)' };
+  switch (platform) {
+    case 'instagram':
+      base.metadata = {
+        instagram: { type: 'reel', shouldShareToFeed: true, ...(FIRST_COMMENT ? { firstComment: FIRST_COMMENT } : {}) },
+      };
+      if (assets.length) base.assets = assets;
+      break;
+    case 'facebook':
+      base.metadata = { facebook: { type: 'reel', ...(FIRST_COMMENT ? { firstComment: FIRST_COMMENT } : {}) } };
+      if (assets.length) base.assets = assets;
+      break;
+    case 'youtube':
+      base.metadata = {
+        youtube: {
+          title: (cap.title || cap.text.split('\n')[0]).slice(0, 100),
+          categoryId: process.env.YOUTUBE_CATEGORY_ID ?? '27', // 27 = Education
+          privacy: 'public',
+          madeForKids: false,
+        },
+      };
+      if (assets.length) base.assets = assets;
+      break;
+    case 'tiktok':
+      if (assets.length) base.assets = assets;
+      break;
+    default:
+      die(`platform tidak dikenal: ${platform}`, 2);
+  }
+  return base;
+};
+
+/* ------------------------------------------------------------------ kanal */
+const resolveChannels = (orgId) => {
+  const r = runBuffer(['channels', 'list', '--organization-id', orgId, '--fields', 'items.{id,service,name}']);
+  if (r.status !== 0 || !r.json) die(`gagal membaca daftar kanal (exit ${r.status}). ${r.err.slice(0, 200)}`);
+  return r.json.items ?? [];
+};
+
+/** Deteksi post kembar (posts create tidak idempoten). */
+const alreadyPosted = (orgId, text) => {
+  const r = runBuffer(['posts', 'list', '--organization-id', orgId, '--fields', 'items.{id,text,createdAt,channelId}']);
+  if (r.status !== 0 || !r.json) return null;
+  const head = text.slice(0, 60);
+  return (r.json.items ?? []).find((it) => (it.text ?? '').slice(0, 60) === head) ?? null;
+};
+
+/* ------------------------------------------------------------------ main */
+const main = async () => {
+  console.log(`\n=== Buffer publish · ${MISSION} ===`);
+  console.log(`video   : ${path.relative(ROOT, FILE.video)} (${(videoBytes / 1e6).toFixed(2)} MB)`);
+  console.log(`sampul  : ${path.relative(ROOT, FILE.thumb)} — tidak dikirim lewat API (ditolak schema)`);
+  console.log(`mode    : ${MODE}${MODE === 'customScheduled' ? ` @ ${DUE_AT}` : ''}`);
+  console.log(`platform: ${PLATFORMS.join(', ')}`);
+  console.log(`kirim   : ${SEND ? 'YA (--send)' : 'tidak (validasi saja)'}\n`);
+
+  /* --- 1. media URL --- */
+  const media = deriveMediaUrl();
+  let mediaOk = true;
+  if (media.tag) {
+    // pastikan aset release sudah ada; kalau belum, unggah sekarang (butuh gh + hak tulis repo)
+    const exists = spawnSync('gh', ['release', 'view', media.tag, '--json', 'assets'], { cwd: ROOT, encoding: 'utf8' });
+    const hasAsset = exists.status === 0 && (JSON.parse(exists.stdout || '{"assets":[]}').assets ?? []).some((a) => a.name === media.assetName);
+    if (!hasAsset) {
+      if (!SEND) {
+        console.log(`[info] aset rilis "${media.tag}" belum ada. Saat --send, script akan menjalankannya:`);
+        console.log(`       gh release create ${media.tag} --title "Media ${MISSION}" --notes "aset video ${MISSION}"`);
+        console.log(`       gh release upload ${media.tag} ${path.relative(ROOT, FILE.video)}\n`);
+      } else {
+        const create = spawnSync('gh', ['release', 'create', media.tag, '--title', `Media ${MISSION}`, '--notes', `Aset video ${MISSION}`, '--latest=false'], { cwd: ROOT, encoding: 'utf8' });
+        if (create.status !== 0 && !/already exists/i.test(create.stderr ?? '')) die(`gagal membuat release: ${create.stderr}`);
+        const upload = spawnSync('gh', ['release', 'upload', media.tag, path.relative(ROOT, FILE.video)], { cwd: ROOT, encoding: 'utf8' });
+        if (upload.status !== 0 && !/already exists/i.test(upload.stderr ?? '')) die(`gagal unggah aset: ${upload.stderr}`);
+        console.log(`✓ aset video diunggah ke release ${media.tag}`);
+      }
     }
-    console.error(`[gagal] ${c.error}`);
+  }
+  console.log(`media   : ${media.url}`);
+  console.log(`          (${media.how})`);
+  if (SEND) {
+    const v = await verifyMediaUrl(media.url);
+    if (!v.ok) {
+      mediaOk = false;
+      console.log(`✗ verifikasi URL GAGAL: ${v.why}`);
+      console.log('  Perbaiki URL ini dulu — Buffer juga akan gagal mengunduhnya.\n');
+    } else {
+      console.log(`✓ URL publik OK (${v.type || 'content-type tidak dikirim'}, ${v.len || '?'} B)`);
+      if (v.warning) console.log(`  ⚠ ${v.warning}`);
+      console.log('');
+    }
+  } else {
+    console.log('');
+  }
+
+  /* --- 2. organisasi & kanal --- */
+  const orgId = process.env.BUFFER_ORGANIZATION_ID ?? configValue('organizationId');
+  if (!orgId) {
+    console.error('✗ organizationId belum diketahui. Jalankan `buffer init` sekali, atau set BUFFER_ORGANIZATION_ID.\n');
+    if (!SEND) {
+      console.log('Masih bisa memvalidasi bentuk payload dengan channel placeholder:\n');
+      return validateOnly();
+    }
     process.exit(3);
   }
-  return c;
-})();
 
-const payload = buildPayload(channel.id);
+  const channels = resolveChannels(orgId);
+  if (!channels.length) die('tidak ada kanal di organisasi ini');
 
-console.log(`misi      : ${MISSION}`);
-console.log(`platform  : ${PLATFORM} -> kanal ${channel.name} (${channel.id})`);
-console.log(`mode      : ${MODE}${DUE_AT && MODE === 'customScheduled' ? ` @ ${DUE_AT}` : ''}`);
-console.log(`media     : ${MEDIA_URL || '(tanpa media — hanya teks)'}`);
-console.log(`teks      : ${text.length} karakter, ${text.split('\n')[0].slice(0, 70)}…`);
+  const results = [];
+  for (const platform of PLATFORMS) {
+    const ch = channels.find((c) => String(c.service).toLowerCase().includes(platform));
+    if (!ch) {
+      results.push({ platform, status: 'SKIP', detail: `tidak ada kanal ${platform}` });
+      continue;
+    }
+    const cap = captionFor(platform);
+    const payload = buildPayload(platform, ch.id, cap, mediaOk || !SEND ? media.url : null);
 
-const dry = buffer(['posts', 'create', '--json', JSON.stringify(payload), '--dry-run'], { quiet: true });
-if (dry.status !== 0) {
-  console.error(`[gagal] payload ditolak validasi lokal (exit ${dry.status})`);
-  console.error((dry.out || dry.err).slice(0, 800));
-  process.exit(2);
-}
-console.log('validasi  : OK (dry-run lokal, tidak ada panggilan API)');
+    const dry = runBuffer(['posts', 'create', '--json', JSON.stringify(payload), '--dry-run']);
+    if (dry.status !== 0) {
+      results.push({ platform, status: 'INVALID', detail: (dry.out || dry.err).slice(0, 120) });
+      continue;
+    }
+    if (!SEND) {
+      results.push({ platform, status: 'VALID', detail: `${cap.text.length} char · ${path.basename(String(ch.name))}` });
+      continue;
+    }
 
-if (!SEND) {
-  console.log('\nTidak mengirim apa pun. Jalankan ulang dengan --send untuk membuat post.');
-  console.log('Catatan: posts create TIDAK idempoten — kirim sekali, cek dulu sebelum mengulang.');
-  process.exit(0);
-}
+    const dup = alreadyPosted(orgId, cap.text);
+    if (dup) {
+      results.push({ platform, status: 'SKIP', detail: `post serupa sudah ada (${dup.id})` });
+      continue;
+    }
 
-const sent = buffer(['posts', 'create', '--json', JSON.stringify(payload)]);
-if (sent.status !== 0) {
-  console.error(`[gagal] posts create exit ${sent.status}`);
-  console.error('JANGAN langsung ulangi. Periksa dulu: buffer posts list --organization-id <id> --fields items.{id,text,createdAt}');
-  process.exit(sent.status ?? 3);
-}
-console.log('terkirim  :', JSON.stringify(sent.json).slice(0, 500));
+    const sent = runBuffer(['posts', 'create', '--json', JSON.stringify(payload)]);
+    if (sent.status !== 0) {
+      results.push({ platform, status: 'GAGAL', detail: (sent.out || sent.err).slice(0, 160) });
+      continue;
+    }
+    const post = sent.json?.post ?? sent.json?.idea ?? sent.json;
+    results.push({ platform, status: 'TERKIRIM', detail: post?.id ? `id ${post.id}` : JSON.stringify(sent.json).slice(0, 80) });
+  }
+
+  console.log('=== ringkasan ===');
+  for (const r of results) console.log(`${r.status.padEnd(9)} ${r.platform.padEnd(10)} ${r.detail}`);
+  const bad = results.filter((r) => ['GAGAL', 'INVALID'].includes(r.status));
+  console.log('');
+  if (bad.length) {
+    console.log('JANGAN mengulang buta: `posts create` tidak idempoten.');
+    console.log('Periksa dulu:  buffer posts list --organization-id ' + orgId + ' --fields items.{id,text,createdAt}');
+  }
+  process.exit(bad.length ? 3 : 0);
+};
+
+/** Tanpa jaringan/organisasi: bangun payload dengan channel placeholder lalu validasi. */
+const validateOnly = () => {
+  const results = [];
+  for (const platform of PLATFORMS) {
+    const cap = captionFor(platform);
+    const payload = buildPayload(platform, 'channel_placeholder', cap, 'https://example.com/video.mp4');
+    const dry = runBuffer(['posts', 'create', '--json', JSON.stringify(payload), '--dry-run']);
+    results.push({
+      platform,
+      status: dry.status === 0 ? 'VALID' : 'INVALID',
+      detail: dry.status === 0 ? `${cap.text.length} char` : (dry.out || dry.err).slice(0, 120),
+    });
+  }
+  console.log('=== validasi bentuk payload (tanpa jaringan) ===');
+  for (const r of results) console.log(`${r.status.padEnd(8)} ${r.platform.padEnd(10)} ${r.detail}`);
+  process.exit(results.some((r) => r.status === 'INVALID') ? 2 : 0);
+};
+
+main().catch((e) => die(e.stack ?? String(e), 1));

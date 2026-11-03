@@ -1,156 +1,127 @@
-# Otomasi unggah ke Buffer — status jujur
+# Unggah otomatis ke Buffer — cara kerja, dan ke mana videonya harus ditaruh
 
-Diuji 3 November 2026 di sandbox. **Kesimpulan: CLI terpasang dan skripnya sudah jadi serta tervalidasi, tetapi panggilan API-nya tidak bisa keluar dari sandbox ini.** Bukan karena kunci ditolak — kuncinya belum pernah sampai ke Buffer.
+Diperbarui 3 November 2026. Semua aturan di bawah diambil dari dokumentasi yang **dibundel CLI Buffer**
+(`buffer context pitfalls`, `buffer schema list`, `buffer schema describe posts create`), bukan dari tebakan.
 
 ---
 
-## 1. Apa yang terpasang dan terverifikasi
+## 1. Jawaban singkat: simpan di git tidak cukup
+
+CLI Buffer punya **44 perintah**, dan **tidak satu pun** untuk mengunggah berkas:
 
 ```
-npm install -g @bufferapp/cli   →  @bufferapp/cli 2.2.0
-which buffer                    →  /usr/local/bin/buffer
-buffer --version                →  2.2.0
+buffer schema list  →  44 commands, tidak ada "media", "upload", "asset", atau "file"
 ```
 
-`buffer init` dijalankan. Ia menemukan `BUFFER_API_KEY` di environment, bertanya "Save this API key to config?", dijawab Ya, lalu **berhenti** dengan:
+Satu-satunya cara media masuk ke Buffer adalah **URL publik**:
 
 ```json
-{"error":"API_ERROR","code":3,"message":"fetch failed"}
+{ "assets": [ { "video": { "url": "https://…/video.mp4" } } ] }
 ```
 
-`buffer doctor` (bukti paling ringkas):
+Deskripsi field-nya di schema: *"URL to the file source"*. Buffer yang mengunduh sendiri berkasnya.
 
-```json
-{"checks":[
-  {"name":"config-file","status":"fail","message":"No config file found"},
-  {"name":"default-organization","status":"fail","message":"No default organization set"},
-  {"name":"api-reachable","status":"fail","message":"Could not reach https://api.buffer.com: fetch failed"}
-],"summary":{"passed":3,"failed":3,"skipped":2,"total":8}}
-```
+Artinya: menaruh mp4 di dalam repo memang benar untuk arsip dan versi, tetapi **git bukan server**.
+Berkas itu harus bisa diakses lewat HTTPS oleh server Buffer. Tiga cara, semuanya sudah didukung skrip ini.
 
-Uji koneksi langsung:
+| `MEDIA_PROVIDER` | URL yang dipakai | Perlu apa | Catatan |
+|---|---|---|---|
+| **`release`** (default) | `https://github.com/<owner>/<repo>/releases/download/media-<misi>/<file>.mp4` | `gh` login + hak tulis repo | **Disarankan.** Aset tidak masuk riwayat git, URL stabil, clone tetap ringan |
+| `raw` | `https://raw.githubusercontent.com/<owner>/<repo>/<branch>/editorial-engine/deliverables/<file>.mp4` | berkas sudah di-push, repo publik | Paling gampang, tapi GitHub mengirim `application/octet-stream` — sebagian platform menolak |
+| `pages` | `https://<owner>.github.io/<repo>/editorial-engine/deliverables/<file>.mp4` | Pages diaktifkan di Settings | MIME benar (`video/mp4`), cocok untuk jangka panjang |
+| `custom` | apa pun | Anda hosting sendiri (S3/R2/CDN) | Pakai `MEDIA_URL=…` untuk menimpa semua |
 
-| Host | Kode |
-|---|---|
-| `api.buffer.com` | **000** |
-| `api.bufferapp.com` | **000** |
-| `developers.buffer.com` | **000** |
+### Path harus tepat — dan skrip memeriksanya, bukan mengira-ngira
 
-`000` = koneksi ditolak di tingkat jaringan. Sandbox ini hanya boleh keluar ke github.com, npm dan PyPI. Jadi `buffer` bisa dijalankan, tapi tidak bisa menelepon rumah.
+Sebelum mengirim apa pun dengan `--send`, skrip melakukan `HEAD` ke URL tersebut dan menolak lanjut kalau:
 
-## 2. Perintah yang diminta perlu satu argumen tambahan
+- status bukan 200,
+- `content-length` berbeda lebih dari 1% dari ukuran berkas lokal (tanda unggahan belum selesai / URL menunjuk berkas lain),
+- `content-type` bukan `video/*` (untuk `raw`, ini muncul sebagai peringatan karena GitHub mengirim `octet-stream`).
 
-Perintah aslinya:
+Jadi kalau path-nya salah, Anda tahu **sebelum** Buffer mencoba dan gagal dengan pesan yang tidak jelas.
 
-```bash
-buffer ideas create --text "My first idea from the Buffer CLI"
-```
+## 2. Yang tidak bisa dilakukan API: thumbnail
 
-Hasilnya, bahkan **sebelum** menyentuh jaringan:
+Field `assets[].video.thumbnailUrl` **ada** di schema tetapi deskripsinya melarang dipakai:
 
-```json
-{"error":"USAGE_ERROR","code":2,"message":"Missing required flag: `--organization-id`"}
-```
+> *"Do not use: social networks do not accept custom video thumbnail images, and the API rejects
+> video assets that set this field. To choose the video thumbnail, set `metadata.thumbnailOffset`
+> to select a frame from the video (supported for Instagram, TikTok, and Pinterest only)."*
 
-Versi yang benar (dry-run, jalan offline):
+Artinya:
 
-```bash
-buffer ideas create --organization-id <ORG_ID> --text "My first idea from the Buffer CLI" --dry-run
-```
+- **PNG sampul tidak bisa diunggah lewat Buffer.** Titik. Bukan keterbatasan skrip ini.
+- Yang bisa: memilih **satu bingkai dari video** lewat `THUMBNAIL_OFFSET_MS` (default 9000 ms — saat lingkaran "per hari" sudah selesai digambar). Hanya Instagram, TikTok, Pinterest.
+- Sampul versi desain (T_…png) tetap diunggah manual di aplikasi masing-masing kalau ingin dipakai.
 
-`--dry-run` mengembalikan payload GraphQL yang sudah tervalidasi tanpa memanggil API. Itu bukti CLI-nya sehat.
+Skrip tetap mencetak lokasi berkas sampul supaya tidak terlupa.
 
-## 3. Skrip otomasi yang sudah dibuat
+## 3. Empat layanan, empat syarat berbeda
 
-`pipeline/publish-buffer.mjs` — mengambil paket hasil misi dan menjadikannya post Buffer.
+Dari `buffer context pitfalls` → *Per-service minimum payloads*:
 
-```bash
-export BUFFER_API_KEY=...            # kunci tidak pernah ditulis ke repo
-cd editorial-engine
-
-# validasi saja (offline, tidak mengirim apa pun)
-MISSION=pinjol-bunga-harian-2026 PLATFORM=instagram node pipeline/publish-buffer.mjs
-
-# kirim sungguhan (butuh jaringan + URL video publik)
-MISSION=pinjol-bunga-harian-2026 PLATFORM=instagram \
-  MEDIA_URL=https://…/B_pinjol-bunga-harian-2026_1080x1920.mp4 \
-  MODE=shareNow node pipeline/publish-buffer.mjs --send
-```
-
-Yang sudah diuji offline (semua **PASS**): pemotongan caption per platform dari `deliverables/caption_<misi>.txt`
-
-| Platform | Panjang teks | Validasi payload |
+| Platform | Selain teks | Yang dikirim skrip |
 |---|---|---|
-| Instagram | 441 karakter | OK |
-| TikTok | 246 karakter | OK |
-| YouTube | 588 karakter | OK |
-| Facebook | 952 karakter | OK |
+| Facebook | text atau assets | `metadata.facebook.type = "reel"` + `firstComment` |
+| Instagram | aset video + `metadata.instagram.type` + `shouldShareToFeed` | `type: "reel"`, `shouldShareToFeed: true` + `firstComment` |
+| TikTok | aset video | aset video (+ `thumbnailOffset`) |
+| YouTube | aset video + `metadata.youtube.title` (+ `categoryId`) | `title` dari baris `Judul:` di caption, `categoryId` default `27` (Education), `privacy: public` |
 
-Yang **belum** teruji: pemanggilan API sungguhan. Percobaan `--send` berhenti di:
+Komentar pertama diambil dari blok **KOMENTAR PERTAMA** di `deliverables/caption_<misi>.txt`
+(berisi sumber angka) dan ditempel otomatis di Instagram dan Facebook.
 
-```
-[buffer posts] exit 3
-{"error":"API_ERROR","code":3,"message":"fetch failed"}
-```
-
-## 4. Dua batasan Buffer yang harus diketahui sebelum berharap "sekali klik"
-
-1. **Video harus sudah ada di internet.** Schema Buffer menerima `assets[].video.url` — sebuah URL. Buffer yang mengunduh sendiri. Skrip ini **tidak** bisa mengunggah file lokal dari disk; itu batasan API, bukan pilihan saya.
-2. **Thumbnail tidak bisa ditempel ke post video.** Field `video.thumbnailUrl` ada di schema tapi deskripsinya berbunyi: *"Do not use: social networks do not accept custom video thumbnail images, and the API rejects video assets that set this field."* Untuk memilih bingkai sampul, hanya tersedia `metadata.thumbnailOffset` (detik) dan hanya untuk Instagram, TikTok, Pinterest. Jadi `T_…png` tetap diunggah manual di aplikasi.
-
-Selain itu `posts create` **tidak idempoten** — kalau gagal di tengah dan diulang tanpa memeriksa, post bisa dobel. Skrip berhenti dan menyuruh memeriksa `buffer posts list` lebih dulu, bukan mengulang otomatis.
-
-## 5. Dua cara menjalankannya untuk sungguhan
-
-### A. Di mesin Anda (paling cepat, 1 menit)
+## 4. Satu klik
 
 ```bash
-npm i -g @bufferapp/cli
-export BUFFER_API_KEY=<kunci>
-buffer init                     # simpan kunci + organizationId + timezone
 cd editorial-engine
-MISSION=pinjol-bunga-harian-2026 PLATFORM=instagram \
-  MEDIA_URL=<url-mp4-publik> MODE=addToQueue \
-  node pipeline/publish-buffer.mjs --send
+cp .env.example .env      # isi BUFFER_API_KEY sekali saja; .env tidak di-commit
+./publish.sh pinjol-bunga-harian-2026              # validasi saja, aman
+./publish.sh pinjol-bunga-harian-2026 --send       # benar-benar mengirim
 ```
 
-### B. GitHub Actions (otomatis, tanpa menyalakan komputer)
+Yang dilakukan `./publish.sh <misi> --send`:
 
-Runner GitHub punya internet penuh. Resepnya — **belum saya pasang**, karena repo ini aturannya: tidak ada workflow GitHub tanpa izin eksplisit Anda.
+1. membaca `deliverables/B_<misi>_1080x1920.mp4`, `T_<misi>_1080x1920.png`, `caption_<misi>.txt`;
+2. memastikan aset video ada di GitHub Release `media-<misi>` (membuat + mengunggah kalau belum);
+3. memverifikasi URL publiknya (`HEAD`: status, ukuran, content-type);
+4. mencari kanal yang cocok di organisasi Buffer Anda;
+5. menyusun payload per platform sesuai syarat di tabel atas, memvalidasinya dengan `--dry-run` lokal;
+6. memeriksa apakah post serupa sudah ada (`posts create` **tidak idempoten**);
+7. mengirim, lalu mencetak ringkasan per platform.
 
-```yaml
-# .github/workflows/buffer-publish.yml
-name: publish-to-buffer
-on:
-  workflow_dispatch:
-    inputs:
-      mission:   { required: true }
-      platform:  { required: true, default: instagram }
-      media_url: { required: true }
-      mode:      { required: true, default: addToQueue }
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 22 }
-      - run: npm i -g @bufferapp/cli
-      - run: cd editorial-engine && npm ci
-      - env:
-          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-          MISSION: ${{ inputs.mission }}
-          PLATFORM: ${{ inputs.platform }}
-          MEDIA_URL: ${{ inputs.media_url }}
-          MODE: ${{ inputs.mode }}
-        run: cd editorial-engine && node pipeline/publish-buffer.mjs --send
+Mode bawaan **`addToQueue`** — masuk antrean Buffer, bukan langsung tayang. Untuk tayang seketika:
+`MODE=shareNow ./publish.sh <misi> --send`. Untuk jam tertentu:
+`MODE=customScheduled DUE_AT=2026-11-05T19:00:00+08:00 ./publish.sh <misi> --send`.
+
+### Uji yang sudah dilakukan (offline, di sandbox ini)
+
+| Platform | Panjang teks | Validasi payload terhadap schema Buffer |
+|---|---|---|
+| Facebook | 952 karakter | **VALID** |
+| Instagram | 441 karakter | **VALID** |
+| TikTok | 246 karakter | **VALID** |
+| YouTube | 588 karakter | **VALID** |
+
+`--dry-run` menjalankan validasi schema yang sama dengan panggilan sungguhan, tanpa API call.
+Yang **belum** teruji dari sini: panggilan API-nya sendiri — `api.buffer.com` diblokir di sandbox
+(`fetch failed`, kode 000). Semua langkah jaringan harus dijalankan di mesin Anda.
+
+## 5. Sebelum pertama kali jalan (di komputer Anda)
+
+```bash
+npm i -g @bufferapp/cli          # CLI resmi Buffer (2.2.0)
+gh auth login                    # untuk mengunggah aset rilis (provider release)
+buffer init                      # sekali: simpan kunci + organizationId + timezone
 ```
 
-Syaratnya: (1) Anda set secret `BUFFER_API_KEY`, (2) mp4 sudah punya URL publik, (3) workflow-nya dipasang — dan untuk itu token GitHub yang ada di sandbox ini kemungkinan belum punya izin `workflow`.
+`buffer init` menyimpan `organizationId` dan `timezone` ke config. Kalau ingin memaksa:
+`BUFFER_ORGANIZATION_ID=…` di `.env`.
 
 ## 6. Keamanan kunci
 
-- Kunci **tidak** pernah ditulis ke repo, tidak masuk commit, tidak masuk file konfigurasi.
-- `buffer init` berhenti sebelum menyimpan, jadi di disk hanya ada `~/.config/buffer/update-check.json` (bukan kunci).
-- Setiap perintah di sesi ini memakai `BUFFER_API_KEY` lewat environment, sekali pakai.
-- Karena kunci sudah pernah dikirim di chat, anggap ia sudah "terlihat". Kalau nanti sudah selesai dipakai, cabut dan buat baru di **Buffer → Settings → API**; skrip ini tidak perlu diubah, hanya nilainya.
+- Kunci hanya ada di `.env` (sudah masuk `.gitignore`) atau di environment.
+- Tidak pernah ditulis ke berkas yang di-commit, tidak pernah dicetak ke log.
+- Skrip tidak menyimpan respons API ke disk.
+- Kalau kunci sudah pernah tampil di chat: setelah selesai dipakai, cabut di
+  **Buffer → Settings → API** dan ganti nilainya di `.env`. Skrip tidak perlu diubah.

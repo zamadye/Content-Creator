@@ -17,3 +17,6 @@ rendering/previews/*.png
 rendering/previews/h*.png
 rendering/previews/k*.png
 rendering/previews/s*.png
+
+# kunci API & kredensial lokal
+.env

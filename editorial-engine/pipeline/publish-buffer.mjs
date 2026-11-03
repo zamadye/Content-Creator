@@ -168,7 +168,10 @@ const remoteUrl = git(['remote', 'get-url', 'origin']);
 const m = remoteUrl.match(/github\.com[:/]([^/]+)\/([^/.]+?)(?:\.git)?$/);
 const OWNER = m?.[1];
 const REPO = m?.[2];
-const BRANCH = git(['rev-parse', '--abbrev-ref', 'HEAD']) || 'main';
+// Di CI checkout bersifat detached, `--abbrev-ref HEAD` menghasilkan "HEAD" —
+// jatuh ke SHA commit supaya URL raw tetap menunjuk revisi yang benar.
+const _br = (git(['rev-parse', '--abbrev-ref', 'HEAD']) || '').trim();
+const BRANCH = _br && _br !== 'HEAD' ? _br : (git(['rev-parse', 'HEAD']) || 'main').trim();
 
 const relPathFromRepoRoot = () => {
   const repoRoot = path.resolve(ROOT, '..');

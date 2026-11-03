@@ -125,3 +125,58 @@ buffer init                      # sekali: simpan kunci + organizationId + timez
 - Skrip tidak menyimpan respons API ke disk.
 - Kalau kunci sudah pernah tampil di chat: setelah selesai dipakai, cabut di
   **Buffer → Settings → API** dan ganti nilainya di `.env`. Skrip tidak perlu diubah.
+
+---
+
+## 7. Tanpa terminal sama sekali: GitHub Actions
+
+Runner GitHub punya internet penuh — termasuk `api.buffer.com` yang diblokir dari sandbox Arena.
+Jadi seluruh pengiriman bisa dijalankan di sana, dan Anda hanya menekan tombol di browser.
+
+Workflow: `.github/workflows/publish-buffer.yml` (pemicu `workflow_dispatch` saja).
+
+### Sekali saja: isi dua secret
+
+**Settings → Secrets and variables → Actions → New repository secret**
+
+| Nama | Isi |
+|---|---|
+| `BUFFER_API_KEY` | kunci API Buffer |
+| `BUFFER_ORGANIZATION_ID` | id organisasi Buffer Anda (terlihat di `buffer context` atau URL dashboard) |
+
+Kunci disimpan terenkripsi oleh GitHub, hanya bisa dibaca job yang berjalan di repo ini,
+dan tidak pernah muncul di log (workflow memanggil `::add-mask::` lebih dulu).
+Tombol **Run workflow** hanya terlihat oleh yang punya akses tulis, meskipun repo publik.
+
+### Setiap kali terbit konten
+
+**Actions → "Publish ke Buffer" → Run workflow**
+
+| Input | Arti |
+|---|---|
+| `mission` | slug misi, mis. `pinjol-bunga-harian-2026` |
+| `aksi` | `validasi` (hanya cek payload, tidak menyentuh API) atau `kirim` |
+| `platforms` | `instagram,facebook,tiktok,youtube` — boleh dipersingkat |
+| `mode` | `addToQueue` (antre), `shareNow`, `shareNext` |
+
+Alur job: pasang Node 20 → pasang CLI Buffer → pastikan 3 berkas misi ada → susun URL media
+→ **curl HEAD ke URL itu** (di sinilah pertanyaan "content-type apa dari raw.githubusercontent?"
+dijawab dengan bukti nyata di log, bukan dugaan) → jalankan `publish-buffer.mjs`
+→ ringkasan di halaman run.
+
+### URL media yang dipakai
+
+```
+https://raw.githubusercontent.com/<owner>/<repo>/<SHA-commit>/editorial-engine/deliverables/B_<misi>_1080x1920.mp4
+```
+
+Di-pin ke **SHA commit**, bukan nama branch: URL tidak berubah selamanya dan tidak ambigu
+walau nama branch mengandung garis miring. Repo ini publik, jadi URL-nya bisa diunduh Buffer
+tanpa autentikasi. Kalau kelak repo dijadikan privat, jalur ini mati dan media harus pindah
+ke hosting sendiri (`MEDIA_PROVIDER=custom` + `MEDIA_URL`).
+
+### Batasan yang perlu diketahui
+
+- `gh` tidak bisa membuat secret dari sini (token di sandbox hanya `metadata=read`) — dua secret di atas harus Anda isi sendiri lewat browser, sekali.
+- Workflow belum pernah dijalankan. Yang sudah diverifikasi: YAML valid, nama input cocok dengan argumen skrip, dan `--platforms` benar-benar memfilter (`instagram,tiktok` → hanya dua payload divalidasi).
+- Thumbnail tetap tidak bisa diunggah lewat API (lihat bagian 2), di runner mana pun.

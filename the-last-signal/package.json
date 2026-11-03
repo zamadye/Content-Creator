@@ -1,0 +1,28 @@
+{
+  "name": "the-last-signal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Automated found-footage horror studio for YouTube Shorts (id-ID). Phase 1: cinematic render engine.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "studio": "pnpm --filter @the-last-signal/renderer studio",
+    "render": "tsx scripts/render.ts",
+    "validate": "tsx scripts/validate-episode.ts",
+    "audio:demo": "node scripts/make-demo-audio.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test packages/contracts/test/*.test.ts",
+    "stills": "tsx scripts/stills.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "@types/node": "^22.10.2",
+    "@remotion/bundler": "4.0.540",
+    "@remotion/renderer": "4.0.540",
+    "@the-last-signal/contracts": "workspace:*",
+    "zod": "^3.24.1"
+  }
+}

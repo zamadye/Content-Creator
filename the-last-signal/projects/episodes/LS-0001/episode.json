@@ -1,0 +1,376 @@
+{
+  "episodeId": "LS-0001",
+  "title": "Ketukan Ketiga",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 50,
+  "story": {
+    "hook": "Pukul 03.17, kamera CCTV lantai tujuh merekam ketukan yang tidak punya sumber.",
+    "premise": "Penjaga malam sebuah apartemen kosong mendengar ketukan darurat dari lemari besi yang terkunci dari luar.",
+    "twist": "Di dalam lemari tidak ada apa pun selain dinding — dan sebuah pintu lain dengan gagang di sisi dalam yang tidak pernah dibangun.",
+    "ending": "Rekaman berhenti empat menit kemudian. Tubuh penjaga tidak ditemukan; hanya satu baris peringatan di buku jaga."
+  },
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 120,
+      "image": "images/scene-01.png",
+      "narration": "Pukul tiga lewat tujuh belas. Lantai tujuh seharusnya kosong.",
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 62,
+          "text": "Pukul tiga lewat tujuh belas."
+        },
+        {
+          "startFrame": 66,
+          "endFrame": 116,
+          "text": "Lantai tujuh seharusnya kosong."
+        }
+      ],
+      "visual": {
+        "prompt": "CCTV view of an empty apartment corridor at night, flickering fluorescent tube, wet floor reflection, wide shot, heavy grain, no people",
+        "locationId": "corridor_floor_7",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "cctv",
+        "lighting": "flickering_fluorescent_low_4200k",
+        "intensity": 0.7,
+        "effects": [
+          "film_grain",
+          "scanlines",
+          "vignette",
+          "light_flicker",
+          "timestamp_hud"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.4,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 96,
+            "volume": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 270,
+      "image": "images/scene-02.png",
+      "narration": "Aku penjaga malam gedung ini. Tiap shift, ada ketukan dari lemari besi di ujung koridor. Lemari itu terkunci dari luar.",
+      "subtitles": [
+        {
+          "startFrame": 8,
+          "endFrame": 70,
+          "text": "Aku penjaga malam gedung ini."
+        },
+        {
+          "startFrame": 76,
+          "endFrame": 150,
+          "text": "Tiap shift, ada ketukan dari lemari besi di ujung koridor."
+        },
+        {
+          "startFrame": 156,
+          "endFrame": 262,
+          "text": "Lemari itu terkunci dari luar."
+        }
+      ],
+      "visual": {
+        "prompt": "Night security post with wall of CCTV monitors, empty chair, cold blue light, paperwork, wide shot, cinematic grain",
+        "locationId": "security_post",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "wide",
+        "lighting": "cold_monitor_glow_5600k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.3,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 120,
+            "volume": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 270,
+      "image": "images/scene-03.png",
+      "narration": "Kamera cuma merekam koridor kosong. Tapi mikrofonnya menangkap sesuatu. Ketukan pertama pukul satu. Kedua pukul dua. Ketiga selalu pukul tiga lewat tujuh belas.",
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 68,
+          "text": "Kamera cuma merekam koridor kosong."
+        },
+        {
+          "startFrame": 74,
+          "endFrame": 126,
+          "text": "Tapi mikrofonnya menangkap sesuatu."
+        },
+        {
+          "startFrame": 134,
+          "endFrame": 196,
+          "text": "Ketukan pertama pukul satu. Kedua, pukul dua."
+        },
+        {
+          "startFrame": 204,
+          "endFrame": 264,
+          "text": "Ketiga, selalu pukul tiga lewat tujuh belas."
+        }
+      ],
+      "visual": {
+        "prompt": "Long empty apartment corridor seen from CCTV camera high angle, locked metal utility cabinet at the far end, single flickering tube light, wet concrete floor",
+        "locationId": "corridor_floor_7",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "cctv",
+        "lighting": "flickering_fluorescent_low_4200k",
+        "intensity": 0.75,
+        "effects": [
+          "film_grain",
+          "scanlines",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.42,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 138,
+            "volume": 0.55
+          },
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 200,
+            "volume": 0.7
+          },
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 246,
+            "volume": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 300,
+      "image": "images/scene-04.png",
+      "narration": "Malam ini aku naik sendiri. Kunci cadangan sudah kugenggam. Lemari itu dingin sekali. Dari celah pintunya keluar bau tanah basah.",
+      "subtitles": [
+        {
+          "startFrame": 8,
+          "endFrame": 70,
+          "text": "Malam ini aku naik sendiri."
+        },
+        {
+          "startFrame": 78,
+          "endFrame": 140,
+          "text": "Kunci cadangan sudah kugenggam."
+        },
+        {
+          "startFrame": 150,
+          "endFrame": 230,
+          "text": "Lemari itu dingin sekali."
+        },
+        {
+          "startFrame": 236,
+          "endFrame": 294,
+          "text": "Dari celah pintunya keluar bau tanah basah."
+        }
+      ],
+      "visual": {
+        "prompt": "Extreme closeup of a rusted metal utility cabinet door in a dark apartment corridor, padlock and chain, condensation on metal, flashlight beam raking across the surface",
+        "locationId": "corridor_floor_7",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "closeup",
+        "lighting": "flashlight_only_3000k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "flashlight"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.26,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 60,
+            "volume": 0.4
+          },
+          {
+            "assetId": "audio/sfx/door_creak.wav",
+            "startFrame": 176,
+            "volume": 0.55
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 300,
+      "image": "images/scene-05.png",
+      "narration": "Aku membuka pintunya. Kosong. Hanya dinding. Lalu ada pintu lain di dalam dinding itu, gagangnya di sisi dalam. Ketukan keempat terdengar dari belakang punggungku.",
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 64,
+          "text": "Aku membuka pintunya."
+        },
+        {
+          "startFrame": 70,
+          "endFrame": 118,
+          "text": "Kosong. Hanya dinding."
+        },
+        {
+          "startFrame": 126,
+          "endFrame": 210,
+          "text": "Ada pintu lain di dalam dinding itu. Gagangnya di sisi dalam."
+        },
+        {
+          "startFrame": 220,
+          "endFrame": 292,
+          "text": "Ketukan keempat terdengar dari belakang punggungku."
+        }
+      ],
+      "visual": {
+        "prompt": "Open metal utility cabinet revealing a blank concrete wall inside, and embedded in that wall a second narrow door with a handle mounted on the inside face, flashlight beam, dust particles in the air",
+        "locationId": "cabinet_interior",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "flashlight_only_3200k",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "flashlight",
+          "volumetric_fog"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.3,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/door_creak.wav",
+            "startFrame": 4,
+            "volume": 0.6
+          },
+          {
+            "assetId": "audio/sfx/impact.wav",
+            "startFrame": 216,
+            "volume": 0.85
+          },
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 224,
+            "volume": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 240,
+      "image": "images/scene-06.png",
+      "narration": "Rekaman ini berhenti empat menit kemudian. Penjaga itu tidak pernah ditemukan. Yang tersisa cuma satu baris di buku jaga: jangan buka dua kali.",
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 62,
+          "text": "Rekaman ini berhenti empat menit kemudian."
+        },
+        {
+          "startFrame": 68,
+          "endFrame": 122,
+          "text": "Penjaga itu tidak pernah ditemukan."
+        },
+        {
+          "startFrame": 128,
+          "endFrame": 188,
+          "text": "Satu baris di buku jaga: jangan buka dua kali."
+        }
+      ],
+      "visual": {
+        "prompt": "Tall thin featureless humanoid silhouette standing at the end of a dark apartment corridor, pale grey skin, no visible eyes, backlit by a single dying fluorescent tube, heavy film grain, security camera perspective",
+        "locationId": "corridor_floor_7",
+        "characterIds": [
+          "entity_001"
+        ],
+        "camera": "handheld",
+        "shot": "wide",
+        "lighting": "single_dying_fluorescent_4000k",
+        "intensity": 0.85,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker",
+          "camera_shake",
+          "creature_reveal"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.45,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/impact.wav",
+            "startFrame": 8,
+            "volume": 0.95
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 90,
+            "volume": 0.5
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Jangan Pernah Membuka Lemari Itu Dua Kali",
+    "description": "ARSIP FIKSI — Rekaman CCTV lantai tujuh, 03.17. Ketukan pertama pukul satu. Kedua pukul dua. Ketiga selalu pukul tiga lewat tujuh belas.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #FoundFootage",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "found footage",
+      "the last signal",
+      "arsip fiksi"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true
+  }
+}

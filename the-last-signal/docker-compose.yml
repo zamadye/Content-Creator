@@ -1,0 +1,37 @@
+# Infrastruktur pendukung untuk phase berikutnya.
+# Phase 1 (render engine) TIDAK membutuhkan file ini: satu perintah render
+# cukup dengan Node.js + Chromium. Nyalakan saat mulai Phase 3/4 (agent,
+# job queue, persistent state).
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tls-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-tls}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tls_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-the_last_signal}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tls} -d ${POSTGRES_DB:-the_last_signal}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: tls-redis
+    restart: unless-stopped
+    command: ["redis-server", "--maxmemory", "256mb", "--maxmemory-policy", "noeviction", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  postgres-data:
+  redis-data:

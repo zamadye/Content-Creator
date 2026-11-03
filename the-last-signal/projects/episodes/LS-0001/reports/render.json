@@ -1,0 +1,18 @@
+{
+  "episodeId": "LS-0001",
+  "output": "renders/LS-0001-f0-59.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "durationFrames": 1500,
+  "durationSeconds": 50,
+  "crf": 20,
+  "concurrency": 2,
+  "scale": 1,
+  "frameRange": [
+    0,
+    59
+  ],
+  "renderSeconds": 99.7,
+  "renderedAt": "2026-11-03T15:50:05.501Z"
+}

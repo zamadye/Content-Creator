@@ -68,6 +68,11 @@ jobs:
         working-directory: the-last-signal/tools/publish
         run: node zernio-check.mjs
 
+      - name: Status post terakhir (read-only)
+        working-directory: the-last-signal/tools/publish
+        continue-on-error: true
+        run: node zernio-posts.mjs --limit 3
+
       - name: Publikasikan laporan sebagai artefak
         if: always()
         uses: actions/upload-artifact@v4

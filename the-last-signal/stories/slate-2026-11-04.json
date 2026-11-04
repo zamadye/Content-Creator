@@ -502,7 +502,7 @@
       },
       "scenes": [
         {
-          "narration": "Bayangkan kamu juru parkir basement dua. Malam ini mobil hitam itu masuk untuk kelima kalinya, dan tiap kali pengemudinya terlihat sama.",
+          "narration": "Bayangkan kamu juru parkir basement dua. Malam ini mobil hitam itu masuk untuk kelima kalinya.",
           "imagePrompt": "empty underground parking basement in Indonesia, concrete pillars, numbered bays, flickering tube lights, wet floor, single black car in the distance, wide",
           "camera": "static",
           "shot": "wide",
@@ -516,7 +516,7 @@
           "intensity": 0.65
         },
         {
-          "narration": "Kamu mencatat jam masuknya. Catatanmu sudah berisi lima baris dengan jam yang sama persis, dan tulisan tanganmu makin mirip tiap baris.",
+          "narration": "Kamu mencatat jam masuknya. Catatanmu sudah berisi lima baris dengan jam yang sama persis.",
           "imagePrompt": "close-up of a parking log book with identical repeated handwriting lines, dim light, worn paper, pen resting, cinematic detail",
           "camera": "push_in",
           "shot": "closeup",
@@ -528,7 +528,7 @@
           "intensity": 0.7
         },
         {
-          "narration": "Kamu mendekati mobil itu. Di dalamnya kosong, tapi sabuk pengaman masih terpasang, dan kursi penumpang masih hangat.",
+          "narration": "Di dalam mobil itu kosong, tapi sabuk pengamannya masih terpasang, dan kursinya masih hangat.",
           "imagePrompt": "black car interior seen through a window at night in an underground garage, empty seats, seatbelt fastened, condensation, reflections, cinematic",
           "camera": "handheld",
           "shot": "medium",
@@ -541,7 +541,7 @@
           "intensity": 0.8
         },
         {
-          "narration": "Kamu kembali ke pos. Rekaman kamera basement menunjukkan kamu berdiri di sana selama empat jam, tanpa bergerak sama sekali.",
+          "narration": "Rekaman kamera basement menunjukkan kamu berdiri di pos selama empat jam tanpa bergerak.",
           "imagePrompt": "CCTV view of an empty parking booth with a chair and a still security guard silhouette, grainy monochrome, timecode, wide",
           "camera": "static",
           "shot": "cctv",
@@ -555,7 +555,7 @@
           "intensity": 0.75
         },
         {
-          "narration": "Lampu mati satu per satu. Ketika menyala lagi, mobil hitam itu sudah di depan pos, dan pintu pengemudi terbuka pelan.",
+          "narration": "Lampu mati satu per satu. Saat menyala, mobil itu sudah di depan pos, pintunya terbuka.",
           "imagePrompt": "black car parked directly in front of a security booth in a dark basement, driver door open, interior light on, no one inside, horror composition",
           "camera": "push_in",
           "shot": "wide",
@@ -569,7 +569,7 @@
           "intensity": 1
         },
         {
-          "narration": "Pagi itu kamu menonton rekaman terakhir. Yang duduk di kursi juru parkir bukan kamu, tapi orang yang tadi masuk ke mobil hitam itu.",
+          "narration": "Pagi itu kamu menonton rekaman terakhir. Yang duduk di kursimu bukan kamu.",
           "imagePrompt": "grainy CCTV still of a parking booth with a person sitting in the guard chair facing the camera, face indistinct, monochrome, timestamps",
           "camera": "pull_out",
           "shot": "cctv",
@@ -621,7 +621,7 @@
       },
       "scenes": [
         {
-          "narration": "Bayangkan kamu membongkar dinding rumah tua di Bandung. Di balik semen ada ruang kecil yang tidak pernah ada di denah.",
+          "narration": "Bayangkan kamu membongkar dinding rumah tua. Di balik semen ada ruang kecil yang tidak ada di denah.",
           "imagePrompt": "renovation site inside an old Indonesian house, broken plaster wall revealing a dark cavity, dust in the air, tools on floor, cinematic",
           "camera": "push_in",
           "shot": "medium",
@@ -634,7 +634,7 @@
           "intensity": 0.6
         },
         {
-          "narration": "Ruang itu setinggi bahu. Di lantainya ada tumpukan koran, rapi, dan semua halaman depannya sama: nama kota ini, tahun depan.",
+          "narration": "Ruang itu setinggi bahu. Di lantainya ada tumpukan koran, dan semua bertanggal tahun depan.",
           "imagePrompt": "cramped hidden room behind a wall filled with neatly stacked old newspapers, flashlight beam, dust, close walls, cinematic detail",
           "camera": "handheld",
           "shot": "pov",
@@ -648,7 +648,7 @@
           "intensity": 0.8
         },
         {
-          "narration": "Salah satu koran menulis tentang rumah ini. Bukan kejadian besar, hanya catatan kecil: perbaikan dinding, tanggal hari ini, nama kalian.",
+          "narration": "Salah satu koran menulis tentang rumah ini: perbaikan dinding, tanggal hari ini, nama kalian.",
           "imagePrompt": "close-up of a yellowed newspaper clipping about a house renovation, names visible, dim flashlight light, shallow depth of field",
           "camera": "push_in",
           "shot": "closeup",
@@ -660,7 +660,7 @@
           "intensity": 0.75
         },
         {
-          "narration": "Kamu memeriksa bagian bawah tumpukan. Setiap tahun di depan koran itu berganti, dan setiap tahun ada satu halaman tentang seseorang yang tinggal di rumah ini.",
+          "narration": "Kamu memeriksa bagian bawah tumpukan. Setiap tahun ada satu halaman tentang orang yang tinggal di sini.",
           "imagePrompt": "hands not visible, stacks of newspapers with different years, dark small room, dust particles in a beam of light, cinematic",
           "camera": "static",
           "shot": "medium",
@@ -673,7 +673,7 @@
           "intensity": 0.7
         },
         {
-          "narration": "Lampu kalian mati. Saat menyala lagi, seluruh koran sudah terbuka di halaman yang sama, dan semuanya bertanggal besok.",
+          "narration": "Lampu kalian mati. Saat menyala, semua koran terbuka di halaman yang sama, bertanggal besok.",
           "imagePrompt": "small hidden room with dozens of newspapers open on the floor all showing the same page, harsh flashlight, no people, horror composition",
           "camera": "pull_out",
           "shot": "wide",
@@ -687,7 +687,7 @@
           "intensity": 1
         },
         {
-          "narration": "Halaman terakhir berisi foto kalian bertiga, diambil dari dalam ruangan itu, dari sudut tempat tidak ada orang yang bisa berdiri.",
+          "narration": "Halaman terakhir berisi foto kalian bertiga, diambil dari sudut tempat tidak ada orang bisa berdiri.",
           "imagePrompt": "grainy black and white photograph of three construction workers standing in front of an old house, shot from an impossible low corner, aged paper texture",
           "camera": "static",
           "shot": "closeup",
@@ -739,7 +739,7 @@
       },
       "scenes": [
         {
-          "narration": "Bayangkan kamu di ruang radio pesisir pukul dua pagi. Ada panggilan darurat dari perahu yang menurut catatan sudah tenggelam sebelas tahun lalu.",
+          "narration": "Bayangkan kamu di ruang radio pesisir pukul dua pagi. Ada panggilan darurat dari perahu yang tenggelam sebelas tahun lalu.",
           "imagePrompt": "coastal radio room at night in Indonesia, old transceiver, microphone, notebooks, single desk lamp, dark window with sea beyond, cinematic",
           "camera": "static",
           "shot": "medium",
@@ -752,7 +752,7 @@
           "intensity": 0.6
         },
         {
-          "narration": "Suaranya memakai bahasa yang nenekmu pakai. Tidak ada orang seusiamu yang masih bisa mengucapkannya, tapi kamu mengerti setiap kata.",
+          "narration": "Suaranya memakai bahasa yang nenekmu pakai. Tidak ada orang seusiamu yang masih bisa mengucapkannya.",
           "imagePrompt": "close-up of an old radio speaker grille with a red light, dust, dim room, analog texture, night, cinematic detail",
           "camera": "push_in",
           "shot": "closeup",
@@ -765,7 +765,7 @@
           "intensity": 0.7
         },
         {
-          "narration": "Kamu menanyakan posisi mereka. Jawabannya bukan koordinat, tapi sebuah kalimat yang artinya: kami sudah di dekatmu sejak lama.",
+          "narration": "Kamu menanyakan posisi mereka. Jawabannya bukan koordinat, tapi: kami sudah dekat sejak lama.",
           "imagePrompt": "dark sea at night seen through a window from inside a small coastal station, reflections of the room on the glass, no boats, cinematic",
           "camera": "handheld",
           "shot": "pov",
@@ -778,7 +778,7 @@
           "intensity": 0.75
         },
         {
-          "narration": "Kamu mengirim perahu penyelamat. Sepanjang malam radio itu hanya mengulang satu kalimat, dan kalimat itu makin lama makin jelas.",
+          "narration": "Kamu mengirim perahu penyelamat. Sepanjang malam radio itu mengulang satu kalimat yang makin jelas.",
           "imagePrompt": "wooden fishing boat on black water at night, searchlight beam, fog, rain, cinematic wide shot, no crew",
           "camera": "push_in",
           "shot": "wide",
@@ -791,7 +791,7 @@
           "intensity": 0.8
         },
         {
-          "narration": "Menjelang subuh panggilan itu berhenti. Yang tersisa hanya suara air menabrak lambung, dan suara banyak orang yang bernafas di ruanganmu.",
+          "narration": "Menjelang subuh panggilan berhenti. Yang tersisa suara air, dan suara banyak orang bernafas di ruanganmu.",
           "imagePrompt": "dark radio room interior at dawn, condensation on window, wet footprints on the floor leading to the desk, cinematic horror",
           "camera": "static",
           "shot": "wide",
@@ -804,7 +804,7 @@
           "intensity": 1
         },
         {
-          "narration": "Perahu kosong itu ditemukan siang berikutnya. Radionya masih mengirim, dan di dindingnya tertulis nama semua orang yang ikut menyelamatkan.",
+          "narration": "Perahu kosong itu ditemukan siang berikutnya. Di dindingnya tertulis nama semua orang yang ikut menyelamatkan.",
           "imagePrompt": "empty wooden boat interior in daylight, wet walls with names scratched into the wood, radio unit still on, wide documentary framing",
           "camera": "pull_out",
           "shot": "medium",
@@ -855,7 +855,7 @@
       },
       "scenes": [
         {
-          "narration": "Bayangkan kamu tinggal di kamar kos nomor tujuh. Suatu malam internet mati, dan router mencatat satu perangkat yang tidak pernah kamu beli.",
+          "narration": "Bayangkan kamu tinggal di kamar kos nomor tujuh. Router mencatat satu perangkat yang tidak pernah kamu beli.",
           "imagePrompt": "cheap Indonesian boarding house room at night, router with blinking lights on a shelf, unmade bed, tiled floor, dim lamp, cinematic",
           "camera": "static",
           "shot": "medium",
@@ -868,7 +868,7 @@
           "intensity": 0.55
         },
         {
-          "narration": "Log menunjukkan perangkat itu terhubung setiap malam pukul tiga lewat tiga puluh tiga, selama empat belas bulan sebelum kamu pindah ke sini.",
+          "narration": "Perangkat itu terhubung setiap malam pukul tiga lewat tiga puluh tiga, empat belas bulan sebelum kamu pindah.",
           "imagePrompt": "laptop screen in a dark room showing router admin log with a list of connected devices, blue glow on a wall, close-up, cinematic",
           "camera": "push_in",
           "shot": "closeup",
@@ -881,7 +881,7 @@
           "intensity": 0.7
         },
         {
-          "narration": "Kamu mematikan internet. Pukul tiga lewat tiga puluh tiga, lampu router tetap menyala, dan kamera ponselmu menyala sendiri.",
+          "narration": "Kamu mematikan internet. Pukul tiga lewat tiga puluh tiga, kamera ponselmu menyala sendiri.",
           "imagePrompt": "dark boarding room with a phone camera flash illuminating a corner, router lights still on, dust, no people, horror framing",
           "camera": "handheld",
           "shot": "pov",
@@ -895,7 +895,7 @@
           "intensity": 0.85
         },
         {
-          "narration": "Di galeri ponselmu ada foto kamar ini, diambil malam ini, dari sudut langit-langit. Kamu tidak pernah menaruh ponsel di sana.",
+          "narration": "Di galeri ada foto kamar ini, diambil malam ini, dari sudut langit-langit.",
           "imagePrompt": "smartphone gallery grid of dark room photos taken from ceiling corner, thumbnails full of the same room, dim light, horror detail",
           "camera": "push_in",
           "shot": "closeup",
@@ -908,7 +908,7 @@
           "intensity": 0.95
         },
         {
-          "narration": "Kamu memeriksa nama perangkat itu di log. Namanya sama dengan nomor kamar yang sedang kamu tempati, dan statusnya sedang terhubung.",
+          "narration": "Kamu memeriksa nama perangkat itu. Namanya sama dengan nomor kamar yang sedang kamu tempati.",
           "imagePrompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
           "camera": "static",
           "shot": "closeup",
@@ -921,7 +921,7 @@
           "intensity": 0.9
         },
         {
-          "narration": "Kamu keluar kamar dan mengetuk kamar sebelah. Pintunya terbuka. Di dalam ada router yang sama, menyala, dan namanya tertulis nomor kamarmu.",
+          "narration": "Kamu mengetuk kamar sebelah. Di dalam ada router yang sama, dan namanya tertulis nomor kamarmu.",
           "imagePrompt": "open door to an adjoining boarding room with an identical router glowing on the floor, dark corridor light behind, wide horror composition",
           "camera": "pull_out",
           "shot": "wide",
@@ -973,7 +973,7 @@
       },
       "scenes": [
         {
-          "narration": "Bayangkan kamu lembur sendirian di gedung dua belas lantai. Lift datang pukul sebelas malam, dan panelnya berisi satu tombol yang tidak ada di gedung ini.",
+          "narration": "Bayangkan kamu lembur sendirian di gedung dua belas lantai. Panel lift punya satu tombol yang tidak ada di gedung ini.",
           "imagePrompt": "office elevator interior at night, brushed steel walls, numbered buttons panel, one extra unlabeled button glowing, harsh light, cinematic",
           "camera": "static",
           "shot": "medium",
@@ -986,7 +986,7 @@
           "intensity": 0.6
         },
         {
-          "narration": "Kamu menekan tombol dua belas. Lift naik melewati dua belas, dan tidak berhenti. Angka di layar naik sampai sembilan belas.",
+          "narration": "Kamu menekan lantai dua belas. Lift naik melewatinya, dan berhenti di lantai sembilan belas.",
           "imagePrompt": "close-up of an elevator floor indicator showing 19 in an old segmented display, dim reflection on metal, night, cinematic detail",
           "camera": "push_in",
           "shot": "closeup",
@@ -999,7 +999,7 @@
           "intensity": 0.75
         },
         {
-          "narration": "Pintu terbuka ke kantor yang mirip lantaimu. Lampu menyala, komputer menyala, dan setiap kursi berputar pelan tanpa ada yang duduk.",
+          "narration": "Pintu terbuka ke kantor yang mirip lantaimu. Semua komputer menyala, semua kursi berputar pelan.",
           "imagePrompt": "empty open plan office at night with monitors on and office chairs slowly turned toward the camera, cold light, wide cinematic",
           "camera": "handheld",
           "shot": "wide",
@@ -1012,7 +1012,7 @@
           "intensity": 0.8
         },
         {
-          "narration": "Kamu berjalan ke ruang rapat. Di dalamnya ada orang-orang yang kamu kenal, semua memakai pakaian yang sama seperti hari ini, semua diam.",
+          "narration": "Di ruang rapat ada orang-orang yang kamu kenal, memakai pakaian yang sama seperti hari ini, semua diam.",
           "imagePrompt": "meeting room at night with several people sitting still with their backs to the camera, monitors glowing, no faces visible, cinematic dread",
           "camera": "push_in",
           "shot": "medium",
@@ -1025,7 +1025,7 @@
           "intensity": 0.9
         },
         {
-          "narration": "Salah satu dari mereka menoleh. Wajahnya kosong, tanpa mata, dan ia mengangkat tangan seperti memberi tanda supaya kamu ikut duduk.",
+          "narration": "Salah satu menoleh. Wajahnya kosong tanpa mata, dan ia mengangkat tangan seperti menyuruhmu duduk.",
           "imagePrompt": "close-up of a seated office worker turning head with a featureless face, monitor light, dark room, horror makeup, cinematic",
           "camera": "static",
           "shot": "closeup",
@@ -1039,7 +1039,7 @@
           "intensity": 1
         },
         {
-          "narration": "Kamu kembali ke lift dan menekan lantai satu. Pintu terbuka ke ruang rapat yang sama, dan di kursi paling ujung, kamu masih duduk di sana.",
+          "narration": "Kamu kembali ke lift dan menekan lantai satu. Pintunya terbuka ke ruang rapat yang sama, dan kamu masih duduk di sana.",
           "imagePrompt": "elevator doors opening onto a dark meeting room, one figure seated alone at the far end of the table facing the doors, wide cinematic",
           "camera": "pull_out",
           "shot": "wide",

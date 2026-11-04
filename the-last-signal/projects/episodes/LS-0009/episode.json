@@ -1,0 +1,512 @@
+{
+  "episodeId": "LS-0009",
+  "title": "Perangkat Ketujuh",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 49.6,
+  "story": {
+    "hook": "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun. Selama empat belas bulan.",
+    "premise": "Penghuni kos memeriksa log wifi dan menemukan perangkat yang terhubung setiap malam pukul 03.33.",
+    "twist": "Perangkat itu tidak mengunggah data. Ia mengunduh foto, satu per malam, dari kamera yang tidak ada di kamar itu.",
+    "ending": "Di log, perangkat itu berganti nama menjadi nama penghuni kamar itu sendiri."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [
+    {
+      "atFrame": 825,
+      "image": "images/scare-face.png",
+      "assetId": "audio/sfx/scare.wav",
+      "volume": 0.95,
+      "flash": 0.9,
+      "shake": 1,
+      "zoom": 1.5,
+      "durationFrames": 16
+    }
+  ],
+  "onScreenText": [
+    {
+      "text": "03.33",
+      "startFrame": 30,
+      "endFrame": 90
+    },
+    {
+      "text": "14 BULAN SEBELUM KAMU PINDAH",
+      "startFrame": 803,
+      "endFrame": 863
+    },
+    {
+      "text": "KAMAR 7 ↔ KAMAR 7",
+      "startFrame": 1160,
+      "endFrame": 1220
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 263,
+      "image": "images/scene-01.png",
+      "narration": "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun. Selama empat belas bulan.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 74,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 147,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 216,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 190,
+          "text": "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun."
+        },
+        {
+          "startFrame": 190,
+          "endFrame": 251,
+          "text": "Selama empat belas bulan."
+        }
+      ],
+      "visual": {
+        "prompt": "cheap Indonesian boarding house room at night, router with blinking lights on a shelf, unmade bed, tiled floor, dim lamp, cinematic",
+        "locationId": "ls-0009_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "warm_room_lamp_2700k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "timestamp_hud"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 163,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 216,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 276,
+      "image": "images/scene-02.png",
+      "narration": "Perangkat itu menyala tiap malam pukul tiga lewat tiga puluh tiga, selalu tiga detik setelah kamu tidur.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 77,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 155,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 226,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 264,
+          "text": "Perangkat itu menyala tiap malam pukul tiga lewat tiga puluh tiga, selalu tiga detik setelah kamu tidur."
+        }
+      ],
+      "visual": {
+        "prompt": "laptop screen in a dark room showing router admin log with a list of connected devices, blue glow on a wall, close-up, cinematic",
+        "locationId": "ls-0009_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "laptop_screen_blue_in_dark",
+        "intensity": 0.7,
+        "effects": [
+          "scanlines",
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 171,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 226,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 224,
+      "image": "images/scene-03.png",
+      "narration": "Kamu mematikan internet. Pukul tiga lewat tiga puluh tiga, kamera ponselmu menyala sendiri.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 63,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 125,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 184,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 54,
+          "text": "Kamu mematikan internet."
+        },
+        {
+          "startFrame": 54,
+          "endFrame": 212,
+          "text": "Pukul tiga lewat tiga puluh tiga, kamera ponselmu menyala sendiri."
+        }
+      ],
+      "visual": {
+        "prompt": "dark boarding room with a phone camera flash illuminating a corner, router lights still on, dust, no people, horror framing",
+        "locationId": "ls-0009_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "pov",
+        "lighting": "phone_flash_harsh_white",
+        "intensity": 0.85,
+        "effects": [
+          "camera_shake",
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 139,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 184,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 250,
+      "image": "images/scene-04.png",
+      "narration": "Di galeri ada dua belas foto kamar ini. Semuanya diambil malam ini, dari sudut langit-langit.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 130,
+          "text": "Di galeri ada dua belas foto kamar ini."
+        },
+        {
+          "startFrame": 130,
+          "endFrame": 238,
+          "text": "Semuanya diambil malam ini, dari sudut langit-langit."
+        }
+      ],
+      "visual": {
+        "prompt": "smartphone gallery grid of dark room photos taken from ceiling corner, thumbnails full of the same room, dim light, horror detail",
+        "locationId": "ls-0009_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "screen_glow_on_face_not_visible",
+        "intensity": 0.95,
+        "effects": [
+          "scanlines",
+          "film_grain",
+          "creature_reveal"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 250,
+      "image": "images/scene-05.png",
+      "narration": "Kamu mengetuk kamar sebelah. Di dalam ada router yang sama, mencatat nomor kamarmu, bukan nomornya.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 68,
+          "text": "Kamu mengetuk kamar sebelah."
+        },
+        {
+          "startFrame": 68,
+          "endFrame": 238,
+          "text": "Di dalam ada router yang sama, mencatat nomor kamarmu, bukan nomornya."
+        }
+      ],
+      "visual": {
+        "prompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
+        "locationId": "ls-0009_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "monitor_glow_red_accent",
+        "intensity": 0.9,
+        "effects": [
+          "scanlines",
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 224,
+      "image": "images/scene-06.png",
+      "narration": "Kamu kembali ke kamar. Di log, perangkat itu sudah berganti nama. Namanya namamu.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 63,
+          "camera": "pull_out",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 184,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 69,
+          "text": "Kamu kembali ke kamar."
+        },
+        {
+          "startFrame": 69,
+          "endFrame": 180,
+          "text": "Di log, perangkat itu sudah berganti nama."
+        },
+        {
+          "startFrame": 180,
+          "endFrame": 212,
+          "text": "Namanya namamu."
+        }
+      ],
+      "visual": {
+        "prompt": "open door to an adjoining boarding room with an identical router glowing on the floor, dark corridor light behind, wide horror composition",
+        "locationId": "ls-0009_main",
+        "characterIds": [],
+        "camera": "pull_out",
+        "shot": "wide",
+        "lighting": "corridor_light_spill_into_dark_room",
+        "intensity": 0.7,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "volumetric_fog"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 139,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 184,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Router Kos Itu Mencatat Satu Perangkat Selama 14 Bulan Sebelum Aku Pindah",
+    "description": "ARSIP FIKSI — Log router kamar kos nomor 7. Satu perangkat, setiap malam pukul 03.33.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AnalogHorror",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "analog horror",
+      "kos",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "thumbnail": {
+      "headline": "ROUTER ITU MENCATAT NAMAKU",
+      "kicker": "KAMAR 7 · 03.33",
+      "image": "images/thumb.png",
+      "holdFrames": 12
+    }
+  },
+  "production": {
+    "subgenre": "Unknown Entity",
+    "experiment": "Horor digital: tidak ada hantu, hanya log perangkat yang mencatat sesuatu yang tidak seharusnya ada.",
+    "structure": "log perangkat (baris demi baris)",
+    "slate": "stories/slate-2026-11-04.json"
+  }
+}

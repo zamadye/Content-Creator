@@ -158,6 +158,42 @@ export const EpisodeSchema = z.object({
   narrationAudio: z.string().optional(),
 
   /**
+   * Skor musik latar untuk seluruh episode (satu file, panjangnya = episode).
+   * Musik tidak di-loop per scene: restart tiap cut justru membunuh tensi.
+   */
+  score: z
+    .object({
+      assetId: z.string().min(1),
+      volume: z.number().min(0).max(1).default(0.8),
+    })
+    .optional(),
+
+  /**
+   * Jump scare yang direncanakan — bukan kejutan acak.
+   * Maksimum 3 per Shorts; lebih dari itu penonton jadi kebal.
+   */
+  jumpscares: z
+    .array(
+      z.object({
+        atFrame: z.number().int().nonnegative(),
+        /** Gambar pengganti saat scare (mis. sosok versi close-up). */
+        image: z.string().optional(),
+        assetId: z.string().min(1),
+        volume: z.number().min(0).max(1).default(1),
+        /** Intensitas kilatan putih 0–1. */
+        flash: z.number().min(0).max(1).default(0.8),
+        /** Intensitas guncangan kamera 0–1. */
+        shake: z.number().min(0).max(1).default(0.9),
+        /** Zoom burst saat scare (1 = tanpa zoom). */
+        zoom: z.number().min(1).max(2.5).default(1.35),
+        /** Durasi efek visual dalam frame. */
+        durationFrames: z.number().int().min(4).max(45).default(14),
+      }),
+    )
+    .max(3)
+    .default([]),
+
+  /**
    * Kartu teks besar sebagai tanda baca ritme (mis. "JANGAN DIBUKA").
    * Maksimum 4–5 per episode; ini bukan subtitle.
    */
@@ -318,6 +354,34 @@ export const ParsedEpisodeSchema = EpisodeSchema.superRefine((episode, ctx) => {
       message: "narrationAudio ada, tetapi ada scene tanpa teks narasi — alignment tidak mungkin dilakukan",
     });
   }
+
+  let previousScare = -1;
+  episode.jumpscares.forEach((scare, index) => {
+    const path = ["jumpscares", index] as const;
+    if (scare.atFrame <= previousScare) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [...path, "atFrame"],
+        message: "jumpscare harus berurutan dan tidak boleh menumpuk",
+      });
+    }
+    if (scare.atFrame + scare.durationFrames > totalFrames) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [...path],
+        message: "jumpscare melewati akhir episode",
+      });
+    }
+    // Scare di 5 detik pertama membuang hook; penonton belum punya konteks.
+    if (scare.atFrame < 150) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [...path, "atFrame"],
+        message: "jumpscare terlalu awal (<5 detik): tidak ada tensi yang bisa dipecahkan",
+      });
+    }
+    previousScare = scare.atFrame;
+  });
 
   let previousTextEnd = -1;
   episode.onScreenText.forEach((item, index) => {

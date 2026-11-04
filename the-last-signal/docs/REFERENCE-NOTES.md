@@ -36,6 +36,21 @@ bekerja di YouTube Shorts/TikTok, bukan terhadap selera kita sendiri.
 | Loudness | Master −14 LUFS, true peak −1,5 dBTP (standar platform). |
 | Ukuran file | Delivery 1080×1920 30fps ≈ 5–6 Mbps (≈30–35 MB untuk 50 detik). |
 
+## Sudut pandang narasi: "Bayangkan / Rasakan"
+
+Narasi dokumenter ("Aku penjaga malam gedung ini…") menjelaskan. Narasi orang
+kedua menempatkan penonton **di dalam** kejadian: "Bayangkan kamu jaga malam di
+gedung yang sudah kosong…" — penonton dipaksa membayangkan dirinya di sana, dan
+itu yang menghasilkan ketegangan, bukan informasi.
+
+Aturan yang dipakai sekarang:
+
+- Kalimat pertama wajib membuka dengan ajakan membayangkan/merasakan.
+- Minimal satu instruksi sensorik per episode ("rasakan bulu tengkukmu berdiri").
+- Subjek adalah "kamu", bukan "aku" — kecuali di akhir, saat posisi itu berbalik.
+- Tidak ada kalimat yang menjelaskan latar belakang administratif (nama gedung,
+  jam shift, prosedur); semua detail harus bisa dirasakan.
+
 ## Yang salah pada versi pertama (LS-0001 v1)
 
 - **Tidak ada narasi bersuara.** Hanya ambience 40–55 Hz + beberapa SFX. Di speaker

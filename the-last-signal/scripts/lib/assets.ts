@@ -20,6 +20,12 @@ export function collectRequiredAssets(episode: ParsedEpisode): string[] {
   }
 
   if (episode.narrationAudio) required.add(episode.narrationAudio);
+  if (episode.score) required.add(episode.score.assetId);
+
+  for (const scare of episode.jumpscares) {
+    required.add(scare.assetId);
+    if (scare.image) required.add(scare.image);
+  }
 
   // Overlay tekstur selalu dipakai komposisi (grain & scanline).
   for (const overlay of [

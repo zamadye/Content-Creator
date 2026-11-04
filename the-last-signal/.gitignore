@@ -9,5 +9,10 @@ renders/
 *.mp4
 *.webm
 
+# Audio prosedural (dibuat ulang oleh scripts/make-*.mjs, deterministic)
+projects/episodes/*/audio/score.wav
+projects/episodes/*/audio/ambience_drone.wav
+projects/episodes/*/audio/sfx/*.wav
+
 # Remotion
 .remotion/

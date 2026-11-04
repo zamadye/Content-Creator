@@ -76,6 +76,27 @@ Selain tipe dasar:
 8. `publishing.syntheticDisclosure` wajib `true` — pengungkapan media sintetis
    diperlakukan sebagai bagian dari kontrak, bukan opsi UI.
 
+## Skor musik & jump scare (v3)
+
+Versi 1–2 punya ambience dan SFX, tapi tidak punya **musik** dan tidak punya
+**jump scare** — dua hal yang justru paling menentukan rasa takut.
+
+**Skor** (`scripts/make-score.mjs`) disintesis deterministik, bukan sample:
+drone D2 dengan tritone Ab2, pad string detune, kick 58 BPM, denyut ganda saat
+tensi, cluster D5+Eb5, riser 4 detik menuju klimaks, lalu **0,7 detik hening**
+setelah scare (kontras yang membuat scare terasa). Panjang file mengikuti durasi
+episode, jadi musik tidak pernah restart di cut.
+
+**Jump scare** (`episode.jumpscares`) direncanakan: maksimal 3 per episode, wajib
+setelah detik ke-5, dan punya kontrak sendiri (flash, shake, zoom, durasi).
+Urutan efeknya: kilatan putih 2 frame → gambar ancaman masuk dengan zoom burst
+dan guncangan → glitch bar 6 frame → jatuh ke gelap.
+
+**Mixing**: musik di-duck ke 34% selama narasi (seperti mixing film), ambience
+turun, stinger scare dibiarkan penuh. Encode memakai `aresample=192000` sebelum
+`loudnorm` supaya true peak transien stinger tidak lolos di atas 0 dBTP —
+QC sempat menangkap +1,0 dBTP sebelum ini diperbaiki.
+
 ## Performa render (terukur di mesin uji 2 vCPU / 3 GB)
 
 | Konfigurasi | Hasil |

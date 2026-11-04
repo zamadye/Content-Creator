@@ -17,9 +17,43 @@ export const Soundscape: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =>
   const { fps } = useVideoConfig();
   const offsets = sceneOffsets(episode);
 
+  /** Window narasi per scene (frame global), dipakai untuk ducking musik. */
+  const narrationWindows = episode.scenes.flatMap((scene, index) =>
+    scene.narrationAudio
+      ? [{ from: offsets[index], to: offsets[index] + scene.durationFrames }]
+      : [],
+  );
+
   return (
     <>
       {episode.narrationAudio ? <Audio src={staticFile(episode.narrationAudio)} volume={1} /> : null}
+
+      {/* Skor musik: satu track untuk seluruh episode, bukan loop per scene.
+          Musik ditekan saat narasi berjalan, naik di jeda — seperti mixing film. */}
+      {episode.score ? (
+        <Audio
+          src={staticFile(episode.score.assetId)}
+          volume={(frame) => {
+            const narrationWindow = narrationWindows.find(
+              (window) => frame >= window.from && frame <= window.to,
+            );
+            const duck = narrationWindow ? 0.34 : 1;
+            return episode.score!.volume * duck;
+          }}
+        />
+      ) : null}
+
+      {/* Stinger jump scare. */}
+      {episode.jumpscares.map((scare, index) => (
+        <Sequence
+          key={`scare-audio-${index}`}
+          from={scare.atFrame}
+          durationInFrames={Math.max(1, Math.round(fps * 2))}
+          name={`stinger ${index + 1}`}
+        >
+          <Audio src={staticFile(scare.assetId)} volume={scare.volume} />
+        </Sequence>
+      ))}
 
       {episode.scenes.map((scene, sceneIndex) => {
         const from = offsets[sceneIndex];

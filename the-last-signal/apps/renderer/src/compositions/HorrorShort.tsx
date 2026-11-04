@@ -5,6 +5,7 @@ import { sceneOffsets } from "@the-last-signal/contracts";
 import { CinematicScene } from "../components/CinematicScene";
 import { FilmGrain } from "../components/FilmGrain";
 import { FoundFootageHud } from "../components/FoundFootageHud";
+import { Jumpscare } from "../components/Jumpscare";
 import { OnScreenTextTrack } from "../components/OnScreenText";
 import { Soundscape } from "../components/Soundscape";
 import { SubtitleTrack } from "../components/SubtitleTrack";
@@ -89,6 +90,17 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
       <SubtitleTrack episode={episode} />
       <OnScreenTextTrack episode={episode} />
       <FoundFootageHud />
+      {episode.jumpscares.map((scare, index) => (
+        <Sequence
+          key={`scare-${index}`}
+          from={scare.atFrame}
+          durationInFrames={scare.durationFrames}
+          name={`jumpscare ${index + 1}`}
+        >
+          <Jumpscare scare={scare} />
+        </Sequence>
+      ))}
+
       <Vignette strength={0.55} />
       <FilmGrain opacity={0.06} />
 

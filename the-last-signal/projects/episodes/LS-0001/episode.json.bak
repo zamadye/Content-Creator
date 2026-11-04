@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 50,
+  "targetDurationSeconds": 57.6,
   "story": {
     "hook": "Pukul 03.17, kamera CCTV lantai tujuh merekam ketukan yang tidak punya sumber.",
     "premise": "Penjaga malam sebuah apartemen kosong mendengar ketukan darurat dari lemari besi yang terkunci dari luar.",
@@ -16,52 +16,53 @@
   },
   "onScreenText": [
     {
-      "text": "JANGAN DIBUKA",
-      "startFrame": 18,
-      "endFrame": 76
+      "text": "BAYANGKAN",
+      "startFrame": 12,
+      "endFrame": 78
     },
     {
-      "text": "PINTU KEDUA",
-      "startFrame": 1140,
-      "endFrame": 1200
+      "text": "JANGAN MENOLEH",
+      "startFrame": 900,
+      "endFrame": 960
     },
     {
       "text": "TERLAMBAT",
-      "startFrame": 1272,
-      "endFrame": 1332
+      "startFrame": 1240,
+      "endFrame": 1300
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 120,
+      "durationFrames": 160,
       "image": "images/scene-01.png",
-      "narration": "Pukul tiga lewat tujuh belas. Lantai tujuh seharusnya kosong.",
+      "narration": "Bayangkan kamu jaga malam di gedung yang sudah kosong. Pukul tiga lewat tujuh belas, ada yang mengetuk dari dalam lemari.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 45,
+          "atFrame": 60,
+          "camera": "push_in",
           "scale": 1.38,
-          "offsetY": 60,
-          "camera": "push_in"
+          "offsetY": 60
         },
         {
-          "atFrame": 92,
+          "atFrame": 123,
+          "camera": "handheld",
           "scale": 1.12,
-          "offsetY": 0,
-          "camera": "handheld"
+          "offsetY": 0
         }
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 58,
-          "text": "Pukul tiga lewat tujuh belas."
+          "startFrame": 0,
+          "endFrame": 1,
+          "text": "Bayangkan kamu jaga malam di gedung yang sudah kosong."
         },
         {
-          "startFrame": 62,
-          "endFrame": 116,
-          "text": "Lantai tujuh seharusnya kosong."
+          "startFrame": 0,
+          "endFrame": 1,
+          "text": "Pukul tiga lewat tujuh belas, ada yang mengetuk dari dalam lemari."
         }
       ],
       "visual": {
@@ -86,32 +87,32 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 100,
+            "startFrame": 133,
             "volume": 0.55
           }
         ]
-      },
-      "narrationAudio": "audio/narration/scene-01.mp3"
+      }
     },
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 270,
+      "durationFrames": 226,
       "image": "images/scene-02.png",
-      "narration": "Aku penjaga malam gedung ini. Tiap shift, ada ketukan dari lemari besi di ujung koridor.",
+      "narration": "Tiap shift, jam yang sama. Lemari itu terkunci dari luar, tapi ketukannya makin keras.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 59,
           "scale": 1.55,
           "offsetY": -120
         },
         {
-          "atFrame": 150,
+          "atFrame": 126,
           "scale": 1.35,
           "offsetY": 140
         },
         {
-          "atFrame": 215,
+          "atFrame": 180,
           "scale": 1.05,
           "offsetY": 0
         }
@@ -120,12 +121,12 @@
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Aku penjaga malam gedung ini."
+          "text": "Tiap shift, jam yang sama."
         },
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Tiap shift, ada ketukan dari lemari besi di ujung koridor."
+          "text": "Lemari itu terkunci dari luar, tapi ketukannya makin keras."
         }
       ],
       "visual": {
@@ -148,38 +149,38 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 120,
+            "startFrame": 100,
             "volume": 0.4
           }
         ]
-      },
-      "narrationAudio": "audio/narration/scene-02.mp3"
+      }
     },
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 270,
+      "durationFrames": 377,
       "image": "images/scene-03.png",
-      "narration": "Kamera cuma merekam koridor kosong. Ketukan pertama pukul satu. Kedua pukul dua. Ketiga selalu pukul tiga lewat tujuh belas.",
+      "narration": "Kamera merekam koridor kosong. Mikrofonnya menangkap bisikan. Rasakan bulu tengkukmu berdiri.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 64,
+          "atFrame": 89,
           "scale": 1.32,
           "offsetY": 40
         },
         {
-          "atFrame": 128,
+          "atFrame": 179,
           "scale": 1.6,
-          "offsetY": 90,
-          "offsetX": -30
+          "offsetX": -30,
+          "offsetY": 90
         },
         {
-          "atFrame": 190,
+          "atFrame": 265,
           "scale": 1.28,
           "offsetY": 40
         },
         {
-          "atFrame": 238,
+          "atFrame": 332,
           "scale": 1.72,
           "offsetY": 120
         }
@@ -188,22 +189,17 @@
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Kamera cuma merekam koridor kosong."
+          "text": "Kamera merekam koridor kosong."
         },
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Ketukan pertama pukul satu."
+          "text": "Mikrofonnya menangkap bisikan."
         },
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Kedua pukul dua."
-        },
-        {
-          "startFrame": 0,
-          "endFrame": 1,
-          "text": "Ketiga selalu pukul tiga lewat tujuh belas."
+          "text": "Rasakan bulu tengkukmu berdiri."
         }
       ],
       "visual": {
@@ -227,50 +223,50 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 138,
+            "startFrame": 193,
             "volume": 0.6
           },
           {
             "assetId": "audio/sfx/riser.wav",
-            "startFrame": 168,
+            "startFrame": 235,
             "volume": 0.6
           },
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 200,
+            "startFrame": 279,
             "volume": 0.8
           },
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 240,
+            "startFrame": 335,
             "volume": 0.95
           }
         ]
-      },
-      "narrationAudio": "audio/narration/scene-03.mp3"
+      }
     },
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 300,
+      "durationFrames": 335,
       "image": "images/scene-04.png",
-      "narration": "Malam ini aku naik sendiri. Kunci cadangan sudah kugenggam. Lemari itu dingin sekali. Dari celah pintunya keluar bau tanah basah.",
+      "narration": "Malam ini kamu naik sendiri. Lemari itu dingin, dan dari celahnya keluar bau tanah basah.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 72,
+          "atFrame": 80,
           "scale": 1.5,
           "offsetX": -70,
           "offsetY": 30
         },
         {
-          "atFrame": 158,
+          "atFrame": 176,
+          "camera": "handheld",
           "scale": 1.85,
           "offsetX": 70,
-          "offsetY": -20,
-          "camera": "handheld"
+          "offsetY": -20
         },
         {
-          "atFrame": 246,
+          "atFrame": 275,
           "scale": 1.2,
           "offsetX": 0,
           "offsetY": 0
@@ -278,24 +274,14 @@
       ],
       "subtitles": [
         {
-          "startFrame": 8,
-          "endFrame": 70,
-          "text": "Malam ini aku naik sendiri."
+          "startFrame": 0,
+          "endFrame": 1,
+          "text": "Malam ini kamu naik sendiri."
         },
         {
-          "startFrame": 78,
-          "endFrame": 140,
-          "text": "Kunci cadangan sudah kugenggam."
-        },
-        {
-          "startFrame": 150,
-          "endFrame": 230,
-          "text": "Lemari itu dingin sekali."
-        },
-        {
-          "startFrame": 236,
-          "endFrame": 294,
-          "text": "Dari celah pintunya keluar bau tanah basah."
+          "startFrame": 0,
+          "endFrame": 1,
+          "text": "Lemari itu dingin, dan dari celahnya keluar bau tanah basah."
         }
       ],
       "visual": {
@@ -318,48 +304,48 @@
         "sfx": [
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 60,
+            "startFrame": 67,
             "volume": 0.45
           },
           {
             "assetId": "audio/sfx/door_creak.wav",
-            "startFrame": 176,
+            "startFrame": 197,
             "volume": 0.6
           },
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 250,
+            "startFrame": 279,
             "volume": 0.8
           }
         ]
-      },
-      "narrationAudio": "audio/narration/scene-04.mp3"
+      }
     },
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 300,
+      "durationFrames": 328,
       "image": "images/scene-05.png",
-      "narration": "Aku membuka pintunya. Kosong, cuma dinding. Ada pintu lain di dalam dinding itu. Ketukan keempat dari belakang punggungku.",
+      "narration": "Kamu buka pintunya. Kosong, cuma dinding. Tapi di dalam dinding itu ada pintu lain, gagangnya di sisi dalam.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 58,
+          "atFrame": 63,
           "scale": 1.45,
           "offsetY": -40
         },
         {
-          "atFrame": 132,
+          "atFrame": 144,
           "scale": 1.75,
-          "offsetY": -90,
-          "offsetX": 40
+          "offsetX": 40,
+          "offsetY": -90
         },
         {
-          "atFrame": 206,
-          "scale": 1.3,
-          "camera": "handheld"
+          "atFrame": 225,
+          "camera": "handheld",
+          "scale": 1.3
         },
         {
-          "atFrame": 258,
+          "atFrame": 282,
           "scale": 1.95,
           "offsetY": -60
         }
@@ -368,22 +354,12 @@
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Aku membuka pintunya."
+          "text": "Kamu buka pintunya. Kosong, cuma dinding."
         },
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Kosong, cuma dinding."
-        },
-        {
-          "startFrame": 0,
-          "endFrame": 1,
-          "text": "Ada pintu lain di dalam dinding itu."
-        },
-        {
-          "startFrame": 0,
-          "endFrame": 1,
-          "text": "Ketukan keempat dari belakang punggungku."
+          "text": "Tapi di dalam dinding itu ada pintu lain, gagangnya di sisi dalam."
         }
       ],
       "visual": {
@@ -412,48 +388,48 @@
           },
           {
             "assetId": "audio/sfx/riser.wav",
-            "startFrame": 150,
+            "startFrame": 164,
             "volume": 0.7
           },
           {
             "assetId": "audio/sfx/impact.wav",
-            "startFrame": 210,
+            "startFrame": 230,
             "volume": 0.9
           },
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 218,
+            "startFrame": 238,
             "volume": 1
           }
         ]
-      },
-      "narrationAudio": "audio/narration/scene-05.mp3"
+      }
     },
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 240,
+      "durationFrames": 301,
       "image": "images/scene-06.png",
-      "narration": "Rekaman berhenti empat menit kemudian. Penjaga itu tak pernah ditemukan. Satu baris di buku jaga: jangan buka dua kali.",
+      "narration": "Ketukan keempat terdengar dari belakang punggungmu. Rekaman berhenti. Kamu tidak pernah ditemukan.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 48,
+          "atFrame": 60,
+          "camera": "push_in",
           "scale": 1.55,
-          "offsetY": -40,
-          "camera": "push_in"
+          "offsetY": -40
         },
         {
-          "atFrame": 104,
+          "atFrame": 130,
           "scale": 1.25,
           "offsetY": 0
         },
         {
-          "atFrame": 160,
+          "atFrame": 201,
           "scale": 1.9,
           "offsetY": -120
         },
         {
-          "atFrame": 200,
+          "atFrame": 251,
           "scale": 1.15,
           "offsetY": 0
         }
@@ -462,17 +438,17 @@
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Rekaman berhenti empat menit kemudian."
+          "text": "Ketukan keempat terdengar dari belakang punggungmu."
         },
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Penjaga itu tak pernah ditemukan."
+          "text": "Rekaman berhenti."
         },
         {
           "startFrame": 0,
           "endFrame": 1,
-          "text": "Satu baris di buku jaga: jangan buka dua kali."
+          "text": "Kamu tidak pernah ditemukan."
         }
       ],
       "visual": {
@@ -499,22 +475,21 @@
         "sfx": [
           {
             "assetId": "audio/sfx/impact.wav",
-            "startFrame": 4,
+            "startFrame": 5,
             "volume": 1
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 80,
+            "startFrame": 100,
             "volume": 0.55
           },
           {
             "assetId": "audio/sfx/riser.wav",
-            "startFrame": 150,
+            "startFrame": 188,
             "volume": 0.5
           }
         ]
-      },
-      "narrationAudio": "audio/narration/scene-06.mp3"
+      }
     }
   ],
   "publishing": {

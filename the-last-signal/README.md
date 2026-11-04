@@ -11,6 +11,7 @@ rekaman pengawas — dari file JSON episode, tanpa AI Agent di jalur render.
 pnpm install
 node scripts/make-demo-audio.mjs      # placeholder ambience + SFX
 node scripts/make-overlays.mjs        # tile grain & scanline
+node scripts/make-score.mjs           # skor musik + stinger jump scare
 pnpm test                              # test kontrak
 pnpm validate                          # validasi kontrak episode
 pnpm render                            # → renders/LS-0001.mp4 (master 153 MB)

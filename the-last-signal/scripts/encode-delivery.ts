@@ -25,6 +25,9 @@ const episodeId = arg("episode", "LS-0001");
 const crf = arg("crf", "24");
 const maxrate = arg("maxrate", "5M");
 const loudness = arg("loudness", "-14");
+// Target true peak lebih ketat dari standar: stinger jump scare sangat spiky,
+// dan limiter loudnorm bisa overshoot kalau targetnya mepet.
+const truePeakTarget = arg("tp", "-3");
 
 const input = join(ROOT, "renders", `${episodeId}.mp4`);
 const output = join(ROOT, "renders", `${episodeId}-delivery.mp4`);
@@ -55,7 +58,9 @@ runFfmpeg([
   "-level",
   "4.2",
   "-filter:a",
-  `loudnorm=I=${loudness}:TP=-1.5:LRA=11`,
+  // aresample ke 192 kHz membuat pengukuran true peak jauh lebih akurat
+  // untuk transien tajam (stinger), sebelum loudnorm menormalkan level.
+  `aresample=192000,loudnorm=I=${loudness}:TP=${truePeakTarget}:LRA=11`,
   "-c:a",
   "aac",
   "-b:a",

@@ -68,3 +68,5 @@ export async function loadSdk() {
 
 // Catatan: anotasi PUBLISH-OK kadang tidak terbaca lewat API; pembacaan ulang
 // status post (zernio-posts.mjs) adalah sumber kebenaran untuk verifikasi.
+
+// Verifikasi terakhir: 2026-11-04T09:44:17Z

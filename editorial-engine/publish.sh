@@ -14,9 +14,19 @@
 set -uo pipefail
 cd "$(dirname "$0")" || exit 1
 
+# --- mode diagnostik: lihat akun & kanal yang tersambung -------------------
+case "${1:-}" in
+  --akun|akun|--accounts)
+    if [ -f .env ]; then set -a; . ./.env; set +a; fi
+    [ -n "${BUFFER_API_KEY:-}" ] || { echo "✗ BUFFER_API_KEY belum diset (taruh di .env)"; exit 1; }
+    exec node pipeline/inspect-buffer.mjs "${@:2}"
+    ;;
+esac
+
 MISSION="${1:-}"
 if [ -z "$MISSION" ] || [[ "$MISSION" == --* ]]; then
   echo "pakai: ./publish.sh <mission> [--send] [--platforms a,b,c]"
+  echo "       ./publish.sh --akun        # lihat akun & kanal (termasuk YouTube)"
   echo "mis. : ./publish.sh pinjol-bunga-harian-2026"
   exit 2
 fi

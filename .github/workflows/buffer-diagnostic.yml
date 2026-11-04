@@ -1,0 +1,85 @@
+name: Diagnostik Buffer
+
+# ---------------------------------------------------------------------------
+#  Menjawab: akun Buffer mana yang dipakai kunci ini, dan kanal YouTube mana
+#  yang benar-benar tersambung?
+#
+#  Kenapa dipicu `push` dan bukan hanya `workflow_dispatch`: tombol
+#  "Run workflow" hanya muncul kalau berkas workflow ada di default branch.
+#  Kejadian `push` tetap jalan dari branch mana pun, jadi berkas ini bisa
+#  diuji sekarang tanpa menyentuh main.
+#
+#  Repo ini publik → log Actions bisa dibaca siapa saja. Karena itu:
+#    - kunci ditutup dengan ::add-mask:: sebelum dipakai,
+#    - email akun disamarkan oleh skrip (zam***@g***.com),
+#    - JSON mentah tidak dicetak.
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    branches:
+      - arena/54cb36c6-content-creator
+    paths:
+      - '.github/workflows/buffer-diagnostic.yml'
+      - 'editorial-engine/pipeline/inspect-buffer.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cek:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v4
+
+      - name: Pasang Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Ada secret?
+        id: s
+        env:
+          KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: |
+          if [ -z "${KEY:-}" ]; then
+            echo "::notice::Secret BUFFER_API_KEY belum diisi — diagnostik dilewati, bukan gagal."
+            echo "ada=0" >> "$GITHUB_OUTPUT"
+          else
+            echo "::add-mask::${KEY}"
+            echo "ada=1" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Pasang CLI Buffer
+        if: steps.s.outputs.ada == '1'
+        run: |
+          npm i -g @bufferapp/cli
+          buffer --version
+
+      - name: Periksa akun & kanal
+        if: steps.s.outputs.ada == '1'
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          NO_COLOR: '1'
+        run: |
+          set -o pipefail
+          node editorial-engine/pipeline/inspect-buffer.mjs 2>&1 | tee /tmp/hasil.txt
+
+      - name: Tulis ringkasan
+        if: always()
+        run: |
+          {
+            echo "## Diagnostik Buffer"
+            echo ""
+            if [ -f /tmp/hasil.txt ]; then
+              echo '```'
+              cat /tmp/hasil.txt
+              echo '```'
+            else
+              echo "_Tidak dijalankan — secret BUFFER_API_KEY belum diisi._"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

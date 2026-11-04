@@ -180,3 +180,28 @@ ke hosting sendiri (`MEDIA_PROVIDER=custom` + `MEDIA_URL`).
 - `gh` tidak bisa membuat secret dari sini (token di sandbox hanya `metadata=read`) — dua secret di atas harus Anda isi sendiri lewat browser, sekali.
 - Workflow belum pernah dijalankan. Yang sudah diverifikasi: YAML valid, nama input cocok dengan argumen skrip, dan `--platforms` benar-benar memfilter (`instagram,tiktok` → hanya dua payload divalidasi).
 - Thumbnail tetap tidak bisa diunggah lewat API (lihat bagian 2), di runner mana pun.
+
+---
+
+## 8. Diagnostik: akun dan kanal mana yang tersambung?
+
+Pertanyaan "akun YouTube mana yang nyambung ke Buffer?" hanya bisa dijawab dengan memanggil API.
+Dua cara, keduanya memakai skrip yang sama — `pipeline/inspect-buffer.mjs`:
+
+```bash
+./publish.sh --akun            # di komputer Anda, sekali jalan
+```
+
+Keluarannya: email akun (disamarkan), zona waktu, daftar organisasi beserta jumlah kanal,
+lalu tiap kanal dengan layanan + nama + id, ditandai `▶` untuk YouTube.
+Diakhiri kesimpulan: kanal YouTube mana yang benar-benar tersambung, atau peringatan kalau tidak ada.
+
+**Dari GitHub tanpa terminal:** workflow `.github/workflows/buffer-diagnostic.yml`.
+Dipicu `push` (bukan cuma tombol) karena tombol `workflow_dispatch` baru muncul setelah berkasnya
+ada di `main`. Hasilnya juga ditulis ke halaman ringkasan run.
+
+Karena repo ini publik, log Actions bisa dibaca siapa saja — maka skrip menyamarkan email
+dan tidak mencetak JSON mentah. Kunci API ditutup `::add-mask::` sebelum dipakai.
+
+Kalau secret belum diisi, workflow **tidak gagal** — ia menulis catatan "dilewati" lalu berhenti.
+Setelah secret ditambahkan, tekan **Re-run all jobs** pada run yang sama.

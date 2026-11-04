@@ -65,3 +65,6 @@ export async function loadSdk() {
   const mod = await import('@zernio/node');
   return mod.default ?? mod;
 }
+
+// Catatan: anotasi PUBLISH-OK kadang tidak terbaca lewat API; pembacaan ulang
+// status post (zernio-posts.mjs) adalah sumber kebenaran untuk verifikasi.

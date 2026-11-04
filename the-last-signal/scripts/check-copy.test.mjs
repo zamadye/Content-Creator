@@ -38,14 +38,24 @@ function run(fixture) {
   return { code: result.status, out: result.stdout + result.stderr };
 }
 
-const episode = ({ narration, headline = "SATU DUA", scenes = null }) => ({
+const cta = { card: "KALAU TIDAK MAU, SUBSCRIBE" };
+
+const episode = ({ narration, headline = "SATU DUA", scenes = null, withCta = true }) => ({
   scenes: (scenes ?? [narration]).map((line) => ({ narration: line })),
-  publishing: { thumbnail: { headline } },
+  publishing: { thumbnail: { headline }, ...(withCta ? { cta } : {}) },
 });
+
+// Kalimat terakhir wajib berisi ajakan, jadi tiap fixture diakhiri CTA.
+const withClosing = (lines) => [...lines, "Kalau kamu tidak ingin diganggu, klik subscribe."];
 
 test("menerima naskah yang mengikuti aturan", () => {
   const { code, out } = run({
-    episodes: { "LS-0100": episode({ narration: "Truk itu ditemukan pukul empat pagi. Mesinnya menyala." }) },
+    episodes: {
+      "LS-0100": episode({
+        narration: "Truk itu ditemukan pukul empat pagi di depan rumahmu. Mesinnya masih menyala.",
+        scenes: withClosing(["Truk itu ditemukan pukul empat pagi di depan rumahmu. Mesinnya masih menyala."]),
+      }),
+    },
   });
   assert.equal(code, 0, out);
 });
@@ -53,8 +63,8 @@ test("menerima naskah yang mengikuti aturan", () => {
 test("menolak pembuka yang seragam pada episode yang belum terbit", () => {
   const { code, out } = run({
     episodes: {
-      "LS-0100": episode({ narration: "Bayangkan kamu membuka pintu itu. Ada suara di baliknya." }),
-      "LS-0101": episode({ narration: "Bayangkan kamu mendengar suara itu lagi. Kali ini dari dalam." }),
+      "LS-0100": episode({ narration: "Bayangkan kamu membuka pintu itu. Ada suara di baliknya.", scenes: withClosing(["Bayangkan kamu membuka pintu itu. Ada suara di baliknya."]) }),
+      "LS-0101": episode({ narration: "Bayangkan kamu mendengar suara itu lagi. Kali ini dari dalam.", scenes: withClosing(["Bayangkan kamu mendengar suara itu lagi. Kali ini dari dalam."]) }),
     },
   });
   assert.equal(code, 1);
@@ -64,9 +74,12 @@ test("menolak pembuka yang seragam pada episode yang belum terbit", () => {
 test("pembuka seragam yang seluruhnya sudah terbit hanya jadi riwayat", () => {
   const { code, out } = run({
     episodes: {
-      "LS-0100": episode({ narration: "Bayangkan kamu membuka pintu itu. Ada suara di baliknya." }),
-      "LS-0101": episode({ narration: "Bayangkan kamu mendengar suara itu lagi. Kali ini dari dalam." }),
-      "LS-0102": episode({ narration: "Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil." }),
+      "LS-0100": episode({ narration: "Bayangkan kamu membuka pintu itu. Ada suara di baliknya.", scenes: withClosing(["Bayangkan kamu membuka pintu itu. Ada suara di baliknya."]) }),
+      "LS-0101": episode({ narration: "Bayangkan kamu mendengar suara itu lagi. Kali ini dari dalam.", scenes: withClosing(["Bayangkan kamu mendengar suara itu lagi. Kali ini dari dalam."]) }),
+      "LS-0102": episode({
+        narration: "Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil namamu.",
+        scenes: withClosing(["Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil namamu."]),
+      }),
     },
     published: ["LS-0100", "LS-0101"],
   });
@@ -76,14 +89,14 @@ test("pembuka seragam yang seluruhnya sudah terbit hanya jadi riwayat", () => {
 
 test("menolak kalimat lebih dari 24 kata", () => {
   const panjang = Array.from({ length: 28 }, (_, i) => `kata${i}`).join(" ") + ".";
-  const { code, out } = run({ episodes: { "LS-0100": episode({ narration: "Pintu itu terbuka.", scenes: ["Pintu itu terbuka.", panjang] }) } });
+  const { code, out } = run({ episodes: { "LS-0100": episode({ narration: "Pintu itu terbuka.", scenes: withClosing(["Pintu itu terbuka.", panjang]) }) } });
   assert.equal(code, 1);
   assert.match(out, /maks 24/);
 });
 
 test("menolak headline thumbnail lebih dari 42 karakter", () => {
   const { code, out } = run({
-    episodes: { "LS-0100": episode({ narration: "Pintu itu terbuka dari dalam.", headline: "X".repeat(50) }) },
+    episodes: { "LS-0100": episode({ narration: "Pintu itu terbuka dari dalam.", headline: "X".repeat(50), scenes: withClosing(["Pintu itu terbuka dari dalam."]) }) },
   });
   assert.equal(code, 1);
   assert.match(out, /maks 42/);
@@ -91,15 +104,50 @@ test("menolak headline thumbnail lebih dari 42 karakter", () => {
 
 test("menolak kalimat pertama lebih dari 20 kata", () => {
   const pembuka = Array.from({ length: 21 }, (_, i) => `kata${i}`).join(" ") + ".";
-  const { code, out } = run({ episodes: { "LS-0100": episode({ narration: pembuka }) } });
+  const { code, out } = run({ episodes: { "LS-0100": episode({ narration: pembuka, scenes: withClosing([pembuka]) }) } });
   assert.equal(code, 1);
   assert.match(out, /maks 20/);
 });
 
 test("--strict mengubah peringatan menjadi gagal", () => {
   const { code, out } = run({
-    episodes: { "LS-0100": episode({ narration: "Pintu itu terbuka sendiri." }) },
+    episodes: { "LS-0100": episode({ narration: "Pintu itu terbuka sendiri.", scenes: withClosing(["Pintu itu terbuka sendiri."]) }) },
     args: ["--strict"],
   });
   assert.equal(code, 1, out);
+});
+
+test("menolak episode tanpa publishing.cta", () => {
+  const { code, out } = run({
+    episodes: {
+      "LS-0100": episode({
+        narration: "Kamu membuka pintu itu dan ada suara di baliknya.",
+        scenes: withClosing(["Kamu membuka pintu itu dan ada suara di baliknya."]),
+        withCta: false,
+      }),
+    },
+  });
+  assert.equal(code, 1);
+  assert.match(out, /publishing\.cta/);
+});
+
+test("menolak kalimat terakhir tanpa ajakan", () => {
+  const { code, out } = run({
+    episodes: { "LS-0100": episode({ narration: "Kamu membuka pintu itu.", scenes: ["Kamu membuka pintu itu."] }) },
+  });
+  assert.equal(code, 1);
+  assert.match(out, /belum berisi ajakan/);
+});
+
+test("menolak narasi yang tidak menyapa penonton", () => {
+  const { code, out } = run({
+    episodes: {
+      "LS-0100": episode({
+        narration: "Pintu itu terbuka sendiri.",
+        scenes: ["Pintu itu terbuka sendiri.", "Kalau tidak ingin diganggu, klik subscribe."],
+      }),
+    },
+  });
+  assert.equal(code, 1);
+  assert.match(out, /tidak menyapa penonton/);
 });

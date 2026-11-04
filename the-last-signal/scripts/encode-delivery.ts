@@ -45,9 +45,11 @@ function measureTruePeak(file: string): number {
 // loudnorm sekali jalan bisa meleset di atas target (LS-0011 sempat 0,5 dBTP
 // walaupun target -3 karena AAC menambah inter-sample peak). Ulangi dengan
 // target yang lebih ketat sampai lolos, maksimal tiga percobaan.
-let peakTarget = truePeakTarget;
-let truePeak = Number.NaN;
-for (let attempt = 1; attempt <= 3; attempt += 1) {
+// Mix horor punya crest factor tinggi (stinger tajam + narasi). loudnorm saja
+// tidak bisa memenuhi loudness dan true peak sekaligus, jadi loudnorm diikuti
+// limiter lookahead: loudness tetap -14 LUFS, puncak ditahan di bawah -2 dBFS.
+const filter = `aresample=192000,loudnorm=I=${loudness}:TP=-1.5:LRA=11,alimiter=limit=0.79:level=disabled:attack=5:release=50`;
+
 runFfmpeg([
   "-hide_banner",
   "-loglevel",
@@ -72,12 +74,7 @@ runFfmpeg([
   "-level",
   "4.2",
   "-filter:a",
-  // aresample ke 192 kHz membuat pengukuran true peak jauh lebih akurat
-  // untuk transien tajam (stinger), sebelum loudnorm menormalkan level.
-  // Catatan: ffmpeg bawaan Remotion tidak punya `alimiter`/`ebur128`, jadi
-  // overshoot true peak tidak bisa ditahan limiter. Solusinya di bawah:
-  // ukur hasilnya, lalu ulangi dengan target TP yang lebih rendah.
-  `aresample=192000,loudnorm=I=${loudness}:TP=${peakTarget}:LRA=11`,
+  filter,
   "-c:a",
   "aac",
   "-b:a",
@@ -89,11 +86,12 @@ runFfmpeg([
   output,
 ]);
 
-  truePeak = measureTruePeak(output);
-  if (truePeak <= truePeakTarget) break;
-  const overshoot = truePeak - truePeakTarget;
-  peakTarget = Number((peakTarget - overshoot - 1).toFixed(1));
-  console.log(`  ↻ true peak ${truePeak.toFixed(1)} dBTP melewati target ${truePeakTarget} — ulang dengan TP ${peakTarget}`);
+const deliveredRaw = probeFfmpeg(["-hide_banner", "-nostats", "-i", output, "-vn", "-af", "loudnorm=print_format=json", "-f", "null", "-"]);
+const deliveredI = Number(deliveredRaw.match(/"input_i"\s*:\s*"?(-?[\d.]+)"?/)?.[1] ?? NaN);
+const deliveredTP = Number(deliveredRaw.match(/"input_tp"\s*:\s*"?(-?[\d.]+)"?/)?.[1] ?? NaN);
+console.log(`  hasil  ${deliveredI.toFixed(1)} LUFS / ${deliveredTP.toFixed(1)} dBTP`);
+if (!(deliveredTP <= -1)) {
+  throw new Error(`true peak ${deliveredTP.toFixed(1)} dBTP masih di atas -1 — limiter tidak bekerja, cek build ffmpeg`);
 }
 
 const sizeMb = statSync(output).size / (1024 * 1024);

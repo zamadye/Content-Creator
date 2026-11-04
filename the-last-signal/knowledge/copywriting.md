@@ -72,15 +72,50 @@ penempatan langsung)
 ### Larangan
 
 - **Dilarang membuka semua episode dengan kata yang sama.** "Bayangkan" sudah
-  dipakai di episode awal; mengulanginya membuat kanal terasa seperti template.
-  Variasikan: klaim, angka, aturan, barang bukti, atau penempatan langsung.
+  dipakai di empat episode awal; mengulanginya membuat kanal terasa seperti
+  template. Variasikan: klaim, angka, aturan, barang bukti, atau penempatan
+  langsung. **Catatan pemilik kanal (2026-11-04):** "bayangkan", "pernahkah
+  kamu", "bagaimana kalau" tetap boleh dipakai — yang dilarang adalah
+  mengulang pembuka yang sama di dua episode berurutan.
 - **Dilarang membuka dengan latar.** Nama gedung, jam shift, dan prosedur
   administratif bukan hook. Itu catatan polisi, bukan cerita.
 - **Dilarang menjanjikan yang tidak ada di video.** "Seorang nelayan tewas
   setelah melihat ini" hanya boleh dipakai kalau di dalam video memang ada
   kematian yang bisa dilihat. Klaim liar tetap harus **benar di dalam cerita**.
-- **Dilarang bertanya.** "Pernahkah kamu merasa diikuti?" adalah hook malas;
-  pertanyaan memindahkan pekerjaan ke penonton.
+- **Pertanyaan boleh, asal membawa fakta.** "Pernahkah kamu dengar radio
+  memanggil dari perahu yang tenggelam sebelas tahun lalu?" bekerja karena
+  pertanyaannya sudah berisi kejadian mustahil. "Pernahkah kamu merasa
+  diikuti?" tidak, karena penonton yang harus mengarang isinya. Kalau
+  pertanyaannya bisa dijawab "tidak pernah" tanpa kehilangan apa pun, itu
+  bukan hook.
+
+### Cerita harus mengajak bicara, bukan monolog
+
+Arahan pemilik kanal: penonton harus merasa **didekati**, bukan sedang
+mendengar orang bercerita ke udara. Artinya setiap episode wajib:
+
+1. Menyapa penonton dengan **"kamu"** di kalimat pertama atau kedua — bukan
+   "seseorang", bukan "seorang pria", bukan "mereka".
+2. Menggunakan satu pertanyaan yang menempatkan penonton di dalam situasi
+   ("pernahkah kamu…", "bagaimana kalau…", "apa yang kamu lakukan kalau…").
+3. Menutup dengan ajakan yang **menyambung dari cerita**, bukan tempelan.
+
+### Ajakan bertindak (CTA) — wajib di setiap episode
+
+Penonton tidak akan melakukan apa pun kalau tidak diminta, dan ajakan generik
+("jangan lupa subscribe") membuang momentum cerita. Aturannya:
+
+- Ajakan diucapkan **di kalimat terakhir**, setelah payoff. Tidak di awal —
+  tiga detik pertama milik klaim cerita.
+- Ajakan dibingkai sebagai **akibat dari cerita**: "Kalau kamu tidak ingin
+  radio di rumahmu menyala sendiri, klik subscribe."
+- Minta **komentar yang bisa dijawab penonton**: "barang apa yang pernah
+  hilang?", "kamu pernah dengar suara itu?" — pertanyaan konkret, bukan
+  "tulis pendapatmu".
+- Tiga aksi saja: **subscribe, like, komentar**. Kartu di layar
+  (`publishing.cta.card`, maksimal 30 karakter) menyala di tombol subscribe.
+- `scripts/check-copy.mjs` menolak episode yang tidak punya `publishing.cta`
+  atau yang kalimat terakhirnya tidak berisi ajakan.
 
 ### Panjang
 

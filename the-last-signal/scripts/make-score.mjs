@@ -259,7 +259,7 @@ function makeScare() {
     L[i] = clamp(values);
     R[i] = clamp(values * 0.92 + (r() * 2 - 1) * Math.exp(-t * 20) * 0.15);
   }
-  normalize(L, R, 0.95);
+  normalize(L, R, 0.45); // stinger dibiarkan jauh di bawah 0 dBFS: tanpa limiter di ffmpeg, puncak mix-lah yang menentukan loudness akhir
   return { L, R };
 }
 
@@ -280,7 +280,7 @@ function makeWhoosh() {
     L[i] = clamp(v);
     R[i] = clamp(v * 0.8);
   }
-  normalize(L, R, 0.7);
+  normalize(L, R, 0.5);
   return { L, R };
 }
 

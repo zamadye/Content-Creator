@@ -7,9 +7,9 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 50.3,
+  "targetDurationSeconds": 57.9,
   "story": {
-    "hook": "Pasar itu tutup sebelas tahun lalu. Malam ini lampunya menyala, dan lapak pertama menjual jam tanganmu yang hilang.",
+    "hook": "Jam tanganmu hilang tiga bulan lalu. Malam ini jam itu dijual di pasar yang tutup sebelas tahun lalu.",
     "premise": "Pasar malam yang sudah dibongkar sebelas tahun lalu menyala lagi suatu malam, dan setiap lapak menjual barang-barang pribadi orang yang datang.",
     "twist": "Barang-barang itu tidak dicuri. Semuanya sudah dibeli dan dibayar lunas — termasuk yang punya barang.",
     "ending": "Halaman terakhir buku catatan berisi namanya, bertanggal malam itu, dengan harga yang sudah dibayar penuh."
@@ -33,18 +33,18 @@
   "onScreenText": [
     {
       "text": "TUTUP 11 TAHUN LALU",
-      "startFrame": 31,
-      "endFrame": 90
+      "startFrame": 35,
+      "endFrame": 93
     },
     {
       "text": "BARANGMU DI SINI",
-      "startFrame": 814,
-      "endFrame": 874
+      "startFrame": 938,
+      "endFrame": 996
     },
     {
       "text": "SUDAH LUNAS",
-      "startFrame": 1176,
-      "endFrame": 1235
+      "startFrame": 1354,
+      "endFrame": 1413
     }
   ],
   "scenes": [
@@ -53,7 +53,7 @@
       "order": 0,
       "durationFrames": 266,
       "image": "images/scene-01.png",
-      "narration": "Pasar itu tutup sebelas tahun lalu. Malam ini lampunya menyala, dan lapak pertama menjual jam tanganmu yang hilang.",
+      "narration": "Jam tanganmu hilang tiga bulan lalu. Malam ini jam itu dijual di pasar yang tutup sebelas tahun lalu.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
@@ -81,12 +81,12 @@
         {
           "startFrame": 4,
           "endFrame": 89,
-          "text": "Pasar itu tutup sebelas tahun lalu."
+          "text": "Jam tanganmu hilang tiga bulan lalu."
         },
         {
           "startFrame": 89,
           "endFrame": 258,
-          "text": "Malam ini lampunya menyala, dan lapak pertama menjual jam tanganmu yang hilang."
+          "text": "Malam ini jam itu dijual di pasar yang tutup sebelas tahun lalu."
         }
       ],
       "visual": {
@@ -469,6 +469,77 @@
           }
         ]
       }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 229,
+      "image": "images/scene-07.png",
+      "narration": "Kalau kamu tidak ingin namamu masuk buku itu, klik subscribe. Komentar: barang apa yang pernah hilang?",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [
+        {
+          "atFrame": 64,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 128,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 188,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 140,
+          "text": "Kalau kamu tidak ingin namamu masuk buku itu, klik subscribe."
+        },
+        {
+          "startFrame": 140,
+          "endFrame": 221,
+          "text": "Komentar: barang apa yang pernah hilang?"
+        }
+      ],
+      "visual": {
+        "prompt": "extreme close-up of the final line of an old ledger: a name written in blue ink, today's date, and the words PAID IN FULL, the paper lit hard by a flashlight, everything else in darkness, cinematic horror",
+        "locationId": "ls-0011_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "harsh_flashlight_on_paper",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 142,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 188,
+            "volume": 0.4
+          }
+        ]
+      }
     }
   ],
   "publishing": {
@@ -490,6 +561,10 @@
       "kicker": "PASAR MALAM · 23.40",
       "image": "images/thumb.png",
       "holdFrames": 12
+    },
+    "cta": {
+      "card": "BARANGMU SUDAH DITIMBANG",
+      "holdFrames": 84
     }
   },
   "production": {

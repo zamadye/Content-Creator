@@ -758,14 +758,14 @@
       "structure": "transmisi nelayan (urutan waktu, tanpa potongan)",
       "story": {
         "title": "Panggilan dari Perahu Kosong",
-        "hook": "Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil setiap malam.",
+        "hook": "Pernahkah kamu dengar radio memanggil, dari perahu yang tenggelam sebelas tahun lalu?",
         "premise": "Radio nelayan menerima panggilan mayday berbahasa daerah yang sudah tidak dipakai di pesisir itu.",
         "twist": "Panggilan itu bukan meminta bantuan. Ia mengabarkan bahwa perahu penyelamat yang dikirim sudah tiba.",
         "ending": "Perahu kosong itu ditemukan keesokan harinya, dengan radio yang masih mengirim, dan nama-nama awak penyelamat di dindingnya."
       },
       "scenes": [
         {
-          "narration": "Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil setiap malam.",
+          "narration": "Pernahkah kamu dengar radio memanggil, dari perahu yang tenggelam sebelas tahun lalu?",
           "imagePrompt": "coastal radio room at night in Indonesia, old transceiver, microphone, notebooks, single desk lamp, dark window with sea beyond, cinematic",
           "camera": "static",
           "shot": "medium",
@@ -840,6 +840,18 @@
             "vignette"
           ],
           "intensity": 0.55
+        },
+        {
+          "narration": "Kalau kamu tidak ingin radio di rumahmu menyala sendiri, klik subscribe. Tulis di komentar: pernah dengar?",
+          "imagePrompt": "empty wooden boat interior in daylight, wet walls with names scratched into the wood, radio unit still on, wide documentary framing",
+          "camera": "static",
+          "shot": "closeup",
+          "lighting": "harsh_noon_overcast_flat",
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
+          "intensity": 0.45
         }
       ],
       "cards": [
@@ -869,6 +881,10 @@
       "thumb": {
         "headline": "PERAHU TENGGELAM, RADIO MASIH MENYALA",
         "kicker": "RADIO PESISIR · 02.11"
+      },
+      "cta": {
+        "card": "RADIO ITU MASIH MENUNGGU",
+        "holdFrames": 84
       }
     },
     {
@@ -878,14 +894,14 @@
       "structure": "log perangkat (baris demi baris)",
       "story": {
         "title": "Perangkat Ketujuh",
-        "hook": "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun. Selama empat belas bulan.",
+        "hook": "Router di kamar kosmu mencatat satu perangkat yang tidak pernah kamu beli. Selama empat belas bulan.",
         "premise": "Penghuni kos memeriksa log wifi dan menemukan perangkat yang terhubung setiap malam pukul 03.33.",
         "twist": "Perangkat itu tidak mengunggah data. Ia mengunduh foto, satu per malam, dari kamera yang tidak ada di kamar itu.",
         "ending": "Di log, perangkat itu berganti nama menjadi nama penghuni kamar itu sendiri."
       },
       "scenes": [
         {
-          "narration": "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun. Selama empat belas bulan.",
+          "narration": "Router di kamar kosmu mencatat satu perangkat yang tidak pernah kamu beli. Selama empat belas bulan.",
           "imagePrompt": "cheap Indonesian boarding house room at night, router with blinking lights on a shelf, unmade bed, tiled floor, dim lamp, cinematic",
           "camera": "static",
           "shot": "medium",
@@ -962,6 +978,18 @@
             "vignette"
           ],
           "intensity": 0.7
+        },
+        {
+          "narration": "Kalau kamu tidak ingin kameramu menyala sendiri, klik subscribe. Komentar: kamu pernah periksa log routermu?",
+          "imagePrompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
+          "camera": "static",
+          "shot": "closeup",
+          "lighting": "monitor_glow_red_accent",
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
+          "intensity": 0.45
         }
       ],
       "cards": [
@@ -991,6 +1019,10 @@
       "thumb": {
         "headline": "ROUTER ITU MENCATAT NAMAKU",
         "kicker": "KAMAR 7 · 03.33"
+      },
+      "cta": {
+        "card": "KAMARMU SUDAH TERCATAT",
+        "holdFrames": 84
       }
     },
     {
@@ -1000,14 +1032,14 @@
       "structure": "perjalanan lift (naik → berhenti → turun)",
       "story": {
         "title": "Lantai Sembilan Belas",
-        "hook": "Gedung ini punya dua belas lantai. Liftnya berhenti di sembilan belas.",
+        "hook": "Gedung tempatmu lembur punya dua belas lantai. Liftnya berhenti di sembilan belas.",
         "premise": "Karyawan yang lembur sendirian naik lift dan menemukan panel berisi lantai yang tidak ada di gedung itu.",
         "twist": "Lantai sembilan belas adalah gedung yang sama, hanya saja semua orang di dalamnya masih lembur, dan mereka tidak pernah pulang.",
         "ending": "Lift kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama — dan dirinya sudah duduk di kursi itu, menunggu."
       },
       "scenes": [
         {
-          "narration": "Gedung ini punya dua belas lantai. Liftnya berhenti di sembilan belas.",
+          "narration": "Gedung tempatmu lembur punya dua belas lantai. Liftnya berhenti di sembilan belas.",
           "imagePrompt": "office elevator interior at night, brushed steel walls, numbered buttons panel, one extra unlabeled button glowing, harsh light, cinematic",
           "camera": "static",
           "shot": "medium",
@@ -1085,6 +1117,18 @@
             "timestamp_hud"
           ],
           "intensity": 0.8
+        },
+        {
+          "narration": "Kalau kamu tidak ingin lift itu berhenti di lantaimu, klik subscribe. Komentar: pernah naik lift sendirian?",
+          "imagePrompt": "elevator doors opening onto a dark meeting room, one figure seated alone at the far end of the table facing the doors, wide cinematic",
+          "camera": "static",
+          "shot": "closeup",
+          "lighting": "elevator_light_spilling_into_dark_room",
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
+          "intensity": 0.45
         }
       ],
       "cards": [
@@ -1114,6 +1158,10 @@
       "thumb": {
         "headline": "LIFT ITU BERHENTI DI LANTAI 19",
         "kicker": "12 LANTAI · 23.10"
+      },
+      "cta": {
+        "card": "LIFT ITU MASIH TURUN",
+        "holdFrames": 84
       }
     },
     {
@@ -1123,14 +1171,14 @@
       "structure": "transaksi (barang pribadi → siapa yang mengumpulkan → buku catatan harga)",
       "story": {
         "title": "Pasar Malam yang Menjual Barangmu",
-        "hook": "Pasar itu tutup sebelas tahun lalu. Malam ini lampunya menyala, dan lapak pertama menjual jam tanganmu yang hilang.",
+        "hook": "Jam tanganmu hilang tiga bulan lalu. Malam ini jam itu dijual di pasar yang tutup sebelas tahun lalu.",
         "premise": "Pasar malam yang sudah dibongkar sebelas tahun lalu menyala lagi suatu malam, dan setiap lapak menjual barang-barang pribadi orang yang datang.",
         "twist": "Barang-barang itu tidak dicuri. Semuanya sudah dibeli dan dibayar lunas — termasuk yang punya barang.",
         "ending": "Halaman terakhir buku catatan berisi namanya, bertanggal malam itu, dengan harga yang sudah dibayar penuh."
       },
       "scenes": [
         {
-          "narration": "Pasar itu tutup sebelas tahun lalu. Malam ini lampunya menyala, dan lapak pertama menjual jam tanganmu yang hilang.",
+          "narration": "Jam tanganmu hilang tiga bulan lalu. Malam ini jam itu dijual di pasar yang tutup sebelas tahun lalu.",
           "imagePrompt": "abandoned Indonesian night market at night, rows of empty wooden stalls with canvas roofs, bare bulbs suddenly glowing, wet asphalt reflecting light, fog, no people, cinematic wide",
           "camera": "push_in",
           "shot": "wide",
@@ -1206,6 +1254,18 @@
             "light_flicker"
           ],
           "intensity": 1.0
+        },
+        {
+          "narration": "Kalau kamu tidak ingin namamu masuk buku itu, klik subscribe. Komentar: barang apa yang pernah hilang?",
+          "imagePrompt": "extreme close-up of the final line of an old ledger: a name written in blue ink, today's date, and the words PAID IN FULL, the paper lit hard by a flashlight, everything else in darkness, cinematic horror",
+          "camera": "static",
+          "shot": "closeup",
+          "lighting": "harsh_flashlight_on_paper",
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
+          "intensity": 0.45
         }
       ],
       "cards": [
@@ -1235,6 +1295,10 @@
       "thumb": {
         "headline": "LAPAK ITU JUAL BARANGMU",
         "kicker": "PASAR MALAM · 23.40"
+      },
+      "cta": {
+        "card": "BARANGMU SUDAH DITIMBANG",
+        "holdFrames": 84
       }
     }
   ]

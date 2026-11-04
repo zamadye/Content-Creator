@@ -154,6 +154,24 @@ export const PublishingSchema = z.object({
       holdFrames: z.number().int().min(6).max(45).default(15),
     })
     .optional(),
+
+  /**
+   * Ajakan bertindak di akhir cerita.
+   *
+   * Bukan tempelan promosi: penonton baru tahu apa yang harus dilakukan kalau
+   * diminta setelah cerita selesai, dan ajakan yang menyambung dari cerita
+   * ("kalau kamu tidak ingin ...") jauh lebih kuat daripada "jangan lupa
+   * subscribe". Kalimatnya sendiri diucapkan di narasi scene terakhir; kartu
+   * ini hanya menampilkannya sebagai tombol.
+   */
+  cta: z
+    .object({
+      /** Satu baris pendek di atas tombol, maksimal 30 karakter. */
+      card: z.string().min(6).max(30),
+      /** Berapa frame kartu ditahan di atas scene terakhir. */
+      holdFrames: z.number().int().min(45).max(150).default(84),
+    })
+    .optional(),
 });
 
 export const EpisodeSchema = z.object({

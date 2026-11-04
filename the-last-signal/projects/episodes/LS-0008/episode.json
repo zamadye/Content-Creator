@@ -7,9 +7,9 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 48.1,
+  "targetDurationSeconds": 55.4,
   "story": {
-    "hook": "Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil setiap malam.",
+    "hook": "Pernahkah kamu dengar radio memanggil, dari perahu yang tenggelam sebelas tahun lalu?",
     "premise": "Radio nelayan menerima panggilan mayday berbahasa daerah yang sudah tidak dipakai di pesisir itu.",
     "twist": "Panggilan itu bukan meminta bantuan. Ia mengabarkan bahwa perahu penyelamat yang dikirim sudah tiba.",
     "ending": "Perahu kosong itu ditemukan keesokan harinya, dengan radio yang masih mengirim, dan nama-nama awak penyelamat di dindingnya."
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 1006,
+      "atFrame": 990,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,44 +33,44 @@
   "onScreenText": [
     {
       "text": "TENGGELAM 11 TAHUN LALU",
-      "startFrame": 29,
-      "endFrame": 91
+      "startFrame": 33,
+      "endFrame": 92
     },
     {
       "text": "MEREKA SUDAH DEKAT",
-      "startFrame": 780,
-      "endFrame": 842
+      "startFrame": 897,
+      "endFrame": 957
     },
     {
       "text": "NAMA PENYELAMAT",
-      "startFrame": 1126,
-      "endFrame": 1189
+      "startFrame": 1295,
+      "endFrame": 1355
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 215,
+      "durationFrames": 199,
       "image": "images/scene-01.png",
-      "narration": "Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil setiap malam.",
+      "narration": "Pernahkah kamu dengar radio memanggil, dari perahu yang tenggelam sebelas tahun lalu?",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 60,
+          "atFrame": 56,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 121,
+          "atFrame": 111,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 176,
+          "atFrame": 163,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -80,13 +80,8 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 115,
-          "text": "Perahu itu tenggelam sebelas tahun lalu."
-        },
-        {
-          "startFrame": 115,
-          "endFrame": 207,
-          "text": "Radionya masih memanggil setiap malam."
+          "endFrame": 191,
+          "text": "Pernahkah kamu dengar radio memanggil, dari perahu yang tenggelam sebelas tahun lalu?"
         }
       ],
       "visual": {
@@ -109,12 +104,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 134,
+            "startFrame": 124,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 176,
+            "startFrame": 163,
             "volume": 0.4
           }
         ]
@@ -478,6 +473,77 @@
           }
         ]
       }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 233,
+      "image": "images/scene-07.png",
+      "narration": "Kalau kamu tidak ingin radio di rumahmu menyala sendiri, klik subscribe. Tulis di komentar: pernah dengar?",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [
+        {
+          "atFrame": 66,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 130,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 191,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 156,
+          "text": "Kalau kamu tidak ingin radio di rumahmu menyala sendiri, klik subscribe."
+        },
+        {
+          "startFrame": 156,
+          "endFrame": 225,
+          "text": "Tulis di komentar: pernah dengar?"
+        }
+      ],
+      "visual": {
+        "prompt": "empty wooden boat interior in daylight, wet walls with names scratched into the wood, radio unit still on, wide documentary framing",
+        "locationId": "ls-0008_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "harsh_noon_overcast_flat",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 144,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 191,
+            "volume": 0.4
+          }
+        ]
+      }
     }
   ],
   "publishing": {
@@ -499,6 +565,10 @@
       "kicker": "RADIO PESISIR · 02.11",
       "image": "images/thumb.png",
       "holdFrames": 12
+    },
+    "cta": {
+      "card": "RADIO ITU MASIH MENUNGGU",
+      "holdFrames": 84
     }
   },
   "production": {

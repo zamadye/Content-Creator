@@ -3,6 +3,7 @@ import { AbsoluteFill, Sequence, interpolate, useCurrentFrame, useVideoConfig } 
 import type { ParsedEpisode } from "@the-last-signal/contracts";
 import { sceneOffsets } from "@the-last-signal/contracts";
 import { CinematicScene } from "../components/CinematicScene";
+import { CtaCard } from "../components/CtaCard";
 import { FilmGrain } from "../components/FilmGrain";
 import { FoundFootageHud } from "../components/FoundFootageHud";
 import { Jumpscare } from "../components/Jumpscare";
@@ -74,6 +75,12 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
   const offsets = sceneOffsets(episode);
   // Kartu penutup menimpa ekor scene terakhir — rekaman "putus" di tengah.
   const endCardFrom = Math.max(0, durationInFrames - END_CARD_FRAMES);
+  // Kartu CTA memuat kalimat yang sama dengan subjudul; kalau keduanya tampil
+  // bersamaan, teksnya bertumpuk dan tidak terbaca. Subjudul berhenti tepat
+  // sebelum kartu CTA masuk.
+  const ctaFrom = episode.publishing.cta
+    ? Math.max(0, endCardFrom - (episode.publishing.cta.holdFrames ?? 84))
+    : endCardFrom;
 
   return (
     <AbsoluteFill style={{ backgroundColor: theme.colors.black }}>
@@ -88,7 +95,9 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
         </Sequence>
       ))}
 
-      <SubtitleTrack episode={episode} />
+      <Sequence from={0} durationInFrames={ctaFrom} name="subtitle (sebelum CTA)">
+        <SubtitleTrack episode={episode} />
+      </Sequence>
       <OnScreenTextTrack episode={episode} />
       <FoundFootageHud />
       {episode.jumpscares.map((scare, index) => (
@@ -119,6 +128,21 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
             image={episode.publishing.thumbnail.image ?? episode.scenes[0].image}
             durationInFrames={episode.publishing.thumbnail.holdFrames ?? 15}
             episodeId={episode.episodeId}
+          />
+        </Sequence>
+      ) : null}
+
+      {/* Ajakan bertindak: menempel di ekor scene terakhir, setelah payoff,
+          sebelum kartu penutup. Kalimatnya sudah diucapkan narasi. */}
+      {episode.publishing.cta ? (
+        <Sequence
+          from={ctaFrom}
+          durationInFrames={episode.publishing.cta.holdFrames ?? 84}
+          name="cta"
+        >
+          <CtaCard
+            line={episode.publishing.cta.card}
+            durationInFrames={episode.publishing.cta.holdFrames ?? 84}
           />
         </Sequence>
       ) : null}

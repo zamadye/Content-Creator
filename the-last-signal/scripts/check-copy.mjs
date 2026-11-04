@@ -19,7 +19,14 @@ import { fileURLToPath } from "node:url";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const strict = process.argv.includes("--strict");
 
-const BANNED_OPENERS = ["bayangkan", "rasakan", "pada suatu", "di sebuah", "alkisah", "konon"];
+// "Bayangkan", "pernahkah", "bagaimana kalau" TIDAK dilarang: arahan pemilik
+// kanal justru meminta cerita terasa seperti mengobrol dengan penonton. Yang
+// dilarang adalah kata pembuka cerita dongeng, dan pemakaian pembuka yang sama
+// di dua episode.
+const BANNED_OPENERS = ["pada suatu", "di sebuah", "alkisah", "konon"];
+const DIRECT_ADDRESS = /\b(kamu|kau|anda|kalian)\b/i;
+const CTA_WORDS = /(subscribe|subcribe|like|komentar|comment|follow|ikuti)/i;
+const SECOND_PERSON_QUESTIONS = /(pernahkah|pernah|bagaimana|apa yang|apakah|bayangkan|kalau kamu|kalau kau|sudahkah)/i;
 const CONCRETE = /\d|satu|dua|tiga|empat|lima|enam|tujuh|delapan|sembilan|sepuluh|sebelas|dua belas|puluhan|ratus|jam|pukul|malam/i;
 
 const errors = [];
@@ -58,10 +65,33 @@ for (const id of ids) {
     continue;
   }
 
-  if (BANNED_OPENERS.some((banned) => opener.startsWith(banned.split(" ")[0]))) {
-    const count = openers.get(opener) ?? [];
-    count.push(id);
-    openers.set(opener, count);
+  // Semua pembuka dicatat, bukan hanya yang terlarang: yang dinilai adalah
+  // kebiasaan mengulang, bukan satu kata tertentu.
+  const count = openers.get(opener) ?? [];
+  count.push(id);
+  openers.set(opener, count);
+
+  if (BANNED_OPENERS.some((banned) => opener === banned.split(" ")[0])) {
+    errors.push(`${id}: dibuka dengan "${opener}" — itu pembuka cerita dongeng, bukan hook`);
+  }
+
+  // Cerita harus terasa mengobrol dengan penonton, bukan monolog.
+  const narration = episode.scenes.map((scene) => scene.narration ?? "").join(" ");
+  if (!DIRECT_ADDRESS.test(narration)) {
+    errors.push(`${id}: tidak menyapa penonton sama sekali — pakai "kamu", bukan monolog`);
+  } else if (!SECOND_PERSON_QUESTIONS.test(first)) {
+    warnings.push(
+      `${id}: pembuka belum menyentuh penonton langsung (mis. "pernahkah kamu…", "bayangkan kamu…", "bagaimana kalau…")`,
+    );
+  }
+
+  // Ajakan bertindak: harus ada, dan harus diucapkan di scene terakhir.
+  if (!episode.publishing?.cta) {
+    (published.has(id) ? warnings : errors).push(`${id}: tidak punya publishing.cta — penonton tidak pernah diminta subscribe/like/komentar`);
+  }
+  const last = episode.scenes.at(-1)?.narration ?? "";
+  if (!CTA_WORDS.test(last)) {
+    (published.has(id) ? warnings : errors).push(`${id}: kalimat terakhir belum berisi ajakan (subscribe/like/komentar)`);
   }
 
   if (wordCount(first) > 20) {

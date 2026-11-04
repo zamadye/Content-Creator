@@ -191,6 +191,11 @@ const episode = {
       image: "images/thumb.png",
       holdFrames: 12,
     },
+    // Ajakan bertindak wajib: kartu ini muncul di ekor scene terakhir.
+    cta: {
+      card: entry.cta?.card ?? "KALAU TIDAK MAU DIGANGGU, SUBSCRIBE",
+      holdFrames: entry.cta?.holdFrames ?? 84,
+    },
   },
   production: {
     subgenre: entry.subgenre,

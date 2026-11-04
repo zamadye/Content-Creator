@@ -10,9 +10,21 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
  * Remotion membawa ffmpeg sendiri di paket @remotion/compositor-*, jadi server
  * tidak perlu memasang ffmpeg terpisah.
  */
+const FULL_BUILD_CANDIDATES = [
+  "/tmp/ffmpeg-full",
+  "/usr/local/lib/python3.11/dist-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v9.0.2",
+];
+
 export function resolveFfmpeg(): string {
   if (process.env.FFMPEG_PATH && existsSync(process.env.FFMPEG_PATH)) {
     return process.env.FFMPEG_PATH;
+  }
+
+  // ffmpeg bawaan Remotion di-build minimal: tanpa alimiter/acompressor/ebur128.
+  // Tanpa limiter, true peak mix horor (stinger tajam) tidak bisa ditahan, jadi
+  // build lengkap dipakai lebih dulu bila tersedia.
+  for (const candidate of FULL_BUILD_CANDIDATES) {
+    if (existsSync(candidate)) return candidate;
   }
 
   const which = spawnSync("which", ["ffmpeg"], { encoding: "utf8" });

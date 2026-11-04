@@ -58,12 +58,14 @@ export function computeCameraTransform(
         rotate: 0,
       };
     case "handheld": {
-      const shake = 1 + intensity * 2.2;
+      // Goyangan naik-turun napas kamera tangan: dua frekuensi lambat + satu
+      // frekuensi cepat, supaya gerak terasa organik, bukan osilasi mesin.
+      const shake = 1 + intensity * 3.2;
       return {
-        scale: 1.06,
-        translateX: Math.sin(frame * 0.21) * 5 * shake + Math.sin(frame * 0.07) * 9 * shake,
-        translateY: Math.cos(frame * 0.17) * 4 * shake + Math.cos(frame * 0.05) * 7 * shake,
-        rotate: Math.sin(frame * 0.09) * 0.25 * shake,
+        scale: 1.07,
+        translateX: Math.sin(frame * 0.21) * 6 * shake + Math.sin(frame * 0.07) * 11 * shake,
+        translateY: Math.cos(frame * 0.17) * 5 * shake + Math.cos(frame * 0.05) * 9 * shake,
+        rotate: Math.sin(frame * 0.09) * 0.35 * shake,
       };
     }
     case "static":

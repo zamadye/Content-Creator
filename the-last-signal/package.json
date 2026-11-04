@@ -15,7 +15,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "node --import tsx --test packages/contracts/test/*.test.ts",
     "stills": "tsx scripts/stills.ts",
-    "encode": "pnpm --filter @the-last-signal/renderer exec remotion ffmpeg -hide_banner -y -i ../../renders/LS-0001.mp4 -c:v libx264 -preset slow -crf 23 -maxrate 9M -bufsize 18M -pix_fmt yuv420p -profile:v high -level 4.2 -c:a aac -b:a 192k -ar 48000 -movflags +faststart ../../renders/LS-0001-delivery.mp4"
+    "encode": "tsx scripts/encode-delivery.ts --episode LS-0001",
+    "qc": "tsx scripts/qc.ts --episode LS-0001"
   },
   "devDependencies": {
     "tsx": "^4.19.2",

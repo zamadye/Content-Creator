@@ -84,10 +84,14 @@ function makeAmbience(durationSec = 20) {
 
   for (let i = 0; i < n; i++) {
     const t = i / SAMPLE_RATE;
-    // Drone: dua sub-bass yang saling berdenyut + hum ruangan.
-    const sub = Math.sin(2 * Math.PI * 41 * t) * 0.16 + Math.sin(2 * Math.PI * 55 * t) * 0.1;
-    const hum = Math.sin(2 * Math.PI * 100 * t) * 0.02;
-    const air = noise[i] * 0.22;
+    // Drone: sub-bass untuk ruang, TAPI juga hum 100/200 Hz dan desis tinggi —
+    // tanpa komponen mid/high, ambience ini praktis tidak terdengar di speaker HP.
+    const sub = Math.sin(2 * Math.PI * 41 * t) * 0.14 + Math.sin(2 * Math.PI * 55 * t) * 0.09;
+    const hum =
+      Math.sin(2 * Math.PI * 100 * t) * 0.045 +
+      Math.sin(2 * Math.PI * 200 * t) * 0.028 +
+      Math.sin(2 * Math.PI * 300 * t) * 0.012;
+    const air = noise[i] * 0.3;
     const breathing = 0.75 + 0.25 * Math.sin(2 * Math.PI * (t / durationSec) * 2);
     out[i] = (sub + hum + air) * breathing;
   }
@@ -155,6 +159,25 @@ function makeDoorCreak() {
   return lowpass(Array.from(out), 3200);
 }
 
+/** Riser: noise yang naik intensitasnya menuju impact. */
+function makeRiser(durationSec = 2.4) {
+  const n = seconds(durationSec);
+  const out = new Float32Array(n);
+  const rnd = mulberry32(451);
+  let phase = 0;
+  for (let i = 0; i < n; i++) {
+    const t = i / SAMPLE_RATE;
+    const progress = i / n;
+    // Nada naik + noise yang makin keras: "tarikan napas" sebelum kejadian.
+    const freq = 90 * Math.pow(6, progress);
+    phase += (2 * Math.PI * freq) / SAMPLE_RATE;
+    const tone = Math.sin(phase) * 0.22 * progress;
+    const hiss = (rnd() * 2 - 1) * 0.28 * Math.pow(progress, 2.2);
+    out[i] = (tone + hiss) * Math.pow(progress, 0.8);
+  }
+  return out;
+}
+
 function makeHeartbeat() {
   const n = seconds(1.4);
   const out = new Float32Array(n);
@@ -178,4 +201,5 @@ writeWav(join(SFX_DIR, "knock.wav"), makeKnock());
 writeWav(join(SFX_DIR, "impact.wav"), makeImpact());
 writeWav(join(SFX_DIR, "door_creak.wav"), makeDoorCreak());
 writeWav(join(SFX_DIR, "heartbeat.wav"), makeHeartbeat());
+writeWav(join(SFX_DIR, "riser.wav"), makeRiser());
 console.log("Done.");

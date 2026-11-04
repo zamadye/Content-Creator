@@ -22,7 +22,7 @@ function arg(name: string, fallback?: string) {
   return index !== -1 ? process.argv[index + 1] : fallback;
 }
 
-const episodeId = arg("id");
+const episodeId: string | undefined = arg("id");
 const title = arg("title", "Tanpa Judul");
 const durationSeconds = Number(arg("duration", "50"));
 const sceneCount = Number(arg("scenes", "6"));
@@ -31,12 +31,13 @@ if (!episodeId) {
   console.error("Pemakaian: tsx scripts/new-episode.ts --id LS-0002 --title \"Judul\"");
   process.exit(1);
 }
+const episodeCode: string = episodeId;
 if (!/^LS-\d{4}$/.test(episodeId)) {
   console.error("✖ id harus berbentuk LS-0001");
   process.exit(1);
 }
 
-const episodeDir = join(ROOT, "projects", "episodes", episodeId);
+const episodeDir = join(ROOT, "projects", "episodes", episodeCode);
 if (existsSync(episodeDir)) {
   console.error(`✖ folder ${episodeDir} sudah ada`);
   process.exit(1);
@@ -75,7 +76,7 @@ const scenes = Array.from({ length: sceneCount }, (_, index) => {
 });
 
 const episode = {
-  episodeId,
+  episodeId: episodeCode,
   title,
   language: "id-ID",
   category: "fictional_horror",
@@ -107,7 +108,7 @@ async function main() {
   await mkdir(join(episodeDir, "audio", "sfx"), { recursive: true });
   await writeFile(join(episodeDir, "episode.json"), JSON.stringify(episode, null, 2) + "\n", "utf8");
 
-  spawnSync(process.execPath, [join(ROOT, "scripts", "make-overlays.mjs"), "--episode", episodeId], {
+  spawnSync(process.execPath, [join(ROOT, "scripts", "make-overlays.mjs"), "--episode", episodeCode], {
     stdio: "inherit",
   });
 

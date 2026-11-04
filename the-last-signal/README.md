@@ -58,7 +58,9 @@ the-last-signal/
 | --- | --- |
 | `pnpm validate` | validasi `episode.json` terhadap kontrak + cek aset |
 | `pnpm render` | render episode penuh → `renders/LS-0001.mp4` (master, besar) |
-| `pnpm encode` | transcode master → `renders/LS-0001-delivery.mp4` (~54 MB) untuk upload |
+| `pnpm encode` | transcode master → delivery (crf 24, ~5 Mbps, loudnorm −14 LUFS) |
+| `pnpm qc` | QC deterministik: resolusi, fps, durasi, LUFS, true peak, ukuran, ritme cut |
+| `tsx scripts/align-narration.ts --episode LS-0001` | tulis ulang timing scene + subtitle dari audio TTS |
 | `pnpm render -- --frames 0-59` | render potongan timeline (uji cepat) |
 | `pnpm render -- --scale 0.5` | draft setengah resolusi |
 | `pnpm studio` | Remotion Studio untuk preview interaktif |
@@ -80,6 +82,18 @@ pnpm render
 `REMOTION_BROWSER_EXECUTABLE` dibaca oleh `scripts/render.ts` dan `scripts/stills.ts`.
 Kalau variabel ini kosong, Remotion akan mengunduh Chrome Headless Shell sendiri
 (membutuhkan akses ke `storage.googleapis.com`).
+
+## Ritme visual: cut, bukan zoom pelan
+
+Satu scene boleh punya beberapa **cut** (`scene.cuts`): master image yang sama
+dipakai dengan framing berbeda, kameranya "mendarat" (punch) di setiap cut, dan
+ada kedipan 2 frame seperti pindah feed kamera. LS-0001 kini 26 shot untuk 50 detik
+— rata-rata 1,9 detik per shot. Tanpa ini, hasilnya memang terasa slideshow.
+
+Kartu teks 2–3 kata (`episode.onScreenText`) dipakai sebagai tanda baca ritme:
+`JANGAN DIBUKA` → `PINTU KEDUA` → `TERLAMBAT`.
+
+Alasan dan referensinya ada di [`docs/REFERENCE-NOTES.md`](docs/REFERENCE-NOTES.md).
 
 ## Episode demo — LS-0001 “Ketukan Ketiga”
 

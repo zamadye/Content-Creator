@@ -4,11 +4,14 @@ import type { ParsedEpisode } from "@the-last-signal/contracts";
 import { sceneOffsets } from "@the-last-signal/contracts";
 
 const FADE = 12;
+/** Ambience ditekan selama narasi berjalan supaya suara narator selalu di depan. */
+const DUCK_LEVEL = 0.38;
 
 /**
  * Empat layer audio: narasi, ambience, SFX, impact.
- * Ambience di-loop per scene dengan fade in/out supaya tidak ada lompatan
- * klik saat cut.
+ *
+ * Narasi ada di depan mix. Ambience di-loop per scene dengan fade anti-klik dan
+ * ducking otomatis selama narasi. SFX ditempatkan frame-exact dari episode.json.
  */
 export const Soundscape: React.FC<{ episode: ParsedEpisode }> = ({ episode }) => {
   const { fps } = useVideoConfig();
@@ -16,30 +19,43 @@ export const Soundscape: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =>
 
   return (
     <>
-      {episode.narrationAudio ? (
-        <Audio src={staticFile(episode.narrationAudio)} volume={1} />
-      ) : null}
+      {episode.narrationAudio ? <Audio src={staticFile(episode.narrationAudio)} volume={1} /> : null}
 
       {episode.scenes.map((scene, sceneIndex) => {
         const from = offsets[sceneIndex];
         const duration = scene.durationFrames;
         const ambience = scene.audio.ambienceId;
+        const hasNarration = Boolean(scene.narrationAudio);
+        // Narasi diasumsikan mengisi ~72% awal scene; setelah itu ambience naik lagi.
+        const duckEnd = Math.round(duration * 0.72);
 
         return (
           <React.Fragment key={`audio-${scene.id}`}>
+            {scene.narrationAudio ? (
+              <Sequence from={from} durationInFrames={duration} name={`narasi ${scene.id}`}>
+                <Audio src={staticFile(scene.narrationAudio)} volume={1} />
+              </Sequence>
+            ) : null}
+
             {ambience ? (
               <Sequence from={from} durationInFrames={duration} name={`ambience ${scene.id}`}>
                 <Audio
                   src={staticFile(ambience)}
                   loop
-                  volume={(f) =>
-                    interpolate(
-                      f,
+                  volume={(frame) => {
+                    const base = interpolate(
+                      frame,
                       [0, FADE, duration - FADE, duration],
                       [0, scene.audio.ambienceVolume, scene.audio.ambienceVolume, 0],
                       { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-                    )
-                  }
+                    );
+                    if (!hasNarration) return base;
+                    const duck = interpolate(frame, [duckEnd - 10, duckEnd], [DUCK_LEVEL, 1], {
+                      extrapolateLeft: "clamp",
+                      extrapolateRight: "clamp",
+                    });
+                    return base * duck;
+                  }}
                 />
               </Sequence>
             ) : null}

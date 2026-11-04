@@ -2,11 +2,11 @@
  * Validator mandiri: dipakai sebelum render, sebelum upload, dan oleh CI.
  * Exit code 1 kalau ada pelanggaran kontrak.
  */
-import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { safeParseEpisode, totalFrames } from "@the-last-signal/contracts";
+import { averageShotLength, findMissingAssets } from "./lib/assets";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -31,11 +31,7 @@ async function main() {
 
   const episode = result.data;
   const frames = totalFrames(episode);
-  const missing = [
-    ...episode.scenes.map((s) => s.image),
-    ...episode.scenes.flatMap((s) => s.audio.sfx.map((c) => c.assetId)),
-    ...episode.scenes.flatMap((s) => (s.audio.ambienceId ? [s.audio.ambienceId] : [])),
-  ].filter((p) => !existsSync(join(episodeDir, p)));
+  const missing = findMissingAssets(episode, episodeDir);
 
   console.log(`✔ ${episode.episodeId} — ${episode.title}`);
   console.log(`  scene      : ${episode.scenes.length}`);
@@ -43,6 +39,11 @@ async function main() {
   console.log(`  resolusi   : ${episode.width}×${episode.height} @ ${episode.targetFps}fps`);
   console.log(`  subtitle   : ${episode.scenes.reduce((n, s) => n + s.subtitles.length, 0)} cue`);
   console.log(`  sfx        : ${episode.scenes.reduce((n, s) => n + s.audio.sfx.length, 0)} cue`);
+  const shots = episode.scenes.reduce((n, s) => n + 1 + s.cuts.length, 0);
+  console.log(`  shot       : ${shots} (rata-rata ${averageShotLength(episode).toFixed(1)}s)`);
+  const narrated = episode.scenes.filter((s) => s.narrationAudio).length;
+  console.log(`  narasi     : ${narrated}/${episode.scenes.length} scene punya audio`);
+  console.log(`  kartu teks : ${episode.onScreenText.length}`);
   console.log(`  disclosure : ${episode.publishing.syntheticDisclosure ? "aktif" : "TIDAK AKTIF"}`);
 
   if (missing.length > 0) {

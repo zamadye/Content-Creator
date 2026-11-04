@@ -58,6 +58,27 @@ export const SubtitleCueSchema = z.object({
   text: z.string().min(1),
 });
 
+/**
+ * Potongan di dalam satu scene ("virtual camera").
+ *
+ * Satu master image boleh dipakai beberapa kali dengan framing berbeda, jadi
+ * satu scene 9 detik tetap terasa seperti 3 shot yang diedit — bukan satu gambar
+ * yang di-zoom pelan. Ini yang membedakan rekaman dari slideshow.
+ */
+export const CutSchema = z.object({
+  /** Frame relatif terhadap awal scene. Harus naik dan < durationFrames. */
+  atFrame: z.number().int().positive(),
+  /** Ganti gambar pada cut ini (opsional; default tetap gambar scene). */
+  image: z.string().optional(),
+  camera: CameraMoveSchema.optional(),
+  /** Skala framing, 1 = tanpa crop. */
+  scale: z.number().min(1).max(2.5).optional(),
+  /** Geser framing dalam px ruang 1080×1920. */
+  offsetX: z.number().min(-540).max(540).optional(),
+  offsetY: z.number().min(-960).max(960).optional(),
+});
+export type Cut = z.infer<typeof CutSchema>;
+
 export const SceneSchema = z.object({
   id: z.string().regex(/^scene_\d{2}$/, "scene id harus berbentuk scene_01"),
   order: z.number().int().nonnegative(),
@@ -68,6 +89,12 @@ export const SceneSchema = z.object({
 
   /** Narasi yang diucapkan pada scene ini (dipakai TTS + subtitle fallback). */
   narration: z.string().default(""),
+
+  /** Hasil TTS untuk narasi scene ini (relatif terhadap folder episode). */
+  narrationAudio: z.string().optional(),
+
+  /** Potongan framing di dalam scene; kosong = satu shot penuh. */
+  cuts: z.array(CutSchema).default([]),
 
   /**
    * Timestamp subtitle berasal dari alignment audio (Phase 3), bukan dari
@@ -127,8 +154,23 @@ export const EpisodeSchema = z.object({
     ending: z.string().min(1),
   }),
 
-  /** Audio narasi penuh (hasil TTS). Opsional sampai Phase 3. */
+  /** Audio narasi penuh (hasil TTS). Alternatif dari narasi per scene. */
   narrationAudio: z.string().optional(),
+
+  /**
+   * Kartu teks besar sebagai tanda baca ritme (mis. "JANGAN DIBUKA").
+   * Maksimum 4–5 per episode; ini bukan subtitle.
+   */
+  onScreenText: z
+    .array(
+      z.object({
+        text: z.string().min(1).max(32),
+        startFrame: z.number().int().nonnegative(),
+        endFrame: z.number().int().positive(),
+      }),
+    )
+    .max(5)
+    .default([]),
 
   scenes: z.array(SceneSchema).min(1),
 
@@ -206,6 +248,25 @@ export const ParsedEpisodeSchema = EpisodeSchema.superRefine((episode, ctx) => {
       });
     }
 
+    let previousCut = 0;
+    scene.cuts.forEach((cut, cutIndex) => {
+      if (cut.atFrame <= previousCut) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [...path, "cuts", cutIndex, "atFrame"],
+          message: `cut harus naik (${cut.atFrame} setelah ${previousCut})`,
+        });
+      }
+      if (cut.atFrame >= scene.durationFrames) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [...path, "cuts", cutIndex, "atFrame"],
+          message: `cut di frame ${cut.atFrame} berada di luar durasi scene (${scene.durationFrames})`,
+        });
+      }
+      previousCut = cut.atFrame;
+    });
+
     scene.audio.sfx.forEach((cue, sfxIndex) => {
       if (cue.startFrame >= scene.durationFrames) {
         ctx.addIssue({
@@ -257,6 +318,33 @@ export const ParsedEpisodeSchema = EpisodeSchema.superRefine((episode, ctx) => {
       message: "narrationAudio ada, tetapi ada scene tanpa teks narasi — alignment tidak mungkin dilakukan",
     });
   }
+
+  let previousTextEnd = -1;
+  episode.onScreenText.forEach((item, index) => {
+    const path = ["onScreenText", index] as const;
+    if (item.endFrame <= item.startFrame) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [...path],
+        message: "endFrame kartu teks harus lebih besar dari startFrame",
+      });
+    }
+    if (item.endFrame > totalFrames) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [...path],
+        message: `kartu teks melewati durasi episode (${item.endFrame} > ${totalFrames})`,
+      });
+    }
+    if (item.startFrame <= previousTextEnd) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [...path],
+        message: "kartu teks overlap dengan kartu sebelumnya",
+      });
+    }
+    previousTextEnd = item.endFrame;
+  });
 
   if (!episode.publishing.syntheticDisclosure) {
     ctx.addIssue({

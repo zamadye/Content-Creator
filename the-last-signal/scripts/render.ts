@@ -10,13 +10,13 @@
  *   tsx scripts/render.ts --episode LS-0001
  *   tsx scripts/render.ts --episode LS-0001 --crf 18 --concurrency 2
  */
-import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { bundle } from "@remotion/bundler";
 import { renderMedia, selectComposition } from "@remotion/renderer";
 import { safeParseEpisode, totalFrames } from "@the-last-signal/contracts";
+import { averageShotLength, findMissingAssets } from "./lib/assets";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -74,16 +74,11 @@ async function main() {
   );
 
   // 2. Pastikan semua aset yang dirujuk benar-benar ada
-  const required = [
-    ...episode.scenes.map((s) => s.image),
-    ...episode.scenes.flatMap((s) => s.audio.sfx.map((c) => c.assetId)),
-    ...episode.scenes.flatMap((s) => (s.audio.ambienceId ? [s.audio.ambienceId] : [])),
-    ...(episode.narrationAudio ? [episode.narrationAudio] : []),
-  ];
-  const missing = [...new Set(required)].filter((p) => !existsSync(join(episodeDir, p)));
+  const missing = findMissingAssets(episode, episodeDir);
   if (missing.length > 0) {
     fail(`aset hilang di ${episodeDir}:\n  - ${missing.join("\n  - ")}`);
   }
+  console.log(`▶ rata-rata panjang shot: ${averageShotLength(episode).toFixed(1)}s`);
 
   // 3. Bundle Remotion sekali, lalu render
   console.log("▶ bundling renderer …");

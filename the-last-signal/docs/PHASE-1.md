@@ -46,7 +46,18 @@ Versi pertama memakai `feTurbulence` penuh layar di setiap frame. Di mesin 2 cor
 membuat render praktis tidak selesai. Tile 512×512 yang diulang + digeser memberi
 tampilan setara dengan biaya jauh lebih kecil (`scripts/make-overlays.mjs`).
 
-**6. Composition tidak pernah tahu soal file.**
+**6. Panjang shot maksimum ~3 detik.**
+Satu gambar 8–10 detik dibaca mata sebagai "gambar diam yang di-zoom", sehebat apa pun
+gerakan kameranya. Karena itu scene punya `cuts`: master image dipakai ulang dengan
+framing berbeda, tiap shot dapat punch-in singkat dan kedipan cut 2 frame. LS-0001
+berubah dari 6 shot menjadi 26 shot (rata-rata 1,9 detik).
+
+**7. Audio diukur, bukan dirasakan.**
+Versi pertama punya audio, tapi −23 LUFS dan hampir seluruhnya sub-bass 40–55 Hz:
+di speaker ponsel itu artinya senyap. Ambience sekarang punya hum 100/200/300 Hz +
+desis, ada riser menuju impact, dan `pnpm qc` menolak file di luar −16…−12 LUFS.
+
+**8. Composition tidak pernah tahu soal file.**
 Props hanya berisi `Episode` tervalidasi; path gambar/audio sudah relatif dan sudah
 dicek eksistensinya di `scripts/render.ts` sebelum bundling.
 

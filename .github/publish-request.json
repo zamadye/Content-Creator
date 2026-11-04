@@ -1,6 +1,6 @@
 {
   "_catatan": "Mengubah berkas ini lalu push = tombol publikasi. Workflow .github/workflows/publish-scheduled.yml membaca berkas ini, lalu menjadwalkan tiap misi ke Buffer dengan jeda sesuai dueAt. Semua waktu ISO-8601 dengan offset zona akun Buffer (Asia/Jakarta, +07:00).",
-  "aksi": "kirim",
+  "aksi": "cek",
   "platforms": "youtube",
   "_platforms_catatan": "Revisi 8: hanya YouTube. Facebook Reels sudah TERKIRIM pada revisi 7 (id 6aeb43be3eb1753cae1b0b35) — jangan kirim ulang agar tidak duplikat.",
   "items": [
@@ -10,6 +10,6 @@
       "alasan": "PHK 2026 v2 (gaya kartun, hukum objek) — disetujui pemilik kanal 4 Nov 2026; unggah segera ke YouTube + Facebook Reels"
     }
   ],
-  "_revisi": 8,
-  "_catatan_revisi": "Revisi 8: YouTube gagal karena deskripsi mengandung karakter '>'; caption dibersihkan. Kirim ulang KHUSUS YouTube (Facebook sudah terkirim)."
+  "_revisi": 9,
+  "_catatan_revisi": "Revisi 9: mode CEK (tanpa kirim) untuk memverifikasi status post Facebook Reels (6aeb43be3eb1753cae1b0b35) dan YouTube (6aeb43fcbf0b7294966b2a04). Tidak membuat post baru."
 }

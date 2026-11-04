@@ -396,7 +396,7 @@
           "intensity": 0.65
         },
         {
-          "narration": "Di rumah blok C, pintunya terbuka. Di dalam ada kursi plastik, dua gelas, dan televisi yang menyala tanpa listrik.",
+          "narration": "Di rumah blok C pintunya terbuka. Ada kursi plastik, dua gelas, dan televisi yang menyala tanpa listrik.",
           "imagePrompt": "empty unoccupied house interior in a new estate, plastic chairs, two glasses on the floor, old CRT TV glowing, dust, camcorder framing",
           "camera": "handheld",
           "shot": "medium",
@@ -409,7 +409,7 @@
           "intensity": 0.75
         },
         {
-          "narration": "Temanmu tertawa dan berteriak ke kamera, menyebut nama akun kalian. Dari lantai atas, ada suara yang menyebut nama itu juga.",
+          "narration": "Temanmu berteriak ke kamera, menyebut nama akun kalian. Dari lantai atas, ada suara yang menyebutnya juga.",
           "imagePrompt": "dark staircase in an unfinished house, camcorder flash lighting the steps, dust in the beam, no people, vignette",
           "camera": "push_in",
           "shot": "pov",
@@ -423,7 +423,7 @@
           "intensity": 0.85
         },
         {
-          "narration": "Kamu memutar ulang rekaman di kamera. Di menit keempat belas, ada empat orang yang berjalan masuk ke rumah itu.",
+          "narration": "Kamu memutar ulang rekaman. Di menit keempat belas, ada empat orang berjalan masuk ke rumah itu.",
           "imagePrompt": "camcorder LCD playback of a dim room with figures at the edge of the frame, heavy noise, over the shoulder view, night",
           "camera": "static",
           "shot": "closeup",
@@ -436,7 +436,7 @@
           "intensity": 0.9
         },
         {
-          "narration": "Kalian berlari ke gerbang. Gerbangnya terkunci dari luar, dan di luar gerbang ada kalian, sedang merekam dari dalam.",
+          "narration": "Kalian berlari ke gerbang. Gerbangnya terkunci dari luar, dan di luar ada kalian, sedang merekam dari dalam.",
           "imagePrompt": "locked construction gate at night seen from inside, padlock chain, two silhouettes beyond the gate holding a camera, fog, cinematic",
           "camera": "handheld",
           "shot": "wide",
@@ -450,7 +450,7 @@
           "intensity": 1
         },
         {
-          "narration": "Video itu diunggah pukul tujuh malam, tiga jam sebelum kalian berangkat. Akun kalian masih membalas komentar sampai sekarang.",
+          "narration": "Video itu diunggah pukul tujuh malam, tiga jam sebelum kalian berangkat.",
           "imagePrompt": "dark smartphone screen showing a video upload timestamp and comments, gloved hand not visible, blue light, close-up, cinematic",
           "camera": "static",
           "shot": "closeup",

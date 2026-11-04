@@ -225,3 +225,41 @@ Dipanggil dari runner GitHub, bukan dugaan:
 
 Konsekuensi: pengiriman `--platforms instagram,tiktok,youtube` akan jalan; `facebook` akan
 berstatus SKIP sampai halaman Facebook disambungkan di Buffer → Channels → Connect Channel.
+
+---
+
+## 9. Publikasi nyata pertama (4 November 2026)
+
+Dijalankan dari runner GitHub lewat `.github/publish-request.json`. Semua klaim di bawah
+diambil dari keluaran run dan dari `buffer posts list`, bukan dari asumsi.
+
+| Waktu (WIB) | Konten | Instagram | TikTok | YouTube |
+|---|---|---|---|---|
+| 11.00 | karhutla-angka-turun-2026 | ✓ | ✓ | ✓ |
+| 13.00 | judol-taruhan-kecil-2026 | ✓ | ✓ | ✓ |
+| 15.00 | pinjol-bunga-harian-2026 | ✓ | ✓ | ✓ |
+
+`buffer posts list` → 9 post berstatus `scheduled` pada 04:00Z / 06:00Z / 08:00Z
+(= 11.00 / 13.00 / 15.00 WIB), jarak tepat 2 jam.
+
+### Tiga hal yang baru terbukti, dan satu jebakan
+
+1. **`application/octet-stream` dari `raw.githubusercontent.com` diterima.** Ketiga platform
+   berhasil mengunduh mp4-nya (ukuran terverifikasi sama: 9 477 555 / 10 333 444 / 8 283 303 B).
+   Peringatan content-type di log bersifat informatif, bukan penghalang.
+2. **`organizationId` bisa ditemukan sendiri** lewat `buffer account` — cukup satu secret
+   (`BUFFER_API_KEY`). Percobaan pertama gagal justru karena menunggu secret kedua.
+3. **`firstComment` adalah fitur berbayar.** Pada paket gratis, API menolak **seluruh** post
+   dengan `Invalid post: First comment requires a paid plan` — bukan hanya komentarnya.
+   Karena itu payload kini hanya menyertakan `firstComment` bila `BUFFER_FIRST_COMMENT=1`.
+   Sumber angka tetap terkirim karena sudah ada di badan caption.
+
+Jebakan: satu platform yang gagal tidak menggagalkan platform lain (TikTok & YouTube terkirim
+saat Instagram ditolak). Karena `posts create` tidak idempoten, pengiriman ulang harus
+dibatasi ke platform yang gagal saja — `"platforms": "instagram"` di berkas permintaan.
+
+### Yang belum bisa dikirim
+
+- **Facebook** — belum ada halaman tersambung di Buffer.
+- **mbg-gizi-anak** — belum punya `caption_mbg-gizi-anak.txt` dan `T_mbg-gizi-anak_1080x1920.png`,
+  jadi skrip menolak sebelum menyentuh API (memang seharusnya begitu).

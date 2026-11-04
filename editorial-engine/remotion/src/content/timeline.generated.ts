@@ -3,244 +3,208 @@
 import type { Timeline } from './types';
 
 export const timeline: Timeline = {
-  "topic": "umk-2026-enam-dari-sepuluh",
+  "topic": "phk-tiga-angka-2026",
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "durationInFrames": 2535,
-  "generatedAt": "2026-11-04T09:52:42.789Z",
+  "durationInFrames": 2195,
+  "generatedAt": "2026-11-04T10:51:45.987Z",
   "scenes": [
     {
-      "id": "c01",
+      "id": "d01",
       "startFrame": 0,
-      "durationInFrames": 330,
+      "durationInFrames": 420,
       "purpose": "HOOK",
       "vo": "vo01"
     },
     {
-      "id": "c02",
-      "startFrame": 330,
-      "durationInFrames": 383,
+      "id": "d02",
+      "startFrame": 420,
+      "durationInFrames": 374,
       "purpose": "CONTEXT",
       "vo": "vo02"
     },
     {
-      "id": "c03",
-      "startFrame": 713,
-      "durationInFrames": 420,
+      "id": "d03",
+      "startFrame": 794,
+      "durationInFrames": 381,
       "purpose": "CONTRADICTION",
       "vo": "vo03"
     },
     {
-      "id": "c04",
-      "startFrame": 1133,
-      "durationInFrames": 335,
+      "id": "d04",
+      "startFrame": 1175,
+      "durationInFrames": 330,
       "purpose": "ANALYSIS",
       "vo": "vo04"
     },
     {
-      "id": "c05",
-      "startFrame": 1468,
-      "durationInFrames": 361,
+      "id": "d05",
+      "startFrame": 1505,
+      "durationInFrames": 360,
       "purpose": "ANALYSIS",
       "vo": "vo05"
     },
     {
-      "id": "c06",
-      "startFrame": 1829,
-      "durationInFrames": 376,
-      "purpose": "EVIDENCE",
-      "vo": "vo06"
-    },
-    {
-      "id": "c07",
-      "startFrame": 2205,
+      "id": "d06",
+      "startFrame": 1865,
       "durationInFrames": 330,
       "purpose": "CLOSING",
-      "vo": "vo07"
+      "vo": "vo06"
     }
   ],
   "captions": [
     {
       "text": [
-        "Upah minimum 2026 naik",
-        "rata-rata 5 persen."
+        "Pemerintah mencatat 72.336 pekerja",
+        "kena PHK sampai Oktober."
       ],
       "startFrame": 5,
-      "durationInFrames": 208,
-      "segment": "vo01"
-    },
-    {
-      "text": [
-        "Naik untuk siapa?"
-      ],
-      "startFrame": 213,
-      "durationInFrames": 84,
-      "segment": "vo01"
-    },
-    {
-      "text": [
-        "Berlaku 1 Januari 2026.",
-        "Dasar: PP 49/2025."
-      ],
-      "startFrame": 335,
-      "durationInFrames": 163,
-      "segment": "vo02"
-    },
-    {
-      "text": [
-        "Formula: inflasi + (pertumbuhan x alfa)"
-      ],
-      "startFrame": 498,
-      "durationInFrames": 151,
-      "segment": "vo02"
-    },
-    {
-      "text": [
-        "Alfa 0,5 - 0,9."
-      ],
-      "startFrame": 649,
-      "durationInFrames": 58,
-      "segment": "vo02"
-    },
-    {
-      "text": [
-        "148,19 juta bekerja."
-      ],
-      "startFrame": 718,
-      "durationInFrames": 93,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "Formal 60,31 juta.",
-        "Informal 87,88 juta."
-      ],
-      "startFrame": 811,
-      "durationInFrames": 181,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "Informal: tanpa upah minimum."
-      ],
-      "startFrame": 992,
-      "durationInFrames": 135,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "5% dari Rp3,5 juta",
-        "= Rp175.000 sebulan."
-      ],
-      "startFrame": 1138,
-      "durationInFrames": 204,
-      "segment": "vo04"
-    },
-    {
-      "text": [
-        "Sekitar Rp8.300 sehari."
-      ],
-      "startFrame": 1342,
-      "durationInFrames": 120,
-      "segment": "vo04"
-    },
-    {
-      "text": [
-        "Enam dari sepuluh",
-        "tidak dijangkau aturan itu."
-      ],
-      "startFrame": 1473,
-      "durationInFrames": 190,
-      "segment": "vo05"
-    },
-    {
-      "text": [
-        "Bukan dilanggar.",
-        "Tidak masuk definisi."
-      ],
-      "startFrame": 1663,
-      "durationInFrames": 160,
-      "segment": "vo05"
-    },
-    {
-      "text": [
-        "Sumber: BPS Sakernas Mei 2026 ·",
-        "PP 49/2025."
-      ],
-      "startFrame": 1834,
-      "durationInFrames": 187,
-      "segment": "vo06"
-    },
-    {
-      "text": [
-        "Hitungan 5% dan harian:",
-        "hitungan sendiri."
-      ],
-      "startFrame": 2021,
       "durationInFrames": 178,
+      "segment": "vo01"
+    },
+    {
+      "text": [
+        "Serikat pekerja menyebut 90 ribu.",
+        "Dua-duanya resmi."
+      ],
+      "startFrame": 183,
+      "durationInFrames": 154,
+      "segment": "vo01"
+    },
+    {
+      "text": [
+        "Kok bisa beda?"
+      ],
+      "startFrame": 337,
+      "durationInFrames": 42,
+      "segment": "vo01"
+    },
+    {
+      "text": [
+        "Angka PHK lahir dari laporan,",
+        "bukan pendataan penuh."
+      ],
+      "startFrame": 425,
+      "durationInFrames": 206,
+      "segment": "vo02"
+    },
+    {
+      "text": [
+        "Yang tidak melapor",
+        "tidak masuk hitungan."
+      ],
+      "startFrame": 631,
+      "durationInFrames": 158,
+      "segment": "vo02"
+    },
+    {
+      "text": [
+        "KSPI mencatat 70 ribu sampai Juni.",
+        "Versi mereka soal Kemnaker: 83 ribu."
+      ],
+      "startFrame": 799,
+      "durationInFrames": 241,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "Proyeksi akhir tahun:",
+        "di atas 90 ribu."
+      ],
+      "startFrame": 1040,
+      "durationInFrames": 129,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "Tekanan terbesar: tekstil, garmen,",
+        "sepatu — padat karya ekspor."
+      ],
+      "startFrame": 1180,
+      "durationInFrames": 218,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Jawa Barat tertinggi."
+      ],
+      "startFrame": 1398,
+      "durationInFrames": 72,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Selisih itu bukan kebohongan.",
+        "Itu yang tak lewat pintu laporan."
+      ],
+      "startFrame": 1510,
+      "durationInFrames": 173,
+      "segment": "vo05"
+    },
+    {
+      "text": [
+        "Kontrak harian, informal,",
+        "yang mengundurkan diri."
+      ],
+      "startFrame": 1683,
+      "durationInFrames": 135,
+      "segment": "vo05"
+    },
+    {
+      "text": [
+        "Bukan angka yang salah.",
+        "Yang tidak pernah dihitung."
+      ],
+      "startFrame": 1870,
+      "durationInFrames": 170,
       "segment": "vo06"
     },
     {
       "text": [
-        "Upah minimum bukan",
-        "untuk semua pekerja."
+        "Simpan, bagikan, ikuti."
       ],
-      "startFrame": 2210,
-      "durationInFrames": 191,
-      "segment": "vo07"
-    },
-    {
-      "text": [
-        "Itu definisinya."
-      ],
-      "startFrame": 2401,
-      "durationInFrames": 78,
-      "segment": "vo07"
+      "startFrame": 2040,
+      "durationInFrames": 77,
+      "segment": "vo06"
     }
   ],
   "vo": [
     {
       "id": "vo01",
-      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo01.mp3",
+      "file": "audio/voiceovers/phk-tiga-angka-2026/vo01.mp3",
       "startFrame": 5,
-      "durationInFrames": 292
+      "durationInFrames": 374
     },
     {
       "id": "vo02",
-      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo02.mp3",
-      "startFrame": 335,
-      "durationInFrames": 372
+      "file": "audio/voiceovers/phk-tiga-angka-2026/vo02.mp3",
+      "startFrame": 425,
+      "durationInFrames": 364
     },
     {
       "id": "vo03",
-      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo03.mp3",
-      "startFrame": 718,
-      "durationInFrames": 409
+      "file": "audio/voiceovers/phk-tiga-angka-2026/vo03.mp3",
+      "startFrame": 799,
+      "durationInFrames": 370
     },
     {
       "id": "vo04",
-      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo04.mp3",
-      "startFrame": 1138,
-      "durationInFrames": 324
+      "file": "audio/voiceovers/phk-tiga-angka-2026/vo04.mp3",
+      "startFrame": 1180,
+      "durationInFrames": 290
     },
     {
       "id": "vo05",
-      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo05.mp3",
-      "startFrame": 1473,
-      "durationInFrames": 350
+      "file": "audio/voiceovers/phk-tiga-angka-2026/vo05.mp3",
+      "startFrame": 1510,
+      "durationInFrames": 308
     },
     {
       "id": "vo06",
-      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo06.mp3",
-      "startFrame": 1834,
-      "durationInFrames": 365
-    },
-    {
-      "id": "vo07",
-      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo07.mp3",
-      "startFrame": 2210,
-      "durationInFrames": 269
+      "file": "audio/voiceovers/phk-tiga-angka-2026/vo06.mp3",
+      "startFrame": 1870,
+      "durationInFrames": 247
     }
   ]
 };

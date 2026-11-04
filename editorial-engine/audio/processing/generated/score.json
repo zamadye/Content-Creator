@@ -1,6 +1,6 @@
 {
   "sampleRate": 48000,
-  "durationSec": 84.5,
+  "durationSec": 73.2,
   "bed": "audio/processing/generated/bed.wav",
   "sfx": [
     "whoosh",

@@ -1,0 +1,78 @@
+{
+  "id": "phk-tiga-angka-2026",
+  "version": 2,
+  "fps": 30,
+  "resolution": {
+    "width": 1080,
+    "height": 1920
+  },
+  "styleReference": "video_reference.mp4 (kartun editorial 2D, karakter berulang, caption karaoke) + video_reference_01.mp4 (disiplin bab)",
+  "visualDirection": "Vektor datar berlapis: langit -> bukit -> tanah -> pabrik/properti -> karakter. Palet earthy dengan satu aksen merah untuk kerugian. Tanpa tekstur kertas.",
+  "layerContract": {
+    "bg": "Sky + Hills",
+    "mg": "Pabrik / Gerbang / Papan / Kontainer",
+    "fg": "Karakter + properti + AngkaBesar",
+    "overlay": "KartunShell (brand, label ILUSTRASI, sumber) + KaraokeCaption"
+  },
+  "qa": [
+    "captions satu baris, maksimum 42 karakter",
+    "setiap adegan memiliki karakter manusia",
+    "tidak ada frame tanpa perubahan visual > 5 detik"
+  ],
+  "scenes": [
+    {
+      "id": "d01",
+      "narrativePurpose": "HOOK",
+      "vo": "vo01",
+      "durationTargetSec": 14,
+      "environment": "Halaman gerbang pabrik saat sore, pekerja keluar membawa kardus.",
+      "visualDescription": "Angka 72.336 merah dan 90.000 hitam; dua papan: KEMNAKER vs KSPI.",
+      "characterAction": "Satu pekerja berjalan keluar, satu membungkuk, kerumunan menunggu."
+    },
+    {
+      "id": "d02",
+      "narrativePurpose": "CONTEXT",
+      "vo": "vo02",
+      "durationTargetSec": 12,
+      "environment": "Loket pelaporan dengan meja kayu dan tumpukan berkas.",
+      "visualDescription": "'SETIAP PHK WAJIB DILAPORKAN' lalu 'YANG LAPOR / YANG DIHITUNG'.",
+      "characterAction": "Petugas di balik meja; pekerja mengantre membawa kardus."
+    },
+    {
+      "id": "d03",
+      "narrativePurpose": "CONTRADICTION",
+      "vo": "vo03",
+      "durationTargetSec": 12,
+      "environment": "Tanah terbuka dengan tiga papan bertingkat.",
+      "visualDescription": "70 RIBU (KSPI Juni), 83 RIBU (versi KSPI soal Kemnaker), >90 RIBU (proyeksi).",
+      "characterAction": "Dua karakter berdebat menunjuk papan, satu terkejut di tengah."
+    },
+    {
+      "id": "d04",
+      "narrativePurpose": "ANALYSIS",
+      "vo": "vo04",
+      "durationTargetSec": 11,
+      "environment": "Kawasan industri: pabrik dan tumpukan kontainer.",
+      "visualDescription": "TEKSTIL / GARMEN / SEPATU dengan panah merah turun.",
+      "characterAction": "Pekerja bergeser turun mengikuti panah."
+    },
+    {
+      "id": "d05",
+      "narrativePurpose": "ANALYSIS",
+      "vo": "vo05",
+      "durationTargetSec": 12,
+      "environment": "Pagar pintu pelaporan; di luarnya jalan tanah.",
+      "visualDescription": "Pagar loket kecil; di sisi lain tiga pekerja berjalan menjauh.",
+      "characterAction": "Mereka melewati pagar, tidak masuk hitungan."
+    },
+    {
+      "id": "d06",
+      "narrativePurpose": "CLOSING",
+      "vo": "vo06",
+      "durationTargetSec": 11,
+      "environment": "Bukit yang sama, tiga karakter berdiri.",
+      "visualDescription": "'BUKAN ANGKANYA YANG SALAH / YANG TIDAK PERNAH MASUK HITUNGAN' + CTA.",
+      "characterAction": "Tiga karakter berdiri diam menghadap kamera."
+    }
+  ]
+}

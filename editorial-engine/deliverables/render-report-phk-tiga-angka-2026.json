@@ -1,0 +1,16 @@
+{
+  "video": "deliverables/B_phk-tiga-angka-2026_1080x1920.mp4",
+  "frames": 2195,
+  "fps": 30,
+  "durationSec": 72.17,
+  "audioSec": 70.54,
+  "encodeSec": 51.9,
+  "sizeMB": 8.06,
+  "settings": {
+    "codec": "h264 high",
+    "crf": 18,
+    "pixFmt": "yuv420p",
+    "audio": "aac 192k 48k",
+    "faststart": true
+  }
+}

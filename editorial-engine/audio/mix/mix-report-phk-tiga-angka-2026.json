@@ -1,0 +1,12 @@
+{
+  "master": "audio/mix/phk-tiga-angka-2026.master.wav",
+  "durationSec": 73.16666666666667,
+  "voiceSegments": 6,
+  "sfxCues": 5,
+  "chain": [
+    "highpass 90Hz",
+    "acompressor 3:1",
+    "sidechain duck -7:1 on score",
+    "loudnorm I=-14 TP=-1.5"
+  ]
+}

@@ -47,6 +47,8 @@ import { A05Perspective } from './a05_perspective';
 import { A06Evidence } from './a06_evidence';
 import { A07Closing } from './a07_closing';
 import { C01Hook } from './c01_hook';
+import { D01Hook } from './d01_hook';
+import { D02Context, D03Conflict, D04Analysis, D05Analysis2, D06Closing } from './d02_d06';
 import { C02Context } from './c02_context';
 import { C03Conflict } from './c03_conflict';
 import { C04Analysis1 } from './c04_analysis1';
@@ -89,6 +91,12 @@ export const SCENES: Record<string, React.FC<{ d: number }>> = {
   p07: P07Closing,
   // misi kedelapan — bsu-9-dari-100-2026 (prefix b)
   c01: C01Hook,
+  d01: D01Hook,
+  d02: D02Context,
+  d03: D03Conflict,
+  d04: D04Analysis,
+  d05: D05Analysis2,
+  d06: D06Closing,
   c02: C02Context,
   c03: C03Conflict,
   c04: C04Analysis1,

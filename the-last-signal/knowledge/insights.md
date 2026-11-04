@@ -144,3 +144,44 @@ menyampaikan ketidakmungkinan tanpa perlu membaca kalimat lengkap.
 **6. `stills.ts` bergantung pada remotion.media; di sandbox yang jaringan luarnya
 dibatasi, ambil frame lewat ffmpeg bawaan Remotion:**
 `node_modules/.pnpm/@remotion+compositor-linux-x64-gnu@*/node_modules/@remotion/compositor-linux-x64-gnu/ffmpeg`.
+
+## Pelajaran 2026-11-04 — sesi ketiga (musik yang hilang, CTA, dan batas ffmpeg)
+
+**1. Parameter yang tidak pernah diperiksa adalah parameter yang akan rusak.**
+Empat episode terbit dengan skor musik **senyap total**. Penyebabnya satu field:
+`sectionAt()` mengembalikan `{name, energy}` tanpa `gain`, sementara loop
+mengalikan sampel dengan `section.gain`. `undefined` membuat semuanya `NaN`,
+dan `Math.round(NaN)` ditulis sebagai `0` — berkas tetap terbentuk, panjangnya
+benar, hanya isinya nol. QC tidak menangkapnya karena loudness mix tetap wajar:
+narasi dan efek suara masih ada.
+
+Yang berubah: `make-score` melempar galat kalau skor yang dihasilkan senyap, dan
+QC punya cek baru `skor musik terdengar` yang membaca puncak `score.wav`.
+Pelajaran umumnya: **setiap aset yang dibuat otomatis butuh satu cek yang
+membuktikan aset itu tidak kosong.**
+
+**2. Batas library lebih menentukan desain daripada selera.**
+ffmpeg bawaan Remotion di-build minimal — hanya 50 filter, tanpa `alimiter`,
+`acompressor`, atau `ebur128`. Akibatnya mix horor (stinger tajam + narasi)
+tidak bisa memenuhi −14 LUFS **dan** true peak ≤ −1 secara bersamaan; setiap
+kali dipaksa, salah satu jebol. Solusi yang dipakai: build ffmpeg lengkap dari
+`imageio-ffmpeg` (PyPI), lalu `loudnorm` + `alimiter`. Runner Actions memasang
+ffmpeg penuh lewat apt, jadi jalur unggah tidak terpengaruh.
+
+**3. CTA harus menyambung dari cerita, bukan ditempel.**
+"Kalau kamu tidak ingin radio di rumahmu menyala sendiri, klik subscribe" jauh
+lebih kuat daripada "jangan lupa subscribe" karena konsekuensinya masih
+bergema dari payoff. Permintaan komentar juga harus bisa dijawab: "barang apa
+yang pernah hilang?" bukan "tulis pendapatmu".
+
+**4. Dua teks yang mengatakan hal yang sama akan saling menimpa.**
+Kartu CTA memuat kalimat yang juga diucapkan narasi; subjudul otomatis
+menampilkannya di saat yang sama, jadi keduanya bertumpuk di layar. Subjudul
+sekarang dipotong tepat sebelum kartu masuk. Pemeriksaan frame CTA (seperti
+pemeriksaan frame 0) harus jadi kebiasaan, bukan pengecualian.
+
+**5. Gambar hasil model membawa asumsi budayanya sendiri.**
+Gambar dinding perahu awalnya penuh nama Irlandia (O'NEILL, MURPHY) untuk cerita
+pesisir Indonesia. Nama-nama itu harus ditulis eksplisit di prompt. Kalau tidak,
+penonton Indonesia akan melihat ketidakcocokan yang lebih besar daripada
+efek horornya.

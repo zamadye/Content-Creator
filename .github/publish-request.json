@@ -1,7 +1,7 @@
 {
   "_catatan": "Mengubah berkas ini lalu push = tombol publikasi. Workflow .github/workflows/publish-scheduled.yml membaca berkas ini, lalu menjadwalkan tiap misi ke Buffer dengan jeda sesuai dueAt. Semua waktu ISO-8601 dengan offset zona akun Buffer (Asia/Jakarta, +07:00).",
   "aksi": "kirim",
-  "platforms": "instagram,tiktok,youtube",
+  "platforms": "instagram",
   "_platforms_catatan": "facebook belum tersambung di Buffer (per 4 Nov 2026), jadi tidak dimasukkan.",
   "items": [
     {
@@ -20,6 +20,6 @@
       "alasan": "evergreen, pamungkas; jeda 2 jam"
     }
   ],
-  "_revisi": 2,
-  "_catatan_revisi": "Percobaan 1 gagal: secret BUFFER_ORGANIZATION_ID belum ada. Skrip sekarang menemukan organizationId sendiri dari `buffer account`, jadi cukup satu secret."
+  "_revisi": 3,
+  "_catatan_revisi": "Percobaan 2: TikTok & YouTube TERKIRIM untuk ketiga konten. Instagram gagal karena firstComment (fitur berbayar) — kini dimatikan. Berkas ini hanya mengirim ulang Instagram; platform lain dilewati agar tidak dobel."
 }

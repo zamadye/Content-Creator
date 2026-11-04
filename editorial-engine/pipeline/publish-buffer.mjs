@@ -169,6 +169,10 @@ const firstCommentOf = () => {
   return idx > -1 ? stripMeta(blocks[idx + 1] ?? '') : '';
 };
 const FIRST_COMMENT = firstCommentOf();
+// Komentar pertama adalah fitur berbayar Buffer: pada paket gratis, API menolak
+// SELURUH post dengan "First comment requires a paid plan". Karena sumber angka
+// sudah ada di badan caption, fitur ini dimatikan secara bawaan.
+const USE_FIRST_COMMENT = process.env.BUFFER_FIRST_COMMENT === '1';
 
 /* ------------------------------------------------------------------ mode --dump */
 // Mencetak PERSIS teks yang akan terkirim, tanpa jaringan. Dipakai untuk memeriksa
@@ -302,12 +306,12 @@ const buildPayload = (platform, channelId, cap, mediaUrl) => {
   switch (platform) {
     case 'instagram':
       base.metadata = {
-        instagram: { type: 'reel', shouldShareToFeed: true, ...(FIRST_COMMENT ? { firstComment: FIRST_COMMENT } : {}) },
+        instagram: { type: 'reel', shouldShareToFeed: true, ...(USE_FIRST_COMMENT && FIRST_COMMENT ? { firstComment: FIRST_COMMENT } : {}) },
       };
       if (assets.length) base.assets = assets;
       break;
     case 'facebook':
-      base.metadata = { facebook: { type: 'reel', ...(FIRST_COMMENT ? { firstComment: FIRST_COMMENT } : {}) } };
+      base.metadata = { facebook: { type: 'reel', ...(USE_FIRST_COMMENT && FIRST_COMMENT ? { firstComment: FIRST_COMMENT } : {}) } };
       if (assets.length) base.assets = assets;
       break;
     case 'youtube':

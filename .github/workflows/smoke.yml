@@ -1,0 +1,9 @@
+name: Smoke
+on:
+  push:
+    branches: ['**']
+jobs:
+  hi:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "::notice::smoke ok branch=${{ github.ref_name }}"

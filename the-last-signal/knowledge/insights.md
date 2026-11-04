@@ -4,6 +4,11 @@ Hanya berisi hal yang sudah diukur pada file nyata. Setiap baris menyebut buktin
 
 ## Narasi & suara
 
+**Batas TTS yang sebenarnya:** satu klip boleh **sampai 20 detik**, dan satu
+episode boleh **5–7 klip**. Batas itu bukan pembatas cerita — pembatasnya adalah
+total durasi Shorts (≤ 60 s). Jadi anggaran nyata: 6 klip × ~8–10 s, atau 5 klip
+× ~11 s kalau ceritanya butuh satu kalimat panjang yang utuh, bukan dipotong.
+
 **Tempo TTS Indonesia ≈ 1,8 kata/detik, bukan 2,3.**
 Diukur dari LS-0002: 110 kata → 60,7 detik audio (6 klip). Estimasi awal 2,3
 kata/detik membuat episode pertama yang dibangun lewat `build-episode.mjs`

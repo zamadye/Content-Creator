@@ -1,0 +1,503 @@
+{
+  "episodeId": "LS-0005",
+  "title": "Perumahan yang Belum Dijual",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 51.7,
+  "story": {
+    "hook": "Bayangkan kamu menonton video pendek yang kamu rekam besok.",
+    "premise": "Tiga anak muda merekam perumahan kosong yang belum dijual, untuk konten eksplorasi.",
+    "twist": "Video yang mereka rekam sudah punya penonton, dan komentarnya menyebut kejadian yang belum terjadi.",
+    "ending": "Unggahan terakhir berasal dari akun mereka, diposting tiga jam sebelum mereka berangkat."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [
+    {
+      "atFrame": 1144,
+      "image": "images/scare-face.png",
+      "assetId": "audio/sfx/scare.wav",
+      "volume": 0.95,
+      "flash": 0.85,
+      "shake": 1,
+      "zoom": 1.5,
+      "durationFrames": 16
+    }
+  ],
+  "onScreenText": [
+    {
+      "text": "BLOK C",
+      "startFrame": 31,
+      "endFrame": 91
+    },
+    {
+      "text": "EMPAT ORANG",
+      "startFrame": 838,
+      "endFrame": 898
+    },
+    {
+      "text": "DIUNGGAH 3 JAM SEBELUMNYA",
+      "startFrame": 1211,
+      "endFrame": 1271
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 276,
+      "image": "images/scene-01.png",
+      "narration": "Bayangkan kamu merekam perumahan baru yang belum dijual. Tiga orang, satu kamera, dan gerbang yang seharusnya dikunci.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 77,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 155,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 226,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 127,
+          "text": "Bayangkan kamu merekam perumahan baru yang belum dijual."
+        },
+        {
+          "startFrame": 127,
+          "endFrame": 264,
+          "text": "Tiga orang, satu kamera, dan gerbang yang seharusnya dikunci."
+        }
+      ],
+      "visual": {
+        "prompt": "unfinished Indonesian housing estate at dusk, identical empty houses, wet concrete, construction debris, hand-held camcorder look, no people",
+        "locationId": "ls-0005_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "wide",
+        "lighting": "overcast_dusk_flat",
+        "intensity": 0.65,
+        "effects": [
+          "film_grain",
+          "camera_shake",
+          "timestamp_hud",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 171,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 226,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 276,
+      "image": "images/scene-02.png",
+      "narration": "Di rumah blok C pintunya terbuka. Ada kursi plastik, dua gelas, dan televisi yang menyala tanpa listrik.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 77,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 155,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 226,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 97,
+          "text": "Di rumah blok C pintunya terbuka."
+        },
+        {
+          "startFrame": 97,
+          "endFrame": 264,
+          "text": "Ada kursi plastik, dua gelas, dan televisi yang menyala tanpa listrik."
+        }
+      ],
+      "visual": {
+        "prompt": "empty unoccupied house interior in a new estate, plastic chairs, two glasses on the floor, old CRT TV glowing, dust, camcorder framing",
+        "locationId": "ls-0005_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "medium",
+        "lighting": "tv_glow_in_daylight_room",
+        "intensity": 0.75,
+        "effects": [
+          "film_grain",
+          "camera_shake",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 171,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 226,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 263,
+      "image": "images/scene-03.png",
+      "narration": "Temanmu berteriak ke kamera, menyebut nama akun kalian. Dari lantai atas, ada suara yang menyebutnya juga.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 74,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 147,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 216,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 129,
+          "text": "Temanmu berteriak ke kamera, menyebut nama akun kalian."
+        },
+        {
+          "startFrame": 129,
+          "endFrame": 251,
+          "text": "Dari lantai atas, ada suara yang menyebutnya juga."
+        }
+      ],
+      "visual": {
+        "prompt": "dark staircase in an unfinished house, camcorder flash lighting the steps, dust in the beam, no people, vignette",
+        "locationId": "ls-0005_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "pov",
+        "lighting": "camcorder_flashlight_beam",
+        "intensity": 0.85,
+        "effects": [
+          "camera_shake",
+          "film_grain",
+          "vignette",
+          "flashlight"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 163,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 216,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 263,
+      "image": "images/scene-04.png",
+      "narration": "Kamu memutar ulang rekaman. Di menit keempat belas, ada empat orang berjalan masuk ke rumah itu.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 74,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 147,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 216,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 67,
+          "text": "Kamu memutar ulang rekaman."
+        },
+        {
+          "startFrame": 67,
+          "endFrame": 251,
+          "text": "Di menit keempat belas, ada empat orang berjalan masuk ke rumah itu."
+        }
+      ],
+      "visual": {
+        "prompt": "camcorder LCD playback of a dim room with figures at the edge of the frame, heavy noise, over the shoulder view, night",
+        "locationId": "ls-0005_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "lcd_screen_glow",
+        "intensity": 0.9,
+        "effects": [
+          "scanlines",
+          "vhs_distortion",
+          "film_grain"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 163,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 216,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 276,
+      "image": "images/scene-05.png",
+      "narration": "Kalian berlari ke gerbang. Gerbangnya terkunci dari luar, dan di luar ada kalian, sedang merekam dari dalam.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 77,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 155,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 226,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 67,
+          "text": "Kalian berlari ke gerbang."
+        },
+        {
+          "startFrame": 67,
+          "endFrame": 264,
+          "text": "Gerbangnya terkunci dari luar, dan di luar ada kalian, sedang merekam dari dalam."
+        }
+      ],
+      "visual": {
+        "prompt": "locked construction gate at night seen from inside, padlock chain, two silhouettes beyond the gate holding a camera, fog, cinematic",
+        "locationId": "ls-0005_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "wide",
+        "lighting": "single_street_lamp_backlight",
+        "intensity": 1,
+        "effects": [
+          "camera_shake",
+          "film_grain",
+          "volumetric_fog",
+          "creature_reveal"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 171,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 226,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 198,
+      "image": "images/scene-06.png",
+      "narration": "Video itu diunggah pukul tujuh malam, tiga jam sebelum kalian berangkat.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 55,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 111,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 162,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 186,
+          "text": "Video itu diunggah pukul tujuh malam, tiga jam sebelum kalian berangkat."
+        }
+      ],
+      "visual": {
+        "prompt": "dark smartphone screen showing a video upload timestamp and comments, gloved hand not visible, blue light, close-up, cinematic",
+        "locationId": "ls-0005_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "phone_screen_blue_glow",
+        "intensity": 0.6,
+        "effects": [
+          "scanlines",
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 123,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 162,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Video Ini Diunggah Tiga Jam Sebelum Mereka Merekamnya",
+    "description": "ARSIP FIKSI — Rekaman camcorder tiga orang di perumahan yang belum dijual. Unggahan terakhir muncul sebelum keberangkatan mereka.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #FoundFootage #CeritaHoror",
+    "tags": [
+      "found footage",
+      "cerita horor",
+      "horor indonesia",
+      "urban exploration",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true
+  },
+  "production": {
+    "subgenre": "Found Footage",
+    "experiment": "Kamera dipegang karakter (camcorder) — gerak kamera paling agresif, hook menyebut penonton sebagai penonton video.",
+    "structure": "video yang diunggah sebelum direkam",
+    "slate": "stories/slate-2026-11-04.json"
+  }
+}

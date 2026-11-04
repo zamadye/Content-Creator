@@ -1,0 +1,506 @@
+{
+  "episodeId": "LS-0004",
+  "title": "Kamar Sembilan",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 47.4,
+  "story": {
+    "hook": "Bayangkan kamu menandatangani daftar pasien, dan tanda tanganmu sudah ada di baris berikutnya.",
+    "premise": "Perawat shift malam di rumah sakit kecil harus memeriksa kamar 9 yang secara resmi kosong setahun.",
+    "twist": "Bukan pasien yang menunggu di kamar itu. Yang menunggu adalah hari ketika perawat itu sendiri menjadi pasien.",
+    "ending": "Papan jadwal pagi menunjukkan shift malam berikutnya atas namanya, dengan tanggal kematiannya sendiri."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [
+    {
+      "atFrame": 1019,
+      "image": "images/scare-face.png",
+      "assetId": "audio/sfx/scare.wav",
+      "volume": 0.95,
+      "flash": 0.9,
+      "shake": 0.9,
+      "zoom": 1.45,
+      "durationFrames": 16
+    }
+  ],
+  "onScreenText": [
+    {
+      "text": "KAMAR 9 KOSONG",
+      "startFrame": 28,
+      "endFrame": 88
+    },
+    {
+      "text": "NAMAMU",
+      "startFrame": 768,
+      "endFrame": 828
+    },
+    {
+      "text": "MINGGU DEPAN",
+      "startFrame": 1109,
+      "endFrame": 1169
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 263,
+      "image": "images/scene-01.png",
+      "narration": "Bayangkan kamu perawat shift malam. Sebelum jam dua, kamu harus memeriksa kamar sembilan yang kosong setahun.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 74,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 147,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 216,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 83,
+          "text": "Bayangkan kamu perawat shift malam."
+        },
+        {
+          "startFrame": 83,
+          "endFrame": 251,
+          "text": "Sebelum jam dua, kamu harus memeriksa kamar sembilan yang kosong setahun."
+        }
+      ],
+      "visual": {
+        "prompt": "empty small Indonesian hospital corridor at night, greenish fluorescent light, worn linoleum floor, rows of closed doors, nurse station in the distance, no people",
+        "locationId": "ls-0004_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "green_fluorescent_4800k_hospital",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "light_flicker",
+          "vignette",
+          "timestamp_hud"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 163,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 216,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 250,
+      "image": "images/scene-02.png",
+      "narration": "Pintunya tidak terkunci. Ada tempat tidur rapi, dan infus yang menetes padahal tidak ada pasien.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 52,
+          "text": "Pintunya tidak terkunci."
+        },
+        {
+          "startFrame": 52,
+          "endFrame": 238,
+          "text": "Ada tempat tidur rapi, dan infus yang menetes padahal tidak ada pasien."
+        }
+      ],
+      "visual": {
+        "prompt": "empty hospital patient room at night, made bed, IV drip stand with a half full bag, curtain half drawn, single dim ceiling light, cinematic",
+        "locationId": "ls-0004_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "single_ceiling_lamp_low_3000k",
+        "intensity": 0.7,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 250,
+      "image": "images/scene-03.png",
+      "narration": "Kamu membaca papan nama di kaki tempat tidur. Namamu sendiri, dengan tanggal masuk hari ini.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 130,
+          "text": "Kamu membaca papan nama di kaki tempat tidur."
+        },
+        {
+          "startFrame": 130,
+          "endFrame": 238,
+          "text": "Namamu sendiri, dengan tanggal masuk hari ini."
+        }
+      ],
+      "visual": {
+        "prompt": "close-up of a hospital bed footboard chart with handwriting, dim light, shallow depth of field, worn paper, clinical and cold",
+        "locationId": "ls-0004_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "cold_shallow_clinical",
+        "intensity": 0.8,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 198,
+      "image": "images/scene-04.png",
+      "narration": "Kamu mundur dan menabrak standar infus. Selangnya sudah menempel di lenganmu.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 55,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 111,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 162,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 104,
+          "text": "Kamu mundur dan menabrak standar infus."
+        },
+        {
+          "startFrame": 104,
+          "endFrame": 186,
+          "text": "Selangnya sudah menempel di lenganmu."
+        }
+      ],
+      "visual": {
+        "prompt": "hospital room seen from low angle, IV tube trailing across the floor toward the camera, empty bed behind, harsh light, motion blur",
+        "locationId": "ls-0004_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "pov",
+        "lighting": "harsh_overhead_flicker",
+        "intensity": 0.9,
+        "effects": [
+          "camera_shake",
+          "film_grain",
+          "light_flicker",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 123,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 162,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 237,
+      "image": "images/scene-05.png",
+      "narration": "Lampu mati. Saat menyala, tempat tidur sudah terisi, dan selimut menutupi bentuk sebesar tubuhmu.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 66,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 133,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 194,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 37,
+          "text": "Lampu mati."
+        },
+        {
+          "startFrame": 37,
+          "endFrame": 225,
+          "text": "Saat menyala, tempat tidur sudah terisi, dan selimut menutupi bentuk sebesar tubuhmu."
+        }
+      ],
+      "visual": {
+        "prompt": "hospital bed with a sheet draped over a body shaped form, face covered, IV connected, dark room, single light above, cinematic horror",
+        "locationId": "ls-0004_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "single_hard_overhead_light",
+        "intensity": 1,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "creature_reveal",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 147,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 194,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 224,
+      "image": "images/scene-06.png",
+      "narration": "Pagi itu papan jadwal menunjukkan shift malam berikutnya atas namamu. Tanggalnya minggu depan.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 63,
+          "camera": "pull_out",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 184,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 164,
+          "text": "Pagi itu papan jadwal menunjukkan shift malam berikutnya atas namamu."
+        },
+        {
+          "startFrame": 164,
+          "endFrame": 212,
+          "text": "Tanggalnya minggu depan."
+        }
+      ],
+      "visual": {
+        "prompt": "hospital staff schedule whiteboard in morning light, handwriting rows, red marker circle on one name, empty nurse station, cinematic",
+        "locationId": "ls-0004_main",
+        "characterIds": [],
+        "camera": "pull_out",
+        "shot": "medium",
+        "lighting": "cold_morning_window_light",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 139,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 184,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Kamar Itu Kosong Setahun. Papan Nama di Kaki Tempat Tidurnya Namamu.",
+    "description": "ARSIP FIKSI — Rumah sakit kecil, shift malam, kamar 9. Prosedur wajib memeriksa kamar yang tidak ada pasiennya.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
+    "tags": [
+      "cerita horor",
+      "horor rumah sakit",
+      "horor indonesia",
+      "paranormal",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true
+  },
+  "production": {
+    "subgenre": "Paranormal Encounter",
+    "experiment": "Horor dari prosedur, bukan dari hantu: rutinitas rumah sakit yang salah satu langkahnya tidak ada.",
+    "structure": "checklist (lima langkah, langkah keenam tidak tertulis)",
+    "slate": "stories/slate-2026-11-04.json"
+  }
+}

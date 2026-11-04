@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 47.4,
+  "targetDurationSeconds": 47.8,
   "story": {
     "hook": "Bayangkan kamu menandatangani daftar pasien, dan tanda tanganmu sudah ada di baris berikutnya.",
     "premise": "Perawat shift malam di rumah sakit kecil harus memeriksa kamar 9 yang secara resmi kosong setahun.",
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 1019,
+      "atFrame": 1020,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -34,43 +34,43 @@
     {
       "text": "KAMAR 9 KOSONG",
       "startFrame": 28,
-      "endFrame": 88
+      "endFrame": 89
     },
     {
       "text": "NAMAMU",
-      "startFrame": 768,
-      "endFrame": 828
+      "startFrame": 774,
+      "endFrame": 834
     },
     {
       "text": "MINGGU DEPAN",
-      "startFrame": 1109,
-      "endFrame": 1169
+      "startFrame": 1118,
+      "endFrame": 1178
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 263,
+      "durationFrames": 267,
       "image": "images/scene-01.png",
       "narration": "Bayangkan kamu perawat shift malam. Sebelum jam dua, kamu harus memeriksa kamar sembilan yang kosong setahun.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 74,
+          "atFrame": 75,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 147,
+          "atFrame": 149,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 216,
+          "atFrame": 219,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -79,13 +79,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 83,
+          "startFrame": 4,
+          "endFrame": 84,
           "text": "Bayangkan kamu perawat shift malam."
         },
         {
-          "startFrame": 83,
-          "endFrame": 251,
+          "startFrame": 84,
+          "endFrame": 259,
           "text": "Sebelum jam dua, kamu harus memeriksa kamar sembilan yang kosong setahun."
         }
       ],
@@ -110,12 +110,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 163,
+            "startFrame": 165,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 216,
+            "startFrame": 219,
             "volume": 0.4
           }
         ]
@@ -124,26 +124,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 250,
+      "durationFrames": 244,
       "image": "images/scene-02.png",
       "narration": "Pintunya tidak terkunci. Ada tempat tidur rapi, dan infus yang menetes padahal tidak ada pasien.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 68,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 140,
+          "atFrame": 137,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 205,
+          "atFrame": 200,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -152,13 +152,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 52,
+          "startFrame": 4,
+          "endFrame": 50,
           "text": "Pintunya tidak terkunci."
         },
         {
-          "startFrame": 52,
-          "endFrame": 238,
+          "startFrame": 50,
+          "endFrame": 236,
           "text": "Ada tempat tidur rapi, dan infus yang menetes padahal tidak ada pasien."
         }
       ],
@@ -182,12 +182,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 155,
+            "startFrame": 151,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 205,
+            "startFrame": 200,
             "volume": 0.4
           }
         ]
@@ -196,26 +196,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 250,
+      "durationFrames": 252,
       "image": "images/scene-03.png",
       "narration": "Kamu membaca papan nama di kaki tempat tidur. Namamu sendiri, dengan tanggal masuk hari ini.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 71,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 140,
+          "atFrame": 141,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 205,
+          "atFrame": 207,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -224,13 +224,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 130,
+          "startFrame": 4,
+          "endFrame": 132,
           "text": "Kamu membaca papan nama di kaki tempat tidur."
         },
         {
-          "startFrame": 130,
-          "endFrame": 238,
+          "startFrame": 132,
+          "endFrame": 244,
           "text": "Namamu sendiri, dengan tanggal masuk hari ini."
         }
       ],
@@ -253,12 +253,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 155,
+            "startFrame": 156,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 205,
+            "startFrame": 207,
             "volume": 0.4
           }
         ]
@@ -267,26 +267,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 198,
+      "durationFrames": 194,
       "image": "images/scene-04.png",
       "narration": "Kamu mundur dan menabrak standar infus. Selangnya sudah menempel di lenganmu.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 55,
+          "atFrame": 54,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 111,
+          "atFrame": 109,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 162,
+          "atFrame": 159,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -295,12 +295,12 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 104,
+          "startFrame": 4,
+          "endFrame": 103,
           "text": "Kamu mundur dan menabrak standar infus."
         },
         {
-          "startFrame": 104,
+          "startFrame": 103,
           "endFrame": 186,
           "text": "Selangnya sudah menempel di lenganmu."
         }
@@ -326,12 +326,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 123,
+            "startFrame": 121,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 162,
+            "startFrame": 159,
             "volume": 0.4
           }
         ]
@@ -340,26 +340,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 237,
+      "durationFrames": 258,
       "image": "images/scene-05.png",
       "narration": "Lampu mati. Saat menyala, tempat tidur sudah terisi, dan selimut menutupi bentuk sebesar tubuhmu.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 66,
+          "atFrame": 72,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 133,
+          "atFrame": 145,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 194,
+          "atFrame": 211,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -368,13 +368,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 37,
+          "startFrame": 4,
+          "endFrame": 39,
           "text": "Lampu mati."
         },
         {
-          "startFrame": 37,
-          "endFrame": 225,
+          "startFrame": 39,
+          "endFrame": 250,
           "text": "Saat menyala, tempat tidur sudah terisi, dan selimut menutupi bentuk sebesar tubuhmu."
         }
       ],
@@ -399,12 +399,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 147,
+            "startFrame": 160,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 194,
+            "startFrame": 211,
             "volume": 0.4
           }
         ]
@@ -413,26 +413,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 224,
+      "durationFrames": 218,
       "image": "images/scene-06.png",
       "narration": "Pagi itu papan jadwal menunjukkan shift malam berikutnya atas namamu. Tanggalnya minggu depan.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 63,
+          "atFrame": 61,
           "camera": "pull_out",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 125,
+          "atFrame": 122,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 184,
+          "atFrame": 179,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -441,13 +441,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 164,
+          "startFrame": 4,
+          "endFrame": 162,
           "text": "Pagi itu papan jadwal menunjukkan shift malam berikutnya atas namamu."
         },
         {
-          "startFrame": 164,
-          "endFrame": 212,
+          "startFrame": 162,
+          "endFrame": 210,
           "text": "Tanggalnya minggu depan."
         }
       ],
@@ -470,12 +470,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 139,
+            "startFrame": 135,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 184,
+            "startFrame": 179,
             "volume": 0.4
           }
         ]

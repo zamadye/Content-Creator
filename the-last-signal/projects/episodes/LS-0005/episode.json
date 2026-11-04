@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 51.7,
+  "targetDurationSeconds": 49.2,
   "story": {
     "hook": "Bayangkan kamu menonton video pendek yang kamu rekam besok.",
     "premise": "Tiga anak muda merekam perumahan kosong yang belum dijual, untuk konten eksplorasi.",
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 1144,
+      "atFrame": 1104,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,44 +33,44 @@
   "onScreenText": [
     {
       "text": "BLOK C",
-      "startFrame": 31,
-      "endFrame": 91
+      "startFrame": 29,
+      "endFrame": 86
     },
     {
       "text": "EMPAT ORANG",
-      "startFrame": 838,
-      "endFrame": 898
+      "startFrame": 796,
+      "endFrame": 853
     },
     {
       "text": "DIUNGGAH 3 JAM SEBELUMNYA",
-      "startFrame": 1211,
-      "endFrame": 1271
+      "startFrame": 1151,
+      "endFrame": 1208
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 276,
+      "durationFrames": 287,
       "image": "images/scene-01.png",
       "narration": "Bayangkan kamu merekam perumahan baru yang belum dijual. Tiga orang, satu kamera, dan gerbang yang seharusnya dikunci.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 77,
+          "atFrame": 80,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 155,
+          "atFrame": 161,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 226,
+          "atFrame": 235,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -79,13 +79,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 127,
+          "startFrame": 4,
+          "endFrame": 133,
           "text": "Bayangkan kamu merekam perumahan baru yang belum dijual."
         },
         {
-          "startFrame": 127,
-          "endFrame": 264,
+          "startFrame": 133,
+          "endFrame": 279,
           "text": "Tiga orang, satu kamera, dan gerbang yang seharusnya dikunci."
         }
       ],
@@ -110,12 +110,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 171,
+            "startFrame": 178,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 226,
+            "startFrame": 235,
             "volume": 0.4
           }
         ]
@@ -124,26 +124,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 276,
+      "durationFrames": 270,
       "image": "images/scene-02.png",
       "narration": "Di rumah blok C pintunya terbuka. Ada kursi plastik, dua gelas, dan televisi yang menyala tanpa listrik.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 77,
+          "atFrame": 75,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 155,
+          "atFrame": 152,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 226,
+          "atFrame": 221,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -152,13 +152,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 97,
+          "startFrame": 4,
+          "endFrame": 95,
           "text": "Di rumah blok C pintunya terbuka."
         },
         {
-          "startFrame": 97,
-          "endFrame": 264,
+          "startFrame": 95,
+          "endFrame": 262,
           "text": "Ada kursi plastik, dua gelas, dan televisi yang menyala tanpa listrik."
         }
       ],
@@ -182,12 +182,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 171,
+            "startFrame": 167,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 226,
+            "startFrame": 221,
             "volume": 0.4
           }
         ]
@@ -196,26 +196,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 263,
+      "durationFrames": 255,
       "image": "images/scene-03.png",
       "narration": "Temanmu berteriak ke kamera, menyebut nama akun kalian. Dari lantai atas, ada suara yang menyebutnya juga.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 74,
+          "atFrame": 72,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 147,
+          "atFrame": 143,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 216,
+          "atFrame": 209,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -224,13 +224,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 129,
+          "startFrame": 4,
+          "endFrame": 126,
           "text": "Temanmu berteriak ke kamera, menyebut nama akun kalian."
         },
         {
-          "startFrame": 129,
-          "endFrame": 251,
+          "startFrame": 126,
+          "endFrame": 247,
           "text": "Dari lantai atas, ada suara yang menyebutnya juga."
         }
       ],
@@ -255,12 +255,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 163,
+            "startFrame": 158,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 216,
+            "startFrame": 209,
             "volume": 0.4
           }
         ]
@@ -269,26 +269,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 263,
+      "durationFrames": 229,
       "image": "images/scene-04.png",
       "narration": "Kamu memutar ulang rekaman. Di menit keempat belas, ada empat orang berjalan masuk ke rumah itu.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 74,
+          "atFrame": 64,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 147,
+          "atFrame": 128,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 216,
+          "atFrame": 188,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -297,13 +297,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 67,
+          "startFrame": 4,
+          "endFrame": 58,
           "text": "Kamu memutar ulang rekaman."
         },
         {
-          "startFrame": 67,
-          "endFrame": 251,
+          "startFrame": 58,
+          "endFrame": 221,
           "text": "Di menit keempat belas, ada empat orang berjalan masuk ke rumah itu."
         }
       ],
@@ -327,12 +327,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 163,
+            "startFrame": 142,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 216,
+            "startFrame": 188,
             "volume": 0.4
           }
         ]
@@ -341,26 +341,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 276,
+      "durationFrames": 262,
       "image": "images/scene-05.png",
       "narration": "Kalian berlari ke gerbang. Gerbangnya terkunci dari luar, dan di luar ada kalian, sedang merekam dari dalam.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 77,
+          "atFrame": 73,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 155,
+          "atFrame": 147,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 226,
+          "atFrame": 215,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -369,13 +369,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 67,
+          "startFrame": 4,
+          "endFrame": 63,
           "text": "Kalian berlari ke gerbang."
         },
         {
-          "startFrame": 67,
-          "endFrame": 264,
+          "startFrame": 63,
+          "endFrame": 254,
           "text": "Gerbangnya terkunci dari luar, dan di luar ada kalian, sedang merekam dari dalam."
         }
       ],
@@ -400,12 +400,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 171,
+            "startFrame": 162,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 226,
+            "startFrame": 215,
             "volume": 0.4
           }
         ]
@@ -414,26 +414,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 198,
+      "durationFrames": 172,
       "image": "images/scene-06.png",
       "narration": "Video itu diunggah pukul tujuh malam, tiga jam sebelum kalian berangkat.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 55,
+          "atFrame": 48,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 111,
+          "atFrame": 96,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 162,
+          "atFrame": 141,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -442,8 +442,8 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 186,
+          "startFrame": 4,
+          "endFrame": 164,
           "text": "Video itu diunggah pukul tujuh malam, tiga jam sebelum kalian berangkat."
         }
       ],
@@ -467,12 +467,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 123,
+            "startFrame": 107,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 162,
+            "startFrame": 141,
             "volume": 0.4
           }
         ]

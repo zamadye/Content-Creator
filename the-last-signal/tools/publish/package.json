@@ -1,0 +1,10 @@
+{
+  "name": "@the-last-signal/publish",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Penerbitan YouTube untuk THE LAST SIGNAL lewat Zernio (dijalankan di GitHub Actions, bukan di sandbox).",
+  "dependencies": {
+    "@zernio/node": "0.2.1459"
+  }
+}

@@ -16,3 +16,6 @@ projects/episodes/*/audio/sfx/*.wav
 
 # Remotion
 .remotion/
+
+# Laporan diagnostik penerbitan (dibuat saat runtime)
+report/

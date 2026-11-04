@@ -1,0 +1,72 @@
+name: Diagnostik Zernio
+
+# ---------------------------------------------------------------------------
+#  Kenapa ini ada: zernio.com tidak bisa dihubungi dari sandbox Arena, tetapi
+#  runner GitHub punya internet penuh. Jadi seluruh panggilan Zernio dijalankan
+#  di sini. Hasil diagnosa diterbitkan sebagai anotasi supaya bisa dibaca
+#  lewat API meskipun log mentah tidak bisa diunduh.
+#
+#  Workflow ini TIDAK mengunggah apa pun. Ia hanya membaca akun, kesehatan, dan
+#  status paket. Aman dijalankan berkali-kali.
+#
+#  Jangan menambahkan pemicu pull_request / pull_request_target: workflow ini
+#  memakai secret, dan pull_request dari fork tidak boleh punya akses ke sana.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+    inputs:
+      catatan:
+        description: 'Catatan bebas (muncul di nama run)'
+        required: false
+        default: 'verifikasi integrasi'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zernio-check
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Cek kunci, akun, kanal YouTube
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+      ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
+
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v5
+
+      - name: Pasang Node 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Sembunyikan nilai rahasia dari log
+        run: |
+          set -euo pipefail
+          [ -n "${ZERNIO_API_KEY:-}" ] && echo "::add-mask::${ZERNIO_API_KEY}"
+          [ -n "${ZERNIO_KEY:-}" ] && echo "::add-mask::${ZERNIO_KEY}"
+          exit 0
+
+      - name: Pasang SDK Zernio
+        working-directory: the-last-signal/tools/publish
+        run: npm install --no-audit --no-fund --loglevel=error
+
+      - name: Jalankan diagnostik
+        working-directory: the-last-signal/tools/publish
+        continue-on-error: true
+        run: node zernio-check.mjs
+
+      - name: Publikasikan laporan sebagai artefak
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zernio-check
+          path: the-last-signal/report/zernio-check.json
+          if-no-files-found: warn

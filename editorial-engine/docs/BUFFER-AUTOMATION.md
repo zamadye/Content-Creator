@@ -205,3 +205,23 @@ dan tidak mencetak JSON mentah. Kunci API ditutup `::add-mask::` sebelum dipakai
 
 Kalau secret belum diisi, workflow **tidak gagal** — ia menulis catatan "dilewati" lalu berhenti.
 Setelah secret ditambahkan, tekan **Re-run all jobs** pada run yang sama.
+
+### Hasil pemeriksaan nyata (4 Nov 2026, run 41752165625)
+
+Dipanggil dari runner GitHub, bukan dugaan:
+
+| | |
+|---|---|
+| Akun | `earlyaakses` · zona waktu `Asia/Jakarta` |
+| Organisasi | 1 (`My organization`) |
+| Kanal | 3 |
+
+| Layanan | Nama kanal |
+|---|---|
+| TikTok | `knottheory.labs` |
+| Instagram | `knottheory.labs` |
+| YouTube | **Knot Theory** |
+| Facebook | **tidak tersambung** |
+
+Konsekuensi: pengiriman `--platforms instagram,tiktok,youtube` akan jalan; `facebook` akan
+berstatus SKIP sampai halaman Facebook disambungkan di Buffer → Channels → Connect Channel.

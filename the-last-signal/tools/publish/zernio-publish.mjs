@@ -166,6 +166,43 @@ if (!qcPassed) {
 
 notice(`QC lolos untuk ${episodeId} (${sizeMb.toFixed(1)} MB, ${duration.toFixed(1)} s, ${lufs.toFixed(1)} LUFS).`);
 
+// ---------------------------------------------------------------------------
+// Jeda antar-unggahan (aturan kanal: minimal 1 jam, dihitung dari unggahan
+// BERHASIL sebelumnya). Dibaca dari knowledge/episodes.jsonl, jadi aturannya
+// tidak bergantung pada ingatan manusia yang memicu workflow.
+// ---------------------------------------------------------------------------
+const MIN_GAP_MS = 55 * 60 * 1000; // 55 menit: toleransi 5 menit untuk jam runner
+try {
+  const kbPath = resolve(REPO_ROOT, 'the-last-signal/knowledge/episodes.jsonl');
+  if (existsSync(kbPath)) {
+    const published = readFileSync(kbPath, 'utf8')
+      .split('\n')
+      .filter(Boolean)
+      .map((line) => JSON.parse(line))
+      .filter((record) => record.publish?.ok && record.publish?.at)
+      .map((record) => ({ id: record.episodeId, at: Date.parse(record.publish.at) }))
+      .filter((record) => Number.isFinite(record.at))
+      .sort((a, b) => b.at - a.at);
+    const last = published[0];
+    if (last) {
+      const gap = Date.now() - last.at;
+      if (gap < MIN_GAP_MS) {
+        const minutes = Math.round(gap / 60000);
+        persist();
+        die(
+          7,
+          `Jeda antar-unggahan belum terpenuhi: ${minutes} menit sejak ${last.id} terbit. Tunggu sampai ${new Date(last.at + MIN_GAP_MS).toISOString()}.`,
+        );
+      }
+      notice(`Jeda sejak ${last.id}: ${Math.round(gap / 60000)} menit (minimum 55).`);
+    }
+  } else {
+    warn('knowledge/episodes.jsonl tidak ada — jeda antar-unggahan tidak bisa diperiksa.');
+  }
+} catch (error) {
+  warn(`Pemeriksaan jeda gagal (tidak fatal): ${describeError(error)}`);
+}
+
 if (dryRun) {
   notice(`::notice title=RESULT::${JSON.stringify({ ...result, dryRun: true })}`);
   notice('Mode dry-run: QC lolos, tidak ada upload.');

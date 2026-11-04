@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 47,
+  "targetDurationSeconds": 44.7,
   "story": {
     "hook": "Bayangkan kamu memarkir mobil yang sama, di tempat yang sama, untuk kelima kalinya malam ini.",
     "premise": "Juru parkir basement dua mulai menyadari satu mobil terus kembali walaupun pemiliknya sudah keluar.",
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 1008,
+      "atFrame": 958,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,44 +33,44 @@
   "onScreenText": [
     {
       "text": "MASUK KE-5",
-      "startFrame": 28,
-      "endFrame": 88
+      "startFrame": 27,
+      "endFrame": 84
     },
     {
       "text": "4 JAM TANPA GERAK",
-      "startFrame": 761,
-      "endFrame": 821
+      "startFrame": 724,
+      "endFrame": 781
     },
     {
       "text": "BUKAN KAMU",
-      "startFrame": 1099,
-      "endFrame": 1159
+      "startFrame": 1046,
+      "endFrame": 1103
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 250,
+      "durationFrames": 252,
       "image": "images/scene-01.png",
-      "narration": "Bayangkan kamu juru parkir basement dua. Malam ini mobil hitam itu masuk untuk kelima kalinya.",
+      "narration": "Mobil hitam itu masuk lima kali malam ini. Yang keluar selalu orang berbeda.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 71,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 140,
+          "atFrame": 141,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 205,
+          "atFrame": 207,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -79,13 +79,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 99,
+          "startFrame": 4,
+          "endFrame": 100,
           "text": "Bayangkan kamu juru parkir basement dua."
         },
         {
-          "startFrame": 99,
-          "endFrame": 238,
+          "startFrame": 100,
+          "endFrame": 244,
           "text": "Malam ini mobil hitam itu masuk untuk kelima kalinya."
         }
       ],
@@ -110,12 +110,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 155,
+            "startFrame": 156,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 205,
+            "startFrame": 207,
             "volume": 0.4
           }
         ]
@@ -124,26 +124,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 237,
+      "durationFrames": 241,
       "image": "images/scene-02.png",
       "narration": "Kamu mencatat jam masuknya. Catatanmu sudah berisi lima baris dengan jam yang sama persis.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 66,
+          "atFrame": 67,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 133,
+          "atFrame": 135,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 194,
+          "atFrame": 197,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -152,13 +152,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
+          "startFrame": 4,
           "endFrame": 69,
           "text": "Kamu mencatat jam masuknya."
         },
         {
           "startFrame": 69,
-          "endFrame": 225,
+          "endFrame": 233,
           "text": "Catatanmu sudah berisi lima baris dengan jam yang sama persis."
         }
       ],
@@ -181,12 +181,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 147,
+            "startFrame": 149,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 194,
+            "startFrame": 197,
             "volume": 0.4
           }
         ]
@@ -195,26 +195,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 237,
+      "durationFrames": 206,
       "image": "images/scene-03.png",
       "narration": "Di dalam mobil itu kosong, tapi sabuk pengamannya masih terpasang, dan kursinya masih hangat.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 66,
+          "atFrame": 57,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 133,
+          "atFrame": 116,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 194,
+          "atFrame": 169,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -223,8 +223,8 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 225,
+          "startFrame": 4,
+          "endFrame": 198,
           "text": "Di dalam mobil itu kosong, tapi sabuk pengamannya masih terpasang, dan kursinya masih hangat."
         }
       ],
@@ -248,12 +248,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 147,
+            "startFrame": 128,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 194,
+            "startFrame": 169,
             "volume": 0.4
           }
         ]
@@ -262,26 +262,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 224,
+      "durationFrames": 201,
       "image": "images/scene-04.png",
       "narration": "Rekaman kamera basement menunjukkan kamu berdiri di pos selama empat jam tanpa bergerak.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 63,
+          "atFrame": 57,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 125,
+          "atFrame": 112,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 184,
+          "atFrame": 165,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -290,8 +290,8 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 212,
+          "startFrame": 4,
+          "endFrame": 193,
           "text": "Rekaman kamera basement menunjukkan kamu berdiri di pos selama empat jam tanpa bergerak."
         }
       ],
@@ -316,12 +316,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 139,
+            "startFrame": 125,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 184,
+            "startFrame": 165,
             "volume": 0.4
           }
         ]
@@ -330,26 +330,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 250,
+      "durationFrames": 241,
       "image": "images/scene-05.png",
       "narration": "Lampu mati satu per satu. Saat menyala, mobil itu sudah di depan pos, pintunya terbuka.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 67,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 140,
+          "atFrame": 135,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 205,
+          "atFrame": 198,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -358,13 +358,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 83,
+          "startFrame": 4,
+          "endFrame": 80,
           "text": "Lampu mati satu per satu."
         },
         {
-          "startFrame": 83,
-          "endFrame": 238,
+          "startFrame": 80,
+          "endFrame": 233,
           "text": "Saat menyala, mobil itu sudah di depan pos, pintunya terbuka."
         }
       ],
@@ -389,12 +389,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 155,
+            "startFrame": 149,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 205,
+            "startFrame": 198,
             "volume": 0.4
           }
         ]
@@ -403,26 +403,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 211,
+      "durationFrames": 200,
       "image": "images/scene-06.png",
       "narration": "Pagi itu kamu menonton rekaman terakhir. Yang duduk di kursimu bukan kamu.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 59,
+          "atFrame": 56,
           "camera": "pull_out",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 118,
+          "atFrame": 112,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 173,
+          "atFrame": 164,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -431,13 +431,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 103,
+          "startFrame": 4,
+          "endFrame": 98,
           "text": "Pagi itu kamu menonton rekaman terakhir."
         },
         {
-          "startFrame": 103,
-          "endFrame": 199,
+          "startFrame": 98,
+          "endFrame": 192,
           "text": "Yang duduk di kursimu bukan kamu."
         }
       ],
@@ -461,12 +461,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 131,
+            "startFrame": 124,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 173,
+            "startFrame": 164,
             "volume": 0.4
           }
         ]

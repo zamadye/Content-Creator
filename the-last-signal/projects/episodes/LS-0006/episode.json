@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 44.7,
+  "targetDurationSeconds": 42.9,
   "story": {
     "hook": "Bayangkan kamu memarkir mobil yang sama, di tempat yang sama, untuk kelima kalinya malam ini.",
     "premise": "Juru parkir basement dua mulai menyadari satu mobil terus kembali walaupun pemiliknya sudah keluar.",
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 958,
+      "atFrame": 904,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,44 +33,44 @@
   "onScreenText": [
     {
       "text": "MASUK KE-5",
-      "startFrame": 27,
-      "endFrame": 84
+      "startFrame": 26,
+      "endFrame": 81
     },
     {
       "text": "4 JAM TANPA GERAK",
-      "startFrame": 724,
-      "endFrame": 781
+      "startFrame": 695,
+      "endFrame": 750
     },
     {
       "text": "BUKAN KAMU",
-      "startFrame": 1046,
-      "endFrame": 1103
+      "startFrame": 1004,
+      "endFrame": 1059
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 252,
+      "durationFrames": 198,
       "image": "images/scene-01.png",
       "narration": "Mobil hitam itu masuk lima kali malam ini. Yang keluar selalu orang berbeda.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 71,
+          "atFrame": 56,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 141,
+          "atFrame": 111,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 207,
+          "atFrame": 163,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -80,12 +80,12 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 100,
+          "endFrame": 78,
           "text": "Bayangkan kamu juru parkir basement dua."
         },
         {
-          "startFrame": 100,
-          "endFrame": 244,
+          "startFrame": 78,
+          "endFrame": 190,
           "text": "Malam ini mobil hitam itu masuk untuk kelima kalinya."
         }
       ],
@@ -110,12 +110,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 156,
+            "startFrame": 123,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 207,
+            "startFrame": 163,
             "volume": 0.4
           }
         ]

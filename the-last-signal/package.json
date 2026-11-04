@@ -16,7 +16,8 @@
     "test": "node --import tsx --test packages/contracts/test/*.test.ts",
     "stills": "tsx scripts/stills.ts",
     "encode": "tsx scripts/encode-delivery.ts --episode LS-0001",
-    "qc": "tsx scripts/qc.ts --episode LS-0001"
+    "qc": "tsx scripts/qc.ts --episode LS-0001",
+    "check:copy": "node scripts/check-copy.mjs"
   },
   "devDependencies": {
     "tsx": "^4.19.2",

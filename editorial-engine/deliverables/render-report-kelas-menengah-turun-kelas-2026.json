@@ -1,0 +1,16 @@
+{
+  "video": "deliverables/B_kelas-menengah-turun-kelas-2026_1080x1920.mp4",
+  "frames": 6447,
+  "fps": 30,
+  "durationSec": 214.9,
+  "audioSec": 213.33,
+  "encodeSec": 103.9,
+  "sizeMB": 13.65,
+  "settings": {
+    "codec": "h264 high",
+    "crf": 18,
+    "pixFmt": "yuv420p",
+    "audio": "aac 192k 48k",
+    "faststart": true
+  }
+}

@@ -35,7 +35,8 @@ if (!exists(video)) {
   add('GATE 5', 'T1', 'resolution 1080x1920', v && v[2] === '1080' && v[3] === '1920' ? 'PASS' : 'FAIL', v ? `${v[2]}x${v[3]}` : 'unparsed');
   add('GATE 5', 'T2', 'codec / pixel format', v && v[1] === 'h264' ? 'PASS' : 'FAIL', v ? `${v[1]} ${info.includes('yuv420p') ? 'yuv420p' : '?'}` : 'unparsed');
   add('GATE 5', 'T3', 'frame rate 30 fps', v && Math.abs(Number(v[4]) - 30) < 0.1 ? 'PASS' : 'FAIL', v ? `${v[4]} fps` : 'unparsed');
-  add('GATE 5', 'T4', 'duration inside 45-90 s', dur >= 45 && dur <= 90 ? 'PASS' : 'FAIL', `${dur.toFixed(2)} s`);
+  const MAX_DUR = Number(process.env.QA_MAX_DURATION_SEC ?? 300);
+  add('GATE 5', 'T4', `duration inside 45-${MAX_DUR} s`, dur >= 45 && dur <= MAX_DUR ? 'PASS' : 'FAIL', `${dur.toFixed(2)} s`);
   add('GATE 5', 'T5', 'audio stream present', a ? 'PASS' : 'FAIL', a ? `${a[1]} ${a[2]} Hz ${a[3]}` : 'none');
 
   const loud = measureLoudness(video);

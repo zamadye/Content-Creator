@@ -1,0 +1,145 @@
+{
+  "generatedAt": "2026-11-04T22:53:44.176Z",
+  "checks": [
+    {
+      "gate": "GATE 5",
+      "id": "T1",
+      "check": "resolution 1080x1920",
+      "status": "PASS",
+      "detail": "1080x1920"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "T2",
+      "check": "codec / pixel format",
+      "status": "PASS",
+      "detail": "h264 yuv420p"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "T3",
+      "check": "frame rate 30 fps",
+      "status": "PASS",
+      "detail": "30 fps"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "T4",
+      "check": "duration inside 45-300 s",
+      "status": "PASS",
+      "detail": "214.90 s"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "T5",
+      "check": "audio stream present",
+      "status": "PASS",
+      "detail": "aac 48000 Hz stereo"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "T6",
+      "check": "integrated loudness -16..-12 LUFS",
+      "status": "PASS",
+      "detail": "-13.7 LUFS"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "T7",
+      "check": "true peak <= -1.0 dBTP",
+      "status": "PASS",
+      "detail": "-3.5 dBTP"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "S1",
+      "check": "cues parse",
+      "status": "PASS",
+      "detail": "17 cues"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "S2",
+      "check": "max 2 lines per cue",
+      "status": "PASS",
+      "detail": "2 lines"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "S3",
+      "check": "max 42 chars per line",
+      "status": "PASS",
+      "detail": "40 chars (limit 42)"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "S4",
+      "check": "no overlapping cues",
+      "status": "PASS",
+      "detail": "0 overlaps"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "S5",
+      "check": "minimum 1.0 s on screen",
+      "status": "PASS",
+      "detail": "0 cues shorter"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "F1",
+      "check": "all frames rendered",
+      "status": "PASS",
+      "detail": "6447/6447"
+    },
+    {
+      "gate": "GATE 7",
+      "id": "TH1",
+      "check": "thumbnail 1080x1920",
+      "status": "PASS",
+      "detail": "1080x1920"
+    },
+    {
+      "gate": "GATE 7",
+      "id": "TH2",
+      "check": "thumbnail size > 200 kB",
+      "status": "NEEDS REVIEW",
+      "detail": "98 kB"
+    },
+    {
+      "gate": "GATE 7",
+      "id": "CP1",
+      "check": "caption 4 platform",
+      "status": "PASS",
+      "detail": "4/4 · 6 kB"
+    },
+    {
+      "gate": "GATE 7",
+      "id": "CP2",
+      "check": "caption memuat sumber & batas kejujuran",
+      "status": "PASS",
+      "detail": "AFU.id"
+    },
+    {
+      "gate": "GATE 5",
+      "id": "P1",
+      "check": "poster 1080x1350",
+      "status": "PASS",
+      "detail": "1080x1350"
+    },
+    {
+      "gate": "GATE 6",
+      "id": "A1",
+      "check": "max two font families",
+      "status": "PASS",
+      "detail": "Permanent Marker, Archivo"
+    },
+    {
+      "gate": "GATE 6",
+      "id": "A2",
+      "check": "font files are local (offline build)",
+      "status": "PASS",
+      "detail": "5 ttf"
+    }
+  ]
+}

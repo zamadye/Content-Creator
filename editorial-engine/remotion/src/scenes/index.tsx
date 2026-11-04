@@ -48,6 +48,7 @@ import { A06Evidence } from './a06_evidence';
 import { A07Closing } from './a07_closing';
 import { C01Hook } from './c01_hook';
 import { D01Hook } from './d01_hook';
+import { M01Hook, M02Stakes, M03Context, M04Evidence, M05Evidence, M06Contradiction, M07Analysis, M08Closing } from './m01_m08';
 import { D02Context, D03Conflict, D04Analysis, D05Analysis2, D06Closing } from './d02_d06';
 import { C02Context } from './c02_context';
 import { C03Conflict } from './c03_conflict';
@@ -97,6 +98,14 @@ export const SCENES: Record<string, React.FC<{ d: number }>> = {
   d04: D04Analysis,
   d05: D05Analysis2,
   d06: D06Closing,
+  m01: M01Hook,
+  m02: M02Stakes,
+  m03: M03Context,
+  m04: M04Evidence,
+  m05: M05Evidence,
+  m06: M06Contradiction,
+  m07: M07Analysis,
+  m08: M08Closing,
   c02: C02Context,
   c03: C03Conflict,
   c04: C04Analysis1,

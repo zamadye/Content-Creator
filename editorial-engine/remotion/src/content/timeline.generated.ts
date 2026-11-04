@@ -3,208 +3,272 @@
 import type { Timeline } from './types';
 
 export const timeline: Timeline = {
-  "topic": "phk-tiga-angka-2026",
+  "topic": "kelas-menengah-turun-kelas-2026",
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "durationInFrames": 2195,
-  "generatedAt": "2026-11-04T10:51:45.987Z",
+  "durationInFrames": 6447,
+  "generatedAt": "2026-11-04T22:26:59.365Z",
   "scenes": [
     {
-      "id": "d01",
+      "id": "m01",
       "startFrame": 0,
-      "durationInFrames": 420,
+      "durationInFrames": 599,
       "purpose": "HOOK",
-      "vo": "vo01"
+      "vo": "m01"
     },
     {
-      "id": "d02",
-      "startFrame": 420,
-      "durationInFrames": 374,
+      "id": "m02",
+      "startFrame": 599,
+      "durationInFrames": 756,
+      "purpose": "STAKES",
+      "vo": "m02"
+    },
+    {
+      "id": "m03",
+      "startFrame": 1355,
+      "durationInFrames": 1031,
       "purpose": "CONTEXT",
-      "vo": "vo02"
+      "vo": "m03"
     },
     {
-      "id": "d03",
-      "startFrame": 794,
-      "durationInFrames": 381,
+      "id": "m04",
+      "startFrame": 2386,
+      "durationInFrames": 900,
+      "purpose": "EVIDENCE",
+      "vo": "m04"
+    },
+    {
+      "id": "m05",
+      "startFrame": 3286,
+      "durationInFrames": 905,
+      "purpose": "EVIDENCE",
+      "vo": "m05"
+    },
+    {
+      "id": "m06",
+      "startFrame": 4191,
+      "durationInFrames": 794,
       "purpose": "CONTRADICTION",
-      "vo": "vo03"
+      "vo": "m06"
     },
     {
-      "id": "d04",
-      "startFrame": 1175,
-      "durationInFrames": 330,
+      "id": "m07",
+      "startFrame": 4985,
+      "durationInFrames": 862,
       "purpose": "ANALYSIS",
-      "vo": "vo04"
+      "vo": "m07"
     },
     {
-      "id": "d05",
-      "startFrame": 1505,
-      "durationInFrames": 360,
-      "purpose": "ANALYSIS",
-      "vo": "vo05"
-    },
-    {
-      "id": "d06",
-      "startFrame": 1865,
-      "durationInFrames": 330,
+      "id": "m08",
+      "startFrame": 5847,
+      "durationInFrames": 600,
       "purpose": "CLOSING",
-      "vo": "vo06"
+      "vo": "m08"
     }
   ],
   "captions": [
     {
       "text": [
-        "Pemerintah mencatat 72.336 pekerja",
-        "kena PHK sampai Oktober."
+        "Ekonomi tumbuh 5 persen.",
+        "Tapi 11 juta orang turun kelas."
       ],
       "startFrame": 5,
-      "durationInFrames": 178,
-      "segment": "vo01"
+      "durationInFrames": 270,
+      "segment": "m01"
     },
     {
       "text": [
-        "Serikat pekerja menyebut 90 ribu.",
-        "Dua-duanya resmi."
+        "Ini bukan cerita orang malas.",
+        "Ini cerita tangga yang tak ditambah."
       ],
-      "startFrame": 183,
-      "durationInFrames": 154,
-      "segment": "vo01"
+      "startFrame": 275,
+      "durationInFrames": 319,
+      "segment": "m01"
     },
     {
       "text": [
-        "Kok bisa beda?"
+        "Gaji naik 8 persen.",
+        "Uangnya habis lebih cepat."
       ],
-      "startFrame": 337,
-      "durationInFrames": 42,
-      "segment": "vo01"
+      "startFrame": 604,
+      "durationInFrames": 330,
+      "segment": "m02"
     },
     {
       "text": [
-        "Angka PHK lahir dari laporan,",
-        "bukan pendataan penuh."
+        "Menunda servis, pindah merek.",
+        "Itu punya nama: turun kelas."
       ],
-      "startFrame": 425,
-      "durationInFrames": 206,
-      "segment": "vo02"
+      "startFrame": 934,
+      "durationInFrames": 415,
+      "segment": "m02"
     },
     {
       "text": [
-        "Yang tidak melapor",
-        "tidak masuk hitungan."
+        "Kelas menengah bukan gelar.",
+        "Ia posisi di sebuah tangga."
       ],
-      "startFrame": 631,
-      "durationInFrames": 158,
-      "segment": "vo02"
+      "startFrame": 1360,
+      "durationInFrames": 382,
+      "segment": "m03"
     },
     {
       "text": [
-        "KSPI mencatat 70 ribu sampai Juni.",
-        "Versi mereka soal Kemnaker: 83 ribu."
+        "Sisa uang setelah makan",
+        "yang menentukan kamu di mana."
       ],
-      "startFrame": 799,
-      "durationInFrames": 241,
-      "segment": "vo03"
+      "startFrame": 1742,
+      "durationInFrames": 368,
+      "segment": "m03"
     },
     {
       "text": [
-        "Proyeksi akhir tahun:",
-        "di atas 90 ribu."
+        "Sisa itu habis,",
+        "turun satu anak tangga."
       ],
-      "startFrame": 1040,
-      "durationInFrames": 129,
-      "segment": "vo03"
+      "startFrame": 2110,
+      "durationInFrames": 270,
+      "segment": "m03"
     },
     {
       "text": [
-        "Tekanan terbesar: tekstil, garmen,",
-        "sepatu — padat karya ekspor."
+        "Pekerja berpendapatan menengah:",
+        "14,5 persen (2018)."
       ],
-      "startFrame": 1180,
-      "durationInFrames": 218,
-      "segment": "vo04"
+      "startFrame": 2391,
+      "durationInFrames": 340,
+      "segment": "m04"
     },
     {
       "text": [
-        "Jawa Barat tertinggi."
+        "Tinggal di atas 7 persen (2025).",
+        "Upah riil -1 sampai -2 persen per tahun."
       ],
-      "startFrame": 1398,
-      "durationInFrames": 72,
-      "segment": "vo04"
+      "startFrame": 2731,
+      "durationInFrames": 487,
+      "segment": "m04"
     },
     {
       "text": [
-        "Selisih itu bukan kebohongan.",
-        "Itu yang tak lewat pintu laporan."
+        "47,9 juta (2024)",
+        "menjadi 46,7 juta (2025)."
       ],
-      "startFrame": 1510,
-      "durationInFrames": 173,
-      "segment": "vo05"
+      "startFrame": 3291,
+      "durationInFrames": 369,
+      "segment": "m05"
     },
     {
       "text": [
-        "Kontrak harian, informal,",
-        "yang mengundurkan diri."
+        "Yang hampir sampai bertambah 4,5 juta:",
+        "50,4 persen penduduk."
       ],
-      "startFrame": 1683,
-      "durationInFrames": 135,
-      "segment": "vo05"
+      "startFrame": 3660,
+      "durationInFrames": 526,
+      "segment": "m05"
     },
     {
       "text": [
-        "Bukan angka yang salah.",
-        "Yang tidak pernah dihitung."
+        "Kelompok yang menyusut ini",
+        "menopang 81,5 persen ekonomi."
       ],
-      "startFrame": 1870,
-      "durationInFrames": 170,
-      "segment": "vo06"
+      "startFrame": 4196,
+      "durationInFrames": 434,
+      "segment": "m06"
+    },
+    {
+      "text": [
+        "Penopangnya mengecil.",
+        "Ke mana pertumbuhannya?"
+      ],
+      "startFrame": 4630,
+      "durationInFrames": 349,
+      "segment": "m06"
+    },
+    {
+      "text": [
+        "Uang baru dari tambang, sawit,",
+        "hilirisasi, belanja negara."
+      ],
+      "startFrame": 4990,
+      "durationInFrames": 445,
+      "segment": "m07"
+    },
+    {
+      "text": [
+        "Itu modal, bukan gaji.",
+        "Ekonomi naik, kamu bisa turun."
+      ],
+      "startFrame": 5435,
+      "durationInFrames": 406,
+      "segment": "m07"
+    },
+    {
+      "text": [
+        "Bukan kamu yang gagal naik.",
+        "Tangganya yang tidak bertambah."
+      ],
+      "startFrame": 5852,
+      "durationInFrames": 395,
+      "segment": "m08"
     },
     {
       "text": [
         "Simpan, bagikan, ikuti."
       ],
-      "startFrame": 2040,
-      "durationInFrames": 77,
-      "segment": "vo06"
+      "startFrame": 6247,
+      "durationInFrames": 154,
+      "segment": "m08"
     }
   ],
   "vo": [
     {
-      "id": "vo01",
-      "file": "audio/voiceovers/phk-tiga-angka-2026/vo01.mp3",
+      "id": "m01",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m01.mp3",
       "startFrame": 5,
-      "durationInFrames": 374
+      "durationInFrames": 589
     },
     {
-      "id": "vo02",
-      "file": "audio/voiceovers/phk-tiga-angka-2026/vo02.mp3",
-      "startFrame": 425,
-      "durationInFrames": 364
+      "id": "m02",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m02.mp3",
+      "startFrame": 604,
+      "durationInFrames": 745
     },
     {
-      "id": "vo03",
-      "file": "audio/voiceovers/phk-tiga-angka-2026/vo03.mp3",
-      "startFrame": 799,
-      "durationInFrames": 370
+      "id": "m03",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m03.mp3",
+      "startFrame": 1360,
+      "durationInFrames": 1020
     },
     {
-      "id": "vo04",
-      "file": "audio/voiceovers/phk-tiga-angka-2026/vo04.mp3",
-      "startFrame": 1180,
-      "durationInFrames": 290
+      "id": "m04",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m04.mp3",
+      "startFrame": 2391,
+      "durationInFrames": 827
     },
     {
-      "id": "vo05",
-      "file": "audio/voiceovers/phk-tiga-angka-2026/vo05.mp3",
-      "startFrame": 1510,
-      "durationInFrames": 308
+      "id": "m05",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m05.mp3",
+      "startFrame": 3291,
+      "durationInFrames": 895
     },
     {
-      "id": "vo06",
-      "file": "audio/voiceovers/phk-tiga-angka-2026/vo06.mp3",
-      "startFrame": 1870,
-      "durationInFrames": 247
+      "id": "m06",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m06.mp3",
+      "startFrame": 4196,
+      "durationInFrames": 783
+    },
+    {
+      "id": "m07",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m07.mp3",
+      "startFrame": 4990,
+      "durationInFrames": 851
+    },
+    {
+      "id": "m08",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m08.mp3",
+      "startFrame": 5852,
+      "durationInFrames": 549
     }
   ]
 };

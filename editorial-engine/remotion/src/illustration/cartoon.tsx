@@ -242,9 +242,17 @@ export const KaraokeCaption: React.FC<{ text: string; keyword?: string; y?: numb
     if (c === c.toUpperCase()) return 0.62;
     return 0.53;
   };
-  const widths = words.map((w) => [...w].reduce((a, c) => a + cw(c), 0) * size * 1.16);
-  const space = size * 0.34;
-  const total = widths.reduce((a, b) => a + b, 0) + space * (words.length - 1);
+  let widths = words.map((w) => [...w].reduce((a, c) => a + cw(c), 0) * size * 1.16);
+  let space = size * 0.34;
+  let total = widths.reduce((a, b) => a + b, 0) + space * (words.length - 1);
+  // Jaga caption tetap di dalam layar: perkecil proporsional bila terlalu panjang.
+  const MAXW = 940;
+  if (total > MAXW) {
+    const k = MAXW / total;
+    widths = widths.map((w) => w * k);
+    space *= k;
+    total = MAXW;
+  }
   let cursor = (W - total) / 2;
   return (
     <g opacity={opacity}>

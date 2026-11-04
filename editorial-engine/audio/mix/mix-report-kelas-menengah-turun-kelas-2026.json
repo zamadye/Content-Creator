@@ -1,0 +1,12 @@
+{
+  "master": "audio/mix/kelas-menengah-turun-kelas-2026.master.wav",
+  "durationSec": 214.9,
+  "voiceSegments": 8,
+  "sfxCues": 7,
+  "chain": [
+    "highpass 90Hz",
+    "acompressor 3:1",
+    "sidechain duck -7:1 on score",
+    "loudnorm I=-14 TP=-1.5"
+  ]
+}

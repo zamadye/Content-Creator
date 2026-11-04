@@ -1,0 +1,88 @@
+{
+  "generatedAt": "2026-11-04T22:26:53.288Z",
+  "levelTargetDb": -18,
+  "totalSpeechSec": 208.63,
+  "segments": [
+    {
+      "id": "m01",
+      "scene": "m01",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m01.mp3",
+      "durationSec": 19.63,
+      "meanDb": -19.8,
+      "gainDb": 1.8,
+      "words": 42,
+      "wordsPerSec": 2.14
+    },
+    {
+      "id": "m02",
+      "scene": "m02",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m02.mp3",
+      "durationSec": 24.84,
+      "meanDb": -20.2,
+      "gainDb": 2.2,
+      "words": 50,
+      "wordsPerSec": 2.01
+    },
+    {
+      "id": "m03",
+      "scene": "m03",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m03.mp3",
+      "durationSec": 34.01,
+      "meanDb": -20.6,
+      "gainDb": 2.6,
+      "words": 67,
+      "wordsPerSec": 1.97
+    },
+    {
+      "id": "m04",
+      "scene": "m04",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m04.mp3",
+      "durationSec": 27.55,
+      "meanDb": -20.1,
+      "gainDb": 2.1,
+      "words": 60,
+      "wordsPerSec": 2.18
+    },
+    {
+      "id": "m05",
+      "scene": "m05",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m05.mp3",
+      "durationSec": 29.83,
+      "meanDb": -20.2,
+      "gainDb": 2.2,
+      "words": 72,
+      "wordsPerSec": 2.41
+    },
+    {
+      "id": "m06",
+      "scene": "m06",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m06.mp3",
+      "durationSec": 26.11,
+      "meanDb": -19.8,
+      "gainDb": 1.8,
+      "words": 54,
+      "wordsPerSec": 2.07
+    },
+    {
+      "id": "m07",
+      "scene": "m07",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m07.mp3",
+      "durationSec": 28.37,
+      "meanDb": -20.7,
+      "gainDb": 2.7,
+      "words": 57,
+      "wordsPerSec": 2.01
+    },
+    {
+      "id": "m08",
+      "scene": "m08",
+      "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m08.mp3",
+      "durationSec": 18.29,
+      "meanDb": -19.5,
+      "gainDb": 1.5,
+      "words": 38,
+      "wordsPerSec": 2.08
+    }
+  ],
+  "missing": []
+}

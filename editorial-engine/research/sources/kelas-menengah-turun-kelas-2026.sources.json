@@ -1,0 +1,48 @@
+{
+  "mission": "kelas-menengah-turun-kelas-2026",
+  "title": "Ekonomi tumbuh 5%, tapi 11 juta orang turun kelas",
+  "verifiedAt": "2026-11-04",
+  "sources": [
+    {
+      "id": "S1",
+      "publisher": "AFU.id (pemerintah, 20 Okt 2026)",
+      "url": "https://afu.id/ekonomi/daya-beli-tertekan-11-juta-warga-indonesia-turun-dari-kelas-menengah-ke-menengah-bawah",
+      "facts": [
+        "Kepala Badan Komunikasi Pemerintah Syahganda Nainggolan: sekitar 11 juta warga turun dari kelas menengah ke menengah bawah",
+        "Bank Dunia IEP Juni 2026: pekerja berpendapatan setara kelas menengah turun dari 14,5% (2018) menjadi sedikit di atas 7% (2025)",
+        "upah riil pekerja berkeahlian menengah-tinggi menyusut 1-2% per tahun pada periode yang sama",
+        "Mandiri Institute: kelas menengah 47,9 juta (2024) menjadi 46,7 juta (2025); 17,1% menjadi 16,6% populasi",
+        "aspiring middle class bertambah sekitar 4,5 juta, kini 50,4% populasi",
+        "ekonomi tumbuh sekitar 5% per tahun beberapa tahun terakhir"
+      ]
+    },
+    {
+      "id": "S2",
+      "publisher": "Liputan6/UOB (4 Mar 2026)",
+      "url": "https://www.liputan6.com/bisnis/read/6290903/daya-beli-masyarakat-kelas-menengah-terus-tergerus-sektor-ini-bisa-jadi-penolong",
+      "facts": [
+        "kontribusi kelas menengah 81,5% terhadap total ekonomi",
+        "mayoritas kelas menengah berusia produktif 17-40 tahun"
+      ]
+    },
+    {
+      "id": "S3",
+      "publisher": "Finansial Insight (12 Okt 2026)",
+      "url": "https://finansialinsight.com/detail/481754/ekonom-soroti-daya-beli-kelas-menengah-467-juta-warga-ri-turun-kasta",
+      "facts": [
+        "kelas menengah 60,8 juta/23% (2018) menjadi 46,7 juta/16,6% (2025)",
+        "kelompok rentan menuju kelas menengah naik dari 68,5% (2018) menjadi 74,5% (2025)"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Angka 11 juta adalah pengakuan lisan pejabat (20 Okt 2026), bukan hasil sensus baru.",
+    "Definisi 'kelas menengah' berbeda antar lembaga (BPS berbasis pengeluaran; Bank Dunia berbasis pendapatan pekerja; Mandiri Institute berbasis pengeluaran rumah tangga). Karena itu angka 46,7 juta vs 60,8 juta tidak boleh dicampur tanpa menyebut tahun dan lembaganya.",
+    "Bank Dunia 14,5% -> 7% mengukur PEKERJA dengan pendapatan setara kelas menengah, bukan seluruh populasi."
+  ],
+  "prohibited": [
+    "Jangan menyebut 11 juta sebagai angka resmi BPS.",
+    "Jangan mencampur 60,8 juta (2018, definisi lain) dengan 46,7 juta (2025) sebagai satu deret tanpa penjelasan.",
+    "Jangan menyimpulkan penyebab tunggal (mis. hanya PHK) — sumber menyebut banyak faktor."
+  ]
+}

@@ -26,6 +26,26 @@ lebih lapang tapi memakan 2 detik yang lebih baik dipakai untuk kata.
 pernah menghasilkan +1,0 dBTP. Perbaikan yang terbukti: `aresample=192000` sebelum
 `loudnorm`, target `TP=-3`. Hasil LS-0001 v3: −1,6 dBTP, −14,7 LUFS.
 
+## Thumbnail = frame 0
+
+**YouTube tidak memberi cara memilih thumbnail lewat API untuk kanal ini**, dan
+Shorts memang tidak punya thumbnail terpisah. Jadi frame pertama video *adalah*
+thumbnail-nya, dan ia dirender, bukan diunggah.
+
+Aturan yang sekarang dipegang:
+
+- Headline 2–4 kata, maksimal 42 karakter, di sepertiga atas (titik pandang
+  pertama). Kalimat penasaran, bukan judul lengkap: "NAMAMU DI KAMAR KOSONG",
+  bukan "Kamar Sembilan".
+- Subjek horor wajib terlihat jelas di tengah-bawah, dan wajib ada ruang gelap
+  di atasnya untuk teks. Karena itu setiap episode punya `images/thumb.png`
+  yang digambar khusus — gambar scene pertama biasanya terlalu kosong untuk
+  terbaca di feed.
+- Kicker kecil (waktu/tempat) memberi kesan arsip: "KAMAR 9 · 01.52".
+- Ditahan 12 frame (0,4 detik) dengan dorongan kamera 1,0 → 1,045, lalu
+  potongan keras. Poster statis 2 detik membunuh retensi detik pertama; 0,4 detik
+  cukup untuk YouTube mengambil frame dan tetap terasa seperti potongan.
+
 ## Visual
 
 **Satu gambar untuk 9 detik = slideshow.** Yang menyelamatkan ritme: 2 cut per

@@ -1,15 +1,15 @@
 {
   "_catatan": "Mengubah berkas ini lalu push = tombol publikasi. Workflow .github/workflows/publish-scheduled.yml membaca berkas ini, lalu menjadwalkan tiap misi ke Buffer dengan jeda sesuai dueAt. Semua waktu ISO-8601 dengan offset zona akun Buffer (Asia/Jakarta, +07:00).",
   "aksi": "kirim",
-  "platforms": "facebook,youtube",
-  "_platforms_catatan": "Permintaan pemilik kanal 4 Nov 2026: unggah ke YouTube (Knot Theory) + Facebook Reels. Instagram & TikTok dilewati untuk konten ini.",
+  "platforms": "youtube",
+  "_platforms_catatan": "Revisi 8: hanya YouTube. Facebook Reels sudah TERKIRIM pada revisi 7 (id 6aeb43be3eb1753cae1b0b35) — jangan kirim ulang agar tidak duplikat.",
   "items": [
     {
       "mission": "phk-tiga-angka-2026",
-      "dueAt": "2026-11-04T21:42:36+07:00",
+      "dueAt": "2026-11-04T21:42:38+07:00",
       "alasan": "PHK 2026 v2 (gaya kartun, hukum objek) — disetujui pemilik kanal 4 Nov 2026; unggah segera ke YouTube + Facebook Reels"
     }
   ],
-  "_revisi": 7,
-  "_catatan_revisi": "Revisi 7: caption diberi pemisah '========' agar blok FACEBOOK REELS terbaca parser publish-buffer.mjs (run 41849585549 gagal di tahap itu, belum ada post yang terkirim)."
+  "_revisi": 8,
+  "_catatan_revisi": "Revisi 8: YouTube gagal karena deskripsi mengandung karakter '>'; caption dibersihkan. Kirim ulang KHUSUS YouTube (Facebook sudah terkirim)."
 }

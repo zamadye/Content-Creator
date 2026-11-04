@@ -492,7 +492,13 @@
     "categoryId": "24",
     "privacyStatus": "public",
     "selfDeclaredMadeForKids": false,
-    "syntheticDisclosure": true
+    "syntheticDisclosure": true,
+    "thumbnail": {
+      "headline": "VIDEO INI DARI BESOK",
+      "kicker": "BLOK C · 19.00",
+      "image": "images/thumb.png",
+      "holdFrames": 12
+    }
   },
   "production": {
     "subgenre": "Found Footage",

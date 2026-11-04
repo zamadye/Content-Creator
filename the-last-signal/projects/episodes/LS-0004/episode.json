@@ -495,7 +495,13 @@
     "categoryId": "24",
     "privacyStatus": "public",
     "selfDeclaredMadeForKids": false,
-    "syntheticDisclosure": true
+    "syntheticDisclosure": true,
+    "thumbnail": {
+      "headline": "NAMAMU DI KAMAR KOSONG",
+      "kicker": "KAMAR 9 · 01.52",
+      "image": "images/thumb.png",
+      "holdFrames": 12
+    }
   },
   "production": {
     "subgenre": "Paranormal Encounter",

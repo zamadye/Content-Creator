@@ -133,6 +133,27 @@ export const PublishingSchema = z.object({
   selfDeclaredMadeForKids: z.boolean().default(false),
   /** Wajib: visual photorealistic yang menggambarkan kejadian fiktif. */
   syntheticDisclosure: z.boolean(),
+
+  /**
+   * Frame pembuka yang berfungsi sebagai thumbnail kanal.
+   *
+   * YouTube tidak mengizinkan pemilihan thumbnail lewat API untuk akun ini,
+   * jadi frame pertama video adalah satu-satunya thumbnail yang bisa dikontrol.
+   * Karena itu headline dibakar ke dalam gambar dan wajib ditahan minimal
+   * 6 frame (0,2 detik) — di bawah itu YouTube bisa mengambil frame berikutnya.
+   */
+  thumbnail: z
+    .object({
+      /** 2–4 kata yang membuat penasaran. Bukan judul lengkap. */
+      headline: z.string().min(3).max(42),
+      /** Detail kecil di atas headline, mis. "03.17 · CCTV". */
+      kicker: z.string().max(28).optional(),
+      /** Gambar thumbnail; default gambar scene pertama. */
+      image: z.string().min(1).optional(),
+      /** Berapa lama frame ini ditahan. */
+      holdFrames: z.number().int().min(6).max(45).default(15),
+    })
+    .optional(),
 });
 
 export const EpisodeSchema = z.object({

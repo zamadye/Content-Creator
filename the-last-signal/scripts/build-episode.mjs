@@ -183,6 +183,14 @@ const episode = {
     privacyStatus: "public",
     selfDeclaredMadeForKids: false,
     syntheticDisclosure: true,
+    // Frame 0 = thumbnail kanal. Wajib ada: tanpa ini video tidak punya
+    // thumbnail yang bisa dikendalikan (API tidak menyediakan pemilihan).
+    thumbnail: {
+      headline: (entry.thumb?.headline ?? entry.story.title).toUpperCase().slice(0, 42),
+      kicker: entry.thumb?.kicker,
+      image: "images/thumb.png",
+      holdFrames: 12,
+    },
   },
   production: {
     subgenre: entry.subgenre,

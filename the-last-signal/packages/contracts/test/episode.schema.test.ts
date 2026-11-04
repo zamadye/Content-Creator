@@ -224,3 +224,23 @@ test("semua episode di projects/episodes lolos kontrak", async () => {
     );
   }
 });
+
+test("thumbnail: headline kepanjangan ditolak", () => {
+  const episode = base();
+  episode.publishing.thumbnail = { headline: "X".repeat(60), holdFrames: 12 };
+  assert.ok(issuePaths(episode).some((path) => path.includes("thumbnail")));
+});
+
+test("thumbnail: holdFrames terlalu pendek ditolak", () => {
+  const episode = base();
+  episode.publishing.thumbnail = { headline: "LIFT LANTAI 19", holdFrames: 2 };
+  assert.ok(issuePaths(episode).some((path) => path.includes("thumbnail")));
+});
+
+test("thumbnail: headline wajar diterima dan holdFrames default 15", () => {
+  const episode = base();
+  episode.publishing.thumbnail = { headline: "MOBIL ITU MASUK 5 KALI" };
+  const result = safeParseEpisode(episode);
+  assert.equal(result.success, true, JSON.stringify(result.success ? [] : result.error.issues.slice(0, 2)));
+  assert.equal(result.success ? result.data.publishing.thumbnail?.holdFrames : null, 15);
+});

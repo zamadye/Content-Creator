@@ -9,6 +9,7 @@ import { Jumpscare } from "../components/Jumpscare";
 import { OnScreenTextTrack } from "../components/OnScreenText";
 import { Soundscape } from "../components/Soundscape";
 import { SubtitleTrack } from "../components/SubtitleTrack";
+import { ThumbnailCard } from "../components/ThumbnailCard";
 import { Vignette } from "../components/Vignette";
 import { theme } from "../lib/theme";
 
@@ -103,6 +104,24 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
 
       <Vignette strength={0.55} />
       <FilmGrain opacity={0.06} />
+
+      {/* Frame 0 = thumbnail kanal. Dirender di atas grain dan vignette supaya
+          teks tetap tajam saat dipotong YouTube jadi gambar kecil. */}
+      {episode.publishing.thumbnail ? (
+        <Sequence
+          from={0}
+          durationInFrames={episode.publishing.thumbnail.holdFrames ?? 15}
+          name="thumbnail frame"
+        >
+          <ThumbnailCard
+            headline={episode.publishing.thumbnail.headline}
+            kicker={episode.publishing.thumbnail.kicker}
+            image={episode.publishing.thumbnail.image ?? episode.scenes[0].image}
+            durationInFrames={episode.publishing.thumbnail.holdFrames ?? 15}
+            episodeId={episode.episodeId}
+          />
+        </Sequence>
+      ) : null}
 
       <Sequence from={endCardFrom} durationInFrames={END_CARD_FRAMES} name="end card">
         <EndCard title={episode.title} episodeId={episode.episodeId} />

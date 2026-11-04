@@ -83,3 +83,5 @@ jobs:
               echo "_Tidak dijalankan — secret BUFFER_API_KEY belum diisi._"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
+
+# dipicu ulang setelah secret BUFFER_API_KEY ditambahkan

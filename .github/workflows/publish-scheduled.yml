@@ -1,0 +1,140 @@
+name: Publikasikan terjadwal
+
+# ---------------------------------------------------------------------------
+#  Tombol publikasi = mengubah .github/publish-request.json lalu push.
+#  Dipakai `push: paths` (bukan hanya workflow_dispatch) karena tombol
+#  "Run workflow" baru muncul setelah workflow ini ada di default branch.
+#
+#  Tiap entri dijadwalkan dengan mode `customScheduled` + `dueAt` ber-offset,
+#  jadi jeda antar-konten ditentukan berkas itu, bukan oleh panjang antrean
+#  Buffer. Hasil per platform ditulis ke ringkasan run dan ke satu anotasi
+#  (anotasi bisa dibaca lewat API walau log mentah tidak).
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    paths:
+      - '.github/publish-request.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: buffer-publish
+  cancel-in-progress: false
+
+jobs:
+  kirim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v5
+
+      - name: Pasang Node 20
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+
+      - name: Ada secret?
+        id: s
+        env:
+          KEY: ${{ secrets.BUFFER_API_KEY }}
+          ORG: ${{ secrets.BUFFER_ORGANIZATION_ID }}
+        run: |
+          set -euo pipefail
+          [ -n "${KEY:-}" ] && echo "::add-mask::${KEY}"
+          [ -n "${ORG:-}" ] && echo "::add-mask::${ORG}"
+          if [ -z "${KEY:-}" ]; then
+            echo "::error::Secret BUFFER_API_KEY belum diisi."
+            exit 1
+          fi
+          echo "ada=1" >> "$GITHUB_OUTPUT"
+
+      - name: Pasang CLI Buffer
+        run: |
+          npm i -g @bufferapp/cli
+          buffer --version
+
+      - name: Tampilkan rencana
+        run: |
+          set -euo pipefail
+          node -e '
+            const r = require("./.github/publish-request.json");
+            console.log("aksi     :", r.aksi);
+            console.log("platform :", r.platforms);
+            for (const it of r.items) console.log("  -", it.mission, "@", it.dueAt);
+          '
+
+      - name: Kirim / validasi
+        id: kirim
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_ORGANIZATION_ID: ${{ secrets.BUFFER_ORGANIZATION_ID }}
+          YOUTUBE_CATEGORY_ID: '27'
+          NO_COLOR: '1'
+        run: |
+          set -uo pipefail
+          node -e '
+            const r = require("./.github/publish-request.json");
+            for (const it of r.items) console.log([it.mission, it.dueAt].join("\t"));
+          ' > /tmp/plan.tsv
+          PLATFORMS=$(node -p 'require("./.github/publish-request.json").platforms')
+          AKSI=$(node -p 'require("./.github/publish-request.json").aksi')
+
+          : > /tmp/hasil.txt
+          FAIL=0
+          while IFS=$'\t' read -r mission due; do
+            [ -z "${mission:-}" ] && continue
+
+            media="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${GITHUB_SHA}/editorial-engine/deliverables/B_${mission}_1080x1920.mp4"
+            args=(--mission "$mission" --platforms "$PLATFORMS")
+            [ "$AKSI" = "kirim" ] && args+=(--send)
+
+            {
+              echo ""
+              echo "########## ${mission} @ ${due}"
+              echo "media: ${media}"
+            } | tee -a /tmp/hasil.txt
+
+            MEDIA_URL="$media" MODE=customScheduled DUE_AT="$due" \
+              node editorial-engine/pipeline/publish-buffer.mjs "${args[@]}" 2>&1 | tee -a /tmp/hasil.txt \
+              || FAIL=1
+          done < /tmp/plan.tsv
+
+          echo "FAIL=$FAIL" >> "$GITHUB_OUTPUT"
+          exit "$FAIL"
+
+      - name: Terbitkan hasil sebagai anotasi
+        if: always()
+        run: |
+          [ -f /tmp/hasil.txt ] || exit 0
+          tail -c 60000 /tmp/hasil.txt > /tmp/hasil-kecil.txt
+          node -e '
+            const fs = require("fs");
+            let t = fs.readFileSync("/tmp/hasil-kecil.txt", "utf8");
+            t = t.replace(/%/g, "%25").replace(/\r/g, "").replace(/\n/g, "%0A");
+            console.log("::notice title=Hasil publikasi Buffer::" + t);
+          '
+
+      - name: Ringkasan
+        if: always()
+        run: |
+          {
+            echo "## Publikasi Buffer"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| commit | \`${GITHUB_SHA:0:7}\` |"
+            echo "| hasil | ${FAIL_STEP} |"
+            echo ""
+            if [ -f /tmp/hasil.txt ]; then
+              echo '```'
+              tail -c 20000 /tmp/hasil.txt
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+        env:
+          FAIL_STEP: ${{ steps.kirim.outputs.FAIL == '0' && 'semua terkirim' || 'ada yang gagal — periksa anotasi' }}

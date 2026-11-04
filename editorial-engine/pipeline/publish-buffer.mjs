@@ -104,10 +104,15 @@ const blockOf = (heading) => {
   return '';
 };
 
+// Baris catatan produksi tidak boleh ikut terkirim. Yang difilter:
+//   "Panjang: ±1.100 karakter…", "Caption:", "Judul (kolom judul Reels):",
+//   "Deskripsi (±640 karakter):", "HASHTAG", "CARA PAKAI", "BATAS KEJUJURAN".
+const META_LINE = /^(Panjang\b[^:]*:|Caption\b[^:]*:\s*$|Judul\b[^:]*:\s*$|Deskripsi\b[^:]*:\s*$|HASHTAG\b|CARA PAKAI|BATAS KEJUJURAN)/i;
+
 const stripMeta = (block) =>
   block
     .split('\n')
-    .filter((l) => !/^(Panjang:|CARA PAKAI|BATAS KEJUJUHAN|HASHTAG)/i.test(l.trim()))
+    .filter((l) => !META_LINE.test(l.trim()))
     .map((l) => l.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '')) // CLI menolak control char
     .join('\n')
     .replace(/\n{3,}/g, '\n\n')
@@ -118,13 +123,43 @@ const captionFor = (platform) => {
   const block = blockOf(HEADING[platform]);
   if (!block) die(`blok "${HEADING[platform]}" tidak ada di caption`, 2);
   const lines = block.split('\n');
-  const titleLine = lines.find((l) => /^Judul:/i.test(l.trim()));
-  const descLine = lines.findIndex((l) => /^Deskripsi:/i.test(l.trim()));
-  const body = descLine > -1 ? lines.slice(descLine + 1).join('\n') : lines.filter((l) => !/^Judul:/i.test(l)).join('\n');
-  return {
-    text: stripMeta(body),
-    title: titleLine ? titleLine.replace(/^Judul:\s*/i, '').trim() : '',
-  };
+  // Toleran terhadap label berhias: "Judul (78 karakter):", "Deskripsi (±640 karakter):".
+  // Ada juga bentuk dua baris — label di satu baris, judulnya di baris berikutnya:
+  //     Judul (maks 100 karakter):
+  //     Judi online makin kecil-kecil: ...
+  // Keduanya harus terbaca, dan baris judul tidak boleh ikut masuk ke badan post.
+  const isLabel = (l) => /^Judul\b[^:]*:\s*$/i.test(l.trim());
+  const tIdx = lines.findIndex((l) => /^Judul\b[^:]*:/i.test(l.trim()));
+  let title = '';
+  let titleLineConsumed = -1;
+  if (tIdx > -1) {
+    const inline = lines[tIdx].replace(/^Judul\b[^:]*:\s*/i, '').trim();
+    if (inline) {
+      title = inline;
+      titleLineConsumed = tIdx;
+    } else {
+      const nextIdx = lines.findIndex((l, i) => i > tIdx && l.trim());
+      if (nextIdx > -1) {
+        title = lines[nextIdx].trim();
+        titleLineConsumed = nextIdx;
+      } else {
+        titleLineConsumed = tIdx;
+      }
+    }
+  }
+  if (title.length > 100) console.error(`[peringatan] judul ${title.length} char — batas YouTube 100.`);
+
+  const descLine = lines.findIndex((l) => /^Deskripsi\b[^:]*:/i.test(l.trim()));
+  let body;
+  if (descLine > -1) {
+    body = lines.slice(descLine + 1).join('\n');
+  } else {
+    body = lines
+      .filter((l, i) => i !== titleLineConsumed && !isLabel(l))
+      .filter((l) => !/^Judul\b[^:]*:/i.test(l.trim()))
+      .join('\n');
+  }
+  return { text: stripMeta(body), title };
 };
 
 /** Blok KOMENTAR PERTAMA -> firstComment (didukung Instagram & Facebook). */
@@ -134,6 +169,22 @@ const firstCommentOf = () => {
   return idx > -1 ? stripMeta(blocks[idx + 1] ?? '') : '';
 };
 const FIRST_COMMENT = firstCommentOf();
+
+/* ------------------------------------------------------------------ mode --dump */
+// Mencetak PERSIS teks yang akan terkirim, tanpa jaringan. Dipakai untuk memeriksa
+// caption sebelum dijadwalkan — lebih murah daripada menemukan "Caption:" ikut tayang.
+if (process.argv.includes('--dump')) {
+  for (const platform of PLATFORMS) {
+    const cap = captionFor(platform);
+    console.log(`\n===================== ${platform.toUpperCase()} =====================`);
+    if (cap.title) console.log(`judul (${cap.title.length} char): ${cap.title}`);
+    console.log(`teks  (${cap.text.length} char):`);
+    console.log(cap.text);
+  }
+  console.log(`\n===================== KOMENTAR PERTAMA (${FIRST_COMMENT.length} char) =====================`);
+  console.log(FIRST_COMMENT);
+  process.exit(0);
+}
 
 /* ------------------------------------------------------------------ buffer cli */
 const runBuffer = (args) => {

@@ -1,0 +1,23 @@
+{
+  "_catatan": "Mengubah berkas ini lalu push = tombol publikasi. Workflow .github/workflows/publish-scheduled.yml membaca berkas ini, lalu menjadwalkan tiap misi ke Buffer dengan jeda sesuai dueAt. Semua waktu ISO-8601 dengan offset zona akun Buffer (Asia/Jakarta, +07:00).",
+  "aksi": "kirim",
+  "platforms": "instagram,tiktok,youtube",
+  "_platforms_catatan": "facebook belum tersambung di Buffer (per 4 Nov 2026), jadi tidak dimasukkan.",
+  "items": [
+    {
+      "mission": "karhutla-angka-turun-2026",
+      "dueAt": "2026-11-04T11:00:00+07:00",
+      "alasan": "paling aktual (data BNPB 2 November 2026) — tayang lebih dulu"
+    },
+    {
+      "mission": "judol-taruhan-kecil-2026",
+      "dueAt": "2026-11-04T13:00:00+07:00",
+      "alasan": "jeda 2 jam"
+    },
+    {
+      "mission": "pinjol-bunga-harian-2026",
+      "dueAt": "2026-11-04T15:00:00+07:00",
+      "alasan": "evergreen, pamungkas; jeda 2 jam"
+    }
+  ]
+}

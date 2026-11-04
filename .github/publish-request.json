@@ -1,25 +1,15 @@
 {
   "_catatan": "Mengubah berkas ini lalu push = tombol publikasi. Workflow .github/workflows/publish-scheduled.yml membaca berkas ini, lalu menjadwalkan tiap misi ke Buffer dengan jeda sesuai dueAt. Semua waktu ISO-8601 dengan offset zona akun Buffer (Asia/Jakarta, +07:00).",
   "aksi": "kirim",
-  "platforms": "instagram",
+  "platforms": "instagram,tiktok,youtube",
   "_platforms_catatan": "facebook belum tersambung di Buffer (per 4 Nov 2026), jadi tidak dimasukkan.",
   "items": [
     {
-      "mission": "karhutla-angka-turun-2026",
-      "dueAt": "2026-11-04T11:00:00+07:00",
-      "alasan": "paling aktual (data BNPB 2 November 2026) — tayang lebih dulu"
-    },
-    {
-      "mission": "judol-taruhan-kecil-2026",
-      "dueAt": "2026-11-04T13:00:00+07:00",
-      "alasan": "jeda 2 jam"
-    },
-    {
-      "mission": "pinjol-bunga-harian-2026",
-      "dueAt": "2026-11-04T15:00:00+07:00",
-      "alasan": "evergreen, pamungkas; jeda 2 jam"
+      "mission": "bsu-9-dari-100-2026",
+      "dueAt": "2026-11-04T17:00:00+07:00",
+      "alasan": "misi baru (BSU, cair Nov-Des 2026) — jeda 2 jam dari post terakhir 15.00 WIB"
     }
   ],
-  "_revisi": 3,
-  "_catatan_revisi": "Percobaan 2: TikTok & YouTube TERKIRIM untuk ketiga konten. Instagram gagal karena firstComment (fitur berbayar) — kini dimatikan. Berkas ini hanya mengirim ulang Instagram; platform lain dilewati agar tidak dobel."
+  "_revisi": 4,
+  "_catatan_revisi": "Revisi 4: kirim misi 8 (BSU, 'Sembilan dari seratus') ke ketiga platform sekaligus. Video 88 detik, thumbnail sinematik, caption 4 platform sudah ada di deliverables/. Instagram WAJIB tanpa metadata.*.firstComment (fitur berbayar — itu penyebab kegagalan revisi 2)."
 }

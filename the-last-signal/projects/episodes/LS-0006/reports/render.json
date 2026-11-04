@@ -4,12 +4,12 @@
   "width": 1080,
   "height": 1920,
   "fps": 30,
-  "durationFrames": 1341,
-  "durationSeconds": 44.7,
+  "durationFrames": 1287,
+  "durationSeconds": 42.9,
   "crf": 20,
   "concurrency": 2,
   "scale": 1,
   "frameRange": null,
-  "renderSeconds": 272.3,
-  "renderedAt": "2026-11-04T10:21:29.613Z"
+  "renderSeconds": 244.9,
+  "renderedAt": "2026-11-04T12:58:01.651Z"
 }

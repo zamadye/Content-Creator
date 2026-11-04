@@ -1,0 +1,497 @@
+{
+  "episodeId": "LS-0006",
+  "title": "Lantai Basement Dua",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 47,
+  "story": {
+    "hook": "Bayangkan kamu memarkir mobil yang sama, di tempat yang sama, untuk kelima kalinya malam ini.",
+    "premise": "Juru parkir basement dua mulai menyadari satu mobil terus kembali walaupun pemiliknya sudah keluar.",
+    "twist": "Bukan mobil yang kembali. Juru parkir itu yang mengulang malam yang sama.",
+    "ending": "Di rekaman terakhir, yang duduk di kursi juru parkir adalah orang yang tadi masuk ke mobil itu."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [
+    {
+      "atFrame": 1008,
+      "image": "images/scare-face.png",
+      "assetId": "audio/sfx/scare.wav",
+      "volume": 0.95,
+      "flash": 0.9,
+      "shake": 0.95,
+      "zoom": 1.48,
+      "durationFrames": 16
+    }
+  ],
+  "onScreenText": [
+    {
+      "text": "MASUK KE-5",
+      "startFrame": 28,
+      "endFrame": 88
+    },
+    {
+      "text": "4 JAM TANPA GERAK",
+      "startFrame": 761,
+      "endFrame": 821
+    },
+    {
+      "text": "BUKAN KAMU",
+      "startFrame": 1099,
+      "endFrame": 1159
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 250,
+      "image": "images/scene-01.png",
+      "narration": "Bayangkan kamu juru parkir basement dua. Malam ini mobil hitam itu masuk untuk kelima kalinya.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 99,
+          "text": "Bayangkan kamu juru parkir basement dua."
+        },
+        {
+          "startFrame": 99,
+          "endFrame": 238,
+          "text": "Malam ini mobil hitam itu masuk untuk kelima kalinya."
+        }
+      ],
+      "visual": {
+        "prompt": "empty underground parking basement in Indonesia, concrete pillars, numbered bays, flickering tube lights, wet floor, single black car in the distance, wide",
+        "locationId": "ls-0006_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "flickering_fluorescent_basement_5000k",
+        "intensity": 0.65,
+        "effects": [
+          "film_grain",
+          "light_flicker",
+          "vignette",
+          "timestamp_hud"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 237,
+      "image": "images/scene-02.png",
+      "narration": "Kamu mencatat jam masuknya. Catatanmu sudah berisi lima baris dengan jam yang sama persis.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 66,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 133,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 194,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 69,
+          "text": "Kamu mencatat jam masuknya."
+        },
+        {
+          "startFrame": 69,
+          "endFrame": 225,
+          "text": "Catatanmu sudah berisi lima baris dengan jam yang sama persis."
+        }
+      ],
+      "visual": {
+        "prompt": "close-up of a parking log book with identical repeated handwriting lines, dim light, worn paper, pen resting, cinematic detail",
+        "locationId": "ls-0006_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "overhead_lamp_low_3200k",
+        "intensity": 0.7,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 147,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 194,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 237,
+      "image": "images/scene-03.png",
+      "narration": "Di dalam mobil itu kosong, tapi sabuk pengamannya masih terpasang, dan kursinya masih hangat.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 66,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 133,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 194,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 225,
+          "text": "Di dalam mobil itu kosong, tapi sabuk pengamannya masih terpasang, dan kursinya masih hangat."
+        }
+      ],
+      "visual": {
+        "prompt": "black car interior seen through a window at night in an underground garage, empty seats, seatbelt fastened, condensation, reflections, cinematic",
+        "locationId": "ls-0006_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "medium",
+        "lighting": "fluorescent_reflection_through_glass",
+        "intensity": 0.8,
+        "effects": [
+          "film_grain",
+          "camera_shake",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 147,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 194,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 224,
+      "image": "images/scene-04.png",
+      "narration": "Rekaman kamera basement menunjukkan kamu berdiri di pos selama empat jam tanpa bergerak.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 63,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 184,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 212,
+          "text": "Rekaman kamera basement menunjukkan kamu berdiri di pos selama empat jam tanpa bergerak."
+        }
+      ],
+      "visual": {
+        "prompt": "CCTV view of an empty parking booth with a chair and a still security guard silhouette, grainy monochrome, timecode, wide",
+        "locationId": "ls-0006_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "cctv",
+        "lighting": "cctv_monochrome_ir",
+        "intensity": 0.75,
+        "effects": [
+          "scanlines",
+          "film_grain",
+          "timestamp_hud",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 139,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 184,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 250,
+      "image": "images/scene-05.png",
+      "narration": "Lampu mati satu per satu. Saat menyala, mobil itu sudah di depan pos, pintunya terbuka.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 83,
+          "text": "Lampu mati satu per satu."
+        },
+        {
+          "startFrame": 83,
+          "endFrame": 238,
+          "text": "Saat menyala, mobil itu sudah di depan pos, pintunya terbuka."
+        }
+      ],
+      "visual": {
+        "prompt": "black car parked directly in front of a security booth in a dark basement, driver door open, interior light on, no one inside, horror composition",
+        "locationId": "ls-0006_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "wide",
+        "lighting": "car_interior_light_against_darkness",
+        "intensity": 1,
+        "effects": [
+          "film_grain",
+          "light_flicker",
+          "creature_reveal",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 211,
+      "image": "images/scene-06.png",
+      "narration": "Pagi itu kamu menonton rekaman terakhir. Yang duduk di kursimu bukan kamu.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 59,
+          "camera": "pull_out",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 118,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 173,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 103,
+          "text": "Pagi itu kamu menonton rekaman terakhir."
+        },
+        {
+          "startFrame": 103,
+          "endFrame": 199,
+          "text": "Yang duduk di kursimu bukan kamu."
+        }
+      ],
+      "visual": {
+        "prompt": "grainy CCTV still of a parking booth with a person sitting in the guard chair facing the camera, face indistinct, monochrome, timestamps",
+        "locationId": "ls-0006_main",
+        "characterIds": [],
+        "camera": "pull_out",
+        "shot": "cctv",
+        "lighting": "cctv_monochrome_flat",
+        "intensity": 0.7,
+        "effects": [
+          "scanlines",
+          "film_grain",
+          "timestamp_hud"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 131,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 173,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Mobil Itu Masuk Lima Kali Malam Itu. Rekamannya Menunjukkan Aku Tidak Bergerak.",
+    "description": "ARSIP FIKSI — Basement dua, mobil hitam yang sama, lima kali masuk dalam satu malam.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #PsychologicalHorror #CeritaHoror",
+    "tags": [
+      "psychological horror",
+      "cerita horor",
+      "horor indonesia",
+      "cctv",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true
+  },
+  "production": {
+    "subgenre": "Psychological Horror",
+    "experiment": "Loop: setiap scene mengulang komposisi yang sama dengan satu detail berubah.",
+    "structure": "loop (scene 1 = scene 6, satu detail berbeda)",
+    "slate": "stories/slate-2026-11-04.json"
+  }
+}

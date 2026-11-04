@@ -1,0 +1,32 @@
+{
+  "episodeId": "LS-0005",
+  "status": "held",
+  "createdAt": "2026-11-04T09:26:04.544Z",
+  "media": "the-last-signal/releases/LS-0005.mp4",
+  "episode": {
+    "title": "Perumahan yang Belum Dijual",
+    "subgenre": "Found Footage",
+    "structure": "video yang diunggah sebelum direkam",
+    "durationSeconds": 49.2,
+    "scenes": 6,
+    "jumpscares": 1
+  },
+  "youtube": {
+    "title": "Video Ini Diunggah Tiga Jam Sebelum Mereka Merekamnya",
+    "description": "ARSIP FIKSI — Rekaman camcorder tiga orang di perumahan yang belum dijual. Unggahan terakhir muncul sebelum keberangkatan mereka.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #FoundFootage #CeritaHoror",
+    "tags": [
+      "found footage",
+      "cerita horor",
+      "horor indonesia",
+      "urban exploration",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
+  },
+  "holdReason": "antrean: menunggu jeda 1 jam berantai"
+}

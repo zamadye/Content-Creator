@@ -1,18 +1,18 @@
 {
   "episodeId": "LS-0008",
-  "status": "held",
+  "status": "requested",
   "createdAt": "2026-11-04T22:07:53.463Z",
   "media": "the-last-signal/releases/LS-0008.mp4",
   "episode": {
     "title": "Panggilan dari Perahu Kosong",
     "subgenre": "Last Recorded Transmission",
     "structure": "transmisi nelayan (urutan waktu, tanpa potongan)",
-    "durationSeconds": 48.1,
+    "durationSeconds": 55.4,
     "scenes": 6,
     "jumpscares": 1
   },
   "youtube": {
-    "title": "Radio Itu Menerima Panggilan dari Perahu yang Tenggelam Sebelas Tahun Lalu",
+    "title": "Perahu Itu Tenggelam Sebelas Tahun Lalu. Radionya Masih Memanggil.",
     "description": "ARSIP FIKSI — Ruang radio pesisir, 02.11. Panggilan mayday berbahasa daerah yang sudah tidak dipakai lagi.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
     "tags": [
       "cerita horor",
@@ -28,5 +28,6 @@
     "notifySubscribers": true,
     "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
   },
-  "holdReason": "antrean jeda 1 jam setelah LS-0007"
+  "holdReason": "antrean jeda 1 jam setelah LS-0007",
+  "requestedAt": "2026-11-04T23:15:54Z"
 }

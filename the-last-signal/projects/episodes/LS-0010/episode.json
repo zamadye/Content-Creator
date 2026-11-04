@@ -1,0 +1,518 @@
+{
+  "episodeId": "LS-0010",
+  "title": "Lantai Sembilan Belas",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 49.1,
+  "story": {
+    "hook": "Gedung ini punya dua belas lantai. Liftnya berhenti di sembilan belas.",
+    "premise": "Karyawan yang lembur sendirian naik lift dan menemukan panel berisi lantai yang tidak ada di gedung itu.",
+    "twist": "Lantai sembilan belas adalah gedung yang sama, hanya saja semua orang di dalamnya masih lembur, dan mereka tidak pernah pulang.",
+    "ending": "Lift kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama — dan dirinya sudah duduk di kursi itu, menunggu."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [
+    {
+      "atFrame": 1021,
+      "image": "images/scare-face.png",
+      "assetId": "audio/sfx/scare.wav",
+      "volume": 0.95,
+      "flash": 0.9,
+      "shake": 0.95,
+      "zoom": 1.47,
+      "durationFrames": 16
+    }
+  ],
+  "onScreenText": [
+    {
+      "text": "12 LANTAI",
+      "startFrame": 29,
+      "endFrame": 89
+    },
+    {
+      "text": "BERHENTI DI 19",
+      "startFrame": 796,
+      "endFrame": 856
+    },
+    {
+      "text": "KAMU MASIH DI SANA",
+      "startFrame": 1150,
+      "endFrame": 1210
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 198,
+      "image": "images/scene-01.png",
+      "narration": "Gedung ini punya dua belas lantai. Liftnya berhenti di sembilan belas.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 55,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 111,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 162,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 104,
+          "text": "Gedung ini punya dua belas lantai."
+        },
+        {
+          "startFrame": 104,
+          "endFrame": 186,
+          "text": "Liftnya berhenti di sembilan belas."
+        }
+      ],
+      "visual": {
+        "prompt": "office elevator interior at night, brushed steel walls, numbered buttons panel, one extra unlabeled button glowing, harsh light, cinematic",
+        "locationId": "ls-0010_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "elevator_harsh_5600k",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 123,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 162,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 211,
+      "image": "images/scene-02.png",
+      "narration": "Kamu menekan dua belas. Angkanya naik sampai sembilan belas, lalu pintunya terbuka.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 59,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 118,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 173,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 70,
+          "text": "Kamu menekan dua belas."
+        },
+        {
+          "startFrame": 70,
+          "endFrame": 199,
+          "text": "Angkanya naik sampai sembilan belas, lalu pintunya terbuka."
+        }
+      ],
+      "visual": {
+        "prompt": "close-up of an elevator floor indicator showing 19 in an old segmented display, dim reflection on metal, night, cinematic detail",
+        "locationId": "ls-0010_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "dim_metal_reflection_red_display",
+        "intensity": 0.75,
+        "effects": [
+          "film_grain",
+          "scanlines",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 131,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 173,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 276,
+      "image": "images/scene-03.png",
+      "narration": "Di luar lift ada kantor yang sama persis dengan lantaimu. Semua komputer menyala, semua kursi berputar pelan.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 77,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 155,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 226,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 158,
+          "text": "Di luar lift ada kantor yang sama persis dengan lantaimu."
+        },
+        {
+          "startFrame": 158,
+          "endFrame": 264,
+          "text": "Semua komputer menyala, semua kursi berputar pelan."
+        }
+      ],
+      "visual": {
+        "prompt": "empty open plan office at night with monitors on and office chairs slowly turned toward the camera, cold light, wide cinematic",
+        "locationId": "ls-0010_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "wide",
+        "lighting": "cold_office_panel_light_6000k",
+        "intensity": 0.8,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "camera_shake"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 171,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 226,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 276,
+      "image": "images/scene-04.png",
+      "narration": "Di ruang rapat, rekan-rekanmu duduk dengan pakaian hari ini. Tidak ada yang bergerak. Tidak ada yang bernafas.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 77,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 155,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 226,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 143,
+          "text": "Di ruang rapat, rekan-rekanmu duduk dengan pakaian hari ini."
+        },
+        {
+          "startFrame": 143,
+          "endFrame": 204,
+          "text": "Tidak ada yang bergerak."
+        },
+        {
+          "startFrame": 204,
+          "endFrame": 264,
+          "text": "Tidak ada yang bernafas."
+        }
+      ],
+      "visual": {
+        "prompt": "meeting room at night with several people sitting still with their backs to the camera, monitors glowing, no faces visible, cinematic dread",
+        "locationId": "ls-0010_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "monitor_glow_in_dark_meeting_room",
+        "intensity": 0.9,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "creature_reveal"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 171,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 226,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 237,
+      "image": "images/scene-05.png",
+      "narration": "Salah satu menoleh. Wajahnya kosong tanpa mata, dan ia mengangkat tangan seperti menyuruhmu duduk.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 66,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 133,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 194,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 53,
+          "text": "Salah satu menoleh."
+        },
+        {
+          "startFrame": 53,
+          "endFrame": 225,
+          "text": "Wajahnya kosong tanpa mata, dan ia mengangkat tangan seperti menyuruhmu duduk."
+        }
+      ],
+      "visual": {
+        "prompt": "close-up of a seated office worker turning head with a featureless face, monitor light, dark room, horror makeup, cinematic",
+        "locationId": "ls-0010_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "hard_monitor_rim_light",
+        "intensity": 1,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "creature_reveal",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 147,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 194,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 276,
+      "image": "images/scene-06.png",
+      "narration": "Kamu menekan satu. Pintunya terbuka ke ruang rapat yang sama, dan yang duduk di kursimu sedang menunggumu.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 77,
+          "camera": "pull_out",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 155,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 226,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 52,
+          "text": "Kamu menekan satu."
+        },
+        {
+          "startFrame": 52,
+          "endFrame": 264,
+          "text": "Pintunya terbuka ke ruang rapat yang sama, dan yang duduk di kursimu sedang menunggumu."
+        }
+      ],
+      "visual": {
+        "prompt": "elevator doors opening onto a dark meeting room, one figure seated alone at the far end of the table facing the doors, wide cinematic",
+        "locationId": "ls-0010_main",
+        "characterIds": [],
+        "camera": "pull_out",
+        "shot": "wide",
+        "lighting": "elevator_light_spilling_into_dark_room",
+        "intensity": 0.8,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "volumetric_fog",
+          "timestamp_hud"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 171,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 226,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Gedung Itu Punya 12 Lantai. Liftnya Berhenti di Lantai 19.",
+    "description": "ARSIP FIKSI — Lembur malam, lift kosong, panel dengan satu tombol tambahan. Lantai 19 tidak ada di gedung itu.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AbandonedPlace",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "abandoned",
+      "kantor",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "thumbnail": {
+      "headline": "LIFT ITU BERHENTI DI LANTAI 19",
+      "kicker": "12 LANTAI · 23.10",
+      "image": "images/thumb.png",
+      "holdFrames": 12
+    }
+  },
+  "production": {
+    "subgenre": "Abandoned Location",
+    "experiment": "Satu lokasi, satu lift, horor dari ruang yang salah di gedung yang benar.",
+    "structure": "perjalanan lift (naik → berhenti → turun)",
+    "slate": "stories/slate-2026-11-04.json"
+  }
+}

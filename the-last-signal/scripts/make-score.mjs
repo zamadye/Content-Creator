@@ -110,11 +110,15 @@ const t2 = duration * 0.52; // build
 const t3 = duration * 0.78; // tension
 const revealStart = Math.max(t3, climax - 4.2);
 
+// `gain` wajib ada: dulu bagian ini hanya mengembalikan {name, energy}, tapi
+// loop di bawah mengalikan sampel dengan section.gain. Karena undefined,
+// seluruh skor menjadi NaN → ditulis sebagai nol → empat episode terbit tanpa
+// musik sama sekali. Sekarang tiap bagian punya gain eksplisit.
 function sectionAt(time) {
-  if (time < t1) return { name: "intro", energy: 0.25 + (time / t1) * 0.15 };
-  if (time < t2) return { name: "build", energy: 0.42 + ((time - t1) / (t2 - t1)) * 0.18 };
-  if (time < t3) return { name: "tension", energy: 0.62 + ((time - t2) / (t3 - t2)) * 0.2 };
-  return { name: "reveal", energy: time > climax ? 0.55 : 0.95 };
+  if (time < t1) return { name: "intro", energy: 0.25 + (time / t1) * 0.15, gain: 0.55 };
+  if (time < t2) return { name: "build", energy: 0.42 + ((time - t1) / (t2 - t1)) * 0.18, gain: 0.72 };
+  if (time < t3) return { name: "tension", energy: 0.62 + ((time - t2) / (t3 - t2)) * 0.2, gain: 0.86 };
+  return { name: "reveal", energy: time > climax ? 0.55 : 0.95, gain: time > climax ? 0.62 : 1 };
 }
 
 console.log(`Skor ${EPISODE_ID}: ${duration.toFixed(1)}s, scare di ${climax.toFixed(1)}s`);
@@ -222,6 +226,16 @@ for (let i = 0; i < totalSamples; i++) {
 }
 
 normalize(left, right, 0.62);
+
+// Penjaga: skor yang senyap tidak boleh lolos diam-diam.
+function assertAudible(label, channel) {
+  let max = 0;
+  for (let i = 0; i < channel.length; i++) max = Math.max(max, Math.abs(channel[i]));
+  if (!(max > 0.2)) {
+    throw new Error(`${label} senyap (puncak ${max.toFixed(3)}) — periksa perhitungan sampel, jangan tulis berkas kosong.`);
+  }
+}
+assertAudible("score.wav", left);
 writeWavStereo(join(EPISODE_DIR, "audio", "score.wav"), left, right);
 
 // --------------------------------------------------------- stinger & whoosh

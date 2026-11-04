@@ -50,6 +50,22 @@ const loudnessRaw = runFfmpeg(["-hide_banner", "-nostats", "-i", file, "-vn", "-
 const integrated = Number(loudnessRaw.match(/"input_i"\s*:\s*"(-?[\d.]+)"/)?.[1] ?? 0);
 const truePeak = Number(loudnessRaw.match(/"input_tp"\s*:\s*"(-?[\d.]+)"/)?.[1] ?? 0);
 
+// --- skor musik -------------------------------------------------------------
+// Episode sempat terbit tanpa musik karena skor.wav ditulis senyap dan tidak
+// ada satu pun cek yang menangkapnya: loudness mix tetap wajar karena narasi
+// dan sfx ada. Jadi keberadaan musik diperiksa dari berkasnya sendiri.
+function wavPeak(file: string): number {
+  if (!existsSync(file)) return 0;
+  const buffer = readFileSync(file);
+  let peak = 0;
+  for (let offset = 44; offset + 1 < buffer.length; offset += 2) {
+    peak = Math.max(peak, Math.abs(buffer.readInt16LE(offset)) / 32768);
+  }
+  return peak;
+}
+
+const scorePeak = wavPeak(join(ROOT, "projects", "episodes", episodeId, "audio", "score.wav"));
+
 // --- episode ----------------------------------------------------------------
 const parsed = safeParseEpisode(JSON.parse(readFileSync(join(ROOT, "projects", "episodes", episodeId, "episode.json"), "utf8")));
 const shotLength = parsed.success ? averageShotLength(parsed.data) : 0;
@@ -79,6 +95,7 @@ check(
   `${integrated.toFixed(1)} LUFS (target −14)`,
 );
 check("true peak ≤ −1 dBTP", truePeak <= -1, `${truePeak.toFixed(1)} dBTP`);
+check("skor musik terdengar", scorePeak > 0.2, scorePeak > 0 ? `puncak ${scorePeak.toFixed(2)}` : "score.wav tidak ada / senyap");
 check("ukuran ≤ 40 MB", sizeMb <= 40, `${sizeMb.toFixed(1)} MB`);
 check(
   "ritme cut ≤ 3 detik/shot",

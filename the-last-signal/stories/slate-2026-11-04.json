@@ -1115,6 +1115,127 @@
         "headline": "LIFT ITU BERHENTI DI LANTAI 19",
         "kicker": "12 LANTAI · 23.10"
       }
+    },
+    {
+      "episodeId": "LS-0011",
+      "subgenre": "Abandoned Location",
+      "experiment": "Transaksi sebagai struktur: barang → penjual → buku catatan. Horornya bukan entitas, tapi harga yang sudah dibayar.",
+      "structure": "transaksi (barang pribadi → siapa yang mengumpulkan → buku catatan harga)",
+      "story": {
+        "title": "Pasar Malam yang Menjual Barangmu",
+        "hook": "Pasar itu tutup sebelas tahun lalu. Malam ini lampunya menyala, dan lapak pertama menjual jam tanganmu yang hilang.",
+        "premise": "Pasar malam yang sudah dibongkar sebelas tahun lalu menyala lagi suatu malam, dan setiap lapak menjual barang-barang pribadi orang yang datang.",
+        "twist": "Barang-barang itu tidak dicuri. Semuanya sudah dibeli dan dibayar lunas — termasuk yang punya barang.",
+        "ending": "Halaman terakhir buku catatan berisi namanya, bertanggal malam itu, dengan harga yang sudah dibayar penuh."
+      },
+      "scenes": [
+        {
+          "narration": "Pasar itu tutup sebelas tahun lalu. Malam ini lampunya menyala, dan lapak pertama menjual jam tanganmu yang hilang.",
+          "imagePrompt": "abandoned Indonesian night market at night, rows of empty wooden stalls with canvas roofs, bare bulbs suddenly glowing, wet asphalt reflecting light, fog, no people, cinematic wide",
+          "camera": "push_in",
+          "shot": "wide",
+          "lighting": "bare_bulbs_in_fog_2800k",
+          "effects": [
+            "film_grain",
+            "volumetric_fog",
+            "vignette"
+          ],
+          "intensity": 0.6
+        },
+        {
+          "narration": "Kamu masuk. Setiap penjual menyebut namamu sebelum kamu membuka mulut.",
+          "imagePrompt": "old Indonesian market vendor sitting behind a stall lit by one bulb, face in shadow, hands on the counter, goods arranged neatly, dark empty market behind, cinematic medium shot",
+          "camera": "handheld",
+          "shot": "medium",
+          "lighting": "single_bulb_over_stall",
+          "effects": [
+            "film_grain",
+            "vignette",
+            "camera_shake"
+          ],
+          "intensity": 0.7
+        },
+        {
+          "narration": "Di lapak ketiga ada sepatu kerjamu, piring yang pecah bulan lalu, dan mainan yang kamu kubur di belakang rumah.",
+          "imagePrompt": "close-up of a market stall counter displaying personal belongings: worn work boots, a chipped ceramic plate, a faded plastic toy, price tags in handwriting, dim warm bulb light, dust, cinematic detail",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "warm_bulb_close_2900k",
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
+          "intensity": 0.75
+        },
+        {
+          "narration": "Kamu bertanya siapa yang mengumpulkan semuanya. Penjual itu menunjuk ke lapak terakhir, yang ditutup kain.",
+          "imagePrompt": "the last stall at the end of a dark market corridor, closed by a hanging grey cloth, silhouettes of hanging bulbs receding, fog, wet floor, cinematic wide horror composition",
+          "camera": "push_in",
+          "shot": "wide",
+          "lighting": "distant_bulbs_through_fog",
+          "effects": [
+            "film_grain",
+            "volumetric_fog",
+            "vignette"
+          ],
+          "intensity": 0.85
+        },
+        {
+          "narration": "Di balik kain itu tidak ada barang. Hanya satu buku catatan terbuka, berisi nama, tanggal, dan harga.",
+          "imagePrompt": "old ledger book open on a wooden counter under a bare bulb, handwritten lists of names, dates and prices in blue ink, worn pages, dust, close-up, cinematic",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "bare_bulb_on_paper",
+          "effects": [
+            "film_grain",
+            "vignette",
+            "light_flicker"
+          ],
+          "intensity": 0.9
+        },
+        {
+          "narration": "Baris terakhir berisi namamu, bertanggal malam ini, dengan harga yang sudah dibayar lunas.",
+          "imagePrompt": "extreme close-up of the final line of an old ledger: a name written in blue ink, today's date, and the words PAID IN FULL, the paper lit hard by a flashlight, everything else in darkness, cinematic horror",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "harsh_flashlight_on_paper",
+          "effects": [
+            "creature_reveal",
+            "film_grain",
+            "vignette",
+            "light_flicker"
+          ],
+          "intensity": 1.0
+        }
+      ],
+      "cards": [
+        "TUTUP 11 TAHUN LALU",
+        "BARANGMU DI SINI",
+        "SUDAH LUNAS"
+      ],
+      "jumpscare": {
+        "atScene": 4,
+        "atFrameOffset": 58,
+        "flash": 0.9,
+        "shake": 0.9,
+        "zoom": 1.45,
+        "durationFrames": 16
+      },
+      "youtube": {
+        "title": "Pasar Itu Tutup Sebelas Tahun Lalu. Malam Ini Lapaknya Menjual Barangmu.",
+        "description": "ARSIP FIKSI — Pasar malam yang dibongkar sebelas tahun lalu menyala lagi, dan lapaknya menjual barang-barang pribadi pengunjungnya.\\n\\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\\n\\n#TheLastSignal #CeritaHoror #HororIndonesia",
+        "tags": [
+          "cerita horor",
+          "horor indonesia",
+          "pasar malam",
+          "tempat terbengkalai",
+          "the last signal"
+        ]
+      },
+      "thumb": {
+        "headline": "LAPAK ITU JUAL BARANGMU",
+        "kicker": "PASAR MALAM · 23.40"
+      }
     }
   ]
 }

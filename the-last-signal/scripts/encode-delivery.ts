@@ -12,7 +12,7 @@
 import { statSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { runFfmpeg } from "./lib/ffmpeg";
+import { probeFfmpeg, runFfmpeg } from "./lib/ffmpeg";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -27,13 +27,27 @@ const maxrate = arg("maxrate", "5M");
 const loudness = arg("loudness", "-14");
 // Target true peak lebih ketat dari standar: stinger jump scare sangat spiky,
 // dan limiter loudnorm bisa overshoot kalau targetnya mepet.
-const truePeakTarget = arg("tp", "-3");
+const truePeakTarget = Number(arg("tp", "-3"));
 
 const input = join(ROOT, "renders", `${episodeId}.mp4`);
 const output = join(ROOT, "renders", `${episodeId}-delivery.mp4`);
 
 const started = Date.now();
 
+/** True peak sebuah berkas (dBFS) menurut loudnorm ffmpeg. */
+function measureTruePeak(file: string): number {
+  const raw = probeFfmpeg(["-hide_banner", "-nostats", "-i", file, "-vn", "-af", "loudnorm=print_format=json", "-f", "null", "-"]);
+  const match = raw.match(/"input_tp"\s*:\s*"?(-?[\d.]+)"?/);
+  if (!match) throw new Error(`true peak tidak terbaca: ${file}`);
+  return Number(match[1]);
+}
+
+// loudnorm sekali jalan bisa meleset di atas target (LS-0011 sempat 0,5 dBTP
+// walaupun target -3 karena AAC menambah inter-sample peak). Ulangi dengan
+// target yang lebih ketat sampai lolos, maksimal tiga percobaan.
+let peakTarget = truePeakTarget;
+let truePeak = Number.NaN;
+for (let attempt = 1; attempt <= 3; attempt += 1) {
 runFfmpeg([
   "-hide_banner",
   "-loglevel",
@@ -60,7 +74,10 @@ runFfmpeg([
   "-filter:a",
   // aresample ke 192 kHz membuat pengukuran true peak jauh lebih akurat
   // untuk transien tajam (stinger), sebelum loudnorm menormalkan level.
-  `aresample=192000,loudnorm=I=${loudness}:TP=${truePeakTarget}:LRA=11`,
+  // Catatan: ffmpeg bawaan Remotion tidak punya `alimiter`/`ebur128`, jadi
+  // overshoot true peak tidak bisa ditahan limiter. Solusinya di bawah:
+  // ukur hasilnya, lalu ulangi dengan target TP yang lebih rendah.
+  `aresample=192000,loudnorm=I=${loudness}:TP=${peakTarget}:LRA=11`,
   "-c:a",
   "aac",
   "-b:a",
@@ -71,6 +88,13 @@ runFfmpeg([
   "+faststart",
   output,
 ]);
+
+  truePeak = measureTruePeak(output);
+  if (truePeak <= truePeakTarget) break;
+  const overshoot = truePeak - truePeakTarget;
+  peakTarget = Number((peakTarget - overshoot - 1).toFixed(1));
+  console.log(`  ↻ true peak ${truePeak.toFixed(1)} dBTP melewati target ${truePeakTarget} — ulang dengan TP ${peakTarget}`);
+}
 
 const sizeMb = statSync(output).size / (1024 * 1024);
 const seconds = ((Date.now() - started) / 1000).toFixed(0);

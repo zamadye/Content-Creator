@@ -279,3 +279,62 @@ export const KartunShell: React.FC<{
     <g opacity={vignette} style={{ display: 'none' }}>{String(layout.video.width)}</g>
   </svg>
 );
+
+/* ------------------------------------------------------- objek konkret (hukum objek) */
+export const KainRol: React.FC<{ x: number; y: number; s?: number }> = ({ x, y, s = 1 }) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`}>
+    <Ellipse cx={0} cy={0} rx={62} ry={20} fill="#8C6E52" opacity={0.25} />
+    <Rect x={-62} y={-78} w={124} h={78} rx={6} fill="#C9A25E" />
+    <Ellipse cx={0} cy={-78} rx={62} ry={20} fill="#DFBB78" />
+    <Ellipse cx={0} cy={-78} rx={20} ry={8} fill="#8C6E52" />
+    <Path d="M-62 -40 q-40 26 -14 58" stroke="#C9A25E" strokeWidth={16} fill="none" strokeLinecap="round" />
+  </g>
+);
+
+export const MesinJahit: React.FC<{ x: number; y: number; s?: number }> = ({ x, y, s = 1 }) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`}>
+    <Ellipse cx={0} cy={0} rx={70} ry={16} fill="#8C6E52" opacity={0.25} />
+    <Rect x={-70} y={-18} w={140} h={18} rx={4} fill="#6E6A5E" />
+    <Path d="M-46 -18 L-46 -92 Q-46 -104 -32 -104 L34 -104 Q46 -104 46 -92 L46 -60 L16 -60 L16 -34 L-16 -34 L-16 -18 Z" fill="#B9AE9C" />
+    <Rect x={-4} y={-34} w={8} h={22} fill="#6E6A5E" />
+    <Circle cx={-30} cy={-86} r={9} fill="#3A4650" />
+    <Circle cx={52} cy={-80} r={22} fill="none" stroke="#6E6A5E" strokeWidth={7} />
+    <Rect x={16} y={-52} w={58} h={16} fill="#C9A25E" />
+  </g>
+);
+
+export const Sepatu: React.FC<{ x: number; y: number; s?: number; flip?: boolean }> = ({ x, y, s = 1, flip }) => (
+  <g transform={`translate(${x} ${y}) scale(${flip ? -s : s} ${s})`}>
+    <Ellipse cx={0} cy={0} rx={66} ry={14} fill="#8C6E52" opacity={0.22} />
+    <Path d="M-64 -16 L-64 -54 Q-64 -66 -50 -66 L-10 -66 Q6 -66 18 -50 L40 -30 Q58 -20 58 -16 Z" fill="#4A5560" />
+    <Rect x={-66} y={-16} w={126} h={16} rx={7} fill="#EDE6D6" />
+    <Path d="M-40 -46 l26 -8 M-36 -34 l26 -8" stroke="#EDE6D6" strokeWidth={6} strokeLinecap="round" />
+  </g>
+);
+
+export const Surat: React.FC<{ x: number; y: number; s?: number; rotate?: number; stamp?: string }> = ({ x, y, s = 1, rotate = 0, stamp }) => (
+  <g transform={`translate(${x} ${y}) rotate(${rotate}) scale(${s})`}>
+    <Rect x={-62} y={-84} w={124} h={168} fill="#F7F1E4" stroke="#B9AE9C" strokeWidth={4} />
+    {[-56, -34, -12, 10, 32].map((ly, i) => (
+      <Rect key={ly} x={-44} y={ly} w={i === 4 ? 46 : 88} h={7} rx={3} fill="#B9AE9C" opacity={0.75} />
+    ))}
+    <Path d="M20 50 q14 -18 22 0 q8 18 18 -6" stroke={kartun.line} strokeWidth={4} fill="none" strokeLinecap="round" />
+    {stamp && (
+      <g transform="rotate(-16 22 22)">
+        <Rect x={-12} y={4} w={72} h={34} rx={6} fill="none" stroke={kartun.red} strokeWidth={4} opacity={0.85} />
+        <T x={24} y={28} anchor="middle" size={19} weight={800} tracking={1} fill={kartun.red} opacity={0.85}>{stamp}</T>
+      </g>
+    )}
+  </g>
+);
+
+export const Gerobak: React.FC<{ x: number; y: number; s?: number }> = ({ x, y, s = 1 }) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`}>
+    <Ellipse cx={0} cy={0} rx={78} ry={14} fill="#8C6E52" opacity={0.22} />
+    <Rect x={-70} y={-96} w={140} h={66} fill="#B96A45" />
+    <Rect x={-70} y={-104} w={140} h={12} fill="#8B4A2F" />
+    <Circle cx={-44} cy={-6} r={18} fill="#3A4650" />
+    <Circle cx={44} cy={-6} r={18} fill="#3A4650" />
+    <Rect x={-30} y={-136} w={54} h={34} rx={4} fill="#D9A544" />
+  </g>
+);

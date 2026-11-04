@@ -35,7 +35,7 @@ export const D01Hook: React.FC<{ d: number }> = ({ d }) => {
 
       {/* judul */}
       <g opacity={kick}>
-        <AngkaBesar x={540} y={420} text="PHK 2026" size={74} fill={kartun.line} />
+        <AngkaBesar x={540} y={400} text="ORANG KEHILANGAN KERJA" size={52} fill={kartun.line} />
       </g>
       <g opacity={n1}>
         <AngkaBesar x={540} y={640} text="72.336" size={196} fill={kartun.red} />

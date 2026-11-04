@@ -74,5 +74,42 @@
       "visualDescription": "'BUKAN ANGKANYA YANG SALAH / YANG TIDAK PERNAH MASUK HITUNGAN' + CTA.",
       "characterAction": "Tiga karakter berdiri diam menghadap kamera."
     }
-  ]
+  ],
+  "objectMap": {
+    "d01": [
+      "papan angka KEMNAKER & KSPI",
+      "gerbang pabrik",
+      "kardus bawaan pekerja",
+      "kerumunan pekerja"
+    ],
+    "d02": [
+      "meja loket",
+      "tumpukan berkas",
+      "kardus pekerja",
+      "papan Satu Data"
+    ],
+    "d03": [
+      "tiga papan angka",
+      "karakter berdebat"
+    ],
+    "d04": [
+      "rol kain (tekstil)",
+      "mesin jahit (garmen)",
+      "sepatu (sepatu)",
+      "kontainer ekspor",
+      "pabrik"
+    ],
+    "d05": [
+      "gerobak (informal)",
+      "surat kontrak HARIAN",
+      "surat KELUAR (mengundurkan diri)",
+      "pagar loket pelaporan"
+    ],
+    "d06": [
+      "tiga karakter",
+      "teks kesimpulan",
+      "CTA"
+    ]
+  },
+  "objectRule": "Setiap kalimat narasi wajib punya benda konkret di layar (lihat docs/KNOT-THEORY-04-DOKTRIN-NARASI-VISUAL.md)"
 }

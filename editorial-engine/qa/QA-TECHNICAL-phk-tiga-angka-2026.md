@@ -1,6 +1,6 @@
 # Technical QA — phk-tiga-angka-2026
 
-Generated: 2026-11-04T11:07:39.430Z
+Generated: 2026-11-04T12:41:32.271Z
 
 | Gate | ID | Check | Status | Detail |
 | --- | --- | --- | --- | --- |
@@ -18,7 +18,7 @@ Generated: 2026-11-04T11:07:39.430Z
 | GATE 5 | S5 | minimum 1.0 s on screen | **PASS** | 0 cues shorter |
 | GATE 5 | F1 | all frames rendered | **PASS** | 2195/2195 |
 | GATE 7 | TH1 | thumbnail 1080x1920 | **PASS** | 1080x1920 |
-| GATE 7 | TH2 | thumbnail size > 200 kB | **NEEDS REVIEW** | 102 kB |
+| GATE 7 | TH2 | thumbnail size > 200 kB | **NEEDS REVIEW** | 141 kB |
 | GATE 7 | CP1 | caption 4 platform | **PASS** | 4/4 · 5 kB |
 | GATE 7 | CP2 | caption memuat sumber & batas kejujuran | **PASS** | Bloomberg Technoz |
 | GATE 5 | P1 | poster 1080x1350 | **PASS** | 1080x1350 |

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T11:07:39.429Z",
+  "generatedAt": "2026-11-04T12:41:32.271Z",
   "checks": [
     {
       "gate": "GATE 5",
@@ -104,7 +104,7 @@
       "id": "TH2",
       "check": "thumbnail size > 200 kB",
       "status": "NEEDS REVIEW",
-      "detail": "102 kB"
+      "detail": "141 kB"
     },
     {
       "gate": "GATE 7",

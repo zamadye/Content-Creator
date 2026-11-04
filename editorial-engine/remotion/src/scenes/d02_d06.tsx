@@ -2,8 +2,8 @@ import React from 'react';
 import { useCurrentFrame, interpolate, Easing } from '../runtime';
 import { Circle, Ellipse, Path, Rect, T } from '../illustration/primitives';
 import {
-  AngkaBesar, Crowd, Gerbang, Hills, Kardus, Karakter, KartunShell, KaraokeCaption,
-  Pabrik, Papan, Sky, kartun,
+  AngkaBesar, Crowd, Gerbang, Gerobak, Hills, KainRol, Kardus, Karakter, KartunShell,
+  KaraokeCaption, MesinJahit, Pabrik, Papan, Sepatu, Sky, Surat, kartun,
 } from '../illustration/cartoon';
 
 const seg = (f: number, a: number, b: number) =>
@@ -110,13 +110,16 @@ export const D04Analysis: React.FC<{ d: number }> = ({ d }) => {
       </g>
       <T x={540} y={340} anchor="middle" size={44} weight={800} tracking={2} fill={kartun.line} opacity={0.72 * t1}>YANG PALING TERPUKUL: JAWA BARAT</T>
       <g opacity={t2}>
-        <T x={540} y={520} anchor="middle" size={104} weight={800} fill={kartun.line}>TEKSTIL</T>
-        <T x={540} y={636} anchor="middle" size={104} weight={800} fill={kartun.line}>GARMEN</T>
-        <T x={540} y={752} anchor="middle" size={104} weight={800} fill={kartun.red}>SEPATU</T>
+        <KainRol x={228} y={572} s={1.08} />
+        <T x={380} y={566} size={82} weight={800} fill={kartun.line}>TEKSTIL</T>
+        <MesinJahit x={228} y={748} s={1.1} />
+        <T x={380} y={716} size={82} weight={800} fill={kartun.line}>GARMEN</T>
+        <Sepatu x={228} y={866} s={1.16} />
+        <T x={380} y={852} size={82} weight={800} fill={kartun.red}>SEPATU</T>
       </g>
       <g opacity={arrow}>
-        <Path d="M540 830 L540 1010" stroke={kartun.red} strokeWidth={18} strokeLinecap="round" fill="none" />
-        <Path d="M498 966 L540 1020 L582 966" stroke={kartun.red} strokeWidth={18} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <Path d="M540 900 L540 1046" stroke={kartun.red} strokeWidth={16} strokeLinecap="round" fill="none" />
+        <Path d="M504 1006 L540 1056 L576 1006" stroke={kartun.red} strokeWidth={16} strokeLinecap="round" strokeLinejoin="round" fill="none" />
       </g>
       <Karakter x={210} y={1420} s={0.82} shirt={kartun.shirtAlt2} face="worried" pose="slump" />
       <KaraokeCaption text="padat karya ekspor paling rapuh" keyword="ekspor" y={1642} opacity={cap} />
@@ -148,6 +151,9 @@ export const D05Analysis2: React.FC<{ d: number }> = ({ d }) => {
         <T x={800} y={690} anchor="middle" size={58} weight={800} fill={kartun.red}>TIDAK</T>
         <T x={800} y={760} anchor="middle" size={58} weight={800} fill={kartun.red}>DIHITUNG</T>
       </g>
+      <Gerobak x={392} y={1322} s={0.94} />
+      <Surat x={752} y={1176} s={0.78} rotate={-6} stamp="HARIAN" />
+      <Surat x={972} y={1172} s={0.78} rotate={7} stamp="KELUAR" />
       <g transform={`translate(${walk} 0)`}>
         <Karakter x={640} y={1330} s={0.84} shirt={kartun.shirtAlt} face="sad" pose="slump" />
         <Karakter x={790} y={1364} s={0.78} shirt="#7C8C63" face="neutral" pose="stand" />

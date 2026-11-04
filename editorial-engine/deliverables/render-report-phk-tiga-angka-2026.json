@@ -4,8 +4,8 @@
   "fps": 30,
   "durationSec": 72.17,
   "audioSec": 70.54,
-  "encodeSec": 51.9,
-  "sizeMB": 8.06,
+  "encodeSec": 37.2,
+  "sizeMB": 8.37,
   "settings": {
     "codec": "h264 high",
     "crf": 18,

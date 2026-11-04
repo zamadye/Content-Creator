@@ -1,0 +1,15 @@
+{
+  "episodeId": "LS-0004",
+  "output": "renders/LS-0004.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "durationFrames": 1433,
+  "durationSeconds": 47.766666666666666,
+  "crf": 20,
+  "concurrency": 2,
+  "scale": 1,
+  "frameRange": null,
+  "renderSeconds": 301.8,
+  "renderedAt": "2026-11-04T09:17:13.706Z"
+}

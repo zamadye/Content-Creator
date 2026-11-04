@@ -14,7 +14,7 @@
 import { copyFile, readFile, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { safeParseEpisode } from "@the-last-signal/contracts";
+import { EpisodeSchema, safeParseEpisode } from "@the-last-signal/contracts";
 import { probeFfmpeg } from "./lib/ffmpeg";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -61,12 +61,10 @@ function distributeSubtitles(
 
 async function main() {
   const raw = JSON.parse(await readFile(episodePath, "utf8"));
-  const parsed = safeParseEpisode(raw);
-  if (!parsed.success) {
-    throw new Error(`episode tidak valid sebelum alignment: ${JSON.stringify(parsed.error.issues)}`);
-  }
 
-  const episode = parsed.data;
+  // Sebelum alignment, timing subtitle boleh berupa placeholder — jadi validasi
+  // struktural saja dulu. Hasil akhirnya tetap divalidasi penuh di bawah.
+  const episode = EpisodeSchema.parse(raw);
   const fps = episode.targetFps;
   const missing = episode.scenes.filter((scene) => !scene.narrationAudio);
 
@@ -112,7 +110,13 @@ async function main() {
       durationFrames,
       subtitles,
       audio: { ...scene.audio, sfx },
-      cuts: scene.cuts.filter((cut) => cut.atFrame < durationFrames),
+      // Ritme cut dipertahankan: posisi cut diskalakan ke durasi scene yang baru.
+      cuts: scene.cuts
+        .map((cut) => ({
+          ...cut,
+          atFrame: Math.max(1, Math.min(durationFrames - 1, Math.round(cut.atFrame * scale))),
+        }))
+        .filter((cut, index, all) => index === 0 || cut.atFrame > all[index - 1].atFrame),
     };
   });
 

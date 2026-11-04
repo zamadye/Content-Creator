@@ -11,7 +11,7 @@ import { SubtitleTrack } from "../components/SubtitleTrack";
 import { Vignette } from "../components/Vignette";
 import { theme } from "../lib/theme";
 
-const END_CARD_FRAMES = 48;
+const END_CARD_FRAMES = 30;
 
 /** Kartu penutup: sinyal putus, judul arsip, episode id. */
 const EndCard: React.FC<{ title: string; episodeId: string }> = ({ title, episodeId }) => {

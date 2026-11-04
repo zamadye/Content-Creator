@@ -33,8 +33,17 @@ test("timeline: total frame dan offset scene konsisten", () => {
   assert.ok(episode.success);
 
   const data = episode.data;
-  assert.equal(totalFrames(data), 1500);
-  assert.deepEqual(sceneOffsets(data), [0, 120, 390, 660, 960, 1260]);
+  const expectedTotal = data.scenes.reduce((sum, scene) => sum + scene.durationFrames, 0);
+  assert.equal(totalFrames(data), expectedTotal);
+
+  // Offset scene = akumulasi durasi scene sebelumnya, bukan angka hafalan.
+  let cursor = 0;
+  const expectedOffsets = data.scenes.map((scene) => {
+    const offset = cursor;
+    cursor += scene.durationFrames;
+    return offset;
+  });
+  assert.deepEqual(sceneOffsets(data), expectedOffsets);
 });
 
 test("durasi di luar 40–60 detik ditolak", () => {
@@ -122,4 +131,96 @@ test("efek di luar daftar resmi ditolak", () => {
     }),
   );
   assert.ok(paths.some((path) => path.includes("effects")));
+});
+
+
+// ---------------------------------------------------------------------------
+// Kontrak yang sebelumnya tidak diuji: cut, kartu teks, narasi per scene,
+// skor musik, dan jump scare. Semuanya bisa membuat render gagal atau merusak
+// ritme kalau lolos tanpa validasi.
+// ---------------------------------------------------------------------------
+
+test("cut harus naik dan berada di dalam durasi scene", () => {
+  const episode = base();
+  const scene = episode.scenes[0];
+  scene.cuts = [
+    { atFrame: 50, camera: "push_in" },
+    { atFrame: 20, camera: "handheld" },
+  ];
+  assert.ok(issuePaths(episode).some((path) => path.includes("cuts")));
+});
+
+test("cut di luar durasi scene ditolak", () => {
+  const episode = base();
+  episode.scenes[0].cuts = [{ atFrame: episode.scenes[0].durationFrames + 5, camera: "static" }];
+  assert.ok(issuePaths(episode).some((path) => path.includes("cuts")));
+});
+
+test("kartu teks harus punya rentang waktu yang masuk akal", () => {
+  const episode = base();
+  episode.onScreenText = [{ text: "TERLAMBAT", startFrame: 400, endFrame: 400 }];
+  assert.ok(issuePaths(episode).includes("onScreenText.0"));
+});
+
+test("kartu teks tidak boleh melewati akhir episode", () => {
+  const episode = base();
+  episode.onScreenText = [{ text: "TERLAMBAT", startFrame: 10, endFrame: 999999 }];
+  assert.ok(issuePaths(episode).includes("onScreenText.0"));
+});
+
+test("narrationAudio tanpa teks narasi ditolak (alignment mustahil)", () => {
+  const episode = base();
+  episode.narrationAudio = "audio/narration/full.mp3";
+  episode.scenes[2].narration = "";
+  assert.ok(issuePaths(episode).includes("narrationAudio"));
+});
+
+test("skor musik: volume di luar 0–1 ditolak", () => {
+  const episode = base();
+  episode.score = { assetId: "audio/score.wav", volume: 1.4 };
+  assert.ok(issuePaths(episode).some((path) => path.startsWith("score")));
+});
+
+test("jumpscare terlalu awal (di bawah detik ke-5) ditolak", () => {
+  const episode = base();
+  episode.jumpscares = [
+    { atFrame: 60, assetId: "audio/sfx/scare.wav", durationFrames: 14 },
+  ];
+  assert.ok(issuePaths(episode).some((path) => path.startsWith("jumpscares")));
+});
+
+test("jumpscare berurutan wajib naik", () => {
+  const episode = base();
+  episode.jumpscares = [
+    { atFrame: 600, assetId: "audio/sfx/scare.wav", durationFrames: 14 },
+    { atFrame: 400, assetId: "audio/sfx/scare.wav", durationFrames: 14 },
+  ];
+  assert.ok(issuePaths(episode).some((path) => path.startsWith("jumpscares")));
+});
+
+test("jumpscare yang melewati akhir episode ditolak", () => {
+  const episode = base();
+  const total = episode.scenes.reduce((sum: number, scene: any) => sum + scene.durationFrames, 0);
+  episode.jumpscares = [
+    { atFrame: total - 4, assetId: "audio/sfx/scare.wav", durationFrames: 20 },
+  ];
+  assert.ok(issuePaths(episode).some((path) => path.startsWith("jumpscares")));
+});
+
+test("semua episode di projects/episodes lolos kontrak", async () => {
+  const { readdirSync, existsSync } = await import("node:fs");
+  const episodesDir = join(HERE, "..", "..", "..", "projects", "episodes");
+  const ids = readdirSync(episodesDir).filter((entry) =>
+    existsSync(join(episodesDir, entry, "episode.json")),
+  );
+  assert.ok(ids.length > 0, "harus ada minimal satu episode");
+  for (const id of ids) {
+    const data = JSON.parse(readFileSync(join(episodesDir, id, "episode.json"), "utf8"));
+    const result = safeParseEpisode(data);
+    assert.equal(
+      result.success,
+      true,
+      `${id}: ${result.success ? "" : JSON.stringify(result.error.issues.slice(0, 3))}`,
+    );
+  }
 });

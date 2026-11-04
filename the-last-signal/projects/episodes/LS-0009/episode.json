@@ -374,17 +374,17 @@
         }
       ],
       "visual": {
-        "prompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
+        "prompt": "open door to an adjoining boarding room with an identical router glowing on the floor, dark corridor light behind, wide horror composition",
         "locationId": "ls-0009_main",
         "characterIds": [],
         "camera": "static",
-        "shot": "closeup",
-        "lighting": "monitor_glow_red_accent",
+        "shot": "wide",
+        "lighting": "corridor_light_spill_into_dark_room",
         "intensity": 0.9,
         "effects": [
-          "scanlines",
           "film_grain",
-          "vignette"
+          "vignette",
+          "volumetric_fog"
         ]
       },
       "audio": {
@@ -414,13 +414,13 @@
       "cuts": [
         {
           "atFrame": 63,
-          "camera": "pull_out",
+          "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
           "atFrame": 125,
-          "camera": "push_in",
+          "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
@@ -451,17 +451,17 @@
         }
       ],
       "visual": {
-        "prompt": "open door to an adjoining boarding room with an identical router glowing on the floor, dark corridor light behind, wide horror composition",
+        "prompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
         "locationId": "ls-0009_main",
         "characterIds": [],
-        "camera": "pull_out",
-        "shot": "wide",
-        "lighting": "corridor_light_spill_into_dark_room",
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "monitor_glow_red_accent",
         "intensity": 0.7,
         "effects": [
+          "scanlines",
           "film_grain",
-          "vignette",
-          "volumetric_fog"
+          "vignette"
         ]
       },
       "audio": {

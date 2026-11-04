@@ -939,27 +939,27 @@
         },
         {
           "narration": "Kamu mengetuk kamar sebelah. Di dalam ada router yang sama, mencatat nomor kamarmu, bukan nomornya.",
-          "imagePrompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
-          "camera": "static",
-          "shot": "closeup",
-          "lighting": "monitor_glow_red_accent",
-          "effects": [
-            "scanlines",
-            "film_grain",
-            "vignette"
-          ],
-          "intensity": 0.9
-        },
-        {
-          "narration": "Kamu kembali ke kamar. Di log, perangkat itu sudah berganti nama. Namanya namamu.",
           "imagePrompt": "open door to an adjoining boarding room with an identical router glowing on the floor, dark corridor light behind, wide horror composition",
-          "camera": "pull_out",
+          "camera": "static",
           "shot": "wide",
           "lighting": "corridor_light_spill_into_dark_room",
           "effects": [
             "film_grain",
             "vignette",
             "volumetric_fog"
+          ],
+          "intensity": 0.9
+        },
+        {
+          "narration": "Kamu kembali ke kamar. Di log, perangkat itu sudah berganti nama. Namanya namamu.",
+          "imagePrompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "monitor_glow_red_accent",
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "vignette"
           ],
           "intensity": 0.7
         }

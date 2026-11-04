@@ -43,6 +43,24 @@ Budget satu episode baru: TTS 6 klip, 6 gambar, 1 render, 1 encode, 1 QC.
 runner sebelum upload): 1080×1920, 30 fps, 40–60,5 s, audio AAC, −16…−12 LUFS,
 true peak ≤ −1 dBTP, ≤ 40 MB, rata-rata shot ≤ 3 s.
 
+## Batas alat (yang harus diperhitungkan sebelum menjadwalkan produksi)
+
+**10 gambar dan 10 klip TTS per putaran kerja.** Satu episode butuh 6 gambar +
+6 narasi, jadi **satu putaran maksimal satu episode penuh**. Rencana produksi
+yang mengasumsikan dua episode per putaran akan selalu gagal di gambar ke-7.
+
+**Sandbox kerja bisa di-reset tanpa peringatan.** Kejadian nyata hari ini: reset
+menghapus `node_modules`, `renders/`, dan mengembalikan HEAD ke commit dasar,
+sekaligus memakan ~3 jam jeda (05.45Z → 08.33Z). Semua yang tidak di-commit
+hilang. Aturan yang dipakai sekarang: **commit setelah setiap episode lolos QC**,
+jangan menumpuk pekerjaan di working tree. `scripts/dev/bootstrap.sh` memulihkan
+lingkungan dalam ~40 detik setelah reset.
+
+**Klip TTS bisa mengandung hening ekstra.** scene-05 LS-0003 keluar 15,74 detik
+untuk 13 kata (rata-rata normalnya ~7 detik), lalu 11,38 detik setelah
+diregenerasi. Selalu ukur durasi per klip sebelum alignment; satu klip yang
+menggembung membuat satu scene terasa berhenti.
+
 ## Publikasi
 
 **Zernio tidak bisa dihubungi dari sandbox.** Semua panggilan API dijalankan di

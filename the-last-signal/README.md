@@ -31,6 +31,19 @@ pnpm encode                            # → renders/LS-0001-delivery.mp4 (54 MB
 4. **Validasi deterministik lebih dulu.** Schema Zod + pemeriksaan lintas-field,
    sebelum satu frame pun dirender.
 
+## Yang sudah terbit
+
+| Episode | Judul | Durasi | QC | YouTube |
+| --- | --- | --- | --- | --- |
+| LS-0001 | Jangan Pernah Membuka Lemari Itu Dua Kali | 57,1 s | 8/8 | [8UnXLrjbDqE](https://www.youtube.com/watch?v=8UnXLrjbDqE) |
+| LS-0002 | TV Daerah Itu Berhenti Mengudara 28 Tahun Lalu | 56,2 s | 8/8 | [e9Eh7EV7wHQ](https://www.youtube.com/watch?v=e9Eh7EV7wHQ) |
+
+Publikasi berjalan lewat `.github/workflows/zernio-publish.yml`: menambah file di
+`publish-queue/` adalah perintah unggah. Workflow memeriksa ulang QC di runner
+(resolusi, fps, durasi, codec, loudness, true peak, ukuran) sebelum satu byte pun
+diunggah ke Zernio. Lihat `knowledge/` untuk catatan produksi dan `stories/`
+untuk naskah yang belum diproduksi.
+
 ## Struktur
 
 ```

@@ -7,9 +7,9 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 49.6,
+  "targetDurationSeconds": 57.1,
   "story": {
-    "hook": "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun. Selama empat belas bulan.",
+    "hook": "Router di kamar kosmu mencatat satu perangkat yang tidak pernah kamu beli. Selama empat belas bulan.",
     "premise": "Penghuni kos memeriksa log wifi dan menemukan perangkat yang terhubung setiap malam pukul 03.33.",
     "twist": "Perangkat itu tidak mengunggah data. Ia mengunduh foto, satu per malam, dari kamera yang tidak ada di kamar itu.",
     "ending": "Di log, perangkat itu berganti nama menjadi nama penghuni kamar itu sendiri."
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 825,
+      "atFrame": 759,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,44 +33,44 @@
   "onScreenText": [
     {
       "text": "03.33",
-      "startFrame": 30,
-      "endFrame": 90
+      "startFrame": 35,
+      "endFrame": 94
     },
     {
       "text": "14 BULAN SEBELUM KAMU PINDAH",
-      "startFrame": 803,
-      "endFrame": 863
+      "startFrame": 925,
+      "endFrame": 984
     },
     {
       "text": "KAMAR 7 ↔ KAMAR 7",
-      "startFrame": 1160,
-      "endFrame": 1220
+      "startFrame": 1336,
+      "endFrame": 1395
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 263,
+      "durationFrames": 239,
       "image": "images/scene-01.png",
-      "narration": "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun. Selama empat belas bulan.",
+      "narration": "Router di kamar kosmu mencatat satu perangkat yang tidak pernah kamu beli. Selama empat belas bulan.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 74,
+          "atFrame": 67,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 147,
+          "atFrame": 134,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 216,
+          "atFrame": 196,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -79,13 +79,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 190,
-          "text": "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun."
+          "startFrame": 4,
+          "endFrame": 174,
+          "text": "Router di kamar kosmu mencatat satu perangkat yang tidak pernah kamu beli."
         },
         {
-          "startFrame": 190,
-          "endFrame": 251,
+          "startFrame": 174,
+          "endFrame": 231,
           "text": "Selama empat belas bulan."
         }
       ],
@@ -109,12 +109,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 163,
+            "startFrame": 148,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 216,
+            "startFrame": 196,
             "volume": 0.4
           }
         ]
@@ -123,26 +123,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 276,
+      "durationFrames": 226,
       "image": "images/scene-02.png",
       "narration": "Perangkat itu menyala tiap malam pukul tiga lewat tiga puluh tiga, selalu tiga detik setelah kamu tidur.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 77,
+          "atFrame": 63,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 155,
+          "atFrame": 127,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 226,
+          "atFrame": 185,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -151,8 +151,8 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 264,
+          "startFrame": 4,
+          "endFrame": 218,
           "text": "Perangkat itu menyala tiap malam pukul tiga lewat tiga puluh tiga, selalu tiga detik setelah kamu tidur."
         }
       ],
@@ -176,12 +176,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 171,
+            "startFrame": 140,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 226,
+            "startFrame": 185,
             "volume": 0.4
           }
         ]
@@ -190,26 +190,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 224,
+      "durationFrames": 232,
       "image": "images/scene-03.png",
       "narration": "Kamu mematikan internet. Pukul tiga lewat tiga puluh tiga, kamera ponselmu menyala sendiri.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 63,
+          "atFrame": 65,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 125,
+          "atFrame": 129,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 184,
+          "atFrame": 191,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -218,13 +218,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 54,
+          "startFrame": 4,
+          "endFrame": 55,
           "text": "Kamu mematikan internet."
         },
         {
-          "startFrame": 54,
-          "endFrame": 212,
+          "startFrame": 55,
+          "endFrame": 224,
           "text": "Pukul tiga lewat tiga puluh tiga, kamera ponselmu menyala sendiri."
         }
       ],
@@ -249,12 +249,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 139,
+            "startFrame": 144,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 184,
+            "startFrame": 191,
             "volume": 0.4
           }
         ]
@@ -291,13 +291,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 130,
+          "startFrame": 4,
+          "endFrame": 131,
           "text": "Di galeri ada dua belas foto kamar ini."
         },
         {
-          "startFrame": 130,
-          "endFrame": 238,
+          "startFrame": 131,
+          "endFrame": 242,
           "text": "Semuanya diambil malam ini, dari sudut langit-langit."
         }
       ],
@@ -363,13 +363,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 68,
+          "startFrame": 4,
+          "endFrame": 67,
           "text": "Kamu mengetuk kamar sebelah."
         },
         {
-          "startFrame": 68,
-          "endFrame": 238,
+          "startFrame": 67,
+          "endFrame": 242,
           "text": "Di dalam ada router yang sama, mencatat nomor kamarmu, bukan nomornya."
         }
       ],
@@ -407,26 +407,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 224,
+      "durationFrames": 262,
       "image": "images/scene-06.png",
       "narration": "Kamu kembali ke kamar. Di log, perangkat itu sudah berganti nama. Namanya namamu.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 63,
+          "atFrame": 74,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 125,
+          "atFrame": 146,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 184,
+          "atFrame": 215,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -435,18 +435,18 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 69,
+          "startFrame": 4,
+          "endFrame": 81,
           "text": "Kamu kembali ke kamar."
         },
         {
-          "startFrame": 69,
-          "endFrame": 180,
+          "startFrame": 81,
+          "endFrame": 216,
           "text": "Di log, perangkat itu sudah berganti nama."
         },
         {
-          "startFrame": 180,
-          "endFrame": 212,
+          "startFrame": 216,
+          "endFrame": 254,
           "text": "Namanya namamu."
         }
       ],
@@ -470,12 +470,83 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 139,
+            "startFrame": 163,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 184,
+            "startFrame": 215,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 254,
+      "image": "images/scene-07.png",
+      "narration": "Kalau kamu tidak ingin kameramu menyala sendiri, klik subscribe. Komentar: kamu pernah periksa log routermu?",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [
+        {
+          "atFrame": 71,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 142,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 208,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 149,
+          "text": "Kalau kamu tidak ingin kameramu menyala sendiri, klik subscribe."
+        },
+        {
+          "startFrame": 149,
+          "endFrame": 246,
+          "text": "Komentar: kamu pernah periksa log routermu?"
+        }
+      ],
+      "visual": {
+        "prompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
+        "locationId": "ls-0009_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "monitor_glow_red_accent",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 157,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 208,
             "volume": 0.4
           }
         ]
@@ -501,6 +572,10 @@
       "kicker": "KAMAR 7 · 03.33",
       "image": "images/thumb.png",
       "holdFrames": 12
+    },
+    "cta": {
+      "card": "KAMARMU SUDAH TERCATAT",
+      "holdFrames": 84
     }
   },
   "production": {

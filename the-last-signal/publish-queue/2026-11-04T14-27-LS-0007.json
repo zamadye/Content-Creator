@@ -1,6 +1,6 @@
 {
   "episodeId": "LS-0007",
-  "status": "requested",
+  "status": "published",
   "createdAt": "2026-11-04T14:27:44.058Z",
   "media": "the-last-signal/releases/LS-0007.mp4",
   "episode": {
@@ -28,6 +28,9 @@
     "notifySubscribers": true,
     "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
   },
-  "holdReason": "antrean jeda 1 jam (LS-0006 terbit 14:12:40Z → siap 15:12:40Z)",
-  "requestedAt": "2026-11-04T22:06:40Z"
+  "requestedAt": "2026-11-04T22:06:40Z",
+  "publishedAt": "2026-11-04T22:07:28Z",
+  "postId": "6aebaca3dbf613268110ec78",
+  "videoId": "ybCx6fC82nA",
+  "url": "https://www.youtube.com/watch?v=ybCx6fC82nA"
 }

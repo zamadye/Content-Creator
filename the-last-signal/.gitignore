@@ -22,3 +22,6 @@ report/
 
 # Video yang diangkut ke runner Actions untuk diunggah ke Zernio
 !releases/*.mp4
+
+# Backup edit manual episode.json (lokal saja)
+projects/episodes/*/episode.json.bak

@@ -122,11 +122,11 @@ Tidak digabung dengan THE LAST SIGNAL (berkas terpisah).
 2. **Buat 6 komponen scene berparameter** (§4) → target 15 menit/misi.
 3. **Produksi Episode 1** (di bawah) → factual QC + technical QC → publikasi Buffer (YouTube
    kanal 2 + IG/TikTok bila id kanal tersedia) → catat `bufferPostId`.
-4. Ulangi dengan jeda ≥1 jam; isi knowledge base setiap selesai.
+4. Ulangi dengan jeda **≥60 menit (jadwal default 120 menit)**; isi knowledge base setiap selesai. Alur lengkap: `docs/KNOT-THEORY-01-WORKFLOW-PLAN.md`.
 5. Analytics: menunggu kredensial YouTube Analytics akun 2 (belum ada) — sampai itu ada,
    angka analytics dilaporkan **UNKNOWN**, bukan dikarang.
 
-**Target realistis hari ini:** 1–2 episode selesai penuh (bukan 10). Sepuluh konsep di §8
+**Target realistis:** 2–3 episode/hari, satu video satu slot 2 jam (bukan 10). Sepuluh konsep di §8
 disiapkan sebagai antrean, bukan janji produksi.
 
 ---

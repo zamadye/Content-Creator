@@ -1,0 +1,15 @@
+{
+  "episodeId": "LS-0009",
+  "output": "renders/LS-0009.mp4",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "durationFrames": 1713,
+  "durationSeconds": 57.1,
+  "crf": 20,
+  "concurrency": 2,
+  "scale": 1,
+  "frameRange": null,
+  "renderSeconds": 342.5,
+  "renderedAt": "2026-11-04T23:39:36.036Z"
+}

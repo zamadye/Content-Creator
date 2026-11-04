@@ -1,0 +1,32 @@
+{
+  "episodeId": "LS-0009",
+  "status": "held",
+  "createdAt": "2026-11-04T23:42:03.214Z",
+  "media": "the-last-signal/releases/LS-0009.mp4",
+  "episode": {
+    "title": "Perangkat Ketujuh",
+    "subgenre": "Unknown Entity",
+    "structure": "log perangkat (baris demi baris)",
+    "durationSeconds": 57.1,
+    "scenes": 7,
+    "jumpscares": 1
+  },
+  "youtube": {
+    "title": "Router Kos Itu Mencatat Perangkat yang Tidak Pernah Kamu Beli. Selama 14 Bulan.",
+    "description": "ARSIP FIKSI — Log router kamar kos nomor 7. Satu perangkat, setiap malam pukul 03.33.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AnalogHorror",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "analog horror",
+      "kos",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
+  },
+  "holdReason": "antrean jeda 1 jam setelah LS-0011"
+}

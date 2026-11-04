@@ -3,59 +3,59 @@
 import type { Timeline } from './types';
 
 export const timeline: Timeline = {
-  "topic": "bsu-9-dari-100-2026",
+  "topic": "apbn-2027-bunga-utang",
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "durationInFrames": 2650,
-  "generatedAt": "2026-11-04T04:17:18.474Z",
+  "durationInFrames": 2361,
+  "generatedAt": "2026-11-04T05:03:19.169Z",
   "scenes": [
     {
-      "id": "b01",
+      "id": "a01",
       "startFrame": 0,
-      "durationInFrames": 341,
+      "durationInFrames": 288,
       "purpose": "HOOK",
       "vo": "vo01"
     },
     {
-      "id": "b02",
-      "startFrame": 341,
-      "durationInFrames": 330,
+      "id": "a02",
+      "startFrame": 288,
+      "durationInFrames": 442,
       "purpose": "CONTEXT",
       "vo": "vo02"
     },
     {
-      "id": "b03",
-      "startFrame": 671,
-      "durationInFrames": 404,
+      "id": "a03",
+      "startFrame": 730,
+      "durationInFrames": 354,
       "purpose": "CONFLICT",
       "vo": "vo03"
     },
     {
-      "id": "b04",
-      "startFrame": 1075,
-      "durationInFrames": 390,
+      "id": "a04",
+      "startFrame": 1084,
+      "durationInFrames": 392,
       "purpose": "DEVELOPMENT",
       "vo": "vo04"
     },
     {
-      "id": "b05",
-      "startFrame": 1465,
-      "durationInFrames": 460,
+      "id": "a05",
+      "startFrame": 1476,
+      "durationInFrames": 317,
       "purpose": "PERSPECTIVE",
       "vo": "vo05"
     },
     {
-      "id": "b06",
-      "startFrame": 1925,
-      "durationInFrames": 365,
+      "id": "a06",
+      "startFrame": 1793,
+      "durationInFrames": 358,
       "purpose": "EVIDENCE",
       "vo": "vo06"
     },
     {
-      "id": "b07",
-      "startFrame": 2290,
-      "durationInFrames": 360,
+      "id": "a07",
+      "startFrame": 2151,
+      "durationInFrames": 210,
       "purpose": "CLOSING",
       "vo": "vo07"
     }
@@ -63,243 +63,191 @@ export const timeline: Timeline = {
   "captions": [
     {
       "text": [
-        "Hampir Rp12 triliun",
-        "untuk 13,3 juta pekerja."
+        "Rp4.106 triliun.",
+        "Anggaran terbesar dalam sejarah."
       ],
       "startFrame": 5,
-      "durationInFrames": 153,
+      "durationInFrames": 143,
       "segment": "vo01"
     },
     {
       "text": [
-        "Ambil kalkulator."
+        "Tapi ada satu baris",
+        "yang jarang dibaca: bunga."
       ],
-      "startFrame": 158,
-      "durationInFrames": 59,
+      "startFrame": 148,
+      "durationInFrames": 135,
       "segment": "vo01"
     },
     {
       "text": [
-        "Itu 9 dari 100",
-        "orang yang bekerja."
+        "Pendapatan: Rp3.435,10 T."
       ],
-      "startFrame": 217,
-      "durationInFrames": 119,
-      "segment": "vo01"
-    },
-    {
-      "text": [
-        "Namanya",
-        "Bantuan Subsidi Upah."
-      ],
-      "startFrame": 346,
-      "durationInFrames": 96,
+      "startFrame": 293,
+      "durationInFrames": 138,
       "segment": "vo02"
     },
     {
       "text": [
-        "Rp300.000 per bulan,",
-        "Oktober–Desember."
+        "Belanja: Rp4.106,26 T."
       ],
-      "startFrame": 442,
-      "durationInFrames": 126,
+      "startFrame": 431,
+      "durationInFrames": 122,
       "segment": "vo02"
     },
     {
       "text": [
-        "Dibayar sekaligus:",
-        "Rp900.000."
+        "Defisit: Rp671,16 T",
+        "(2,4% PDB)."
       ],
-      "startFrame": 568,
-      "durationInFrames": 97,
+      "startFrame": 553,
+      "durationInFrames": 172,
       "segment": "vo02"
     },
     {
       "text": [
-        "Yang bekerja:",
-        "148,19 juta."
+        "Keseimbangan primer:",
+        "-Rp20,85 triliun."
       ],
-      "startFrame": 676,
-      "durationInFrames": 136,
+      "startFrame": 735,
+      "durationInFrames": 165,
       "segment": "vo03"
     },
     {
       "text": [
-        "Yang formal:",
-        "60,31 juta."
+        "Tanpa bunga,",
+        "anggarannya nyaris seimbang."
       ],
-      "startFrame": 812,
-      "durationInFrames": 126,
+      "startFrame": 900,
+      "durationInFrames": 178,
       "segment": "vo03"
     },
     {
       "text": [
-        "Yang menerima:",
-        "13,3 juta."
+        "Sisanya: bunga.",
+        "Sekitar Rp650 triliun."
       ],
-      "startFrame": 938,
-      "durationInFrames": 131,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "Dari pekerja formal,",
-        "hanya 22 persen masuk."
-      ],
-      "startFrame": 1080,
-      "durationInFrames": 129,
+      "startFrame": 1089,
+      "durationInFrames": 163,
       "segment": "vo04"
     },
     {
       "text": [
-        "Pekerja informal:",
-        "87,88 juta."
+        "18,9% dari pendapatan negara."
       ],
-      "startFrame": 1209,
-      "durationInFrames": 87,
+      "startFrame": 1252,
+      "durationInFrames": 124,
       "segment": "vo04"
     },
     {
       "text": [
-        "Pintu masuknya",
-        "hampir tidak ada."
+        "Rp1,78 triliun sehari."
       ],
-      "startFrame": 1296,
+      "startFrame": 1376,
       "durationInFrames": 95,
       "segment": "vo04"
     },
     {
       "text": [
-        "Syaratnya bukan",
-        "cuma besaran gaji."
+        "Pendidikan: Rp824 triliun."
       ],
-      "startFrame": 1470,
-      "durationInFrames": 101,
+      "startFrame": 1481,
+      "durationInFrames": 95,
       "segment": "vo05"
     },
     {
       "text": [
-        "Harus ada perusahaan",
-        "yang mendaftarkan."
+        "Bunga setara 79% dari itu."
       ],
-      "startFrame": 1571,
+      "startFrame": 1576,
+      "durationInFrames": 95,
+      "segment": "vo05"
+    },
+    {
+      "text": [
+        "Dibayar sebelum program dimulai."
+      ],
+      "startFrame": 1671,
       "durationInFrames": 116,
       "segment": "vo05"
     },
     {
       "text": [
-        "Harus ada BPJS aktif,",
-        "harus ada rekening."
+        "Sumber: UU APBN 2027,",
+        "disahkan 29 September 2026."
       ],
-      "startFrame": 1687,
-      "durationInFrames": 122,
-      "segment": "vo05"
-    },
-    {
-      "text": [
-        "Tiga hal yang paling",
-        "jarang dimiliki."
-      ],
-      "startFrame": 1809,
-      "durationInFrames": 111,
-      "segment": "vo05"
-    },
-    {
-      "text": [
-        "Dari 77,8 juta",
-        "pekerja informal,"
-      ],
-      "startFrame": 1930,
-      "durationInFrames": 146,
+      "startFrame": 1798,
+      "durationInFrames": 162,
       "segment": "vo06"
     },
     {
       "text": [
-        "baru 13,56 juta",
-        "yang terlindungi."
+        "Bunga: hitungan sendiri",
+        "(defisit - keseimbangan primer)."
       ],
-      "startFrame": 2076,
-      "durationInFrames": 150,
+      "startFrame": 1960,
+      "durationInFrames": 185,
       "segment": "vo06"
     },
     {
       "text": [
-        "17,44 persen."
+        "Defisit bisa diperdebatkan."
       ],
-      "startFrame": 2226,
-      "durationInFrames": 59,
-      "segment": "vo06"
-    },
-    {
-      "text": [
-        "Rp900.000 tetap berarti",
-        "bagi yang menerimanya."
-      ],
-      "startFrame": 2295,
-      "durationInFrames": 128,
+      "startFrame": 2156,
+      "durationInFrames": 117,
       "segment": "vo07"
     },
     {
       "text": [
-        "Tapi kalau pipanya",
-        "tidak sampai,"
+        "Bunga tidak."
       ],
-      "startFrame": 2423,
-      "durationInFrames": 89,
-      "segment": "vo07"
-    },
-    {
-      "text": [
-        "siapa yang menagih",
-        "janji ini?"
-      ],
-      "startFrame": 2512,
-      "durationInFrames": 80,
+      "startFrame": 2273,
+      "durationInFrames": 52,
       "segment": "vo07"
     }
   ],
   "vo": [
     {
       "id": "vo01",
-      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo01.mp3",
+      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo01.mp3",
       "startFrame": 5,
-      "durationInFrames": 331
+      "durationInFrames": 278
     },
     {
       "id": "vo02",
-      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo02.mp3",
-      "startFrame": 346,
-      "durationInFrames": 319
+      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo02.mp3",
+      "startFrame": 293,
+      "durationInFrames": 432
     },
     {
       "id": "vo03",
-      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo03.mp3",
-      "startFrame": 676,
-      "durationInFrames": 393
+      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo03.mp3",
+      "startFrame": 735,
+      "durationInFrames": 343
     },
     {
       "id": "vo04",
-      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo04.mp3",
-      "startFrame": 1080,
-      "durationInFrames": 311
+      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo04.mp3",
+      "startFrame": 1089,
+      "durationInFrames": 382
     },
     {
       "id": "vo05",
-      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo05.mp3",
-      "startFrame": 1470,
-      "durationInFrames": 450
+      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo05.mp3",
+      "startFrame": 1481,
+      "durationInFrames": 306
     },
     {
       "id": "vo06",
-      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo06.mp3",
-      "startFrame": 1930,
-      "durationInFrames": 355
+      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo06.mp3",
+      "startFrame": 1798,
+      "durationInFrames": 347
     },
     {
       "id": "vo07",
-      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo07.mp3",
-      "startFrame": 2295,
-      "durationInFrames": 297
+      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo07.mp3",
+      "startFrame": 2156,
+      "durationInFrames": 169
     }
   ]
 };

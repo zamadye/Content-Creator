@@ -1,0 +1,46 @@
+{
+  "totalFrames": 2361,
+  "music": {
+    "file": "audio/processing/generated/bed.wav",
+    "gainDb": -13,
+    "duckDb": -9
+  },
+  "sfx": [
+    {
+      "at": 282,
+      "file": "audio/processing/generated/sfx_whoosh.wav",
+      "gainDb": -24,
+      "note": "transisi ke a02"
+    },
+    {
+      "at": 724,
+      "file": "audio/processing/generated/sfx_whoosh.wav",
+      "gainDb": -24,
+      "note": "transisi ke a03"
+    },
+    {
+      "at": 1078,
+      "file": "audio/processing/generated/sfx_whoosh.wav",
+      "gainDb": -24,
+      "note": "transisi ke a04"
+    },
+    {
+      "at": 1470,
+      "file": "audio/processing/generated/sfx_whoosh.wav",
+      "gainDb": -24,
+      "note": "transisi ke a05"
+    },
+    {
+      "at": 1787,
+      "file": "audio/processing/generated/sfx_whoosh.wav",
+      "gainDb": -24,
+      "note": "transisi ke a06"
+    },
+    {
+      "at": 2145,
+      "file": "audio/processing/generated/sfx_whoosh.wav",
+      "gainDb": -24,
+      "note": "transisi ke a07"
+    }
+  ]
+}

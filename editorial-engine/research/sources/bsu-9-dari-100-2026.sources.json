@@ -1,0 +1,113 @@
+{
+  "id": "bsu-9-dari-100-2026",
+  "compiledAt": "2026-11-04",
+  "editorialThesis": "Bantuan Subsidi Upah tidak salah sasaran — ia menyasar orang yang sudah punya pipa: perusahaan yang mendaftarkan, BPJS yang aktif, dan rekening yang bisa dikirimi. Yang paling terpapar kenaikan harga justru tidak memegang ketiganya, jadi namanya tidak pernah masuk daftar. Rp900.000 tetap berguna; yang jadi soal adalah siapa yang tidak akan pernah menerimanya.",
+  "periodOfData": "Oktober–November 2026 (Permenaker 16/2026 ditetapkan 28 Okt 2026; Sakernas BPS Mei 2026; data BPJS Ketenagakerjaan per Juli 2026)",
+  "sources": [
+    {
+      "id": "S1",
+      "claim": "Permenaker Nomor 16 Tahun 2026 ditetapkan Rabu 28 Oktober 2026 dan dimuat dalam Berita Negara RI Tahun 2026 Nomor 732; ia perubahan kedua atas Permenaker 10/2022 tentang pedoman bantuan pemerintah berupa subsidi gaji/upah.",
+      "publisher": "Kompas.com (mengutip JDIH Kemnaker)",
+      "date": "2026-11-03",
+      "url": "https://money.kompas.com/read/2026/11/03/060916826/cara-cek-bsu-2026-dengan-nik-ktp-apakah-anda-penerima-rp-900000",
+      "status": "VERIFIED",
+      "note": "Regulasi dan nomor Berita Negara disebut eksplisit di artikel."
+    },
+    {
+      "id": "S2",
+      "claim": "BSU 2026 sebesar Rp300.000 per bulan untuk Oktober, November, Desember 2026, dibayarkan sekaligus Rp900.000; sasaran sekitar 13,3 juta pekerja; anggaran diperkirakan hampir Rp12 triliun.",
+      "publisher": "Antara / Kompas TV / Kemnaker (pengumuman Menko Perekonomian Airlangga Hartarto 30 September 2026; unggahan Kemnaker 29 Oktober 2026)",
+      "date": "2026-10-29",
+      "url": "https://www.kompas.tv/info-publik/698771/bsu-2026-cair-november-desember-ini-update-dari-kemnaker",
+      "status": "VERIFIED",
+      "note": "Angka nominal, sasaran, dan besaran anggaran konsisten di beberapa pemberitaan."
+    },
+    {
+      "id": "S3",
+      "claim": "Syarat penerima: WNI dengan NIK terverifikasi, peserta aktif BPJS Ketenagakerjaan sampai Agustus 2026, upah paling banyak Rp3.500.000 per bulan; di wilayah dengan UMK di atas Rp3,5 juta batas menyesuaikan UMK yang dibulatkan ke atas ke ratusan ribu (contoh: DKI Jakarta Rp5,8 juta; Kota/Kabupaten Bekasi Rp6 juta; Kota Surabaya Rp5,3 juta; Kota Medan Rp4,4 juta).",
+      "publisher": "Kompas.com (lampiran Permenaker 16/2026)",
+      "date": "2026-11-03",
+      "url": "https://money.kompas.com/read/2026/11/03/060916826/cara-cek-bsu-2026-dengan-nik-ktp-apakah-anda-penerima-rp-900000",
+      "status": "VERIFIED",
+      "note": "Syarat batas upah per daerah dikutip langsung dari lampiran regulasi."
+    },
+    {
+      "id": "S4",
+      "claim": "Penyaluran direncanakan November–Desember 2026 melalui bank Himbara (Mandiri, BRI, BNI, BTN), BSI, dan PT Pos Indonesia; kanal informasi resmi bsu.kemnaker.go.id.",
+      "publisher": "Kompas TV (mengutip unggahan resmi Kemnaker)",
+      "date": "2026-10-29",
+      "url": "https://www.kompas.tv/info-publik/698771/bsu-2026-cair-november-desember-ini-update-dari-kemnaker",
+      "status": "LIKELY",
+      "note": "Bersumber dari materi Kemnaker yang dikutip media, bukan salinan peraturan. Jadwal pasti per tahap belum diumumkan."
+    },
+    {
+      "id": "S5",
+      "claim": "Per Mei 2026 penduduk bekerja 148,19 juta orang; pekerja formal 60,31 juta (40,70 persen); pekerja informal 87,88 juta (59,30 persen); pengangguran 7,22 juta dengan TPT 4,65 persen.",
+      "publisher": "BPS, Survei Angkatan Kerja Nasional (Sakernas) Mei 2026, dikutip Liputan6 dan Kompas.com",
+      "date": "2026-08-06",
+      "url": "https://www.liputan6.com/bisnis/read/8264460/6-dari-10-pekerja-indonesia-masih-di-sektor-informal-bps-ungkap-datanya",
+      "status": "VERIFIED",
+      "note": "Angka Sakernas Mei 2026, bukan Februari 2026 (Februari: 147,67 juta bekerja, informal 87,74 juta)."
+    },
+    {
+      "id": "S6",
+      "claim": "Hingga Juli 2026, BPJS Ketenagakerjaan mencatat baru 13,56 juta pekerja informal yang terlindungi, setara 17,44 persen dari potensi 77,8 juta pekerja informal; target 20 persen akhir 2026.",
+      "publisher": "Direktur Utama BPJS Ketenagakerjaan Saiful Hidayat, dikutip Media Destara",
+      "date": "2026-08-29",
+      "url": "https://mediadestara.com/2026/08/29/bidik-20-persen-pekerja-informal-terlindungi-di-2026-bpjs-ketenagakerjaan-gencarkan-jurus-3r/",
+      "status": "LIKELY",
+      "note": "Pernyataan pejabat yang dikutip media; rilis resmi BPJS tidak diperiksa langsung. Potensi 77,8 juta berbeda dari 87,88 juta versi BPS karena definisi dan metode berbeda — jangan dikurangkan."
+    },
+    {
+      "id": "S7",
+      "claim": "Inflasi Oktober 2026 tercatat 3,23 persen (year on year), dalam sasaran 2,5 ± 1 persen.",
+      "publisher": "Menteri Keuangan Suahasil Nazara, dikutip JPNN",
+      "date": "2026-11-04",
+      "url": "https://id.headtopics.com/news/inflasi-indonesia-3-23-persen-masuk-rentang-sasaran-89517015",
+      "status": "LIKELY",
+      "note": "Dipakai hanya sebagai konteks daya beli; bukan angka utama video."
+    }
+  ],
+  "derived": [
+    {
+      "id": "D1",
+      "calculation": "13,3 juta ÷ 148,19 juta = 8,97 persen",
+      "statement": "Sekitar 9 dari setiap 100 penduduk bekerja akan menerima BSU.",
+      "status": "HITUNGAN SENDIRI",
+      "basis": ["S2", "S5"]
+    },
+    {
+      "id": "D2",
+      "calculation": "13,3 juta ÷ 60,31 juta = 22,05 persen",
+      "statement": "Sekitar 22 dari setiap 100 pekerja formal akan menerima BSU.",
+      "status": "HITUNGAN SENDIRI",
+      "basis": ["S2", "S5"]
+    },
+    {
+      "id": "D3",
+      "calculation": "Rp12 triliun ÷ 148,19 juta ≈ Rp80.977",
+      "statement": "Bila anggaran hampir Rp12 triliun dibagi rata ke seluruh penduduk bekerja, hasilnya sekitar Rp81.000 per orang — jauh di bawah Rp900.000, karena memang tidak dibagi rata.",
+      "status": "HITUNGAN SENDIRI",
+      "basis": ["S2", "S5"]
+    },
+    {
+      "id": "D4",
+      "calculation": "Rp300.000 ÷ Rp3.500.000 = 8,57 persen",
+      "statement": "Rp300.000 per bulan setara 8,6 persen dari batas upah penerima (Rp3,5 juta).",
+      "status": "HITUNGAN SENDIRI",
+      "basis": ["S3"]
+    }
+  ],
+  "uncertainties": [
+    "Jumlah pasti pekerja formal bergaji di bawah Rp3,5 juta tidak dipublikasikan dalam sumber yang diperiksa — karena itu video TIDAK menyatakan 'berapa orang seharusnya berhak'.",
+    "Jumlah pasti penerima per provinsi, jadwal pencairan per tahap, dan apakah ada penerima yang gugur belum diumumkan.",
+    "Angka potensi pekerja informal versi BPJS (77,8 juta) dan versi BPS (87,88 juta) memakai definisi berbeda; video menyebut keduanya sebagai dua lembaga berbeda, tidak mengurangkan atau menyamakannya."
+  ],
+  "prohibited": [
+    "Jangan menyebut nama perusahaan, bank penyalur sebagai pihak bersalah, atau pejabat sebagai tersangka.",
+    "Jangan menyatakan BSU 'gagal' atau 'korupsi' — tidak ada bukti ke arah itu dalam sumber.",
+    "Jangan menyebut angka penerima yang berbeda dari 13,3 juta tanpa menyebut sumber dan tanggal.",
+    "Jangan menyarankan warga memasukkan NIK ke situs selain bsu.kemnaker.go.id.",
+    "Jangan mengubah 'hampir Rp12 triliun' menjadi 'Rp12 triliun' tanpa kata hampir."
+  ]
+}

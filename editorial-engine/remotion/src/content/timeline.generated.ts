@@ -3,59 +3,59 @@
 import type { Timeline } from './types';
 
 export const timeline: Timeline = {
-  "topic": "pinjol-bunga-harian-2026",
+  "topic": "bsu-9-dari-100-2026",
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "durationInFrames": 2425,
-  "generatedAt": "2026-11-03T14:56:01.275Z",
+  "durationInFrames": 2650,
+  "generatedAt": "2026-11-04T04:17:18.474Z",
   "scenes": [
     {
-      "id": "p01",
+      "id": "b01",
       "startFrame": 0,
-      "durationInFrames": 312,
+      "durationInFrames": 341,
       "purpose": "HOOK",
       "vo": "vo01"
     },
     {
-      "id": "p02",
-      "startFrame": 312,
-      "durationInFrames": 347,
+      "id": "b02",
+      "startFrame": 341,
+      "durationInFrames": 330,
       "purpose": "CONTEXT",
       "vo": "vo02"
     },
     {
-      "id": "p03",
-      "startFrame": 659,
-      "durationInFrames": 300,
+      "id": "b03",
+      "startFrame": 671,
+      "durationInFrames": 404,
       "purpose": "CONFLICT",
       "vo": "vo03"
     },
     {
-      "id": "p04",
-      "startFrame": 959,
-      "durationInFrames": 446,
+      "id": "b04",
+      "startFrame": 1075,
+      "durationInFrames": 390,
       "purpose": "DEVELOPMENT",
       "vo": "vo04"
     },
     {
-      "id": "p05",
-      "startFrame": 1405,
-      "durationInFrames": 402,
+      "id": "b05",
+      "startFrame": 1465,
+      "durationInFrames": 460,
       "purpose": "PERSPECTIVE",
       "vo": "vo05"
     },
     {
-      "id": "p06",
-      "startFrame": 1807,
-      "durationInFrames": 391,
+      "id": "b06",
+      "startFrame": 1925,
+      "durationInFrames": 365,
       "purpose": "EVIDENCE",
       "vo": "vo06"
     },
     {
-      "id": "p07",
-      "startFrame": 2198,
-      "durationInFrames": 227,
+      "id": "b07",
+      "startFrame": 2290,
+      "durationInFrames": 360,
       "purpose": "CLOSING",
       "vo": "vo07"
     }
@@ -63,246 +63,243 @@ export const timeline: Timeline = {
   "captions": [
     {
       "text": [
-        "Kalau ada pinjaman",
-        "bunga 0,3% per hari."
+        "Hampir Rp12 triliun",
+        "untuk 13,3 juta pekerja."
       ],
       "startFrame": 5,
-      "durationInFrames": 123,
+      "durationInFrames": 153,
       "segment": "vo01"
     },
     {
       "text": [
-        "Kelihatan kecil, kan?"
+        "Ambil kalkulator."
       ],
-      "startFrame": 128,
-      "durationInFrames": 66,
+      "startFrame": 158,
+      "durationInFrames": 59,
       "segment": "vo01"
     },
     {
       "text": [
-        "Itu karena kamu",
-        "cuma melihat sehari."
+        "Itu 9 dari 100",
+        "orang yang bekerja."
       ],
-      "startFrame": 194,
-      "durationInFrames": 113,
+      "startFrame": 217,
+      "durationInFrames": 119,
       "segment": "vo01"
     },
     {
       "text": [
-        "Pinjam Rp1 juta,",
-        "tenor 30 hari."
+        "Namanya",
+        "Bantuan Subsidi Upah."
       ],
-      "startFrame": 317,
-      "durationInFrames": 117,
+      "startFrame": 346,
+      "durationInFrames": 96,
       "segment": "vo02"
     },
     {
       "text": [
-        "Bunga Rp3.000",
-        "per hari."
+        "Rp300.000 per bulan,",
+        "Oktober–Desember."
       ],
-      "startFrame": 434,
-      "durationInFrames": 87,
+      "startFrame": 442,
+      "durationInFrames": 126,
       "segment": "vo02"
     },
     {
       "text": [
-        "30 hari: Rp90.000."
+        "Dibayar sekaligus:",
+        "Rp900.000."
       ],
-      "startFrame": 521,
-      "durationInFrames": 68,
+      "startFrame": 568,
+      "durationInFrames": 97,
       "segment": "vo02"
     },
     {
       "text": [
-        "Masih masuk akal."
+        "Yang bekerja:",
+        "148,19 juta."
       ],
-      "startFrame": 589,
-      "durationInFrames": 64,
-      "segment": "vo02"
-    },
-    {
-      "text": [
-        "Tapi 30 hari",
-        "bukan janji."
-      ],
-      "startFrame": 664,
-      "durationInFrames": 66,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "Telat sehari:",
-        "denda di atas bunga."
-      ],
-      "startFrame": 730,
-      "durationInFrames": 90,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "Bunga tetap jalan."
-      ],
-      "startFrame": 820,
-      "durationInFrames": 48,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "Pokok belum tentu turun."
-      ],
-      "startFrame": 868,
-      "durationInFrames": 63,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "Sekarang hitung",
-        "setahun, bukan sehari."
-      ],
-      "startFrame": 964,
-      "durationInFrames": 188,
-      "segment": "vo04"
-    },
-    {
-      "text": [
-        "0,3% × 365",
-        "= 109,5%."
-      ],
-      "startFrame": 1152,
-      "durationInFrames": 99,
-      "segment": "vo04"
-    },
-    {
-      "text": [
-        "Kalau bunganya berbunga:",
-        "198%."
-      ],
-      "startFrame": 1251,
-      "durationInFrames": 148,
-      "segment": "vo04"
-    },
-    {
-      "text": [
-        "Rp3.000 sehari",
-        "terasa seperti kopi."
-      ],
-      "startFrame": 1410,
+      "startFrame": 676,
       "durationInFrames": 136,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "Yang formal:",
+        "60,31 juta."
+      ],
+      "startFrame": 812,
+      "durationInFrames": 126,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "Yang menerima:",
+        "13,3 juta."
+      ],
+      "startFrame": 938,
+      "durationInFrames": 131,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "Dari pekerja formal,",
+        "hanya 22 persen masuk."
+      ],
+      "startFrame": 1080,
+      "durationInFrames": 129,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Pekerja informal:",
+        "87,88 juta."
+      ],
+      "startFrame": 1209,
+      "durationInFrames": 87,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Pintu masuknya",
+        "hampir tidak ada."
+      ],
+      "startFrame": 1296,
+      "durationInFrames": 95,
+      "segment": "vo04"
+    },
+    {
+      "text": [
+        "Syaratnya bukan",
+        "cuma besaran gaji."
+      ],
+      "startFrame": 1470,
+      "durationInFrames": 101,
       "segment": "vo05"
     },
     {
       "text": [
-        "Rp90.000 sebulan",
-        "masih terasa wajar."
+        "Harus ada perusahaan",
+        "yang mendaftarkan."
       ],
-      "startFrame": 1546,
-      "durationInFrames": 140,
-      "segment": "vo05"
-    },
-    {
-      "text": [
-        "Tapi setahun:",
-        "hampir Rp2 juta."
-      ],
-      "startFrame": 1686,
+      "startFrame": 1571,
       "durationInFrames": 116,
       "segment": "vo05"
     },
     {
       "text": [
-        "Cek tiga hal."
+        "Harus ada BPJS aktif,",
+        "harus ada rekening."
       ],
-      "startFrame": 1812,
-      "durationInFrames": 50,
+      "startFrame": 1687,
+      "durationInFrames": 122,
+      "segment": "vo05"
+    },
+    {
+      "text": [
+        "Tiga hal yang paling",
+        "jarang dimiliki."
+      ],
+      "startFrame": 1809,
+      "durationInFrames": 111,
+      "segment": "vo05"
+    },
+    {
+      "text": [
+        "Dari 77,8 juta",
+        "pekerja informal,"
+      ],
+      "startFrame": 1930,
+      "durationInFrames": 146,
       "segment": "vo06"
     },
     {
       "text": [
-        "1. Cari angka hariannya."
+        "baru 13,56 juta",
+        "yang terlindungi."
       ],
-      "startFrame": 1862,
-      "durationInFrames": 91,
+      "startFrame": 2076,
+      "durationInFrames": 150,
       "segment": "vo06"
     },
     {
       "text": [
-        "2. Kalikan 365."
+        "17,44 persen."
       ],
-      "startFrame": 1953,
-      "durationInFrames": 57,
+      "startFrame": 2226,
+      "durationInFrames": 59,
       "segment": "vo06"
     },
     {
       "text": [
-        "3. Baca total pengembalian,",
-        "bukan bunganya saja."
+        "Rp900.000 tetap berarti",
+        "bagi yang menerimanya."
       ],
-      "startFrame": 2010,
-      "durationInFrames": 183,
-      "segment": "vo06"
-    },
-    {
-      "text": [
-        "Angka harian membuat",
-        "utang kelihatan kecil."
-      ],
-      "startFrame": 2203,
-      "durationInFrames": 114,
+      "startFrame": 2295,
+      "durationInFrames": 128,
       "segment": "vo07"
     },
     {
       "text": [
-        "Angka setahun",
-        "tidak bisa disembunyikan."
+        "Tapi kalau pipanya",
+        "tidak sampai,"
       ],
-      "startFrame": 2317,
-      "durationInFrames": 103,
+      "startFrame": 2423,
+      "durationInFrames": 89,
+      "segment": "vo07"
+    },
+    {
+      "text": [
+        "siapa yang menagih",
+        "janji ini?"
+      ],
+      "startFrame": 2512,
+      "durationInFrames": 80,
       "segment": "vo07"
     }
   ],
   "vo": [
     {
       "id": "vo01",
-      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo01.mp3",
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo01.mp3",
       "startFrame": 5,
-      "durationInFrames": 302
+      "durationInFrames": 331
     },
     {
       "id": "vo02",
-      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo02.mp3",
-      "startFrame": 317,
-      "durationInFrames": 336
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo02.mp3",
+      "startFrame": 346,
+      "durationInFrames": 319
     },
     {
       "id": "vo03",
-      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo03.mp3",
-      "startFrame": 664,
-      "durationInFrames": 267
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo03.mp3",
+      "startFrame": 676,
+      "durationInFrames": 393
     },
     {
       "id": "vo04",
-      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo04.mp3",
-      "startFrame": 964,
-      "durationInFrames": 435
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo04.mp3",
+      "startFrame": 1080,
+      "durationInFrames": 311
     },
     {
       "id": "vo05",
-      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo05.mp3",
-      "startFrame": 1410,
-      "durationInFrames": 392
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo05.mp3",
+      "startFrame": 1470,
+      "durationInFrames": 450
     },
     {
       "id": "vo06",
-      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo06.mp3",
-      "startFrame": 1812,
-      "durationInFrames": 381
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo06.mp3",
+      "startFrame": 1930,
+      "durationInFrames": 355
     },
     {
       "id": "vo07",
-      "file": "audio/voiceovers/pinjol-bunga-harian-2026/vo07.mp3",
-      "startFrame": 2203,
-      "durationInFrames": 217
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo07.mp3",
+      "startFrame": 2295,
+      "durationInFrames": 297
     }
   ]
 };

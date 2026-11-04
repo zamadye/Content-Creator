@@ -1,0 +1,12 @@
+{
+  "master": "audio/mix/bsu-9-dari-100-2026.master.wav",
+  "durationSec": 88.33333333333333,
+  "voiceSegments": 7,
+  "sfxCues": 6,
+  "chain": [
+    "highpass 90Hz",
+    "acompressor 3:1",
+    "sidechain duck -7:1 on score",
+    "loudnorm I=-14 TP=-1.5"
+  ]
+}

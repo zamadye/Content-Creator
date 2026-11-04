@@ -30,6 +30,14 @@ import { P05Perspective } from './p05_perspective';
 import { P06Evidence } from './p06_evidence';
 import { P07Closing } from './p07_closing';
 
+import { B01Hook } from './b01_hook';
+import { B02Context } from './b02_context';
+import { B03Conflict } from './b03_conflict';
+import { B04Development } from './b04_development';
+import { B05Perspective } from './b05_perspective';
+import { B06Evidence } from './b06_evidence';
+import { B07Closing } from './b07_closing';
+
 /** Scene registry: the timeline refers to scenes by id, never by import order. */
 export const SCENES: Record<string, React.FC<{ d: number }>> = {
   s01: S01Hook,
@@ -65,4 +73,12 @@ export const SCENES: Record<string, React.FC<{ d: number }>> = {
   p05: P05Perspective,
   p06: P06Evidence,
   p07: P07Closing,
+  // misi kedelapan — bsu-9-dari-100-2026 (prefix b)
+  b01: B01Hook,
+  b02: B02Context,
+  b03: B03Conflict,
+  b04: B04Development,
+  b05: B05Perspective,
+  b06: B06Evidence,
+  b07: B07Closing,
 };

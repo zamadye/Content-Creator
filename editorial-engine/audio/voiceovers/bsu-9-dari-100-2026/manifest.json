@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-11-04T04:17:18.171Z",
+  "levelTargetDb": -18,
+  "totalSpeechSec": 81.85,
+  "segments": [
+    {
+      "id": "vo01",
+      "scene": "b01",
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo01.mp3",
+      "durationSec": 11.02,
+      "meanDb": -19,
+      "gainDb": 1,
+      "words": 26,
+      "wordsPerSec": 2.36
+    },
+    {
+      "id": "vo02",
+      "scene": "b02",
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo02.mp3",
+      "durationSec": 10.63,
+      "meanDb": -18.8,
+      "gainDb": 0.8,
+      "words": 22,
+      "wordsPerSec": 2.07
+    },
+    {
+      "id": "vo03",
+      "scene": "b03",
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo03.mp3",
+      "durationSec": 13.11,
+      "meanDb": -19.4,
+      "gainDb": 1.4,
+      "words": 35,
+      "wordsPerSec": 2.67
+    },
+    {
+      "id": "vo04",
+      "scene": "b04",
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo04.mp3",
+      "durationSec": 10.37,
+      "meanDb": -18.9,
+      "gainDb": 0.9,
+      "words": 31,
+      "wordsPerSec": 2.99
+    },
+    {
+      "id": "vo05",
+      "scene": "b05",
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo05.mp3",
+      "durationSec": 14.99,
+      "meanDb": -19.1,
+      "gainDb": 1.1,
+      "words": 36,
+      "wordsPerSec": 2.4
+    },
+    {
+      "id": "vo06",
+      "scene": "b06",
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo06.mp3",
+      "durationSec": 11.83,
+      "meanDb": -18.8,
+      "gainDb": 0.8,
+      "words": 30,
+      "wordsPerSec": 2.54
+    },
+    {
+      "id": "vo07",
+      "scene": "b07",
+      "file": "audio/voiceovers/bsu-9-dari-100-2026/vo07.mp3",
+      "durationSec": 9.9,
+      "meanDb": -19.1,
+      "gainDb": 1.1,
+      "words": 24,
+      "wordsPerSec": 2.42
+    }
+  ],
+  "missing": []
+}

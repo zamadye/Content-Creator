@@ -1,0 +1,415 @@
+{
+  "id": "bsu-9-dari-100-2026",
+  "version": "1.0.0",
+  "fps": 30,
+  "resolution": {
+    "width": 1080,
+    "height": 1920
+  },
+  "styleReference": "pinjol-bunga-harian-2026 (kolase kertas: kertas kusut krem, kardus kraft, selotip, spidol, pensil)",
+  "visualDirection": "Meja kerja yang sama dengan misi sebelumnya, cahaya yang sama, palet yang sama. Semua angka ditulis tangan; semua perbandingan dibuat dengan tumpukan kertas, bukan grafik digital. Tidak ada tokoh manusia — yang bergerak hanya tangan yang tidak terlihat, spidol, dan selotip.",
+  "layerContract": {
+    "background": "PaperBg (tekstur kertas kusut, seed berbeda tiap adegan)",
+    "midground": "KraftCard / Slip / tumpukan kertas — pembawa angka",
+    "foreground": "MarkerText, SketchCircle, SketchUnderline, selotip, pensil",
+    "never": "Tidak ada logo institusi, tidak ada foto pejabat, tidak ada tangkapan layar situs."
+  },
+  "qa": {
+    "maxFontFamilies": 2,
+    "typefaces": [
+      "Permanent Marker",
+      "Archivo"
+    ],
+    "visualChangeEverySec": 4,
+    "minDurationSec": 45,
+    "maxDurationSec": 95
+  },
+  "scenes": [
+    {
+      "id": "b01",
+      "narrativePurpose": "HOOK",
+      "vo": "vo01",
+      "durationTargetSec": 11.37,
+      "environment": "Meja kerja: kertas kusut krem, satu kardus kraft besar ditempel miring, satu kalkulator kertas di sudut kanan bawah.",
+      "visualDescription": "Kardus kraft bertulis spidol 'Rp12 triliun' muncul goresan demi goresan. Di bawahnya slip kecil 'untuk 13,3 juta pekerja'. Lalu kalkulator kertas menempel dan hasilnya ditulis besar: '9/100'.",
+      "characterAction": "Tidak ada tokoh. Yang bergerak: spidol yang menulis, selotip yang menempel, kalkulator yang diletakkan.",
+      "camera": "Push-in pelan 1.00 → 1.06, anchor (540, 880).",
+      "motion": "0–30%: 'Rp12 triliun' tergores. 30–48%: slip sasaran ditempel. 48–70%: kalkulator masuk. 70–88%: '9/100' ditulis. 88–100%: garis bawah marun.",
+      "textOverlay": [
+        "Rp12 triliun",
+        "untuk 13,3 juta pekerja",
+        "9 dari 100"
+      ],
+      "sourceTag": "Anggaran & sasaran: Menko Perekonomian, 30 September 2026 · hitungan 9/100 berasal dari BPS Mei 2026",
+      "sound": "Kertas disentuh, spidol menulis, satu ketukan kalkulator diletakkan, satu tick saat hasil ditulis.",
+      "sfx": [
+        {
+          "at": 0.57,
+          "file": "paper",
+          "gainDb": -22,
+          "note": "kardus ditempel",
+          "atFrac": 0.05
+        },
+        {
+          "at": 3.75,
+          "file": "paper",
+          "gainDb": -24,
+          "note": "slip ditempel",
+          "atFrac": 0.33
+        },
+        {
+          "at": 5.68,
+          "file": "tick",
+          "gainDb": -20,
+          "note": "kalkulator diletakkan",
+          "atFrac": 0.5
+        },
+        {
+          "at": 8.41,
+          "file": "tick",
+          "gainDb": -18,
+          "note": "hasil 9/100 ditulis",
+          "atFrac": 0.74
+        }
+      ],
+      "requiredAssets": [
+        "PaperBg",
+        "KraftCard",
+        "Slip",
+        "Tape",
+        "MarkerText",
+        "PaperWrite",
+        "CalculatorCard",
+        "SketchUnderline"
+      ],
+      "startSec": 0.0
+    },
+    {
+      "id": "b02",
+      "narrativePurpose": "CONTEXT",
+      "vo": "vo02",
+      "durationTargetSec": 11.0,
+      "environment": "Meja yang sama, latar lebih lapang. Satu kartu program ditempel di tengah.",
+      "visualDescription": "Kartu bertulis 'BANTUAN SUBSIDI UPAH'. Di bawahnya tiga kotak bulan — Oktober, November, Desember — masing-masing diisi 'Rp300.000'. Ketiganya lalu dilingkari satu lingkaran besar dan diberi 'Rp900.000, sekali bayar'.",
+      "characterAction": "Tidak ada tokoh. Tiga kotak dicentang berurutan, lalu dilingkari.",
+      "camera": "Statis dengan getaran halus (handheld 0,4 px).",
+      "motion": "0–22%: kartu turun. 22–58%: tiga kotak diisi satu per satu. 58–78%: lingkaran besar. 78–100%: tulisan 'sekali bayar'.",
+      "textOverlay": [
+        "Bantuan Subsidi Upah",
+        "Rp300.000 × 3 bulan",
+        "Rp900.000 sekali bayar"
+      ],
+      "sourceTag": "Permenaker 16/2026 (28 Oktober 2026); Kemnaker, 29 Oktober 2026",
+      "sound": "Kertas, tiga ketukan kecil saat kotak diisi, satu tick saat lingkaran selesai.",
+      "sfx": [
+        {
+          "at": 0.88,
+          "file": "paper",
+          "gainDb": -23,
+          "note": "kartu ditempel",
+          "atFrac": 0.08
+        },
+        {
+          "at": 3.3,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "Oktober",
+          "atFrac": 0.3
+        },
+        {
+          "at": 4.4,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "November",
+          "atFrac": 0.4
+        },
+        {
+          "at": 5.5,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "Desember",
+          "atFrac": 0.5
+        },
+        {
+          "at": 7.48,
+          "file": "tick",
+          "gainDb": -19,
+          "note": "lingkaran selesai",
+          "atFrac": 0.68
+        }
+      ],
+      "requiredAssets": [
+        "PaperBg",
+        "Slip",
+        "Tape",
+        "MarkerText",
+        "PaperWrite",
+        "SketchCircle",
+        "MonthBoxes"
+      ],
+      "startSec": 11.37
+    },
+    {
+      "id": "b03",
+      "narrativePurpose": "CONFLICT",
+      "vo": "vo03",
+      "durationTargetSec": 13.47,
+      "environment": "Meja yang sama. Bidang kosong untuk tiga tumpukan.",
+      "visualDescription": "Tiga tumpukan kertas ditempel berurutan dari atas: '148,19 juta yang bekerja', '60,31 juta yang formal', '13,3 juta yang menerima'. Lebar tiap tumpukan mengikuti angkanya, jadi yang terakhir terlihat sangat sempit.",
+      "characterAction": "Tidak ada tokoh. Tiga tumpukan ditempel, masing-masing dengan bunyi kertas.",
+      "camera": "Tilt-down pelan mengikuti urutan tumpukan.",
+      "motion": "0–35%: tumpukan 1 + label. 35–62%: tumpukan 2. 62–85%: tumpukan 3. 85–100%: bingkai tipis di tumpukan 3.",
+      "textOverlay": [
+        "148,19 juta bekerja",
+        "60,31 juta formal",
+        "13,3 juta menerima"
+      ],
+      "sourceTag": "BPS, Sakernas Mei 2026 · sasaran penerima: Kemnaker, 2026",
+      "sound": "Tiga kali kertas ditempel dengan jeda makin cepat.",
+      "sfx": [
+        {
+          "at": 1.62,
+          "file": "paper",
+          "gainDb": -21,
+          "note": "tumpukan 1",
+          "atFrac": 0.12
+        },
+        {
+          "at": 6.06,
+          "file": "paper",
+          "gainDb": -21,
+          "note": "tumpukan 2",
+          "atFrac": 0.45
+        },
+        {
+          "at": 9.43,
+          "file": "paper",
+          "gainDb": -23,
+          "note": "tumpukan 3",
+          "atFrac": 0.7
+        }
+      ],
+      "requiredAssets": [
+        "PaperBg",
+        "StackBar",
+        "Tape",
+        "MarkerText",
+        "SketchUnderline"
+      ],
+      "startSec": 22.37
+    },
+    {
+      "id": "b04",
+      "narrativePurpose": "DEVELOPMENT",
+      "vo": "vo04",
+      "durationTargetSec": 13.0,
+      "environment": "Meja yang sama, kertas bergaris ditempel untuk membuat grid.",
+      "visualDescription": "Dua baris kotak. Baris pertama: 100 kotak kecil mewakili pekerja formal; 22 kotak dicap tinta marun, 78 kosong. Baris kedua: label '87,88 juta informal' dengan kotak yang dibiarkan kosong semua, tanpa cap.",
+      "characterAction": "Tidak ada tokoh. Cap muncul berurutan seperti stempel kantor.",
+      "camera": "Statis, sedikit push-in ke baris kosong di akhir.",
+      "motion": "0–50%: 22 cap muncul cepat. 50–75%: sisa kotak formal dibiarkan kosong, label '78 tidak masuk'. 75–100%: baris informal muncul tanpa cap.",
+      "textOverlay": [
+        "100 pekerja formal",
+        "22 menerima · 78 tidak",
+        "87,88 juta informal: tanpa cap"
+      ],
+      "sourceTag": "BPS, Sakernas Mei 2026 · 13,3 juta ÷ 60,31 juta = 22 persen (hitungan sendiri)",
+      "sound": "Stempel beruntun, lalu hening saat baris informal muncul.",
+      "sfx": [
+        {
+          "at": 1.3,
+          "file": "stamp",
+          "gainDb": -20,
+          "note": "cap pertama",
+          "atFrac": 0.1
+        },
+        {
+          "at": 3.9,
+          "file": "stamp",
+          "gainDb": -24,
+          "note": "cap beruntun",
+          "atFrac": 0.3
+        },
+        {
+          "at": 7.8,
+          "file": "stamp",
+          "gainDb": -24,
+          "note": "cap terakhir",
+          "atFrac": 0.6
+        },
+        {
+          "at": 10.4,
+          "file": "paper",
+          "gainDb": -23,
+          "note": "baris informal",
+          "atFrac": 0.8
+        }
+      ],
+      "requiredAssets": [
+        "PaperBg",
+        "StampGrid",
+        "Stamp",
+        "MarkerText",
+        "Tape"
+      ],
+      "startSec": 35.83
+    },
+    {
+      "id": "b05",
+      "narrativePurpose": "PERSPECTIVE",
+      "vo": "vo05",
+      "durationTargetSec": 15.33,
+      "environment": "Meja yang sama. Satu lembar kertas bersih untuk diagram.",
+      "visualDescription": "Diagram pipa digambar tangan: kotak 'PERUSAHAAN' → 'BPJS AKTIF' → 'REKENING' → 'Rp900.000'. Tiap sambungan dilingkari sebagai syarat. Di bawah pipa, satu baris kecil: 'yang tidak punya ketiganya — tidak pernah masuk daftar'.",
+      "characterAction": "Tidak ada tokoh. Pipa digambar segmen demi segmen, seperti sketsa di papan.",
+      "camera": "Pan mengikuti alur pipa dari kiri atas ke kanan bawah.",
+      "motion": "0–30%: kotak 1 dan 2. 30–55%: kotak 3. 55–72%: panah ke 'Rp900.000'. 72–100%: tiga lingkaran syarat + baris penutup.",
+      "textOverlay": [
+        "perusahaan",
+        "BPJS aktif",
+        "rekening",
+        "Rp900.000"
+      ],
+      "sourceTag": "Syarat penerima: Permenaker 16/2026 (batas upah, peserta aktif s.d. Agustus 2026)",
+      "sound": "Pensil menggores kertas, satu tick per sambungan.",
+      "sfx": [
+        {
+          "at": 0.92,
+          "file": "pencil",
+          "gainDb": -22,
+          "note": "mulai menggambar",
+          "atFrac": 0.06
+        },
+        {
+          "at": 4.91,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "sambungan 1",
+          "atFrac": 0.32
+        },
+        {
+          "at": 7.67,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "sambungan 2",
+          "atFrac": 0.5
+        },
+        {
+          "at": 10.73,
+          "file": "tick",
+          "gainDb": -20,
+          "note": "tiga syarat selesai",
+          "atFrac": 0.7
+        }
+      ],
+      "requiredAssets": [
+        "PaperBg",
+        "PipeDiagram",
+        "SketchCircle",
+        "MarkerText",
+        "Pencil",
+        "Slip"
+      ],
+      "startSec": 48.83
+    },
+    {
+      "id": "b06",
+      "narrativePurpose": "EVIDENCE",
+      "vo": "vo06",
+      "durationTargetSec": 12.17,
+      "environment": "Meja yang sama. Latar sedikit lebih gelap untuk memberi berat.",
+      "visualDescription": "Dua batang kertas ditempel sejajar: batang panjang '77,8 juta pekerja informal' dan batang pendek '13,56 juta terlindungi'. Di sela keduanya, angka '17,44%' ditulis miring.",
+      "characterAction": "Tidak ada tokoh. Batang ditempel dengan bunyi kertas.",
+      "camera": "Statis, fokus di sela dua batang.",
+      "motion": "0–35%: batang 1. 35–60%: batang 2. 60–80%: tulisan 17,44%. 80–100%: garis ukur.",
+      "textOverlay": [
+        "77,8 juta informal",
+        "13,56 juta terlindungi",
+        "17,44%"
+      ],
+      "sourceTag": "BPJS Ketenagakerjaan, 28 Agustus 2026 — data per Juli 2026",
+      "sound": "Kertas, satu tick saat persentase ditulis.",
+      "sfx": [
+        {
+          "at": 1.22,
+          "file": "paper",
+          "gainDb": -22,
+          "note": "batang 1",
+          "atFrac": 0.1
+        },
+        {
+          "at": 5.11,
+          "file": "paper",
+          "gainDb": -22,
+          "note": "batang 2",
+          "atFrac": 0.42
+        },
+        {
+          "at": 8.03,
+          "file": "tick",
+          "gainDb": -19,
+          "note": "persentase",
+          "atFrac": 0.66
+        }
+      ],
+      "requiredAssets": [
+        "PaperBg",
+        "StackBar",
+        "MarkerText",
+        "SketchUnderline",
+        "Tape"
+      ],
+      "startSec": 64.17
+    },
+    {
+      "id": "b07",
+      "narrativePurpose": "CLOSING",
+      "vo": "vo07",
+      "durationTargetSec": 12.0,
+      "environment": "Meja yang sama, kertas hampir kosong. Sisa kardus dan selotip di tepi.",
+      "visualDescription": "Satu kalimat ditulis besar: 'Siapa yang menagih janji ini?' Di bawahnya, kecil: 'Rp900.000 tetap berarti bagi yang menerimanya.' Kardus lama di tepi layar, tidak lagi dibaca.",
+      "characterAction": "Tidak ada tokoh. Kalimat ditulis goresan terakhir, lalu pensil diletakkan.",
+      "camera": "Pull-out pelan 1.05 → 1.00.",
+      "motion": "0–40%: kalimat utama. 40–65%: garis bawah. 65–85%: catatan kecil. 85–100%: pensil diletakkan.",
+      "textOverlay": [
+        "Siapa yang menagih",
+        "janji ini?"
+      ],
+      "sourceTag": "Sumber: Permenaker 16/2026 · BPS Sakernas Mei 2026 · BPJS Ketenagakerjaan Juli 2026",
+      "sound": "Spidol, satu ketukan pensil diletakkan, lalu hening.",
+      "sfx": [
+        {
+          "at": 1.2,
+          "file": "pencil",
+          "gainDb": -22,
+          "note": "kalimat utama",
+          "atFrac": 0.1
+        },
+        {
+          "at": 5.4,
+          "file": "paper",
+          "gainDb": -24,
+          "note": "catatan kecil",
+          "atFrac": 0.45
+        },
+        {
+          "at": 10.56,
+          "file": "tick",
+          "gainDb": -24,
+          "note": "pensil diletakkan",
+          "atFrac": 0.88
+        }
+      ],
+      "requiredAssets": [
+        "PaperBg",
+        "KraftCard",
+        "MarkerText",
+        "PaperWrite",
+        "SketchUnderline",
+        "Pencil",
+        "PaperSource"
+      ],
+      "startSec": 76.33
+    }
+  ]
+}

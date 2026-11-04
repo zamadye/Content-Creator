@@ -17,7 +17,8 @@
     "stills": "tsx scripts/stills.ts",
     "encode": "tsx scripts/encode-delivery.ts --episode LS-0001",
     "qc": "tsx scripts/qc.ts --episode LS-0001",
-    "check:copy": "node scripts/check-copy.mjs"
+    "check:copy": "node scripts/check-copy.mjs",
+    "test:copy": "node --test scripts/check-copy.test.mjs"
   },
   "devDependencies": {
     "tsx": "^4.19.2",

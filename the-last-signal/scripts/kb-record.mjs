@@ -9,6 +9,9 @@
  *   node scripts/kb-record.mjs --episode LS-0001 --publish report/publish-LS-0001.json
  *   node scripts/kb-record.mjs --episode LS-0001 --analytics analytics/LS-0001.json
  *
+ *   --error "..." dan --fix "..." menambahkan temuan ke catatan episode.
+ *   Nilainya menumpuk (tidak menimpa) supaya riwayat kesalahan tetap utuh.
+ *
  * Yang dicatat adalah keputusan produksi — bukan hanya hasil. Agent berikutnya
  * (Story, Director, Editor, QC) membaca file ini untuk menghindari kesalahan
  * yang sama dan mengulang pola yang terbukti.
@@ -42,6 +45,15 @@ const readIfExists = (path) => {
 };
 
 const publish = readIfExists(arg("publish"));
+
+/** Kumpulkan semua nilai --error "..." dan --fix "..." (boleh berulang). */
+function collect(flag) {
+  const values = [];
+  process.argv.forEach((value, index) => {
+    if (value === `--${flag}` && process.argv[index + 1]) values.push(process.argv[index + 1]);
+  });
+  return [...new Set(values)];
+}
 const analytics = readIfExists(arg("analytics"));
 
 mkdirSync(KB_DIR, { recursive: true });
@@ -127,8 +139,8 @@ const record = {
 
   analytics: analytics ?? previous.analytics ?? null,
 
-  errors: previous.errors ?? [],
-  next_fixes: previous.next_fixes ?? [],
+  errors: [...(previous.errors ?? []), ...collect("error")],
+  next_fixes: [...(previous.next_fixes ?? []), ...collect("fix")],
   updatedAt: new Date().toISOString(),
 };
 

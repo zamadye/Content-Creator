@@ -15,7 +15,7 @@
       "structure": "kronologis jam (23.00 → 23.59)",
       "story": {
         "title": "Siaran Jam Sebelas",
-        "hook": "Bayangkan kamu menonton televisi jam sebelas malam, dan pembawa acaranya menyebut namamu.",
+        "hook": "Stasiun TV itu berhenti mengudara dua puluh delapan tahun lalu. Malam ini pembawa acaranya menyebut namamu.",
         "premise": "Seorang penonton merekam siaran TV daerah tahun 1996 yang berhenti mengudara dua belas tahun lalu.",
         "twist": "Pembawa acara tidak sedang menyapa penonton. Ia sedang menghitung siapa yang masih menonton.",
         "ending": "Di menit terakhir, angka di sudut layar berubah dari jumlah penonton menjadi jumlah orang di dalam rumah."
@@ -141,7 +141,7 @@
       "structure": "rekaman radio terbalik (menit terakhir → menit pertama)",
       "story": {
         "title": "Suara Terakhir di KM 42",
-        "hook": "Bayangkan suara terakhirmu direkam, tapi yang menjawab bukan orang lain.",
+        "hook": "Truk itu ditemukan pukul empat pagi. Mesinnya menyala, dan radio-nya masih memancarkan napas.",
         "premise": "Seorang pengemudi truk malam menghilang di jalan tol, meninggalkan transmisi radio empat menit.",
         "twist": "Ia tidak meminta tolong kepada operator. Ia menjawab pertanyaan yang diajukan suaranya sendiri.",
         "ending": "Truknya ditemukan kosong, mesin masih menyala, radio masih memancarkan nafas seseorang."
@@ -265,7 +265,7 @@
       "structure": "checklist (lima langkah, langkah keenam tidak tertulis)",
       "story": {
         "title": "Kamar Sembilan",
-        "hook": "Bayangkan kamu menandatangani daftar pasien, dan tanda tanganmu sudah ada di baris berikutnya.",
+        "hook": "Kamar sembilan kosong setahun. Papan nama di kaki tempat tidurnya namamu.",
         "premise": "Perawat shift malam di rumah sakit kecil harus memeriksa kamar 9 yang secara resmi kosong setahun.",
         "twist": "Bukan pasien yang menunggu di kamar itu. Yang menunggu adalah hari ketika perawat itu sendiri menjadi pasien.",
         "ending": "Papan jadwal pagi menunjukkan shift malam berikutnya atas namanya, dengan tanggal kematiannya sendiri."
@@ -387,7 +387,7 @@
       "structure": "rekaman muncul di akun sendiri setelah mereka hilang",
       "story": {
         "title": "Perumahan yang Belum Dijual",
-        "hook": "Bayangkan kamu menonton video pendek yang kamu rekam besok.",
+        "hook": "Tiga anak masuk ke perumahan kosong itu. Video mereka baru diunggah besok pagi.",
         "premise": "Tiga anak muda merekam perumahan kosong yang belum dijual, untuk konten eksplorasi.",
         "twist": "Video yang mereka rekam sudah punya penonton, dan komentarnya menyebut kejadian yang belum terjadi.",
         "ending": "Unggahan terakhir berasal dari akun mereka, diposting tiga jam sebelum mereka berangkat."
@@ -512,7 +512,7 @@
       "structure": "loop (scene 1 = scene 6, satu detail berbeda)",
       "story": {
         "title": "Lantai Basement Dua",
-        "hook": "Bayangkan kamu memarkir mobil yang sama, di tempat yang sama, untuk kelima kalinya malam ini.",
+        "hook": "Mobil hitam itu masuk lima kali malam ini. Yang keluar selalu orang berbeda.",
         "premise": "Juru parkir basement dua mulai menyadari satu mobil terus kembali walaupun pemiliknya sudah keluar.",
         "twist": "Bukan mobil yang kembali. Juru parkir itu yang mengulang malam yang sama.",
         "ending": "Di rekaman terakhir, yang duduk di kursi juru parkir adalah orang yang tadi masuk ke mobil itu."
@@ -636,7 +636,7 @@
       "structure": "penemuan (ruang rahasia → isi → konsekuensi)",
       "story": {
         "title": "Ruang Tanpa Pintu",
-        "hook": "Bayangkan kamu membongkar dinding dan menemukan ruangan yang tidak ada di denah rumah.",
+        "hook": "Dinding itu dibongkar dan ada ruangan yang tidak ada di denah. Isinya koran tahun depan.",
         "premise": "Pekerja renovasi rumah tua di Bandung menemukan ruang tertutup berisi koran bertanggal masa depan.",
         "twist": "Koran-koran itu bukan ramalan. Itu catatan ruangan tersebut tentang penghuninya.",
         "ending": "Halaman terakhir memuat foto mereka bertiga di dalam ruangan itu, bertanggal 1998 — puluhan tahun sebelum mereka masuk."
@@ -758,7 +758,7 @@
       "structure": "transmisi nelayan (urutan waktu, tanpa potongan)",
       "story": {
         "title": "Panggilan dari Perahu Kosong",
-        "hook": "Bayangkan suaramu ikut dalam panggilan darurat yang dikirim dari perahu yang tidak punya awak.",
+        "hook": "Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil setiap malam.",
         "premise": "Radio nelayan menerima panggilan mayday berbahasa daerah yang sudah tidak dipakai di pesisir itu.",
         "twist": "Panggilan itu bukan meminta bantuan. Ia mengabarkan bahwa perahu penyelamat yang dikirim sudah tiba.",
         "ending": "Perahu kosong itu ditemukan keesokan harinya, dengan radio yang masih mengirim, dan nama-nama awak penyelamat di dindingnya."
@@ -878,7 +878,7 @@
       "structure": "log perangkat (baris demi baris)",
       "story": {
         "title": "Perangkat Ketujuh",
-        "hook": "Bayangkan router kosmu mencatat satu perangkat yang tidak pernah kamu beli.",
+        "hook": "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun. Selama empat belas bulan.",
         "premise": "Penghuni kos memeriksa log wifi dan menemukan perangkat yang terhubung setiap malam pukul 03.33.",
         "twist": "Perangkat itu tidak mengunggah data. Ia mengunduh foto, satu per malam, dari kamera yang tidak ada di kamar itu.",
         "ending": "Di log, perangkat itu berganti nama menjadi nama penghuni kamar itu sendiri."
@@ -1000,7 +1000,7 @@
       "structure": "perjalanan lift (naik → berhenti → turun)",
       "story": {
         "title": "Lantai Sembilan Belas",
-        "hook": "Bayangkan gedung tempatmu bekerja hanya punya dua belas lantai, tapi liftnya berhenti di lantai sembilan belas.",
+        "hook": "Gedung ini punya dua belas lantai. Liftnya berhenti di sembilan belas.",
         "premise": "Karyawan yang lembur sendirian naik lift dan menemukan panel berisi lantai yang tidak ada di gedung itu.",
         "twist": "Lantai sembilan belas adalah gedung yang sama, hanya saja semua orang di dalamnya masih lembur, dan mereka tidak pernah pulang.",
         "ending": "Lift kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama — dan dirinya sudah duduk di kursi itu, menunggu."

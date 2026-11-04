@@ -54,6 +54,11 @@ try {
   die(2, `JSON permintaan tidak valid: ${describeError(error)}`);
 }
 
+if (request.status && request.status !== 'requested') {
+  notice(`Permintaan ${request.episodeId} berstatus "${request.status}" — dilewati (sudah pernah diproses).`);
+  process.exit(0);
+}
+
 const episodeId = request.episodeId;
 if (!/^LS-\d{4}$/.test(String(episodeId))) die(2, `episodeId tidak valid: ${episodeId}`);
 

@@ -55,6 +55,7 @@ mkdirSync(queueDir, { recursive: true });
 const publishing = episode.publishing ?? {};
 const request = {
   episodeId,
+  status: "requested",
   createdAt: now.toISOString(),
   media: relative(REPO_ROOT, releaseAbs),
   episode: {

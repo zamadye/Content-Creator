@@ -77,7 +77,7 @@ jobs:
             fi
             REQ="${{ inputs.request }}"
           else
-            REQ=$(git diff --name-only --diff-filter=A "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json' | head -1)
+            REQ=$(git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json' | head -1)
           fi
 
           if [ -z "${REQ:-}" ]; then
@@ -86,7 +86,7 @@ jobs:
           fi
           # Hanya satu permintaan per jalan: jeda antar-upload dijaga manusia,
           # bukan oleh loop di dalam workflow.
-          COUNT=$(git diff --name-only --diff-filter=A "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json' | wc -l | tr -d ' ')
+          COUNT=$(git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json' | wc -l | tr -d ' ')
           if [ "${{ github.event_name }}" = "push" ] && [ "$COUNT" -gt 1 ]; then
             echo "::error::$COUNT permintaan baru dalam satu push. Tambahkan satu per satu agar jeda antar-video terjaga."
             exit 1
@@ -109,7 +109,7 @@ jobs:
 
       - name: QC + unggah + publikasikan
         working-directory: the-last-signal/tools/publish
-        run: node zernio-publish.mjs --request "../../../${REQ}"
+        run: node zernio-publish.mjs --request "$REQ"
         env:
           REQ: ${{ steps.req.outputs.request }}
 

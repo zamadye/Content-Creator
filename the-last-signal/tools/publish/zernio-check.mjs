@@ -19,7 +19,7 @@ import { readKey, notice, warn, fail, describeError, loadSdk } from './lib/zerni
 
 const OUT = resolve(
   dirname(fileURLToPath(import.meta.url)),
-  '../../../report/zernio-check.json',
+  '../../report/zernio-check.json',
 );
 
 const report = {

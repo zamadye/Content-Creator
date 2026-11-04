@@ -63,6 +63,13 @@
           "offsetY": -40
         },
         {
+          "atFrame": 155,
+          "camera": "handheld",
+          "scale": 1.62,
+          "offsetX": -25,
+          "offsetY": 35
+        },
+        {
           "atFrame": 211,
           "camera": "push_in",
           "scale": 1.5,
@@ -127,6 +134,13 @@
           "camera": "push_in",
           "scale": 1.3,
           "offsetY": -40
+        },
+        {
+          "atFrame": 106,
+          "camera": "pan_left",
+          "scale": 1.62,
+          "offsetX": -25,
+          "offsetY": 35
         },
         {
           "atFrame": 145,
@@ -200,6 +214,13 @@
           "offsetY": -40
         },
         {
+          "atFrame": 144,
+          "camera": "push_in",
+          "scale": 1.62,
+          "offsetX": -25,
+          "offsetY": 35
+        },
+        {
           "atFrame": 195,
           "camera": "push_in",
           "scale": 1.5,
@@ -263,6 +284,13 @@
           "camera": "handheld",
           "scale": 1.3,
           "offsetY": -40
+        },
+        {
+          "atFrame": 171,
+          "camera": "pan_right",
+          "scale": 1.62,
+          "offsetX": -25,
+          "offsetY": 35
         },
         {
           "atFrame": 232,
@@ -336,6 +364,13 @@
           "offsetY": -40
         },
         {
+          "atFrame": 150,
+          "camera": "pull_out",
+          "scale": 1.62,
+          "offsetX": -25,
+          "offsetY": 35
+        },
+        {
           "atFrame": 203,
           "camera": "handheld",
           "scale": 1.5,
@@ -400,6 +435,13 @@
           "camera": "static",
           "scale": 1.3,
           "offsetY": -40
+        },
+        {
+          "atFrame": 217,
+          "camera": "static",
+          "scale": 1.62,
+          "offsetX": -25,
+          "offsetY": 35
         },
         {
           "atFrame": 295,

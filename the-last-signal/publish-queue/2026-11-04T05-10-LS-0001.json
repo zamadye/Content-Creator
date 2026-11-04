@@ -25,7 +25,12 @@
     "madeForKids": false,
     "containsSyntheticMedia": true,
     "notifySubscribers": true,
-    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
+    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya.",
+    "videoId": "8UnXLrjbDqE",
+    "url": "https://www.youtube.com/watch?v=8UnXLrjbDqE"
   },
-  "retry": 3
+  "retry": 3,
+  "status": "published",
+  "publishedAt": "2026-11-04T05:15:21Z",
+  "zernioPostId": "6aeabf6b49599a81a596713b"
 }

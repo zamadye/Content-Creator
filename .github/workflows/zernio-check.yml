@@ -73,6 +73,11 @@ jobs:
         continue-on-error: true
         run: node zernio-posts.mjs --limit 3
 
+      - name: Analytics episode terbit (read-only, boleh kosong)
+        working-directory: the-last-signal/tools/publish
+        continue-on-error: true
+        run: node zernio-analytics.mjs --video 8UnXLrjbDqE --episode LS-0001
+
       - name: Publikasikan laporan sebagai artefak
         if: always()
         uses: actions/upload-artifact@v4

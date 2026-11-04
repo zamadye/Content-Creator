@@ -269,9 +269,9 @@ try {
   const platform = (post?.platforms ?? []).find((entry) => entry?.platform === 'youtube') ?? post?.platforms?.[0];
   if (platform) {
     result.youtube.status = platform.status ?? null;
-    result.youtube.url = platform.platformPostUrl ?? null;
+    result.youtube.url = platform.platformPostUrl ?? platform.url ?? null;
     result.youtube.videoId =
-      platform.platformPostId ?? platform.postId ?? platform.platformVideoId ?? null;
+      platform.platformPostId ?? platform.id ?? platform.postId ?? platform.platformVideoId ?? null;
   }
 
   const raw = JSON.stringify(post ?? {});
@@ -285,8 +285,11 @@ try {
     result.youtube.url = `https://www.youtube.com/watch?v=${result.youtube.videoId}`;
   }
 
-  const rawStatus = JSON.stringify(platform ?? post ?? {});
-  result.ok = Boolean(platform?.platformPostUrl) && !/"(failed|error)"/i.test(rawStatus);
+  // Bukti terbit: status platform "published" ATAU ada URL hasil dari platform.
+  // HTTP 201 saja tidak cukup, dan sebaliknya 207 parsial tetap bisa berisi
+  // satu platform sukses — jadi yang dinilai adalah platform YouTube-nya.
+  const platformStatus = String(platform?.status ?? '').toLowerCase();
+  result.ok = platformStatus === 'published' || Boolean(result.youtube.url);
 
   notice(`Respons createPost: HTTP ${result.post.httpStatus} · status=${result.youtube.status ?? '-'}`);
   if (result.youtube.url) notice(`URL: ${result.youtube.url}`);

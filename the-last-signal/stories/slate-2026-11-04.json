@@ -27,7 +27,12 @@
           "camera": "static",
           "shot": "wide",
           "lighting": "single_bare_bulb_3200k_deep_shadow",
-          "effects": ["vhs_distortion", "scanlines", "film_grain", "vignette"],
+          "effects": [
+            "vhs_distortion",
+            "scanlines",
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.72
         },
         {
@@ -36,7 +41,12 @@
           "camera": "push_in",
           "shot": "medium",
           "lighting": "harsh_studio_flat_4000k",
-          "effects": ["vhs_distortion", "scanlines", "timestamp_hud", "light_flicker"],
+          "effects": [
+            "vhs_distortion",
+            "scanlines",
+            "timestamp_hud",
+            "light_flicker"
+          ],
           "intensity": 0.8
         },
         {
@@ -45,7 +55,11 @@
           "camera": "pull_out",
           "shot": "closeup",
           "lighting": "crt_screen_glow_bluish_6500k",
-          "effects": ["scanlines", "vhs_distortion", "film_grain"],
+          "effects": [
+            "scanlines",
+            "vhs_distortion",
+            "film_grain"
+          ],
           "intensity": 0.85
         },
         {
@@ -54,7 +68,12 @@
           "camera": "handheld",
           "shot": "pov",
           "lighting": "practical_tv_glow_plus_corridor_leak",
-          "effects": ["film_grain", "vignette", "camera_shake", "light_flicker"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "camera_shake",
+            "light_flicker"
+          ],
           "intensity": 0.9
         },
         {
@@ -63,7 +82,12 @@
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "overexposed_screen_white",
-          "effects": ["vhs_distortion", "scanlines", "creature_reveal", "film_grain"],
+          "effects": [
+            "vhs_distortion",
+            "scanlines",
+            "creature_reveal",
+            "film_grain"
+          ],
           "intensity": 1
         },
         {
@@ -72,16 +96,38 @@
           "camera": "static",
           "shot": "wide",
           "lighting": "single_screen_glow_after_dark",
-          "effects": ["scanlines", "film_grain", "vignette", "timestamp_hud"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "vignette",
+            "timestamp_hud"
+          ],
           "intensity": 0.75
         }
       ],
-      "cards": ["28 TAHUN LALU", "HITUNG LAGI", "KAMU MASIH DI SANA"],
-      "jumpscare": { "atScene": 5, "atFrameOffset": 62, "flash": 0.85, "shake": 0.95, "zoom": 1.42, "durationFrames": 16 },
+      "cards": [
+        "28 TAHUN LALU",
+        "HITUNG LAGI",
+        "KAMU MASIH DI SANA"
+      ],
+      "jumpscare": {
+        "atScene": 5,
+        "atFrameOffset": 62,
+        "flash": 0.85,
+        "shake": 0.95,
+        "zoom": 1.42,
+        "durationFrames": 16
+      },
       "youtube": {
         "title": "TV Daerah Itu Berhenti Mengudara 28 Tahun Lalu. Malam Ini Ia Menyebut Namamu.",
         "description": "ARSIP FIKSI — Rekaman VHS siaran lokal, 23.11. Pembawa acara menyebut nama penonton dan menghitung mundur.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #AnalogHorror #CeritaHoror",
-        "tags": ["analog horror", "cerita horor", "horor indonesia", "vhs", "the last signal"]
+        "tags": [
+          "analog horror",
+          "cerita horor",
+          "horor indonesia",
+          "vhs",
+          "the last signal"
+        ]
       }
     },
     {
@@ -98,66 +144,110 @@
       },
       "scenes": [
         {
-          "narration": "Bayangkan kamu menyetir sendirian di jalan tol pukul dua pagi. Radio trukmu menyala sendiri, dan tidak ada yang memutar tombolnya.",
+          "narration": "Bayangkan kamu menyetir sendirian di jalan tol pukul dua pagi. Radio trukmu menyala sendiri.",
           "imagePrompt": "night view from inside a truck cab on an empty Indonesian toll road, red tail lights of no other cars, rain on windshield, dashboard glow, cinematic",
           "camera": "handheld",
           "shot": "pov",
           "lighting": "dashboard_amber_glow_plus_headlights",
-          "effects": ["film_grain", "camera_shake", "vignette", "timestamp_hud"],
+          "effects": [
+            "film_grain",
+            "camera_shake",
+            "vignette",
+            "timestamp_hud"
+          ],
           "intensity": 0.6
         },
         {
-          "narration": "Kamu memanggil operator. Yang menjawab bukan operator. Suaranya lelah, dan ia memanggilmu dengan namamu.",
+          "narration": "Kamu memanggil operator. Yang menjawab bukan operator. Ia memanggil namamu.",
           "imagePrompt": "close-up of an old CB radio handset on a truck dashboard, static, dim cab interior, worn plastic, night",
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "dashboard_amber_glow_low",
-          "effects": ["film_grain", "scanlines", "vignette"],
+          "effects": [
+            "film_grain",
+            "scanlines",
+            "vignette"
+          ],
           "intensity": 0.7
         },
         {
-          "narration": "Di kilometer empat puluh dua kamu melambat karena ada kilau di tengah jalan. Bukan genangan. Itu lampu depan truk lain.",
+          "narration": "Di kilometer empat puluh dua ada kilau di tengah jalan. Itu lampu depan truk lain.",
           "imagePrompt": "empty toll road at night with a single pair of headlights approaching in the distance, wet asphalt mirror reflections, fog bank, wide cinematic",
           "camera": "static",
           "shot": "wide",
           "lighting": "headlight_haze_against_fog",
-          "effects": ["film_grain", "volumetric_fog", "vignette"],
+          "effects": [
+            "film_grain",
+            "volumetric_fog",
+            "vignette"
+          ],
           "intensity": 0.65
         },
         {
-          "narration": "Kamu menekan tombol radio untuk meminta bantuan. Suaramu keluar dari speaker, lebih dulu, sebelum kamu bicara.",
+          "narration": "Kamu menekan tombol radio. Suaramu keluar dari speaker, lebih dulu, sebelum kamu bicara.",
           "imagePrompt": "truck interior at night with radio speaker glowing, driver seat empty, seatbelt hanging loose, motion blur, cinematic dread",
           "camera": "handheld",
           "shot": "medium",
           "lighting": "cold_moonlight_through_windshield",
-          "effects": ["film_grain", "camera_shake", "light_flicker"],
+          "effects": [
+            "film_grain",
+            "camera_shake",
+            "light_flicker"
+          ],
           "intensity": 0.8
         },
         {
-          "narration": "Empat menit rekaman berisi dua orang yang bergantian bicara. Kamu mendengar dirimu menjawab pertanyaan yang belum kamu ucapkan.",
+          "narration": "Empat menit rekaman berisi dua suara yang bergantian. Kamu mendengar dirimu menjawab.",
           "imagePrompt": "extreme close-up of static radio waveform on a small screen, red recording light, dark metal surface, dust, cinematic detail",
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "red_indicator_light_in_darkness",
-          "effects": ["scanlines", "film_grain", "vhs_distortion", "creature_reveal"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "vhs_distortion",
+            "creature_reveal"
+          ],
           "intensity": 0.95
         },
         {
-          "narration": "Truk itu ditemukan pukul empat pagi. Pintu terkunci dari dalam, mesin menyala, dan radio masih memancarkan nafas yang tidak berhenti.",
+          "narration": "Truk itu ditemukan pukul empat pagi. Mesin menyala, dan radio masih memancarkan nafas.",
           "imagePrompt": "abandoned truck parked on the shoulder of a foggy toll road before dawn, door closed, engine running, headlights on, blue hour, wide cinematic",
           "camera": "pull_out",
           "shot": "wide",
           "lighting": "blue_hour_fog_headlights",
-          "effects": ["film_grain", "volumetric_fog", "vignette", "timestamp_hud"],
+          "effects": [
+            "film_grain",
+            "volumetric_fog",
+            "vignette",
+            "timestamp_hud"
+          ],
           "intensity": 0.7
         }
       ],
-      "cards": ["KM 42", "BUKAN OPERATOR", "PINTU TERKUNCI DARI DALAM"],
-      "jumpscare": { "atScene": 4, "atFrameOffset": 70, "flash": 0.9, "shake": 1, "zoom": 1.5, "durationFrames": 18 },
+      "cards": [
+        "KM 42",
+        "BUKAN OPERATOR",
+        "PINTU TERKUNCI DARI DALAM"
+      ],
+      "jumpscare": {
+        "atScene": 4,
+        "atFrameOffset": 70,
+        "flash": 0.9,
+        "shake": 1,
+        "zoom": 1.5,
+        "durationFrames": 18
+      },
       "youtube": {
         "title": "Truk Itu Ditemukan dengan Mesin Menyala. Radio-nya Masih Memancarkan Napas.",
         "description": "ARSIP FIKSI — Empat menit transmisi radio dari KM 42, 02.14. Dua suara. Satu orang.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #FoundFootage #CeritaHoror",
-        "tags": ["cerita horor", "horor indonesia", "found footage", "jalan tol", "the last signal"]
+        "tags": [
+          "cerita horor",
+          "horor indonesia",
+          "found footage",
+          "jalan tol",
+          "the last signal"
+        ]
       }
     },
     {
@@ -179,7 +269,12 @@
           "camera": "static",
           "shot": "wide",
           "lighting": "green_fluorescent_4800k_hospital",
-          "effects": ["film_grain", "light_flicker", "vignette", "timestamp_hud"],
+          "effects": [
+            "film_grain",
+            "light_flicker",
+            "vignette",
+            "timestamp_hud"
+          ],
           "intensity": 0.6
         },
         {
@@ -188,7 +283,11 @@
           "camera": "push_in",
           "shot": "medium",
           "lighting": "single_ceiling_lamp_low_3000k",
-          "effects": ["film_grain", "vignette", "light_flicker"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "light_flicker"
+          ],
           "intensity": 0.7
         },
         {
@@ -197,7 +296,10 @@
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "cold_shallow_clinical",
-          "effects": ["film_grain", "vignette"],
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.8
         },
         {
@@ -206,7 +308,12 @@
           "camera": "handheld",
           "shot": "pov",
           "lighting": "harsh_overhead_flicker",
-          "effects": ["camera_shake", "film_grain", "light_flicker", "vignette"],
+          "effects": [
+            "camera_shake",
+            "film_grain",
+            "light_flicker",
+            "vignette"
+          ],
           "intensity": 0.9
         },
         {
@@ -215,7 +322,12 @@
           "camera": "static",
           "shot": "wide",
           "lighting": "single_hard_overhead_light",
-          "effects": ["film_grain", "vignette", "creature_reveal", "light_flicker"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "creature_reveal",
+            "light_flicker"
+          ],
           "intensity": 1
         },
         {
@@ -224,16 +336,36 @@
           "camera": "pull_out",
           "shot": "medium",
           "lighting": "cold_morning_window_light",
-          "effects": ["film_grain", "vignette"],
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.55
         }
       ],
-      "cards": ["KAMAR 9 KOSONG", "NAMAMU", "MINGGU DEPAN"],
-      "jumpscare": { "atScene": 4, "atFrameOffset": 58, "flash": 0.9, "shake": 0.9, "zoom": 1.45, "durationFrames": 16 },
+      "cards": [
+        "KAMAR 9 KOSONG",
+        "NAMAMU",
+        "MINGGU DEPAN"
+      ],
+      "jumpscare": {
+        "atScene": 4,
+        "atFrameOffset": 58,
+        "flash": 0.9,
+        "shake": 0.9,
+        "zoom": 1.45,
+        "durationFrames": 16
+      },
       "youtube": {
         "title": "Kamar Itu Kosong Setahun. Papan Nama di Kaki Tempat Tidurnya Namamu.",
         "description": "ARSIP FIKSI — Rumah sakit kecil, shift malam, kamar 9. Prosedur wajib memeriksa kamar yang tidak ada pasiennya.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
-        "tags": ["cerita horor", "horor rumah sakit", "horor indonesia", "paranormal", "the last signal"]
+        "tags": [
+          "cerita horor",
+          "horor rumah sakit",
+          "horor indonesia",
+          "paranormal",
+          "the last signal"
+        ]
       }
     },
     {
@@ -255,7 +387,12 @@
           "camera": "handheld",
           "shot": "wide",
           "lighting": "overcast_dusk_flat",
-          "effects": ["film_grain", "camera_shake", "timestamp_hud", "vignette"],
+          "effects": [
+            "film_grain",
+            "camera_shake",
+            "timestamp_hud",
+            "vignette"
+          ],
           "intensity": 0.65
         },
         {
@@ -264,7 +401,11 @@
           "camera": "handheld",
           "shot": "medium",
           "lighting": "tv_glow_in_daylight_room",
-          "effects": ["film_grain", "camera_shake", "light_flicker"],
+          "effects": [
+            "film_grain",
+            "camera_shake",
+            "light_flicker"
+          ],
           "intensity": 0.75
         },
         {
@@ -273,7 +414,12 @@
           "camera": "push_in",
           "shot": "pov",
           "lighting": "camcorder_flashlight_beam",
-          "effects": ["camera_shake", "film_grain", "vignette", "flashlight"],
+          "effects": [
+            "camera_shake",
+            "film_grain",
+            "vignette",
+            "flashlight"
+          ],
           "intensity": 0.85
         },
         {
@@ -282,7 +428,11 @@
           "camera": "static",
           "shot": "closeup",
           "lighting": "lcd_screen_glow",
-          "effects": ["scanlines", "vhs_distortion", "film_grain"],
+          "effects": [
+            "scanlines",
+            "vhs_distortion",
+            "film_grain"
+          ],
           "intensity": 0.9
         },
         {
@@ -291,7 +441,12 @@
           "camera": "handheld",
           "shot": "wide",
           "lighting": "single_street_lamp_backlight",
-          "effects": ["camera_shake", "film_grain", "volumetric_fog", "creature_reveal"],
+          "effects": [
+            "camera_shake",
+            "film_grain",
+            "volumetric_fog",
+            "creature_reveal"
+          ],
           "intensity": 1
         },
         {
@@ -300,16 +455,37 @@
           "camera": "static",
           "shot": "closeup",
           "lighting": "phone_screen_blue_glow",
-          "effects": ["scanlines", "film_grain", "vignette"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.6
         }
       ],
-      "cards": ["BLOK C", "EMPAT ORANG", "DIUNGGAH 3 JAM SEBELUMNYA"],
-      "jumpscare": { "atScene": 4, "atFrameOffset": 66, "flash": 0.85, "shake": 1, "zoom": 1.5, "durationFrames": 16 },
+      "cards": [
+        "BLOK C",
+        "EMPAT ORANG",
+        "DIUNGGAH 3 JAM SEBELUMNYA"
+      ],
+      "jumpscare": {
+        "atScene": 4,
+        "atFrameOffset": 66,
+        "flash": 0.85,
+        "shake": 1,
+        "zoom": 1.5,
+        "durationFrames": 16
+      },
       "youtube": {
         "title": "Video Ini Diunggah Tiga Jam Sebelum Mereka Merekamnya",
         "description": "ARSIP FIKSI — Rekaman camcorder tiga orang di perumahan yang belum dijual. Unggahan terakhir muncul sebelum keberangkatan mereka.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #FoundFootage #CeritaHoror",
-        "tags": ["found footage", "cerita horor", "horor indonesia", "urban exploration", "the last signal"]
+        "tags": [
+          "found footage",
+          "cerita horor",
+          "horor indonesia",
+          "urban exploration",
+          "the last signal"
+        ]
       }
     },
     {
@@ -331,7 +507,12 @@
           "camera": "static",
           "shot": "wide",
           "lighting": "flickering_fluorescent_basement_5000k",
-          "effects": ["film_grain", "light_flicker", "vignette", "timestamp_hud"],
+          "effects": [
+            "film_grain",
+            "light_flicker",
+            "vignette",
+            "timestamp_hud"
+          ],
           "intensity": 0.65
         },
         {
@@ -340,7 +521,10 @@
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "overhead_lamp_low_3200k",
-          "effects": ["film_grain", "vignette"],
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.7
         },
         {
@@ -349,7 +533,11 @@
           "camera": "handheld",
           "shot": "medium",
           "lighting": "fluorescent_reflection_through_glass",
-          "effects": ["film_grain", "camera_shake", "vignette"],
+          "effects": [
+            "film_grain",
+            "camera_shake",
+            "vignette"
+          ],
           "intensity": 0.8
         },
         {
@@ -358,7 +546,12 @@
           "camera": "static",
           "shot": "cctv",
           "lighting": "cctv_monochrome_ir",
-          "effects": ["scanlines", "film_grain", "timestamp_hud", "vignette"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "timestamp_hud",
+            "vignette"
+          ],
           "intensity": 0.75
         },
         {
@@ -367,7 +560,12 @@
           "camera": "push_in",
           "shot": "wide",
           "lighting": "car_interior_light_against_darkness",
-          "effects": ["film_grain", "light_flicker", "creature_reveal", "vignette"],
+          "effects": [
+            "film_grain",
+            "light_flicker",
+            "creature_reveal",
+            "vignette"
+          ],
           "intensity": 1
         },
         {
@@ -376,16 +574,37 @@
           "camera": "pull_out",
           "shot": "cctv",
           "lighting": "cctv_monochrome_flat",
-          "effects": ["scanlines", "film_grain", "timestamp_hud"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "timestamp_hud"
+          ],
           "intensity": 0.7
         }
       ],
-      "cards": ["MASUK KE-5", "4 JAM TANPA GERAK", "BUKAN KAMU"],
-      "jumpscare": { "atScene": 4, "atFrameOffset": 60, "flash": 0.9, "shake": 0.95, "zoom": 1.48, "durationFrames": 16 },
+      "cards": [
+        "MASUK KE-5",
+        "4 JAM TANPA GERAK",
+        "BUKAN KAMU"
+      ],
+      "jumpscare": {
+        "atScene": 4,
+        "atFrameOffset": 60,
+        "flash": 0.9,
+        "shake": 0.95,
+        "zoom": 1.48,
+        "durationFrames": 16
+      },
       "youtube": {
         "title": "Mobil Itu Masuk Lima Kali Malam Itu. Rekamannya Menunjukkan Aku Tidak Bergerak.",
         "description": "ARSIP FIKSI — Basement dua, mobil hitam yang sama, lima kali masuk dalam satu malam.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #PsychologicalHorror #CeritaHoror",
-        "tags": ["psychological horror", "cerita horor", "horor indonesia", "cctv", "the last signal"]
+        "tags": [
+          "psychological horror",
+          "cerita horor",
+          "horor indonesia",
+          "cctv",
+          "the last signal"
+        ]
       }
     },
     {
@@ -407,7 +626,11 @@
           "camera": "push_in",
           "shot": "medium",
           "lighting": "work_lamp_3200k_dusty_air",
-          "effects": ["film_grain", "volumetric_fog", "vignette"],
+          "effects": [
+            "film_grain",
+            "volumetric_fog",
+            "vignette"
+          ],
           "intensity": 0.6
         },
         {
@@ -416,7 +639,12 @@
           "camera": "handheld",
           "shot": "pov",
           "lighting": "flashlight_in_dark_void",
-          "effects": ["flashlight", "film_grain", "vignette", "camera_shake"],
+          "effects": [
+            "flashlight",
+            "film_grain",
+            "vignette",
+            "camera_shake"
+          ],
           "intensity": 0.8
         },
         {
@@ -425,7 +653,10 @@
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "flashlight_close_2900k",
-          "effects": ["film_grain", "vignette"],
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.75
         },
         {
@@ -434,7 +665,11 @@
           "camera": "static",
           "shot": "medium",
           "lighting": "single_beam_through_crack",
-          "effects": ["volumetric_fog", "film_grain", "vignette"],
+          "effects": [
+            "volumetric_fog",
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.7
         },
         {
@@ -443,7 +678,12 @@
           "camera": "pull_out",
           "shot": "wide",
           "lighting": "harsh_flashlight_full",
-          "effects": ["creature_reveal", "film_grain", "vignette", "light_flicker"],
+          "effects": [
+            "creature_reveal",
+            "film_grain",
+            "vignette",
+            "light_flicker"
+          ],
           "intensity": 1
         },
         {
@@ -452,16 +692,37 @@
           "camera": "static",
           "shot": "closeup",
           "lighting": "flat_photo_scan",
-          "effects": ["scanlines", "film_grain", "vignette"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.6
         }
       ],
-      "cards": ["TIDAK ADA DI DENAH", "TAHUN DEPAN", "FOTO ITU DARI DALAM"],
-      "jumpscare": { "atScene": 4, "atFrameOffset": 64, "flash": 0.9, "shake": 0.9, "zoom": 1.44, "durationFrames": 16 },
+      "cards": [
+        "TIDAK ADA DI DENAH",
+        "TAHUN DEPAN",
+        "FOTO ITU DARI DALAM"
+      ],
+      "jumpscare": {
+        "atScene": 4,
+        "atFrameOffset": 64,
+        "flash": 0.9,
+        "shake": 0.9,
+        "zoom": 1.44,
+        "durationFrames": 16
+      },
       "youtube": {
         "title": "Di Balik Dinding Itu Ada Ruangan yang Tidak Ada di Denah Rumah",
         "description": "ARSIP FIKSI — Renovasi rumah tua di Bandung, temuan ruang tertutup, koran bertanggal tahun depan.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #DisturbingDiscovery #CeritaHoror",
-        "tags": ["cerita horor", "horor indonesia", "penemuan", "rumah tua", "the last signal"]
+        "tags": [
+          "cerita horor",
+          "horor indonesia",
+          "penemuan",
+          "rumah tua",
+          "the last signal"
+        ]
       }
     },
     {
@@ -483,7 +744,11 @@
           "camera": "static",
           "shot": "medium",
           "lighting": "desk_lamp_2900k_against_dark",
-          "effects": ["film_grain", "vignette", "timestamp_hud"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "timestamp_hud"
+          ],
           "intensity": 0.6
         },
         {
@@ -492,7 +757,11 @@
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "red_indicator_and_lamp",
-          "effects": ["scanlines", "film_grain", "vignette"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.7
         },
         {
@@ -501,7 +770,11 @@
           "camera": "handheld",
           "shot": "pov",
           "lighting": "moonlight_on_water_plus_interior_reflection",
-          "effects": ["film_grain", "vignette", "camera_shake"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "camera_shake"
+          ],
           "intensity": 0.75
         },
         {
@@ -510,7 +783,11 @@
           "camera": "push_in",
           "shot": "wide",
           "lighting": "searchlight_beam_in_fog",
-          "effects": ["volumetric_fog", "film_grain", "vignette"],
+          "effects": [
+            "volumetric_fog",
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.8
         },
         {
@@ -519,7 +796,11 @@
           "camera": "static",
           "shot": "wide",
           "lighting": "cold_dawn_light_through_wet_glass",
-          "effects": ["film_grain", "vignette", "creature_reveal"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "creature_reveal"
+          ],
           "intensity": 1
         },
         {
@@ -528,16 +809,36 @@
           "camera": "pull_out",
           "shot": "medium",
           "lighting": "harsh_noon_overcast_flat",
-          "effects": ["film_grain", "vignette"],
+          "effects": [
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.55
         }
       ],
-      "cards": ["TENGGELAM 11 TAHUN LALU", "MEREKA SUDAH DEKAT", "NAMA PENYELAMAT"],
-      "jumpscare": { "atScene": 4, "atFrameOffset": 58, "flash": 0.88, "shake": 0.95, "zoom": 1.46, "durationFrames": 16 },
+      "cards": [
+        "TENGGELAM 11 TAHUN LALU",
+        "MEREKA SUDAH DEKAT",
+        "NAMA PENYELAMAT"
+      ],
+      "jumpscare": {
+        "atScene": 4,
+        "atFrameOffset": 58,
+        "flash": 0.88,
+        "shake": 0.95,
+        "zoom": 1.46,
+        "durationFrames": 16
+      },
       "youtube": {
         "title": "Radio Itu Menerima Panggilan dari Perahu yang Tenggelam Sebelas Tahun Lalu",
         "description": "ARSIP FIKSI — Ruang radio pesisir, 02.11. Panggilan mayday berbahasa daerah yang sudah tidak dipakai lagi.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
-        "tags": ["cerita horor", "horor laut", "horor indonesia", "found footage", "the last signal"]
+        "tags": [
+          "cerita horor",
+          "horor laut",
+          "horor indonesia",
+          "found footage",
+          "the last signal"
+        ]
       }
     },
     {
@@ -559,7 +860,11 @@
           "camera": "static",
           "shot": "medium",
           "lighting": "warm_room_lamp_2700k",
-          "effects": ["film_grain", "vignette", "timestamp_hud"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "timestamp_hud"
+          ],
           "intensity": 0.55
         },
         {
@@ -568,7 +873,11 @@
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "laptop_screen_blue_in_dark",
-          "effects": ["scanlines", "film_grain", "vignette"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.7
         },
         {
@@ -577,7 +886,12 @@
           "camera": "handheld",
           "shot": "pov",
           "lighting": "phone_flash_harsh_white",
-          "effects": ["camera_shake", "film_grain", "vignette", "light_flicker"],
+          "effects": [
+            "camera_shake",
+            "film_grain",
+            "vignette",
+            "light_flicker"
+          ],
           "intensity": 0.85
         },
         {
@@ -586,7 +900,11 @@
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "screen_glow_on_face_not_visible",
-          "effects": ["scanlines", "film_grain", "creature_reveal"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "creature_reveal"
+          ],
           "intensity": 0.95
         },
         {
@@ -595,7 +913,11 @@
           "camera": "static",
           "shot": "closeup",
           "lighting": "monitor_glow_red_accent",
-          "effects": ["scanlines", "film_grain", "vignette"],
+          "effects": [
+            "scanlines",
+            "film_grain",
+            "vignette"
+          ],
           "intensity": 0.9
         },
         {
@@ -604,16 +926,37 @@
           "camera": "pull_out",
           "shot": "wide",
           "lighting": "corridor_light_spill_into_dark_room",
-          "effects": ["film_grain", "vignette", "volumetric_fog"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "volumetric_fog"
+          ],
           "intensity": 0.7
         }
       ],
-      "cards": ["03.33", "14 BULAN SEBELUM KAMU PINDAH", "KAMAR 7 ↔ KAMAR 7"],
-      "jumpscare": { "atScene": 3, "atFrameOffset": 62, "flash": 0.9, "shake": 1, "zoom": 1.5, "durationFrames": 16 },
+      "cards": [
+        "03.33",
+        "14 BULAN SEBELUM KAMU PINDAH",
+        "KAMAR 7 ↔ KAMAR 7"
+      ],
+      "jumpscare": {
+        "atScene": 3,
+        "atFrameOffset": 62,
+        "flash": 0.9,
+        "shake": 1,
+        "zoom": 1.5,
+        "durationFrames": 16
+      },
       "youtube": {
         "title": "Router Kos Itu Mencatat Satu Perangkat Selama 14 Bulan Sebelum Aku Pindah",
         "description": "ARSIP FIKSI — Log router kamar kos nomor 7. Satu perangkat, setiap malam pukul 03.33.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AnalogHorror",
-        "tags": ["cerita horor", "horor indonesia", "analog horror", "kos", "the last signal"]
+        "tags": [
+          "cerita horor",
+          "horor indonesia",
+          "analog horror",
+          "kos",
+          "the last signal"
+        ]
       }
     },
     {
@@ -635,7 +978,11 @@
           "camera": "static",
           "shot": "medium",
           "lighting": "elevator_harsh_5600k",
-          "effects": ["film_grain", "vignette", "light_flicker"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "light_flicker"
+          ],
           "intensity": 0.6
         },
         {
@@ -644,7 +991,11 @@
           "camera": "push_in",
           "shot": "closeup",
           "lighting": "dim_metal_reflection_red_display",
-          "effects": ["film_grain", "scanlines", "vignette"],
+          "effects": [
+            "film_grain",
+            "scanlines",
+            "vignette"
+          ],
           "intensity": 0.75
         },
         {
@@ -653,7 +1004,11 @@
           "camera": "handheld",
           "shot": "wide",
           "lighting": "cold_office_panel_light_6000k",
-          "effects": ["film_grain", "vignette", "camera_shake"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "camera_shake"
+          ],
           "intensity": 0.8
         },
         {
@@ -662,7 +1017,11 @@
           "camera": "push_in",
           "shot": "medium",
           "lighting": "monitor_glow_in_dark_meeting_room",
-          "effects": ["film_grain", "vignette", "creature_reveal"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "creature_reveal"
+          ],
           "intensity": 0.9
         },
         {
@@ -671,7 +1030,12 @@
           "camera": "static",
           "shot": "closeup",
           "lighting": "hard_monitor_rim_light",
-          "effects": ["film_grain", "vignette", "creature_reveal", "light_flicker"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "creature_reveal",
+            "light_flicker"
+          ],
           "intensity": 1
         },
         {
@@ -680,16 +1044,38 @@
           "camera": "pull_out",
           "shot": "wide",
           "lighting": "elevator_light_spilling_into_dark_room",
-          "effects": ["film_grain", "vignette", "volumetric_fog", "timestamp_hud"],
+          "effects": [
+            "film_grain",
+            "vignette",
+            "volumetric_fog",
+            "timestamp_hud"
+          ],
           "intensity": 0.8
         }
       ],
-      "cards": ["12 LANTAI", "BERHENTI DI 19", "KAMU MASIH DI SANA"],
-      "jumpscare": { "atScene": 4, "atFrameOffset": 60, "flash": 0.9, "shake": 0.95, "zoom": 1.47, "durationFrames": 16 },
+      "cards": [
+        "12 LANTAI",
+        "BERHENTI DI 19",
+        "KAMU MASIH DI SANA"
+      ],
+      "jumpscare": {
+        "atScene": 4,
+        "atFrameOffset": 60,
+        "flash": 0.9,
+        "shake": 0.95,
+        "zoom": 1.47,
+        "durationFrames": 16
+      },
       "youtube": {
         "title": "Gedung Itu Punya 12 Lantai. Liftnya Berhenti di Lantai 19.",
         "description": "ARSIP FIKSI — Lembur malam, lift kosong, panel dengan satu tombol tambahan. Lantai 19 tidak ada di gedung itu.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AbandonedPlace",
-        "tags": ["cerita horor", "horor indonesia", "abandoned", "kantor", "the last signal"]
+        "tags": [
+          "cerita horor",
+          "horor indonesia",
+          "abandoned",
+          "kantor",
+          "the last signal"
+        ]
       }
     }
   ]

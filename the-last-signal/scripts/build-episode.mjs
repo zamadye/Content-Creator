@@ -80,8 +80,11 @@ const scenes = entry.scenes.map((scene, index) => {
   const narrationFrames = Math.ceil(seconds * FPS);
   const durationFrames = LEAD_IN_FRAMES + narrationFrames + TAIL_FRAMES;
 
-  const cutA = Math.round(durationFrames * 0.38);
-  const cutB = Math.round(durationFrames * 0.76);
+  // Tiga cut per scene = empat shot. Dengan 55 detik per episode itu ~2,4 s per
+  // shot; dua cut (tiga shot) sudah terbukti gagal QC di LS-0002 (3,12 s).
+  const cutA = Math.round(durationFrames * 0.28);
+  const cutB = Math.round(durationFrames * 0.56);
+  const cutC = Math.round(durationFrames * 0.82);
   const counterMove =
     scene.camera === "push_in" ? "handheld" : scene.camera === "handheld" ? "pan_left" : "push_in";
 
@@ -93,8 +96,9 @@ const scenes = entry.scenes.map((scene, index) => {
     narration: scene.narration,
     narrationAudio: `audio/narration/scene-${pad(index + 1)}.mp3`,
     cuts: [
-      { atFrame: cutA, camera: scene.camera, scale: 1.3, offsetY: -40 },
-      { atFrame: cutB, camera: counterMove, scale: 1.5, offsetX: 30, offsetY: 60 },
+      { atFrame: cutA, camera: scene.camera, scale: 1.22, offsetY: -55 },
+      { atFrame: cutB, camera: counterMove, scale: 1.5, offsetX: 30, offsetY: 20 },
+      { atFrame: cutC, camera: "push_in", scale: 1.72, offsetX: -25, offsetY: 70 },
     ],
     subtitles: distribute(sentences, LEAD_IN_FRAMES, LEAD_IN_FRAMES + narrationFrames),
     visual: {

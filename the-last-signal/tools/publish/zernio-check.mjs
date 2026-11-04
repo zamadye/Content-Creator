@@ -80,7 +80,7 @@ try {
   const accounts = data?.accounts ?? [];
   report.auth.ok = true;
   report.accounts = accounts.map((account) => ({
-    id: account.id,
+    id: account._id ?? account.id ?? null,
     platform: account.platform,
     username: account.username ?? account.name ?? null,
     displayName: account.displayName ?? account.name ?? null,
@@ -103,7 +103,7 @@ try {
     const active = report.youtube.filter((account) => account.isActive !== false);
     notice(`Kanal YouTube: ${report.youtube.length} terhubung, ${active.length} aktif.`);
     report.youtubeTargets = active.map((account) => ({
-      accountId: account.id,
+      accountId: account._id ?? account.id,
       username: account.username,
     }));
   }

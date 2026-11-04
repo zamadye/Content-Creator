@@ -223,7 +223,7 @@ if (!accountId) {
     const candidate = (data?.accounts ?? []).find(
       (account) => account.platform === 'youtube' && account.isActive !== false && account.status !== 'inactive',
     );
-    accountId = candidate?.accountId ?? candidate?.id ?? null;
+    accountId = candidate?._id ?? candidate?.accountId ?? candidate?.id ?? null;
     if (accountId) notice(`Kanal YouTube ditemukan otomatis: ${candidate.username ?? '(tanpa username)'} id=${accountId}`);
   } catch (error) {
     warn(`Gagal mencari kanal otomatis: ${describeError(error)}`);

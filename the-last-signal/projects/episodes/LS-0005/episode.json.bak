@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 49.2,
+  "targetDurationSeconds": 46.1,
   "story": {
     "hook": "Bayangkan kamu menonton video pendek yang kamu rekam besok.",
     "premise": "Tiga anak muda merekam perumahan kosong yang belum dijual, untuk konten eksplorasi.",
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 1104,
+      "atFrame": 1012,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,44 +33,44 @@
   "onScreenText": [
     {
       "text": "BLOK C",
-      "startFrame": 29,
-      "endFrame": 86
+      "startFrame": 27,
+      "endFrame": 81
     },
     {
       "text": "EMPAT ORANG",
-      "startFrame": 796,
-      "endFrame": 853
+      "startFrame": 746,
+      "endFrame": 800
     },
     {
       "text": "DIUNGGAH 3 JAM SEBELUMNYA",
-      "startFrame": 1151,
-      "endFrame": 1208
+      "startFrame": 1079,
+      "endFrame": 1133
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 287,
+      "durationFrames": 195,
       "image": "images/scene-01.png",
       "narration": "Tiga anak masuk ke perumahan kosong itu. Video mereka baru diunggah besok pagi.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 80,
+          "atFrame": 54,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 161,
+          "atFrame": 109,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 235,
+          "atFrame": 160,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -80,12 +80,12 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 133,
+          "endFrame": 90,
           "text": "Bayangkan kamu merekam perumahan baru yang belum dijual."
         },
         {
-          "startFrame": 133,
-          "endFrame": 279,
+          "startFrame": 90,
+          "endFrame": 187,
           "text": "Tiga orang, satu kamera, dan gerbang yang seharusnya dikunci."
         }
       ],
@@ -110,12 +110,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 178,
+            "startFrame": 121,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 235,
+            "startFrame": 160,
             "volume": 0.4
           }
         ]
@@ -416,7 +416,7 @@
       "order": 5,
       "durationFrames": 172,
       "image": "images/scene-06.png",
-      "narration": "Video itu diunggah pukul tujuh malam, tiga jam sebelum kalian berangkat.",
+      "narration": "Tidak ada yang keluar dari perumahan itu. Tapi besok pagi, pukul tujuh, video ini muncul di akun mereka sendiri.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
@@ -480,7 +480,7 @@
     }
   ],
   "publishing": {
-    "title": "Video Ini Diunggah Tiga Jam Sebelum Mereka Merekamnya",
+    "title": "Video Ini Baru Diunggah Besok Pagi. Ketiga Anak Itu Tidak Pernah Keluar.",
     "description": "ARSIP FIKSI — Rekaman camcorder tiga orang di perumahan yang belum dijual. Unggahan terakhir muncul sebelum keberangkatan mereka.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #FoundFootage #CeritaHoror",
     "tags": [
       "found footage",

@@ -384,7 +384,7 @@
       "episodeId": "LS-0005",
       "subgenre": "Found Footage",
       "experiment": "Kamera dipegang karakter (camcorder) — gerak kamera paling agresif, hook menyebut penonton sebagai penonton video.",
-      "structure": "video yang diunggah sebelum direkam",
+      "structure": "rekaman muncul di akun sendiri setelah mereka hilang",
       "story": {
         "title": "Perumahan yang Belum Dijual",
         "hook": "Bayangkan kamu menonton video pendek yang kamu rekam besok.",
@@ -462,7 +462,7 @@
           "intensity": 1
         },
         {
-          "narration": "Video itu diunggah pukul tujuh malam, tiga jam sebelum kalian berangkat.",
+          "narration": "Tidak ada yang keluar dari perumahan itu. Tapi besok pagi, pukul tujuh, video ini muncul di akun mereka sendiri.",
           "imagePrompt": "dark smartphone screen showing a video upload timestamp and comments, gloved hand not visible, blue light, close-up, cinematic",
           "camera": "static",
           "shot": "closeup",
@@ -502,7 +502,8 @@
       "thumb": {
         "headline": "VIDEO ITU BARU DIUNGGAH BESOK",
         "kicker": "BLOK C · 19.00"
-      }
+      },
+      "title": "Video Ini Baru Diunggah Besok Pagi"
     },
     {
       "episodeId": "LS-0006",
@@ -625,7 +626,8 @@
       "thumb": {
         "headline": "MOBIL ITU MASUK 5 KALI",
         "kicker": "BASEMENT 2 · 03.00"
-      }
+      },
+      "title": "Mobil Itu Masuk Lima Kali Malam Itu"
     },
     {
       "episodeId": "LS-0007",

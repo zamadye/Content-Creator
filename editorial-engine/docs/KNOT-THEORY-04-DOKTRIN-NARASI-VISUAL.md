@@ -86,3 +86,8 @@ Catat hasil tiap uji di `content/kb/knot-theory.jsonl` field `lessons`, lalu pak
 - Jangan menulis kalimat yang hanya mengulang angka tanpa mengubah pemahaman.
 - Jangan memakai kata besar di layar tanpa gambar bendanya.
 - Jangan memakai hook sensasional yang tidak bisa dibuktikan sumbernya.
+
+## 9. Catatan teknis publikasi (ditemukan saat tayang 4 Nov 2026)
+- `publish-buffer.mjs` memecah caption pada baris yang **hanya** berisi karakter `=`; header gaya `=== NAMA ===` tidak terbaca. Format aman: satu baris `========`, lalu nama platform, lalu `========`, lalu isi.
+- **YouTube menolak** deskripsi berisi `<` atau `>` ("YouTube description cannot contain < or > characters"). Tulis "di atas 90 ribu", bukan `>90.000`.
+- Bila satu platform gagal setelah yang lain terkirim, kirim ulang **hanya platform yang gagal** — jangan mengulang semuanya, karena `posts create` tidak idempoten.

@@ -22,6 +22,7 @@ on:
     branches:
       - '**'
     paths:
+      - '.github/workflows/zernio-check.yml'
       - 'the-last-signal/tools/publish/**'
       - 'the-last-signal/publish-queue/**.check'
   workflow_dispatch:

@@ -287,3 +287,25 @@ Catatan baru:
 3. **`inspect-buffer.mjs` tidak bisa dipakai di sandbox** (tidak ada CLI `buffer`, dan
    `api.buffer.com` mengembalikan `000`). Verifikasi antrean **hanya** lewat anotasi job:
    `gh api /repos/zamadye/Content-Creator/check-runs/<job_id>/annotations`.
+
+## §11. Kiriman kelima: misi 9 — APBN 2027 (4 November 2026)
+
+Aturan baru yang dikunci di sini: **satu video langsung didistribusikan ke tiga platform dalam satu
+slot** (`"platforms": "instagram,tiktok,youtube"`). Jeda 2 jam berlaku antar-*video*, bukan
+antar-platform. Permintaan `_revisi: 5`, `dueAt` 19.00 WIB (= 2 jam setelah BSU 17.00 WIB).
+
+Terverifikasi lewat anotasi run `41806521356`:
+
+| Platform | Post id |
+|---|---|
+| Instagram | `6aeaf8ad20b88292aa774ff0` |
+| TikTok | `6aeaf8ae961fae078ac2ce05` |
+| YouTube | `6aeaf8af0eea02ace3279dfd` |
+
+Media 7 229 963 B (`B_apbn-2027-bunga-utang_1080x1920.mp4`) diunduh Buffer dari raw URL commit
+`bb9b11c`. Total post di Buffer: **19**.
+
+Catatan operasional: sandbox sempat kehilangan berkas kerja (bukan berkas repo) dua kali; seluruh
+artefak dipulihkan dengan `git reset --hard origin/arena/54cb36c6-content-creator`. Karena itu
+**artefak wajib langsung di-commit** setelah QA lolos — deliverables/*.mp4 dan thumbnail ikut
+ter-track, jadi aman.

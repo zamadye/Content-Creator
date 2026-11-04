@@ -1,0 +1,471 @@
+{
+  "episodeId": "LS-0003",
+  "title": "Suara Terakhir di KM 42",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 44.4,
+  "story": {
+    "hook": "Bayangkan suara terakhirmu direkam, tapi yang menjawab bukan orang lain.",
+    "premise": "Seorang pengemudi truk malam menghilang di jalan tol, meninggalkan transmisi radio empat menit.",
+    "twist": "Ia tidak meminta tolong kepada operator. Ia menjawab pertanyaan yang diajukan suaranya sendiri.",
+    "ending": "Truknya ditemukan kosong, mesin masih menyala, radio masih memancarkan nafas seseorang."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [
+    {
+      "atFrame": 966,
+      "image": "images/scare-face.png",
+      "assetId": "audio/sfx/scare.wav",
+      "volume": 0.95,
+      "flash": 0.9,
+      "shake": 1,
+      "zoom": 1.5,
+      "durationFrames": 18
+    }
+  ],
+  "onScreenText": [
+    {
+      "text": "KM 42",
+      "startFrame": 27,
+      "endFrame": 87
+    },
+    {
+      "text": "BUKAN OPERATOR",
+      "startFrame": 719,
+      "endFrame": 779
+    },
+    {
+      "text": "PINTU TERKUNCI DARI DALAM",
+      "startFrame": 1038,
+      "endFrame": 1098
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 237,
+      "image": "images/scene-01.png",
+      "narration": "Bayangkan kamu menyetir sendirian di jalan tol pukul dua pagi. Radio trukmu menyala sendiri.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 90,
+          "camera": "handheld",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 180,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 162,
+          "text": "Bayangkan kamu menyetir sendirian di jalan tol pukul dua pagi."
+        },
+        {
+          "startFrame": 162,
+          "endFrame": 225,
+          "text": "Radio trukmu menyala sendiri."
+        }
+      ],
+      "visual": {
+        "prompt": "night view from inside a truck cab on an empty Indonesian toll road, red tail lights of no other cars, rain on windshield, dashboard glow, cinematic",
+        "locationId": "ls-0003_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "pov",
+        "lighting": "dashboard_amber_glow_plus_headlights",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "camera_shake",
+          "vignette",
+          "timestamp_hud"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 147,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 194,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 185,
+      "image": "images/scene-02.png",
+      "narration": "Kamu memanggil operator. Yang menjawab bukan operator. Ia memanggil namamu.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "push_in",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 141,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 56,
+          "text": "Kamu memanggil operator."
+        },
+        {
+          "startFrame": 56,
+          "endFrame": 123,
+          "text": "Yang menjawab bukan operator."
+        },
+        {
+          "startFrame": 123,
+          "endFrame": 173,
+          "text": "Ia memanggil namamu."
+        }
+      ],
+      "visual": {
+        "prompt": "close-up of an old CB radio handset on a truck dashboard, static, dim cab interior, worn plastic, night",
+        "locationId": "ls-0003_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "dashboard_amber_glow_low",
+        "intensity": 0.7,
+        "effects": [
+          "film_grain",
+          "scanlines",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 115,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 152,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 250,
+      "image": "images/scene-03.png",
+      "narration": "Di kilometer empat puluh dua ada kilau di tengah jalan. Itu lampu depan truk lain.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 95,
+          "camera": "static",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 190,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 161,
+          "text": "Di kilometer empat puluh dua ada kilau di tengah jalan."
+        },
+        {
+          "startFrame": 161,
+          "endFrame": 238,
+          "text": "Itu lampu depan truk lain."
+        }
+      ],
+      "visual": {
+        "prompt": "empty toll road at night with a single pair of headlights approaching in the distance, wet asphalt mirror reflections, fog bank, wide cinematic",
+        "locationId": "ls-0003_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "headlight_haze_against_fog",
+        "intensity": 0.65,
+        "effects": [
+          "film_grain",
+          "volumetric_fog",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 224,
+      "image": "images/scene-04.png",
+      "narration": "Kamu menekan tombol radio. Suaramu keluar dari speaker, lebih dulu, sebelum kamu bicara.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 85,
+          "camera": "handheld",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 170,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 69,
+          "text": "Kamu menekan tombol radio."
+        },
+        {
+          "startFrame": 69,
+          "endFrame": 212,
+          "text": "Suaramu keluar dari speaker, lebih dulu, sebelum kamu bicara."
+        }
+      ],
+      "visual": {
+        "prompt": "truck interior at night with radio speaker glowing, driver seat empty, seatbelt hanging loose, motion blur, cinematic dread",
+        "locationId": "ls-0003_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "medium",
+        "lighting": "cold_moonlight_through_windshield",
+        "intensity": 0.8,
+        "effects": [
+          "film_grain",
+          "camera_shake",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 139,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 184,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 211,
+      "image": "images/scene-05.png",
+      "narration": "Empat menit rekaman berisi dua suara yang bergantian. Kamu mendengar dirimu menjawab.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 80,
+          "camera": "push_in",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 160,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 135,
+          "text": "Empat menit rekaman berisi dua suara yang bergantian."
+        },
+        {
+          "startFrame": 135,
+          "endFrame": 199,
+          "text": "Kamu mendengar dirimu menjawab."
+        }
+      ],
+      "visual": {
+        "prompt": "extreme close-up of static radio waveform on a small screen, red recording light, dark metal surface, dust, cinematic detail",
+        "locationId": "ls-0003_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "red_indicator_light_in_darkness",
+        "intensity": 0.95,
+        "effects": [
+          "scanlines",
+          "film_grain",
+          "vhs_distortion",
+          "creature_reveal"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 131,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 173,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 224,
+      "image": "images/scene-06.png",
+      "narration": "Truk itu ditemukan pukul empat pagi. Mesin menyala, dan radio masih memancarkan nafas.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 85,
+          "camera": "pull_out",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 170,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 101,
+          "text": "Truk itu ditemukan pukul empat pagi."
+        },
+        {
+          "startFrame": 101,
+          "endFrame": 212,
+          "text": "Mesin menyala, dan radio masih memancarkan nafas."
+        }
+      ],
+      "visual": {
+        "prompt": "abandoned truck parked on the shoulder of a foggy toll road before dawn, door closed, engine running, headlights on, blue hour, wide cinematic",
+        "locationId": "ls-0003_main",
+        "characterIds": [],
+        "camera": "pull_out",
+        "shot": "wide",
+        "lighting": "blue_hour_fog_headlights",
+        "intensity": 0.7,
+        "effects": [
+          "film_grain",
+          "volumetric_fog",
+          "vignette",
+          "timestamp_hud"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 139,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 184,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Truk Itu Ditemukan dengan Mesin Menyala. Radio-nya Masih Memancarkan Napas.",
+    "description": "ARSIP FIKSI — Empat menit transmisi radio dari KM 42, 02.14. Dua suara. Satu orang.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #FoundFootage #CeritaHoror",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "found footage",
+      "jalan tol",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true
+  },
+  "production": {
+    "subgenre": "Unexplained Disappearance",
+    "experiment": "Satu-satunya suara manusia adalah transmisi radio terakhir; tidak ada narator yang menjelaskan.",
+    "structure": "rekaman radio terbalik (menit terakhir → menit pertama)",
+    "slate": "stories/slate-2026-11-04.json"
+  }
+}

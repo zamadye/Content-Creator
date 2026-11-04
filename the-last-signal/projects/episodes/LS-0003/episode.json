@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 44.4,
+  "targetDurationSeconds": 48,
   "story": {
     "hook": "Bayangkan suara terakhirmu direkam, tapi yang menjawab bukan orang lain.",
     "premise": "Seorang pengemudi truk malam menghilang di jalan tol, meninggalkan transmisi radio empat menit.",
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 966,
+      "atFrame": 982,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,37 +33,37 @@
   "onScreenText": [
     {
       "text": "KM 42",
-      "startFrame": 27,
-      "endFrame": 87
+      "startFrame": 29,
+      "endFrame": 94
     },
     {
       "text": "BUKAN OPERATOR",
-      "startFrame": 719,
-      "endFrame": 779
+      "startFrame": 778,
+      "endFrame": 843
     },
     {
       "text": "PINTU TERKUNCI DARI DALAM",
-      "startFrame": 1038,
-      "endFrame": 1098
+      "startFrame": 1123,
+      "endFrame": 1188
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 237,
+      "durationFrames": 229,
       "image": "images/scene-01.png",
       "narration": "Bayangkan kamu menyetir sendirian di jalan tol pukul dua pagi. Radio trukmu menyala sendiri.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 90,
+          "atFrame": 87,
           "camera": "handheld",
           "scale": 1.3,
           "offsetY": -40
         },
         {
-          "atFrame": 180,
+          "atFrame": 174,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
@@ -72,13 +72,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 162,
+          "startFrame": 4,
+          "endFrame": 159,
           "text": "Bayangkan kamu menyetir sendirian di jalan tol pukul dua pagi."
         },
         {
-          "startFrame": 162,
-          "endFrame": 225,
+          "startFrame": 159,
+          "endFrame": 221,
           "text": "Radio trukmu menyala sendiri."
         }
       ],
@@ -103,12 +103,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 147,
+            "startFrame": 142,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 194,
+            "startFrame": 187,
             "volume": 0.4
           }
         ]
@@ -117,19 +117,19 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 185,
+      "durationFrames": 205,
       "image": "images/scene-02.png",
       "narration": "Kamu memanggil operator. Yang menjawab bukan operator. Ia memanggil namamu.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 78,
           "camera": "push_in",
           "scale": 1.3,
           "offsetY": -40
         },
         {
-          "atFrame": 141,
+          "atFrame": 156,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
@@ -138,18 +138,18 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 56,
+          "startFrame": 4,
+          "endFrame": 62,
           "text": "Kamu memanggil operator."
         },
         {
-          "startFrame": 56,
-          "endFrame": 123,
+          "startFrame": 62,
+          "endFrame": 139,
           "text": "Yang menjawab bukan operator."
         },
         {
-          "startFrame": 123,
-          "endFrame": 173,
+          "startFrame": 139,
+          "endFrame": 197,
           "text": "Ia memanggil namamu."
         }
       ],
@@ -173,12 +173,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 115,
+            "startFrame": 127,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 152,
+            "startFrame": 168,
             "volume": 0.4
           }
         ]
@@ -187,19 +187,19 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 250,
+      "durationFrames": 201,
       "image": "images/scene-03.png",
       "narration": "Di kilometer empat puluh dua ada kilau di tengah jalan. Itu lampu depan truk lain.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 95,
+          "atFrame": 76,
           "camera": "static",
           "scale": 1.3,
           "offsetY": -40
         },
         {
-          "atFrame": 190,
+          "atFrame": 153,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
@@ -208,13 +208,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 161,
+          "startFrame": 4,
+          "endFrame": 130,
           "text": "Di kilometer empat puluh dua ada kilau di tengah jalan."
         },
         {
-          "startFrame": 161,
-          "endFrame": 238,
+          "startFrame": 130,
+          "endFrame": 193,
           "text": "Itu lampu depan truk lain."
         }
       ],
@@ -238,12 +238,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 155,
+            "startFrame": 125,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 205,
+            "startFrame": 165,
             "volume": 0.4
           }
         ]
@@ -252,19 +252,19 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 224,
+      "durationFrames": 230,
       "image": "images/scene-04.png",
       "narration": "Kamu menekan tombol radio. Suaramu keluar dari speaker, lebih dulu, sebelum kamu bicara.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 85,
+          "atFrame": 87,
           "camera": "handheld",
           "scale": 1.3,
           "offsetY": -40
         },
         {
-          "atFrame": 170,
+          "atFrame": 175,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
@@ -273,13 +273,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 69,
+          "startFrame": 4,
+          "endFrame": 71,
           "text": "Kamu menekan tombol radio."
         },
         {
-          "startFrame": 69,
-          "endFrame": 212,
+          "startFrame": 71,
+          "endFrame": 222,
           "text": "Suaramu keluar dari speaker, lebih dulu, sebelum kamu bicara."
         }
       ],
@@ -303,12 +303,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 139,
+            "startFrame": 143,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 184,
+            "startFrame": 189,
             "volume": 0.4
           }
         ]
@@ -317,19 +317,19 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 211,
+      "durationFrames": 354,
       "image": "images/scene-05.png",
       "narration": "Empat menit rekaman berisi dua suara yang bergantian. Kamu mendengar dirimu menjawab.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 80,
+          "atFrame": 134,
           "camera": "push_in",
           "scale": 1.3,
           "offsetY": -40
         },
         {
-          "atFrame": 160,
+          "atFrame": 268,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
@@ -338,13 +338,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 135,
+          "startFrame": 4,
+          "endFrame": 232,
           "text": "Empat menit rekaman berisi dua suara yang bergantian."
         },
         {
-          "startFrame": 135,
-          "endFrame": 199,
+          "startFrame": 232,
+          "endFrame": 346,
           "text": "Kamu mendengar dirimu menjawab."
         }
       ],
@@ -369,12 +369,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 131,
+            "startFrame": 220,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 173,
+            "startFrame": 290,
             "volume": 0.4
           }
         ]
@@ -383,19 +383,19 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 224,
+      "durationFrames": 221,
       "image": "images/scene-06.png",
       "narration": "Truk itu ditemukan pukul empat pagi. Mesin menyala, dan radio masih memancarkan nafas.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 85,
+          "atFrame": 84,
           "camera": "pull_out",
           "scale": 1.3,
           "offsetY": -40
         },
         {
-          "atFrame": 170,
+          "atFrame": 168,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
@@ -404,13 +404,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 101,
+          "startFrame": 4,
+          "endFrame": 100,
           "text": "Truk itu ditemukan pukul empat pagi."
         },
         {
-          "startFrame": 101,
-          "endFrame": 212,
+          "startFrame": 100,
+          "endFrame": 213,
           "text": "Mesin menyala, dan radio masih memancarkan nafas."
         }
       ],
@@ -435,12 +435,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 139,
+            "startFrame": 137,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 184,
+            "startFrame": 182,
             "volume": 0.4
           }
         ]

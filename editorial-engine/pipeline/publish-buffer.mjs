@@ -209,6 +209,26 @@ const configValue = (key) => {
   return r.status === 0 ? (r.json?.value ?? null) : null;
 };
 
+/**
+ * organizationId dengan urutan: env -> config `buffer init` -> temukan sendiri.
+ * Penemuan otomatis penting untuk CI, di mana `buffer init` tidak pernah dijalankan
+ * dan menambah satu secret lagi hanya menambah titik gagal.
+ */
+const resolveOrgId = () => {
+  if (process.env.BUFFER_ORGANIZATION_ID) return { id: process.env.BUFFER_ORGANIZATION_ID, how: 'dari environment' };
+  const fromCfg = configValue('organizationId');
+  if (fromCfg) return { id: fromCfg, how: 'dari config buffer init' };
+
+  const r = runBuffer(['account', '--fields', 'organizations.id,organizations.name']);
+  if (r.status !== 0 || !r.json) return null;
+  const orgs = r.json?.account?.organizations ?? r.json?.organizations ?? [];
+  if (!orgs.length) return null;
+  if (orgs.length > 1) {
+    console.error(`[info] akun punya ${orgs.length} organisasi; memakai yang pertama. Set BUFFER_ORGANIZATION_ID untuk memilih.`);
+  }
+  return { id: orgs[0].id, how: `otomatis dari buffer account (${orgs[0].name ?? orgs[0].id})` };
+};
+
 /* ------------------------------------------------------------------ git & URL media */
 const git = (args) => {
   const r = spawnSync('git', args, { cwd: ROOT, encoding: 'utf8' });
@@ -311,10 +331,30 @@ const buildPayload = (platform, channelId, cap, mediaUrl) => {
 };
 
 /* ------------------------------------------------------------------ kanal */
+/**
+ * Cari larik kanal tanpa mengandalkan satu nama kunci tertentu.
+ * Bentuk keluaran CLI bisa `items` atau `channels`, dan `--fields` yang salah
+ * ucap membuat panggilan gagal sebelum data apa pun dikembalikan.
+ */
+const findChannelArray = (node, depth = 0) => {
+  if (!node || typeof node !== 'object' || depth > 6) return null;
+  if (Array.isArray(node) && node.length && node.every((x) => x && typeof x === 'object' && ('id' in x || 'channelId' in x) && ('service' in x || 'channelType' in x))) return node;
+  for (const v of Object.values(node)) {
+    const hit = findChannelArray(v, depth + 1);
+    if (hit) return hit;
+  }
+  return null;
+};
+
 const resolveChannels = (orgId) => {
-  const r = runBuffer(['channels', 'list', '--organization-id', orgId, '--fields', 'items.{id,service,name}']);
+  const r = runBuffer(['channels', 'list', '--organization-id', orgId]);
   if (r.status !== 0 || !r.json) die(`gagal membaca daftar kanal (exit ${r.status}). ${r.err.slice(0, 200)}`);
-  return r.json.items ?? [];
+  const arr = r.json.items ?? r.json.channels ?? findChannelArray(r.json) ?? [];
+  return arr.map((c) => ({
+    id: c.id ?? c.channelId,
+    service: c.service ?? c.channelType,
+    name: c.name ?? c.displayName ?? c.handle ?? '',
+  }));
 };
 
 /** Deteksi post kembar (posts create tidak idempoten). */
@@ -373,7 +413,9 @@ const main = async () => {
   }
 
   /* --- 2. organisasi & kanal --- */
-  const orgId = process.env.BUFFER_ORGANIZATION_ID ?? configValue('organizationId');
+  const orgInfo = resolveOrgId();
+  const orgId = orgInfo?.id;
+  if (orgId) console.log(`org     : ${orgId} (${orgInfo.how})`);
   if (!orgId) {
     console.error('✗ organizationId belum diketahui. Jalankan `buffer init` sekali, atau set BUFFER_ORGANIZATION_ID.\n');
     if (!SEND) {

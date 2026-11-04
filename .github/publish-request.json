@@ -19,5 +19,7 @@
       "dueAt": "2026-11-04T15:00:00+07:00",
       "alasan": "evergreen, pamungkas; jeda 2 jam"
     }
-  ]
+  ],
+  "_revisi": 2,
+  "_catatan_revisi": "Percobaan 1 gagal: secret BUFFER_ORGANIZATION_ID belum ada. Skrip sekarang menemukan organizationId sendiri dari `buffer account`, jadi cukup satu secret."
 }

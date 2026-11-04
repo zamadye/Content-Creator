@@ -67,8 +67,11 @@ Bila sebuah gerbang gagal: perbaiki fase itu saja, jangan ulang seluruh pipeline
 
 ## 3. Kebijakan publikasi (ini yang menjaga kanal tidak dianggap spam)
 
-1. **Satu video satu slot.** Jeda antar-publikasi **≥ 60 menit**; jadwal yang dipakai **120 menit**
-   (selaras dengan praktik 4 November 2026: 11.00 / 13.00 / 15.00 WIB).
+1. **Satu video satu slot, tiga platform sekaligus.** Setiap video langsung didistribusikan ke
+   **Instagram Reels + TikTok + YouTube Shorts** dalam satu kali kirim (`"platforms":
+   "instagram,tiktok,youtube"`). Jeda antar-*video* **≥ 60 menit**, jadwal yang dipakai **120 menit**
+   (praktik 4 November 2026: 11.00 / 13.00 / 15.00 / 19.00 WIB). Jeda itu antar-video, bukan
+   antar-platform: ketiga platform untuk satu video tayang di slot yang sama.
 2. **Slot kerja:** 11.00, 13.00, 15.00 WIB (maksimum 3/hari). Kalau produksi selesai di luar slot,
    video **ditahan** ke slot berikutnya — tidak pernah "dipaksa tayang sekarang".
 3. Mekanisme: ubah `.github/publish-request.json` → push → workflow `publish-scheduled` membaca

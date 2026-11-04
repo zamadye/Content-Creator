@@ -6,10 +6,10 @@
   "items": [
     {
       "mission": "phk-tiga-angka-2026",
-      "dueAt": "2026-11-04T21:45:00+07:00",
+      "dueAt": "2026-11-04T21:42:36+07:00",
       "alasan": "PHK 2026 v2 (gaya kartun, hukum objek) — disetujui pemilik kanal 4 Nov 2026; unggah segera ke YouTube + Facebook Reels"
     }
   ],
-  "_revisi": 6,
-  "_catatan_revisi": "Revisi 6: PHK 2026 v2 ke YouTube + Facebook Reels. Berkas video B_phk-tiga-angka-2026_1080x1920.mp4 sudah diganti isi v2 (objek konkret + hook baru)."
+  "_revisi": 7,
+  "_catatan_revisi": "Revisi 7: caption diberi pemisah '========' agar blok FACEBOOK REELS terbaca parser publish-buffer.mjs (run 41849585549 gagal di tahap itu, belum ada post yang terkirim)."
 }

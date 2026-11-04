@@ -264,7 +264,7 @@
       },
       "scenes": [
         {
-          "narration": "Bayangkan kamu perawat shift malam di rumah sakit kecil. Sebelum jam dua, kamu harus memeriksa kamar sembilan, walaupun kamar itu kosong setahun.",
+          "narration": "Bayangkan kamu perawat shift malam. Sebelum jam dua, kamu harus memeriksa kamar sembilan yang kosong setahun.",
           "imagePrompt": "empty small Indonesian hospital corridor at night, greenish fluorescent light, worn linoleum floor, rows of closed doors, nurse station in the distance, no people",
           "camera": "static",
           "shot": "wide",
@@ -278,7 +278,7 @@
           "intensity": 0.6
         },
         {
-          "narration": "Pintunya tidak terkunci. Di dalam ada tempat tidur yang rapi, selimut terlipat, dan infus yang menetes padahal tidak ada yang memakainya.",
+          "narration": "Pintunya tidak terkunci. Ada tempat tidur rapi, dan infus yang menetes padahal tidak ada pasien.",
           "imagePrompt": "empty hospital patient room at night, made bed, IV drip stand with a half full bag, curtain half drawn, single dim ceiling light, cinematic",
           "camera": "push_in",
           "shot": "medium",
@@ -291,7 +291,7 @@
           "intensity": 0.7
         },
         {
-          "narration": "Kamu membaca papan nama di kaki tempat tidur. Namamu sendiri, tertulis rapi, dengan tanggal masuk hari ini.",
+          "narration": "Kamu membaca papan nama di kaki tempat tidur. Namamu sendiri, dengan tanggal masuk hari ini.",
           "imagePrompt": "close-up of a hospital bed footboard chart with handwriting, dim light, shallow depth of field, worn paper, clinical and cold",
           "camera": "push_in",
           "shot": "closeup",
@@ -303,7 +303,7 @@
           "intensity": 0.8
         },
         {
-          "narration": "Kamu mundur dan menabrak standar infus. Selangnya masih menempel di lenganmu, dan kamu tidak ingat kapan itu dipasang.",
+          "narration": "Kamu mundur dan menabrak standar infus. Selangnya sudah menempel di lenganmu.",
           "imagePrompt": "hospital room seen from low angle, IV tube trailing across the floor toward the camera, empty bed behind, harsh light, motion blur",
           "camera": "handheld",
           "shot": "pov",
@@ -317,7 +317,7 @@
           "intensity": 0.9
         },
         {
-          "narration": "Lampu ruangan mati. Ketika menyala lagi, tempat tidur sudah terisi, dan selimut itu menutupi bentuk yang persis sebesar tubuhmu.",
+          "narration": "Lampu mati. Saat menyala, tempat tidur sudah terisi, dan selimut menutupi bentuk sebesar tubuhmu.",
           "imagePrompt": "hospital bed with a sheet draped over a body shaped form, face covered, IV connected, dark room, single light above, cinematic horror",
           "camera": "static",
           "shot": "wide",
@@ -331,7 +331,7 @@
           "intensity": 1
         },
         {
-          "narration": "Pagi itu papan jadwal menunjukkan shift malam berikutnya atas namamu. Tanggalnya minggu depan. Di sebelahnya ada tanggal keluar yang tidak pernah kamu isi.",
+          "narration": "Pagi itu papan jadwal menunjukkan shift malam berikutnya atas namamu. Tanggalnya minggu depan.",
           "imagePrompt": "hospital staff schedule whiteboard in morning light, handwriting rows, red marker circle on one name, empty nurse station, cinematic",
           "camera": "pull_out",
           "shot": "medium",

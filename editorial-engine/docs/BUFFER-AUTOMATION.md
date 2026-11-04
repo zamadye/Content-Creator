@@ -263,3 +263,27 @@ dibatasi ke platform yang gagal saja — `"platforms": "instagram"` di berkas pe
 - **Facebook** — belum ada halaman tersambung di Buffer.
 - **mbg-gizi-anak** — belum punya `caption_mbg-gizi-anak.txt` dan `T_mbg-gizi-anak_1080x1920.png`,
   jadi skrip menolak sebelum menyentuh API (memang seharusnya begitu).
+
+## §10. Kiriman keempat: misi 8 — BSU (4 November 2026)
+
+Permintaan `_revisi: 4`, satu item, tiga platform. **Terverifikasi lewat anotasi run
+`41776475749`** (job `kirim`, langkah "Verifikasi antrean" hijau):
+
+| Platform | Post id | Jadwal |
+|---|---|---|
+| Instagram | `6aeabbc5b8d162e0d8053495` | 2026-11-04T17:00+07:00 |
+| TikTok | `6aeabbc687b7c6d24c901a89` | idem |
+| YouTube | `6aeabbc7b8d162e0d8053500` | idem |
+
+Total post di Buffer setelah kiriman ini: **16** (12 terjadwal + sisanya sudah terkirim).
+
+Catatan baru:
+
+1. **Jeda 2 jam dihitung dari post terakhir yang sudah ada di antrean** (15.00 WIB), bukan dari
+   jam unggah berkas permintaan — karena itu `dueAt` 17.00 WIB.
+2. **Media 8 730 778 B** diunduh Buffer dari `raw.githubusercontent.com/.../<sha>/...mp4` dengan
+   `content-type: application/octet-stream`. Ketiga platform tetap menerimanya; peringatan di log
+   bersifat informatif.
+3. **`inspect-buffer.mjs` tidak bisa dipakai di sandbox** (tidak ada CLI `buffer`, dan
+   `api.buffer.com` mengembalikan `000`). Verifikasi antrean **hanya** lewat anotasi job:
+   `gh api /repos/zamadye/Content-Creator/check-runs/<job_id>/annotations`.

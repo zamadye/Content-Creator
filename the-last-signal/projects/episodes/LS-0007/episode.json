@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 48.7,
+  "targetDurationSeconds": 51.1,
   "story": {
     "hook": "Dinding itu dibongkar dan ada ruangan yang tidak ada di denah. Isinya koran tahun depan.",
     "premise": "Pekerja renovasi rumah tua di Bandung menemukan ruang tertutup berisi koran bertanggal masa depan.",
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 1051,
+      "atFrame": 1023,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,44 +33,44 @@
   "onScreenText": [
     {
       "text": "TIDAK ADA DI DENAH",
-      "startFrame": 29,
-      "endFrame": 89
+      "startFrame": 30,
+      "endFrame": 93
     },
     {
       "text": "TAHUN DEPAN",
-      "startFrame": 789,
-      "endFrame": 849
+      "startFrame": 828,
+      "endFrame": 891
     },
     {
       "text": "FOTO ITU DARI DALAM",
-      "startFrame": 1140,
-      "endFrame": 1200
+      "startFrame": 1196,
+      "endFrame": 1259
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 250,
+      "durationFrames": 252,
       "image": "images/scene-01.png",
       "narration": "Dinding itu dibongkar dan ada ruangan yang tidak ada di denah. Isinya koran tahun depan.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 71,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 140,
+          "atFrame": 141,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 205,
+          "atFrame": 207,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -79,13 +79,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 176,
+          "startFrame": 4,
+          "endFrame": 180,
           "text": "Dinding itu dibongkar dan ada ruangan yang tidak ada di denah."
         },
         {
-          "startFrame": 176,
-          "endFrame": 238,
+          "startFrame": 180,
+          "endFrame": 244,
           "text": "Isinya koran tahun depan."
         }
       ],
@@ -109,12 +109,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 155,
+            "startFrame": 156,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 205,
+            "startFrame": 207,
             "volume": 0.4
           }
         ]
@@ -151,13 +151,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
+          "startFrame": 4,
           "endFrame": 100,
           "text": "Ruang itu setinggi bahu orang dewasa."
         },
         {
           "startFrame": 100,
-          "endFrame": 225,
+          "endFrame": 229,
           "text": "Di lantainya, tumpukan koran yang belum pernah diterbitkan."
         }
       ],
@@ -196,26 +196,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 237,
+      "durationFrames": 226,
       "image": "images/scene-03.png",
       "narration": "Salah satu koran menulis tentang rumah ini: perbaikan dinding, tanggal hari ini, nama kalian.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 66,
+          "atFrame": 63,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 133,
+          "atFrame": 127,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 194,
+          "atFrame": 185,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -224,8 +224,8 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 225,
+          "startFrame": 4,
+          "endFrame": 218,
           "text": "Salah satu koran menulis tentang rumah ini: perbaikan dinding, tanggal hari ini, nama kalian."
         }
       ],
@@ -248,12 +248,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 147,
+            "startFrame": 140,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 194,
+            "startFrame": 185,
             "volume": 0.4
           }
         ]
@@ -262,26 +262,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 263,
+      "durationFrames": 237,
       "image": "images/scene-04.png",
       "narration": "Kamu memeriksa bagian bawah tumpukan. Setiap tahun ada satu halaman tentang orang yang tinggal di sini.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 74,
+          "atFrame": 67,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 147,
+          "atFrame": 132,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 216,
+          "atFrame": 195,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -290,13 +290,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 83,
+          "startFrame": 4,
+          "endFrame": 74,
           "text": "Kamu memeriksa bagian bawah tumpukan."
         },
         {
-          "startFrame": 83,
-          "endFrame": 251,
+          "startFrame": 74,
+          "endFrame": 229,
           "text": "Setiap tahun ada satu halaman tentang orang yang tinggal di sini."
         }
       ],
@@ -320,12 +320,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 163,
+            "startFrame": 147,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 216,
+            "startFrame": 195,
             "volume": 0.4
           }
         ]
@@ -334,26 +334,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 237,
+      "durationFrames": 262,
       "image": "images/scene-05.png",
       "narration": "Lampu kalian mati. Saat menyala, semua koran terbuka di halaman yang sama, bertanggal besok.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 66,
+          "atFrame": 73,
           "camera": "pull_out",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 133,
+          "atFrame": 147,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 194,
+          "atFrame": 214,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -362,13 +362,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 53,
+          "startFrame": 4,
+          "endFrame": 58,
           "text": "Lampu kalian mati."
         },
         {
-          "startFrame": 53,
-          "endFrame": 225,
+          "startFrame": 58,
+          "endFrame": 254,
           "text": "Saat menyala, semua koran terbuka di halaman yang sama, bertanggal besok."
         }
       ],
@@ -393,12 +393,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 147,
+            "startFrame": 163,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 194,
+            "startFrame": 214,
             "volume": 0.4
           }
         ]
@@ -407,26 +407,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 237,
+      "durationFrames": 319,
       "image": "images/scene-06.png",
       "narration": "Halaman terakhir berisi foto kalian bertiga di ruangan ini. Tanggalnya 1998. Kalian belum lahir.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 66,
+          "atFrame": 89,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 133,
+          "atFrame": 179,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 194,
+          "atFrame": 261,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -435,18 +435,18 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 147,
+          "startFrame": 4,
+          "endFrame": 201,
           "text": "Halaman terakhir berisi foto kalian bertiga di ruangan ini."
         },
         {
-          "startFrame": 147,
-          "endFrame": 178,
+          "startFrame": 201,
+          "endFrame": 245,
           "text": "Tanggalnya 1998."
         },
         {
-          "startFrame": 178,
-          "endFrame": 225,
+          "startFrame": 245,
+          "endFrame": 311,
           "text": "Kalian belum lahir."
         }
       ],
@@ -470,12 +470,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 147,
+            "startFrame": 198,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 194,
+            "startFrame": 261,
             "volume": 0.4
           }
         ]

@@ -639,7 +639,7 @@
         "hook": "Bayangkan kamu membongkar dinding dan menemukan ruangan yang tidak ada di denah rumah.",
         "premise": "Pekerja renovasi rumah tua di Bandung menemukan ruang tertutup berisi koran bertanggal masa depan.",
         "twist": "Koran-koran itu bukan ramalan. Itu catatan ruangan tersebut tentang penghuninya.",
-        "ending": "Halaman terakhir memuat foto tim renovasi itu sendiri, diambil di dalam ruangan, dari sudut yang tidak mungkin."
+        "ending": "Halaman terakhir memuat foto mereka bertiga di dalam ruangan itu, bertanggal 1998 — puluhan tahun sebelum mereka masuk."
       },
       "scenes": [
         {
@@ -656,7 +656,7 @@
           "intensity": 0.6
         },
         {
-          "narration": "Ruang itu setinggi bahu. Di lantainya ada tumpukan koran, dan semua bertanggal tahun depan.",
+          "narration": "Ruang itu setinggi bahu orang dewasa. Di lantainya, tumpukan koran yang belum pernah diterbitkan.",
           "imagePrompt": "cramped hidden room behind a wall filled with neatly stacked old newspapers, flashlight beam, dust, close walls, cinematic detail",
           "camera": "handheld",
           "shot": "pov",
@@ -709,7 +709,7 @@
           "intensity": 1
         },
         {
-          "narration": "Halaman terakhir berisi foto kalian bertiga, diambil dari sudut tempat tidak ada orang bisa berdiri.",
+          "narration": "Halaman terakhir berisi foto kalian bertiga di ruangan ini. Tanggalnya 1998. Kalian belum lahir.",
           "imagePrompt": "grainy black and white photograph of three construction workers standing in front of an old house, shot from an impossible low corner, aged paper texture",
           "camera": "static",
           "shot": "closeup",
@@ -736,7 +736,7 @@
         "durationFrames": 16
       },
       "youtube": {
-        "title": "Di Balik Dinding Itu Ada Ruangan yang Tidak Ada di Denah Rumah",
+        "title": "Dinding Itu Dibongkar. Di Baliknya Ada Ruangan yang Tidak Ada di Denah.",
         "description": "ARSIP FIKSI — Renovasi rumah tua di Bandung, temuan ruang tertutup, koran bertanggal tahun depan.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #DisturbingDiscovery #CeritaHoror",
         "tags": [
           "cerita horor",

@@ -1,0 +1,512 @@
+{
+  "episodeId": "LS-0007",
+  "title": "Ruang Tanpa Pintu",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 48.7,
+  "story": {
+    "hook": "Bayangkan kamu membongkar dinding dan menemukan ruangan yang tidak ada di denah rumah.",
+    "premise": "Pekerja renovasi rumah tua di Bandung menemukan ruang tertutup berisi koran bertanggal masa depan.",
+    "twist": "Koran-koran itu bukan ramalan. Itu catatan ruangan tersebut tentang penghuninya.",
+    "ending": "Halaman terakhir memuat foto mereka bertiga di dalam ruangan itu, bertanggal 1998 — puluhan tahun sebelum mereka masuk."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [
+    {
+      "atFrame": 1051,
+      "image": "images/scare-face.png",
+      "assetId": "audio/sfx/scare.wav",
+      "volume": 0.95,
+      "flash": 0.9,
+      "shake": 0.9,
+      "zoom": 1.44,
+      "durationFrames": 16
+    }
+  ],
+  "onScreenText": [
+    {
+      "text": "TIDAK ADA DI DENAH",
+      "startFrame": 29,
+      "endFrame": 89
+    },
+    {
+      "text": "TAHUN DEPAN",
+      "startFrame": 789,
+      "endFrame": 849
+    },
+    {
+      "text": "FOTO ITU DARI DALAM",
+      "startFrame": 1140,
+      "endFrame": 1200
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 250,
+      "image": "images/scene-01.png",
+      "narration": "Dinding itu dibongkar dan ada ruangan yang tidak ada di denah. Isinya koran tahun depan.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 176,
+          "text": "Dinding itu dibongkar dan ada ruangan yang tidak ada di denah."
+        },
+        {
+          "startFrame": 176,
+          "endFrame": 238,
+          "text": "Isinya koran tahun depan."
+        }
+      ],
+      "visual": {
+        "prompt": "renovation site inside an old Indonesian house, broken plaster wall revealing a dark cavity, dust in the air, tools on floor, cinematic",
+        "locationId": "ls-0007_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "work_lamp_3200k_dusty_air",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "volumetric_fog",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 237,
+      "image": "images/scene-02.png",
+      "narration": "Ruang itu setinggi bahu orang dewasa. Di lantainya, tumpukan koran yang belum pernah diterbitkan.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 66,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 133,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 194,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 100,
+          "text": "Ruang itu setinggi bahu orang dewasa."
+        },
+        {
+          "startFrame": 100,
+          "endFrame": 225,
+          "text": "Di lantainya, tumpukan koran yang belum pernah diterbitkan."
+        }
+      ],
+      "visual": {
+        "prompt": "cramped hidden room behind a wall filled with neatly stacked old newspapers, flashlight beam, dust, close walls, cinematic detail",
+        "locationId": "ls-0007_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "pov",
+        "lighting": "flashlight_in_dark_void",
+        "intensity": 0.8,
+        "effects": [
+          "flashlight",
+          "film_grain",
+          "vignette",
+          "camera_shake"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 147,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 194,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 237,
+      "image": "images/scene-03.png",
+      "narration": "Salah satu koran menulis tentang rumah ini: perbaikan dinding, tanggal hari ini, nama kalian.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 66,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 133,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 194,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 225,
+          "text": "Salah satu koran menulis tentang rumah ini: perbaikan dinding, tanggal hari ini, nama kalian."
+        }
+      ],
+      "visual": {
+        "prompt": "close-up of a yellowed newspaper clipping about a house renovation, names visible, dim flashlight light, shallow depth of field",
+        "locationId": "ls-0007_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "flashlight_close_2900k",
+        "intensity": 0.75,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 147,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 194,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 263,
+      "image": "images/scene-04.png",
+      "narration": "Kamu memeriksa bagian bawah tumpukan. Setiap tahun ada satu halaman tentang orang yang tinggal di sini.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 74,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 147,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 216,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 83,
+          "text": "Kamu memeriksa bagian bawah tumpukan."
+        },
+        {
+          "startFrame": 83,
+          "endFrame": 251,
+          "text": "Setiap tahun ada satu halaman tentang orang yang tinggal di sini."
+        }
+      ],
+      "visual": {
+        "prompt": "hands not visible, stacks of newspapers with different years, dark small room, dust particles in a beam of light, cinematic",
+        "locationId": "ls-0007_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "single_beam_through_crack",
+        "intensity": 0.7,
+        "effects": [
+          "volumetric_fog",
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 163,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 216,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 237,
+      "image": "images/scene-05.png",
+      "narration": "Lampu kalian mati. Saat menyala, semua koran terbuka di halaman yang sama, bertanggal besok.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 66,
+          "camera": "pull_out",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 133,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 194,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 53,
+          "text": "Lampu kalian mati."
+        },
+        {
+          "startFrame": 53,
+          "endFrame": 225,
+          "text": "Saat menyala, semua koran terbuka di halaman yang sama, bertanggal besok."
+        }
+      ],
+      "visual": {
+        "prompt": "small hidden room with dozens of newspapers open on the floor all showing the same page, harsh flashlight, no people, horror composition",
+        "locationId": "ls-0007_main",
+        "characterIds": [],
+        "camera": "pull_out",
+        "shot": "wide",
+        "lighting": "harsh_flashlight_full",
+        "intensity": 1,
+        "effects": [
+          "creature_reveal",
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 147,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 194,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 237,
+      "image": "images/scene-06.png",
+      "narration": "Halaman terakhir berisi foto kalian bertiga di ruangan ini. Tanggalnya 1998. Kalian belum lahir.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 66,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 133,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 194,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 147,
+          "text": "Halaman terakhir berisi foto kalian bertiga di ruangan ini."
+        },
+        {
+          "startFrame": 147,
+          "endFrame": 178,
+          "text": "Tanggalnya 1998."
+        },
+        {
+          "startFrame": 178,
+          "endFrame": 225,
+          "text": "Kalian belum lahir."
+        }
+      ],
+      "visual": {
+        "prompt": "grainy black and white photograph of three construction workers standing in front of an old house, shot from an impossible low corner, aged paper texture",
+        "locationId": "ls-0007_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "flat_photo_scan",
+        "intensity": 0.6,
+        "effects": [
+          "scanlines",
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 147,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 194,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Dinding Itu Dibongkar. Di Baliknya Ada Ruangan yang Tidak Ada di Denah.",
+    "description": "ARSIP FIKSI — Renovasi rumah tua di Bandung, temuan ruang tertutup, koran bertanggal tahun depan.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #DisturbingDiscovery #CeritaHoror",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "penemuan",
+      "rumah tua",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "thumbnail": {
+      "headline": "RUANG ITU TIDAK ADA DI DENAH",
+      "kicker": "BANDUNG · 14.20",
+      "image": "images/thumb.png",
+      "holdFrames": 12
+    }
+  },
+  "production": {
+    "subgenre": "Disturbing Discovery",
+    "experiment": "Temuan fisik sebagai pusat horor; tidak ada entitas yang terlihat sampai akhir.",
+    "structure": "penemuan (ruang rahasia → isi → konsekuensi)",
+    "slate": "stories/slate-2026-11-04.json"
+  }
+}

@@ -1,0 +1,483 @@
+{
+  "episodeId": "LS-0002",
+  "title": "Siaran Jam Sebelas",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 56.1,
+  "story": {
+    "hook": "Bayangkan kamu menonton televisi jam sebelas malam, dan pembawa acaranya menyebut namamu.",
+    "premise": "Seorang penonton merekam siaran TV daerah tahun 1996 yang berhenti mengudara dua belas tahun lalu.",
+    "twist": "Pembawa acara tidak sedang menyapa penonton. Ia sedang menghitung siapa yang masih menonton.",
+    "ending": "Di menit terakhir, angka di sudut layar berubah dari jumlah penonton menjadi jumlah orang di dalam rumah."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [
+    {
+      "atFrame": 1375,
+      "image": "images/scare-face.png",
+      "assetId": "audio/sfx/scare.wav",
+      "volume": 0.95,
+      "flash": 0.85,
+      "shake": 0.95,
+      "zoom": 1.42,
+      "durationFrames": 16
+    }
+  ],
+  "onScreenText": [
+    {
+      "text": "28 TAHUN LALU",
+      "startFrame": 33,
+      "endFrame": 91
+    },
+    {
+      "text": "HITUNG LAGI",
+      "startFrame": 908,
+      "endFrame": 966
+    },
+    {
+      "text": "KAMU MASIH DI SANA",
+      "startFrame": 1313,
+      "endFrame": 1370
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 277,
+      "image": "images/scene-01.png",
+      "narration": "Bayangkan kamu menonton televisi jam sebelas malam. Siaran berhenti, layar jadi abu-abu, lalu kembali menyala sendiri.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 105,
+          "camera": "static",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 211,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 120,
+          "text": "Bayangkan kamu menonton televisi jam sebelas malam."
+        },
+        {
+          "startFrame": 120,
+          "endFrame": 269,
+          "text": "Siaran berhenti, layar jadi abu-abu, lalu kembali menyala sendiri."
+        }
+      ],
+      "visual": {
+        "prompt": "1990s Indonesian television studio, dusty CRT monitor glow, empty wooden stage set, single presenter chair under a bare bulb, static haze, analog video look, wide shot, no people",
+        "locationId": "ls-0002_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "single_bare_bulb_3200k_deep_shadow",
+        "intensity": 0.72,
+        "effects": [
+          "vhs_distortion",
+          "scanlines",
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 172,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 227,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 190,
+      "image": "images/scene-02.png",
+      "narration": "Pembawa acara tersenyum ke kamera dan menyebut nama jalanmu. Ia menyebut nomor rumahmu. Kamu belum pernah menonton ini sebelumnya.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 72,
+          "camera": "push_in",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 145,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 88,
+          "text": "Pembawa acara tersenyum ke kamera dan menyebut nama jalanmu."
+        },
+        {
+          "startFrame": 88,
+          "endFrame": 125,
+          "text": "Ia menyebut nomor rumahmu."
+        },
+        {
+          "startFrame": 125,
+          "endFrame": 182,
+          "text": "Kamu belum pernah menonton ini sebelumnya."
+        }
+      ],
+      "visual": {
+        "prompt": "1990s Indonesian TV host chair and microphone on a small studio stage seen from viewer height, harsh studio light, dust motes, empty chair, analog noise",
+        "locationId": "ls-0002_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "harsh_studio_flat_4000k",
+        "intensity": 0.8,
+        "effects": [
+          "vhs_distortion",
+          "scanlines",
+          "timestamp_hud",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 118,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 156,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 257,
+      "image": "images/scene-03.png",
+      "narration": "Ia bertanya siapa yang masih menonton. Di sudut layar ada angka kecil, dan angka itu turun satu setiap kali ada yang berhenti.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 98,
+          "camera": "pull_out",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 195,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 71,
+          "text": "Ia bertanya siapa yang masih menonton."
+        },
+        {
+          "startFrame": 71,
+          "endFrame": 249,
+          "text": "Di sudut layar ada angka kecil, dan angka itu turun satu setiap kali ada yang berhenti."
+        }
+      ],
+      "visual": {
+        "prompt": "close-up of a CRT television screen showing a dim studio and a small counter in the corner, heavy chromatic aberration, curved glass reflection in a dark living room",
+        "locationId": "ls-0002_main",
+        "characterIds": [],
+        "camera": "pull_out",
+        "shot": "closeup",
+        "lighting": "crt_screen_glow_bluish_6500k",
+        "intensity": 0.85,
+        "effects": [
+          "scanlines",
+          "vhs_distortion",
+          "film_grain"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 159,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 211,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 305,
+      "image": "images/scene-04.png",
+      "narration": "Kamu menoleh ke belakang. Ruanganmu gelap dan kosong. Saat kamu menoleh kembali, kamera sudah lebih dekat dari sebelumnya.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 116,
+          "camera": "handheld",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 232,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 69,
+          "text": "Kamu menoleh ke belakang."
+        },
+        {
+          "startFrame": 69,
+          "endFrame": 134,
+          "text": "Ruanganmu gelap dan kosong."
+        },
+        {
+          "startFrame": 134,
+          "endFrame": 297,
+          "text": "Saat kamu menoleh kembali, kamera sudah lebih dekat dari sebelumnya."
+        }
+      ],
+      "visual": {
+        "prompt": "dark Indonesian living room at night, plastic chairs, tiled floor, one CRT TV glowing, doorway to a dark hallway, empty, cinematic low light",
+        "locationId": "ls-0002_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "pov",
+        "lighting": "practical_tv_glow_plus_corridor_leak",
+        "intensity": 0.9,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "camera_shake",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 189,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 250,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 267,
+      "image": "images/scene-05.png",
+      "narration": "Angka di sudut layar sekarang satu. Kamu berdiri mendekat untuk membaca, dan pembawa acara berhenti bicara.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 102,
+          "camera": "push_in",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 203,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 100,
+          "text": "Angka di sudut layar sekarang satu."
+        },
+        {
+          "startFrame": 100,
+          "endFrame": 259,
+          "text": "Kamu berdiri mendekat untuk membaca, dan pembawa acara berhenti bicara."
+        }
+      ],
+      "visual": {
+        "prompt": "extreme close-up of a 1990s presenters face on a CRT screen, overexposed white, deadpan stare, analog tape artifacts, heavy grain",
+        "locationId": "ls-0002_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "overexposed_screen_white",
+        "intensity": 1,
+        "effects": [
+          "vhs_distortion",
+          "scanlines",
+          "creature_reveal",
+          "film_grain"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 165,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 219,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 387,
+      "image": "images/scene-06.png",
+      "narration": "Lalu angka itu berubah, bukan jadi nol, tapi jadi jumlah orang di dalam rumahmu. Rekaman berhenti. Televisimu tetap menyala.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 147,
+          "camera": "static",
+          "scale": 1.3,
+          "offsetY": -40
+        },
+        {
+          "atFrame": 295,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 60
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 280,
+          "text": "Lalu angka itu berubah, bukan jadi nol, tapi jadi jumlah orang di dalam rumahmu."
+        },
+        {
+          "startFrame": 280,
+          "endFrame": 319,
+          "text": "Rekaman berhenti."
+        },
+        {
+          "startFrame": 319,
+          "endFrame": 379,
+          "text": "Televisimu tetap menyala."
+        }
+      ],
+      "visual": {
+        "prompt": "empty dark room with a television still glowing after broadcast ended, static snow on screen, single chair knocked over, night, cinematic",
+        "locationId": "ls-0002_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "single_screen_glow_after_dark",
+        "intensity": 0.75,
+        "effects": [
+          "scanlines",
+          "film_grain",
+          "vignette",
+          "timestamp_hud"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 240,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 318,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "TV Daerah Itu Berhenti Mengudara 28 Tahun Lalu. Malam Ini Ia Menyebut Namamu.",
+    "description": "ARSIP FIKSI — Rekaman VHS siaran lokal, 23.11. Pembawa acara menyebut nama penonton dan menghitung mundur.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #AnalogHorror #CeritaHoror",
+    "tags": [
+      "analog horror",
+      "cerita horor",
+      "horor indonesia",
+      "vhs",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true
+  },
+  "production": {
+    "subgenre": "Analog Horror",
+    "experiment": "Format log siaran: narasi mengikuti urutan jam, bukan urutan kejadian.",
+    "structure": "kronologis jam (23.00 → 23.59)",
+    "slate": "stories/slate-2026-11-04.json"
+  }
+}

@@ -1,0 +1,122 @@
+name: Publikasikan ke YouTube
+
+# ---------------------------------------------------------------------------
+#  Kenapa di sini: zernio.com tidak dapat dihubungi dari sandbox, runner Actions
+#  punya internet penuh. Video diangkut lewat repo (the-last-signal/releases/),
+#  diunggah ke storage Zernio dari runner, lalu dipublikasikan ke YouTube.
+#
+#  Antrean = file JSON baru di the-last-signal/publish-queue/. Satu file = satu
+#  video = satu kali jalan. File yang sudah ada tidak diproses ulang, jadi
+#  retry tidak akan menghasilkan unggahan ganda.
+#
+#  Gerbang QC ada di zernio-publish.mjs: kalau resolusi/fps/durasi/codec/
+#  loudness/true peak/ukuran gagal, proses berhenti SEBELUM ada byte yang
+#  diunggah ke Zernio.
+#
+#  JANGAN menambahkan pemicu pull_request / pull_request_target.
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    paths:
+      - 'the-last-signal/publish-queue/*.json'
+  workflow_dispatch:
+    inputs:
+      request:
+        description: 'Path permintaan (mis. the-last-signal/publish-queue/2026-11-04T04-30-LS-0002.json)'
+        required: true
+      konfirmasi:
+        description: 'Ketik PUBLISH untuk benar-benar mengunggah'
+        required: true
+        default: 'tidak'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zernio-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: QC → upload → publikasi
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    env:
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+      ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
+      ZERNIO_YOUTUBE_ACCOUNT_ID: ${{ vars.ZERNIO_YOUTUBE_ACCOUNT_ID }}
+
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Pasang Node 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Sembunyikan nilai rahasia dari log
+        run: |
+          set -euo pipefail
+          [ -n "${ZERNIO_API_KEY:-}" ] && echo "::add-mask::${ZERNIO_API_KEY}"
+          [ -n "${ZERNIO_KEY:-}" ] && echo "::add-mask::${ZERNIO_KEY}"
+          exit 0
+
+      - name: Tentukan permintaan yang akan dijalankan
+        id: req
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ inputs.konfirmasi }}" != "PUBLISH" ]; then
+              echo "::error::Konfirmasi tidak bernilai PUBLISH — dibatalkan."
+              exit 1
+            fi
+            REQ="${{ inputs.request }}"
+          else
+            REQ=$(git diff --name-only --diff-filter=A "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json' | head -1)
+          fi
+
+          if [ -z "${REQ:-}" ]; then
+            echo "::error::Tidak ada permintaan publikasi baru pada push ini."
+            exit 1
+          fi
+          # Hanya satu permintaan per jalan: jeda antar-upload dijaga manusia,
+          # bukan oleh loop di dalam workflow.
+          COUNT=$(git diff --name-only --diff-filter=A "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json' | wc -l | tr -d ' ')
+          if [ "${{ github.event_name }}" = "push" ] && [ "$COUNT" -gt 1 ]; then
+            echo "::error::$COUNT permintaan baru dalam satu push. Tambahkan satu per satu agar jeda antar-video terjaga."
+            exit 1
+          fi
+          [ -f "$REQ" ] || { echo "::error::File permintaan tidak ada: $REQ"; exit 1; }
+          echo "request=$REQ" >> "$GITHUB_OUTPUT"
+          echo "::notice::Permintaan: $REQ"
+
+      - name: Verifikasi berkas media ada di checkout
+        run: |
+          set -euo pipefail
+          MEDIA=$(node -e "const r=require('./' + process.argv[1]);console.log(r.media ?? 'the-last-signal/releases/' + r.episodeId + '.mp4')" "${{ steps.req.outputs.request }}")
+          echo "::notice::Media: $MEDIA"
+          [ -f "$MEDIA" ] || { echo "::error::Media tidak ada di repo: $MEDIA (commit dulu filenya ke the-last-signal/releases/)"; exit 1; }
+          ls -la "$MEDIA"
+
+      - name: Pasang SDK Zernio
+        working-directory: the-last-signal/tools/publish
+        run: npm install --no-audit --no-fund --loglevel=error
+
+      - name: QC + unggah + publikasikan
+        working-directory: the-last-signal/tools/publish
+        run: node zernio-publish.mjs --request "../../../${REQ}"
+        env:
+          REQ: ${{ steps.req.outputs.request }}
+
+      - name: Publikasikan laporan
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-report
+          path: the-last-signal/report/publish-*.json
+          if-no-files-found: warn

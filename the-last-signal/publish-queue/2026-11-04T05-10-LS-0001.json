@@ -1,0 +1,30 @@
+{
+  "episodeId": "LS-0001",
+  "createdAt": "2026-11-04T05:10:08.572Z",
+  "media": "the-last-signal/releases/LS-0001.mp4",
+  "episode": {
+    "title": "Ketukan Ketiga",
+    "subgenre": null,
+    "structure": null,
+    "durationSeconds": 57.1,
+    "scenes": 6,
+    "jumpscares": 2
+  },
+  "youtube": {
+    "title": "Jangan Pernah Membuka Lemari Itu Dua Kali",
+    "description": "ARSIP FIKSI — Rekaman CCTV lantai tujuh, 03.17. Ketukan pertama pukul satu. Kedua pukul dua. Ketiga selalu pukul tiga lewat tujuh belas.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #FoundFootage",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "found footage",
+      "the last signal",
+      "arsip fiksi"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
+  }
+}

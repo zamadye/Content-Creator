@@ -1,0 +1,696 @@
+{
+  "generatedAt": "2026-11-04",
+  "channel": "THE LAST SIGNAL",
+  "rules": {
+    "hook": "Kalimat pertama wajib membuka dengan ajakan membayangkan/merasakan, bukan penjelasan latar.",
+    "pov": "Orang kedua. Penonton adalah yang mengalami, bukan yang membaca laporan.",
+    "disclosure": "Setiap deskripsi memuat kata 'fiksi' dan pengungkapan visual AI.",
+    "length": "6 scene, 45–57 detik, satu jumpscare utama setelah detik ke-25."
+  },
+  "episodes": [
+    {
+      "episodeId": "LS-0002",
+      "subgenre": "Analog Horror",
+      "experiment": "Format log siaran: narasi mengikuti urutan jam, bukan urutan kejadian.",
+      "structure": "kronologis jam (23.00 → 23.59)",
+      "story": {
+        "title": "Siaran Jam Sebelas",
+        "hook": "Bayangkan kamu menonton televisi jam sebelas malam, dan pembawa acaranya menyebut namamu.",
+        "premise": "Seorang penonton merekam siaran TV daerah tahun 1996 yang berhenti mengudara dua belas tahun lalu.",
+        "twist": "Pembawa acara tidak sedang menyapa penonton. Ia sedang menghitung siapa yang masih menonton.",
+        "ending": "Di menit terakhir, angka di sudut layar berubah dari jumlah penonton menjadi jumlah orang di dalam rumah."
+      },
+      "scenes": [
+        {
+          "narration": "Bayangkan kamu menonton televisi jam sebelas malam. Siaran berhenti, layar jadi abu-abu, lalu kembali menyala sendiri.",
+          "imagePrompt": "1990s Indonesian television studio, dusty CRT monitor glow, empty wooden stage set, single presenter chair under a bare bulb, static haze, analog video look, wide shot, no people",
+          "camera": "static",
+          "shot": "wide",
+          "lighting": "single_bare_bulb_3200k_deep_shadow",
+          "effects": ["vhs_distortion", "scanlines", "film_grain", "vignette"],
+          "intensity": 0.72
+        },
+        {
+          "narration": "Pembawa acara tersenyum ke kamera dan menyebut nama jalanmu. Ia menyebut nomor rumahmu. Kamu belum pernah menonton ini sebelumnya.",
+          "imagePrompt": "1990s Indonesian TV host chair and microphone on a small studio stage seen from viewer height, harsh studio light, dust motes, empty chair, analog noise",
+          "camera": "push_in",
+          "shot": "medium",
+          "lighting": "harsh_studio_flat_4000k",
+          "effects": ["vhs_distortion", "scanlines", "timestamp_hud", "light_flicker"],
+          "intensity": 0.8
+        },
+        {
+          "narration": "Ia bertanya siapa yang masih menonton. Di sudut layar ada angka kecil, dan angka itu turun satu setiap kali ada yang berhenti.",
+          "imagePrompt": "close-up of a CRT television screen showing a dim studio and a small counter in the corner, heavy chromatic aberration, curved glass reflection in a dark living room",
+          "camera": "pull_out",
+          "shot": "closeup",
+          "lighting": "crt_screen_glow_bluish_6500k",
+          "effects": ["scanlines", "vhs_distortion", "film_grain"],
+          "intensity": 0.85
+        },
+        {
+          "narration": "Kamu menoleh ke belakang. Ruanganmu gelap dan kosong. Saat kamu menoleh kembali, kamera sudah lebih dekat dari sebelumnya.",
+          "imagePrompt": "dark Indonesian living room at night, plastic chairs, tiled floor, one CRT TV glowing, doorway to a dark hallway, empty, cinematic low light",
+          "camera": "handheld",
+          "shot": "pov",
+          "lighting": "practical_tv_glow_plus_corridor_leak",
+          "effects": ["film_grain", "vignette", "camera_shake", "light_flicker"],
+          "intensity": 0.9
+        },
+        {
+          "narration": "Angka di sudut layar sekarang satu. Kamu berdiri mendekat untuk membaca, dan pembawa acara berhenti bicara.",
+          "imagePrompt": "extreme close-up of a 1990s presenters face on a CRT screen, overexposed white, deadpan stare, analog tape artifacts, heavy grain",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "overexposed_screen_white",
+          "effects": ["vhs_distortion", "scanlines", "creature_reveal", "film_grain"],
+          "intensity": 1
+        },
+        {
+          "narration": "Lalu angka itu berubah, bukan jadi nol, tapi jadi jumlah orang di dalam rumahmu. Rekaman berhenti. Televisimu tetap menyala.",
+          "imagePrompt": "empty dark room with a television still glowing after broadcast ended, static snow on screen, single chair knocked over, night, cinematic",
+          "camera": "static",
+          "shot": "wide",
+          "lighting": "single_screen_glow_after_dark",
+          "effects": ["scanlines", "film_grain", "vignette", "timestamp_hud"],
+          "intensity": 0.75
+        }
+      ],
+      "cards": ["28 TAHUN LALU", "HITUNG LAGI", "KAMU MASIH DI SANA"],
+      "jumpscare": { "atScene": 5, "atFrameOffset": 62, "flash": 0.85, "shake": 0.95, "zoom": 1.42, "durationFrames": 16 },
+      "youtube": {
+        "title": "TV Daerah Itu Berhenti Mengudara 28 Tahun Lalu. Malam Ini Ia Menyebut Namamu.",
+        "description": "ARSIP FIKSI — Rekaman VHS siaran lokal, 23.11. Pembawa acara menyebut nama penonton dan menghitung mundur.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #AnalogHorror #CeritaHoror",
+        "tags": ["analog horror", "cerita horor", "horor indonesia", "vhs", "the last signal"]
+      }
+    },
+    {
+      "episodeId": "LS-0003",
+      "subgenre": "Unexplained Disappearance",
+      "experiment": "Satu-satunya suara manusia adalah transmisi radio terakhir; tidak ada narator yang menjelaskan.",
+      "structure": "rekaman radio terbalik (menit terakhir → menit pertama)",
+      "story": {
+        "title": "Suara Terakhir di KM 42",
+        "hook": "Bayangkan suara terakhirmu direkam, tapi yang menjawab bukan orang lain.",
+        "premise": "Seorang pengemudi truk malam menghilang di jalan tol, meninggalkan transmisi radio empat menit.",
+        "twist": "Ia tidak meminta tolong kepada operator. Ia menjawab pertanyaan yang diajukan suaranya sendiri.",
+        "ending": "Truknya ditemukan kosong, mesin masih menyala, radio masih memancarkan nafas seseorang."
+      },
+      "scenes": [
+        {
+          "narration": "Bayangkan kamu menyetir sendirian di jalan tol pukul dua pagi. Radio trukmu menyala sendiri, dan tidak ada yang memutar tombolnya.",
+          "imagePrompt": "night view from inside a truck cab on an empty Indonesian toll road, red tail lights of no other cars, rain on windshield, dashboard glow, cinematic",
+          "camera": "handheld",
+          "shot": "pov",
+          "lighting": "dashboard_amber_glow_plus_headlights",
+          "effects": ["film_grain", "camera_shake", "vignette", "timestamp_hud"],
+          "intensity": 0.6
+        },
+        {
+          "narration": "Kamu memanggil operator. Yang menjawab bukan operator. Suaranya lelah, dan ia memanggilmu dengan namamu.",
+          "imagePrompt": "close-up of an old CB radio handset on a truck dashboard, static, dim cab interior, worn plastic, night",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "dashboard_amber_glow_low",
+          "effects": ["film_grain", "scanlines", "vignette"],
+          "intensity": 0.7
+        },
+        {
+          "narration": "Di kilometer empat puluh dua kamu melambat karena ada kilau di tengah jalan. Bukan genangan. Itu lampu depan truk lain.",
+          "imagePrompt": "empty toll road at night with a single pair of headlights approaching in the distance, wet asphalt mirror reflections, fog bank, wide cinematic",
+          "camera": "static",
+          "shot": "wide",
+          "lighting": "headlight_haze_against_fog",
+          "effects": ["film_grain", "volumetric_fog", "vignette"],
+          "intensity": 0.65
+        },
+        {
+          "narration": "Kamu menekan tombol radio untuk meminta bantuan. Suaramu keluar dari speaker, lebih dulu, sebelum kamu bicara.",
+          "imagePrompt": "truck interior at night with radio speaker glowing, driver seat empty, seatbelt hanging loose, motion blur, cinematic dread",
+          "camera": "handheld",
+          "shot": "medium",
+          "lighting": "cold_moonlight_through_windshield",
+          "effects": ["film_grain", "camera_shake", "light_flicker"],
+          "intensity": 0.8
+        },
+        {
+          "narration": "Empat menit rekaman berisi dua orang yang bergantian bicara. Kamu mendengar dirimu menjawab pertanyaan yang belum kamu ucapkan.",
+          "imagePrompt": "extreme close-up of static radio waveform on a small screen, red recording light, dark metal surface, dust, cinematic detail",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "red_indicator_light_in_darkness",
+          "effects": ["scanlines", "film_grain", "vhs_distortion", "creature_reveal"],
+          "intensity": 0.95
+        },
+        {
+          "narration": "Truk itu ditemukan pukul empat pagi. Pintu terkunci dari dalam, mesin menyala, dan radio masih memancarkan nafas yang tidak berhenti.",
+          "imagePrompt": "abandoned truck parked on the shoulder of a foggy toll road before dawn, door closed, engine running, headlights on, blue hour, wide cinematic",
+          "camera": "pull_out",
+          "shot": "wide",
+          "lighting": "blue_hour_fog_headlights",
+          "effects": ["film_grain", "volumetric_fog", "vignette", "timestamp_hud"],
+          "intensity": 0.7
+        }
+      ],
+      "cards": ["KM 42", "BUKAN OPERATOR", "PINTU TERKUNCI DARI DALAM"],
+      "jumpscare": { "atScene": 4, "atFrameOffset": 70, "flash": 0.9, "shake": 1, "zoom": 1.5, "durationFrames": 18 },
+      "youtube": {
+        "title": "Truk Itu Ditemukan dengan Mesin Menyala. Radio-nya Masih Memancarkan Napas.",
+        "description": "ARSIP FIKSI — Empat menit transmisi radio dari KM 42, 02.14. Dua suara. Satu orang.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #FoundFootage #CeritaHoror",
+        "tags": ["cerita horor", "horor indonesia", "found footage", "jalan tol", "the last signal"]
+      }
+    },
+    {
+      "episodeId": "LS-0004",
+      "subgenre": "Paranormal Encounter",
+      "experiment": "Horor dari prosedur, bukan dari hantu: rutinitas rumah sakit yang salah satu langkahnya tidak ada.",
+      "structure": "checklist (lima langkah, langkah keenam tidak tertulis)",
+      "story": {
+        "title": "Kamar Sembilan",
+        "hook": "Bayangkan kamu menandatangani daftar pasien, dan tanda tanganmu sudah ada di baris berikutnya.",
+        "premise": "Perawat shift malam di rumah sakit kecil harus memeriksa kamar 9 yang secara resmi kosong setahun.",
+        "twist": "Bukan pasien yang menunggu di kamar itu. Yang menunggu adalah hari ketika perawat itu sendiri menjadi pasien.",
+        "ending": "Papan jadwal pagi menunjukkan shift malam berikutnya atas namanya, dengan tanggal kematiannya sendiri."
+      },
+      "scenes": [
+        {
+          "narration": "Bayangkan kamu perawat shift malam di rumah sakit kecil. Sebelum jam dua, kamu harus memeriksa kamar sembilan, walaupun kamar itu kosong setahun.",
+          "imagePrompt": "empty small Indonesian hospital corridor at night, greenish fluorescent light, worn linoleum floor, rows of closed doors, nurse station in the distance, no people",
+          "camera": "static",
+          "shot": "wide",
+          "lighting": "green_fluorescent_4800k_hospital",
+          "effects": ["film_grain", "light_flicker", "vignette", "timestamp_hud"],
+          "intensity": 0.6
+        },
+        {
+          "narration": "Pintunya tidak terkunci. Di dalam ada tempat tidur yang rapi, selimut terlipat, dan infus yang menetes padahal tidak ada yang memakainya.",
+          "imagePrompt": "empty hospital patient room at night, made bed, IV drip stand with a half full bag, curtain half drawn, single dim ceiling light, cinematic",
+          "camera": "push_in",
+          "shot": "medium",
+          "lighting": "single_ceiling_lamp_low_3000k",
+          "effects": ["film_grain", "vignette", "light_flicker"],
+          "intensity": 0.7
+        },
+        {
+          "narration": "Kamu membaca papan nama di kaki tempat tidur. Namamu sendiri, tertulis rapi, dengan tanggal masuk hari ini.",
+          "imagePrompt": "close-up of a hospital bed footboard chart with handwriting, dim light, shallow depth of field, worn paper, clinical and cold",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "cold_shallow_clinical",
+          "effects": ["film_grain", "vignette"],
+          "intensity": 0.8
+        },
+        {
+          "narration": "Kamu mundur dan menabrak standar infus. Selangnya masih menempel di lenganmu, dan kamu tidak ingat kapan itu dipasang.",
+          "imagePrompt": "hospital room seen from low angle, IV tube trailing across the floor toward the camera, empty bed behind, harsh light, motion blur",
+          "camera": "handheld",
+          "shot": "pov",
+          "lighting": "harsh_overhead_flicker",
+          "effects": ["camera_shake", "film_grain", "light_flicker", "vignette"],
+          "intensity": 0.9
+        },
+        {
+          "narration": "Lampu ruangan mati. Ketika menyala lagi, tempat tidur sudah terisi, dan selimut itu menutupi bentuk yang persis sebesar tubuhmu.",
+          "imagePrompt": "hospital bed with a sheet draped over a body shaped form, face covered, IV connected, dark room, single light above, cinematic horror",
+          "camera": "static",
+          "shot": "wide",
+          "lighting": "single_hard_overhead_light",
+          "effects": ["film_grain", "vignette", "creature_reveal", "light_flicker"],
+          "intensity": 1
+        },
+        {
+          "narration": "Pagi itu papan jadwal menunjukkan shift malam berikutnya atas namamu. Tanggalnya minggu depan. Di sebelahnya ada tanggal keluar yang tidak pernah kamu isi.",
+          "imagePrompt": "hospital staff schedule whiteboard in morning light, handwriting rows, red marker circle on one name, empty nurse station, cinematic",
+          "camera": "pull_out",
+          "shot": "medium",
+          "lighting": "cold_morning_window_light",
+          "effects": ["film_grain", "vignette"],
+          "intensity": 0.55
+        }
+      ],
+      "cards": ["KAMAR 9 KOSONG", "NAMAMU", "MINGGU DEPAN"],
+      "jumpscare": { "atScene": 4, "atFrameOffset": 58, "flash": 0.9, "shake": 0.9, "zoom": 1.45, "durationFrames": 16 },
+      "youtube": {
+        "title": "Kamar Itu Kosong Setahun. Papan Nama di Kaki Tempat Tidurnya Namamu.",
+        "description": "ARSIP FIKSI — Rumah sakit kecil, shift malam, kamar 9. Prosedur wajib memeriksa kamar yang tidak ada pasiennya.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
+        "tags": ["cerita horor", "horor rumah sakit", "horor indonesia", "paranormal", "the last signal"]
+      }
+    },
+    {
+      "episodeId": "LS-0005",
+      "subgenre": "Found Footage",
+      "experiment": "Kamera dipegang karakter (camcorder) — gerak kamera paling agresif, hook menyebut penonton sebagai penonton video.",
+      "structure": "video yang diunggah sebelum direkam",
+      "story": {
+        "title": "Perumahan yang Belum Dijual",
+        "hook": "Bayangkan kamu menonton video pendek yang kamu rekam besok.",
+        "premise": "Tiga anak muda merekam perumahan kosong yang belum dijual, untuk konten eksplorasi.",
+        "twist": "Video yang mereka rekam sudah punya penonton, dan komentarnya menyebut kejadian yang belum terjadi.",
+        "ending": "Unggahan terakhir berasal dari akun mereka, diposting tiga jam sebelum mereka berangkat."
+      },
+      "scenes": [
+        {
+          "narration": "Bayangkan kamu merekam perumahan baru yang belum dijual. Tiga orang, satu kamera, dan gerbang yang seharusnya dikunci.",
+          "imagePrompt": "unfinished Indonesian housing estate at dusk, identical empty houses, wet concrete, construction debris, hand-held camcorder look, no people",
+          "camera": "handheld",
+          "shot": "wide",
+          "lighting": "overcast_dusk_flat",
+          "effects": ["film_grain", "camera_shake", "timestamp_hud", "vignette"],
+          "intensity": 0.65
+        },
+        {
+          "narration": "Di rumah blok C, pintunya terbuka. Di dalam ada kursi plastik, dua gelas, dan televisi yang menyala tanpa listrik.",
+          "imagePrompt": "empty unoccupied house interior in a new estate, plastic chairs, two glasses on the floor, old CRT TV glowing, dust, camcorder framing",
+          "camera": "handheld",
+          "shot": "medium",
+          "lighting": "tv_glow_in_daylight_room",
+          "effects": ["film_grain", "camera_shake", "light_flicker"],
+          "intensity": 0.75
+        },
+        {
+          "narration": "Temanmu tertawa dan berteriak ke kamera, menyebut nama akun kalian. Dari lantai atas, ada suara yang menyebut nama itu juga.",
+          "imagePrompt": "dark staircase in an unfinished house, camcorder flash lighting the steps, dust in the beam, no people, vignette",
+          "camera": "push_in",
+          "shot": "pov",
+          "lighting": "camcorder_flashlight_beam",
+          "effects": ["camera_shake", "film_grain", "vignette", "flashlight"],
+          "intensity": 0.85
+        },
+        {
+          "narration": "Kamu memutar ulang rekaman di kamera. Di menit keempat belas, ada empat orang yang berjalan masuk ke rumah itu.",
+          "imagePrompt": "camcorder LCD playback of a dim room with figures at the edge of the frame, heavy noise, over the shoulder view, night",
+          "camera": "static",
+          "shot": "closeup",
+          "lighting": "lcd_screen_glow",
+          "effects": ["scanlines", "vhs_distortion", "film_grain"],
+          "intensity": 0.9
+        },
+        {
+          "narration": "Kalian berlari ke gerbang. Gerbangnya terkunci dari luar, dan di luar gerbang ada kalian, sedang merekam dari dalam.",
+          "imagePrompt": "locked construction gate at night seen from inside, padlock chain, two silhouettes beyond the gate holding a camera, fog, cinematic",
+          "camera": "handheld",
+          "shot": "wide",
+          "lighting": "single_street_lamp_backlight",
+          "effects": ["camera_shake", "film_grain", "volumetric_fog", "creature_reveal"],
+          "intensity": 1
+        },
+        {
+          "narration": "Video itu diunggah pukul tujuh malam, tiga jam sebelum kalian berangkat. Akun kalian masih membalas komentar sampai sekarang.",
+          "imagePrompt": "dark smartphone screen showing a video upload timestamp and comments, gloved hand not visible, blue light, close-up, cinematic",
+          "camera": "static",
+          "shot": "closeup",
+          "lighting": "phone_screen_blue_glow",
+          "effects": ["scanlines", "film_grain", "vignette"],
+          "intensity": 0.6
+        }
+      ],
+      "cards": ["BLOK C", "EMPAT ORANG", "DIUNGGAH 3 JAM SEBELUMNYA"],
+      "jumpscare": { "atScene": 4, "atFrameOffset": 66, "flash": 0.85, "shake": 1, "zoom": 1.5, "durationFrames": 16 },
+      "youtube": {
+        "title": "Video Ini Diunggah Tiga Jam Sebelum Mereka Merekamnya",
+        "description": "ARSIP FIKSI — Rekaman camcorder tiga orang di perumahan yang belum dijual. Unggahan terakhir muncul sebelum keberangkatan mereka.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #FoundFootage #CeritaHoror",
+        "tags": ["found footage", "cerita horor", "horor indonesia", "urban exploration", "the last signal"]
+      }
+    },
+    {
+      "episodeId": "LS-0006",
+      "subgenre": "Psychological Horror",
+      "experiment": "Loop: setiap scene mengulang komposisi yang sama dengan satu detail berubah.",
+      "structure": "loop (scene 1 = scene 6, satu detail berbeda)",
+      "story": {
+        "title": "Lantai Basement Dua",
+        "hook": "Bayangkan kamu memarkir mobil yang sama, di tempat yang sama, untuk kelima kalinya malam ini.",
+        "premise": "Juru parkir basement dua mulai menyadari satu mobil terus kembali walaupun pemiliknya sudah keluar.",
+        "twist": "Bukan mobil yang kembali. Juru parkir itu yang mengulang malam yang sama.",
+        "ending": "Di rekaman terakhir, yang duduk di kursi juru parkir adalah orang yang tadi masuk ke mobil itu."
+      },
+      "scenes": [
+        {
+          "narration": "Bayangkan kamu juru parkir basement dua. Malam ini mobil hitam itu masuk untuk kelima kalinya, dan tiap kali pengemudinya terlihat sama.",
+          "imagePrompt": "empty underground parking basement in Indonesia, concrete pillars, numbered bays, flickering tube lights, wet floor, single black car in the distance, wide",
+          "camera": "static",
+          "shot": "wide",
+          "lighting": "flickering_fluorescent_basement_5000k",
+          "effects": ["film_grain", "light_flicker", "vignette", "timestamp_hud"],
+          "intensity": 0.65
+        },
+        {
+          "narration": "Kamu mencatat jam masuknya. Catatanmu sudah berisi lima baris dengan jam yang sama persis, dan tulisan tanganmu makin mirip tiap baris.",
+          "imagePrompt": "close-up of a parking log book with identical repeated handwriting lines, dim light, worn paper, pen resting, cinematic detail",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "overhead_lamp_low_3200k",
+          "effects": ["film_grain", "vignette"],
+          "intensity": 0.7
+        },
+        {
+          "narration": "Kamu mendekati mobil itu. Di dalamnya kosong, tapi sabuk pengaman masih terpasang, dan kursi penumpang masih hangat.",
+          "imagePrompt": "black car interior seen through a window at night in an underground garage, empty seats, seatbelt fastened, condensation, reflections, cinematic",
+          "camera": "handheld",
+          "shot": "medium",
+          "lighting": "fluorescent_reflection_through_glass",
+          "effects": ["film_grain", "camera_shake", "vignette"],
+          "intensity": 0.8
+        },
+        {
+          "narration": "Kamu kembali ke pos. Rekaman kamera basement menunjukkan kamu berdiri di sana selama empat jam, tanpa bergerak sama sekali.",
+          "imagePrompt": "CCTV view of an empty parking booth with a chair and a still security guard silhouette, grainy monochrome, timecode, wide",
+          "camera": "static",
+          "shot": "cctv",
+          "lighting": "cctv_monochrome_ir",
+          "effects": ["scanlines", "film_grain", "timestamp_hud", "vignette"],
+          "intensity": 0.75
+        },
+        {
+          "narration": "Lampu mati satu per satu. Ketika menyala lagi, mobil hitam itu sudah di depan pos, dan pintu pengemudi terbuka pelan.",
+          "imagePrompt": "black car parked directly in front of a security booth in a dark basement, driver door open, interior light on, no one inside, horror composition",
+          "camera": "push_in",
+          "shot": "wide",
+          "lighting": "car_interior_light_against_darkness",
+          "effects": ["film_grain", "light_flicker", "creature_reveal", "vignette"],
+          "intensity": 1
+        },
+        {
+          "narration": "Pagi itu kamu menonton rekaman terakhir. Yang duduk di kursi juru parkir bukan kamu, tapi orang yang tadi masuk ke mobil hitam itu.",
+          "imagePrompt": "grainy CCTV still of a parking booth with a person sitting in the guard chair facing the camera, face indistinct, monochrome, timestamps",
+          "camera": "pull_out",
+          "shot": "cctv",
+          "lighting": "cctv_monochrome_flat",
+          "effects": ["scanlines", "film_grain", "timestamp_hud"],
+          "intensity": 0.7
+        }
+      ],
+      "cards": ["MASUK KE-5", "4 JAM TANPA GERAK", "BUKAN KAMU"],
+      "jumpscare": { "atScene": 4, "atFrameOffset": 60, "flash": 0.9, "shake": 0.95, "zoom": 1.48, "durationFrames": 16 },
+      "youtube": {
+        "title": "Mobil Itu Masuk Lima Kali Malam Itu. Rekamannya Menunjukkan Aku Tidak Bergerak.",
+        "description": "ARSIP FIKSI — Basement dua, mobil hitam yang sama, lima kali masuk dalam satu malam.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #PsychologicalHorror #CeritaHoror",
+        "tags": ["psychological horror", "cerita horor", "horor indonesia", "cctv", "the last signal"]
+      }
+    },
+    {
+      "episodeId": "LS-0007",
+      "subgenre": "Disturbing Discovery",
+      "experiment": "Temuan fisik sebagai pusat horor; tidak ada entitas yang terlihat sampai akhir.",
+      "structure": "penemuan (ruang rahasia → isi → konsekuensi)",
+      "story": {
+        "title": "Ruang Tanpa Pintu",
+        "hook": "Bayangkan kamu membongkar dinding dan menemukan ruangan yang tidak ada di denah rumah.",
+        "premise": "Pekerja renovasi rumah tua di Bandung menemukan ruang tertutup berisi koran bertanggal masa depan.",
+        "twist": "Koran-koran itu bukan ramalan. Itu catatan ruangan tersebut tentang penghuninya.",
+        "ending": "Halaman terakhir memuat foto tim renovasi itu sendiri, diambil di dalam ruangan, dari sudut yang tidak mungkin."
+      },
+      "scenes": [
+        {
+          "narration": "Bayangkan kamu membongkar dinding rumah tua di Bandung. Di balik semen ada ruang kecil yang tidak pernah ada di denah.",
+          "imagePrompt": "renovation site inside an old Indonesian house, broken plaster wall revealing a dark cavity, dust in the air, tools on floor, cinematic",
+          "camera": "push_in",
+          "shot": "medium",
+          "lighting": "work_lamp_3200k_dusty_air",
+          "effects": ["film_grain", "volumetric_fog", "vignette"],
+          "intensity": 0.6
+        },
+        {
+          "narration": "Ruang itu setinggi bahu. Di lantainya ada tumpukan koran, rapi, dan semua halaman depannya sama: nama kota ini, tahun depan.",
+          "imagePrompt": "cramped hidden room behind a wall filled with neatly stacked old newspapers, flashlight beam, dust, close walls, cinematic detail",
+          "camera": "handheld",
+          "shot": "pov",
+          "lighting": "flashlight_in_dark_void",
+          "effects": ["flashlight", "film_grain", "vignette", "camera_shake"],
+          "intensity": 0.8
+        },
+        {
+          "narration": "Salah satu koran menulis tentang rumah ini. Bukan kejadian besar, hanya catatan kecil: perbaikan dinding, tanggal hari ini, nama kalian.",
+          "imagePrompt": "close-up of a yellowed newspaper clipping about a house renovation, names visible, dim flashlight light, shallow depth of field",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "flashlight_close_2900k",
+          "effects": ["film_grain", "vignette"],
+          "intensity": 0.75
+        },
+        {
+          "narration": "Kamu memeriksa bagian bawah tumpukan. Setiap tahun di depan koran itu berganti, dan setiap tahun ada satu halaman tentang seseorang yang tinggal di rumah ini.",
+          "imagePrompt": "hands not visible, stacks of newspapers with different years, dark small room, dust particles in a beam of light, cinematic",
+          "camera": "static",
+          "shot": "medium",
+          "lighting": "single_beam_through_crack",
+          "effects": ["volumetric_fog", "film_grain", "vignette"],
+          "intensity": 0.7
+        },
+        {
+          "narration": "Lampu kalian mati. Saat menyala lagi, seluruh koran sudah terbuka di halaman yang sama, dan semuanya bertanggal besok.",
+          "imagePrompt": "small hidden room with dozens of newspapers open on the floor all showing the same page, harsh flashlight, no people, horror composition",
+          "camera": "pull_out",
+          "shot": "wide",
+          "lighting": "harsh_flashlight_full",
+          "effects": ["creature_reveal", "film_grain", "vignette", "light_flicker"],
+          "intensity": 1
+        },
+        {
+          "narration": "Halaman terakhir berisi foto kalian bertiga, diambil dari dalam ruangan itu, dari sudut tempat tidak ada orang yang bisa berdiri.",
+          "imagePrompt": "grainy black and white photograph of three construction workers standing in front of an old house, shot from an impossible low corner, aged paper texture",
+          "camera": "static",
+          "shot": "closeup",
+          "lighting": "flat_photo_scan",
+          "effects": ["scanlines", "film_grain", "vignette"],
+          "intensity": 0.6
+        }
+      ],
+      "cards": ["TIDAK ADA DI DENAH", "TAHUN DEPAN", "FOTO ITU DARI DALAM"],
+      "jumpscare": { "atScene": 4, "atFrameOffset": 64, "flash": 0.9, "shake": 0.9, "zoom": 1.44, "durationFrames": 16 },
+      "youtube": {
+        "title": "Di Balik Dinding Itu Ada Ruangan yang Tidak Ada di Denah Rumah",
+        "description": "ARSIP FIKSI — Renovasi rumah tua di Bandung, temuan ruang tertutup, koran bertanggal tahun depan.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #DisturbingDiscovery #CeritaHoror",
+        "tags": ["cerita horor", "horor indonesia", "penemuan", "rumah tua", "the last signal"]
+      }
+    },
+    {
+      "episodeId": "LS-0008",
+      "subgenre": "Last Recorded Transmission",
+      "experiment": "Laut dan bahasa daerah: suara sebagai satu-satunya bukti, visual hampir semuanya air dan gelap.",
+      "structure": "transmisi nelayan (urutan waktu, tanpa potongan)",
+      "story": {
+        "title": "Panggilan dari Perahu Kosong",
+        "hook": "Bayangkan suaramu ikut dalam panggilan darurat yang dikirim dari perahu yang tidak punya awak.",
+        "premise": "Radio nelayan menerima panggilan mayday berbahasa daerah yang sudah tidak dipakai di pesisir itu.",
+        "twist": "Panggilan itu bukan meminta bantuan. Ia mengabarkan bahwa perahu penyelamat yang dikirim sudah tiba.",
+        "ending": "Perahu kosong itu ditemukan keesokan harinya, dengan radio yang masih mengirim, dan nama-nama awak penyelamat di dindingnya."
+      },
+      "scenes": [
+        {
+          "narration": "Bayangkan kamu di ruang radio pesisir pukul dua pagi. Ada panggilan darurat dari perahu yang menurut catatan sudah tenggelam sebelas tahun lalu.",
+          "imagePrompt": "coastal radio room at night in Indonesia, old transceiver, microphone, notebooks, single desk lamp, dark window with sea beyond, cinematic",
+          "camera": "static",
+          "shot": "medium",
+          "lighting": "desk_lamp_2900k_against_dark",
+          "effects": ["film_grain", "vignette", "timestamp_hud"],
+          "intensity": 0.6
+        },
+        {
+          "narration": "Suaranya memakai bahasa yang nenekmu pakai. Tidak ada orang seusiamu yang masih bisa mengucapkannya, tapi kamu mengerti setiap kata.",
+          "imagePrompt": "close-up of an old radio speaker grille with a red light, dust, dim room, analog texture, night, cinematic detail",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "red_indicator_and_lamp",
+          "effects": ["scanlines", "film_grain", "vignette"],
+          "intensity": 0.7
+        },
+        {
+          "narration": "Kamu menanyakan posisi mereka. Jawabannya bukan koordinat, tapi sebuah kalimat yang artinya: kami sudah di dekatmu sejak lama.",
+          "imagePrompt": "dark sea at night seen through a window from inside a small coastal station, reflections of the room on the glass, no boats, cinematic",
+          "camera": "handheld",
+          "shot": "pov",
+          "lighting": "moonlight_on_water_plus_interior_reflection",
+          "effects": ["film_grain", "vignette", "camera_shake"],
+          "intensity": 0.75
+        },
+        {
+          "narration": "Kamu mengirim perahu penyelamat. Sepanjang malam radio itu hanya mengulang satu kalimat, dan kalimat itu makin lama makin jelas.",
+          "imagePrompt": "wooden fishing boat on black water at night, searchlight beam, fog, rain, cinematic wide shot, no crew",
+          "camera": "push_in",
+          "shot": "wide",
+          "lighting": "searchlight_beam_in_fog",
+          "effects": ["volumetric_fog", "film_grain", "vignette"],
+          "intensity": 0.8
+        },
+        {
+          "narration": "Menjelang subuh panggilan itu berhenti. Yang tersisa hanya suara air menabrak lambung, dan suara banyak orang yang bernafas di ruanganmu.",
+          "imagePrompt": "dark radio room interior at dawn, condensation on window, wet footprints on the floor leading to the desk, cinematic horror",
+          "camera": "static",
+          "shot": "wide",
+          "lighting": "cold_dawn_light_through_wet_glass",
+          "effects": ["film_grain", "vignette", "creature_reveal"],
+          "intensity": 1
+        },
+        {
+          "narration": "Perahu kosong itu ditemukan siang berikutnya. Radionya masih mengirim, dan di dindingnya tertulis nama semua orang yang ikut menyelamatkan.",
+          "imagePrompt": "empty wooden boat interior in daylight, wet walls with names scratched into the wood, radio unit still on, wide documentary framing",
+          "camera": "pull_out",
+          "shot": "medium",
+          "lighting": "harsh_noon_overcast_flat",
+          "effects": ["film_grain", "vignette"],
+          "intensity": 0.55
+        }
+      ],
+      "cards": ["TENGGELAM 11 TAHUN LALU", "MEREKA SUDAH DEKAT", "NAMA PENYELAMAT"],
+      "jumpscare": { "atScene": 4, "atFrameOffset": 58, "flash": 0.88, "shake": 0.95, "zoom": 1.46, "durationFrames": 16 },
+      "youtube": {
+        "title": "Radio Itu Menerima Panggilan dari Perahu yang Tenggelam Sebelas Tahun Lalu",
+        "description": "ARSIP FIKSI — Ruang radio pesisir, 02.11. Panggilan mayday berbahasa daerah yang sudah tidak dipakai lagi.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
+        "tags": ["cerita horor", "horor laut", "horor indonesia", "found footage", "the last signal"]
+      }
+    },
+    {
+      "episodeId": "LS-0009",
+      "subgenre": "Unknown Entity",
+      "experiment": "Horor digital: tidak ada hantu, hanya log perangkat yang mencatat sesuatu yang tidak seharusnya ada.",
+      "structure": "log perangkat (baris demi baris)",
+      "story": {
+        "title": "Perangkat Ketujuh",
+        "hook": "Bayangkan router kosmu mencatat satu perangkat yang tidak pernah kamu beli.",
+        "premise": "Penghuni kos memeriksa log wifi dan menemukan perangkat yang terhubung setiap malam pukul 03.33.",
+        "twist": "Perangkat itu tidak mengunggah data. Ia mengunduh foto, satu per malam, dari kamera yang tidak ada di kamar itu.",
+        "ending": "Log terakhir menunjukkan perangkat itu bernama sama dengan nama kamar yang sedang kamu tempati."
+      },
+      "scenes": [
+        {
+          "narration": "Bayangkan kamu tinggal di kamar kos nomor tujuh. Suatu malam internet mati, dan router mencatat satu perangkat yang tidak pernah kamu beli.",
+          "imagePrompt": "cheap Indonesian boarding house room at night, router with blinking lights on a shelf, unmade bed, tiled floor, dim lamp, cinematic",
+          "camera": "static",
+          "shot": "medium",
+          "lighting": "warm_room_lamp_2700k",
+          "effects": ["film_grain", "vignette", "timestamp_hud"],
+          "intensity": 0.55
+        },
+        {
+          "narration": "Log menunjukkan perangkat itu terhubung setiap malam pukul tiga lewat tiga puluh tiga, selama empat belas bulan sebelum kamu pindah ke sini.",
+          "imagePrompt": "laptop screen in a dark room showing router admin log with a list of connected devices, blue glow on a wall, close-up, cinematic",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "laptop_screen_blue_in_dark",
+          "effects": ["scanlines", "film_grain", "vignette"],
+          "intensity": 0.7
+        },
+        {
+          "narration": "Kamu mematikan internet. Pukul tiga lewat tiga puluh tiga, lampu router tetap menyala, dan kamera ponselmu menyala sendiri.",
+          "imagePrompt": "dark boarding room with a phone camera flash illuminating a corner, router lights still on, dust, no people, horror framing",
+          "camera": "handheld",
+          "shot": "pov",
+          "lighting": "phone_flash_harsh_white",
+          "effects": ["camera_shake", "film_grain", "vignette", "light_flicker"],
+          "intensity": 0.85
+        },
+        {
+          "narration": "Di galeri ponselmu ada foto kamar ini, diambil malam ini, dari sudut langit-langit. Kamu tidak pernah menaruh ponsel di sana.",
+          "imagePrompt": "smartphone gallery grid of dark room photos taken from ceiling corner, thumbnails full of the same room, dim light, horror detail",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "screen_glow_on_face_not_visible",
+          "effects": ["scanlines", "film_grain", "creature_reveal"],
+          "intensity": 0.95
+        },
+        {
+          "narration": "Kamu memeriksa nama perangkat itu di log. Namanya sama dengan nomor kamar yang sedang kamu tempati, dan statusnya sedang terhubung.",
+          "imagePrompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
+          "camera": "static",
+          "shot": "closeup",
+          "lighting": "monitor_glow_red_accent",
+          "effects": ["scanlines", "film_grain", "vignette"],
+          "intensity": 0.9
+        },
+        {
+          "narration": "Kamu keluar kamar dan mengetuk kamar sebelah. Pintunya terbuka. Di dalam ada router yang sama, menyala, dan namanya tertulis nomor kamarmu.",
+          "imagePrompt": "open door to an adjoining boarding room with an identical router glowing on the floor, dark corridor light behind, wide horror composition",
+          "camera": "pull_out",
+          "shot": "wide",
+          "lighting": "corridor_light_spill_into_dark_room",
+          "effects": ["film_grain", "vignette", "volumetric_fog"],
+          "intensity": 0.7
+        }
+      ],
+      "cards": ["03.33", "14 BULAN SEBELUM KAMU PINDAH", "KAMAR 7 ↔ KAMAR 7"],
+      "jumpscare": { "atScene": 3, "atFrameOffset": 62, "flash": 0.9, "shake": 1, "zoom": 1.5, "durationFrames": 16 },
+      "youtube": {
+        "title": "Router Kos Itu Mencatat Satu Perangkat Selama 14 Bulan Sebelum Aku Pindah",
+        "description": "ARSIP FIKSI — Log router kamar kos nomor 7. Satu perangkat, setiap malam pukul 03.33.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AnalogHorror",
+        "tags": ["cerita horor", "horor indonesia", "analog horror", "kos", "the last signal"]
+      }
+    },
+    {
+      "episodeId": "LS-0010",
+      "subgenre": "Abandoned Location",
+      "experiment": "Satu lokasi, satu lift, horor dari ruang yang salah di gedung yang benar.",
+      "structure": "perjalanan lift (naik → berhenti → turun)",
+      "story": {
+        "title": "Lantai Sembilan Belas",
+        "hook": "Bayangkan gedung tempatmu bekerja hanya punya dua belas lantai, tapi liftnya berhenti di lantai sembilan belas.",
+        "premise": "Karyawan yang lembur sendirian naik lift dan menemukan panel berisi lantai yang tidak ada di gedung itu.",
+        "twist": "Lantai sembilan belas adalah gedung yang sama, hanya saja semua orang di dalamnya masih lembur, dan mereka tidak pernah pulang.",
+        "ending": "Lift turun kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama, dengan dirinya masih duduk di kursi."
+      },
+      "scenes": [
+        {
+          "narration": "Bayangkan kamu lembur sendirian di gedung dua belas lantai. Lift datang pukul sebelas malam, dan panelnya berisi satu tombol yang tidak ada di gedung ini.",
+          "imagePrompt": "office elevator interior at night, brushed steel walls, numbered buttons panel, one extra unlabeled button glowing, harsh light, cinematic",
+          "camera": "static",
+          "shot": "medium",
+          "lighting": "elevator_harsh_5600k",
+          "effects": ["film_grain", "vignette", "light_flicker"],
+          "intensity": 0.6
+        },
+        {
+          "narration": "Kamu menekan tombol dua belas. Lift naik melewati dua belas, dan tidak berhenti. Angka di layar naik sampai sembilan belas.",
+          "imagePrompt": "close-up of an elevator floor indicator showing 19 in an old segmented display, dim reflection on metal, night, cinematic detail",
+          "camera": "push_in",
+          "shot": "closeup",
+          "lighting": "dim_metal_reflection_red_display",
+          "effects": ["film_grain", "scanlines", "vignette"],
+          "intensity": 0.75
+        },
+        {
+          "narration": "Pintu terbuka ke kantor yang mirip lantaimu. Lampu menyala, komputer menyala, dan setiap kursi berputar pelan tanpa ada yang duduk.",
+          "imagePrompt": "empty open plan office at night with monitors on and office chairs slowly turned toward the camera, cold light, wide cinematic",
+          "camera": "handheld",
+          "shot": "wide",
+          "lighting": "cold_office_panel_light_6000k",
+          "effects": ["film_grain", "vignette", "camera_shake"],
+          "intensity": 0.8
+        },
+        {
+          "narration": "Kamu berjalan ke ruang rapat. Di dalamnya ada orang-orang yang kamu kenal, semua memakai pakaian yang sama seperti hari ini, semua diam.",
+          "imagePrompt": "meeting room at night with several people sitting still with their backs to the camera, monitors glowing, no faces visible, cinematic dread",
+          "camera": "push_in",
+          "shot": "medium",
+          "lighting": "monitor_glow_in_dark_meeting_room",
+          "effects": ["film_grain", "vignette", "creature_reveal"],
+          "intensity": 0.9
+        },
+        {
+          "narration": "Salah satu dari mereka menoleh. Wajahnya kosong, tanpa mata, dan ia mengangkat tangan seperti memberi tanda supaya kamu ikut duduk.",
+          "imagePrompt": "close-up of a seated office worker turning head with a featureless face, monitor light, dark room, horror makeup, cinematic",
+          "camera": "static",
+          "shot": "closeup",
+          "lighting": "hard_monitor_rim_light",
+          "effects": ["film_grain", "vignette", "creature_reveal", "light_flicker"],
+          "intensity": 1
+        },
+        {
+          "narration": "Kamu kembali ke lift dan menekan lantai satu. Pintu terbuka ke ruang rapat yang sama, dan di kursi paling ujung, kamu masih duduk di sana.",
+          "imagePrompt": "elevator doors opening onto a dark meeting room, one figure seated alone at the far end of the table facing the doors, wide cinematic",
+          "camera": "pull_out",
+          "shot": "wide",
+          "lighting": "elevator_light_spilling_into_dark_room",
+          "effects": ["film_grain", "vignette", "volumetric_fog", "timestamp_hud"],
+          "intensity": 0.8
+        }
+      ],
+      "cards": ["12 LANTAI", "BERHENTI DI 19", "KAMU MASIH DI SANA"],
+      "jumpscare": { "atScene": 4, "atFrameOffset": 60, "flash": 0.9, "shake": 0.95, "zoom": 1.47, "durationFrames": 16 },
+      "youtube": {
+        "title": "Gedung Itu Punya 12 Lantai. Liftnya Berhenti di Lantai 19.",
+        "description": "ARSIP FIKSI — Lembur malam, lift kosong, panel dengan satu tombol tambahan. Lantai 19 tidak ada di gedung itu.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AbandonedPlace",
+        "tags": ["cerita horor", "horor indonesia", "abandoned", "kantor", "the last signal"]
+      }
+    }
+  ]
+}

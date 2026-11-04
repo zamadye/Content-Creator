@@ -129,9 +129,38 @@ async function main() {
     endFrame: Math.round((item.endFrame / totalOld) * totalNew),
   }));
 
+  // Jumpscare ikut diskalakan: posisi scene yang dipilih tetap, panjang efek
+  // dibuat proporsional terhadap scene tempat ia berada. Tanpa ini, setelah
+  // audio TTS asli masuk, scare bisa mendarat di tengah kalimat.
+  const sceneStarts: number[] = [];
+  let acc = 0;
+  for (const scene of scenes) {
+    sceneStarts.push(acc);
+    acc += scene.durationFrames;
+  }
+  const jumpscares = (episode.jumpscares ?? []).map((scare) => {
+    const oldStart = (() => {
+      let cursor2 = 0;
+      for (const scene of episode.scenes) {
+        if (scare.atFrame < cursor2 + scene.durationFrames) return { start: cursor2, index: episode.scenes.indexOf(scene) };
+        cursor2 += scene.durationFrames;
+      }
+      return { start: 0, index: 0 };
+    })();
+    const oldScene = episode.scenes[oldStart.index];
+    const newScene = scenes[oldStart.index];
+    const ratio = oldScene ? (scare.atFrame - oldStart.start) / oldScene.durationFrames : 0.6;
+    const atFrame = Math.round(sceneStarts[oldStart.index] + ratio * newScene.durationFrames);
+    return {
+      ...scare,
+      atFrame: Math.max(150, Math.min(totalNew - scare.durationFrames - 1, atFrame)),
+    };
+  });
+
   const updated = {
     ...raw,
     scenes,
+    jumpscares,
     onScreenText,
     targetDurationSeconds: Number((totalNew / fps).toFixed(1)),
   };

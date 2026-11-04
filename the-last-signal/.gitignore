@@ -19,3 +19,6 @@ projects/episodes/*/audio/sfx/*.wav
 
 # Laporan diagnostik penerbitan (dibuat saat runtime)
 report/
+
+# Video yang diangkut ke runner Actions untuk diunggah ke Zernio
+!releases/*.mp4

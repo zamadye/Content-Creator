@@ -107,3 +107,40 @@ adalah syarat, bukan opsi.
 | Render LS-0001 gagal berulang | Chrome Remotion tidak bisa diunduh | `scripts/dev/provision-browser.sh` (npm @sparticuz/chromium) |
 | QC true peak gagal | transien stinger + loudnorm single-pass | resample 192 kHz + TP −3 |
 | Naskah LS-0002 64,3 s | estimasi kata terlalu optimistis | anggaran 17 kata/scene |
+
+## Pelajaran 2026-11-04 — sesi kedua (hook baru, kontradiksi, dan batas alat)
+
+**1. Hook, akhir cerita, dan judul adalah satu klaim yang sama.**
+LS-0005 sempat punya tiga versi kebenaran sekaligus: hook "video baru diunggah
+besok pagi", akhir cerita "diunggah tiga jam sebelum berangkat", judul "tiga jam
+sebelum mereka merekamnya". Penonton tidak akan menyebutnya kontinuitas — mereka
+akan menyebutnya bohong. Aturannya sekarang: setiap kali hook diganti, tiga hal
+ikut diperiksa dalam satu tarikan napas — kalimat pembuka, kalimat terakhir, dan
+judul. Kalau salah satu tertinggal, episode itu belum selesai.
+
+**2. Gambar bisa jadi bukti terkuat, bukan pelengkap.**
+Gambar LS-0007 awalnya menghasilkan koran bertanggal 1932 sementara narasi
+menjanjikan "tahun depan". Daripada memaksa gambar mengikuti teks, teks yang
+mengikuti bukti justru lebih kuat: foto tiga pekerja di dalam ruangan itu
+bertanggal 1998, puluhan tahun sebelum mereka masuk. Prinsipnya: kalau sebuah
+detail visual sudah terlihat meyakinkan, ubah kalimatnya agar detail itu menjadi
+bukti — jangan buang gambarnya hanya karena tanggalnya tidak sesuai rencana.
+
+**3. Batas alat menentukan bentuk kerja, bukan sebaliknya.**
+10 gambar dan ±10 klip suara per giliran. Artinya satu episode utuh adalah satu
+giliran. Rencanakan: satu giliran = aset + render episode berjalan; giliran
+berikutnya = episode baru. Jangan pernah memulai episode baru di menit terakhir
+giliran.
+
+**4. Workflow unggah menolak dua permintaan dalam satu push.**
+Ini disengaja (jeda antar-video dijaga manusia). Akibatnya: mengubah dua berkas
+antrean sekaligus — misalnya memperbaiki judul LS-0006 sambil menandai LS-0005 —
+membuat push gagal di langkah "Tentukan permintaan". Satu berkas antrean per push.
+
+**5. Angka di thumbnail bekerja lebih baik daripada kata sifat.**
+"MOBIL ITU MASUK 5 KALI" dan "LIFT ITU BERHENTI DI LANTAI 19" langsung
+menyampaikan ketidakmungkinan tanpa perlu membaca kalimat lengkap.
+
+**6. `stills.ts` bergantung pada remotion.media; di sandbox yang jaringan luarnya
+dibatasi, ambil frame lewat ffmpeg bawaan Remotion:**
+`node_modules/.pnpm/@remotion+compositor-linux-x64-gnu@*/node_modules/@remotion/compositor-linux-x64-gnu/ffmpeg`.

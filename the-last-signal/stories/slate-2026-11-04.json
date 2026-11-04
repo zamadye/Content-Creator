@@ -881,7 +881,7 @@
         "hook": "Bayangkan router kosmu mencatat satu perangkat yang tidak pernah kamu beli.",
         "premise": "Penghuni kos memeriksa log wifi dan menemukan perangkat yang terhubung setiap malam pukul 03.33.",
         "twist": "Perangkat itu tidak mengunggah data. Ia mengunduh foto, satu per malam, dari kamera yang tidak ada di kamar itu.",
-        "ending": "Log terakhir menunjukkan perangkat itu bernama sama dengan nama kamar yang sedang kamu tempati."
+        "ending": "Di log, perangkat itu berganti nama menjadi nama penghuni kamar itu sendiri."
       },
       "scenes": [
         {
@@ -898,7 +898,7 @@
           "intensity": 0.55
         },
         {
-          "narration": "Perangkat itu terhubung setiap malam pukul tiga lewat tiga puluh tiga, empat belas bulan sebelum kamu pindah.",
+          "narration": "Perangkat itu menyala tiap malam pukul tiga lewat tiga puluh tiga, selalu tiga detik setelah kamu tidur.",
           "imagePrompt": "laptop screen in a dark room showing router admin log with a list of connected devices, blue glow on a wall, close-up, cinematic",
           "camera": "push_in",
           "shot": "closeup",
@@ -925,7 +925,7 @@
           "intensity": 0.85
         },
         {
-          "narration": "Di galeri ada foto kamar ini, diambil malam ini, dari sudut langit-langit.",
+          "narration": "Di galeri ada dua belas foto kamar ini. Semuanya diambil malam ini, dari sudut langit-langit.",
           "imagePrompt": "smartphone gallery grid of dark room photos taken from ceiling corner, thumbnails full of the same room, dim light, horror detail",
           "camera": "push_in",
           "shot": "closeup",
@@ -938,7 +938,7 @@
           "intensity": 0.95
         },
         {
-          "narration": "Kamu memeriksa nama perangkat itu. Namanya sama dengan nomor kamar yang sedang kamu tempati.",
+          "narration": "Kamu mengetuk kamar sebelah. Di dalam ada router yang sama, mencatat nomor kamarmu, bukan nomornya.",
           "imagePrompt": "close-up of a router admin page showing one connected device highlighted, dark room lighting, red text glow, cinematic",
           "camera": "static",
           "shot": "closeup",
@@ -951,7 +951,7 @@
           "intensity": 0.9
         },
         {
-          "narration": "Kamu mengetuk kamar sebelah. Di dalam ada router yang sama, dan namanya tertulis nomor kamarmu.",
+          "narration": "Kamu kembali ke kamar. Di log, perangkat itu sudah berganti nama. Namanya namamu.",
           "imagePrompt": "open door to an adjoining boarding room with an identical router glowing on the floor, dark corridor light behind, wide horror composition",
           "camera": "pull_out",
           "shot": "wide",
@@ -989,7 +989,7 @@
         ]
       },
       "thumb": {
-        "headline": "ROUTER ITU TAHU NAMAKU",
+        "headline": "ROUTER ITU MENCATAT NAMAKU",
         "kicker": "KAMAR 7 · 03.33"
       }
     },
@@ -1003,7 +1003,7 @@
         "hook": "Bayangkan gedung tempatmu bekerja hanya punya dua belas lantai, tapi liftnya berhenti di lantai sembilan belas.",
         "premise": "Karyawan yang lembur sendirian naik lift dan menemukan panel berisi lantai yang tidak ada di gedung itu.",
         "twist": "Lantai sembilan belas adalah gedung yang sama, hanya saja semua orang di dalamnya masih lembur, dan mereka tidak pernah pulang.",
-        "ending": "Lift turun kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama, dengan dirinya masih duduk di kursi."
+        "ending": "Lift kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama — dan dirinya sudah duduk di kursi itu, menunggu."
       },
       "scenes": [
         {
@@ -1020,7 +1020,7 @@
           "intensity": 0.6
         },
         {
-          "narration": "Kamu menekan lantai dua belas. Lift naik melewatinya, dan berhenti di lantai sembilan belas.",
+          "narration": "Kamu menekan dua belas. Angkanya naik sampai sembilan belas, lalu pintunya terbuka.",
           "imagePrompt": "close-up of an elevator floor indicator showing 19 in an old segmented display, dim reflection on metal, night, cinematic detail",
           "camera": "push_in",
           "shot": "closeup",
@@ -1033,7 +1033,7 @@
           "intensity": 0.75
         },
         {
-          "narration": "Pintu terbuka ke kantor yang mirip lantaimu. Semua komputer menyala, semua kursi berputar pelan.",
+          "narration": "Di luar lift ada kantor yang sama persis dengan lantaimu. Semua komputer menyala, semua kursi berputar pelan.",
           "imagePrompt": "empty open plan office at night with monitors on and office chairs slowly turned toward the camera, cold light, wide cinematic",
           "camera": "handheld",
           "shot": "wide",
@@ -1046,7 +1046,7 @@
           "intensity": 0.8
         },
         {
-          "narration": "Di ruang rapat ada orang-orang yang kamu kenal, memakai pakaian yang sama seperti hari ini, semua diam.",
+          "narration": "Di ruang rapat, rekan-rekanmu duduk dengan pakaian hari ini. Tidak ada yang bergerak. Tidak ada yang bernafas.",
           "imagePrompt": "meeting room at night with several people sitting still with their backs to the camera, monitors glowing, no faces visible, cinematic dread",
           "camera": "push_in",
           "shot": "medium",
@@ -1073,7 +1073,7 @@
           "intensity": 1
         },
         {
-          "narration": "Kamu kembali ke lift dan menekan lantai satu. Pintunya terbuka ke ruang rapat yang sama, dan kamu masih duduk di sana.",
+          "narration": "Kamu menekan satu. Pintunya terbuka ke ruang rapat yang sama, dan yang duduk di kursimu sedang menunggumu.",
           "imagePrompt": "elevator doors opening onto a dark meeting room, one figure seated alone at the far end of the table facing the doors, wide cinematic",
           "camera": "pull_out",
           "shot": "wide",

@@ -3,59 +3,59 @@
 import type { Timeline } from './types';
 
 export const timeline: Timeline = {
-  "topic": "apbn-2027-bunga-utang",
+  "topic": "umk-2026-enam-dari-sepuluh",
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "durationInFrames": 2361,
-  "generatedAt": "2026-11-04T05:03:19.169Z",
+  "durationInFrames": 2535,
+  "generatedAt": "2026-11-04T09:52:42.789Z",
   "scenes": [
     {
-      "id": "a01",
+      "id": "c01",
       "startFrame": 0,
-      "durationInFrames": 288,
+      "durationInFrames": 330,
       "purpose": "HOOK",
       "vo": "vo01"
     },
     {
-      "id": "a02",
-      "startFrame": 288,
-      "durationInFrames": 442,
+      "id": "c02",
+      "startFrame": 330,
+      "durationInFrames": 383,
       "purpose": "CONTEXT",
       "vo": "vo02"
     },
     {
-      "id": "a03",
-      "startFrame": 730,
-      "durationInFrames": 354,
-      "purpose": "CONFLICT",
+      "id": "c03",
+      "startFrame": 713,
+      "durationInFrames": 420,
+      "purpose": "CONTRADICTION",
       "vo": "vo03"
     },
     {
-      "id": "a04",
-      "startFrame": 1084,
-      "durationInFrames": 392,
-      "purpose": "DEVELOPMENT",
+      "id": "c04",
+      "startFrame": 1133,
+      "durationInFrames": 335,
+      "purpose": "ANALYSIS",
       "vo": "vo04"
     },
     {
-      "id": "a05",
-      "startFrame": 1476,
-      "durationInFrames": 317,
-      "purpose": "PERSPECTIVE",
+      "id": "c05",
+      "startFrame": 1468,
+      "durationInFrames": 361,
+      "purpose": "ANALYSIS",
       "vo": "vo05"
     },
     {
-      "id": "a06",
-      "startFrame": 1793,
-      "durationInFrames": 358,
+      "id": "c06",
+      "startFrame": 1829,
+      "durationInFrames": 376,
       "purpose": "EVIDENCE",
       "vo": "vo06"
     },
     {
-      "id": "a07",
-      "startFrame": 2151,
-      "durationInFrames": 210,
+      "id": "c07",
+      "startFrame": 2205,
+      "durationInFrames": 330,
       "purpose": "CLOSING",
       "vo": "vo07"
     }
@@ -63,191 +63,184 @@ export const timeline: Timeline = {
   "captions": [
     {
       "text": [
-        "Rp4.106 triliun.",
-        "Anggaran terbesar dalam sejarah."
+        "Upah minimum 2026 naik",
+        "rata-rata 5 persen."
       ],
       "startFrame": 5,
-      "durationInFrames": 143,
+      "durationInFrames": 208,
       "segment": "vo01"
     },
     {
       "text": [
-        "Tapi ada satu baris",
-        "yang jarang dibaca: bunga."
+        "Naik untuk siapa?"
       ],
-      "startFrame": 148,
-      "durationInFrames": 135,
+      "startFrame": 213,
+      "durationInFrames": 84,
       "segment": "vo01"
     },
     {
       "text": [
-        "Pendapatan: Rp3.435,10 T."
+        "Berlaku 1 Januari 2026.",
+        "Dasar: PP 49/2025."
       ],
-      "startFrame": 293,
-      "durationInFrames": 138,
-      "segment": "vo02"
-    },
-    {
-      "text": [
-        "Belanja: Rp4.106,26 T."
-      ],
-      "startFrame": 431,
-      "durationInFrames": 122,
-      "segment": "vo02"
-    },
-    {
-      "text": [
-        "Defisit: Rp671,16 T",
-        "(2,4% PDB)."
-      ],
-      "startFrame": 553,
-      "durationInFrames": 172,
-      "segment": "vo02"
-    },
-    {
-      "text": [
-        "Keseimbangan primer:",
-        "-Rp20,85 triliun."
-      ],
-      "startFrame": 735,
-      "durationInFrames": 165,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "Tanpa bunga,",
-        "anggarannya nyaris seimbang."
-      ],
-      "startFrame": 900,
-      "durationInFrames": 178,
-      "segment": "vo03"
-    },
-    {
-      "text": [
-        "Sisanya: bunga.",
-        "Sekitar Rp650 triliun."
-      ],
-      "startFrame": 1089,
+      "startFrame": 335,
       "durationInFrames": 163,
+      "segment": "vo02"
+    },
+    {
+      "text": [
+        "Formula: inflasi + (pertumbuhan x alfa)"
+      ],
+      "startFrame": 498,
+      "durationInFrames": 151,
+      "segment": "vo02"
+    },
+    {
+      "text": [
+        "Alfa 0,5 - 0,9."
+      ],
+      "startFrame": 649,
+      "durationInFrames": 58,
+      "segment": "vo02"
+    },
+    {
+      "text": [
+        "148,19 juta bekerja."
+      ],
+      "startFrame": 718,
+      "durationInFrames": 93,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "Formal 60,31 juta.",
+        "Informal 87,88 juta."
+      ],
+      "startFrame": 811,
+      "durationInFrames": 181,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "Informal: tanpa upah minimum."
+      ],
+      "startFrame": 992,
+      "durationInFrames": 135,
+      "segment": "vo03"
+    },
+    {
+      "text": [
+        "5% dari Rp3,5 juta",
+        "= Rp175.000 sebulan."
+      ],
+      "startFrame": 1138,
+      "durationInFrames": 204,
       "segment": "vo04"
     },
     {
       "text": [
-        "18,9% dari pendapatan negara."
+        "Sekitar Rp8.300 sehari."
       ],
-      "startFrame": 1252,
-      "durationInFrames": 124,
+      "startFrame": 1342,
+      "durationInFrames": 120,
       "segment": "vo04"
     },
     {
       "text": [
-        "Rp1,78 triliun sehari."
+        "Enam dari sepuluh",
+        "tidak dijangkau aturan itu."
       ],
-      "startFrame": 1376,
-      "durationInFrames": 95,
-      "segment": "vo04"
-    },
-    {
-      "text": [
-        "Pendidikan: Rp824 triliun."
-      ],
-      "startFrame": 1481,
-      "durationInFrames": 95,
+      "startFrame": 1473,
+      "durationInFrames": 190,
       "segment": "vo05"
     },
     {
       "text": [
-        "Bunga setara 79% dari itu."
+        "Bukan dilanggar.",
+        "Tidak masuk definisi."
       ],
-      "startFrame": 1576,
-      "durationInFrames": 95,
+      "startFrame": 1663,
+      "durationInFrames": 160,
       "segment": "vo05"
     },
     {
       "text": [
-        "Dibayar sebelum program dimulai."
+        "Sumber: BPS Sakernas Mei 2026 ·",
+        "PP 49/2025."
       ],
-      "startFrame": 1671,
-      "durationInFrames": 116,
-      "segment": "vo05"
-    },
-    {
-      "text": [
-        "Sumber: UU APBN 2027,",
-        "disahkan 29 September 2026."
-      ],
-      "startFrame": 1798,
-      "durationInFrames": 162,
+      "startFrame": 1834,
+      "durationInFrames": 187,
       "segment": "vo06"
     },
     {
       "text": [
-        "Bunga: hitungan sendiri",
-        "(defisit - keseimbangan primer)."
+        "Hitungan 5% dan harian:",
+        "hitungan sendiri."
       ],
-      "startFrame": 1960,
-      "durationInFrames": 185,
+      "startFrame": 2021,
+      "durationInFrames": 178,
       "segment": "vo06"
     },
     {
       "text": [
-        "Defisit bisa diperdebatkan."
+        "Upah minimum bukan",
+        "untuk semua pekerja."
       ],
-      "startFrame": 2156,
-      "durationInFrames": 117,
+      "startFrame": 2210,
+      "durationInFrames": 191,
       "segment": "vo07"
     },
     {
       "text": [
-        "Bunga tidak."
+        "Itu definisinya."
       ],
-      "startFrame": 2273,
-      "durationInFrames": 52,
+      "startFrame": 2401,
+      "durationInFrames": 78,
       "segment": "vo07"
     }
   ],
   "vo": [
     {
       "id": "vo01",
-      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo01.mp3",
+      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo01.mp3",
       "startFrame": 5,
-      "durationInFrames": 278
+      "durationInFrames": 292
     },
     {
       "id": "vo02",
-      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo02.mp3",
-      "startFrame": 293,
-      "durationInFrames": 432
+      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo02.mp3",
+      "startFrame": 335,
+      "durationInFrames": 372
     },
     {
       "id": "vo03",
-      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo03.mp3",
-      "startFrame": 735,
-      "durationInFrames": 343
+      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo03.mp3",
+      "startFrame": 718,
+      "durationInFrames": 409
     },
     {
       "id": "vo04",
-      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo04.mp3",
-      "startFrame": 1089,
-      "durationInFrames": 382
+      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo04.mp3",
+      "startFrame": 1138,
+      "durationInFrames": 324
     },
     {
       "id": "vo05",
-      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo05.mp3",
-      "startFrame": 1481,
-      "durationInFrames": 306
+      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo05.mp3",
+      "startFrame": 1473,
+      "durationInFrames": 350
     },
     {
       "id": "vo06",
-      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo06.mp3",
-      "startFrame": 1798,
-      "durationInFrames": 347
+      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo06.mp3",
+      "startFrame": 1834,
+      "durationInFrames": 365
     },
     {
       "id": "vo07",
-      "file": "audio/voiceovers/apbn-2027-bunga-utang/vo07.mp3",
-      "startFrame": 2156,
-      "durationInFrames": 169
+      "file": "audio/voiceovers/umk-2026-enam-dari-sepuluh/vo07.mp3",
+      "startFrame": 2210,
+      "durationInFrames": 269
     }
   ]
 };

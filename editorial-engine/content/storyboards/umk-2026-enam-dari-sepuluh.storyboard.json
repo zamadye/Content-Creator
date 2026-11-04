@@ -1,0 +1,302 @@
+{
+  "id": "umk-2026-enam-dari-sepuluh",
+  "version": "1.0.0",
+  "fps": 30,
+  "resolution": {
+    "width": 1080,
+    "height": 1920
+  },
+  "styleReference": "pinjol-bunga-harian-2026 (kolase kertas: kertas kusut krem, kardus kraft, selotip, spidol, pensil)",
+  "visualDirection": "Kolase kertas dan spidol. Upah digambar sebagai slip gaji dan batang arsip; angka informal ditulis dengan spidol marun. Tanpa wajah, tanpa logo lembaga. Satu-satunya warna terang adalah marun untuk 'tidak dijangkau'.",
+  "layerContract": {
+    "background": "PaperBg (tekstur kertas kusut, seed berbeda tiap adegan)",
+    "midground": "KraftCard / Slip / tumpukan kertas — pembawa angka",
+    "foreground": "MarkerText, SketchCircle, SketchUnderline, selotip, pensil",
+    "never": "Tidak ada logo institusi, tidak ada foto pejabat, tidak ada tangkapan layar situs."
+  },
+  "qa": {
+    "maxFontFamilies": 2,
+    "typefaces": [
+      "Permanent Marker",
+      "Archivo"
+    ],
+    "visualChangeEverySec": 4,
+    "minDurationSec": 45,
+    "maxDurationSec": 95
+  },
+  "scenes": [
+    {
+      "id": "c01",
+      "narrativePurpose": "HOOK",
+      "vo": "vo01",
+      "durationTargetSec": 11.0,
+      "environment": "Meja arsip dengan slip gaji, berkas upah, dan klip logam.",
+      "visualDescription": "Kartu kraft '5%' besar; slip kecil 'UMP 2026'; pertanyaan marun 'untuk siapa?'.",
+      "characterAction": "Elemen masuk berurutan; angka ditulis satu per satu.",
+      "camera": "Push-in pelan 1.00 -> 1.05.",
+      "motion": "Masuk 0-12 frame, aksi utama 0,15-0,85 durasi.",
+      "textOverlay": [],
+      "sourceTag": "BPS Sakemar Mei 2026 · PP 49/2025",
+      "sound": "Kertas, spidol, satu cap.",
+      "sfx": [
+        {
+          "at": 0.12,
+          "file": "paper",
+          "gainDb": -24,
+          "note": "masuk"
+        },
+        {
+          "at": 0.45,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "angka"
+        },
+        {
+          "at": 0.8,
+          "file": "stamp",
+          "gainDb": -20,
+          "note": "penutup"
+        }
+      ],
+      "requiredAssets": [
+        "KraftCard",
+        "Slip",
+        "PaperWrite"
+      ]
+    },
+    {
+      "id": "c02",
+      "narrativePurpose": "CONTEXT",
+      "vo": "vo02",
+      "durationTargetSec": 11.0,
+      "environment": "Meja arsip dengan slip gaji, berkas upah, dan klip logam.",
+      "visualDescription": "Slip formula ditulis tangan: inflasi + (pertumbuhan x alfa); dua slip kecil alfa 0,5 dan 0,9.",
+      "characterAction": "Elemen masuk berurutan; angka ditulis satu per satu.",
+      "camera": "Push-in pelan 1.00 -> 1.05.",
+      "motion": "Masuk 0-12 frame, aksi utama 0,15-0,85 durasi.",
+      "textOverlay": [],
+      "sourceTag": "BPS Sakemar Mei 2026 · PP 49/2025",
+      "sound": "Kertas, spidol, satu cap.",
+      "sfx": [
+        {
+          "at": 0.12,
+          "file": "paper",
+          "gainDb": -24,
+          "note": "masuk"
+        },
+        {
+          "at": 0.45,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "angka"
+        },
+        {
+          "at": 0.8,
+          "file": "stamp",
+          "gainDb": -20,
+          "note": "penutup"
+        }
+      ],
+      "requiredAssets": [
+        "KraftCard",
+        "Slip",
+        "PaperWrite"
+      ]
+    },
+    {
+      "id": "c03",
+      "narrativePurpose": "CONTRADICTION",
+      "vo": "vo03",
+      "durationTargetSec": 11.0,
+      "environment": "Meja arsip dengan slip gaji, berkas upah, dan klip logam.",
+      "visualDescription": "Dua batang: formal 60,31 juta dan informal 87,88 juta; batang informal diberi label 59,3%.",
+      "characterAction": "Elemen masuk berurutan; angka ditulis satu per satu.",
+      "camera": "Push-in pelan 1.00 -> 1.05.",
+      "motion": "Masuk 0-12 frame, aksi utama 0,15-0,85 durasi.",
+      "textOverlay": [],
+      "sourceTag": "BPS Sakemar Mei 2026 · PP 49/2025",
+      "sound": "Kertas, spidol, satu cap.",
+      "sfx": [
+        {
+          "at": 0.12,
+          "file": "paper",
+          "gainDb": -24,
+          "note": "masuk"
+        },
+        {
+          "at": 0.45,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "angka"
+        },
+        {
+          "at": 0.8,
+          "file": "stamp",
+          "gainDb": -20,
+          "note": "penutup"
+        }
+      ],
+      "requiredAssets": [
+        "KraftCard",
+        "Slip",
+        "PaperWrite"
+      ]
+    },
+    {
+      "id": "c04",
+      "narrativePurpose": "ANALYSIS",
+      "vo": "vo04",
+      "durationTargetSec": 11.0,
+      "environment": "Meja arsip dengan slip gaji, berkas upah, dan klip logam.",
+      "visualDescription": "Persamaan: Rp3,5 juta x 5% = Rp175.000; cap harian Rp8.300.",
+      "characterAction": "Elemen masuk berurutan; angka ditulis satu per satu.",
+      "camera": "Push-in pelan 1.00 -> 1.05.",
+      "motion": "Masuk 0-12 frame, aksi utama 0,15-0,85 durasi.",
+      "textOverlay": [],
+      "sourceTag": "BPS Sakemar Mei 2026 · PP 49/2025",
+      "sound": "Kertas, spidol, satu cap.",
+      "sfx": [
+        {
+          "at": 0.12,
+          "file": "paper",
+          "gainDb": -24,
+          "note": "masuk"
+        },
+        {
+          "at": 0.45,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "angka"
+        },
+        {
+          "at": 0.8,
+          "file": "stamp",
+          "gainDb": -20,
+          "note": "penutup"
+        }
+      ],
+      "requiredAssets": [
+        "KraftCard",
+        "Slip",
+        "PaperWrite"
+      ]
+    },
+    {
+      "id": "c05",
+      "narrativePurpose": "ANALYSIS",
+      "vo": "vo05",
+      "durationTargetSec": 11.0,
+      "environment": "Meja arsip dengan slip gaji, berkas upah, dan klip logam.",
+      "visualDescription": "Angka besar '6 dari 10' dengan garis pemisah dan catatan 'tidak masuk definisi'.",
+      "characterAction": "Elemen masuk berurutan; angka ditulis satu per satu.",
+      "camera": "Push-in pelan 1.00 -> 1.05.",
+      "motion": "Masuk 0-12 frame, aksi utama 0,15-0,85 durasi.",
+      "textOverlay": [],
+      "sourceTag": "BPS Sakemar Mei 2026 · PP 49/2025",
+      "sound": "Kertas, spidol, satu cap.",
+      "sfx": [
+        {
+          "at": 0.12,
+          "file": "paper",
+          "gainDb": -24,
+          "note": "masuk"
+        },
+        {
+          "at": 0.45,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "angka"
+        },
+        {
+          "at": 0.8,
+          "file": "stamp",
+          "gainDb": -20,
+          "note": "penutup"
+        }
+      ],
+      "requiredAssets": [
+        "KraftCard",
+        "Slip",
+        "PaperWrite"
+      ]
+    },
+    {
+      "id": "c06",
+      "narrativePurpose": "EVIDENCE",
+      "vo": "vo06",
+      "durationTargetSec": 11.0,
+      "environment": "Meja arsip dengan slip gaji, berkas upah, dan klip logam.",
+      "visualDescription": "Slip sumber: BPS Sakernas Mei 2026 dan PP 49/2025; label 'hitungan sendiri' dilingkari.",
+      "characterAction": "Elemen masuk berurutan; angka ditulis satu per satu.",
+      "camera": "Push-in pelan 1.00 -> 1.05.",
+      "motion": "Masuk 0-12 frame, aksi utama 0,15-0,85 durasi.",
+      "textOverlay": [],
+      "sourceTag": "BPS Sakemar Mei 2026 · PP 49/2025",
+      "sound": "Kertas, spidol, satu cap.",
+      "sfx": [
+        {
+          "at": 0.12,
+          "file": "paper",
+          "gainDb": -24,
+          "note": "masuk"
+        },
+        {
+          "at": 0.45,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "angka"
+        },
+        {
+          "at": 0.8,
+          "file": "stamp",
+          "gainDb": -20,
+          "note": "penutup"
+        }
+      ],
+      "requiredAssets": [
+        "KraftCard",
+        "Slip",
+        "PaperWrite"
+      ]
+    },
+    {
+      "id": "c07",
+      "narrativePurpose": "CLOSING",
+      "vo": "vo07",
+      "durationTargetSec": 11.0,
+      "environment": "Meja arsip dengan slip gaji, berkas upah, dan klip logam.",
+      "visualDescription": "Dua kalimat penutup, garis bawah marun.",
+      "characterAction": "Elemen masuk berurutan; angka ditulis satu per satu.",
+      "camera": "Push-in pelan 1.00 -> 1.05.",
+      "motion": "Masuk 0-12 frame, aksi utama 0,15-0,85 durasi.",
+      "textOverlay": [],
+      "sourceTag": "BPS Sakemar Mei 2026 · PP 49/2025",
+      "sound": "Kertas, spidol, satu cap.",
+      "sfx": [
+        {
+          "at": 0.12,
+          "file": "paper",
+          "gainDb": -24,
+          "note": "masuk"
+        },
+        {
+          "at": 0.45,
+          "file": "tick",
+          "gainDb": -22,
+          "note": "angka"
+        },
+        {
+          "at": 0.8,
+          "file": "stamp",
+          "gainDb": -20,
+          "note": "penutup"
+        }
+      ],
+      "requiredAssets": [
+        "KraftCard",
+        "Slip",
+        "PaperWrite"
+      ]
+    }
+  ]
+}

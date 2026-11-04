@@ -46,6 +46,13 @@ import { A04Development } from './a04_development';
 import { A05Perspective } from './a05_perspective';
 import { A06Evidence } from './a06_evidence';
 import { A07Closing } from './a07_closing';
+import { C01Hook } from './c01_hook';
+import { C02Context } from './c02_context';
+import { C03Conflict } from './c03_conflict';
+import { C04Analysis1 } from './c04_analysis1';
+import { C05Analysis2 } from './c05_analysis2';
+import { C06Evidence } from './c06_evidence';
+import { C07Closing } from './c07_closing';
 export const SCENES: Record<string, React.FC<{ d: number }>> = {
   s01: S01Hook,
   s02: S02Corridor,
@@ -81,6 +88,13 @@ export const SCENES: Record<string, React.FC<{ d: number }>> = {
   p06: P06Evidence,
   p07: P07Closing,
   // misi kedelapan — bsu-9-dari-100-2026 (prefix b)
+  c01: C01Hook,
+  c02: C02Context,
+  c03: C03Conflict,
+  c04: C04Analysis1,
+  c05: C05Analysis2,
+  c06: C06Evidence,
+  c07: C07Closing,
   a01: A01Hook,
   a02: A02Context,
   a03: A03Conflict,

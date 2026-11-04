@@ -1,0 +1,70 @@
+{
+  "mission": "umk-2026-enam-dari-sepuluh",
+  "checkedAt": "2026-11-04",
+  "thesis": "Kenaikan upah minimum hanya mengikat pekerja yang punya hubungan kerja formal. Dengan 59,3 persen pekerja Indonesia berstatus informal, aturan upah minimum — sebaik apa pun angkanya — tidak menjangkau mayoritas orang yang bekerja.",
+  "sources": [
+    {
+      "id": "S1",
+      "publisher": "Kontan.co.id",
+      "url": "https://regional.kontan.co.id/news/berlaku-1-januari-2026-ini-tabel-ump-2026-dari-tertinggi-ke-terendah-di-36-provinsi",
+      "date": "2025-12-26",
+      "primary": false,
+      "claims": [
+        "UMP 2026 naik rata-rata 5 persen",
+        "berlaku 1 Januari 2026",
+        "dasar PP 49/2025",
+        "formula: inflasi + (pertumbuhan ekonomi x alfa), alfa 0,5-0,9"
+      ]
+    },
+    {
+      "id": "S2",
+      "publisher": "BPS (Sakernas Mei 2026, dikutip Liputan6)",
+      "url": "https://www.liputan6.com/bisnis/read/8264460/",
+      "date": "2026-08-06",
+      "primary": true,
+      "claims": [
+        "penduduk bekerja 148,19 juta",
+        "pekerja formal 60,31 juta (40,70%)",
+        "pekerja informal 87,88 juta (59,30%)",
+        "TPT 4,65%"
+      ]
+    }
+  ],
+  "derived": [
+    {
+      "id": "D1",
+      "formula": "87,88 / 148,19",
+      "value": "59,30",
+      "unit": "persen",
+      "meaning": "porsi pekerja informal",
+      "label": "hitungan sendiri"
+    },
+    {
+      "id": "D2",
+      "formula": "3.500.000 x 5%",
+      "value": "175.000",
+      "unit": "Rp/bulan",
+      "meaning": "kenaikan upah minimum 5% pada upah Rp3,5 juta",
+      "label": "hitungan sendiri"
+    },
+    {
+      "id": "D3",
+      "formula": "175.000 / 21",
+      "value": "8.333",
+      "unit": "Rp/hari kerja",
+      "meaning": "kenaikan per hari kerja (21 hari)",
+      "label": "hitungan sendiri"
+    }
+  ],
+  "uncertainties": [
+    "Sumber berbeda menyebut rata-rata kenaikan UMP 2026 antara 5% dan 6,5%; yang dipakai adalah Kontan (5%) karena menyebut dasar hukum PP 49/2025 secara eksplisit. Perbedaan ini tidak disembunyikan.",
+    "Upah minimum mengikat pekerja dengan masa kerja kurang dari satu tahun (aturan pengupahan); video menyebut 'pekerja formal', bukan klaim tentang semua pekerja formal.",
+    "Angka Rp3,5 juta dipakai sebagai contoh, bukan upah rata-rata nasional."
+  ],
+  "prohibited": [
+    "Jangan menyebut UMK sebagai 'gagal' atau 'dilanggar' tanpa bukti.",
+    "Jangan mengklaim seluruh pekerja formal menerima tepat UMK.",
+    "Jangan memakai angka Rp3,5 juta sebagai upah rata-rata.",
+    "Jangan menyebut persentase kenaikan sebagai angka tunggal nasional tanpa kata 'rata-rata'."
+  ]
+}

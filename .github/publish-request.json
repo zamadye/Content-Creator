@@ -1,15 +1,15 @@
 {
   "_catatan": "Mengubah berkas ini lalu push = tombol publikasi. Workflow .github/workflows/publish-scheduled.yml membaca berkas ini, lalu menjadwalkan tiap misi ke Buffer dengan jeda sesuai dueAt. Semua waktu ISO-8601 dengan offset zona akun Buffer (Asia/Jakarta, +07:00).",
   "aksi": "kirim",
-  "platforms": "instagram,tiktok,youtube",
-  "_platforms_catatan": "Aturan tetap sejak 4 Nov 2026: SATU video langsung didistribusikan ke TIGA platform sekaligus (Instagram Reels + TikTok + YouTube Shorts) dalam satu slot. Facebook belum tersambung di Buffer, jadi tidak dimasukkan.",
+  "platforms": "facebook,youtube",
+  "_platforms_catatan": "Permintaan pemilik kanal 4 Nov 2026: unggah ke YouTube (Knot Theory) + Facebook Reels. Instagram & TikTok dilewati untuk konten ini.",
   "items": [
     {
-      "mission": "apbn-2027-bunga-utang",
-      "dueAt": "2026-11-04T19:00:00+07:00",
-      "alasan": "misi 9 (APBN 2027) — satu-satunya video siap; slot 19.00 WIB = jeda 2 jam dari BSU 17.00 WIB"
+      "mission": "phk-tiga-angka-2026",
+      "dueAt": "2026-11-04T21:45:00+07:00",
+      "alasan": "PHK 2026 v2 (gaya kartun, hukum objek) — disetujui pemilik kanal 4 Nov 2026; unggah segera ke YouTube + Facebook Reels"
     }
   ],
-  "_revisi": 5,
-  "_catatan_revisi": "Revisi 5: aturan '1 video = 3 platform' dikunci. Kirim APBN 2027 ke Instagram, TikTok, YouTube sekaligus. Instagram tanpa firstComment (fitur berbayar)."
+  "_revisi": 6,
+  "_catatan_revisi": "Revisi 6: PHK 2026 v2 ke YouTube + Facebook Reels. Berkas video B_phk-tiga-angka-2026_1080x1920.mp4 sudah diganti isi v2 (objek konkret + hook baru)."
 }

@@ -53,7 +53,7 @@
       "order": 0,
       "durationFrames": 287,
       "image": "images/scene-01.png",
-      "narration": "Bayangkan kamu merekam perumahan baru yang belum dijual. Tiga orang, satu kamera, dan gerbang yang seharusnya dikunci.",
+      "narration": "Tiga anak masuk ke perumahan kosong itu. Video mereka baru diunggah besok pagi.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
@@ -494,7 +494,7 @@
     "selfDeclaredMadeForKids": false,
     "syntheticDisclosure": true,
     "thumbnail": {
-      "headline": "VIDEO INI DARI BESOK",
+      "headline": "VIDEO ITU BARU DIUNGGAH BESOK",
       "kicker": "BLOK C · 19.00",
       "image": "images/thumb.png",
       "holdFrames": 12

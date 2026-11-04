@@ -1,6 +1,6 @@
 {
   "episodeId": "LS-0006",
-  "status": "held",
+  "status": "requested",
   "createdAt": "2026-11-04T10:23:32.814Z",
   "media": "the-last-signal/releases/LS-0006.mp4",
   "episode": {
@@ -28,5 +28,6 @@
     "notifySubscribers": true,
     "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
   },
-  "holdReason": "antrean jeda 1 jam"
+  "holdReason": "antrean jeda 1 jam",
+  "requestedAt": "2026-11-04T14:11:58Z"
 }

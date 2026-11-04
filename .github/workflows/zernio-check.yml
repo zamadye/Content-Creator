@@ -1,31 +1,36 @@
 name: Diagnostik Zernio
 
 # ---------------------------------------------------------------------------
-#  Kenapa ini ada: zernio.com tidak bisa dihubungi dari sandbox Arena, tetapi
-#  runner GitHub punya internet penuh. Jadi seluruh panggilan Zernio dijalankan
-#  di sini. Hasil diagnosa diterbitkan sebagai anotasi supaya bisa dibaca
-#  lewat API meskipun log mentah tidak bisa diunduh.
+#  Kenapa ada di sini: zernio.com tidak dapat dihubungi dari sandbox Arena,
+#  tetapi runner GitHub punya internet penuh. Seluruh panggilan Zernio
+#  dijalankan di runner, dan hasilnya diterbitkan sebagai anotasi check-run
+#  supaya bisa dibaca lewat API (log mentah tidak bisa diunduh dari sandbox).
 #
-#  Workflow ini TIDAK mengunggah apa pun. Ia hanya membaca akun, kesehatan, dan
-#  status paket. Aman dijalankan berkali-kali.
+#  CATATAN PENTING soal pemicu:
+#  `workflow_dispatch` hanya bisa dipanggil kalau workflow ini sudah ada di
+#  branch default (main). Selama perubahan masih berada di branch kerja, satu-
+#  satunya cara menjalankannya adalah lewat `push`. Karena itu workflow ini
+#  dipicu push ke branch mana pun yang menyentuh tools/publish/**, dan hanya
+#  membaca (tidak mengunggah apa pun).
 #
-#  Jangan menambahkan pemicu pull_request / pull_request_target: workflow ini
-#  memakai secret, dan pull_request dari fork tidak boleh punya akses ke sana.
+#  JANGAN menambahkan pemicu pull_request / pull_request_target: workflow ini
+#  memakai secret, dan PR dari fork tidak boleh punya akses ke sana.
 # ---------------------------------------------------------------------------
 
 on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - 'the-last-signal/tools/publish/**'
+      - 'the-last-signal/publish-queue/**.check'
   workflow_dispatch:
-    inputs:
-      catatan:
-        description: 'Catatan bebas (muncul di nama run)'
-        required: false
-        default: 'verifikasi integrasi'
 
 permissions:
   contents: read
 
 concurrency:
-  group: zernio-check
+  group: zernio-check-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -60,7 +65,6 @@ jobs:
 
       - name: Jalankan diagnostik
         working-directory: the-last-signal/tools/publish
-        continue-on-error: true
         run: node zernio-check.mjs
 
       - name: Publikasikan laporan sebagai artefak

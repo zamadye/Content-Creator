@@ -267,7 +267,7 @@ dibatasi ke platform yang gagal saja — `"platforms": "instagram"` di berkas pe
 ## §10. Kiriman keempat: misi 8 — BSU (4 November 2026)
 
 Permintaan `_revisi: 4`, satu item, tiga platform. **Terverifikasi lewat anotasi run
-`41776475749`** (job `kirim`, langkah "Verifikasi antrean" hijau):
+`41776475713`** (job `kirim`, langkah "Verifikasi antrean" hijau):
 
 | Platform | Post id | Jadwal |
 |---|---|---|

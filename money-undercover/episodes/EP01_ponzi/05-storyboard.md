@@ -213,7 +213,7 @@
 | Environment | ENV_MEJA_DOKUMEN_01 (reuse) |
 | Camera | Medium → pull-back |
 | Animation | Light-off sequence; kinetic typography tagline; end card fade |
-| Text overlay | [editing] "LEGAL? LOGIS? KONTAK 157" · "MONEY UNDERCOVER — THE STORIES BEHIND MONEY." |
+| Text overlay | [editing] "LEGAL? LOGIS? KONTAK 157" · "RUANG MARGIN — THE STORIES BEHIND MONEY." |
 | Sound design | Musik resolve; single paper snap; fade out |
 | Asset IDs | CHAR_INVESTIGATOR_IDLE_01, PROP_MAP_DOKUMEN_01 |
 | Evidence ID | F03, F16, F14 |

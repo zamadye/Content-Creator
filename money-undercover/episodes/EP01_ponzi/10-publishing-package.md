@@ -33,7 +33,7 @@ Rules applied: 16:9 · 1280×720 · one subject · one conflict · 2–5 words �
 Korban pertama skema Ponzi tidak sedang ditipu — mereka justru dibayar.
 Uang masuk, mereka tarik, mereka cerita. Lalu semuanya hilang.
 
-Di episode ini, MONEY UNDERCOVER membongkar mesin di balik skema Ponzi:
+Di episode ini, RUANG MARGIN membongkar mesin di balik skema Ponzi:
 bagaimana pembayaran yang NYATA justru menjadi alat rekrutmen paling ampuh,
 dari Boston 1920 sampai aplikasi yang dihentikan OJK di Indonesia.
 
@@ -50,7 +50,7 @@ dari Boston 1920 sampai aplikasi yang dihentikan OJK di Indonesia.
 Tokoh "Rani" adalah komposit ilustratif. Klaim berstatus dugaan ditandai sebagai
 dugaan. Kontak pengaduan OJK: 157.
 
-#SkemaPonzi #InvestasiBodong #MONEYUNDERCOVER
+#SkemaPonzi #InvestasiBodong #RUANGMARGIN
 ```
 
 ---
@@ -74,7 +74,7 @@ dugaan. Kontak pengaduan OJK: 157.
 skema ponzi, investasi bodong, ponzi indonesia, money game, first travel,
 madoff, charles ponzi, ojk investasi ilegal, kenapa korban investasi bodong percaya,
 ciri investasi bodong, aplikasi penghasil uang ilegal, VIR ojk, gali lubang tutup lubang,
-psikologi penipuan investasi, money undercover
+psikologi penipuan investasi, ruang margin
 ```
 
 ---
@@ -116,13 +116,13 @@ akhirnya bikin kamu ragu. 👇
 **SHORT 1 — "Dibayar, bukan kaya" (35 dtk)**  
 HOOK (0–3s): "Korban Ponzi pertama tidak ditipu. MEREKA DIBAYAR."  
 BODY (4–28s): Bayangkan: uang masuk rekeningmu, kamu tarik, kamu belanja, kamu ajak keluarga. Itu bukti terbaik, kan? Tapi uang yang kamu terima bukan keuntungan — itu uang orang berikutnya. Setiap pembayaran adalah iklan yang dibayar korban berikutnya.  
-OUT (29–35s): "Skema Ponzi tidak menjual investasi. Ia menjual bukti. MONEY UNDERCOVER."  
+OUT (29–35s): "Skema Ponzi tidak menjual investasi. Ia menjual bukti. RUANG MARGIN."  
 VISUAL: hook scene S01 → flow S06 → reveal S12 stills. 9:16 crop.
 
 **SHORT 2 — "93.295 vs 29.985" (45 dtk)**  
 HOOK (0–3s): "93.295 orang setor uang. Cuma 29.985 yang berangkat."  
 BODY: First Travel janjikan umrah murah. Setoran Nov 2016–Mei 2017 total ±Rp1,3 triliun. Yang diberangkatkan cuma sepertiganya. Kerugian resmi di pengadilan: 63.310 orang, Rp905 miliar. Vonisnya: 20, 18, dan 15 tahun.  
-OUT: "Yang dibeli bukan tiket — tapi keyakinan. MONEY UNDERCOVER."  
+OUT: "Yang dibeli bukan tiket — tapi keyakinan. RUANG MARGIN."  
 VISUAL: S10 terminal + counter motion graphics. 9:16.
 
 ---
@@ -134,7 +134,7 @@ A. Pernah, hampir ikut
 B. Pernah, langsung tolak  
 C. Belum  
 D. Malah yang nawarin orang terdekat…"  
-Caption: "Yang paling sering bikin jatuh bukan logikanya — tapi yang ngajaknya. Analisis lengkapnya di video terbaru MONEY UNDERCOVER."
+Caption: "Yang paling sering bikin jatuh bukan logikanya — tapi yang ngajaknya. Analisis lengkapnya di video terbaru RUANG MARGIN."
 
 ---
 

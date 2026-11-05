@@ -54,7 +54,7 @@ const SceneBox: React.FC<{
           fontWeight: 700,
         }}
       >
-        MONEY <span style={{color: C.amber}}>UNDERCOVER</span>
+        RUANG <span style={{color: C.amber}}>MARGIN</span>
       </div>
     </AbsoluteFill>
   );
@@ -997,7 +997,7 @@ const S14: React.FC<{dur: number}> = ({dur}) => {
       {/* end tagline */}
       <div style={{position: 'absolute', bottom: 70, textAlign: 'center', opacity: tag}}>
         <div style={{fontSize: 52, fontWeight: 800, letterSpacing: 8, color: C.amber}}>
-          MONEY UNDERCOVER
+          RUANG MARGIN
         </div>
         <div style={{fontSize: 24, letterSpacing: 6, color: C.bone, marginTop: 8, opacity: end}}>
           THE STORIES BEHIND MONEY.

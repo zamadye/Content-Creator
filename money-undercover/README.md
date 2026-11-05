@@ -1,9 +1,9 @@
-# MONEY UNDERCOVER — AI VIDEO PRODUCTION SYSTEM
+# RUANG MARGIN — AI VIDEO PRODUCTION SYSTEM
 
 > THE STORIES BEHIND MONEY.
 > Repeatable professional documentary production system — not a one-off AI-generated video.
 
-**Master prompt:** MONEY UNDERCOVER — AI VIDEO PRODUCTION AGENT v1.0  
+**Master prompt:** RUANG MARGIN — AI VIDEO PRODUCTION AGENT v1.0  
 **Project initialized:** 2026-11-04  
 **Overall status:** INITIALIZED — AWAITING FIRST EPISODE TOPIC
 
@@ -90,6 +90,7 @@ For small corrections: update only the affected section; preserve approved work.
 | 2026-11-04 | EP01 topic confirmed: Skema Ponzi; STAGE 01 analysis approved | EP01 v1.0 | — |
 | 2026-11-05 | EP01 STAGE 02–08, 10 completed (research, outline, script, storyboard, 9 assets, animation sheet, audio design, publishing) | EP01 all v1.0 | STAGE 09 final render uploaded (ffmpeg npm + Chromium sparticuz + Remotion + bpy all proven) |
 | 2026-11-05 | Full EP01 package uploaded to Google Drive for review | — | User review |
+| 2026-11-05 | Brand renamed MONEY UNDERCOVER → RUANG MARGIN across docs + render source; video re-render in progress | brand v1.1 | VO recording |
 
 ### Registered character references (approved v1.0)
 

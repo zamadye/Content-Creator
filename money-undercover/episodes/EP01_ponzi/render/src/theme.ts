@@ -1,4 +1,4 @@
-// MONEY UNDERCOVER — brand tokens (BRAND-CONFIG.md v1.0)
+// RUANG MARGIN — brand tokens (BRAND-CONFIG.md v1.0)
 export const C = {
   navy: '#101A2B',
   amber: '#F2A900',

@@ -1,4 +1,4 @@
-# MONEY UNDERCOVER — BRAND CONFIGURATION v1.0
+# RUANG MARGIN — BRAND CONFIGURATION v1.0
 
 > Source of truth for all visual and editorial identity decisions.
 > Any production asset that violates this file must be regenerated, not patched.
@@ -9,7 +9,7 @@
 
 | Field | Value |
 |---|---|
-| Brand | MONEY UNDERCOVER |
+| Brand | RUANG MARGIN |
 | Tagline | THE STORIES BEHIND MONEY. |
 | Language | Indonesian (Bahasa Indonesia) |
 | Audience | Young adults, 18–30 years old |
@@ -28,7 +28,7 @@
 | Name | Hex | Role |
 |---|---|---|
 | Midnight Navy | `#101A2B` | Dominant environment and background color |
-| Undercover Amber | `#F2A900` | Primary identity + information highlight |
+| Margin Amber | `#F2A900` | Primary identity + information highlight |
 | Paper Bone | `#F2F0E9` | Readable typography, documents |
 | Alert Red | `#D94B40` | Risk, loss, danger, conflict ONLY |
 
@@ -156,7 +156,7 @@ Voice delivery: native-level Indonesian pronunciation, clear consonants, natural
 - 16:9, 1280 × 720
 - One dominant subject, one visual conflict
 - 2–5 words maximum
-- High contrast, Midnight Navy + Undercover Amber identity
+- High contrast, Midnight Navy + Margin Amber identity
 - Readable on mobile
 - Never misleading
 

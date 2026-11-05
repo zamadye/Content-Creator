@@ -49,7 +49,7 @@ Skema Ponzi tidak menjual investasi. Skema Ponzi menjual **bukti** — dan cara 
 ### ACT 6 — THE AFTERMATH (10:00–END)
 - **Beat 18 (consequences):** Setelah runtuh: pengembalian sulit dan lambat. First Travel — putusan PK MA kembalikan aset ke jemaah (Jan 2023); proses panjang. [F10]
 - **Beat 19 (the insight):** Satu insight: skema Ponzi tidak kekurangan kejujuran — ia kekurangan **peserta baru**. Karena itu yang dijual selalu bukan produk, melainkan keyakinan.
-- **Beat 20 (exit):** Cek 2L (Legal & Logis), Kontak 157 — sebagai penutup wajar dokumen, bukan gaya seminar. [F03] + tagline "MONEY UNDERCOVER — The stories behind money."
+- **Beat 20 (exit):** Cek 2L (Legal & Logis), Kontak 157 — sebagai penutup wajar dokumen, bukan gaya seminar. [F03] + tagline "RUANG MARGIN — The stories behind money."
 
 ---
 

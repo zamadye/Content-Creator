@@ -154,7 +154,7 @@ VISUAL INTENT: ENV_PENGADILAN/DOKUMEN pasca-verdict — kertas bone, stempel amb
 ## SCENE 14 — INSIGHT & OUT (10:40–END)
 
 NARRATION:
-Satu kalimat untuk menutup: skema Ponzi tidak pernah kekurangan kejujuran — ia kekurangan peserta baru. Karena itu yang dijual bukan produknya, melainkan keyakinan. Kalau ada tawaran untung besar tanpa risiko, ingat hukum yang tidak pernah bolong: hasil tinggi selalu datang bersama risiko. Cek dulu yang OJK sebut dua hal: legal — izinnya ada? Logis — untungnya masuk akal? Dan kalau sudah terlanjur ragu, satu nomor: 157. Uangmu mungkin bisa dicari kembali. Waktu yang hilang — tidak. MONEY UNDERCOVER. The stories behind money.
+Satu kalimat untuk menutup: skema Ponzi tidak pernah kekurangan kejujuran — ia kekurangan peserta baru. Karena itu yang dijual bukan produknya, melainkan keyakinan. Kalau ada tawaran untung besar tanpa risiko, ingat hukum yang tidak pernah bolong: hasil tinggi selalu datang bersama risiko. Cek dulu yang OJK sebut dua hal: legal — izinnya ada? Logis — untungnya masuk akal? Dan kalau sudah terlanjur ragu, satu nomor: 157. Uangmu mungkin bisa dicari kembali. Waktu yang hilang — tidak. RUANG MARGIN. The stories behind money.
 
 FACT REFERENCES: [F03, F16, F14]  
 EMOTIONAL INTENT: Insight — satu pemikiran yang dibawa pulang  

@@ -50,8 +50,9 @@ Pre-fix render archived as `render/out/EP01-ponzi-1080p24.pre-fix.mp4`.
 
 ## Remaining before publish
 
+- [x] **Rebrand (user)**: brand renamed MONEY UNDERCOVER → **RUANG MARGIN** — docs (00/01/03/04/05/10) + render source (brand bug, outro) + Drive sync done; full re-render running → `render/out/EP01-ruangmargin-1080p24.mp4` (supersedes `EP01-ponzi-1080p24.mp4`)
+- [x] Thumbnail final: `assets/THUMB_EP01_FINAL.png` (1280×720; headline "MEREKA DIBAYAR." bone+amber, RUANG MARGIN mark; from THUMB_EP01_CONCEPT_01)
 - [ ] **VO recording** (Stage 08 script + cue sheet ready) → mix; add `<Audio>` in Remotion or mux with ffmpeg → re-render audio track
-- [ ] Thumbnail final: `assets/THUMB_EP01_CONCEPT_01.png` + headline in editing
 - [ ] Full `QC-CHECKLIST.md` final-video section (audio loudness, etc.)
 - [ ] Publish per `10-publishing-package.md`
 

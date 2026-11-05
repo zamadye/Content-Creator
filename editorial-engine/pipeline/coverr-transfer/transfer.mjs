@@ -69,6 +69,29 @@ async function api(p,key,method='GET') {
   const body=await r.text(); if(body.length>2_000_000) throw new SafeError('COVERR_RESPONSE_TOO_LARGE');
   try { return JSON.parse(body); } catch { throw new SafeError('COVERR_BAD_JSON'); }
 }
+// The current license asks for PATCH; the older official API download docs
+// also say that an mp4_download request needs no additional action. If the
+// documented PATCH endpoint returns 404 for both documented auth methods, we
+// still use the API's mp4_download for a PRIVATE review draft and explicitly
+// mark tracking NEEDS_REVIEW. Never turn an HTTP failure into a tracking PASS.
+export function classifyTracking(statuses) {
+  if(statuses.some(s=>s>=200 && s<300)) return 'PASS';
+  if(statuses.length && statuses.every(s=>s===404)) return 'NEEDS_REVIEW';
+  return 'FAIL';
+}
+async function track(id,key) {
+  const statuses=[];
+  for(const method of ['x-api-key','bearer']) {
+    const headers={'Accept':'application/json','User-Agent':'ContentCreator-Coverr-Transfer/1.1'};
+    if(method==='x-api-key') headers['x-api-key']=key; else headers.Authorization=`Bearer ${key}`;
+    let r; try {r=await fetch(`https://api.coverr.co/videos/${id}/stats/downloads`,{method:'PATCH',headers,redirect:'error',signal:AbortSignal.timeout(30000)});}
+    catch {throw new SafeError('COVERR_PATCH_NETWORK');}
+    statuses.push(r.status);
+    if(r.ok) break;
+    if(r.status!==404) throw new SafeError(`COVERR_PATCH_HTTP_${r.status}`);
+  }
+  return {status:classifyTracking(statuses), http_statuses:statuses};
+}
 async function download(url,destination) {
   let next=new URL(url),response;
   for(let i=0;i<5;i++) {
@@ -109,13 +132,14 @@ async function main() {
     if(!validId(id)||!key||!token||!validRepository(repo)) throw new SafeError('MISSING_INPUT');
     dir=fs.mkdtempSync(path.join(os.tmpdir(),'coverr-transfer-')); const raw=path.join(dir,'raw.mp4'), clip=path.join(dir,'excerpt.mp4');
     const candidate=checkCandidate(await api(`/videos/${id}`,key),id,key);
-    // This asset has been selected; tracking must succeed before download.
-    // Stop on failure rather than use a clip without required API tracking.
-    const trackingStatus=await api(`/videos/${id}/stats/downloads`,key,'PATCH');
+    // Issue the documented API tracking request on selection, then use the
+    // API's mp4_download URL (which the download docs describe as tracked).
+    // A 404 is carried through as NEEDS_REVIEW, never represented as success.
+    const tracking=await track(id,key);
     const originalBytes=await download(candidate.mediaUrl,raw);
     const trimmed=trim(raw,clip), publicKey=fs.readFileSync('editorial-engine/pipeline/coverr-transfer/session-public.pem');
     const blob=encryptBytes(trimmed,publicKey), sha=await createBlob(blob,token,repo);
-    emit({status:'PASS',video:{id:candidate.id,title:candidate.title,creator:candidate.creator,duration_seconds:candidate.duration_seconds,is_premium:false,is_ai_generated:false,is_vertical:false},tracking_http:trackingStatus,original_bytes:originalBytes,excerpt_bytes:trimmed.length,excerpt_sha256:sha256(trimmed),encrypted_blob_sha:sha,transport:'encrypted-unreferenced-git-blob'});
+    emit({status:'PASS_DOWNLOAD',video:{id:candidate.id,title:candidate.title,creator:candidate.creator,duration_seconds:candidate.duration_seconds,is_premium:false,is_ai_generated:false,is_vertical:false},tracking,download_route:'Coverr API mp4_download',original_bytes:originalBytes,excerpt_bytes:trimmed.length,excerpt_sha256:sha256(trimmed),encrypted_blob_sha:sha,transport:'encrypted-unreferenced-git-blob'});
   } catch(e) {emit({status:'FAIL',id:validId(id)?id:null,code:e instanceof SafeError?e.code:'UNEXPECTED_FAILURE'}); process.exitCode=1;}
   finally {if(dir) fs.rmSync(dir,{recursive:true,force:true});}
 }

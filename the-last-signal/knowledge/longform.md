@@ -58,8 +58,14 @@ panjang terdengar seperti mesin.
   gambar per segmen, ganti tiap 15–25 detik, gerak lambat (push 4–6%).
 - Musik: drone tanpa ketukan selama segmen 2–3, denyut masuk di segmen 4, dan
   **tidak ada riser** sebelum 6:30. Riser di awal membuat penonton kehabisan.
-- QC baru: durasi 5–10 menit, −16…−12 LUFS, TP ≤ −1 dBTP, ≤ 200 MB, dan
+- QC baru: durasi 5–11 menit, −16…−12 LUFS, TP ≤ −1 dBTP, ≤ 200 MB, dan
   "tidak ada 60 detik tanpa perubahan gambar" (dicek dari panjang `cuts`).
+- Gerbang QC di runner (`tools/publish/zernio-publish.mjs`) juga sadar format:
+  LL-#### dinilai dengan 1920×1080, durasi 300–660 s, dan batas 300 MB. Tanpa
+  itu setiap video panjang ditolak sebelum sempat diunggah — sudah diuji ulang
+  setelah perubahan ini.
+- Encode untuk format panjang memakai `--maxrate 2.8M --crf 26`: gambar gelap
+  dan banyak diam, jadi 5M hanya membengkakkan berkas tanpa menambah detail.
 - Judul panjang boleh dua klausa + kata kunci pencarian di ekor
   ("| Cerita Horor Pantura") — pola yang dipakai kanal panjang yang sudah besar.
 

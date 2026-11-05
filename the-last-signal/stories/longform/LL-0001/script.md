@@ -1,6 +1,6 @@
 # LL-0001 — "Kanal 16 Tidak Boleh Ditinggal"
 
-**Format:** video panjang (bukan Short) · **8:47** narasi · 1.159 kata (diukur, 2,2 kata/detik)
+**Format:** video panjang (bukan Short) · **9:18** audio jadi · 1.156 kata (terukur dari 10 klip VO)
 **Sudut pandang:** orang pertama, narator punya nama dan tubuh
 **Latar:** SROP (Stasiun Radio Pantai) Tanjung Balam, Pantura Jawa Tengah —
 **stasiun dan orangnya fiktif**, prosedur dan benda nyata
@@ -20,9 +20,13 @@ shift-nya dari tengah malam sampai jam delapan pagi, dan satu-satunya aturan
 yang benar-benar tidak boleh dilanggar cuma satu: kanal enam belas tidak boleh
 ditinggal.
 
-Bukan karena takut dipecat. Kanal enam belas itu 156,800 MHz. Frekuensi
-darurat. Kalau ada kapal tenggelam di depan pantai ini, satu-satunya orang yang
-bisa mendengarnya adalah orang yang sedang duduk di depan radio itu.
+Bukan karena takut dipecat. Kanal enam belas itu frekuensi darurat. Kalau ada
+kapal tenggelam di depan pantai ini, satu-satunya orang yang bisa mendengarnya
+adalah orang yang sedang duduk di depan radio itu.
+
+> Catatan produksi: angka "156,800 MHz" **tidak diucapkan** — TTS membacanya
+> salah. Angka itu hidup di deskripsi, di layar radio pada gambar segmen 2, dan
+> di kartu judul; narasi cukup menyebut "kanal enam belas".
 
 > **Rujukan:** R1 (SROP, tugas jaga dengar pada frekuensi marabahaya), R3
 > (kanal 16 = 156,800 MHz, dipakai untuk darurat). `[kr]` SROP Tanjung Balam,
@@ -103,9 +107,9 @@ Pukul dua lewat empat puluh satu, radio itu berbunyi lagi. Kali ini bukan
 PAN-PAN.
 
 "MAYDAY, MAYDAY, MAYDAY. This is KM Sinar Jaya, KM Sinar Jaya, KM Sinar Jaya.
-Call sign YB. Posisi lintang enam derajat empat puluh tiga menit selatan,
-bujur seratus sepuluh derajat dua puluh lima menit timur. Kami kemasukan air.
-Empat orang di atas kapal. Mohon bantuan. Over."
+Call sign Yankee Bravo. Posisi lintang enam derajat empat puluh tiga menit
+selatan, bujur seratus sepuluh derajat dua puluh lima menit timur. Kami
+kemasukan air. Empat orang di atas kapal. Mohon bantuan. Over."
 
 Saya pernah ikut pelatihan. Saya tahu urutannya harus begitu. Tapi tidak ada
 orang yang membacakan mayday serapi itu. Orang yang benar-benar tenggelam
@@ -194,10 +198,9 @@ dan saya sudah menunggu.
 
 "KM Sinar Jaya, ini Tanjung Balam Radio. MAYDAY diterima." Saya baca ulang
 semuanya. Posisi. Jumlah orang. Saya bilang: "Saya teruskan ke Surabaya Radio
-dan Basarnas. Tetap di kanal ini." Lalu saya pindah ke kanal enam belas
-frekuensi darurat, dan saya kirim: "MAYDAY RELAY, MAYDAY RELAY, MAYDAY RELAY.
-All stations. This is Tanjung Balam Radio. MAYDAY dari KM Sinar Jaya, posisi
-enam empat tiga selatan, seratus sepuluh dua lima timur. Empat orang. Over."
+dan Basarnas. Tetap di kanal ini." Lalu saya pindahkan siaran ke frekuensi
+darurat dan saya teruskan beritanya ke semua stasiun, sesuai urutan yang
+diajarkan waktu pelatihan.
 
 Saya telepon Basarnas. Saya tulis semuanya di buku jaga, jam dan menitnya, lalu
 saya paraf. Untuk pertama kali dalam sembilan tahun, kolom tindakan tidak saya
@@ -208,6 +211,12 @@ Di radio, suaranya pelan sekali. "Diterima. Terima kasih, Pak."
 Setelah itu kanal enam belas jadi benar-benar kosong. Bukan hening yang
 biasanya, yang masih ada desis. Kosong.
 
+> Catatan produksi: siaran **MAYDAY RELAY** yang utuh (MAYDAY RELAY ×3 → ALL
+> STATIONS → THIS IS → nama stasiun ×3) sempat ditolak penyaring ucapan saat
+> dibuat sebagai audio, jadi kalimatnya dipadatkan menjadi "saya teruskan
+> beritanya ke semua stasiun". Urutan verbatimnya tetap tercatat di sini dan di
+> `reference.md` supaya bisa dipakai lagi kalau nanti ada VO manusia.
+>
 > **Rujukan:** R2 & R4 (MAYDAY RELAY: MAYDAY RELAY ×3 → ALL STATIONS → THIS IS →
 > nama stasiun ×3), R1 (kewajiban menyiarkan ulang berita marabahaya dari kapal),
 > R6 (meneruskan berita ke radio pantai lain — persis pola markonis Tampomas);

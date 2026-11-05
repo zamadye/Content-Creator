@@ -60,7 +60,16 @@ if (request.status && request.status !== 'requested') {
 }
 
 const episodeId = request.episodeId;
-if (!/^LS-\d{4}$/.test(String(episodeId))) die(2, `episodeId tidak valid: ${episodeId}`);
+if (!/^(LS|LL)-\d{4}$/.test(String(episodeId))) die(2, `episodeId tidak valid: ${episodeId}`);
+
+// Format panjang (LL-####) punya gerbang QC sendiri: 16:9, 5–11 menit, dan
+// berkas yang jauh lebih besar. Memakai ambang Shorts di sini akan menolak
+// setiap video panjang sebelum sempat diunggah.
+const longform = String(request.format ?? '').toLowerCase() === 'longform'
+  || /^LL-/.test(String(episodeId));
+const limits = longform
+  ? { width: '1920', height: '1080', minDuration: 300, maxDuration: 660, maxSizeMb: 300 }
+  : { width: '1080', height: '1920', minDuration: 40, maxDuration: 60.5, maxSizeMb: 40 };
 
 const mediaPath = resolve(REPO_ROOT, request.media ?? `the-last-signal/releases/${episodeId}.mp4`);
 if (!existsSync(mediaPath)) die(2, `Media tidak ada: ${mediaPath}`);
@@ -101,8 +110,8 @@ const truePeak = Number(loudnessRaw.match(/"input_tp"\s*:\s*"(-?[\d.]+)"/)?.[1] 
 
 const checks = [
   {
-    name: 'resolusi 1080×1920',
-    pass: Boolean(videoMatch) && videoMatch[1] === '1080' && videoMatch[2] === '1920',
+    name: `resolusi ${limits.width}×${limits.height}`,
+    pass: Boolean(videoMatch) && videoMatch[1] === limits.width && videoMatch[2] === limits.height,
     detail: videoMatch ? `${videoMatch[1]}×${videoMatch[2]}` : 'tidak terbaca',
   },
   {
@@ -111,8 +120,8 @@ const checks = [
     detail: videoMatch ? `${videoMatch[3]} fps` : 'tidak terbaca',
   },
   {
-    name: 'durasi 40–60,5 s',
-    pass: duration >= 40 && duration <= 60.5,
+    name: longform ? 'durasi 5–11 menit' : 'durasi 40–60,5 s',
+    pass: duration >= limits.minDuration && duration <= limits.maxDuration,
     detail: `${duration.toFixed(2)}s`,
   },
   {
@@ -126,7 +135,7 @@ const checks = [
     detail: `${lufs.toFixed(1)} LUFS`,
   },
   { name: 'true peak ≤ −1 dBTP', pass: truePeak <= -1, detail: `${truePeak.toFixed(1)} dBTP` },
-  { name: 'ukuran ≤ 40 MB', pass: sizeMb <= 40, detail: `${sizeMb.toFixed(1)} MB` },
+  { name: `ukuran ≤ ${limits.maxSizeMb} MB`, pass: sizeMb <= limits.maxSizeMb, detail: `${sizeMb.toFixed(1)} MB` },
 ];
 
 for (const check of checks) {

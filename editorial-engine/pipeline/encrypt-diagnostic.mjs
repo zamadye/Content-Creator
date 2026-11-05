@@ -27,5 +27,12 @@ const envelope = {
   ciphertext: ciphertext.toString('base64'),
 };
 const payload = Buffer.from(JSON.stringify(envelope)).toString('base64');
-if (payload.length > 60000) throw new Error('Encrypted diagnostic exceeds annotation limit');
-process.stdout.write(`::notice title=Encrypted Buffer performance::${payload}\n`);
+// GitHub truncates long annotation messages. Number chunks so the receiver can
+// reassemble them; no individual message contains plaintext.
+const chunkSize = 3000;
+const count = Math.ceil(payload.length / chunkSize);
+if (count > 10) throw new Error('Encrypted diagnostic exceeds ten annotation chunks');
+for (let i = 0; i < count; i++) {
+  const title = `Encrypted Buffer performance ${String(i + 1).padStart(2, '0')}-${String(count).padStart(2, '0')}`;
+  process.stdout.write(`::notice title=${title}::${payload.slice(i * chunkSize, (i + 1) * chunkSize)}\n`);
+}

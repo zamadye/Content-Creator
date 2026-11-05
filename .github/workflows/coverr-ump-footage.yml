@@ -20,6 +20,16 @@ jobs:
       - uses: actions/checkout@v5
       - name: Offline transport safety tests
         run: node --test editorial-engine/pipeline/coverr-transfer/test-transfer.mjs
+      - name: Install and verify FFmpeg tools on the ephemeral runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get -qq update
+            sudo apt-get -qq install -y --no-install-recommends ffmpeg
+          fi
+          ffmpeg -version | sed -n '1p'
+          ffprobe -version | sed -n '1p'
       - name: Download and encrypt one wage-related excerpt
         env:
           COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
@@ -49,6 +59,16 @@ jobs:
           - id: NMcrFLW6m2 # produce market in India, generic illustrative use
     steps:
       - uses: actions/checkout@v5
+      - name: Install and verify FFmpeg tools on the ephemeral runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get -qq update
+            sudo apt-get -qq install -y --no-install-recommends ffmpeg
+          fi
+          ffmpeg -version | sed -n '1p'
+          ffprobe -version | sed -n '1p'
       - name: Download and encrypt curated stock excerpt
         env:
           COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}

@@ -1,0 +1,339 @@
+{
+  "episodeId": "LL-0001",
+  "title": "Kanal 16 Tidak Boleh Ditinggal",
+  "subgenre": "Long-form narration",
+  "structure": "jaga dengar (aturan) → malam kejadian → arsip 2011 → sebab manusia → menjawab",
+  "experiment": "Format panjang pertama: apakah penonton bertahan >4 menit pada cerita prosedural tanpa jumpscare",
+  "story": {
+    "hook": "Kanal 16 tidak boleh ditinggal — bukan karena takut dipecat, tapi karena hanya operator yang duduk di depan radio yang bisa mendengar kapal tenggelam.",
+    "premise": "Operator stasiun radio pantai di Pantura menerima panggilan darurat dari kapal yang hilang delapan tahun lalu, yang minta dicatat, bukan minta ditolong.",
+    "twist": "Laporan itu benar-benar diterima tahun 2011 dan sengaja tidak dicatat oleh seniornya karena malu — bukan hantu yang menagih, tapi satu baris yang tidak pernah ditulis.",
+    "ending": "Ia menyelesaikan lalu lintas marabahaya delapan tahun terlambat, mencatat dan memarafnya; seniornya mengakui, dan tidak mau halaman itu dibetulkan."
+  },
+  "cards": [
+    {
+      "at": 0.015,
+      "text": "SROP TANJUNG BALAM"
+    },
+    {
+      "at": 0.52,
+      "text": "BUKU JAGA · AGUSTUS 2011"
+    },
+    {
+      "at": 0.9,
+      "text": "KANAL 16 · 02.17"
+    }
+  ],
+  "youtube": {
+    "title": "Kanal 16 Tidak Boleh Ditinggal — Stasiun Radio Pantai di Pantura | Cerita Horor",
+    "description": "Selama sembilan tahun Ridwan jaga malam di stasiun radio pantai, dan satu-satunya aturan yang tidak boleh dilanggar: kanal 16 (156,800 MHz) tidak boleh ditinggal.\n\nSuatu malam pukul 02.17, ada kapal yang minta dicatat. Kapalnya sudah hilang sejak 2011.\n\nCerita fiksi. Prosedur radio, istilah, dan nama peralatan mengikuti dokumen GMDSS/SROP yang sebenarnya; stasiun, orang, dan kejadiannya rekaan. Visual dibuat dengan bantuan AI.\n\n00:00 Kanal 16\n00:32 Bangunannya\n02:32 Malam 11 Februari\n04:55 Buku 2011\n06:39 Menjawab\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "cerita horor panjang",
+      "radio pantai",
+      "pantura",
+      "the last signal"
+    ],
+    "pinComment": "Pertanyaan buat yang pernah kerja shift malam: ada catatan yang sengaja tidak kamu tulis? Buku jaga di cerita ini fiktif, tapi kebiasaan menghapus satu baris karena takut itu tidak fiksi.\n\nKalau kamu punya cerita soal radio, kapal, atau jaga malam, tulis di komentar."
+  },
+  "thumbnail": {
+    "headline": "KANAL 16 TIDAK BOLEH DITINGGAL",
+    "kicker": "SROP TANJUNG BALAM · 02.17"
+  },
+  "cta": {
+    "card": "KANAL 16 TETAP DIBUKA",
+    "holdFrames": 90
+  },
+  "segments": [
+    {
+      "id": "seg-01",
+      "narration": "Saya jaga malam di stasiun radio pantai selama sembilan tahun. Gajinya kecil, shift-nya dari tengah malam sampai jam delapan pagi, dan satu-satunya aturan yang benar-benar tidak boleh dilanggar cuma satu: kanal enam belas tidak boleh ditinggal. Bukan karena takut dipecat. Kanal enam belas itu frekuensi darurat. Kalau ada kapal tenggelam di depan pantai ini, satu-satunya orang yang bisa mendengarnya adalah orang yang sedang duduk di depan radio itu.",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Small one-storey coastal radio station building on the north coast of Java at night: whitewashed walls stained with salt, one window lit warm, tall steel antenna mast behind the roof, light rain, wet concrete yard, black sea in the distance.",
+      "shots": [
+        {
+          "image": "images/seg-01.png",
+          "camera": "static",
+          "shot": "wide",
+          "scale": 1.0
+        },
+        {
+          "image": "images/seg-01.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": []
+    },
+    {
+      "id": "seg-02",
+      "narration": "Gedungnya kecil, catnya sudah mengapur, letaknya kira-kira dua ratus meter dari dermaga lama. Isinya dua ruangan. Ruang radio, dan ruang istirahat yang ada dipannya satu tempat tidur besi dan kipas Cosmos yang kalau dihidupkan bunyinya lebih keras daripada ombak. Radio VHF-nya Icom, umurnya lebih tua dari saya. Ada juga pemancar HF besar di rak atas, tapi sudah mati sejak 2014 dan tidak ada yang memperbaiki karena anggarannya habis buat genset. Gensetnya Kubota tua, warnanya biru pudar. Kalau listrik PLN mati, saya harus turun ke belakang, tarik starter, dan berdoa sebentar karena kalau gensetnya tidak hidup, kanal enam belas ikut mati. Di meja ada termos Lion Star yang sudah penyok, satu kilo kopi Kapal Api, dan buku jaga folio bergaris. Halamannya dibagi tujuh kolom: tanggal, jam, stasiun pemanggil, isi berita, tindakan, paraf. Saya menulis di situ pakai pulpen Snowman hitam yang terikat tali ke meja, karena pulpen selalu hilang.",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Interior of a small coastal radio station control room: old wooden desk, two desktop radios, one big HF transmitter rack switched off, desk fan, thermos, a lined logbook, bare fluorescent tube, cables, wall clock.",
+      "shots": [
+        {
+          "image": "images/seg-02.png",
+          "camera": "push_in",
+          "shot": "wide",
+          "scale": 1.0
+        },
+        {
+          "image": "images/seg-02.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": []
+    },
+    {
+      "id": "seg-03",
+      "narration": "Tugasnya sebenarnya membosankan, dan itu yang tidak pernah diceritakan orang. Setiap tiga puluh menit saya harus menyiarkan berita cuaca ke kanal enam belas, walaupun tidak ada yang menjawab. Kalau ada kapal memanggil, saya jawab dulu, baru tanya siapa dan di mana. Kalau percakapannya panjang, saya pindahkan ke kanal lain supaya kanal enam belas tetap kosong. Setiap panggilan yang masuk harus dicatat, sekecil apa pun, lalu diparaf. Pak Sukirman, senior saya, dua puluh dua tahun di stasiun itu. Orangnya pendiam dan suka ngopi tengah malam. Sebelum pensiun dia cuma pesan satu hal ke saya, dan saya ingat persis kalimatnya karena dia bilangnya sambil melihat ke luar jendela. \"Kalau kamu dengar suara aneh, tulis. Jangan dilawan, jangan juga dihapus.\"",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Close-up of a hand writing in a lined folio logbook with a black pen tied to the table by a string, dim desk lamp, blurred radio dials behind.",
+      "shots": [
+        {
+          "image": "images/seg-03.png",
+          "camera": "push_in",
+          "shot": "closeup",
+          "scale": 1.0
+        },
+        {
+          "image": "images/seg-03.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "image": "images/seg-03.png",
+          "camera": "pull_out",
+          "scale": 1.45,
+          "offsetX": -40,
+          "offsetY": 20
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": []
+    },
+    {
+      "id": "seg-04",
+      "narration": "Malam itu hujan. Bukan hujan badai, cuma gerimis yang bikin antena berdengung dan bikin saya mengantuk. Tanggalnya 11 Februari 2019, hari Senin, dan saya ingat tanggalnya karena besoknya saya harus bayar cicilan motor. Pukul dua lewat tujuh belas, saya sedang menuang kopi. Di kanal enam belas ada suara orang memanggil. Pelan, tapi jernih. \"PAN-PAN, PAN-PAN, PAN-PAN. All stations, all stations. Ini KM Sinar Jaya, KM Sinar Jaya, di perairan Tanjung Balam. Mohon berita cuaca untuk pukul dua lewat tujuh belas. Over.\" Saya jawab. Saya bacakan tinggi gelombang, arah angin, jarak pandang. Rutin. Selesai. Dia bilang terima kasih, lalu hilang.",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Rain running down a window pane at night, enamel mug of black coffee steaming on a desk, lamp reflection in the glass, radio silhouette.",
+      "shots": [
+        {
+          "image": "images/seg-04.png",
+          "camera": "static",
+          "shot": "medium",
+          "scale": 1.0
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": []
+    },
+    {
+      "id": "seg-05",
+      "narration": "Pukul dua lewat empat puluh satu, radio itu berbunyi lagi. Kali ini bukan PAN-PAN. \"MAYDAY, MAYDAY, MAYDAY. This is KM Sinar Jaya, KM Sinar Jaya, KM Sinar Jaya. Call sign Yankee Bravo. Posisi lintang enam derajat empat puluh tiga menit selatan, bujur seratus sepuluh derajat dua puluh lima menit timur. Kami kemasukan air. Empat orang di atas kapal. Mohon bantuan. Over.\" Saya pernah ikut pelatihan. Saya tahu urutannya harus begitu. Tapi tidak ada orang yang membacakan mayday serapi itu. Orang yang benar-benar tenggelam biasanya berteriak, terputus-putus, kadang lupa menyebut nama kapalnya sendiri. Suara di radio itu membacakannya seperti membaca kartu di meja. Saya lihat koordinatnya di peta. Tiga koma empat mil laut dari dermaga lama. Dermaga lama itu sudah dibongkar tahun 2013, dan di situ sekarang cuma batu.",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Nautical chart pinned to a wall, a hand with a ruler pointing at a coastline, pencil marks, magnifier, dim lamp.",
+      "shots": [
+        {
+          "image": "images/seg-05.png",
+          "camera": "pan_left",
+          "shot": "medium",
+          "scale": 1.0
+        },
+        {
+          "image": "images/seg-05.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "image": "images/seg-05.png",
+          "camera": "pull_out",
+          "scale": 1.45,
+          "offsetX": -40,
+          "offsetY": 20
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": []
+    },
+    {
+      "id": "seg-06",
+      "narration": "Saya angkat mikrofon. Saya bilang: \"KM Sinar Jaya, KM Sinar Jaya, ini Tanjung Balam Radio. MAYDAY diterima. Saya ulangi. Posisi lintang enam empat tiga selatan, bujur seratus sepuluh dua lima timur. Berapa orang di atas kapal? Over.\" Hening. Kira-kira lima detik. Lalu: \"Empat, Pak. Ridwan, tolong dicatat, ya. Kami bertolak pukul dua lewat tujuh belas.\" Saya belum menyebut nama saya. Di kanal enam belas, saya selalu menyebut \"Tanjung Balam Radio\", tidak pernah nama sendiri. Dan dia minta saya mencatat. Bukan minta tolong, bukan minta SAR. Minta dicatat.",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Close-up of a desk microphone with a push-to-talk switch, a hand hovering over it, red indicator lamp, dark room.",
+      "shots": [
+        {
+          "image": "images/seg-06.png",
+          "camera": "push_in",
+          "shot": "closeup",
+          "scale": 1.0
+        },
+        {
+          "image": "images/seg-06.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": []
+    },
+    {
+      "id": "seg-07",
+      "narration": "Saya ambil kunci lemari arsip. Buku jaga lama disimpan di situ, dilakban per tahun, dan kalau dibuka baunya seperti kertas lembap. Buku 2011. Halaman Agustus. Ada sembilan entri dengan nama kapal yang sama, semuanya di jam yang sama, semuanya PAN-PAN minta berita cuaca, semuanya ditandatangani Pak Sukirman. Tanggal empat belas Agustus 2011 adalah entri terakhir. Isinya cuma satu baris: \"KM Sinar Jaya, 02.17, minta cuaca. Dijawab.\" Di bawah baris itu ada satu garis lurus, yang kalau diperhatikan bukan garis coret, tapi tanda tangan yang tidak selesai. Dan di margin kanan, ditulis pakai pensil, hurufnya kecil sekali: \"tidak dicatat\". Halaman sesudahnya kosong sampai akhir bulan. Sampai akhir tahun. Kertasnya tidak menguning di bagian itu, karena tidak pernah kena cahaya.",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Old steel filing cabinet open, bundles of ledger books wrapped in packing tape with year labels, dust in a shaft of light, single bare bulb.",
+      "shots": [
+        {
+          "image": "images/seg-07.png",
+          "camera": "push_in",
+          "shot": "medium",
+          "scale": 1.0
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": [
+        {
+          "assetId": "audio/sfx/knock.wav",
+          "startFrame": 120,
+          "volume": 0.35
+        }
+      ]
+    },
+    {
+      "id": "seg-08",
+      "narration": "Saya telepon kantor syahbandar pagi itu. Yang jaga, Mas Tarno, orangnya suka begadang dan hafal arsip. Dia bilang: \"Sinar Jaya? Itu yang tenggelam, kan? Empat ABK. Agustus sebelas.\" Kapal nelayan, katanya. Bertolak dari dermaga lama, kena gelombang, tidak sempat sampai. Yang aneh, kata Mas Tarno sambil ketawa kecil, berita marabahayanya tidak pernah masuk catatan kantor. Kapal hilang, tapi tidak ada laporan darurat. Jadi waktu itu sempat ramai di grup, ada yang bilang kapalnya tidak pernah minta tolong, ada juga yang bilang stasiun radio pantainya tutup. Saya tanya: siaran cuaca masih jalan waktu itu? Dia diam sebentar. \"Kalau sebelas, sudah stop, Mas. Anggarannya dipotong. Kapal kecil disuruh bawa HT sendiri.\"",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Desk telephone with a curled cord, stacked yellowed newspaper clippings and a harbour-office file, morning light through blinds.",
+      "shots": [
+        {
+          "image": "images/seg-08.png",
+          "camera": "pan_right",
+          "shot": "medium",
+          "scale": 1.0
+        },
+        {
+          "image": "images/seg-08.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": []
+    },
+    {
+      "id": "seg-09",
+      "narration": "Malam berikutnya saya masuk lagi. Pukul dua lewat tujuh belas radio berbunyi, dan saya sudah menunggu. \"MAYDAY, MAYDAY, MAYDAY. This is KM Sinar Jaya—\" \"KM Sinar Jaya, ini Tanjung Balam Radio. MAYDAY diterima.\" Saya baca ulang semuanya. Posisi. Jumlah orang. Saya bilang: \"Saya teruskan ke Surabaya Radio dan Basarnas. Tetap di kanal ini.\" Lalu saya pindah ke kanal enam belas frekuensi darurat, dan saya kirim: \"MAYDAY RELAY, MAYDAY RELAY, MAYDAY RELAY. All stations. This is Tanjung Balam Radio. MAYDAY dari KM Sinar Jaya, posisi enam empat tiga selatan, seratus sepuluh dua lima timur. Empat orang. Over.\" Saya telepon Basarnas. Saya tulis semuanya di buku jaga, jam dan menitnya, lalu saya paraf. Untuk pertama kali dalam sembilan tahun, kolom tindakan tidak saya biarkan kosong. Di radio, suaranya pelan sekali. \"Diterima. Terima kasih, Pak.\" Setelah itu kanal enam belas jadi benar-benar kosong. Bukan hening yang biasanya, yang masih ada desis. Kosong.",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Wide shot from behind of a man in a short-sleeve shirt sitting at the radio desk at night, face not visible, microphone in hand, glowing radio dials.",
+      "shots": [
+        {
+          "image": "images/seg-09.png",
+          "camera": "static",
+          "shot": "pov",
+          "scale": 1.0
+        },
+        {
+          "image": "images/seg-09.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "image": "images/seg-09.png",
+          "camera": "pull_out",
+          "scale": 1.45,
+          "offsetX": -40,
+          "offsetY": 20
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": [
+        {
+          "assetId": "audio/sfx/knock.wav",
+          "startFrame": 90,
+          "volume": 0.3
+        }
+      ]
+    },
+    {
+      "id": "seg-10",
+      "narration": "Dua hari kemudian Pak Sukirman datang. Dia tidak ngopi, cuma duduk. \"Kamu dengar, ya,\" katanya. Bukan tanya. Saya bilang saya dengar, dan saya sudah mencatatnya. Dia diam lama. Lalu dia cerita: malam itu dia yang jaga. Pukul empat pagi dia pulang karena penggantinya tidak datang, dan dia tidak menulis apa pun di buku karena malu. Dia pikir kalau tidak ditulis, berarti tidak pernah diterima. Saya tawarkan untuk membetulkan halaman empat belas Agustus itu. Dia menggeleng. \"Biar saja. Itu sudah terjadi.\" Dia ambil termosnya, dan sebelum keluar dia bilang satu hal lagi: \"Lain kali, jangan tunggu dibilangin.\" Buku itu masih di lemari arsip, dan saya masih jaga malam di situ sampai sekarang. Kalau kamu pernah jaga malam dan sengaja tidak menulis sesuatu karena takut, klik subscribe. Di komentar: apa yang pernah tidak kamu catat?",
+      "imagePrompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Two plastic chairs facing each other in a small rest room, thermos on a table, open door showing a wet yard at dawn, pale light.",
+      "shots": [
+        {
+          "image": "images/seg-10.png",
+          "camera": "static",
+          "shot": "wide",
+          "scale": 1.0
+        },
+        {
+          "image": "images/seg-10.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "lighting": "low_key_practical",
+      "intensity": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "sfx": []
+    }
+  ]
+}

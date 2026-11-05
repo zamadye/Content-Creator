@@ -1,0 +1,1463 @@
+{
+  "episodeId": "LL-0001",
+  "title": "Kanal 16 Tidak Boleh Ditinggal",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "longform_narration",
+  "targetFps": 30,
+  "width": 1920,
+  "height": 1080,
+  "targetDurationSeconds": 529.4,
+  "story": {
+    "hook": "Kanal 16 tidak boleh ditinggal — bukan karena takut dipecat, tapi karena hanya operator yang duduk di depan radio yang bisa mendengar kapal tenggelam.",
+    "premise": "Operator stasiun radio pantai di Pantura menerima panggilan darurat dari kapal yang hilang delapan tahun lalu, yang minta dicatat, bukan minta ditolong.",
+    "twist": "Laporan itu benar-benar diterima tahun 2011 dan sengaja tidak dicatat oleh seniornya karena malu — bukan hantu yang menagih, tapi satu baris yang tidak pernah ditulis.",
+    "ending": "Ia menyelesaikan lalu lintas marabahaya delapan tahun terlambat, mencatat dan memarafnya; seniornya mengakui, dan tidak mau halaman itu dibetulkan."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.75
+  },
+  "jumpscares": [],
+  "onScreenText": [
+    {
+      "text": "SROP TANJUNG BALAM",
+      "startFrame": 238,
+      "endFrame": 328
+    },
+    {
+      "text": "BUKU JAGA · AGUSTUS 2011",
+      "startFrame": 8259,
+      "endFrame": 8349
+    },
+    {
+      "text": "KANAL 16 · 02.17",
+      "startFrame": 14294,
+      "endFrame": 14384
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 939,
+      "image": "images/seg-01.png",
+      "narration": "Saya jaga malam di stasiun radio pantai selama sembilan tahun. Gajinya kecil, shift-nya dari tengah malam sampai jam delapan pagi, dan satu-satunya aturan yang benar-benar tidak boleh dilanggar cuma satu: kanal enam belas tidak boleh ditinggal. Bukan karena takut dipecat. Kanal enam belas itu frekuensi darurat. Kalau ada kapal tenggelam di depan pantai ini, satu-satunya orang yang bisa mendengarnya adalah orang yang sedang duduk di depan radio itu.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 470,
+          "image": "images/seg-01.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 119,
+          "text": "Saya jaga malam di stasiun radio pantai selama sembilan"
+        },
+        {
+          "startFrame": 119,
+          "endFrame": 132,
+          "text": "tahun."
+        },
+        {
+          "startFrame": 132,
+          "endFrame": 260,
+          "text": "Gajinya kecil, shift-nya dari tengah malam sampai jam delapan"
+        },
+        {
+          "startFrame": 260,
+          "endFrame": 402,
+          "text": "pagi, dan satu-satunya aturan yang benar-benar tidak boleh dilanggar"
+        },
+        {
+          "startFrame": 402,
+          "endFrame": 507,
+          "text": "cuma satu: kanal enam belas tidak boleh ditinggal."
+        },
+        {
+          "startFrame": 507,
+          "endFrame": 563,
+          "text": "Bukan karena takut dipecat."
+        },
+        {
+          "startFrame": 563,
+          "endFrame": 645,
+          "text": "Kanal enam belas itu frekuensi darurat."
+        },
+        {
+          "startFrame": 645,
+          "endFrame": 768,
+          "text": "Kalau ada kapal tenggelam di depan pantai ini, satu-satunya"
+        },
+        {
+          "startFrame": 768,
+          "endFrame": 891,
+          "text": "orang yang bisa mendengarnya adalah orang yang sedang duduk"
+        },
+        {
+          "startFrame": 891,
+          "endFrame": 931,
+          "text": "di depan radio itu."
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Small one-storey coastal radio station building on the north coast of Java at night: whitewashed walls stained with salt, one window lit warm, tall steel antenna mast behind the roof, light rain, wet concrete yard, black sea in the distance.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 2030,
+      "image": "images/seg-02.png",
+      "narration": "Gedungnya kecil, catnya sudah mengapur, letaknya kira-kira dua ratus meter dari dermaga lama. Isinya dua ruangan. Ruang radio, dan ruang istirahat yang ada dipannya satu tempat tidur besi dan kipas Cosmos yang kalau dihidupkan bunyinya lebih keras daripada ombak. Radio VHF-nya Icom, umurnya lebih tua dari saya. Ada juga pemancar HF besar di rak atas, tapi sudah mati sejak 2014 dan tidak ada yang memperbaiki karena anggarannya habis buat genset. Gensetnya Kubota tua, warnanya biru pudar. Kalau listrik PLN mati, saya harus turun ke belakang, tarik starter, dan berdoa sebentar karena kalau gensetnya tidak hidup, kanal enam belas ikut mati. Di meja ada termos Lion Star yang sudah penyok, satu kilo kopi Kapal Api, dan buku jaga folio bergaris. Halamannya dibagi tujuh kolom: tanggal, jam, stasiun pemanggil, isi berita, tindakan, paraf. Saya menulis di situ pakai pulpen Snowman hitam yang terikat tali ke meja, karena pulpen selalu hilang.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 1015,
+          "image": "images/seg-02.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 152,
+          "text": "Gedungnya kecil, catnya sudah mengapur, letaknya kira-kira dua ratus"
+        },
+        {
+          "startFrame": 152,
+          "endFrame": 204,
+          "text": "meter dari dermaga lama."
+        },
+        {
+          "startFrame": 204,
+          "endFrame": 245,
+          "text": "Isinya dua ruangan."
+        },
+        {
+          "startFrame": 245,
+          "endFrame": 365,
+          "text": "Ruang radio, dan ruang istirahat yang ada dipannya satu"
+        },
+        {
+          "startFrame": 365,
+          "endFrame": 487,
+          "text": "tempat tidur besi dan kipas Cosmos yang kalau dihidupkan"
+        },
+        {
+          "startFrame": 487,
+          "endFrame": 566,
+          "text": "bunyinya lebih keras daripada ombak."
+        },
+        {
+          "startFrame": 566,
+          "endFrame": 671,
+          "text": "Radio VHF-nya Icom, umurnya lebih tua dari saya."
+        },
+        {
+          "startFrame": 671,
+          "endFrame": 767,
+          "text": "Ada juga pemancar HF besar di rak atas, tapi"
+        },
+        {
+          "startFrame": 767,
+          "endFrame": 880,
+          "text": "sudah mati sejak 2014 dan tidak ada yang memperbaiki"
+        },
+        {
+          "startFrame": 880,
+          "endFrame": 961,
+          "text": "karena anggarannya habis buat genset."
+        },
+        {
+          "startFrame": 961,
+          "endFrame": 1053,
+          "text": "Gensetnya Kubota tua, warnanya biru pudar."
+        },
+        {
+          "startFrame": 1053,
+          "endFrame": 1169,
+          "text": "Kalau listrik PLN mati, saya harus turun ke belakang,"
+        },
+        {
+          "startFrame": 1169,
+          "endFrame": 1306,
+          "text": "tarik starter, dan berdoa sebentar karena kalau gensetnya tidak"
+        },
+        {
+          "startFrame": 1306,
+          "endFrame": 1380,
+          "text": "hidup, kanal enam belas ikut mati."
+        },
+        {
+          "startFrame": 1380,
+          "endFrame": 1483,
+          "text": "Di meja ada termos Lion Star yang sudah penyok,"
+        },
+        {
+          "startFrame": 1483,
+          "endFrame": 1581,
+          "text": "satu kilo kopi Kapal Api, dan buku jaga folio"
+        },
+        {
+          "startFrame": 1581,
+          "endFrame": 1601,
+          "text": "bergaris."
+        },
+        {
+          "startFrame": 1601,
+          "endFrame": 1747,
+          "text": "Halamannya dibagi tujuh kolom: tanggal, jam, stasiun pemanggil, isi"
+        },
+        {
+          "startFrame": 1747,
+          "endFrame": 1799,
+          "text": "berita, tindakan, paraf."
+        },
+        {
+          "startFrame": 1799,
+          "endFrame": 1912,
+          "text": "Saya menulis di situ pakai pulpen Snowman hitam yang"
+        },
+        {
+          "startFrame": 1912,
+          "endFrame": 2022,
+          "text": "terikat tali ke meja, karena pulpen selalu hilang."
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Interior of a small coastal radio station control room: old wooden desk, two desktop radios, one big HF transmitter rack switched off, desk fan, thermos, a lined logbook, bare fluorescent tube, cables, wall clock.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "wide",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 1607,
+      "image": "images/seg-03.png",
+      "narration": "Tugasnya sebenarnya membosankan, dan itu yang tidak pernah diceritakan orang. Setiap tiga puluh menit saya harus menyiarkan berita cuaca ke kanal enam belas, walaupun tidak ada yang menjawab. Kalau ada kapal memanggil, saya jawab dulu, baru tanya siapa dan di mana. Kalau percakapannya panjang, saya pindahkan ke kanal lain supaya kanal enam belas tetap kosong. Setiap panggilan yang masuk harus dicatat, sekecil apa pun, lalu diparaf. Pak Sukirman, senior saya, dua puluh dua tahun di stasiun itu. Orangnya pendiam dan suka ngopi tengah malam. Sebelum pensiun dia cuma pesan satu hal ke saya, dan saya ingat persis kalimatnya karena dia bilangnya sambil melihat ke luar jendela. \"Kalau kamu dengar suara aneh, tulis. Jangan dilawan, jangan juga dihapus.\"",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 536,
+          "image": "images/seg-03.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 1071,
+          "image": "images/seg-03.png",
+          "camera": "pull_out",
+          "scale": 1.45,
+          "offsetX": -40,
+          "offsetY": 20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 155,
+          "text": "Tugasnya sebenarnya membosankan, dan itu yang tidak pernah diceritakan"
+        },
+        {
+          "startFrame": 155,
+          "endFrame": 168,
+          "text": "orang."
+        },
+        {
+          "startFrame": 168,
+          "endFrame": 293,
+          "text": "Setiap tiga puluh menit saya harus menyiarkan berita cuaca"
+        },
+        {
+          "startFrame": 293,
+          "endFrame": 410,
+          "text": "ke kanal enam belas, walaupun tidak ada yang menjawab."
+        },
+        {
+          "startFrame": 410,
+          "endFrame": 527,
+          "text": "Kalau ada kapal memanggil, saya jawab dulu, baru tanya"
+        },
+        {
+          "startFrame": 527,
+          "endFrame": 566,
+          "text": "siapa dan di mana."
+        },
+        {
+          "startFrame": 566,
+          "endFrame": 704,
+          "text": "Kalau percakapannya panjang, saya pindahkan ke kanal lain supaya"
+        },
+        {
+          "startFrame": 704,
+          "endFrame": 769,
+          "text": "kanal enam belas tetap kosong."
+        },
+        {
+          "startFrame": 769,
+          "endFrame": 897,
+          "text": "Setiap panggilan yang masuk harus dicatat, sekecil apa pun,"
+        },
+        {
+          "startFrame": 897,
+          "endFrame": 925,
+          "text": "lalu diparaf."
+        },
+        {
+          "startFrame": 925,
+          "endFrame": 1031,
+          "text": "Pak Sukirman, senior saya, dua puluh dua tahun di"
+        },
+        {
+          "startFrame": 1031,
+          "endFrame": 1057,
+          "text": "stasiun itu."
+        },
+        {
+          "startFrame": 1057,
+          "endFrame": 1154,
+          "text": "Orangnya pendiam dan suka ngopi tengah malam."
+        },
+        {
+          "startFrame": 1154,
+          "endFrame": 1258,
+          "text": "Sebelum pensiun dia cuma pesan satu hal ke saya,"
+        },
+        {
+          "startFrame": 1258,
+          "endFrame": 1388,
+          "text": "dan saya ingat persis kalimatnya karena dia bilangnya sambil"
+        },
+        {
+          "startFrame": 1388,
+          "endFrame": 1440,
+          "text": "melihat ke luar jendela."
+        },
+        {
+          "startFrame": 1440,
+          "endFrame": 1520,
+          "text": "\"Kalau kamu dengar suara aneh, tulis."
+        },
+        {
+          "startFrame": 1520,
+          "endFrame": 1599,
+          "text": "Jangan dilawan, jangan juga dihapus.\""
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Close-up of a hand writing in a lined folio logbook with a black pen tied to the table by a string, dim desk lamp, blurred radio dials behind.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 1362,
+      "image": "images/seg-04.png",
+      "narration": "Malam itu hujan. Bukan hujan badai, cuma gerimis yang bikin antena berdengung dan bikin saya mengantuk. Tanggalnya 11 Februari 2019, hari Senin, dan saya ingat tanggalnya karena besoknya saya harus bayar cicilan motor. Pukul dua lewat tujuh belas, saya sedang menuang kopi. Di kanal enam belas ada suara orang memanggil. Pelan, tapi jernih. \"PAN-PAN, PAN-PAN, PAN-PAN. All stations, all stations. Ini KM Sinar Jaya, KM Sinar Jaya, di perairan Tanjung Balam. Mohon berita cuaca untuk pukul dua lewat tujuh belas. Over.\" Saya jawab. Saya bacakan tinggi gelombang, arah angin, jarak pandang. Rutin. Selesai. Dia bilang terima kasih, lalu hilang.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 39,
+          "text": "Malam itu hujan."
+        },
+        {
+          "startFrame": 39,
+          "endFrame": 169,
+          "text": "Bukan hujan badai, cuma gerimis yang bikin antena berdengung"
+        },
+        {
+          "startFrame": 169,
+          "endFrame": 223,
+          "text": "dan bikin saya mengantuk."
+        },
+        {
+          "startFrame": 223,
+          "endFrame": 342,
+          "text": "Tanggalnya 11 Februari 2019, hari Senin, dan saya ingat"
+        },
+        {
+          "startFrame": 342,
+          "endFrame": 467,
+          "text": "tanggalnya karena besoknya saya harus bayar cicilan motor."
+        },
+        {
+          "startFrame": 467,
+          "endFrame": 584,
+          "text": "Pukul dua lewat tujuh belas, saya sedang menuang kopi."
+        },
+        {
+          "startFrame": 584,
+          "endFrame": 683,
+          "text": "Di kanal enam belas ada suara orang memanggil."
+        },
+        {
+          "startFrame": 683,
+          "endFrame": 724,
+          "text": "Pelan, tapi jernih."
+        },
+        {
+          "startFrame": 724,
+          "endFrame": 782,
+          "text": "\"PAN-PAN, PAN-PAN, PAN-PAN."
+        },
+        {
+          "startFrame": 782,
+          "endFrame": 840,
+          "text": "All stations, all stations."
+        },
+        {
+          "startFrame": 840,
+          "endFrame": 937,
+          "text": "Ini KM Sinar Jaya, KM Sinar Jaya, di perairan"
+        },
+        {
+          "startFrame": 937,
+          "endFrame": 967,
+          "text": "Tanjung Balam."
+        },
+        {
+          "startFrame": 967,
+          "endFrame": 1081,
+          "text": "Mohon berita cuaca untuk pukul dua lewat tujuh belas."
+        },
+        {
+          "startFrame": 1081,
+          "endFrame": 1120,
+          "text": "Over.\" Saya jawab."
+        },
+        {
+          "startFrame": 1120,
+          "endFrame": 1243,
+          "text": "Saya bacakan tinggi gelombang, arah angin, jarak pandang."
+        },
+        {
+          "startFrame": 1243,
+          "endFrame": 1256,
+          "text": "Rutin."
+        },
+        {
+          "startFrame": 1256,
+          "endFrame": 1273,
+          "text": "Selesai."
+        },
+        {
+          "startFrame": 1273,
+          "endFrame": 1354,
+          "text": "Dia bilang terima kasih, lalu hilang."
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Rain running down a window pane at night, enamel mug of black coffee steaming on a desk, lamp reflection in the glass, radio silhouette.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 1757,
+      "image": "images/seg-05.png",
+      "narration": "Pukul dua lewat empat puluh satu, radio itu berbunyi lagi. Kali ini bukan PAN-PAN. \"MAYDAY, MAYDAY, MAYDAY. This is KM Sinar Jaya, KM Sinar Jaya, KM Sinar Jaya. Call sign Yankee Bravo. Posisi lintang enam derajat empat puluh tiga menit selatan, bujur seratus sepuluh derajat dua puluh lima menit timur. Kami kemasukan air. Empat orang di atas kapal. Mohon bantuan. Over.\" Saya pernah ikut pelatihan. Saya tahu urutannya harus begitu. Tapi tidak ada orang yang membacakan mayday serapi itu. Orang yang benar-benar tenggelam biasanya berteriak, terputus-putus, kadang lupa menyebut nama kapalnya sendiri. Suara di radio itu membacakannya seperti membaca kartu di meja. Saya lihat koordinatnya di peta. Tiga koma empat mil laut dari dermaga lama. Dermaga lama itu sudah dibongkar tahun 2013, dan di situ sekarang cuma batu.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 586,
+          "image": "images/seg-05.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 1171,
+          "image": "images/seg-05.png",
+          "camera": "pull_out",
+          "scale": 1.45,
+          "offsetX": -40,
+          "offsetY": 20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 118,
+          "text": "Pukul dua lewat empat puluh satu, radio itu berbunyi"
+        },
+        {
+          "startFrame": 118,
+          "endFrame": 129,
+          "text": "lagi."
+        },
+        {
+          "startFrame": 129,
+          "endFrame": 179,
+          "text": "Kali ini bukan PAN-PAN."
+        },
+        {
+          "startFrame": 179,
+          "endFrame": 231,
+          "text": "\"MAYDAY, MAYDAY, MAYDAY."
+        },
+        {
+          "startFrame": 231,
+          "endFrame": 318,
+          "text": "This is KM Sinar Jaya, KM Sinar Jaya, KM"
+        },
+        {
+          "startFrame": 318,
+          "endFrame": 342,
+          "text": "Sinar Jaya."
+        },
+        {
+          "startFrame": 342,
+          "endFrame": 392,
+          "text": "Call sign Yankee Bravo."
+        },
+        {
+          "startFrame": 392,
+          "endFrame": 521,
+          "text": "Posisi lintang enam derajat empat puluh tiga menit selatan,"
+        },
+        {
+          "startFrame": 521,
+          "endFrame": 646,
+          "text": "bujur seratus sepuluh derajat dua puluh lima menit timur."
+        },
+        {
+          "startFrame": 646,
+          "endFrame": 688,
+          "text": "Kami kemasukan air."
+        },
+        {
+          "startFrame": 688,
+          "endFrame": 745,
+          "text": "Empat orang di atas kapal."
+        },
+        {
+          "startFrame": 745,
+          "endFrame": 776,
+          "text": "Mohon bantuan."
+        },
+        {
+          "startFrame": 776,
+          "endFrame": 850,
+          "text": "Over.\" Saya pernah ikut pelatihan."
+        },
+        {
+          "startFrame": 850,
+          "endFrame": 922,
+          "text": "Saya tahu urutannya harus begitu."
+        },
+        {
+          "startFrame": 922,
+          "endFrame": 1042,
+          "text": "Tapi tidak ada orang yang membacakan mayday serapi itu."
+        },
+        {
+          "startFrame": 1042,
+          "endFrame": 1217,
+          "text": "Orang yang benar-benar tenggelam biasanya berteriak, terputus-putus, kadang lupa"
+        },
+        {
+          "startFrame": 1217,
+          "endFrame": 1285,
+          "text": "menyebut nama kapalnya sendiri."
+        },
+        {
+          "startFrame": 1285,
+          "endFrame": 1410,
+          "text": "Suara di radio itu membacakannya seperti membaca kartu di"
+        },
+        {
+          "startFrame": 1410,
+          "endFrame": 1421,
+          "text": "meja."
+        },
+        {
+          "startFrame": 1421,
+          "endFrame": 1491,
+          "text": "Saya lihat koordinatnya di peta."
+        },
+        {
+          "startFrame": 1491,
+          "endFrame": 1585,
+          "text": "Tiga koma empat mil laut dari dermaga lama."
+        },
+        {
+          "startFrame": 1585,
+          "endFrame": 1697,
+          "text": "Dermaga lama itu sudah dibongkar tahun 2013, dan di"
+        },
+        {
+          "startFrame": 1697,
+          "endFrame": 1749,
+          "text": "situ sekarang cuma batu."
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Nautical chart pinned to a wall, a hand with a ruler pointing at a coastline, pencil marks, magnifier, dim lamp.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "pan_left",
+        "shot": "medium",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 1198,
+      "image": "images/seg-06.png",
+      "narration": "Saya angkat mikrofon. Saya bilang: \"KM Sinar Jaya, KM Sinar Jaya, ini Tanjung Balam Radio. MAYDAY diterima. Saya ulangi. Posisi lintang enam empat tiga selatan, bujur seratus sepuluh dua lima timur. Berapa orang di atas kapal? Over.\" Hening. Kira-kira lima detik. Lalu: \"Empat, Pak. Ridwan, tolong dicatat, ya. Kami bertolak pukul dua lewat tujuh belas.\" Saya belum menyebut nama saya. Di kanal enam belas, saya selalu menyebut \"Tanjung Balam Radio\", tidak pernah nama sendiri. Dan dia minta saya mencatat. Bukan minta tolong, bukan minta SAR. Minta dicatat.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 599,
+          "image": "images/seg-06.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 50,
+          "text": "Saya angkat mikrofon."
+        },
+        {
+          "startFrame": 50,
+          "endFrame": 153,
+          "text": "Saya bilang: \"KM Sinar Jaya, KM Sinar Jaya, ini"
+        },
+        {
+          "startFrame": 153,
+          "endFrame": 197,
+          "text": "Tanjung Balam Radio."
+        },
+        {
+          "startFrame": 197,
+          "endFrame": 232,
+          "text": "MAYDAY diterima."
+        },
+        {
+          "startFrame": 232,
+          "endFrame": 258,
+          "text": "Saya ulangi."
+        },
+        {
+          "startFrame": 258,
+          "endFrame": 392,
+          "text": "Posisi lintang enam empat tiga selatan, bujur seratus sepuluh"
+        },
+        {
+          "startFrame": 392,
+          "endFrame": 425,
+          "text": "dua lima timur."
+        },
+        {
+          "startFrame": 425,
+          "endFrame": 484,
+          "text": "Berapa orang di atas kapal?"
+        },
+        {
+          "startFrame": 484,
+          "endFrame": 515,
+          "text": "Over.\" Hening."
+        },
+        {
+          "startFrame": 515,
+          "endFrame": 561,
+          "text": "Kira-kira lima detik."
+        },
+        {
+          "startFrame": 561,
+          "endFrame": 601,
+          "text": "Lalu: \"Empat, Pak."
+        },
+        {
+          "startFrame": 601,
+          "endFrame": 660,
+          "text": "Ridwan, tolong dicatat, ya."
+        },
+        {
+          "startFrame": 660,
+          "endFrame": 779,
+          "text": "Kami bertolak pukul dua lewat tujuh belas.\" Saya belum"
+        },
+        {
+          "startFrame": 779,
+          "endFrame": 821,
+          "text": "menyebut nama saya."
+        },
+        {
+          "startFrame": 821,
+          "endFrame": 944,
+          "text": "Di kanal enam belas, saya selalu menyebut \"Tanjung Balam"
+        },
+        {
+          "startFrame": 944,
+          "endFrame": 1019,
+          "text": "Radio\", tidak pernah nama sendiri."
+        },
+        {
+          "startFrame": 1019,
+          "endFrame": 1080,
+          "text": "Dan dia minta saya mencatat."
+        },
+        {
+          "startFrame": 1080,
+          "endFrame": 1159,
+          "text": "Bukan minta tolong, bukan minta SAR."
+        },
+        {
+          "startFrame": 1159,
+          "endFrame": 1190,
+          "text": "Minta dicatat."
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Close-up of a desk microphone with a push-to-talk switch, a hand hovering over it, red indicator lamp, dark room.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 1621,
+      "image": "images/seg-07.png",
+      "narration": "Saya ambil kunci lemari arsip. Buku jaga lama disimpan di situ, dilakban per tahun, dan kalau dibuka baunya seperti kertas lembap. Buku 2011. Halaman Agustus. Ada sembilan entri dengan nama kapal yang sama, semuanya di jam yang sama, semuanya PAN-PAN minta berita cuaca, semuanya ditandatangani Pak Sukirman. Tanggal empat belas Agustus 2011 adalah entri terakhir. Isinya cuma satu baris: \"KM Sinar Jaya, 02.17, minta cuaca. Dijawab.\" Di bawah baris itu ada satu garis lurus, yang kalau diperhatikan bukan garis coret, tapi tanda tangan yang tidak selesai. Dan di margin kanan, ditulis pakai pensil, hurufnya kecil sekali: \"tidak dicatat\". Halaman sesudahnya kosong sampai akhir bulan. Sampai akhir tahun. Kertasnya tidak menguning di bagian itu, karena tidak pernah kena cahaya.",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 68,
+          "text": "Saya ambil kunci lemari arsip."
+        },
+        {
+          "startFrame": 68,
+          "endFrame": 178,
+          "text": "Buku jaga lama disimpan di situ, dilakban per tahun,"
+        },
+        {
+          "startFrame": 178,
+          "endFrame": 275,
+          "text": "dan kalau dibuka baunya seperti kertas lembap."
+        },
+        {
+          "startFrame": 275,
+          "endFrame": 296,
+          "text": "Buku 2011."
+        },
+        {
+          "startFrame": 296,
+          "endFrame": 330,
+          "text": "Halaman Agustus."
+        },
+        {
+          "startFrame": 330,
+          "endFrame": 449,
+          "text": "Ada sembilan entri dengan nama kapal yang sama, semuanya"
+        },
+        {
+          "startFrame": 449,
+          "endFrame": 563,
+          "text": "di jam yang sama, semuanya PAN-PAN minta berita cuaca,"
+        },
+        {
+          "startFrame": 563,
+          "endFrame": 641,
+          "text": "semuanya ditandatangani Pak Sukirman."
+        },
+        {
+          "startFrame": 641,
+          "endFrame": 757,
+          "text": "Tanggal empat belas Agustus 2011 adalah entri terakhir."
+        },
+        {
+          "startFrame": 757,
+          "endFrame": 867,
+          "text": "Isinya cuma satu baris: \"KM Sinar Jaya, 02.17, minta"
+        },
+        {
+          "startFrame": 867,
+          "endFrame": 880,
+          "text": "cuaca."
+        },
+        {
+          "startFrame": 880,
+          "endFrame": 986,
+          "text": "Dijawab.\" Di bawah baris itu ada satu garis lurus,"
+        },
+        {
+          "startFrame": 986,
+          "endFrame": 1113,
+          "text": "yang kalau diperhatikan bukan garis coret, tapi tanda tangan"
+        },
+        {
+          "startFrame": 1113,
+          "endFrame": 1153,
+          "text": "yang tidak selesai."
+        },
+        {
+          "startFrame": 1153,
+          "endFrame": 1274,
+          "text": "Dan di margin kanan, ditulis pakai pensil, hurufnya kecil"
+        },
+        {
+          "startFrame": 1274,
+          "endFrame": 1325,
+          "text": "sekali: \"tidak dicatat\"."
+        },
+        {
+          "startFrame": 1325,
+          "endFrame": 1420,
+          "text": "Halaman sesudahnya kosong sampai akhir bulan."
+        },
+        {
+          "startFrame": 1420,
+          "endFrame": 1460,
+          "text": "Sampai akhir tahun."
+        },
+        {
+          "startFrame": 1460,
+          "endFrame": 1587,
+          "text": "Kertasnya tidak menguning di bagian itu, karena tidak pernah"
+        },
+        {
+          "startFrame": 1587,
+          "endFrame": 1613,
+          "text": "kena cahaya."
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Old steel filing cabinet open, bundles of ledger books wrapped in packing tape with year labels, dust in a shaft of light, single bare bulb.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 120,
+            "volume": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_08",
+      "order": 7,
+      "durationFrames": 1498,
+      "image": "images/seg-08.png",
+      "narration": "Saya telepon kantor syahbandar pagi itu. Yang jaga, Mas Tarno, orangnya suka begadang dan hafal arsip. Dia bilang: \"Sinar Jaya? Itu yang tenggelam, kan? Empat ABK. Agustus sebelas.\" Kapal nelayan, katanya. Bertolak dari dermaga lama, kena gelombang, tidak sempat sampai. Yang aneh, kata Mas Tarno sambil ketawa kecil, berita marabahayanya tidak pernah masuk catatan kantor. Kapal hilang, tapi tidak ada laporan darurat. Jadi waktu itu sempat ramai di grup, ada yang bilang kapalnya tidak pernah minta tolong, ada juga yang bilang stasiun radio pantainya tutup. Saya tanya: siaran cuaca masih jalan waktu itu? Dia diam sebentar. \"Kalau sebelas, sudah stop, Mas. Anggarannya dipotong. Kapal kecil disuruh bawa HT sendiri.\"",
+      "narrationAudio": "audio/narration/scene-08.mp3",
+      "cuts": [
+        {
+          "atFrame": 749,
+          "image": "images/seg-08.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 89,
+          "text": "Saya telepon kantor syahbandar pagi itu."
+        },
+        {
+          "startFrame": 89,
+          "endFrame": 203,
+          "text": "Yang jaga, Mas Tarno, orangnya suka begadang dan hafal"
+        },
+        {
+          "startFrame": 203,
+          "endFrame": 216,
+          "text": "arsip."
+        },
+        {
+          "startFrame": 216,
+          "endFrame": 267,
+          "text": "Dia bilang: \"Sinar Jaya?"
+        },
+        {
+          "startFrame": 267,
+          "endFrame": 318,
+          "text": "Itu yang tenggelam, kan?"
+        },
+        {
+          "startFrame": 318,
+          "endFrame": 339,
+          "text": "Empat ABK."
+        },
+        {
+          "startFrame": 339,
+          "endFrame": 426,
+          "text": "Agustus sebelas.\" Kapal nelayan, katanya."
+        },
+        {
+          "startFrame": 426,
+          "endFrame": 561,
+          "text": "Bertolak dari dermaga lama, kena gelombang, tidak sempat sampai."
+        },
+        {
+          "startFrame": 561,
+          "endFrame": 673,
+          "text": "Yang aneh, kata Mas Tarno sambil ketawa kecil, berita"
+        },
+        {
+          "startFrame": 673,
+          "endFrame": 775,
+          "text": "marabahayanya tidak pernah masuk catatan kantor."
+        },
+        {
+          "startFrame": 775,
+          "endFrame": 870,
+          "text": "Kapal hilang, tapi tidak ada laporan darurat."
+        },
+        {
+          "startFrame": 870,
+          "endFrame": 965,
+          "text": "Jadi waktu itu sempat ramai di grup, ada yang"
+        },
+        {
+          "startFrame": 965,
+          "endFrame": 1084,
+          "text": "bilang kapalnya tidak pernah minta tolong, ada juga yang"
+        },
+        {
+          "startFrame": 1084,
+          "endFrame": 1162,
+          "text": "bilang stasiun radio pantainya tutup."
+        },
+        {
+          "startFrame": 1162,
+          "endFrame": 1261,
+          "text": "Saya tanya: siaran cuaca masih jalan waktu itu?"
+        },
+        {
+          "startFrame": 1261,
+          "endFrame": 1299,
+          "text": "Dia diam sebentar."
+        },
+        {
+          "startFrame": 1299,
+          "endFrame": 1367,
+          "text": "\"Kalau sebelas, sudah stop, Mas."
+        },
+        {
+          "startFrame": 1367,
+          "endFrame": 1411,
+          "text": "Anggarannya dipotong."
+        },
+        {
+          "startFrame": 1411,
+          "endFrame": 1490,
+          "text": "Kapal kecil disuruh bawa HT sendiri.\""
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Desk telephone with a curled cord, stacked yellowed newspaper clippings and a harbour-office file, morning light through blinds.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "pan_right",
+        "shot": "medium",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_09",
+      "order": 8,
+      "durationFrames": 2044,
+      "image": "images/seg-09.png",
+      "narration": "Malam berikutnya saya masuk lagi. Pukul dua lewat tujuh belas radio berbunyi, dan saya sudah menunggu. \"MAYDAY, MAYDAY, MAYDAY. This is KM Sinar Jaya—\" \"KM Sinar Jaya, ini Tanjung Balam Radio. MAYDAY diterima.\" Saya baca ulang semuanya. Posisi. Jumlah orang. Saya bilang: \"Saya teruskan ke Surabaya Radio dan Basarnas. Tetap di kanal ini.\" Lalu saya pindah ke kanal enam belas frekuensi darurat, dan saya kirim: \"MAYDAY RELAY, MAYDAY RELAY, MAYDAY RELAY. All stations. This is Tanjung Balam Radio. MAYDAY dari KM Sinar Jaya, posisi enam empat tiga selatan, seratus sepuluh dua lima timur. Empat orang. Over.\" Saya telepon Basarnas. Saya tulis semuanya di buku jaga, jam dan menitnya, lalu saya paraf. Untuk pertama kali dalam sembilan tahun, kolom tindakan tidak saya biarkan kosong. Di radio, suaranya pelan sekali. \"Diterima. Terima kasih, Pak.\" Setelah itu kanal enam belas jadi benar-benar kosong. Bukan hening yang biasanya, yang masih ada desis. Kosong.",
+      "narrationAudio": "audio/narration/scene-09.mp3",
+      "cuts": [
+        {
+          "atFrame": 681,
+          "image": "images/seg-09.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 1363,
+          "image": "images/seg-09.png",
+          "camera": "pull_out",
+          "scale": 1.45,
+          "offsetX": -40,
+          "offsetY": 20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 76,
+          "text": "Malam berikutnya saya masuk lagi."
+        },
+        {
+          "startFrame": 76,
+          "endFrame": 189,
+          "text": "Pukul dua lewat tujuh belas radio berbunyi, dan saya"
+        },
+        {
+          "startFrame": 189,
+          "endFrame": 222,
+          "text": "sudah menunggu."
+        },
+        {
+          "startFrame": 222,
+          "endFrame": 274,
+          "text": "\"MAYDAY, MAYDAY, MAYDAY."
+        },
+        {
+          "startFrame": 274,
+          "endFrame": 368,
+          "text": "This is KM Sinar Jaya—\" \"KM Sinar Jaya, ini"
+        },
+        {
+          "startFrame": 368,
+          "endFrame": 412,
+          "text": "Tanjung Balam Radio."
+        },
+        {
+          "startFrame": 412,
+          "endFrame": 506,
+          "text": "MAYDAY diterima.\" Saya baca ulang semuanya."
+        },
+        {
+          "startFrame": 506,
+          "endFrame": 521,
+          "text": "Posisi."
+        },
+        {
+          "startFrame": 521,
+          "endFrame": 549,
+          "text": "Jumlah orang."
+        },
+        {
+          "startFrame": 549,
+          "endFrame": 678,
+          "text": "Saya bilang: \"Saya teruskan ke Surabaya Radio dan Basarnas."
+        },
+        {
+          "startFrame": 678,
+          "endFrame": 778,
+          "text": "Tetap di kanal ini.\" Lalu saya pindah ke kanal"
+        },
+        {
+          "startFrame": 778,
+          "endFrame": 909,
+          "text": "enam belas frekuensi darurat, dan saya kirim: \"MAYDAY RELAY,"
+        },
+        {
+          "startFrame": 909,
+          "endFrame": 968,
+          "text": "MAYDAY RELAY, MAYDAY RELAY."
+        },
+        {
+          "startFrame": 968,
+          "endFrame": 996,
+          "text": "All stations."
+        },
+        {
+          "startFrame": 996,
+          "endFrame": 1057,
+          "text": "This is Tanjung Balam Radio."
+        },
+        {
+          "startFrame": 1057,
+          "endFrame": 1164,
+          "text": "MAYDAY dari KM Sinar Jaya, posisi enam empat tiga"
+        },
+        {
+          "startFrame": 1164,
+          "endFrame": 1251,
+          "text": "selatan, seratus sepuluh dua lima timur."
+        },
+        {
+          "startFrame": 1251,
+          "endFrame": 1277,
+          "text": "Empat orang."
+        },
+        {
+          "startFrame": 1277,
+          "endFrame": 1340,
+          "text": "Over.\" Saya telepon Basarnas."
+        },
+        {
+          "startFrame": 1340,
+          "endFrame": 1451,
+          "text": "Saya tulis semuanya di buku jaga, jam dan menitnya,"
+        },
+        {
+          "startFrame": 1451,
+          "endFrame": 1486,
+          "text": "lalu saya paraf."
+        },
+        {
+          "startFrame": 1486,
+          "endFrame": 1619,
+          "text": "Untuk pertama kali dalam sembilan tahun, kolom tindakan tidak"
+        },
+        {
+          "startFrame": 1619,
+          "endFrame": 1663,
+          "text": "saya biarkan kosong."
+        },
+        {
+          "startFrame": 1663,
+          "endFrame": 1733,
+          "text": "Di radio, suaranya pelan sekali."
+        },
+        {
+          "startFrame": 1733,
+          "endFrame": 1755,
+          "text": "\"Diterima."
+        },
+        {
+          "startFrame": 1755,
+          "endFrame": 1871,
+          "text": "Terima kasih, Pak.\" Setelah itu kanal enam belas jadi"
+        },
+        {
+          "startFrame": 1871,
+          "endFrame": 1912,
+          "text": "benar-benar kosong."
+        },
+        {
+          "startFrame": 1912,
+          "endFrame": 2019,
+          "text": "Bukan hening yang biasanya, yang masih ada desis."
+        },
+        {
+          "startFrame": 2019,
+          "endFrame": 2036,
+          "text": "Kosong."
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Wide shot from behind of a man in a short-sleeve shirt sitting at the radio desk at night, face not visible, microphone in hand, glowing radio dials.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "pov",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 90,
+            "volume": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_10",
+      "order": 9,
+      "durationFrames": 1826,
+      "image": "images/seg-10.png",
+      "narration": "Dua hari kemudian Pak Sukirman datang. Dia tidak ngopi, cuma duduk. \"Kamu dengar, ya,\" katanya. Bukan tanya. Saya bilang saya dengar, dan saya sudah mencatatnya. Dia diam lama. Lalu dia cerita: malam itu dia yang jaga. Pukul empat pagi dia pulang karena penggantinya tidak datang, dan dia tidak menulis apa pun di buku karena malu. Dia pikir kalau tidak ditulis, berarti tidak pernah diterima. Saya tawarkan untuk membetulkan halaman empat belas Agustus itu. Dia menggeleng. \"Biar saja. Itu sudah terjadi.\" Dia ambil termosnya, dan sebelum keluar dia bilang satu hal lagi: \"Lain kali, jangan tunggu dibilangin.\" Buku itu masih di lemari arsip, dan saya masih jaga malam di situ sampai sekarang. Kalau kamu pernah jaga malam dan sengaja tidak menulis sesuatu karena takut, klik subscribe. Di komentar: apa yang pernah tidak kamu catat?",
+      "narrationAudio": "audio/narration/scene-10.mp3",
+      "cuts": [
+        {
+          "atFrame": 913,
+          "image": "images/seg-10.png",
+          "camera": "push_in",
+          "scale": 1.28,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 89,
+          "text": "Dua hari kemudian Pak Sukirman datang."
+        },
+        {
+          "startFrame": 89,
+          "endFrame": 151,
+          "text": "Dia tidak ngopi, cuma duduk."
+        },
+        {
+          "startFrame": 151,
+          "endFrame": 211,
+          "text": "\"Kamu dengar, ya,\" katanya."
+        },
+        {
+          "startFrame": 211,
+          "endFrame": 238,
+          "text": "Bukan tanya."
+        },
+        {
+          "startFrame": 238,
+          "endFrame": 354,
+          "text": "Saya bilang saya dengar, dan saya sudah mencatatnya."
+        },
+        {
+          "startFrame": 354,
+          "endFrame": 385,
+          "text": "Dia diam lama."
+        },
+        {
+          "startFrame": 385,
+          "endFrame": 476,
+          "text": "Lalu dia cerita: malam itu dia yang jaga."
+        },
+        {
+          "startFrame": 476,
+          "endFrame": 612,
+          "text": "Pukul empat pagi dia pulang karena penggantinya tidak datang,"
+        },
+        {
+          "startFrame": 612,
+          "endFrame": 710,
+          "text": "dan dia tidak menulis apa pun di buku karena"
+        },
+        {
+          "startFrame": 710,
+          "endFrame": 721,
+          "text": "malu."
+        },
+        {
+          "startFrame": 721,
+          "endFrame": 857,
+          "text": "Dia pikir kalau tidak ditulis, berarti tidak pernah diterima."
+        },
+        {
+          "startFrame": 857,
+          "endFrame": 1000,
+          "text": "Saya tawarkan untuk membetulkan halaman empat belas Agustus itu."
+        },
+        {
+          "startFrame": 1000,
+          "endFrame": 1033,
+          "text": "Dia menggeleng."
+        },
+        {
+          "startFrame": 1033,
+          "endFrame": 1058,
+          "text": "\"Biar saja."
+        },
+        {
+          "startFrame": 1058,
+          "endFrame": 1189,
+          "text": "Itu sudah terjadi.\" Dia ambil termosnya, dan sebelum keluar"
+        },
+        {
+          "startFrame": 1189,
+          "endFrame": 1303,
+          "text": "dia bilang satu hal lagi: \"Lain kali, jangan tunggu"
+        },
+        {
+          "startFrame": 1303,
+          "endFrame": 1421,
+          "text": "dibilangin.\" Buku itu masih di lemari arsip, dan saya"
+        },
+        {
+          "startFrame": 1421,
+          "endFrame": 1512,
+          "text": "masih jaga malam di situ sampai sekarang."
+        },
+        {
+          "startFrame": 1512,
+          "endFrame": 1632,
+          "text": "Kalau kamu pernah jaga malam dan sengaja tidak menulis"
+        },
+        {
+          "startFrame": 1632,
+          "endFrame": 1714,
+          "text": "sesuatu karena takut, klik subscribe."
+        },
+        {
+          "startFrame": 1714,
+          "endFrame": 1818,
+          "text": "Di komentar: apa yang pernah tidak kamu catat?"
+        }
+      ],
+      "visual": {
+        "prompt": "Cinematic 16:9 photograph, Indonesian north-coast port town at night, 2019, heavy film grain, low-key practical lighting, desaturated teal-green palette, slightly overexposed highlights, no text, no watermark, no logos. Two plastic chairs facing each other in a small rest room, thermos on a table, open door showing a wet yard at dawn, pale light.",
+        "locationId": "ll-0001_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "low_key_practical",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Kanal 16 Tidak Boleh Ditinggal — Stasiun Radio Pantai di Pantura | Cerita Horor",
+    "description": "Selama sembilan tahun Ridwan jaga malam di stasiun radio pantai, dan satu-satunya aturan yang tidak boleh dilanggar: kanal 16 (156,800 MHz) tidak boleh ditinggal.\n\nSuatu malam pukul 02.17, ada kapal yang minta dicatat. Kapalnya sudah hilang sejak 2011.\n\nCerita fiksi. Prosedur radio, istilah, dan nama peralatan mengikuti dokumen GMDSS/SROP yang sebenarnya; stasiun, orang, dan kejadiannya rekaan. Visual dibuat dengan bantuan AI.\n\n00:00 Kanal 16\n00:32 Bangunannya\n02:32 Malam 11 Februari\n04:55 Buku 2011\n06:39 Menjawab\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "cerita horor panjang",
+      "radio pantai",
+      "pantura",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "pinComment": "Pertanyaan buat yang pernah kerja shift malam: ada catatan yang sengaja tidak kamu tulis? Buku jaga di cerita ini fiktif, tapi kebiasaan menghapus satu baris karena takut itu tidak fiksi.\n\nKalau kamu punya cerita soal radio, kapal, atau jaga malam, tulis di komentar.",
+    "thumbnail": {
+      "headline": "KANAL 16 TIDAK BOLEH DITINGGAL",
+      "kicker": "SROP TANJUNG BALAM · 02.17",
+      "image": "images/thumb.png",
+      "holdFrames": 20
+    },
+    "cta": {
+      "card": "KANAL 16 TETAP DIBUKA",
+      "holdFrames": 90
+    }
+  },
+  "production": {
+    "subgenre": "Long-form narration",
+    "experiment": "Format panjang pertama: apakah penonton bertahan >4 menit pada cerita prosedural tanpa jumpscare",
+    "structure": "jaga dengar (aturan) → malam kejadian → arsip 2011 → sebab manusia → menjawab",
+    "slate": "stories/longform/LL-0001/plan.json",
+    "format": "longform"
+  }
+}

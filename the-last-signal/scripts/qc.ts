@@ -69,19 +69,28 @@ const scorePeak = wavPeak(join(ROOT, "projects", "episodes", episodeId, "audio",
 // --- episode ----------------------------------------------------------------
 const parsed = safeParseEpisode(JSON.parse(readFileSync(join(ROOT, "projects", "episodes", episodeId, "episode.json"), "utf8")));
 const shotLength = parsed.success ? averageShotLength(parsed.data) : 0;
+// Format panjang punya kontrak sendiri (lihat packages/contracts): 16:9,
+// 5–11 menit, shot 15–25 detik. Memakai ambang Shorts di sini akan selalu gagal.
+const longform = parsed.success && parsed.data.format === "longform_narration";
+const expectedWidth = longform ? "1920" : "1080";
+const expectedHeight = longform ? "1080" : "1920";
+const minDuration = longform ? 300 : 40;
+const maxDuration = longform ? 660 : 60.5;
+const maxSizeMb = longform ? 200 : 40;
+const maxShotLength = longform ? 30 : 3;
 const expectedFrames = parsed.success ? totalFrames(parsed.data) : 0;
 const sizeMb = statSync(file).size / (1024 * 1024);
 
 // --- aturan ---------------------------------------------------------------
 check(
-  "resolusi 1080×1920",
-  Boolean(videoMatch) && videoMatch![1] === "1080" && videoMatch![2] === "1920",
+  `resolusi ${expectedWidth}×${expectedHeight}`,
+  Boolean(videoMatch) && videoMatch![1] === expectedWidth && videoMatch![2] === expectedHeight,
   videoMatch ? `${videoMatch[1]}×${videoMatch[2]}` : "tidak terbaca",
 );
 check("fps 30", Boolean(videoMatch) && Number(videoMatch![3]) === 30, videoMatch ? `${videoMatch[3]} fps` : "tidak terbaca");
 check(
-  "durasi 40–60 detik",
-  durationSeconds >= 40 && durationSeconds <= 60.5,
+  longform ? "durasi 5–11 menit" : "durasi 40–60 detik",
+  durationSeconds >= minDuration && durationSeconds <= maxDuration,
   `${durationSeconds.toFixed(2)}s (kontrak ${(expectedFrames / 30).toFixed(1)}s)`,
 );
 check(
@@ -96,10 +105,10 @@ check(
 );
 check("true peak ≤ −1 dBTP", truePeak <= -1, `${truePeak.toFixed(1)} dBTP`);
 check("skor musik terdengar", scorePeak > 0.2, scorePeak > 0 ? `puncak ${scorePeak.toFixed(2)}` : "score.wav tidak ada / senyap");
-check("ukuran ≤ 40 MB", sizeMb <= 40, `${sizeMb.toFixed(1)} MB`);
+check(`ukuran ≤ ${maxSizeMb} MB`, sizeMb <= maxSizeMb, `${sizeMb.toFixed(1)} MB`);
 check(
-  "ritme cut ≤ 3 detik/shot",
-  shotLength > 0 && shotLength <= 3,
+  longform ? "shot 5–30 detik" : "ritme cut ≤ 3 detik/shot",
+  shotLength > 0 && shotLength <= maxShotLength && (!longform || shotLength >= 5),
   `rata-rata ${shotLength.toFixed(2)}s per shot`,
 );
 

@@ -16,6 +16,14 @@ export const HEIGHT = 1920 as const;
 export const MIN_DURATION_SECONDS = 40;
 export const MAX_DURATION_SECONDS = 60;
 
+/**
+ * Format panjang (LL-XXXX) punya kontrak sendiri: 5–11 menit, 16:9. Dipisah
+ * supaya aturan Shorts tidak pernah dipakai untuk video 8 menit — dan
+ * sebaliknya.
+ */
+export const LONG_MIN_DURATION_SECONDS = 300;
+export const LONG_MAX_DURATION_SECONDS = 660;
+
 export const CameraMoveSchema = z.enum([
   "static",
   "push_in",
@@ -74,7 +82,8 @@ export const CutSchema = z.object({
   /** Skala framing, 1 = tanpa crop. */
   scale: z.number().min(1).max(2.5).optional(),
   /** Geser framing dalam px ruang 1080×1920. */
-  offsetX: z.number().min(-540).max(540).optional(),
+  // Batas dilonggarkan karena sekarang ada dua orientasi (1080×1920 & 1920×1080).
+  offsetX: z.number().min(-960).max(960).optional(),
   offsetY: z.number().min(-960).max(960).optional(),
 });
 export type Cut = z.infer<typeof CutSchema>;
@@ -175,15 +184,16 @@ export const PublishingSchema = z.object({
 });
 
 export const EpisodeSchema = z.object({
-  episodeId: z.string().regex(/^LS-\d{4}$/, "episodeId harus berbentuk LS-0001"),
+  episodeId: z.string().regex(/^(LS|LL)-\d{4}$/, "episodeId harus berbentuk LS-0001 atau LL-0001"),
   title: z.string().min(1),
   language: z.literal("id-ID"),
   category: z.literal("fictional_horror"),
-  format: z.literal("found_footage").default("found_footage"),
+  /** `found_footage` = Short vertikal; `longform_narration` = video panjang 16:9. */
+  format: z.enum(["found_footage", "longform_narration"]).default("found_footage"),
 
   targetFps: z.literal(FPS).default(FPS),
-  width: z.literal(WIDTH).default(WIDTH),
-  height: z.literal(HEIGHT).default(HEIGHT),
+  width: z.union([z.literal(WIDTH), z.literal(HEIGHT)]).default(WIDTH),
+  height: z.union([z.literal(HEIGHT), z.literal(WIDTH)]).default(HEIGHT),
   targetDurationSeconds: z.number().min(1).optional(),
 
   story: z.object({
@@ -273,11 +283,35 @@ export const ParsedEpisodeSchema = EpisodeSchema.superRefine((episode, ctx) => {
     }
   }
 
-  if (totalSeconds < MIN_DURATION_SECONDS || totalSeconds > MAX_DURATION_SECONDS) {
+  const longform = episode.format === "longform_narration";
+  const [minSeconds, maxSeconds] = longform
+    ? [LONG_MIN_DURATION_SECONDS, LONG_MAX_DURATION_SECONDS]
+    : [MIN_DURATION_SECONDS, MAX_DURATION_SECONDS];
+
+  if (totalSeconds < minSeconds || totalSeconds > maxSeconds) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
       path: ["scenes"],
-      message: `total durasi ${totalSeconds.toFixed(1)}s di luar rentang Shorts yang diizinkan (${MIN_DURATION_SECONDS}–${MAX_DURATION_SECONDS}s)`,
+      message: `total durasi ${totalSeconds.toFixed(1)}s di luar rentang ${longform ? "video panjang" : "Shorts"} yang diizinkan (${minSeconds}–${maxSeconds}s)`,
+    });
+  }
+
+  // Orientasi harus salah satu dari dua yang punya komposisi, bukan kombinasi acak.
+  const vertical = episode.width === WIDTH && episode.height === HEIGHT;
+  const horizontal = episode.width === HEIGHT && episode.height === WIDTH;
+  if (!vertical && !horizontal) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["width"],
+      message: `orientasi ${episode.width}×${episode.height} tidak dikenal (harus 1080×1920 atau 1920×1080)`,
+    });
+  } else if (longform !== horizontal) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["width"],
+      message: longform
+        ? "format longform_narration harus 1920×1080 (mendatar)"
+        : "format found_footage harus 1080×1920 (vertikal)",
     });
   }
 

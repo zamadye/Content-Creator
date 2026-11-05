@@ -99,7 +99,10 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
         <SubtitleTrack episode={episode} />
       </Sequence>
       <OnScreenTextTrack episode={episode} />
-      <FoundFootageHud />
+      {/* HUD rekaman CCTV hanya masuk akal untuk Short found-footage. Video
+          panjang adalah cerita orang pertama, bukan rekaman kamar pengawas —
+          "CAM 07 · LT. 07" di sini akan langsung membocorkan bahwa ini templat. */}
+      {episode.format === "longform_narration" ? null : <FoundFootageHud />}
       {episode.jumpscares.map((scare, index) => (
         <Sequence
           key={`scare-${index}`}

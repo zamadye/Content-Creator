@@ -55,7 +55,8 @@ Pre-fix render archived as `render/out/EP01-ponzi-1080p24.pre-fix.mp4`.
 - [x] Thumbnail final: `assets/THUMB_EP01_FINAL.png` (1280×720; headline "MEREKA DIBAYAR." bone+amber, RUANG MARGIN mark; from THUMB_EP01_CONCEPT_01)
 - [x] **VO recording**: voice-00, 14/14 scene clips from Stage-08 script → cue cascade atempo mix → `vo/vo_track_final.wav` (685.00 s, −16 LUFS) → muxed into `-AV.mp4`; A/V sync anchors verified
 - [x] `QC-RESULTS.md` written (video + audio sections); music/SFX pass not produced (VO-only delivery)
-- [ ] Upload CRF-22 copy → Drive; publish per `10-publishing-package.md`
+- [x] Upload CRF-22 copy → Drive: `EP01-ruangmargin-1080p24-AV.mp4` (66 MB, id `1YkaTHHzPLRAzgBbY4w_ps7IGjHQeiuGI`); old-brand MP4 renamed `[SUPERSEDED]`
+- [ ] Publish per `10-publishing-package.md` (platform upload — user action)
 
 ## Scene → asset map (as implemented in `render/src/Episode.tsx`)
 

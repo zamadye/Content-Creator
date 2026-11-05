@@ -449,10 +449,29 @@ try {
     },
   });
 
-  result.post = { id: post?.id ?? null, status: post?.status ?? null, httpStatus: response?.status ?? null };
+  // Bentuk respons createPost: { message?, post: {...}, platformResults?: [...] }.
+  // Versi lama membaca objek pembungkusnya langsung, sehingga post.id selalu
+  // null dan hanya regex URL YouTube yang kebetulan menyelamatkan status —
+  // untuk Facebook tidak ada URL yang bisa ditebak, jadi unggahan "sukses"
+  // terlihat gagal. Sekarang isinya yang dibuka.
+  const payload = post?.post ?? post ?? {};
+  const platformResults = Array.isArray(post?.platformResults) ? post.platformResults : [];
 
-  const platform = (post?.platforms ?? []).find((entry) => entry?.platform === 'youtube') ?? post?.platforms?.[0];
-  const fbPlatform = (post?.platforms ?? []).find((entry) => entry?.platform === 'facebook') ?? null;
+  result.post = {
+    id: payload.id ?? null,
+    status: payload.status ?? null,
+    httpStatus: response?.status ?? null,
+    message: post?.message ?? null,
+    warnings: Array.isArray(post?.warnings) ? post.warnings : undefined,
+  };
+
+  if (post?.error) result.post.error = String(post.error).slice(0, 300);
+
+  const platform =
+    (payload.platforms ?? []).find((entry) => entry?.platform === 'youtube') ?? (payload.platforms ?? [])[0] ?? null;
+  const fbPlatform =
+    (payload.platforms ?? []).find((entry) => entry?.platform === 'facebook') ??
+    (platformResults.find((entry) => entry?.platform === 'facebook') ?? null);
   if (fbPlatform) {
     result.facebook.status = fbPlatform.status ?? null;
     result.facebook.url = fbPlatform.platformPostUrl ?? fbPlatform.url ?? null;
@@ -461,6 +480,11 @@ try {
     if (!result.facebook.ok && fbPlatform.error) {
       result.facebook.error = String(fbPlatform.error).slice(0, 300);
     }
+  }
+  if (!result.facebook.ok && !fbPlatform) {
+    const fbError = platformResults.find((entry) => entry?.platform === 'facebook' && entry?.error);
+    if (fbError) result.facebook.error = String(fbError.error).slice(0, 300);
+    result.facebook.status = result.facebook.status ?? 'tidak dilaporkan';
   }
   if (platform) {
     result.youtube.status = platform.status ?? null;

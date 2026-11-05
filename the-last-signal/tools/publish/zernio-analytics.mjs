@@ -128,12 +128,26 @@ async function analyse(target) {
   mkdirSync(REPORT_DIR, { recursive: true });
   writeFileSync(resolve(REPORT_DIR, `analytics-${target.episodeId}.json`), `${JSON.stringify(report, null, 2)}\n`);
 
+  // Angka tayangan yang benar ada di metrik post, bukan di dailyViews:
+  // dailyViews hanya mencakup rentang tanggal yang sudah difinalkan YouTube.
+  const metrics = report.post?.analytics ?? report.post?.metrics ?? report.post ?? {};
+  const pick = (keys) => {
+    for (const key of keys) {
+      const value = metrics?.[key];
+      if (value !== undefined && value !== null) return value;
+    }
+    return null;
+  };
   const summary = {
-    views: report.dailyViews?.totalViews ?? null,
-    averageViewPercentage: report.retention?.averageViewPercentage ?? null,
-    averageViewDuration: report.retention?.averageViewDuration ?? null,
-    likes: report.post?.analytics?.likes ?? null,
-    comments: report.post?.analytics?.comments ?? null,
+    views: pick(['views', 'viewCount', 'totalViews']),
+    impressions: pick(['impressions', 'thumbnailImpressions']),
+    averageViewDuration: pick(['averageViewDuration', 'averageWatchTime']),
+    averageViewPercentage: report.retention?.averageViewPercentage ?? pick(['averageViewPercentage']),
+    likes: pick(['likes', 'likeCount']),
+    comments: pick(['comments', 'commentCount']),
+    shares: pick(['shares', 'shareCount']),
+    subscribersGained: pick(['subscribersGained', 'subscribers']),
+    keys: Object.keys(metrics ?? {}).slice(0, 24),
     notes: report.notes,
   };
   notice(`::notice title=ANALYTICS-${target.episodeId}::${JSON.stringify(summary)}`);

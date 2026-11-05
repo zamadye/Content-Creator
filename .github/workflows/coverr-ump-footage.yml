@@ -13,7 +13,15 @@ on:
 permissions:
   contents: write # create encrypted unreferenced blob only, no branch writes
 jobs:
+  public-page-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v5
+      - name: Inspect public page structure without logging URLs or keys
+        run: node editorial-engine/pipeline/coverr-transfer/inspect-web.mjs
   pilot:
+    if: ${{ false }} # paused while required API tracking returns HTTP 404
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

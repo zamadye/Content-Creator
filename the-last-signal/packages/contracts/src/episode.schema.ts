@@ -31,6 +31,15 @@ export const CameraMoveSchema = z.enum([
   "pan_left",
   "pan_right",
   "handheld",
+  // Gerakan tambahan untuk format panjang: satu gambar bertahan 6–10 detik,
+  // jadi kamera butuh lebih banyak kosakata daripada dorongan pelan yang itu-itu saja.
+  "dolly_in",
+  "dolly_out",
+  "arc_left",
+  "arc_right",
+  "tilt_up",
+  "tilt_down",
+  "drift",
 ]);
 export type CameraMove = z.infer<typeof CameraMoveSchema>;
 
@@ -48,6 +57,16 @@ export const EffectSchema = z.enum([
   "creature_reveal",
   "flashlight",
   "timestamp_hud",
+  // Lapisan atmosfer yang bergerak sendiri: ini yang membuat gambar diam
+  // terasa hidup tanpa perlu video AI.
+  "rain",
+  "heavy_rain",
+  "mist_drift",
+  "dust_motes",
+  "sea_spray",
+  "smoke_drift",
+  "static_burst",
+  "focus_rack",
 ]);
 export type Effect = z.infer<typeof EffectSchema>;
 

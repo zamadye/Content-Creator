@@ -3,12 +3,33 @@ import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame } f
 import type { Scene } from "@the-last-signal/contracts";
 import { computeCameraTransform } from "../lib/camera";
 import { buildShots, shotAt } from "../lib/shots";
+import { Atmosphere, type AtmosphereKind } from "./Atmosphere";
 import { FilmGrain } from "./FilmGrain";
+import { ParallaxPlate } from "./ParallaxPlate";
 import { LightFlicker } from "./LightFlicker";
 import { Scanlines } from "./Scanlines";
 import { Vignette } from "./Vignette";
 
 const has = (scene: Scene, effect: string) => scene.visual.effects.includes(effect as never);
+
+/**
+ * Efek yang punya lapisan bergerak sendiri. Daftarnya sengaja eksplisit:
+ * efek kamera (flicker, grain) tetap diurus komponennya masing-masing, sedangkan
+ * cuaca/atmosfer diurus Atmosphere. Tanpa pemisahan ini gampang menambah nama
+ * efek baru yang lalu tidak pernah dirender siapa pun.
+ */
+const ATMOSPHERE: AtmosphereKind[] = [
+  "rain",
+  "heavy_rain",
+  "mist_drift",
+  "dust_motes",
+  "sea_spray",
+  "smoke_drift",
+  "static_burst",
+];
+
+const atmosphereOf = (scene: Scene): AtmosphereKind[] =>
+  ATMOSPHERE.filter((kind) => has(scene, kind));
 
 /**
  * Satu scene = rangkaian shot (lihat lib/shots.ts). Setiap shot punya framing,
@@ -24,7 +45,11 @@ export const CinematicScene: React.FC<{ scene: Scene; index: number }> = ({ scen
   const localFrame = frame - shot.from;
   const isCctv = scene.visual.shot === "cctv";
 
-  const cam = computeCameraTransform(shot.camera, localFrame, shot.duration, intensity);
+  // Seed dari posisi shot, bukan dari indeks scene: dua shot berurutan dari
+  // gambar yang sama mendapat fase napas berbeda, jadi tidak terlihat seperti
+  // potongan yang identik.
+  const seed = index * 31 + Math.floor(shot.from / 43);
+  const cam = computeCameraTransform(shot.camera, localFrame, shot.duration, intensity, seed);
 
   // Punch di awal setiap shot: kamera "mendarat" lalu menetap. Ini yang membuat
   // cut terasa punya berat, bukan potongan gambar datar.
@@ -55,10 +80,20 @@ export const CinematicScene: React.FC<{ scene: Scene; index: number }> = ({ scen
           filter,
         }}
       >
-        <Img
-          src={staticFile(shot.image)}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+        {has(scene, "focus_rack") ? (
+          <ParallaxPlate
+            src={shot.image}
+            focusX={52 + Math.sin(seed) * 12}
+            focusY={50 + Math.cos(seed) * 8}
+            strength={6 + intensity * 6}
+            filter={filter}
+          />
+        ) : (
+          <Img
+            src={staticFile(shot.image)}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        )}
       </AbsoluteFill>
 
       {/* Color grade dingin khas found footage */}
@@ -69,6 +104,12 @@ export const CinematicScene: React.FC<{ scene: Scene; index: number }> = ({ scen
             "linear-gradient(160deg, rgba(36,58,74,0.55), rgba(10,10,12,0.35) 60%, rgba(74,52,32,0.35))",
         }}
       />
+
+      {/* Atmosfer bergerak: hujan, kabut, debu, percikan laut, asap, statik radio.
+          Ini yang paling terasa "hidup" — gambar tetap, partikelnya tidak. */}
+      {atmosphereOf(scene).map((kind) => (
+        <Atmosphere key={kind} kind={kind} intensity={intensity} seed={seed} />
+      ))}
 
       {has(scene, "flashlight") ? (
         <AbsoluteFill

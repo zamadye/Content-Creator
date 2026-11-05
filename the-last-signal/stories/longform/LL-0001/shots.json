@@ -1,0 +1,45 @@
+{
+  "_catatan": "Peta visual LL-0001: insert menutup kalimat yang sebelumnya tidak divisualisasikan; effects menentukan cuaca per scene (rain, dust, static, focus_rack). Dipakai oleh scripts/plan-shots.mjs.",
+  "scenes": {
+    "scene_01": {
+      "effects": ["rain"],
+      "inserts": ["images/ins-09-antenna.png"]
+    },
+    "scene_02": {
+      "effects": ["dust_motes"],
+      "inserts": ["images/ins-01-genset.png", "images/ins-02-desk.png", "images/ins-03-logbook.png"]
+    },
+    "scene_03": {
+      "effects": ["dust_motes"],
+      "inserts": ["images/ins-04-senior.png", "images/ins-03-logbook.png"]
+    },
+    "scene_04": {
+      "effects": ["rain", "static_burst"],
+      "inserts": ["images/ins-05-chart.png", "images/ins-02-desk.png", "images/ins-09-antenna.png"]
+    },
+    "scene_05": {
+      "effects": ["static_burst", "focus_rack"],
+      "inserts": ["images/ins-05-chart.png", "images/ins-06-jetty.png"]
+    },
+    "scene_06": {
+      "effects": ["static_burst", "focus_rack"],
+      "inserts": ["images/ins-02-desk.png", "images/ins-03-logbook.png"]
+    },
+    "scene_07": {
+      "effects": ["dust_motes", "focus_rack"],
+      "inserts": ["images/ins-07-archive.png", "images/ins-03-logbook.png"]
+    },
+    "scene_08": {
+      "effects": ["dust_motes"],
+      "inserts": ["images/ins-08-phone.png", "images/ins-02-desk.png"]
+    },
+    "scene_09": {
+      "effects": ["static_burst", "focus_rack"],
+      "inserts": ["images/ins-03-logbook.png", "images/ins-09-antenna.png"]
+    },
+    "scene_10": {
+      "effects": ["mist_drift", "focus_rack"],
+      "inserts": ["images/ins-04-senior.png", "images/ins-10-chair.png", "images/ins-02-desk.png"]
+    }
+  }
+}

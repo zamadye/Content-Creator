@@ -170,6 +170,39 @@ function writeRequest(item) {
   return { path, relative: path.replace(`${REPO_ROOT}/`, "") };
 }
 
+function repoSlug() {
+  const url = sh("git", ["remote", "get-url", "origin"]).out.trim();
+  const match = url.match(/github\.com[:/]([^/]+\/[^/.]+)(?:\.git)?$/);
+  return match ? match[1] : "zamadye/Content-Creator";
+}
+
+/**
+ * Kebenaran soal "terbit atau tidak" ada di anotasi check-run, bukan di kode
+ * keluar. Percobaan pertama LS-0008: proses keluar 6 (dianggap gagal) padahal
+ * Reel-nya benar-benar terbit — pembacaan respons createPost yang salah.
+ * Jadi hasil dibaca dari JSON PUBLISH-RESULT di anotasi.
+ */
+function publishedFromAnnotations(sha) {
+  const slug = repoSlug();
+  const checks = sh("gh", ["api", `repos/${slug}/commits/${sha}/check-runs`, "--jq",
+    '.check_runs[] | select(.name|test("upload")) | .id']);
+  if (checks.code !== 0) return null;
+  const id = checks.out.trim().split("\n")[0];
+  if (!id) return null;
+  const annotations = sh("gh", ["api", `repos/${slug}/check-runs/${id}/annotations`, "--jq", '.[] | .message']);
+  if (annotations.code !== 0) return null;
+  for (const line of annotations.out.split("\n")) {
+    const start = line.indexOf('{"episodeId"');
+    if (start === -1) continue;
+    try {
+      return JSON.parse(line.slice(start));
+    } catch {
+      /* bukan JSON utuh, lanjut */
+    }
+  }
+  return null;
+}
+
 async function waitForRun(headSha, timeoutMs) {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
@@ -181,7 +214,9 @@ async function waitForRun(headSha, timeoutMs) {
       try {
         const runs = JSON.parse(result.out || "[]");
         const run = runs.find((entry) => String(entry.headSha ?? "").startsWith(headSha.slice(0, 12)));
-        if (run && run.status === "completed") return run;
+        if (run && run.status === "completed") {
+          return { ...run, published: publishedFromAnnotations(run.headSha) };
+        }
       } catch {
         /* keluaran belum bisa diparse, coba lagi */
       }
@@ -244,14 +279,17 @@ async function main() {
     }
     log(`${item.episodeId}: permintaan ${path.split("/").pop()} di-push, menunggu workflow`);
 
-    const run = await waitForRun(head, 20 * 60 * 1000);
-    const ok = run?.conclusion === "success";
+    const run = await waitForRun(head, 25 * 60 * 1000);
+    const published = run?.published ?? null;
+    const ok = Boolean(published?.facebook?.ok) || run?.conclusion === "success";
     state.items[item.episodeId] = {
       status: ok ? "posted" : "error",
       runId: run?.databaseId ?? null,
       conclusion: run?.conclusion ?? "timeout",
       request: relative,
       postedAt: ok ? new Date().toISOString() : null,
+      url: published?.facebook?.url ?? null,
+      conclusion_was: run?.conclusion ?? null,
       at: new Date().toISOString(),
     };
     if (ok) state.lastPostAt = state.items[item.episodeId].postedAt;

@@ -13,6 +13,10 @@ name: Publikasikan ke YouTube
 #  loudness/true peak/ukuran gagal, proses berhenti SEBELUM ada byte yang
 #  diunggah ke Zernio.
 #
+#  Satu permintaan = satu post ke DUA platform: YouTube dan Halaman Facebook.
+#  Shorts 9:16 ≤ 90 s masuk sebagai Facebook Reel; video panjang (16:9, > 90 s)
+#  masuk sebagai video feed karena Meta membatasi Reel 3–90 detik.
+#
 #  JANGAN menambahkan pemicu pull_request / pull_request_target.
 # ---------------------------------------------------------------------------
 
@@ -47,6 +51,9 @@ jobs:
       ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
       ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
       ZERNIO_YOUTUBE_ACCOUNT_ID: ${{ vars.ZERNIO_YOUTUBE_ACCOUNT_ID }}
+      # Halaman Facebook. Boleh kosong: zernio-publish.mjs mencari akun
+      # platform "facebook" dari daftar akun Zernio kalau variabel ini kosong.
+      ZERNIO_FACEBOOK_ACCOUNT_ID: ${{ vars.ZERNIO_FACEBOOK_ACCOUNT_ID }}
 
     steps:
       - name: Ambil kode

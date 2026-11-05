@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * zernio-publish.mjs — unggah satu episode ke YouTube lewat Zernio.
+ * zernio-publish.mjs — unggah satu episode ke YouTube DAN Facebook lewat Zernio.
  *
  * Dijalankan di GitHub Actions (bukan di sandbox: zernio.com tidak terjangkau
  * dari sandbox). Alur:
@@ -9,7 +9,10 @@
  *   2. Gerbang QC di runner: resolusi, fps, durasi, codec audio, loudness,
  *      true peak, ukuran file. Kalau gagal → BERHENTI, tidak ada upload.
  *   3. Presign + PUT video ke storage Zernio.
- *   4. createPost({ publishNow: true }) ke kanal YouTube THE LAST SIGNAL.
+ *   4. createPost({ publishNow: true }) ke kanal YouTube THE LAST SIGNAL dan
+ *      Halaman Facebook-nya dalam satu panggilan (satu post, dua platform).
+ *      · Shorts 9:16 ≤ 90 s  → Facebook Reel (contentType: 'reel')
+ *      · Video panjang 16:9  → video feed Facebook (Reels dibatasi Meta 3–90 s)
  *   5. Terbitkan hasil sebagai anotasi RESULT (JSON) supaya bisa dibaca
  *      lewat API meski log mentah tidak dapat diunduh.
  *
@@ -75,6 +78,7 @@ const mediaPath = resolve(REPO_ROOT, request.media ?? `the-last-signal/releases/
 if (!existsSync(mediaPath)) die(2, `Media tidak ada: ${mediaPath}`);
 
 const yt = request.youtube ?? {};
+const fb = request.facebook ?? {};
 if (!yt.title || String(yt.title).length > 100) die(2, 'Judul YouTube wajib ada dan ≤ 100 karakter.');
 if (!yt.description || String(yt.description).length < 40) die(2, 'Deskripsi wajib ada (≥ 40 karakter).');
 if (!String(yt.description).toLowerCase().includes('fiksi')) {
@@ -108,6 +112,28 @@ const loudnessRaw = ffmpegOutput([
 const lufs = Number(loudnessRaw.match(/"input_i"\s*:\s*"(-?[\d.]+)"/)?.[1] ?? 0);
 const truePeak = Number(loudnessRaw.match(/"input_tp"\s*:\s*"(-?[\d.]+)"/)?.[1] ?? 0);
 
+// Facebook Reels: Meta mendokumentasikan 3–90 detik dan video vertikal 9:16.
+// Di luar itu tetap diunggah ke Facebook, tapi sebagai video feed — bukan Reel.
+// Lebih baik turun satu tingkat daripada tidak terbit sama sekali.
+const FB_REEL_MAX_SECONDS = 90;
+const vertical = Boolean(videoMatch) && videoMatch[1] === '1080' && videoMatch[2] === '1920';
+const fbMode = vertical && duration >= 3 && duration <= FB_REEL_MAX_SECONDS ? 'reel' : 'video';
+const fbEnabled = request.facebook?.enabled !== false;
+
+/**
+ * Kaption Facebook bawaan: deskripsi YouTube tanpa blok bab waktu dan tanpa
+ * baris hashtag YouTube. Bab waktu berguna di YouTube (penonton bisa melompat),
+ * di feed Facebook ia hanya jadi tujuh baris angka sebelum ceritanya dimulai.
+ */
+function defaultFacebookCaption(source) {
+  const lines = String(source ?? '')
+    .split("\n")
+    .filter((line) => !/^\s*\d{1,2}:\d{2}\s/.test(line))
+    .filter((line) => !/^\s*#[\w#\s]+$/.test(line));
+  const trimmed = lines.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  return `${trimmed}\n\n#TheLastSignal #CeritaHoror #HororIndonesia`;
+}
+
 const checks = [
   {
     name: `resolusi ${limits.width}×${limits.height}`,
@@ -136,6 +162,15 @@ const checks = [
   },
   { name: 'true peak ≤ −1 dBTP', pass: truePeak <= -1, detail: `${truePeak.toFixed(1)} dBTP` },
   { name: `ukuran ≤ ${limits.maxSizeMb} MB`, pass: sizeMb <= limits.maxSizeMb, detail: `${sizeMb.toFixed(1)} MB` },
+  {
+    name: 'Facebook (Reel 3–90 s 9:16 / selain itu video feed)',
+    pass: true,
+    detail: fbEnabled
+      ? fbMode === 'reel'
+        ? `Reel · ${duration.toFixed(1)}s · 1080×1920`
+        : `video feed · ${duration.toFixed(1)}s · ${videoMatch ? `${videoMatch[1]}×${videoMatch[2]}` : '?'}`
+      : 'dimatikan di permintaan',
+  },
 ];
 
 for (const check of checks) {
@@ -154,6 +189,7 @@ const result = {
   upload: { attempted: false, mediaUrl: null, presignKey: null },
   post: null,
   youtube: { videoId: null, url: null, status: null },
+  facebook: { enabled: fbEnabled, mode: fbMode, postId: null, url: null, status: null, ok: false },
   ok: false,
 };
 
@@ -260,24 +296,59 @@ try {
 // ---------------------------------------------------------------------------
 // 4. Buat post + publishNow
 // ---------------------------------------------------------------------------
-let accountId = request.accountId ?? process.env.ZERNIO_YOUTUBE_ACCOUNT_ID ?? null;
-if (!accountId) {
-  // Cari kanal YouTube aktif secara otomatis: satu sumber kebenaran, bukan
-  // ID yang ditempel manual dan bisa basi.
-  try {
-    const { data } = await zernio.accounts.listAccounts();
-    const candidate = (data?.accounts ?? []).find(
-      (account) => account.platform === 'youtube' && account.isActive !== false && account.status !== 'inactive',
-    );
-    accountId = candidate?._id ?? candidate?.accountId ?? candidate?.id ?? null;
-    if (accountId) notice(`Kanal YouTube ditemukan otomatis: ${candidate.username ?? '(tanpa username)'} id=${accountId}`);
-  } catch (error) {
-    warn(`Gagal mencari kanal otomatis: ${describeError(error)}`);
+// Akun platform dicari sekali, lalu dipakai untuk YouTube dan Facebook.
+// Sumber ID: environment (vars repo) → kolom di berkas antrean → pencarian
+// otomatis dari daftar akun Zernio. Pencarian otomatis yang jadi andalan,
+// supaya akun yang baru disambungkan tidak perlu ditulis ke kode.
+let accountList = null;
+async function listAccounts() {
+  if (!accountList) {
+    try {
+      const { data } = await zernio.accounts.listAccounts();
+      accountList = data?.accounts ?? [];
+    } catch (error) {
+      warn(`Gagal membaca daftar akun Zernio: ${describeError(error)}`);
+      accountList = [];
+    }
   }
+  return accountList;
 }
+
+async function resolveAccount(platform, envName, requestKey) {
+  const fromEnv = process.env[envName];
+  if (fromEnv && fromEnv.trim()) return fromEnv.trim();
+  const fromRequest = request[requestKey];
+  if (fromRequest) return String(fromRequest);
+
+  const accounts = await listAccounts();
+  const candidate = accounts.find(
+    (account) =>
+      account.platform === platform && account.isActive !== false && account.status !== 'inactive',
+  );
+  const id = candidate?._id ?? candidate?.accountId ?? candidate?.id ?? null;
+  if (id) {
+    notice(
+      `Akun ${platform} ditemukan otomatis: ${candidate.username ?? candidate.name ?? '(tanpa nama)'} id=${id}`,
+    );
+  } else {
+    const known = accounts.map((account) => account.platform).join(', ') || 'kosong';
+    warn(`Tidak ada akun ${platform} aktif di Zernio. Akun yang ada: ${known}.`);
+  }
+  return id;
+}
+
+const accountId = await resolveAccount('youtube', 'ZERNIO_YOUTUBE_ACCOUNT_ID', 'accountId');
 if (!accountId) {
   persist();
   die(2, 'Tidak ada kanal YouTube yang bisa dipakai (accountId kosong dan pencarian otomatis gagal).');
+}
+
+const facebookAccountId = fbEnabled
+  ? await resolveAccount('facebook', 'ZERNIO_FACEBOOK_ACCOUNT_ID', 'facebookAccountId')
+  : null;
+if (fbEnabled && !facebookAccountId) {
+  result.facebook.enabled = false;
+  warn('Facebook dilewati: tidak ada Halaman Facebook yang tersambung di Zernio.');
 }
 
 try {
@@ -300,6 +371,25 @@ try {
             ...(yt.firstComment ? { firstComment: String(yt.firstComment) } : {}),
           },
         },
+        ...(fbEnabled && facebookAccountId
+          ? [
+              {
+                platform: 'facebook',
+                accountId: facebookAccountId,
+                // Kaption Facebook dipisah: hashtag YouTube tidak berguna di
+                // feed, dan baris pertama harus bisa berdiri sendiri karena
+                // Facebook memotong teks setelah ±125 karakter.
+                customContent: String(fb.caption ?? defaultFacebookCaption(yt.description)),
+                platformSpecificData: {
+                  ...(fbMode === 'reel' ? { contentType: 'reel', isAiGenerated: true } : {}),
+                  ...(fb.title ? { title: String(fb.title) } : {}),
+                  ...(fb.firstComment ?? yt.firstComment
+                    ? { firstComment: String(fb.firstComment ?? yt.firstComment) }
+                    : {}),
+                },
+              },
+            ]
+          : []),
       ],
       publishNow: true,
       metadata: {
@@ -313,6 +403,16 @@ try {
   result.post = { id: post?.id ?? null, status: post?.status ?? null, httpStatus: response?.status ?? null };
 
   const platform = (post?.platforms ?? []).find((entry) => entry?.platform === 'youtube') ?? post?.platforms?.[0];
+  const fbPlatform = (post?.platforms ?? []).find((entry) => entry?.platform === 'facebook') ?? null;
+  if (fbPlatform) {
+    result.facebook.status = fbPlatform.status ?? null;
+    result.facebook.url = fbPlatform.platformPostUrl ?? fbPlatform.url ?? null;
+    result.facebook.postId = fbPlatform.platformPostId ?? fbPlatform.id ?? fbPlatform.postId ?? null;
+    result.facebook.ok = String(fbPlatform.status ?? '').toLowerCase() === 'published' || Boolean(result.facebook.url);
+    if (!result.facebook.ok && fbPlatform.error) {
+      result.facebook.error = String(fbPlatform.error).slice(0, 300);
+    }
+  }
   if (platform) {
     result.youtube.status = platform.status ?? null;
     result.youtube.url = platform.platformPostUrl ?? platform.url ?? null;
@@ -339,6 +439,15 @@ try {
 
   notice(`Respons createPost: HTTP ${result.post.httpStatus} · status=${result.youtube.status ?? '-'}`);
   if (result.youtube.url) notice(`URL: ${result.youtube.url}`);
+  if (fbEnabled && facebookAccountId) {
+    if (result.facebook.ok) {
+      notice(`Facebook (${fbMode}) terbit: ${result.facebook.url ?? result.facebook.postId ?? '(tanpa URL)'}`);
+    } else {
+      warn(
+        `Facebook (${fbMode}) tidak dikonfirmasi: status=${result.facebook.status ?? 'tidak ada'}${result.facebook.error ? ` · ${result.facebook.error}` : ''}. YouTube tetap dianggap sukses.`,
+      );
+    }
+  }
 } catch (error) {
   result.post = { error: describeError(error) };
   persist();

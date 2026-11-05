@@ -116,8 +116,8 @@ const MistDrift: React.FC<{ intensity: number; seed: number }> = ({ intensity, s
   }, [seed]);
 
   return (
-    <AbsoluteFill style={{ mixBlendMode: "screen" }}>
-      {blobs.map((blob, index) => {
+    <AbsoluteFill>
+      {blobs.slice(0, 2).map((blob, index) => {
         const drift = Math.sin(frame / blob.period + blob.phase) * 9;
         return (
           <AbsoluteFill
@@ -132,88 +132,76 @@ const MistDrift: React.FC<{ intensity: number; seed: number }> = ({ intensity, s
   );
 };
 
+/**
+ * Debu, percikan laut, dan asap dulu dibuat dari puluhan div kecil dengan
+ * `filter: blur()`. Di Chromium headless itu berarti puluhan layer yang harus
+ * di-raster ulang tiap frame: render LL-0001 turun dari 3,1 fps ke 0,5 fps.
+ * Sekarang butiran digambar sekali sebagai ubin SVG (satu div, satu tekstur
+ * yang digeser), sama seperti hujan. Rupa hampir tidak berubah, biaya turun
+ * seorde.
+ */
+function moteTile(seed: number, count: number, maxRadius: number, tint: string): string {
+  const rand = mulberry32(seed);
+  const dots: string[] = [];
+  for (let index = 0; index < count; index++) {
+    const x = rand() * 500;
+    const y = rand() * 500;
+    const r = 0.6 + rand() * maxRadius;
+    const alpha = 0.1 + rand() * 0.45;
+    dots.push(`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="${tint}" opacity="${alpha.toFixed(2)}"/>`);
+  }
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">${dots.join("")}</svg>`;
+  return `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
+}
+
 const DustMotes: React.FC<{ intensity: number; seed: number }> = ({ intensity, seed }) => {
   const frame = useCurrentFrame();
-  const motes = useMemo(() => {
-    const rand = mulberry32(seed * 131 + 7);
-    return Array.from({ length: 34 }, () => ({
-      x: rand() * 100,
-      y: rand() * 100,
-      r: 1 + rand() * 2.4,
-      speed: 0.12 + rand() * 0.4,
-      sway: 6 + rand() * 16,
-      phase: rand() * Math.PI * 2,
-      alpha: 0.12 + rand() * 0.35,
-    }));
-  }, [seed]);
+  const tile = useMemo(() => moteTile(seed * 131 + 7, 46, 2.6, "rgba(255,244,220,0.9)"), [seed]);
+  // Naik pelan + goyang horizontal: debu di sorot lampu bergerak lebih lambat
+  // daripada hujan, jadi geserannya beberapa px per detik saja.
+  const offsetY = -((frame * 0.55) % 500);
+  const offsetX = Math.sin(frame / 90) * 9;
 
   return (
-    <AbsoluteFill style={{ mixBlendMode: "screen" }}>
-      {motes.map((mote, index) => {
-        const y = (mote.y - frame * mote.speed * 0.12 + 100) % 100;
-        const x = mote.x + Math.sin(frame / 90 + mote.phase) * (mote.sway / 12);
-        return (
-          <div
-            key={index}
-            style={{
-              position: "absolute",
-              left: `${x}%`,
-              top: `${y}%`,
-              width: mote.r * 2,
-              height: mote.r * 2,
-              borderRadius: "50%",
-              background: `rgba(255,244,220,${mote.alpha * (0.5 + intensity * 0.8)})`,
-              filter: "blur(0.6px)",
-            }}
-          />
-        );
-      })}
+    <AbsoluteFill style={{ mixBlendMode: "screen", opacity: 0.55 + intensity * 0.45 }}>
+      <AbsoluteFill
+        style={{
+          backgroundImage: tile,
+          backgroundSize: "500px 500px",
+          backgroundPosition: `${offsetX}px ${offsetY}px`,
+          backgroundRepeat: "repeat",
+        }}
+      />
     </AbsoluteFill>
   );
 };
 
 const SeaSpray: React.FC<{ intensity: number; seed: number }> = ({ intensity, seed }) => {
   const frame = useCurrentFrame();
-  const drops = useMemo(() => {
-    const rand = mulberry32(seed * 613 + 29);
-    return Array.from({ length: 22 }, () => ({
-      x: rand() * 100,
-      delay: rand() * 120,
-      life: 40 + rand() * 60,
-      r: 1.5 + rand() * 3,
-      rise: 40 + rand() * 90,
-    }));
-  }, [seed]);
+  const tile = useMemo(() => moteTile(seed * 613 + 29, 34, 3.4, "rgba(226,236,242,0.85)"), [seed]);
+  const offsetY = -((frame * 1.6) % 500);
+  const offsetX = Math.sin(frame / 70) * 14;
 
   return (
     <AbsoluteFill style={{ overflow: "hidden" }}>
-      {/* Kabut garam di kaki frame */}
+      {/* Kabut garam di kaki frame: satu gradien, bukan partikel. */}
       <AbsoluteFill
         style={{
           background: `radial-gradient(ellipse at 50% 108%, rgba(206,216,222,${0.16 + intensity * 0.12}), transparent 60%)`,
           transform: `translateY(${Math.sin(frame / 70) * 3}px)`,
         }}
       />
-      {drops.map((drop, index) => {
-        const t = (frame + drop.delay) % drop.life;
-        const progress = t / drop.life;
-        return (
-          <div
-            key={index}
-            style={{
-              position: "absolute",
-              left: `${drop.x}%`,
-              bottom: `${8 + progress * 26}%`,
-              width: drop.r * 2,
-              height: drop.r * 2,
-              borderRadius: "50%",
-              background: `rgba(226,236,242,${0.35 * (1 - progress) * (0.5 + intensity)})`,
-              filter: "blur(1px)",
-              transform: `translateY(${-progress * drop.rise}px)`,
-            }}
-          />
-        );
-      })}
+      <AbsoluteFill
+        style={{
+          backgroundImage: tile,
+          backgroundSize: "500px 500px",
+          backgroundPosition: `${offsetX}px ${offsetY}px`,
+          backgroundRepeat: "repeat",
+          maskImage: "linear-gradient(180deg, transparent 35%, #000 78%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(180deg, transparent 35%, #000 78%, transparent 100%)",
+          opacity: 0.5 + intensity * 0.4,
+        }}
+      />
     </AbsoluteFill>
   );
 };

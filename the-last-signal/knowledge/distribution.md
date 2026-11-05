@@ -16,6 +16,17 @@ cuma diunggah sekali, tidak ada peluang dua platform menunjuk berkas berbeda.
 Pencarian otomatis penting: Halaman Facebook yang baru disambungkan di Zernio
 langsung terpakai tanpa mengubah kode atau menyalin ID ke variabel repo.
 
+Diverifikasi 5 November 2026 lewat workflow Diagnostik Zernio (anotasi
+check-run, karena log mentah tidak terbaca dari sandbox):
+
+    Akun: platform=facebook username=The Last Signal id=6aeca976… status=active
+    Akun: platform=youtube  username=thelastsignal-id    id=6ae9fd7d… status=active
+
+Artinya token Actions memang melihat Halaman itu, dan variabel repo
+`ZERNIO_FACEBOOK_ACCOUNT_ID` tidak wajib diisi (token Arena yang dipakai di
+sandbox tidak punya izin menulis variables — autodiscovery yang jadi jalur
+utama, bukan jalan darurat).
+
 ## Batas Reels Meta
 
 Meta mendokumentasikan Reels **3–90 detik, video vertikal 9:16**. SDK Zernio

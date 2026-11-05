@@ -1,0 +1,62 @@
+name: Coverr - UMP curated footage transfer
+# User approved this specific push/transfer for the session branch. No PR,
+# main update, publish or scheduling. The repo is public; only encrypted,
+# unreferenced Git blobs leave runners. Garbage-collection timing is unknown.
+on:
+  push:
+    branches:
+      - arena/54cb36c6-content-creator
+    paths:
+      - '.github/workflows/coverr-ump-footage.yml'
+      - 'editorial-engine/pipeline/coverr-transfer/transfer.mjs'
+      - 'editorial-engine/pipeline/coverr-transfer/session-public.pem'
+permissions:
+  contents: write # create encrypted unreferenced blob only, no branch writes
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Offline transport safety tests
+        run: node --test editorial-engine/pipeline/coverr-transfer/test-transfer.mjs
+      - name: Download and encrypt one wage-related excerpt
+        env:
+          COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+          COVERR_VIDEO_ID: e7tw4gtksn
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
+          if [ -n "${GITHUB_TOKEN:-}" ]; then echo "::add-mask::${GITHUB_TOKEN}"; fi
+          node editorial-engine/pipeline/coverr-transfer/transfer.mjs
+  curated:
+    needs: pilot
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - id: XIvMon1nqS # factory
+          - id: IewlyvjcBo # retail
+          - id: JaS9AFIJRQ # small business
+          - id: Sf189e49k5 # coworkers discussing
+          - id: go58OtzyA9 # market
+          - id: 3qAZd7N07s # hands writing
+          - id: NMcrFLW6m2 # produce market in India, generic illustrative use
+    steps:
+      - uses: actions/checkout@v5
+      - name: Download and encrypt curated stock excerpt
+        env:
+          COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+          COVERR_VIDEO_ID: ${{ matrix.id }}
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
+          if [ -n "${GITHUB_TOKEN:-}" ]; then echo "::add-mask::${GITHUB_TOKEN}"; fi
+          node editorial-engine/pipeline/coverr-transfer/transfer.mjs

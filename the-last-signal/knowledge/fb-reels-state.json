@@ -1,21 +1,23 @@
 {
-  "lastPostAt": null,
+  "lastPostAt": "2026-11-05T23:38:59Z",
   "items": {
     "LS-0008": {
-      "status": "error",
-      "runId": 42126801400,
-      "conclusion": "cancelled",
-      "request": "the-last-signal/publish-queue/2026-11-05T23-04-FBREEL-LS-0008.json",
-      "postedAt": null,
-      "at": "2026-11-05T23:20:20.679Z"
+      "status": "posted",
+      "postedAt": "2026-11-05T23:00:08Z",
+      "url": "https://www.facebook.com/reel/1844482003236290",
+      "note": "terverifikasi dari daftar post Zernio (bukan dari kode keluar workflow)"
     },
     "LS-0011": {
-      "status": "error",
-      "runId": 42128867966,
-      "conclusion": "cancelled",
-      "request": "the-last-signal/publish-queue/2026-11-05T23-20-FBREEL-LS-0011.json",
-      "postedAt": null,
-      "at": "2026-11-05T23:26:02.706Z"
+      "status": "posted",
+      "postedAt": "2026-11-05T23:36:47Z",
+      "url": "https://www.facebook.com/reel/1462522629410776",
+      "note": "terverifikasi dari daftar post Zernio (bukan dari kode keluar workflow)"
+    },
+    "LS-0009": {
+      "status": "posted",
+      "postedAt": "2026-11-05T23:38:59Z",
+      "url": "https://www.facebook.com/reel/1132739076024331",
+      "note": "terverifikasi dari daftar post Zernio (bukan dari kode keluar workflow)"
     }
   }
 }

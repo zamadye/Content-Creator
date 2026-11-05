@@ -8,6 +8,14 @@
       "request": "the-last-signal/publish-queue/2026-11-05T23-04-FBREEL-LS-0008.json",
       "postedAt": null,
       "at": "2026-11-05T23:20:20.679Z"
+    },
+    "LS-0011": {
+      "status": "error",
+      "runId": 42128867966,
+      "conclusion": "cancelled",
+      "request": "the-last-signal/publish-queue/2026-11-05T23-20-FBREEL-LS-0011.json",
+      "postedAt": null,
+      "at": "2026-11-05T23:26:02.706Z"
     }
   }
 }

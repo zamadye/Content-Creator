@@ -3,7 +3,7 @@
   "platforms": [
     "facebook"
   ],
-  "status": "requested",
+  "status": "published",
   "createdAt": "2026-11-05T23:20:22.175Z",
   "media": "the-last-signal/releases/LS-0011.mp4",
   "youtube": {
@@ -29,5 +29,6 @@
   "facebook": {
     "title": "Pasar Itu Tutup Sebelas Tahun Lalu. Malam Ini Lapaknya Menjual Barangmu."
   },
-  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook",
+  "note": "permintaan kembar; dihentikan supaya LS-0011 tidak terbit dua kali"
 }

@@ -1,0 +1,14 @@
+{
+  "mission": "kelas-menengah-turun-kelas-2026",
+  "publicationReady": false,
+  "updatedAt": "2026-11-05",
+  "reason": "Naskah percakapan dan CTA revisi sudah disimpan di Google Drive. Video lama tidak cocok dengan naskah revisi dan konteks angkanya perlu diperbaiki. Video, suara, subtitle dan QA belum diperbarui.",
+  "draftScript": "https://drive.google.com/file/d/1xWYFAx4E2YtbScveSahNCh3CN9jVLCQ5/view?usp=drivesdk",
+  "draftCaption": "https://drive.google.com/file/d/1tyiBXw9feYjHJ9auWfHkuXrGoNqSfwaP/view?usp=drivesdk",
+  "existingVideoStatus": "INVALIDATED: video lama menyajikan 81,5% sebagai bagian seluruh ekonomi untuk kelas menengah saja; angka BPS mencakup kelas menengah dan menuju kelas menengah bersama, dari belanja rumah tangga 2024.",
+  "checksBeforePublication": [
+    "Pulihkan naskah revisi, perbarui seluruh narasi voice-05 dan seluruh visual serta subtitle agar sesuai sumber primer.",
+    "Render ulang dan ukur ulang video, termasuk kesesuaian CTA, sinkronisasi subtitle, frame awal dan fakta.",
+    "Minta persetujuan eksplisit sebelum menjadwalkan atau menerbitkan."
+  ]
+}

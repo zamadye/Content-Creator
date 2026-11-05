@@ -90,6 +90,23 @@ for (const [k, f] of Object.entries(FILE)) {
 const videoBytes = fs.statSync(FILE.video).size;
 const rawCaption = fs.readFileSync(FILE.caption, 'utf8');
 
+// A previous render may exist after a script or fact correction. Block sending
+// whenever the per-mission production status says it is not publication-ready.
+// Missing/invalid readiness records never grant permission to override user review.
+if (SEND && !flag('dump')) {
+  const statusFile = p('qa', `production-status-${MISSION}.json`);
+  if (fs.existsSync(statusFile)) {
+    let status;
+    try {
+      status = JSON.parse(fs.readFileSync(statusFile, 'utf8'));
+    } catch {
+      die('status produksi tidak dapat dibaca; kirim diblokir.', 2);
+    }
+    if (status.publicationReady !== true) die(`status produksi belum siap; kirim diblokir (${statusFile}).`, 2);
+  }
+  if (/BELUM SIAP TAYANG/i.test(rawCaption)) die('caption ditandai belum siap tayang; kirim diblokir.', 2);
+}
+
 /* ------------------------------------------------------------------ caption */
 const HEADING = {
   facebook: 'FACEBOOK REELS',

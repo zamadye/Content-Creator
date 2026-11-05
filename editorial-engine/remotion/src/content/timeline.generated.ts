@@ -7,62 +7,62 @@ export const timeline: Timeline = {
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "durationInFrames": 6447,
-  "generatedAt": "2026-11-04T22:26:59.365Z",
+  "durationInFrames": 6235,
+  "generatedAt": "2026-11-04T23:52:17.456Z",
   "scenes": [
     {
       "id": "m01",
       "startFrame": 0,
-      "durationInFrames": 599,
+      "durationInFrames": 570,
       "purpose": "HOOK",
       "vo": "m01"
     },
     {
       "id": "m02",
-      "startFrame": 599,
-      "durationInFrames": 756,
+      "startFrame": 570,
+      "durationInFrames": 660,
       "purpose": "STAKES",
       "vo": "m02"
     },
     {
       "id": "m03",
-      "startFrame": 1355,
-      "durationInFrames": 1031,
+      "startFrame": 1230,
+      "durationInFrames": 840,
       "purpose": "CONTEXT",
       "vo": "m03"
     },
     {
       "id": "m04",
-      "startFrame": 2386,
+      "startFrame": 2070,
       "durationInFrames": 900,
       "purpose": "EVIDENCE",
       "vo": "m04"
     },
     {
       "id": "m05",
-      "startFrame": 3286,
-      "durationInFrames": 905,
+      "startFrame": 2970,
+      "durationInFrames": 840,
       "purpose": "EVIDENCE",
       "vo": "m05"
     },
     {
       "id": "m06",
-      "startFrame": 4191,
-      "durationInFrames": 794,
+      "startFrame": 3810,
+      "durationInFrames": 780,
       "purpose": "CONTRADICTION",
       "vo": "m06"
     },
     {
       "id": "m07",
-      "startFrame": 4985,
-      "durationInFrames": 862,
+      "startFrame": 4590,
+      "durationInFrames": 951,
       "purpose": "ANALYSIS",
       "vo": "m07"
     },
     {
       "id": "m08",
-      "startFrame": 5847,
-      "durationInFrames": 600,
+      "startFrame": 5541,
+      "durationInFrames": 694,
       "purpose": "CLOSING",
       "vo": "m08"
     }
@@ -70,29 +70,29 @@ export const timeline: Timeline = {
   "captions": [
     {
       "text": [
-        "Ekonomi tumbuh 5 persen.",
-        "Tapi 11 juta orang turun kelas."
+        "Pernahkah kamu merasa gaji naik,",
+        "tapi hidup makin sempit?"
       ],
       "startFrame": 5,
-      "durationInFrames": 270,
+      "durationInFrames": 278,
       "segment": "m01"
     },
     {
       "text": [
-        "Ini bukan cerita orang malas.",
-        "Ini cerita tangga yang tak ditambah."
+        "Ekonomi tumbuh 5 persen.",
+        "11 juta orang turun kelas."
       ],
-      "startFrame": 275,
-      "durationInFrames": 319,
+      "startFrame": 283,
+      "durationInFrames": 248,
       "segment": "m01"
     },
     {
       "text": [
-        "Gaji naik 8 persen.",
+        "Bayangkan: gaji naik 8 persen.",
         "Uangnya habis lebih cepat."
       ],
-      "startFrame": 604,
-      "durationInFrames": 330,
+      "startFrame": 575,
+      "durationInFrames": 306,
       "segment": "m02"
     },
     {
@@ -100,53 +100,53 @@ export const timeline: Timeline = {
         "Menunda servis, pindah merek.",
         "Itu punya nama: turun kelas."
       ],
-      "startFrame": 934,
-      "durationInFrames": 415,
+      "startFrame": 881,
+      "durationInFrames": 311,
       "segment": "m02"
     },
     {
       "text": [
-        "Kelas menengah bukan gelar.",
-        "Ia posisi di sebuah tangga."
+        "Tanya ke diri sendiri:",
+        "masih ada sisa bulan ini?"
       ],
-      "startFrame": 1360,
-      "durationInFrames": 382,
+      "startFrame": 1235,
+      "durationInFrames": 431,
       "segment": "m03"
     },
     {
       "text": [
-        "Sisa uang setelah makan",
-        "yang menentukan kamu di mana."
+        "Ada, kamu di tangga.",
+        "Habis, kamu turun satu."
       ],
-      "startFrame": 1742,
-      "durationInFrames": 368,
+      "startFrame": 1666,
+      "durationInFrames": 395,
       "segment": "m03"
     },
     {
       "text": [
-        "Sisa itu habis,",
-        "turun satu anak tangga."
+        "Kamu tak perlu percaya saya.",
+        "Ini data Bank Dunia."
       ],
-      "startFrame": 2110,
-      "durationInFrames": 270,
-      "segment": "m03"
-    },
-    {
-      "text": [
-        "Pekerja berpendapatan menengah:",
-        "14,5 persen (2018)."
-      ],
-      "startFrame": 2391,
-      "durationInFrames": 340,
+      "startFrame": 2075,
+      "durationInFrames": 249,
       "segment": "m04"
     },
     {
       "text": [
-        "Tinggal di atas 7 persen (2025).",
-        "Upah riil -1 sampai -2 persen per tahun."
+        "14,5 persen (2018)",
+        "tinggal di atas 7 persen (2025)."
       ],
-      "startFrame": 2731,
-      "durationInFrames": 487,
+      "startFrame": 2324,
+      "durationInFrames": 259,
+      "segment": "m04"
+    },
+    {
+      "text": [
+        "Upah riil -1 sampai -2 persen.",
+        "Subscribe dulu, sebentar saja."
+      ],
+      "startFrame": 2583,
+      "durationInFrames": 311,
       "segment": "m04"
     },
     {
@@ -154,17 +154,17 @@ export const timeline: Timeline = {
         "47,9 juta (2024)",
         "menjadi 46,7 juta (2025)."
       ],
-      "startFrame": 3291,
-      "durationInFrames": 369,
+      "startFrame": 2975,
+      "durationInFrames": 354,
       "segment": "m05"
     },
     {
       "text": [
-        "Yang hampir sampai bertambah 4,5 juta:",
+        "4,5 juta berdesakan di bawah:",
         "50,4 persen penduduk."
       ],
-      "startFrame": 3660,
-      "durationInFrames": 526,
+      "startFrame": 3329,
+      "durationInFrames": 429,
       "segment": "m05"
     },
     {
@@ -172,17 +172,17 @@ export const timeline: Timeline = {
         "Kelompok yang menyusut ini",
         "menopang 81,5 persen ekonomi."
       ],
-      "startFrame": 4196,
-      "durationInFrames": 434,
+      "startFrame": 3815,
+      "durationInFrames": 297,
       "segment": "m06"
     },
     {
       "text": [
-        "Penopangnya mengecil.",
-        "Ke mana pertumbuhannya?"
+        "Penopang mengecil.",
+        "Pertumbuhan lari ke mana?"
       ],
-      "startFrame": 4630,
-      "durationInFrames": 349,
+      "startFrame": 4112,
+      "durationInFrames": 233,
       "segment": "m06"
     },
     {
@@ -190,8 +190,8 @@ export const timeline: Timeline = {
         "Uang baru dari tambang, sawit,",
         "hilirisasi, belanja negara."
       ],
-      "startFrame": 4990,
-      "durationInFrames": 445,
+      "startFrame": 4595,
+      "durationInFrames": 491,
       "segment": "m07"
     },
     {
@@ -199,25 +199,26 @@ export const timeline: Timeline = {
         "Itu modal, bukan gaji.",
         "Ekonomi naik, kamu bisa turun."
       ],
-      "startFrame": 5435,
-      "durationInFrames": 406,
+      "startFrame": 5086,
+      "durationInFrames": 449,
       "segment": "m07"
     },
     {
       "text": [
-        "Bukan kamu yang gagal naik.",
-        "Tangganya yang tidak bertambah."
+        "Kamu tidak sedang gagal.",
+        "Tangganya yang tak ditambah."
       ],
-      "startFrame": 5852,
-      "durationInFrames": 395,
+      "startFrame": 5546,
+      "durationInFrames": 307,
       "segment": "m08"
     },
     {
       "text": [
-        "Simpan, bagikan, ikuti."
+        "Like, komentar, subscribe.",
+        "Episode berikutnya: siapa yang nikmat?"
       ],
-      "startFrame": 6247,
-      "durationInFrames": 154,
+      "startFrame": 5853,
+      "durationInFrames": 376,
       "segment": "m08"
     }
   ],
@@ -226,49 +227,49 @@ export const timeline: Timeline = {
       "id": "m01",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m01.mp3",
       "startFrame": 5,
-      "durationInFrames": 589
+      "durationInFrames": 526
     },
     {
       "id": "m02",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m02.mp3",
-      "startFrame": 604,
-      "durationInFrames": 745
+      "startFrame": 575,
+      "durationInFrames": 617
     },
     {
       "id": "m03",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m03.mp3",
-      "startFrame": 1360,
-      "durationInFrames": 1020
+      "startFrame": 1235,
+      "durationInFrames": 826
     },
     {
       "id": "m04",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m04.mp3",
-      "startFrame": 2391,
-      "durationInFrames": 827
+      "startFrame": 2075,
+      "durationInFrames": 819
     },
     {
       "id": "m05",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m05.mp3",
-      "startFrame": 3291,
-      "durationInFrames": 895
+      "startFrame": 2975,
+      "durationInFrames": 783
     },
     {
       "id": "m06",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m06.mp3",
-      "startFrame": 4196,
-      "durationInFrames": 783
+      "startFrame": 3815,
+      "durationInFrames": 530
     },
     {
       "id": "m07",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m07.mp3",
-      "startFrame": 4990,
-      "durationInFrames": 851
+      "startFrame": 4595,
+      "durationInFrames": 940
     },
     {
       "id": "m08",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m08.mp3",
-      "startFrame": 5852,
-      "durationInFrames": 549
+      "startFrame": 5546,
+      "durationInFrames": 683
     }
   ]
 };

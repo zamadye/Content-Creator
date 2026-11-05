@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T22:53:44.176Z",
+  "generatedAt": "2026-11-05T00:07:43.827Z",
   "checks": [
     {
       "gate": "GATE 5",
@@ -27,7 +27,7 @@
       "id": "T4",
       "check": "duration inside 45-300 s",
       "status": "PASS",
-      "detail": "214.90 s"
+      "detail": "207.83 s"
     },
     {
       "gate": "GATE 5",
@@ -41,14 +41,14 @@
       "id": "T6",
       "check": "integrated loudness -16..-12 LUFS",
       "status": "PASS",
-      "detail": "-13.7 LUFS"
+      "detail": "-13.9 LUFS"
     },
     {
       "gate": "GATE 5",
       "id": "T7",
       "check": "true peak <= -1.0 dBTP",
       "status": "PASS",
-      "detail": "-3.5 dBTP"
+      "detail": "-3.2 dBTP"
     },
     {
       "gate": "GATE 5",
@@ -69,7 +69,7 @@
       "id": "S3",
       "check": "max 42 chars per line",
       "status": "PASS",
-      "detail": "40 chars (limit 42)"
+      "detail": "38 chars (limit 42)"
     },
     {
       "gate": "GATE 5",
@@ -90,7 +90,7 @@
       "id": "F1",
       "check": "all frames rendered",
       "status": "PASS",
-      "detail": "6447/6447"
+      "detail": "6235/6235"
     },
     {
       "gate": "GATE 7",
@@ -111,7 +111,7 @@
       "id": "CP1",
       "check": "caption 4 platform",
       "status": "PASS",
-      "detail": "4/4 · 6 kB"
+      "detail": "4/4 · 7 kB"
     },
     {
       "gate": "GATE 7",

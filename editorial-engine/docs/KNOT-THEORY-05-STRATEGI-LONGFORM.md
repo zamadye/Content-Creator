@@ -53,3 +53,36 @@ Screenshot YouTube Studio menunjukkan 5 Shorts dengan 360x, 41x, 24x ditonton. S
 - Video dengan **judul berisi angka konkret + paradoks** mendapat tayangan lebih tinggi pada sampel ini.
 - Video pertama (paling awal terbit) tetap tertinggi — efek usia unggahan, bukan efek kualitas.
 Karena itu episode long-form ini menguji hipotesis: **hook paradoks + transformasi rasa bersalah** menaikkan retensi, bukan sekadar menambah tayangan awal.
+
+## 7. CTA WAJIB DI DALAM NASKAH (bukan hanya di caption)
+Sejak 4 Nov 2026, setiap episode memuat **tiga titik CTA**:
+1. **CTA tengah (menit 1–2)** — halus, menyatu dengan narasi: *"Kalau kamu ingin episode seperti ini terus dibuat, tekan subscribe dulu, sebentar saja."* Alasan: penonton yang bertahan sampai titik ini adalah yang paling mungkin subscribe.
+2. **CTA akhir (menit terakhir)** — eksplisit tiga aksi: **like → komentar (pertanyaan konkret) → subscribe**, lalu **teaser episode berikutnya** sebagai penutup.
+3. **CTA visual** — badge `SUBSCRIBE` muncul tepat saat kalimat CTA tengah diucapkan; label `like · komentar · subscribe` muncul di adegan penutup.
+
+Larangan: "like dan subscribe ya" tanpa alasan, atau CTA di detik 3 sebelum cerita dimulai.
+
+## 8. Gaya bicara: ngobrol, bukan bicara sendiri
+Setiap blok narasi minimal memakai **satu sapaan langsung** ke penonton:
+- pembuka: *"Pernahkah kamu merasa…"*
+- tengah: *"Bayangkan ini…"*, *"Sekarang tanya ke diri sendiri…"*, *"Kamu sendiri akan bertanya…"*
+- bukti: *"Kamu tidak perlu percaya saya. Ini data…"*
+- penutup: *"Jadi kalau kamu merasa…"*
+
+Aturan teknis:
+- Kalimat ≤ 14 kata, kata ganti **kamu** dipakai minimal sekali per blok.
+- Hindari "kita" bila yang dimaksud penonton saja.
+- Angka tetap pakai satuan dan tahun; gaya ngobrol tidak boleh mengubah fakta.
+- Satu pertanyaan retoris maksimal per blok, supaya tidak terasa interogasi.
+
+## 9. Struktur naskah final episode `kelas-menengah-turun-kelas-2026` (contoh acuan)
+| Blok | Fungsi | Kalimat pembuka |
+|---|---|---|
+| m01 | Hook | "Pernahkah kamu merasa gajimu naik, tapi hidupmu makin sempit?" |
+| m02 | Stake | "Bayangkan ini. Tiga tahun lalu gajimu sekian…" |
+| m03 | Definisi | "Sekarang tanya ke diri sendiri…" |
+| m04 | Bukti + CTA tengah | "Kamu tidak perlu percaya saya. Ini data Bank Dunia." |
+| m05 | Bukti 2 | "Mandiri Institute menghitung dari sisi rumah tangga." |
+| m06 | Kontradiksi | "Nah, di sinilah saya berhenti." |
+| m07 | Mekanisme | "Jawabannya: uang baru masuk dari tambang…" |
+| m08 | Resolusi + CTA | "Jadi kalau kamu merasa sendirian…" |

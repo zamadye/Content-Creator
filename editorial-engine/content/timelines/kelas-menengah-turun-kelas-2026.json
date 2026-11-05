@@ -3,62 +3,62 @@
   "fps": 30,
   "width": 1080,
   "height": 1920,
-  "durationInFrames": 6447,
-  "generatedAt": "2026-11-04T22:26:59.365Z",
+  "durationInFrames": 6235,
+  "generatedAt": "2026-11-04T23:52:17.456Z",
   "scenes": [
     {
       "id": "m01",
       "startFrame": 0,
-      "durationInFrames": 599,
+      "durationInFrames": 570,
       "purpose": "HOOK",
       "vo": "m01"
     },
     {
       "id": "m02",
-      "startFrame": 599,
-      "durationInFrames": 756,
+      "startFrame": 570,
+      "durationInFrames": 660,
       "purpose": "STAKES",
       "vo": "m02"
     },
     {
       "id": "m03",
-      "startFrame": 1355,
-      "durationInFrames": 1031,
+      "startFrame": 1230,
+      "durationInFrames": 840,
       "purpose": "CONTEXT",
       "vo": "m03"
     },
     {
       "id": "m04",
-      "startFrame": 2386,
+      "startFrame": 2070,
       "durationInFrames": 900,
       "purpose": "EVIDENCE",
       "vo": "m04"
     },
     {
       "id": "m05",
-      "startFrame": 3286,
-      "durationInFrames": 905,
+      "startFrame": 2970,
+      "durationInFrames": 840,
       "purpose": "EVIDENCE",
       "vo": "m05"
     },
     {
       "id": "m06",
-      "startFrame": 4191,
-      "durationInFrames": 794,
+      "startFrame": 3810,
+      "durationInFrames": 780,
       "purpose": "CONTRADICTION",
       "vo": "m06"
     },
     {
       "id": "m07",
-      "startFrame": 4985,
-      "durationInFrames": 862,
+      "startFrame": 4590,
+      "durationInFrames": 951,
       "purpose": "ANALYSIS",
       "vo": "m07"
     },
     {
       "id": "m08",
-      "startFrame": 5847,
-      "durationInFrames": 600,
+      "startFrame": 5541,
+      "durationInFrames": 694,
       "purpose": "CLOSING",
       "vo": "m08"
     }
@@ -69,49 +69,49 @@
       "id": "m01",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m01.mp3",
       "startFrame": 5,
-      "durationInFrames": 589
+      "durationInFrames": 526
     },
     {
       "id": "m02",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m02.mp3",
-      "startFrame": 604,
-      "durationInFrames": 745
+      "startFrame": 575,
+      "durationInFrames": 617
     },
     {
       "id": "m03",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m03.mp3",
-      "startFrame": 1360,
-      "durationInFrames": 1020
+      "startFrame": 1235,
+      "durationInFrames": 826
     },
     {
       "id": "m04",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m04.mp3",
-      "startFrame": 2391,
-      "durationInFrames": 827
+      "startFrame": 2075,
+      "durationInFrames": 819
     },
     {
       "id": "m05",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m05.mp3",
-      "startFrame": 3291,
-      "durationInFrames": 895
+      "startFrame": 2975,
+      "durationInFrames": 783
     },
     {
       "id": "m06",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m06.mp3",
-      "startFrame": 4196,
-      "durationInFrames": 783
+      "startFrame": 3815,
+      "durationInFrames": 530
     },
     {
       "id": "m07",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m07.mp3",
-      "startFrame": 4990,
-      "durationInFrames": 851
+      "startFrame": 4595,
+      "durationInFrames": 940
     },
     {
       "id": "m08",
       "file": "audio/voiceovers/kelas-menengah-turun-kelas-2026/m08.mp3",
-      "startFrame": 5852,
-      "durationInFrames": 549
+      "startFrame": 5546,
+      "durationInFrames": 683
     }
   ]
 }

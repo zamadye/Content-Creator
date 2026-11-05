@@ -221,8 +221,12 @@ export const M04Evidence: React.FC<{ d: number }> = ({ d }) => {
         <Path d="M700 1080 q60 60 -20 110" stroke={kartun.red} strokeWidth={12} fill="none" strokeLinecap="round" />
         <T x={540} y={1180} anchor="middle" size={40} weight={800} fill={kartun.red}>UPAH RIIL −1 s.d. −2% / TAHUN</T>
       </g>
-      <Karakter x={900} y={1470} s={0.8} shirt="#5C6A63" face="sad" pose="carry" />
-      <Kardus x={956} y={1356} s={0.6} rotate={6} />
+      <g opacity={t3}>
+        <Rect x={690} y={1290} w={330} h={86} rx={43} fill={kartun.red} />
+        <T x={855} y={1346} anchor="middle" size={34} weight={800} fill={kartun.paper}>SUBSCRIBE</T>
+      </g>
+      <Karakter x={900} y={1560} s={0.8} shirt="#5C6A63" face="sad" pose="carry" />
+      <Kardus x={956} y={1446} s={0.6} rotate={6} />
       <KaraokeCaption text="separuh hilang dalam 7 tahun" keyword="hilang" y={1662} opacity={cap} />
     </KartunShell>
   );
@@ -334,7 +338,8 @@ export const M08Closing: React.FC<{ d: number }> = ({ d }) => {
       <Karakter x={720} y={1400 - 96 * 3 * 0.6} s={0.62} shirt="#4C6E8A" face="worried" pose="stand" />
       <g opacity={cta}>
         <T x={880} y={1200} anchor="middle" size={26} weight={800} tracking={2.6} fill={kartun.line} opacity={0.75}>KALAU INI BERGUNA</T>
-        <T x={880} y={1258} anchor="middle" size={38} weight={800} fill={kartun.red}>simpan · bagikan · ikuti</T>
+        <T x={880} y={1250} anchor="middle" size={34} weight={800} fill={kartun.red}>like · komentar</T>
+        <T x={880} y={1298} anchor="middle" size={34} weight={800} fill={kartun.red}>subscribe</T>
       </g>
       <KaraokeCaption text="tangganya yang tidak ditambah" keyword="tidak" y={1690} opacity={cap} />
     </KartunShell>

@@ -1,5 +1,5 @@
 {
-  "totalFrames": 6447,
+  "totalFrames": 6235,
   "music": {
     "file": "audio/processing/generated/bed.wav",
     "gainDb": -13,
@@ -7,43 +7,43 @@
   },
   "sfx": [
     {
-      "at": 593,
+      "at": 564,
       "file": "audio/processing/generated/sfx_whoosh.wav",
       "gainDb": -24,
       "note": "transisi ke m02"
     },
     {
-      "at": 1349,
+      "at": 1224,
       "file": "audio/processing/generated/sfx_whoosh.wav",
       "gainDb": -24,
       "note": "transisi ke m03"
     },
     {
-      "at": 2380,
+      "at": 2064,
       "file": "audio/processing/generated/sfx_whoosh.wav",
       "gainDb": -24,
       "note": "transisi ke m04"
     },
     {
-      "at": 3280,
+      "at": 2964,
       "file": "audio/processing/generated/sfx_whoosh.wav",
       "gainDb": -24,
       "note": "transisi ke m05"
     },
     {
-      "at": 4185,
+      "at": 3804,
       "file": "audio/processing/generated/sfx_whoosh.wav",
       "gainDb": -24,
       "note": "transisi ke m06"
     },
     {
-      "at": 4979,
+      "at": 4584,
       "file": "audio/processing/generated/sfx_whoosh.wav",
       "gainDb": -24,
       "note": "transisi ke m07"
     },
     {
-      "at": 5841,
+      "at": 5535,
       "file": "audio/processing/generated/sfx_whoosh.wav",
       "gainDb": -24,
       "note": "transisi ke m08"

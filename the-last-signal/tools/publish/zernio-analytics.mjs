@@ -41,7 +41,14 @@ function publishedEpisodes() {
   return readdirSync(queueDir)
     .filter((file) => file.endsWith('.json'))
     .map((file) => JSON.parse(readFileSync(resolve(queueDir, file), 'utf8')))
-    .filter((entry) => entry.status === 'published' && entry.videoId)
+    .filter((entry) => entry.status === 'published')
+    .map((entry) => ({
+      ...entry,
+      // Bentuk lama: id tersimpan di youtube.videoId, bukan di akar berkas.
+      videoId: entry.videoId ?? entry.youtube?.videoId ?? null,
+      postId: entry.postId ?? entry.zernioPostId ?? null,
+    }))
+    .filter((entry) => entry.videoId)
     .sort((a, b) => String(a.publishedAt).localeCompare(String(b.publishedAt)));
 }
 
@@ -137,12 +144,17 @@ if (all) {
   const episodes = publishedEpisodes();
   notice(`Menganalisis ${episodes.length} episode terbit.`);
   for (const entry of episodes) {
-    await analyse({
+    notice(`Menganalisis ${entry.episodeId} (${entry.videoId})`);
+    try {
+      await analyse({
       episodeId: entry.episodeId,
       videoId: entry.videoId,
-      postId: entry.postId ?? entry.zernioPostId ?? null,
-      publishedAt: entry.publishedAt ?? null,
-    });
+      postId: entry.postId,
+        publishedAt: entry.publishedAt ?? null,
+      });
+    } catch (error) {
+      warn(`${entry.episodeId} gagal dianalisis: ${describeError(error)}`);
+    }
   }
 } else {
   await analyse({ episodeId, videoId, postId, publishedAt: arg('published') });

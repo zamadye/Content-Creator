@@ -25,5 +25,9 @@ for(const pos of positions.slice(0,6)){
  for(const m of near.matchAll(/https?:\/\/[^"'\s\\<>]+/g))if(/mp4|download/i.test(m[0]))mediaValues++;
  local.push({keys,download_fields:downloadFields,download_hosts:[...hosts].sort(),media_values:mediaValues});
 }
-const info={status:'PASS',http:response.status,bytes:raw.length,fields:[...fields].sort().filter(x=>/^(?:mp4|mp4Download|playbackId|download|video|downloadUrl)$/i.test(x)),media_hostnames:[...mediaHosts].sort(),media_url_count:candidates,target_occurrences:positions.length,target_neighborhoods:local,has_video_element:/<video[ >]/i.test(raw),has_download_button:/download/i.test(raw)};
+const keyPos=[...clean.matchAll(/mp4Download/g)].map(m=>m.index);
+const shapes=keyPos.slice(0,5).map(pos=>clean.slice(pos-8,pos+90).replace(/[A-Za-z0-9_-]/g,'x'));
+const closest=positions.map(pos=>Math.min(...keyPos.map(k=>Math.abs(pos-k)))).sort((a,b)=>a-b).slice(0,4);
+const tags=[...clean.matchAll(/<(?:video|source)\b[^>]{1,4000}>/gi)].slice(0,8).map(m=>({tag:m[0].slice(1).split(/[\s>]/)[0],has_src:/\bsrc=/.test(m[0]),has_https:/https?:/i.test(m[0]),length:m[0].length}));
+const info={status:'PASS',http:response.status,bytes:raw.length,fields:[...fields].sort().filter(x=>/^(?:mp4|mp4Download|playbackId|download|video|downloadUrl)$/i.test(x)),media_hostnames:[...mediaHosts].sort(),media_url_count:candidates,target_occurrences:positions.length,download_key_count:keyPos.length,closest_target_distances:closest,key_shapes:shapes,video_tag_shapes:tags,target_neighborhoods:local,has_download_button:/download/i.test(raw)};
 console.log('::notice title=Coverr public page::'+JSON.stringify(info));

@@ -1,0 +1,7 @@
+{
+  "operation": "read-only-performance-diagnostic",
+  "scope": "KNOT THEORY channels only",
+  "publication": "not requested; no mutation commands",
+  "requestedDate": "2026-11-05",
+  "privacy": "Encrypt all output to the one-time public key before emitting the annotation"
+}

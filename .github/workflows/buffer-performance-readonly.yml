@@ -1,0 +1,36 @@
+name: Buffer performance audit (read only)
+
+# The request path is intentionally separate from publish-request.json. This
+# workflow never creates, updates, schedules, deletes or publishes any post.
+# The repository is public: raw metrics must NEVER be logged or uploaded.
+on:
+  push:
+    branches:
+      - arena/54cb36c6-content-creator
+    paths:
+      - '.github/analytics-readonly-request.json'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Install Buffer CLI
+        run: npm install --global @bufferapp/cli@2.2.0 --no-audit --no-fund
+      - name: Read KNOT THEORY performance and encrypt result
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          NO_COLOR: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${BUFFER_API_KEY:-}" ]; then echo "::add-mask::${BUFFER_API_KEY}"; fi
+          node editorial-engine/pipeline/inspect-buffer-performance.mjs | \
+            node editorial-engine/pipeline/encrypt-diagnostic.mjs editorial-engine/pipeline/diagnostic-public.pem

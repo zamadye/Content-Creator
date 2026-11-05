@@ -1,0 +1,13 @@
+{
+  "lastPostAt": null,
+  "items": {
+    "LS-0008": {
+      "status": "error",
+      "runId": 42126017426,
+      "conclusion": "failure",
+      "request": "the-last-signal/publish-queue/2026-11-05T22-59-FBREEL-LS-0008.json",
+      "postedAt": null,
+      "at": "2026-11-05T23:01:48.124Z"
+    }
+  }
+}

@@ -28,9 +28,25 @@ function arg(name, fallback = null) {
 const videoId = arg('video');
 const postId = arg('post');
 const episodeId = arg('episode', videoId ?? 'unknown');
+// --all: tarik angka untuk semua episode yang sudah terbit, satu baris ringkas
+// per episode, supaya bisa dibandingkan tanpa membuka satu-satu.
+const all = process.argv.includes('--all');
 
-if (!videoId && !postId) {
-  notice('::error::Pakai --video <youtubeId> atau --post <zernioPostId>.');
+import { readdirSync } from 'node:fs';
+
+/** Semua episode yang sudah terbit, dibaca dari berkas antrean. */
+function publishedEpisodes() {
+  const queueDir = resolve(HERE, '../../publish-queue');
+  if (!existsSync(queueDir)) return [];
+  return readdirSync(queueDir)
+    .filter((file) => file.endsWith('.json'))
+    .map((file) => JSON.parse(readFileSync(resolve(queueDir, file), 'utf8')))
+    .filter((entry) => entry.status === 'published' && entry.videoId)
+    .sort((a, b) => String(a.publishedAt).localeCompare(String(b.publishedAt)));
+}
+
+if (!all && !videoId && !postId) {
+  notice('::error::Pakai --video <youtubeId>, --post <zernioPostId>, atau --all.');
   process.exit(1);
 }
 
@@ -54,64 +70,83 @@ if (!accountId) {
   }
 }
 
-const report = {
-  episodeId,
-  videoId,
-  postId,
-  fetchedAt: new Date().toISOString(),
-  accountId,
-  retention: null,
-  dailyViews: null,
-  post: null,
-  notes: [],
-};
+/** Ambil analytics satu video dan tulis laporannya. */
+async function analyse(target) {
+  const report = {
+    episodeId: target.episodeId,
+    videoId: target.videoId,
+    postId: target.postId ?? null,
+    publishedAt: target.publishedAt ?? null,
+    fetchedAt: new Date().toISOString(),
+    accountId,
+    retention: null,
+    dailyViews: null,
+    post: null,
+    notes: [],
+  };
 
-if (accountId && videoId) {
-  try {
-    const { data } = await zernio.analytics.getYouTubeVideoRetention({
-      query: { accountId, videoId },
-    });
-    report.retention = data ?? null;
-    notice(`Retensi ${videoId}: ${JSON.stringify(data).slice(0, 500)}`);
-  } catch (error) {
-    report.notes.push(`retention: ${describeError(error)}`);
-    warn(`Retensi belum tersedia: ${describeError(error)}`);
+  if (accountId && target.videoId) {
+    try {
+      const { data } = await zernio.analytics.getYouTubeVideoRetention({
+        query: { accountId, videoId: target.videoId },
+      });
+      report.retention = data ?? null;
+    } catch (error) {
+      report.notes.push(`retention: ${describeError(error)}`);
+    }
+
+    try {
+      const { data } = await zernio.analytics.getYouTubeDailyViews({
+        query: { accountId, videoId: target.videoId },
+      });
+      report.dailyViews = data ?? null;
+    } catch (error) {
+      report.notes.push(`dailyViews: ${describeError(error)}`);
+    }
+  } else {
+    report.notes.push('accountId atau videoId tidak tersedia — analytics tidak diambil.');
   }
 
-  try {
-    const { data } = await zernio.analytics.getYouTubeDailyViews({ query: { accountId, videoId } });
-    report.dailyViews = data ?? null;
-    notice(`Tayangan harian ${videoId}: ${JSON.stringify(data).slice(0, 400)}`);
-  } catch (error) {
-    report.notes.push(`dailyViews: ${describeError(error)}`);
-    warn(`Tayangan harian belum tersedia: ${describeError(error)}`);
+  if (target.postId) {
+    try {
+      const { data } = await zernio.analytics.getAnalytics({
+        query: { postId: target.postId, platform: 'youtube' },
+      });
+      report.post = data ?? null;
+    } catch (error) {
+      report.notes.push(`postAnalytics: ${describeError(error)}`);
+    }
+  }
+
+  mkdirSync(REPORT_DIR, { recursive: true });
+  writeFileSync(resolve(REPORT_DIR, `analytics-${target.episodeId}.json`), `${JSON.stringify(report, null, 2)}\n`);
+
+  const summary = {
+    views: report.dailyViews?.totalViews ?? null,
+    averageViewPercentage: report.retention?.averageViewPercentage ?? null,
+    averageViewDuration: report.retention?.averageViewDuration ?? null,
+    likes: report.post?.analytics?.likes ?? null,
+    comments: report.post?.analytics?.comments ?? null,
+    notes: report.notes,
+  };
+  notice(`::notice title=ANALYTICS-${target.episodeId}::${JSON.stringify(summary)}`);
+  return { report, summary };
+}
+
+if (all) {
+  const episodes = publishedEpisodes();
+  notice(`Menganalisis ${episodes.length} episode terbit.`);
+  for (const entry of episodes) {
+    await analyse({
+      episodeId: entry.episodeId,
+      videoId: entry.videoId,
+      postId: entry.postId ?? entry.zernioPostId ?? null,
+      publishedAt: entry.publishedAt ?? null,
+    });
   }
 } else {
-  report.notes.push('accountId atau videoId tidak tersedia — analytics tidak diambil.');
+  await analyse({ episodeId, videoId, postId, publishedAt: arg('published') });
 }
-
-if (postId) {
-  try {
-    const { data } = await zernio.analytics.getAnalytics({ query: { postId, platform: 'youtube' } });
-    report.post = data ?? null;
-    notice(`Metrik post ${postId}: ${JSON.stringify(data).slice(0, 500)}`);
-  } catch (error) {
-    report.notes.push(`postAnalytics: ${describeError(error)}`);
-    warn(`Metrik post belum tersedia: ${describeError(error)}`);
-  }
-}
-
-mkdirSync(REPORT_DIR, { recursive: true });
-const outPath = resolve(REPORT_DIR, `analytics-${episodeId}.json`);
-writeFileSync(outPath, `${JSON.stringify(report, null, 2)}\n`);
-notice(`::notice title=ANALYTICS-${episodeId}::${JSON.stringify({
-  views: report.dailyViews?.totalViews ?? null,
-  averageViewPercentage: report.retention?.averageViewPercentage ?? null,
-  averageViewDuration: report.retention?.averageViewDuration ?? null,
-  likes: report.post?.analytics?.likes ?? null,
-  notes: report.notes,
-})}`);
-notice(`Laporan ditulis ke ${outPath}`);
 
 // Belum ada data bukan kegagalan: YouTube memfinalkan analytics dengan jeda.
 process.exit(0);

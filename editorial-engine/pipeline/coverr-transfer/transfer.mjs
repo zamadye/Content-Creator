@@ -108,8 +108,17 @@ async function download(url,destination) {
 }
 function trim(source,dest) {
   const args=['-hide_banner','-loglevel','error','-y','-ss','2','-i',source,'-t','5','-map','0:v:0','-an','-vf','scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720,setsar=1,fps=30','-c:v','libx264','-preset','medium','-crf','23','-pix_fmt','yuv420p','-movflags','+faststart',dest];
-  const run=spawnSync('ffmpeg',args,{stdio:'ignore',timeout:120000});
-  if(run.status!==0 || !fs.existsSync(dest)) throw new SafeError('FFMPEG_TRIM_FAILED');
+  const run=spawnSync('ffmpeg',args,{encoding:'utf8',timeout:120000});
+  if(run.status!==0 || !fs.existsSync(dest)) {
+    if(run.error?.code==='ENOENT') throw new SafeError('FFMPEG_MISSING');
+    if(run.error?.code==='ETIMEDOUT') throw new SafeError('FFMPEG_TIMEOUT');
+    const err=String(run.stderr||'');
+    if(/moov atom not found/i.test(err)) throw new SafeError('MEDIA_MOOV_MISSING');
+    if(/Invalid data found when processing input/i.test(err)) throw new SafeError('MEDIA_INVALID_DATA');
+    if(/Unknown encoder/i.test(err)) throw new SafeError('FFMPEG_ENCODER_MISSING');
+    if(/No space left on device/i.test(err)) throw new SafeError('RUNNER_DISK_FULL');
+    throw new SafeError(`FFMPEG_EXIT_${Number.isInteger(run.status)?run.status:'UNKNOWN'}`);
+  }
   const probe=spawnSync('ffprobe',['-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',dest],{encoding:'utf8',timeout:30000});
   const duration=Number((probe.stdout||'').trim());
   if(probe.status!==0 || !Number.isFinite(duration) || duration<4.95 || duration>5.1) throw new SafeError('EXCERPT_DURATION_INVALID');
@@ -137,6 +146,13 @@ async function main() {
     // A 404 is carried through as NEEDS_REVIEW, never represented as success.
     const tracking=await track(id,key);
     const originalBytes=await download(candidate.mediaUrl,raw);
+    const head=Buffer.alloc(1024), fd=fs.openSync(raw,'r');
+    const headLength=fs.readSync(fd,head,0,head.length,0); fs.closeSync(fd);
+    const prefix=head.subarray(0,headLength);
+    const looksMp4=prefix.indexOf(Buffer.from('ftyp'))>=0;
+    const looksHls=prefix.toString('utf8',0,32).startsWith('#EXTM3U');
+    const looksHtml=/^\s*(?:<!doctype|<html)/i.test(prefix.toString('utf8',0,80));
+    emit({status:'DOWNLOADED_FOR_DIAGNOSTIC',id,tracking,original_bytes:originalBytes,container_signature:looksMp4?'MP4':looksHls?'HLS':looksHtml?'HTML':'UNKNOWN'});
     const trimmed=trim(raw,clip), publicKey=fs.readFileSync('editorial-engine/pipeline/coverr-transfer/session-public.pem');
     const blob=encryptBytes(trimmed,publicKey), sha=await createBlob(blob,token,repo);
     emit({status:'PASS_DOWNLOAD',video:{id:candidate.id,title:candidate.title,creator:candidate.creator,duration_seconds:candidate.duration_seconds,is_premium:false,is_ai_generated:false,is_vertical:false},tracking,download_route:'Coverr API mp4_download',original_bytes:originalBytes,excerpt_bytes:trimmed.length,excerpt_sha256:sha256(trimmed),encrypted_blob_sha:sha,transport:'encrypted-unreferenced-git-blob'});

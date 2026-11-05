@@ -13,7 +13,7 @@ for(const m of normalized.matchAll(/https?:\/\/[^\s"'<>\\]+/g)){
 }
 // Inspect only field shapes and URL hostnames near the selected public video.
 // Values, paths, parameters and any tokens are deliberately never printed.
-const clean=normalized.replaceAll('\\\\"','"').replaceAll('\\"','"').replaceAll('&quot;','"');
+const clean=normalized.replace(/\\+"/g,'"').replaceAll('&quot;','"');
 const target='e7tw4gtksn';
 const positions=[...clean.matchAll(new RegExp(target,'g'))].map(m=>m.index);
 const local=[];
@@ -29,5 +29,11 @@ const keyPos=[...clean.matchAll(/mp4Download/g)].map(m=>m.index);
 const shapes=keyPos.slice(0,5).map(pos=>clean.slice(pos-8,pos+90).replace(/[A-Za-z0-9_-]/g,'x'));
 const closest=positions.map(pos=>Math.min(...keyPos.map(k=>Math.abs(pos-k)))).sort((a,b)=>a-b).slice(0,4);
 const tags=[...clean.matchAll(/<(?:video|source)\b[^>]{1,4000}>/gi)].slice(0,8).map(m=>({tag:m[0].slice(1).split(/[\s>]/)[0],has_src:/\bsrc=/.test(m[0]),has_https:/https?:/i.test(m[0]),length:m[0].length}));
-const info={status:'PASS',http:response.status,bytes:raw.length,fields:[...fields].sort().filter(x=>/^(?:mp4|mp4Download|playbackId|download|video|downloadUrl)$/i.test(x)),media_hostnames:[...mediaHosts].sort(),media_url_count:candidates,target_occurrences:positions.length,download_key_count:keyPos.length,closest_target_distances:closest,key_shapes:shapes,video_tag_shapes:tags,target_neighborhoods:local,has_download_button:/download/i.test(raw)};
+const ids=[...clean.matchAll(/["']id["']\s*:\s*["']e7tw4gtksn["']/g)].map(m=>m.index);
+const relevant=ids.slice(0,8).map(i=>{
+ const near=clean.slice(Math.max(i-1200,0),i+1800), links=[...near.matchAll(/["']mp4Download["']\s*:\s*["'](https?:\/\/[^"']+)["']/g)];
+ const attributes=[...new Set([...near.matchAll(/["']([A-Za-z][A-Za-z0-9_]{1,55})["']\s*:/g)].map(m=>m[1]))];
+ return {download_fields:links.length,hostnames:[...new Set(links.map(x=>{try{return new URL(x[1]).hostname;}catch{return 'invalid';}}))],attributes:attributes.filter(x=>/^(?:id|slug|name|title|urls|mp4|mp4Download|is_premium|isPremium|is_ai_generated|isAiGenerated)$/i.test(x))};
+});
+const info={status:'PASS',http:response.status,bytes:raw.length,fields:[...fields].sort().filter(x=>/^(?:mp4|mp4Download|playbackId|download|video|downloadUrl)$/i.test(x)),media_hostnames:[...mediaHosts].sort(),media_url_count:candidates,target_occurrences:positions.length,target_id_fields:ids.length,target_records:relevant,download_key_count:keyPos.length,closest_target_distances:closest,key_shapes:shapes,video_tag_shapes:tags,target_neighborhoods:local,has_download_button:/download/i.test(raw)};
 console.log('::notice title=Coverr public page::'+JSON.stringify(info));

@@ -77,7 +77,24 @@ jobs:
             fi
             REQ="${{ inputs.request }}"
           else
-            REQ=$(git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json' | head -1)
+            # Hanya berkas berstatus "requested" yang dihitung sebagai permintaan.
+            # Berkas "held" (dijadwalkan) boleh ikut berubah pada push yang sama
+            # tanpa memicu unggahan — itu yang membuat antrean bisa disiapkan
+            # lebih awal tanpa melanggar aturan satu-unggahan-per-jalan.
+            CHANGED=$(git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json')
+            READY=""
+            for f in $CHANGED; do
+              [ -f "$f" ] || continue
+              ST=$(node -e "try{console.log(require('./'+process.argv[1]).status ?? '')}catch(e){console.log('')}" "$f")
+              if [ "$ST" = "requested" ]; then READY="$READY $f"; fi
+            done
+            COUNT=$(echo $READY | wc -w | tr -d ' ')
+            if [ "$COUNT" = "0" ]; then
+              echo "::notice::Tidak ada berkas berstatus requested pada push ini — tidak ada yang diunggah."
+              echo "skip=1" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            REQ=$(echo $READY | awk '{print $1}')
           fi
 
           if [ -z "${REQ:-}" ]; then
@@ -86,9 +103,8 @@ jobs:
           fi
           # Hanya satu permintaan per jalan: jeda antar-upload dijaga manusia,
           # bukan oleh loop di dalam workflow.
-          COUNT=$(git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json' | wc -l | tr -d ' ')
-          if [ "${{ github.event_name }}" = "push" ] && [ "$COUNT" -gt 1 ]; then
-            echo "::error::$COUNT permintaan baru dalam satu push. Tambahkan satu per satu agar jeda antar-video terjaga."
+          if [ "${{ github.event_name }}" = "push" ] && [ "${COUNT:-1}" -gt 1 ]; then
+            echo "::error::$COUNT permintaan berstatus requested dalam satu push. Lepas satu per satu agar jeda antar-video terjaga."
             exit 1
           fi
           [ -f "$REQ" ] || { echo "::error::File permintaan tidak ada: $REQ"; exit 1; }
@@ -96,6 +112,7 @@ jobs:
           echo "::notice::Permintaan: $REQ"
 
       - name: Verifikasi berkas media ada di checkout
+        if: steps.req.outputs.skip != '1'
         run: |
           set -euo pipefail
           MEDIA=$(node -e "const r=require('./' + process.argv[1]);console.log(r.media ?? 'the-last-signal/releases/' + r.episodeId + '.mp4')" "${{ steps.req.outputs.request }}")
@@ -104,6 +121,7 @@ jobs:
           ls -la "$MEDIA"
 
       - name: Pasang ffmpeg (gerbang QC memakai ffmpeg, tidak tersedia default di runner)
+        if: steps.req.outputs.skip != '1'
         run: |
           set -euo pipefail
           if ! command -v ffmpeg >/dev/null 2>&1; then
@@ -113,10 +131,12 @@ jobs:
           ffmpeg -version | head -1
 
       - name: Pasang SDK Zernio
+        if: steps.req.outputs.skip != '1'
         working-directory: the-last-signal/tools/publish
         run: npm install --no-audit --no-fund --loglevel=error
 
       - name: QC + unggah + publikasikan
+        if: steps.req.outputs.skip != '1'
         working-directory: the-last-signal/tools/publish
         run: node zernio-publish.mjs --request "$REQ"
         env:

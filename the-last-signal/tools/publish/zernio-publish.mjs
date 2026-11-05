@@ -78,8 +78,25 @@ const mediaPath = resolve(REPO_ROOT, request.media ?? `the-last-signal/releases/
 if (!existsSync(mediaPath)) die(2, `Media tidak ada: ${mediaPath}`);
 
 const yt = request.youtube ?? {};
+// Judul YouTube tidak wajib untuk permintaan Facebook-only, tapi kaption tetap
+// butuh isi — diambil dari youtube.caption kalau ada.
 const fb = request.facebook ?? {};
-if (!yt.title || String(yt.title).length > 100) die(2, 'Judul YouTube wajib ada dan ≤ 100 karakter.');
+
+// Target platform per permintaan. Bawaannya dua-duanya (YouTube + Facebook).
+// "platforms": ["facebook"] dipakai untuk memindahkan katalog Shorts yang
+// sudah terbit di YouTube ke Reels Facebook tanpa menerbitkan ulang di YouTube.
+const ALLOWED_PLATFORMS = ["youtube", "facebook"];
+const targets = Array.isArray(request.platforms) && request.platforms.length
+  ? request.platforms.map((entry) => String(entry).toLowerCase())
+  : ALLOWED_PLATFORMS;
+for (const target of targets) {
+  if (!ALLOWED_PLATFORMS.includes(target)) die(2, `Platform tidak dikenal di permintaan: ${target}`);
+}
+const wantsYoutube = targets.includes("youtube");
+const wantsFacebook = targets.includes("facebook");
+if (wantsYoutube && (!yt.title || String(yt.title).length > 100)) {
+  die(2, 'Judul YouTube wajib ada dan ≤ 100 karakter.');
+}
 if (!yt.description || String(yt.description).length < 40) die(2, 'Deskripsi wajib ada (≥ 40 karakter).');
 if (!String(yt.description).toLowerCase().includes('fiksi')) {
   warn('Deskripsi tidak memuat kata "fiksi" — pengungkapan konten sintetis sebaiknya eksplisit.');
@@ -118,7 +135,7 @@ const truePeak = Number(loudnessRaw.match(/"input_tp"\s*:\s*"(-?[\d.]+)"/)?.[1] 
 const FB_REEL_MAX_SECONDS = 90;
 const vertical = Boolean(videoMatch) && videoMatch[1] === '1080' && videoMatch[2] === '1920';
 const fbMode = vertical && duration >= 3 && duration <= FB_REEL_MAX_SECONDS ? 'reel' : 'video';
-const fbEnabled = request.facebook?.enabled !== false;
+const fbEnabled = wantsFacebook && request.facebook?.enabled !== false;
 
 /**
  * Kaption Facebook bawaan: deskripsi YouTube tanpa blok bab waktu dan tanpa
@@ -134,22 +151,44 @@ function defaultFacebookCaption(source) {
   return `${trimmed}\n\n#TheLastSignal #CeritaHoror #HororIndonesia`;
 }
 
+// Cek kualitas berkas (fps, codec, loudness, true peak, ukuran) selalu jalan —
+// itu soal berkasnya, bukan aturan platform. Yang bergantung platform hanya
+// resolusi dan durasi: YouTube punya ambang Shorts vs video panjang, Facebook
+// Reels 3–90 detik 9:16.
+const resolutionCheck = wantsYoutube
+  ? {
+      name: `resolusi ${limits.width}×${limits.height}`,
+      pass: Boolean(videoMatch) && videoMatch[1] === limits.width && videoMatch[2] === limits.height,
+      detail: videoMatch ? `${videoMatch[1]}×${videoMatch[2]}` : 'tidak terbaca',
+    }
+  : fbMode === 'reel'
+    ? {
+        name: 'resolusi 1080×1920 (Reels)',
+        pass: Boolean(videoMatch) && videoMatch[1] === '1080' && videoMatch[2] === '1920',
+        detail: videoMatch ? `${videoMatch[1]}×${videoMatch[2]}` : 'tidak terbaca',
+      }
+    : null;
+
+const durationCheck = wantsYoutube
+  ? {
+      name: longform ? 'durasi 5–11 menit' : 'durasi 40–60,5 s',
+      pass: duration >= limits.minDuration && duration <= limits.maxDuration,
+      detail: `${duration.toFixed(2)}s`,
+    }
+  : {
+      name: fbMode === 'reel' ? 'durasi Reel 3–90 s' : 'durasi video feed ≤ 60 menit',
+      pass: fbMode === 'reel' ? duration >= 3 && duration <= FB_REEL_MAX_SECONDS : duration > 0 && duration <= 3600,
+      detail: `${duration.toFixed(2)}s`,
+    };
+
 const checks = [
-  {
-    name: `resolusi ${limits.width}×${limits.height}`,
-    pass: Boolean(videoMatch) && videoMatch[1] === limits.width && videoMatch[2] === limits.height,
-    detail: videoMatch ? `${videoMatch[1]}×${videoMatch[2]}` : 'tidak terbaca',
-  },
+  ...(resolutionCheck ? [resolutionCheck] : []),
   {
     name: 'fps 30',
     pass: Boolean(videoMatch) && Number(videoMatch[3]) === 30,
     detail: videoMatch ? `${videoMatch[3]} fps` : 'tidak terbaca',
   },
-  {
-    name: longform ? 'durasi 5–11 menit' : 'durasi 40–60,5 s',
-    pass: duration >= limits.minDuration && duration <= limits.maxDuration,
-    detail: `${duration.toFixed(2)}s`,
-  },
+  durationCheck,
   {
     name: 'audio AAC',
     pass: Boolean(audioMatch) && audioMatch[1] === 'aac',
@@ -217,7 +256,11 @@ notice(`QC lolos untuk ${episodeId} (${sizeMb.toFixed(1)} MB, ${duration.toFixed
 // tidak bergantung pada ingatan manusia yang memicu workflow.
 // ---------------------------------------------------------------------------
 const MIN_GAP_MS = 55 * 60 * 1000; // 55 menit: toleransi 5 menit untuk jam runner
-try {
+// Jeda antar-unggahan adalah aturan feed YouTube. Untuk permintaan Facebook-only
+// (memindahkan katalog Shorts ke Reels) jeda diatur pemanggil, bukan di sini.
+if (!wantsYoutube) {
+  notice('Permintaan Facebook-only: jeda antar-unggahan YouTube tidak diperiksa.');
+} else try {
   const kbPath = resolve(REPO_ROOT, 'the-last-signal/knowledge/episodes.jsonl');
   if (existsSync(kbPath)) {
     const published = readFileSync(kbPath, 'utf8')
@@ -337,8 +380,10 @@ async function resolveAccount(platform, envName, requestKey) {
   return id;
 }
 
-const accountId = await resolveAccount('youtube', 'ZERNIO_YOUTUBE_ACCOUNT_ID', 'accountId');
-if (!accountId) {
+const accountId = wantsYoutube
+  ? await resolveAccount('youtube', 'ZERNIO_YOUTUBE_ACCOUNT_ID', 'accountId')
+  : null;
+if (wantsYoutube && !accountId) {
   persist();
   die(2, 'Tidak ada kanal YouTube yang bisa dipakai (accountId kosong dan pencarian otomatis gagal).');
 }
@@ -358,19 +403,23 @@ try {
       tags: Array.isArray(yt.tags) ? yt.tags : undefined,
       mediaItems: [{ url: publicUrl, type: 'video', mimeType: 'video/mp4' }],
       platforms: [
-        {
-          platform: 'youtube',
-          accountId,
-          platformSpecificData: {
-            title: String(yt.title),
-            visibility: yt.visibility ?? 'public',
-            madeForKids: false,
-            containsSyntheticMedia: true,
-            categoryId: String(yt.categoryId ?? '24'),
-            notifySubscribers: yt.notifySubscribers !== false,
-            ...(yt.firstComment ? { firstComment: String(yt.firstComment) } : {}),
-          },
-        },
+        ...(wantsYoutube
+          ? [
+              {
+                platform: 'youtube',
+                accountId,
+                platformSpecificData: {
+                  title: String(yt.title),
+                  visibility: yt.visibility ?? 'public',
+                  madeForKids: false,
+                  containsSyntheticMedia: true,
+                  categoryId: String(yt.categoryId ?? '24'),
+                  notifySubscribers: yt.notifySubscribers !== false,
+                  ...(yt.firstComment ? { firstComment: String(yt.firstComment) } : {}),
+                },
+              },
+            ]
+          : []),
         ...(fbEnabled && facebookAccountId
           ? [
               {
@@ -435,7 +484,9 @@ try {
   // HTTP 201 saja tidak cukup, dan sebaliknya 207 parsial tetap bisa berisi
   // satu platform sukses — jadi yang dinilai adalah platform YouTube-nya.
   const platformStatus = String(platform?.status ?? '').toLowerCase();
-  result.ok = platformStatus === 'published' || Boolean(result.youtube.url);
+  result.ok = wantsYoutube
+    ? platformStatus === 'published' || Boolean(result.youtube.url)
+    : Boolean(result.facebook.ok);
 
   notice(`Respons createPost: HTTP ${result.post.httpStatus} · status=${result.youtube.status ?? '-'}`);
   if (result.youtube.url) notice(`URL: ${result.youtube.url}`);
@@ -458,7 +509,7 @@ persist();
 
 if (result.ok) {
   notice(`::notice title=PUBLISH-RESULT-${episodeId}::${JSON.stringify(result)}`);
-  notice(`PUBLISH OK ${episodeId} → ${result.youtube.url}`);
+  notice(`PUBLISH OK ${episodeId} → ${wantsYoutube ? result.youtube.url : result.facebook.url}`);
   process.exit(0);
 }
 

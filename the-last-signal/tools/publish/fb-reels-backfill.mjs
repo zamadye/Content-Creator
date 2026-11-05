@@ -1,0 +1,264 @@
+#!/usr/bin/env node
+/**
+ * fb-reels-backfill.mjs — pindahkan katalog Shorts yang sudah terbit di YouTube
+ * ke Reels Facebook, satu per satu, dengan jeda tetap antar-unggahan.
+ *
+ * Kenapa berupa penggerak, bukan satu perintah: Zernio hanya bisa dihubungi
+ * dari runner GitHub, dan setiap unggahan = satu push berkas antrean. Jadi
+ * skrip ini yang mengatur jam: menulis permintaan, push, menunggu workflow,
+ * membaca hasil, lalu tidur sampai jeda berikutnya habis.
+ *
+ * Aturan main:
+ *   - Permintaan ditulis dengan `platforms: ["facebook"]` — YouTube TIDAK
+ *     diterbitkan ulang, jadi tidak ada video ganda di kanal.
+ *   - Media yang belum ada di releases/ dirender dulu (render + encode), lalu
+ *     ikut di-commit, karena runner mengunggah dari hasil checkout.
+ *   - Status disimpan di knowledge/fb-reels-state.json, bukan di folder antrean,
+ *     supaya push status tidak pernah terlihat sebagai permintaan baru.
+ *   - Episode yang belum terbit di YouTube tidak boleh ikut (LS-0010 dijadwalkan
+ *     6 Nov 13.00 UTC) — kalau tidak, Reels Facebook mendahului kanal utama.
+ *
+ *   node tools/publish/fb-reels-backfill.mjs --gap-minutes 120
+ */
+import { execFileSync, spawnSync } from "node:child_process";
+import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+const SIGNAL_ROOT = resolve(HERE, "../..");
+const REPO_ROOT = resolve(SIGNAL_ROOT, "..");
+const QUEUE_DIR = join(SIGNAL_ROOT, "publish-queue");
+const STATE_FILE = join(SIGNAL_ROOT, "knowledge", "fb-reels-state.json");
+const BRANCH = "arena/479de245-content-creator";
+
+function arg(name, fallback) {
+  const index = process.argv.indexOf(`--${name}`);
+  return index !== -1 ? process.argv[index + 1] : fallback;
+}
+
+const gapMinutes = Number(arg("gap-minutes", "120"));
+const only = arg("only"); // uji: satu episode saja
+const log = (message) => console.log(`[${new Date().toISOString().slice(11, 19)}] ${message}`);
+
+const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
+
+function sh(command, args, options = {}) {
+  const result = spawnSync(command, args, { cwd: REPO_ROOT, encoding: "utf8", ...options });
+  return { code: result.status, out: `${result.stdout ?? ""}`, err: `${result.stderr ?? ""}` };
+}
+
+// ---------------------------------------------------------------------------
+// Katalog: semua Shorts terbit, urut tanggal tayang.
+// ---------------------------------------------------------------------------
+function publishedShorts() {
+  return readdirSync(QUEUE_DIR)
+    .filter((file) => /^.*-LS-\d{4}\.json$/.test(file))
+    .map((file) => {
+      try {
+        return { file, entry: JSON.parse(readFileSync(join(QUEUE_DIR, file), "utf8")) };
+      } catch {
+        return null;
+      }
+    })
+    .filter(Boolean)
+    .filter(({ entry }) => /^LS-\d{4}$/.test(String(entry.episodeId ?? "")))
+    .filter(({ entry }) => ["published", "requested"].includes(entry.status))
+    .map(({ entry }) => ({
+      episodeId: entry.episodeId,
+      media: entry.media ?? `the-last-signal/releases/${entry.episodeId}.mp4`,
+      youtube: entry.youtube ?? {},
+      scheduledFor: entry.scheduledFor ?? entry.createdAt ?? "",
+    }))
+    // Yang berkasnya sudah ada didahulukan: unggahan bisa mulai jalan sementara
+    // episode lain yang medianya sudah dibuang masih dirender ulang.
+    .sort((a, b) => {
+      const haveA = existsSync(resolve(REPO_ROOT, a.media)) ? 0 : 1;
+      const haveB = existsSync(resolve(REPO_ROOT, b.media)) ? 0 : 1;
+      if (haveA !== haveB) return haveA - haveB;
+      return String(a.scheduledFor).localeCompare(String(b.scheduledFor));
+    });
+}
+
+// Episode yang belum tayang di YouTube tidak boleh masuk Reels lebih dulu.
+function notYetOnYoutube(episodeId) {
+  const nowIso = new Date().toISOString();
+  return readdirSync(QUEUE_DIR)
+    .filter((file) => file.includes(episodeId) && file.endsWith(".json"))
+    .some((file) => {
+      try {
+        const entry = JSON.parse(readFileSync(join(QUEUE_DIR, file), "utf8"));
+        return entry.status === "held" && entry.scheduledFor && entry.scheduledFor > nowIso;
+      } catch {
+        return false;
+      }
+    });
+}
+
+function loadState() {
+  if (existsSync(STATE_FILE)) {
+    try {
+      return JSON.parse(readFileSync(STATE_FILE, "utf8"));
+    } catch {
+      /* state rusak: mulai dari kosong, riwayat unggahan tetap ada di laporan */
+    }
+  }
+  return { lastPostAt: null, items: {} };
+}
+
+function saveState(state) {
+  writeFileSync(STATE_FILE, `${JSON.stringify(state, null, 2)}\n`);
+  sh("git", ["add", STATE_FILE]);
+  sh("git", ["commit", "-q", "-m", "status(fb-reels): perbarui riwayat unggahan Reels"]);
+  if (sh("git", ["push", "-q", "origin", BRANCH]).code !== 0) {
+    sh("git", ["pull", "--rebase", "-q", "origin", BRANCH]);
+    sh("git", ["push", "-q", "origin", BRANCH]);
+  }
+}
+
+async function ensureMedia(item) {
+  const absolute = resolve(REPO_ROOT, item.media);
+  if (existsSync(absolute)) return true;
+
+  log(`media ${item.episodeId} belum ada — render ulang dulu`);
+  const render = sh("npx", ["tsx", "scripts/render.ts", "--episode", item.episodeId, "--crf", "20", "--concurrency", "2"], {
+    cwd: SIGNAL_ROOT,
+    env: {
+      ...process.env,
+      LD_LIBRARY_PATH: "/tmp/chromelibs",
+      REMOTION_BROWSER_EXECUTABLE: "/tmp/chromium",
+    },
+  });
+  if (render.code !== 0) {
+    log(`render ${item.episodeId} gagal: ${render.err.slice(-300)}`);
+    return false;
+  }
+  const encode = sh("npx", ["tsx", "scripts/encode-delivery.ts", "--episode", item.episodeId, "--maxrate", "2.8M", "--crf", "26", "--tp", "-3"], {
+    cwd: SIGNAL_ROOT,
+  });
+  if (encode.code !== 0) {
+    log(`encode ${item.episodeId} gagal: ${encode.err.slice(-300)}`);
+    return false;
+  }
+  const built = join(SIGNAL_ROOT, "renders", `${item.episodeId}-delivery.mp4`);
+  if (!existsSync(built)) return false;
+  execFileSync("cp", [built, absolute]);
+  sh("git", ["add", item.media]);
+  sh("git", ["commit", "-q", "-m", `aset(${item.episodeId}): release untuk Reels Facebook`]);
+  log(`release ${item.episodeId} dibuat`);
+  return true;
+}
+
+function writeRequest(item) {
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 16);
+  const path = join(QUEUE_DIR, `${stamp}-FBREEL-${item.episodeId}.json`);
+  const request = {
+    episodeId: item.episodeId,
+    platforms: ["facebook"],
+    status: "requested",
+    createdAt: new Date().toISOString(),
+    media: item.media,
+    youtube: item.youtube,
+    facebook: { title: item.youtube.title ?? item.episodeId },
+    reason: "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook",
+  };
+  writeFileSync(path, `${JSON.stringify(request, null, 2)}\n`);
+  return { path, relative: path.replace(`${REPO_ROOT}/`, "") };
+}
+
+async function waitForRun(headSha, timeoutMs) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const result = sh("gh", [
+      "run", "list", "--workflow=zernio-publish.yml", "-L", "5",
+      "--json", "databaseId,headSha,status,conclusion",
+    ]);
+    if (result.code === 0) {
+      try {
+        const runs = JSON.parse(result.out || "[]");
+        const run = runs.find((entry) => String(entry.headSha ?? "").startsWith(headSha.slice(0, 12)));
+        if (run && run.status === "completed") return run;
+      } catch {
+        /* keluaran belum bisa diparse, coba lagi */
+      }
+    }
+    await sleep(30000);
+  }
+  return null;
+}
+
+function currentHead() {
+  return sh("git", ["rev-parse", "HEAD"]).out.trim();
+}
+
+async function main() {
+  const catalog = publishedShorts().filter((item) => !notYetOnYoutube(item.episodeId));
+  const state = loadState();
+  const queue = only ? catalog.filter((item) => item.episodeId === only) : catalog;
+
+  log(`${queue.length} Shorts dalam katalog: ${queue.map((item) => item.episodeId).join(", ")}`);
+
+  for (const item of queue) {
+    const record = state.items[item.episodeId] ?? { status: "pending" };
+    if (record.status === "posted") {
+      log(`${item.episodeId} sudah pernah diunggah ke Reels (${record.postedAt ?? "-"}) — dilewati`);
+      continue;
+    }
+
+    // Jeda: dihitung dari unggahan Reels TERAKHIR yang berhasil.
+    if (state.lastPostAt) {
+      const due = Date.parse(state.lastPostAt) + gapMinutes * 60 * 1000;
+      const waitMs = due - Date.now();
+      if (waitMs > 0) {
+        log(`menunggu ${Math.round(waitMs / 60000)} menit sampai jeda ${gapMinutes} menit terpenuhi`);
+        await sleep(waitMs);
+      }
+    }
+
+    if (!(await ensureMedia(item))) {
+      state.items[item.episodeId] = { status: "error", note: "media tidak bisa disiapkan", at: new Date().toISOString() };
+      saveState(state);
+      continue;
+    }
+
+    const { path, relative } = writeRequest(item);
+    sh("git", ["add", relative]);
+    const commit = sh("git", ["commit", "-q", "-m", `terbit-reel(${item.episodeId}): Facebook Reels, jadwal backfill`]);
+    if (commit.code !== 0) {
+      log(`tidak ada perubahan untuk ${item.episodeId} — dilewati`);
+      continue;
+    }
+    const head = currentHead();
+    if (sh("git", ["push", "-q", "origin", BRANCH]).code !== 0) {
+      sh("git", ["pull", "--rebase", "-q", "origin", BRANCH]);
+      if (sh("git", ["push", "-q", "origin", BRANCH]).code !== 0) {
+        log(`push gagal untuk ${item.episodeId}`);
+        state.items[item.episodeId] = { status: "error", note: "push gagal", at: new Date().toISOString() };
+        saveState(state);
+        continue;
+      }
+    }
+    log(`${item.episodeId}: permintaan ${path.split("/").pop()} di-push, menunggu workflow`);
+
+    const run = await waitForRun(head, 20 * 60 * 1000);
+    const ok = run?.conclusion === "success";
+    state.items[item.episodeId] = {
+      status: ok ? "posted" : "error",
+      runId: run?.databaseId ?? null,
+      conclusion: run?.conclusion ?? "timeout",
+      request: relative,
+      postedAt: ok ? new Date().toISOString() : null,
+      at: new Date().toISOString(),
+    };
+    if (ok) state.lastPostAt = state.items[item.episodeId].postedAt;
+    saveState(state);
+    log(`${item.episodeId}: ${ok ? "Reels terbit" : `gagal (${run?.conclusion ?? "timeout"})`}`);
+  }
+
+  log("selesai — semua Shorts dalam katalog sudah diproses");
+}
+
+main().catch((error) => {
+  log(`berhenti karena error: ${error?.stack ?? error}`);
+  process.exit(1);
+});

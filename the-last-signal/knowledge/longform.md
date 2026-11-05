@@ -64,8 +64,13 @@ panjang terdengar seperti mesin.
   LL-#### dinilai dengan 1920×1080, durasi 300–660 s, dan batas 300 MB. Tanpa
   itu setiap video panjang ditolak sebelum sempat diunggah — sudah diuji ulang
   setelah perubahan ini.
-- Encode untuk format panjang memakai `--maxrate 2.8M --crf 26`: gambar gelap
+- Encode untuk format panjang memakai `--maxrate 1.2M --crf 30`: gambar gelap
   dan banyak diam, jadi 5M hanya membengkakkan berkas tanpa menambah detail.
+- Batas sebenarnya bukan QC (200 MB) melainkan GitHub: berkas > 100 MB ditolak
+  saat push, dan runner mengunggah dari hasil checkout. Master crf 20 = 1,4 GB,
+  delivery 2,8M = 183 MB (tetap ditolak), 1,2M/crf 30 = ±62 MB dan setelah
+  dibandingkan potongan 1:1 tidak ada blocking yang terlihat. Ukur 60 detik
+  dulu sebelum encode penuh: 60 s × 6,6 MB = 558 s × ±6,6 MB.
 - Judul panjang boleh dua klausa + kata kunci pencarian di ekor
   ("| Cerita Horor Pantura") — pola yang dipakai kanal panjang yang sudah besar.
 

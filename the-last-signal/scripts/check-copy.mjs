@@ -82,6 +82,13 @@ if (existsSync(queueDir)) {
 
 for (const id of ids) {
   const episode = JSON.parse(readFileSync(join(episodesDir, id, "episode.json"), "utf8"));
+  // Episode panjang dinarasikan seperti orang bercerita, bukan seperti Shorts
+  // yang harus memancing di kalimat pertama. Aturannya diganti, bukan dimatikan:
+  // kalimat boleh lebih panjang (satu napas orang berbicara ≈ 40 kata), pembuka
+  // boleh diegetik, tapi run-on tetap ditangkap.
+  const longform = episode.format === "longform_narration";
+  const maxSentenceWords = longform ? 40 : 24;
+
   const first = sentenceOf(episode.scenes[0]?.narration ?? "");
   const opener = firstWord(first);
 
@@ -104,7 +111,7 @@ for (const id of ids) {
   const narration = episode.scenes.map((scene) => scene.narration ?? "").join(" ");
   if (!DIRECT_ADDRESS.test(narration)) {
     errors.push(`${id}: tidak menyapa penonton sama sekali — pakai "kamu", bukan monolog`);
-  } else if (!SECOND_PERSON_QUESTIONS.test(first)) {
+  } else if (!longform && !SECOND_PERSON_QUESTIONS.test(first)) {
     warnings.push(
       `${id}: pembuka belum menyentuh penonton langsung (mis. "pernahkah kamu…", "bayangkan kamu…", "bagaimana kalau…")`,
     );
@@ -119,8 +126,9 @@ for (const id of ids) {
     (published.has(id) ? warnings : errors).push(`${id}: kalimat terakhir belum berisi ajakan (subscribe/like/komentar)`);
   }
 
-  if (wordCount(first) > 20) {
-    errors.push(`${id}: kalimat pertama ${wordCount(first)} kata (maks 20) — "${first.slice(0, 60)}…"`);
+  const maxOpenerWords = longform ? 28 : 20;
+  if (wordCount(first) > maxOpenerWords) {
+    errors.push(`${id}: kalimat pertama ${wordCount(first)} kata (maks ${maxOpenerWords}) — "${first.slice(0, 60)}…"`);
   }
 
   if (!CONCRETE.test(first)) {
@@ -130,8 +138,10 @@ for (const id of ids) {
   // Semua kalimat, bukan hanya yang pertama.
   episode.scenes.forEach((scene, index) => {
     for (const sentence of (scene.narration ?? "").split(/(?<=[.!?])\s+/).filter(Boolean)) {
-      if (wordCount(sentence) > 24) {
-        errors.push(`${id} scene ${index + 1}: kalimat ${wordCount(sentence)} kata (maks 24) — "${sentence.slice(0, 60)}…"`);
+      if (wordCount(sentence) > maxSentenceWords) {
+        errors.push(
+          `${id} scene ${index + 1}: kalimat ${wordCount(sentence)} kata (maks ${maxSentenceWords}) — "${sentence.slice(0, 60)}…"`,
+        );
       }
     }
   });

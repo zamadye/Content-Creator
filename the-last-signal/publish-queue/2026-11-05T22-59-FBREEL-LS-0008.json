@@ -3,7 +3,7 @@
   "platforms": [
     "facebook"
   ],
-  "status": "requested",
+  "status": "published",
   "createdAt": "2026-11-05T22:59:11.793Z",
   "media": "the-last-signal/releases/LS-0008.mp4",
   "youtube": {
@@ -24,7 +24,10 @@
     "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
   },
   "facebook": {
-    "title": "Perahu Itu Tenggelam Sebelas Tahun Lalu. Radionya Masih Memanggil."
+    "title": "Perahu Itu Tenggelam Sebelas Tahun Lalu. Radionya Masih Memanggil.",
+    "url": "https://www.facebook.com/reel/1844482003236290",
+    "postId": "122096911041544225"
   },
-  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook",
+  "publishedAt": "2026-11-05T23:00:08Z"
 }

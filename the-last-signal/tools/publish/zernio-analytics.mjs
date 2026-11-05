@@ -160,9 +160,12 @@ async function analyse(target) {
       : null,
     notes: report.notes,
   };
-  notice(`::notice title=ANALYTICS-${target.episodeId}::${JSON.stringify(summary)}`);
+  // Satu anotasi per episode cepat kena batas 10 anotasi per langkah, jadi
+  // ringkasannya hanya dikumpulkan di sini dan dikirim sebagai satu baris.
   return { report, summary };
 }
+
+const collected = [];
 
 if (all) {
   const episodes = publishedEpisodes();
@@ -170,19 +173,23 @@ if (all) {
   for (const entry of episodes) {
     notice(`Menganalisis ${entry.episodeId} (${entry.videoId})`);
     try {
-      await analyse({
+      const result = await analyse({
       episodeId: entry.episodeId,
       videoId: entry.videoId,
       postId: entry.postId,
         publishedAt: entry.publishedAt ?? null,
       });
+      collected.push({ episode: entry.episodeId, ...result.summary, keys: undefined });
     } catch (error) {
-      warn(`${entry.episodeId} gagal dianalisis: ${describeError(error)}`);
+      collected.push({ episode: entry.episodeId, error: describeError(error) });
     }
   }
 } else {
-  await analyse({ episodeId, videoId, postId, publishedAt: arg('published') });
+  const result = await analyse({ episodeId, videoId, postId, publishedAt: arg('published') });
+  collected.push({ episode: episodeId, ...result.summary, keys: undefined });
 }
+
+notice(`::notice title=ANALYTICS-ALL::${JSON.stringify(collected)}`);
 
 // Belum ada data bukan kegagalan: YouTube memfinalkan analytics dengan jeda.
 process.exit(0);

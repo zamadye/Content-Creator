@@ -481,11 +481,6 @@ try {
       result.facebook.error = String(fbPlatform.error).slice(0, 300);
     }
   }
-  if (!result.facebook.ok && !fbPlatform) {
-    const fbError = platformResults.find((entry) => entry?.platform === 'facebook' && entry?.error);
-    if (fbError) result.facebook.error = String(fbError.error).slice(0, 300);
-    result.facebook.status = result.facebook.status ?? 'tidak dilaporkan';
-  }
   if (platform) {
     result.youtube.status = platform.status ?? null;
     result.youtube.url = platform.platformPostUrl ?? platform.url ?? null;
@@ -504,13 +499,60 @@ try {
     result.youtube.url = `https://www.youtube.com/watch?v=${result.youtube.videoId}`;
   }
 
+  // createPost bisa menjawab 201 dengan status "publishing": Meta memproses
+  // Reels setelah request diterima. Dulu itu dianggap gagal (exit 6) padahal
+  // post-nya ada — dan percobaan ulang berarti Reel kedua. Sekarang hasilnya
+  // ditanyakan ulang ke API sampai jelas, maksimal ±6 menit.
+  const pending = ['publishing', 'processing', 'pending', 'queued', 'uploading'];
+  const statusOf = () => String(payload.status ?? result.facebook.status ?? '').toLowerCase();
+  if (!wantsYoutube && pending.includes(statusOf())) {
+    notice(`Post diterima (status=${statusOf()}) — menanyakan hasil akhir ke Zernio`);
+    const episodeIdWanted = episodeId;
+    const deadline = Date.now() + 6 * 60 * 1000;
+    while (Date.now() < deadline && pending.includes(statusOf())) {
+      await new Promise((done) => setTimeout(done, 20000));
+      try {
+        const { data: listing } = await zernio.posts.listPosts({ query: { limit: 10 } });
+        const posts = listing?.posts ?? listing?.data ?? [];
+        const mine = posts.find((entry) => entry?.metadata?.episodeId === episodeIdWanted);
+        if (mine) {
+          const target = (mine.platforms ?? []).find((entry) => entry?.platform === 'facebook');
+          if (target) {
+            result.facebook.status = target.status ?? result.facebook.status;
+            result.facebook.url = target.url ?? target.platformPostUrl ?? result.facebook.url;
+            result.facebook.postId = target.id ?? target.platformPostId ?? result.facebook.postId;
+            result.facebook.ok =
+              String(target.status).toLowerCase() === 'published' || Boolean(result.facebook.url);
+            result.post.id = result.post.id ?? mine.id ?? null;
+            result.post.status = mine.status ?? result.post.status;
+            if (result.facebook.ok) {
+              notice(`Facebook dikonfirmasi setelah menunggu: ${result.facebook.url ?? result.facebook.postId}`);
+              break;
+            }
+            // Sudah ada post untuk episode ini, hanya belum selesai diproses.
+            // Itu cukup untuk mencegah unggahan kedua; statusnya tetap dicatat.
+            result.facebook.accepted = true;
+          }
+        }
+      } catch (error) {
+        warn(`Pemeriksaan status post gagal: ${describeError(error)}`);
+      }
+    }
+  }
+
+  if (!result.facebook.ok && !fbPlatform && !result.facebook.accepted) {
+    const fbError = platformResults.find((entry) => entry?.platform === 'facebook' && entry?.error);
+    if (fbError) result.facebook.error = String(fbError.error).slice(0, 300);
+    result.facebook.status = result.facebook.status ?? 'tidak dilaporkan';
+  }
+
   // Bukti terbit: status platform "published" ATAU ada URL hasil dari platform.
   // HTTP 201 saja tidak cukup, dan sebaliknya 207 parsial tetap bisa berisi
   // satu platform sukses — jadi yang dinilai adalah platform YouTube-nya.
   const platformStatus = String(platform?.status ?? '').toLowerCase();
   result.ok = wantsYoutube
     ? platformStatus === 'published' || Boolean(result.youtube.url)
-    : Boolean(result.facebook.ok);
+    : Boolean(result.facebook.ok) || result.facebook.accepted === true;
 
   notice(`Respons createPost: HTTP ${result.post.httpStatus} · status=${result.youtube.status ?? '-'}`);
   if (result.youtube.url) notice(`URL: ${result.youtube.url}`);

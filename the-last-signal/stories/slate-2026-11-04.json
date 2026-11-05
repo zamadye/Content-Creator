@@ -1006,15 +1006,16 @@
         "durationFrames": 16
       },
       "youtube": {
-        "title": "Router Kos Itu Mencatat Perangkat yang Tidak Pernah Kamu Beli. Selama 14 Bulan.",
-        "description": "ARSIP FIKSI — Log router kamar kos nomor 7. Satu perangkat, setiap malam pukul 03.33.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AnalogHorror",
+        "title": "Tiap Pukul 03.33, Router Kos Mencatat Satu Perangkat yang Tidak Kamu Beli.",
+        "description": "Pukul 03.33 router di kosmu mencatat satu perangkat yang tidak pernah kamu beli. Empat belas bulan, dan tidak ada satu pun penghuni yang mengakuinya.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI. Seri THE LAST SIGNAL.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
         "tags": [
           "cerita horor",
           "horor indonesia",
           "analog horror",
           "kos",
           "the last signal"
-        ]
+        ],
+        "pinComment": "Kamu pernah buka log routermu sendiri? Di kos nomor 7, perangkat yang tidak dimiliki siapa pun tercatat tiap malam pukul 03.33, dan makin lama namanya makin mirip nama penghuni.\n\nKalau kamu pernah menemukan perangkat asing di jaringanmu, tulis di komentar."
       },
       "thumb": {
         "headline": "ROUTER ITU MENCATAT NAMAMU",
@@ -1032,14 +1033,14 @@
       "structure": "perjalanan lift (naik → berhenti → turun)",
       "story": {
         "title": "Lantai Sembilan Belas",
-        "hook": "Gedung tempatmu lembur punya dua belas lantai. Liftnya berhenti di sembilan belas.",
+        "hook": "Pernah lembur sampai gedung tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini.",
         "premise": "Karyawan yang lembur sendirian naik lift dan menemukan panel berisi lantai yang tidak ada di gedung itu.",
         "twist": "Lantai sembilan belas adalah gedung yang sama, hanya saja semua orang di dalamnya masih lembur, dan mereka tidak pernah pulang.",
         "ending": "Lift kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama — dan dirinya sudah duduk di kursi itu, menunggu."
       },
       "scenes": [
         {
-          "narration": "Gedung tempatmu lembur punya dua belas lantai. Liftnya berhenti di sembilan belas.",
+          "narration": "Pernah lembur sampai gedung tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini.",
           "imagePrompt": "office elevator interior at night, brushed steel walls, numbered buttons panel, one extra unlabeled button glowing, harsh light, cinematic",
           "camera": "static",
           "shot": "medium",
@@ -1145,19 +1146,20 @@
         "durationFrames": 16
       },
       "youtube": {
-        "title": "Gedung Itu Punya 12 Lantai. Liftnya Berhenti di Lantai 19.",
-        "description": "ARSIP FIKSI — Lembur malam, lift kosong, panel dengan satu tombol tambahan. Lantai 19 tidak ada di gedung itu.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AbandonedPlace",
+        "title": "Gedungmu Cuma 12 Lantai. Liftnya Berhenti di Lantai 19 — dan Pintunya Terbuka.",
+        "description": "Gedung tempatmu lembur punya dua belas lantai. Liftnya berhenti di sembilan belas, dan pintunya terbuka ke kantor yang sama persis, dengan orang-orang yang seharusnya sudah pulang.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI. Seri THE LAST SIGNAL.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
         "tags": [
           "cerita horor",
           "horor indonesia",
           "abandoned",
           "kantor",
           "the last signal"
-        ]
+        ],
+        "pinComment": "Pernah naik lift sendirian dan angkanya melewati lantai paling atas? Di gedung ini satu tombol tambahan menyala tiap kali kamu lembur lewat pukul sebelas.\n\nKalau kamu punya cerita lift yang berhenti di lantai yang tidak ada di denah, tulis di komentar."
       },
       "thumb": {
-        "headline": "LIFT ITU BERHENTI DI LANTAI 19",
-        "kicker": "12 LANTAI · 23.10"
+        "headline": "12 LANTAI. LIFT BERHENTI DI 19.",
+        "kicker": "LEMBUR · 23.10"
       },
       "cta": {
         "card": "LIFT ITU MASIH TURUN",

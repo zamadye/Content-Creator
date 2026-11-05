@@ -32,6 +32,32 @@ Kalau semua ini ikut berubah, tabel di atas tidak berarti apa-apa.
 - Titik jumpscare tidak pernah di 5 detik pertama (kontrak menolaknya).
 - Semua judul memuat satu detail konkret dari cerita, bukan janji kosong.
 
+## Blokade: metrik yang dijanjikan di atas tidak tersedia (2026-11-05)
+
+Rencana di tabel ini bertumpu pada *average percentage viewed*, VVSA, dan retensi
+detik 15. Per 5 November 2026 ketiganya **kosong** di sumber yang kita pakai
+(`completionRate: 0`, `retentionCurve: null`, `getYouTubeDailyViews` = 0). Yang
+bisa dibaca hanya tayangan, like, dan komentar.
+
+Konsekuensinya: tabel di atas **tidak bisa dinilai** dan tidak boleh diklaim
+sebagai hasil. Sampai kuota YouTube Analytics pulih, eksperimen yang dijalankan
+hanya yang bisa diukur dengan tiga angka itu — lihat E3\.
+
+## E3 — Metadata & irama unggah (mulai 2026-11-05)
+
+Variabel: **keseragaman metadata** (judul, baris pertama deskripsi, komentar
+pertama) dan **irama unggah**, bukan isi cerita.
+
+Alasan: sembilan unggahan pertama memakai kerangka judul yang sama, pembuka
+deskripsi yang sama, dan komentar pertama yang identik kata per kata
+(`check-copy.mjs` menghitungnya: 9 dari 9 judul memakai engsel "itu"). Tayangan
+jatuh ke nol tepat setelah unggahan keempat.
+
+Cara menilai: tayangan 48 jam per unggahan, dibandingkan dengan LS-0004..LS-0008
+(0–5 tayangan). Berhasil kalau dua unggahan berurutan melewati 100 tayangan;
+gagal kalau tetap nol meski metadata berbeda dan jeda 24 jam — pada titik itu
+yang disalahkan bukan naskah, melainkan kanal.
+
 ## Cara membaca hasil nanti
 
 Yang dibandingkan per episode: **average percentage viewed**, bukan views.

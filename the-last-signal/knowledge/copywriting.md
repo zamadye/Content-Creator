@@ -158,11 +158,19 @@ Tiap naskah dinilai dengan lima pertanyaan. Satu "tidak" berarti revisi:
 | LS-0006 Basement | "Bayangkan kamu juru parkir basement dua." | "Mobil hitam itu masuk lima kali malam ini. Yang keluar selalu orang berbeda." |
 | LS-0007 Dinding | "Bayangkan kamu membongkar dinding rumah tua." | "Dinding itu dibongkar dan ada ruangan yang tidak pernah ada di denah — berisi koran tahun depan." |
 | LS-0008 Perahu | "Bayangkan kamu di ruang radio pesisir pukul dua pagi." | "Seorang nelayan tewas setelah mendengar panggilan dari perahu yang tenggelam sebelas tahun lalu." |
-| LS-0009 Router | "Bayangkan kamu tinggal di kamar kos nomor tujuh." | "Router kos ini mencatat satu perangkat yang tidak pernah dibeli siapa pun. Selama empat belas bulan." |
-| LS-0010 Lift | "Bayangkan kamu lembur sendirian di gedung dua belas lantai." | "Gedung ini punya dua belas lantai. Liftnya berhenti di sembilan belas." |
+| LS-0009 Router | "Bayangkan kamu tinggal di kamar kos nomor tujuh." | "Tiap pukul 03.33, router kos mencatat satu perangkat yang tidak kamu beli." |
+| LS-0010 Lift | "Bayangkan kamu lembur sendirian di gedung dua belas lantai." | "Pernah lembur sampai gedung tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas." |
 
 Kolom kanan bukan versi "lebih dramatis" — ia memindahkan **konsekuensi ke
 depan** dan membuang semua pemanasan.
+
+**Peringatan dari data:** hampir semua contoh di atas berbentuk sama —
+`<benda> itu <fakta>. <twist>.` Sembilan unggahan pertama memakai kerangka itu
+seluruhnya, dan tayangan jatuh ke nol setelah unggahan keempat. Kerangka yang
+baik tetap menjadi templat kalau dipakai terus. Gantilah bentuknya tiap episode:
+kadang mulai dari waktu ("Tiap pukul 03.33…"), kadang dari pertanyaan
+("Pernah lembur sampai…"), kadang dari angka ("12 lantai. Liftnya berhenti
+di 19.").
 
 ## 7. Yang harus dilakukan mesin
 
@@ -174,3 +182,37 @@ depan** dan membuang semua pemanasan.
 - Hasil evaluasi retensi detik 0–3 dipakai untuk menilai hook: kalau
   *viewed vs swiped away* buruk, yang direvisi adalah kalimat pertama, bukan
   visualnya.
+
+## 8. Metadata adalah bagian dari naskah, bukan tempelan
+
+Penonton melihat judul, 3 detik pertama, deskripsi, dan komentar pertama sebelum
+ia memutuskan. Empat hal itu dinilai bersama-sama; yang seragam membuat episode
+yang berbeda terasa satu produksi.
+
+**Judul**
+
+- Klaim selesai sebelum karakter ke-40 (di ponsel sisanya terpotong).
+- Satu angka atau penanda waktu di tiga kata pertama.
+- Sudut pandang orang kedua: "kamu", "kosmu", "gedungmu" — bukan "aku".
+- Bentuknya harus berbeda dari episode sebelumnya. `check-copy.mjs` menolak dua
+  episode belum terbit yang berkerangka sama.
+
+**Deskripsi**
+
+- Baris pertama = ulangan hook, bukan label. "ARSIP FIKSI —" pindah ke baris
+  ketiga, karena baris pertama yang dibaca di hasil pencarian.
+- Wajib memuat kata "fiksi" dan pengungkapan visual AI. Itu kewajiban, bukan
+  gaya.
+- Tanpa "`\n`" harfiah: penonton melihatnya sebagai teks.
+
+**Komentar pertama**
+
+- Satu pertanyaan yang hanya masuk akal untuk episode itu, lalu satu ajakan
+  menulis. Bukan pengumuman.
+- Tidak boleh sama dengan episode lain — komentar yang identik di semua unggahan
+  adalah tanda paling jelas bahwa kanal ini memproduksi massal.
+
+Contoh (LS-0010): "Pernah naik lift sendirian dan angkanya melewati lantai
+paling atas? Di gedung ini satu tombol tambahan menyala tiap kali kamu lembur
+lewat pukul sebelas. / Kalau kamu punya cerita lift yang berhenti di lantai yang
+tidak ada di denah, tulis di komentar."

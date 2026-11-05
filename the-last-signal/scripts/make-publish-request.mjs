@@ -53,6 +53,23 @@ const queueDir = join(ROOT, "publish-queue");
 mkdirSync(queueDir, { recursive: true });
 
 const publishing = episode.publishing ?? {};
+
+/** Lihat catatan di build-episode.mjs: `\n` yang tertulis sebagai dua karakter
+ *  pernah terbit apa adanya di YouTube (LS-0011). */
+const unescapeText = (value) => String(value ?? "").replace(/\\n/g, "\n").replace(/\\t/g, " ");
+
+/**
+ * Komentar pertama harus ditulis per episode. Kalau naskah belum punya
+ * `publishing.pinComment`, jangan diam-diam memakai teks yang sama untuk semua
+ * unggahan (itu yang terjadi pada LS-0001..LS-0011) — turunkan dari hook
+ * episode supaya setidaknya berbeda, lalu `check-copy.mjs` menandainya.
+ */
+function pinCommentFor(ep) {
+  const explicit = unescapeText(ep.publishing?.pinComment);
+  if (explicit.trim()) return explicit;
+  const hook = ep.story?.hook ?? ep.scenes?.[0]?.narration ?? "";
+  return `Fiksi. Visual dibuat dengan bantuan AI.\n\n${hook.trim()} Kamu pernah mengalami yang mirip? Tulis di komentar.`;
+}
 const request = {
   episodeId,
   status: "requested",
@@ -67,15 +84,15 @@ const request = {
     jumpscares: (episode.jumpscares ?? []).length,
   },
   youtube: {
-    title: publishing.title,
-    description: publishing.description,
+    title: unescapeText(publishing.title),
+    description: unescapeText(publishing.description),
     tags: publishing.tags ?? [],
     categoryId: publishing.categoryId ?? "24",
     visibility: publishing.privacyStatus ?? "public",
     madeForKids: false,
     containsSyntheticMedia: true,
     notifySubscribers: true,
-    firstComment: `Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya.`,
+    firstComment: pinCommentFor(episode),
   },
 };
 

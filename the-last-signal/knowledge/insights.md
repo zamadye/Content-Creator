@@ -185,3 +185,20 @@ Gambar dinding perahu awalnya penuh nama Irlandia (O'NEILL, MURPHY) untuk cerita
 pesisir Indonesia. Nama-nama itu harus ditulis eksplisit di prompt. Kalau tidak,
 penonton Indonesia akan melihat ketidakcocokan yang lebih besar daripada
 efek horornya.
+
+**6. Yang membuat kanal terlihat seperti pabrik bukan ceritanya, tapi metadatanya.**
+Sembilan unggahan pertama punya sembilan cerita berbeda dan satu bungkus:
+judul berkerangka `<benda> itu <fakta>. <twist>.` (9 dari 9), deskripsi dibuka
+"ARSIP FIKSI —" (9 dari 9), komentar pertama identik kata per kata (9 dari 9,
+ditulis sebagai konstanta di satu skrip), narasi satu suara, HUD satu rupa.
+Tayangan jatuh dari 1.261 ke nol dalam satu jam. Tidak ada bukti bahwa LS-0003
+menang karena ceritanya — like per tayangannya (1,3%) sama dengan LS-0001 yang
+biasa saja. Yang bisa disimpulkan hanya ini: **variasi antar episode harus
+terlihat dari luar**, di judul, deskripsi, dan komentar pertama, bukan hanya di
+dalam naskah. Aturan itu sekarang dijaga `check-copy.mjs`.
+
+**7. Skrip yang menulis teks untuk manusia harus melepas escape-nya sendiri.**
+Deskripsi LS-0011 terbit dengan "`\n\n`" tercetak apa adanya karena naskah
+menyimpannya sebagai dua karakter, bukan baris baru. Naskah ditulis tangan, jadi
+hal ini akan terulang; `build-episode.mjs` dan `make-publish-request.mjs` sekarang
+melepasnya, dan `check-copy.mjs` menolak teks yang masih memuatnya.

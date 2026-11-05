@@ -1,6 +1,6 @@
 {
   "episodeId": "LS-0011",
-  "status": "requested",
+  "status": "published",
   "createdAt": "2026-11-04T23:33:41.877Z",
   "media": "the-last-signal/releases/LS-0011.mp4",
   "episode": {
@@ -26,8 +26,12 @@
     "madeForKids": false,
     "containsSyntheticMedia": true,
     "notifySubscribers": true,
-    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
+    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya.",
+    "videoId": "-0N-RjKNXyU",
+    "url": "https://www.youtube.com/watch?v=-0N-RjKNXyU",
+    "postId": "6aec37c6cf1045d2dfe67ebe"
   },
   "holdReason": "antrean jeda 1 jam setelah LS-0008 (23:16:44Z → 00:16:44Z)",
-  "requestedAt": "2026-11-05T07:59:31Z"
+  "requestedAt": "2026-11-05T07:59:31Z",
+  "publishedAt": "2026-11-05T08:01:08Z"
 }

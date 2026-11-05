@@ -7,9 +7,9 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 49.1,
+  "targetDurationSeconds": 61.8,
   "story": {
-    "hook": "Gedung ini punya dua belas lantai. Liftnya berhenti di sembilan belas.",
+    "hook": "Pernah lembur sampai gedung tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini.",
     "premise": "Karyawan yang lembur sendirian naik lift dan menemukan panel berisi lantai yang tidak ada di gedung itu.",
     "twist": "Lantai sembilan belas adalah gedung yang sama, hanya saja semua orang di dalamnya masih lembur, dan mereka tidak pernah pulang.",
     "ending": "Lift kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama — dan dirinya sudah duduk di kursi itu, menunggu."
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 1021,
+      "atFrame": 1138,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,44 +33,44 @@
   "onScreenText": [
     {
       "text": "12 LANTAI",
-      "startFrame": 29,
-      "endFrame": 89
+      "startFrame": 37,
+      "endFrame": 97
     },
     {
       "text": "BERHENTI DI 19",
-      "startFrame": 796,
-      "endFrame": 856
+      "startFrame": 1001,
+      "endFrame": 1061
     },
     {
       "text": "KAMU MASIH DI SANA",
-      "startFrame": 1150,
-      "endFrame": 1210
+      "startFrame": 1446,
+      "endFrame": 1506
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 198,
+      "durationFrames": 315,
       "image": "images/scene-01.png",
-      "narration": "Gedung ini punya dua belas lantai. Liftnya berhenti di sembilan belas.",
+      "narration": "Pernah lembur sampai gedung tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 55,
+          "atFrame": 88,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 111,
+          "atFrame": 176,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 162,
+          "atFrame": 258,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -80,13 +80,13 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 104,
-          "text": "Gedung ini punya dua belas lantai."
+          "endFrame": 110,
+          "text": "Pernah lembur sampai gedung tinggal kamu sendiri?"
         },
         {
-          "startFrame": 104,
-          "endFrame": 186,
-          "text": "Liftnya berhenti di sembilan belas."
+          "startFrame": 110,
+          "endFrame": 303,
+          "text": "Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini."
         }
       ],
       "visual": {
@@ -109,12 +109,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 123,
+            "startFrame": 195,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 162,
+            "startFrame": 258,
             "volume": 0.4
           }
         ]
@@ -486,11 +486,82 @@
           }
         ]
       }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 263,
+      "image": "images/scene-07.png",
+      "narration": "Kalau kamu tidak ingin lift itu berhenti di lantaimu, klik subscribe. Komentar: pernah naik lift sendirian?",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [
+        {
+          "atFrame": 74,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 147,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 216,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 174,
+          "text": "Kalau kamu tidak ingin lift itu berhenti di lantaimu, klik subscribe."
+        },
+        {
+          "startFrame": 174,
+          "endFrame": 251,
+          "text": "Komentar: pernah naik lift sendirian?"
+        }
+      ],
+      "visual": {
+        "prompt": "elevator doors opening onto a dark meeting room, one figure seated alone at the far end of the table facing the doors, wide cinematic",
+        "locationId": "ls-0010_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "elevator_light_spilling_into_dark_room",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.wav",
+            "startFrame": 163,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.wav",
+            "startFrame": 216,
+            "volume": 0.4
+          }
+        ]
+      }
     }
   ],
   "publishing": {
-    "title": "Gedung Itu Punya 12 Lantai. Liftnya Berhenti di Lantai 19.",
-    "description": "ARSIP FIKSI — Lembur malam, lift kosong, panel dengan satu tombol tambahan. Lantai 19 tidak ada di gedung itu.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AbandonedPlace",
+    "title": "Gedungmu Cuma 12 Lantai. Liftnya Berhenti di Lantai 19 — dan Pintunya Terbuka.",
+    "description": "Gedung tempatmu lembur punya dua belas lantai. Liftnya berhenti di sembilan belas, dan pintunya terbuka ke kantor yang sama persis, dengan orang-orang yang seharusnya sudah pulang.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI. Seri THE LAST SIGNAL.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
     "tags": [
       "cerita horor",
       "horor indonesia",
@@ -502,11 +573,16 @@
     "privacyStatus": "public",
     "selfDeclaredMadeForKids": false,
     "syntheticDisclosure": true,
+    "pinComment": "Pernah naik lift sendirian dan angkanya melewati lantai paling atas? Di gedung ini satu tombol tambahan menyala tiap kali kamu lembur lewat pukul sebelas.\n\nKalau kamu punya cerita lift yang berhenti di lantai yang tidak ada di denah, tulis di komentar.",
     "thumbnail": {
-      "headline": "LIFT ITU BERHENTI DI LANTAI 19",
-      "kicker": "12 LANTAI · 23.10",
+      "headline": "12 LANTAI. LIFT BERHENTI DI 19.",
+      "kicker": "LEMBUR · 23.10",
       "image": "images/thumb.png",
       "holdFrames": 12
+    },
+    "cta": {
+      "card": "LIFT ITU MASIH TURUN",
+      "holdFrames": 84
     }
   },
   "production": {

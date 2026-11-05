@@ -25,6 +25,14 @@ const CARD_FRAMES = 60;
 
 const BASE_SFX = ["knock.wav", "heartbeat.wav", "impact.wav", "door_creak.wav", "riser.wav", "whoosh.wav"];
 
+/**
+ * Naskah ditulis tangan, jadi baris baru kadang masuk sebagai dua karakter
+ * `\` + `n` alih-alih baris baru sungguhan. Deskripsi LS-0011 terbit dengan
+ * "\n\n" tercetak apa adanya di YouTube karena hal ini. Semua teks yang dibaca
+ * penonton dilewatkan ke sini dulu.
+ */
+const unescapeText = (value) => String(value ?? "").replace(/\\n/g, "\n").replace(/\\t/g, " ");
+
 function arg(name, fallback) {
   const index = process.argv.indexOf(`--${name}`);
   return index !== -1 ? process.argv[index + 1] : fallback;
@@ -176,13 +184,18 @@ const episode = {
   onScreenText,
   scenes,
   publishing: {
-    title: entry.youtube.title.slice(0, 100),
-    description: entry.youtube.description,
+    title: unescapeText(entry.youtube.title).slice(0, 100),
+    description: unescapeText(entry.youtube.description),
     tags: (entry.youtube.tags ?? []).slice(0, 15),
     categoryId: "24",
     privacyStatus: "public",
     selfDeclaredMadeForKids: false,
     syntheticDisclosure: true,
+    // Komentar yang disematkan. Sebelumnya teks ini dipaku di satu berkas dan
+    // identik kata per kata di sembilan unggahan pertama — salah satu tanda
+    // paling jelas bahwa kanal ini memproduksi massal. Sekarang wajib ditulis
+    // per episode di naskah; `check-copy.mjs` menolak yang seragam.
+    pinComment: unescapeText(entry.youtube.pinComment ?? ""),
     // Frame 0 = thumbnail kanal. Wajib ada: tanpa ini video tidak punya
     // thumbnail yang bisa dikendalikan (API tidak menyediakan pemilihan).
     thumbnail: {

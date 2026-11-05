@@ -554,8 +554,8 @@
     }
   ],
   "publishing": {
-    "title": "Router Kos Itu Mencatat Perangkat yang Tidak Pernah Kamu Beli. Selama 14 Bulan.",
-    "description": "ARSIP FIKSI — Log router kamar kos nomor 7. Satu perangkat, setiap malam pukul 03.33.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #AnalogHorror",
+    "title": "Tiap Pukul 03.33, Router Kos Mencatat Satu Perangkat yang Tidak Kamu Beli.",
+    "description": "Pukul 03.33 router di kosmu mencatat satu perangkat yang tidak pernah kamu beli. Empat belas bulan, dan tidak ada satu pun penghuni yang mengakuinya.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI. Seri THE LAST SIGNAL.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
     "tags": [
       "cerita horor",
       "horor indonesia",
@@ -576,7 +576,8 @@
     "cta": {
       "card": "KAMARMU SUDAH TERCATAT",
       "holdFrames": 84
-    }
+    },
+    "pinComment": "Kamu pernah buka log routermu sendiri? Di kos nomor 7, perangkat yang tidak dimiliki siapa pun tercatat tiap malam pukul 03.33, dan makin lama namanya makin mirip nama penghuni.\n\nKalau kamu pernah menemukan perangkat asing di jaringanmu, tulis di komentar."
   },
   "production": {
     "subgenre": "Unknown Entity",

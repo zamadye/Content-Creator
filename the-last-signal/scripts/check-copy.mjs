@@ -7,7 +7,9 @@
  *      episode lain ("Bayangkan" tidak boleh jadi pembuka semua cerita),
  *   2. tidak ada kalimat lebih dari 24 kata,
  *   3. kalimat pertama memuat angka atau konsekuensi konkret (peringatan),
- *   4. headline thumbnail ≤ 42 karakter dan minimal dua kata.
+ *   4. headline thumbnail ≤ 42 karakter dan minimal dua kata,
+ *   5. metadata (judul, deskripsi, komentar pertama) tidak boleh dicetak dari
+ *      satu templat — lihat catatan di bawah.
  *
  *   node scripts/check-copy.mjs
  *   node scripts/check-copy.mjs --strict   # peringatan dihitung sebagai gagal
@@ -29,6 +31,28 @@ const CTA_WORDS = /(subscribe|subcribe|like|komentar|comment|follow|ikuti)/i;
 const SECOND_PERSON_QUESTIONS = /(pernahkah|pernah|bagaimana|apa yang|apakah|bayangkan|kalau kamu|kalau kau|sudahkah)/i;
 const CONCRETE = /\d|satu|dua|tiga|empat|lima|enam|tujuh|delapan|sembilan|sepuluh|sebelas|dua belas|puluhan|ratus|jam|pukul|malam/i;
 
+// Kata tugas dipakai apa adanya saat menghitung "bentuk" judul; kata isi
+// diganti "•". Dua judul dengan bentuk sama = satu templat yang diisi ulang.
+const FUNCTION_WORDS = new Set([
+  "itu", "yang", "ini", "di", "ke", "dan", "dengan", "masih", "tidak", "pernah", "kamu", "kau",
+  "ada", "punya", "dari", "dalam", "pada", "akan", "sudah", "tapi", "atau", "tiap", "setiap",
+  "pukul", "jam", "malam", "hari", "lalu", "nya", "si", "sang", "para", "satu", "cuma", "hanya",
+]);
+
+/** Bentuk judul: tiga kata pertama, kata isi dijadikan "•". */
+const titleShape = (title) =>
+  title
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}.\s]/gu, " ")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 3)
+    .map((word) => (/^[\d.,:]+$/.test(word) ? word : FUNCTION_WORDS.has(word) ? word : "•"))
+    .join(" ");
+
+const firstTwo = (title) => title.toLowerCase().split(/\s+/).filter(Boolean).slice(0, 2).join(" ");
+const firstLineOf = (text) => String(text ?? "").split(/\n/)[0].trim();
+
 const errors = [];
 const warnings = [];
 
@@ -43,6 +67,7 @@ const ids = existsSync(episodesDir)
 
 const openers = new Map();
 const published = new Set();
+const metadata = [];
 const queueDir = join(ROOT, "publish-queue");
 if (existsSync(queueDir)) {
   for (const file of readdirSync(queueDir).filter((f) => f.endsWith(".json"))) {
@@ -111,6 +136,52 @@ for (const id of ids) {
     }
   });
 
+  // ── Metadata ──────────────────────────────────────────────────────────
+  // Sembilan unggahan pertama memakai kerangka judul yang sama
+  // ("<Benda> Itu <fakta>. <twist>."), membuka deskripsi dengan "ARSIP FIKSI —",
+  // dan menyematkan komentar yang identik kata per kata. Isi ceritanya boleh
+  // berbeda; yang dilihat penonton (dan sistem yang menilai kanal) adalah
+  // sepuluh video yang tampak dicetak dari satu berkas.
+  const meta = (id, isPublished, text) => (isPublished ? warnings : errors).push(`${id}: ${text}`);
+
+  const title = episode.publishing?.title ?? "";
+  const description = episode.publishing?.description ?? "";
+  const pinComment = episode.publishing?.pinComment ?? "";
+  const isPublished = published.has(id);
+
+  if (!title.trim()) {
+    meta(id, isPublished, "tidak punya publishing.title");
+  } else {
+    if (title.length > 100) errors.push(`${id}: judul ${title.length} karakter (maks 100)`);
+    if (title.includes("\\n")) meta(id, isPublished, "judul memuat \\n harfiah — naskah salah escape");
+    if (/^arsip fiksi/i.test(title)) meta(id, isPublished, "judul dibuka dengan label arsip, bukan cerita");
+  }
+
+  if (!description.trim()) {
+    meta(id, isPublished, "tidak punya publishing.description");
+  } else {
+    if (description.includes("\\n")) meta(id, isPublished, "deskripsi memuat \\n harfiah — penonton akan melihatnya sebagai teks");
+    if (!/fiksi/i.test(description) || !/\bAI\b/i.test(description)) {
+      errors.push(`${id}: deskripsi belum mengungkap fiksi + visual AI (kewajiban, bukan selera)`);
+    }
+    if (/^arsip fiksi\s*[—-]/i.test(firstLineOf(description))) {
+      meta(id, isPublished, 'baris pertama deskripsi masih "ARSIP FIKSI —": itu templat, bukan hook');
+    }
+  }
+
+  if (!pinComment.trim()) {
+    meta(id, isPublished, "tidak punya publishing.pinComment — komentar pertama tidak boleh kosong");
+  } else {
+    if (!pinComment.includes("?")) {
+      meta(id, isPublished, "komentar pertama tidak bertanya apa pun — tidak ada alasan untuk dibalas");
+    }
+    if (/^Fiksi\. Visual dibuat dengan bantuan AI\.\s*Cerita ini bagian dari seri THE LAST SIGNAL\.\s*Kalau kamu pernah mengalami hal serupa/i.test(pinComment)) {
+      meta(id, isPublished, "komentar pertama masih templat lama yang dipakai semua episode");
+    }
+  }
+
+  metadata.push({ id, isPublished, title, firstLine: firstLineOf(description), pinComment });
+
   const thumb = episode.publishing?.thumbnail;
   if (!thumb) {
     warnings.push(`${id}: tidak punya publishing.thumbnail — frame 0 tidak akan jadi thumbnail yang terbaca`);
@@ -121,6 +192,52 @@ for (const id of ids) {
     if (wordCount(thumb.headline) < 2) {
       errors.push(`${id}: headline thumbnail minimal dua kata`);
     }
+  }
+}
+
+// Metadata yang seragam antar episode. Yang sudah terbit tinggal jadi riwayat;
+// yang belum terbit wajib diperbaiki sebelum masuk antrean.
+const pendingMeta = metadata.filter((row) => !row.isPublished);
+const byKey = (rows, pick) => {
+  const map = new Map();
+  for (const row of rows) {
+    const key = pick(row);
+    if (!key) continue;
+    map.set(key, [...(map.get(key) ?? []), row.id]);
+  }
+  return map;
+};
+
+const shapeCount = byKey(metadata.filter((row) => row.title.trim()), (row) => titleShape(row.title));
+for (const [shape, list] of shapeCount) {
+  const pending = list.filter((episodeId) => !published.has(episodeId));
+  if (pending.length > 1) {
+    errors.push(`bentuk judul "${shape}" dipakai di ${pending.join(", ")} — kerangka judul tidak boleh dipakai ulang selama antrean belum kosong`);
+  } else if (list.length > 2) {
+    warnings.push(`bentuk judul "${shape}" sudah dipakai ${list.length} episode (${list.join(", ")}): ${shape.includes("itu") ? "pola \"<benda> itu\"" : "pola ini"} sudah terlalu sering — ganti bentuknya`);
+  }
+}
+
+for (const [pair, list] of byKey(metadata.filter((row) => row.title.trim()), (row) => firstTwo(row.title))) {
+  const pending = list.filter((episodeId) => !published.has(episodeId));
+  if (pending.length > 1) {
+    errors.push(`dua episode belum terbit dibuka dengan kata yang sama di judul ("${pair}"): ${pending.join(", ")}`);
+  }
+}
+
+const lineCount = byKey(metadata.filter((row) => row.firstLine), (row) => row.firstLine.toLowerCase());
+for (const [line, list] of lineCount) {
+  const pending = list.filter((episodeId) => !published.has(episodeId));
+  if (pending.length > 1 || (pending.length === 1 && list.length > 1)) {
+    errors.push(`baris pertama deskripsi dipakai di ${list.join(", ")} — baris itu milik episode sendiri, bukan kepala surat: "${line.slice(0, 50)}"`);
+  }
+}
+
+const pinCount = byKey(metadata.filter((row) => row.pinComment.trim()), (row) => row.pinComment.trim());
+for (const [, list] of pinCount) {
+  const pending = list.filter((episodeId) => !published.has(episodeId));
+  if (pending.length > 1 || (pending.length === 1 && list.length > 1)) {
+    errors.push(`komentar pertama identik di ${list.join(", ")} — tulis ulang untuk episode yang belum terbit`);
   }
 }
 

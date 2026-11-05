@@ -147,7 +147,17 @@ async function analyse(target) {
     comments: pick(['comments', 'commentCount']),
     shares: pick(['shares', 'shareCount']),
     subscribersGained: pick(['subscribersGained', 'subscribers']),
-    keys: Object.keys(metrics ?? {}).slice(0, 24),
+    completionRate: pick(['completionRate']),
+    replays: pick(['replays']),
+    reelsSkipRate: pick(['reelsSkipRate']),
+    videoDurationSeconds: pick(['videoDurationSeconds']),
+    retentionCurve: Array.isArray(metrics?.retentionCurve)
+      ? metrics.retentionCurve.slice(0, 40).map((point, index) => {
+          const value = typeof point === 'number' ? point : point?.audienceWatchRatio ?? point?.value ?? null;
+          const at = typeof point === 'object' && point !== null ? point?.elapsedVideoTimeRatio ?? null : null;
+          return [at !== null ? Number(Number(at).toFixed(2)) : index, value !== null ? Number(Number(value).toFixed(3)) : null];
+        })
+      : null,
     notes: report.notes,
   };
   notice(`::notice title=ANALYTICS-${target.episodeId}::${JSON.stringify(summary)}`);

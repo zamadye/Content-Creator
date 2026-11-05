@@ -1,7 +1,7 @@
 {
   "episodeId": "LS-0009",
-  "status": "held",
-  "createdAt": "2026-11-04T23:42:03.214Z",
+  "status": "requested",
+  "createdAt": "2026-11-05T13:00:33.000Z",
   "media": "the-last-signal/releases/LS-0009.mp4",
   "episode": {
     "title": "Perangkat Ketujuh",
@@ -28,6 +28,5 @@
     "notifySubscribers": true,
     "firstComment": "Kamu pernah buka log routermu sendiri? Di kos nomor 7, perangkat yang tidak dimiliki siapa pun tercatat tiap malam pukul 03.33, dan makin lama namanya makin mirip nama penghuni.\n\nKalau kamu pernah menemukan perangkat asing di jaringanmu, tulis di komentar."
   },
-  "holdReason": "slot malam 20.00 WIB (13.00 UTC) — jadwal 2 slot/hari",
   "scheduledFor": "2026-11-05T13:00:00Z"
 }

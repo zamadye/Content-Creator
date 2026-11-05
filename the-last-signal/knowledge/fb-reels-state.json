@@ -1,11 +1,13 @@
 {
-  "lastPostAt": "2026-11-05T23:00:08Z",
+  "lastPostAt": null,
   "items": {
     "LS-0008": {
-      "status": "posted",
-      "postedAt": "2026-11-05T23:00:08Z",
-      "url": "https://www.facebook.com/reel/1844482003236290",
-      "note": "terbit pada percobaan pertama; kegagalan yang tercatat hanya salah baca respons"
+      "status": "error",
+      "runId": 42126801400,
+      "conclusion": "cancelled",
+      "request": "the-last-signal/publish-queue/2026-11-05T23-04-FBREEL-LS-0008.json",
+      "postedAt": null,
+      "at": "2026-11-05T23:20:20.679Z"
     }
   }
 }

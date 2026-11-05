@@ -64,7 +64,7 @@ async function api(p,key,method='GET') {
   if(!/^\/videos\/[A-Za-z0-9_-]+(?:\/stats\/downloads)?$/.test(p)) throw new SafeError('BAD_API_PATH');
   let r; try { r=await fetch(`https://api.coverr.co${p}`,{method,redirect:'error',signal:AbortSignal.timeout(30000),headers:{'x-api-key':key,'Accept':'application/json','User-Agent':'ContentCreator-Coverr-Transfer/1.0'}}); }
   catch { throw new SafeError('COVERR_API_NETWORK'); }
-  if(!r.ok) throw new SafeError(`COVERR_API_HTTP_${r.status}`);
+  if(!r.ok) throw new SafeError(`COVERR_${method}_HTTP_${r.status}`);
   if(method==='PATCH') return r.status;
   const body=await r.text(); if(body.length>2_000_000) throw new SafeError('COVERR_RESPONSE_TOO_LARGE');
   try { return JSON.parse(body); } catch { throw new SafeError('COVERR_BAD_JSON'); }
@@ -109,8 +109,10 @@ async function main() {
     if(!validId(id)||!key||!token||!validRepository(repo)) throw new SafeError('MISSING_INPUT');
     dir=fs.mkdtempSync(path.join(os.tmpdir(),'coverr-transfer-')); const raw=path.join(dir,'raw.mp4'), clip=path.join(dir,'excerpt.mp4');
     const candidate=checkCandidate(await api(`/videos/${id}`,key),id,key);
-    const originalBytes=await download(candidate.mediaUrl,raw);
+    // This asset has been selected; tracking must succeed before download.
+    // Stop on failure rather than use a clip without required API tracking.
     const trackingStatus=await api(`/videos/${id}/stats/downloads`,key,'PATCH');
+    const originalBytes=await download(candidate.mediaUrl,raw);
     const trimmed=trim(raw,clip), publicKey=fs.readFileSync('editorial-engine/pipeline/coverr-transfer/session-public.pem');
     const blob=encryptBytes(trimmed,publicKey), sha=await createBlob(blob,token,repo);
     emit({status:'PASS',video:{id:candidate.id,title:candidate.title,creator:candidate.creator,duration_seconds:candidate.duration_seconds,is_premium:false,is_ai_generated:false,is_vertical:false},tracking_http:trackingStatus,original_bytes:originalBytes,excerpt_bytes:trimmed.length,excerpt_sha256:sha256(trimmed),encrypted_blob_sha:sha,transport:'encrypted-unreferenced-git-blob'});

@@ -10,6 +10,7 @@ on:
       - '.github/workflows/coverr-ump-footage.yml'
       - 'editorial-engine/pipeline/coverr-transfer/transfer.mjs'
       - 'editorial-engine/pipeline/coverr-transfer/session-public.pem'
+      - 'editorial-engine/pipeline/coverr-transfer/inspect-web.mjs'
 permissions:
   contents: write # create encrypted unreferenced blob only, no branch writes
 jobs:

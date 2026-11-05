@@ -53,7 +53,10 @@ function sh(command, args, options = {}) {
 // ---------------------------------------------------------------------------
 function publishedShorts() {
   return readdirSync(QUEUE_DIR)
-    .filter((file) => /^.*-LS-\d{4}\.json$/.test(file))
+    // Berkas permintaan Reels yang dibuat skrip ini juga cocok dengan pola
+    // "-LS-####.json"; kalau tidak disaring, setelah percobaan pertama katalog
+    // berisi episode yang sama dua kali dan satu Shorts terunggah dua kali.
+    .filter((file) => /^.*-LS-\d{4}\.json$/.test(file) && !file.includes("FBREEL"))
     .map((file) => {
       try {
         return { file, entry: JSON.parse(readFileSync(join(QUEUE_DIR, file), "utf8")) };
@@ -72,6 +75,7 @@ function publishedShorts() {
     }))
     // Yang berkasnya sudah ada didahulukan: unggahan bisa mulai jalan sementara
     // episode lain yang medianya sudah dibuang masih dirender ulang.
+    .filter((item, index, list) => list.findIndex((other) => other.episodeId === item.episodeId) === index)
     .sort((a, b) => {
       const haveA = existsSync(resolve(REPO_ROOT, a.media)) ? 0 : 1;
       const haveB = existsSync(resolve(REPO_ROOT, b.media)) ? 0 : 1;

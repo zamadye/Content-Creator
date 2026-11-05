@@ -34,7 +34,9 @@ export function checkCandidate(v,id,key='') {
   if(v.is_ai_generated!==false) throw new SafeError('AI_OR_UNKNOWN');
   if(v.is_vertical!==false) throw new SafeError('VERTICAL_OR_UNKNOWN');
   if(!cleanText(v.title,key)) throw new SafeError('BAD_TITLE');
-  if(!(typeof v.duration==='number' && v.duration>=8)) throw new SafeError('TOO_SHORT_OR_UNKNOWN');
+  // Some API details omit duration. Reject a known-short candidate, then
+  // independently verify the decoded excerpt with ffprobe after trimming.
+  if(typeof v.duration==='number' && v.duration<8) throw new SafeError('TOO_SHORT');
   let u; try { u=new URL(v.urls?.mp4_download); } catch { throw new SafeError('BAD_MEDIA_URL'); }
   if(u.protocol!=='https:' || u.username || u.password || !/(^|\.)coverr\.co$/i.test(u.hostname) || (u.port && u.port!=='443')) throw new SafeError('UNTRUSTED_MEDIA_ORIGIN');
   return {id:v.id,title:cleanText(v.title,key),creator:creatorName(v,key),duration_seconds:v.duration,is_premium:false,is_ai_generated:false,is_vertical:false,mediaUrl:u.toString()};
@@ -85,6 +87,9 @@ function trim(source,dest) {
   const args=['-hide_banner','-loglevel','error','-y','-ss','2','-i',source,'-t','5','-map','0:v:0','-an','-vf','scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720,setsar=1,fps=30','-c:v','libx264','-preset','medium','-crf','23','-pix_fmt','yuv420p','-movflags','+faststart',dest];
   const run=spawnSync('ffmpeg',args,{stdio:'ignore',timeout:120000});
   if(run.status!==0 || !fs.existsSync(dest)) throw new SafeError('FFMPEG_TRIM_FAILED');
+  const probe=spawnSync('ffprobe',['-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',dest],{encoding:'utf8',timeout:30000});
+  const duration=Number((probe.stdout||'').trim());
+  if(probe.status!==0 || !Number.isFinite(duration) || duration<4.95 || duration>5.1) throw new SafeError('EXCERPT_DURATION_INVALID');
   const result=fs.readFileSync(dest); if(result.length<1000 || result.length>MAX_TRANSFER_BYTES) throw new SafeError('TRIM_SIZE_INVALID'); return result;
 }
 async function createBlob(data,token,repo) {

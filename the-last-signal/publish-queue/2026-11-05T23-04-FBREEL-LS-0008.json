@@ -1,0 +1,30 @@
+{
+  "episodeId": "LS-0008",
+  "platforms": [
+    "facebook"
+  ],
+  "status": "requested",
+  "createdAt": "2026-11-05T23:04:00.286Z",
+  "media": "the-last-signal/releases/LS-0008.mp4",
+  "youtube": {
+    "title": "Perahu Itu Tenggelam Sebelas Tahun Lalu. Radionya Masih Memanggil.",
+    "description": "ARSIP FIKSI — Ruang radio pesisir, 02.11. Panggilan mayday berbahasa daerah yang sudah tidak dipakai lagi.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #HororIndonesia",
+    "tags": [
+      "cerita horor",
+      "horor laut",
+      "horor indonesia",
+      "found footage",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
+  },
+  "facebook": {
+    "title": "Perahu Itu Tenggelam Sebelas Tahun Lalu. Radionya Masih Memanggil."
+  },
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+}

@@ -1,0 +1,35 @@
+name: Coverr - one-footage search test
+
+# A single, read-only search. No publishing, scheduling, download or raw API
+# response. A push to this workflow file on the session branch triggers it;
+# workflow_dispatch may require the file to exist on the default branch.
+on:
+  push:
+    branches:
+      - arena/54cb36c6-content-creator
+    paths:
+      - '.github/workflows/coverr-one-footage-test.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout session branch
+        uses: actions/checkout@v5
+      - name: Search one real-stock candidate
+        env:
+          COVERR_API_KEY: ${{ secrets.COVERR_API_KEY || secrets.COVERR_VIDEO_API_KEY || secrets.COVERR_KEY }}
+          COVERR_SEARCH_QUERY: worker
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Explicitly mask the selected secret; do not enable shell tracing.
+          if [ -n "${COVERR_API_KEY:-}" ]; then
+            echo "::add-mask::${COVERR_API_KEY}"
+          fi
+          python3 editorial-engine/pipeline/coverr-search-test.py

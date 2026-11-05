@@ -78,3 +78,21 @@ atau persentase ditonton > 100% sebagai tanda tonton ulang.
   terjadi tidak ada satu pun angka di atas yang diklaim sebagai hasil.
 - Satu video tidak membuktikan apa pun. Kesimpulan hanya ditulis setelah ≥3
   episode dengan pola yang sama.
+
+## Jadwal unggah (diputuskan 2026-11-05)
+
+Dua slot per hari, jam tetap, waktu Indonesia Barat:
+
+| Slot | WIB | UTC | Alasan |
+|---|---|---|---|
+| Pagi | 09.00 | 02.00 | penonton membuka ponsel di perjalanan pagi |
+| Malam | 20.00 | 13.00 | puncak jam tonton Shorts di Indonesia (19.00–22.00) |
+
+Kenapa bukan satu per jam: sembilan unggahan dalam 26 jam (4–5 November)
+berakhir dengan tayangan nol pada lima unggahan terakhir. Jangkar harian yang
+tetap membuat kanal terbaca sebagai jadwal, bukan semburan. Aturan ini
+menggantikan arahan lama "jeda ±1 jam" dan berlaku sampai ada video yang
+melewati 100 tayangan; setelah itu boleh dinaikkan lagi.
+
+Yang **tidak** boleh dilakukan lagi: dua unggahan dalam satu jam, atau
+mengunggah episode baru sebagai reaksi atas episode yang gagal.

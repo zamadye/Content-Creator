@@ -28,5 +28,6 @@
     "notifySubscribers": true,
     "firstComment": "Kamu pernah buka log routermu sendiri? Di kos nomor 7, perangkat yang tidak dimiliki siapa pun tercatat tiap malam pukul 03.33, dan makin lama namanya makin mirip nama penghuni.\n\nKalau kamu pernah menemukan perangkat asing di jaringanmu, tulis di komentar."
   },
-  "holdReason": "antrean jeda 1 jam setelah LS-0011"
+  "holdReason": "slot malam 20.00 WIB (13.00 UTC) — jadwal 2 slot/hari",
+  "scheduledFor": "2026-11-05T13:00:00Z"
 }

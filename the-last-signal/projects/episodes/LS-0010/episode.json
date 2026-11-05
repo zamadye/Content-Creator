@@ -7,9 +7,9 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 61.8,
+  "targetDurationSeconds": 54.1,
   "story": {
-    "hook": "Pernah lembur sampai gedung tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini.",
+    "hook": "Pernah lembur di gedung dua belas lantai sampai tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas.",
     "premise": "Karyawan yang lembur sendirian naik lift dan menemukan panel berisi lantai yang tidak ada di gedung itu.",
     "twist": "Lantai sembilan belas adalah gedung yang sama, hanya saja semua orang di dalamnya masih lembur, dan mereka tidak pernah pulang.",
     "ending": "Lift kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama — dan dirinya sudah duduk di kursi itu, menunggu."
@@ -20,7 +20,7 @@
   },
   "jumpscares": [
     {
-      "atFrame": 1138,
+      "atFrame": 933,
       "image": "images/scare-face.png",
       "assetId": "audio/sfx/scare.wav",
       "volume": 0.95,
@@ -33,44 +33,44 @@
   "onScreenText": [
     {
       "text": "12 LANTAI",
-      "startFrame": 37,
-      "endFrame": 97
+      "startFrame": 32,
+      "endFrame": 89
     },
     {
       "text": "BERHENTI DI 19",
-      "startFrame": 1001,
-      "endFrame": 1061
+      "startFrame": 877,
+      "endFrame": 934
     },
     {
       "text": "KAMU MASIH DI SANA",
-      "startFrame": 1446,
-      "endFrame": 1506
+      "startFrame": 1267,
+      "endFrame": 1324
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 315,
+      "durationFrames": 230,
       "image": "images/scene-01.png",
-      "narration": "Pernah lembur sampai gedung tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini.",
+      "narration": "Pernah lembur di gedung dua belas lantai sampai tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 88,
+          "atFrame": 64,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 176,
+          "atFrame": 129,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 258,
+          "atFrame": 188,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -79,14 +79,14 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 110,
-          "text": "Pernah lembur sampai gedung tinggal kamu sendiri?"
+          "startFrame": 4,
+          "endFrame": 145,
+          "text": "Pernah lembur di gedung dua belas lantai sampai tinggal kamu sendiri?"
         },
         {
-          "startFrame": 110,
-          "endFrame": 303,
-          "text": "Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini."
+          "startFrame": 145,
+          "endFrame": 222,
+          "text": "Liftnya berhenti di lantai sembilan belas."
         }
       ],
       "visual": {
@@ -109,12 +109,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 195,
+            "startFrame": 143,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 258,
+            "startFrame": 188,
             "volume": 0.4
           }
         ]
@@ -123,26 +123,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 211,
+      "durationFrames": 213,
       "image": "images/scene-02.png",
       "narration": "Kamu menekan dua belas. Angkanya naik sampai sembilan belas, lalu pintunya terbuka.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 59,
+          "atFrame": 60,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 118,
+          "atFrame": 119,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 173,
+          "atFrame": 175,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -151,13 +151,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 70,
+          "startFrame": 4,
+          "endFrame": 71,
           "text": "Kamu menekan dua belas."
         },
         {
-          "startFrame": 70,
-          "endFrame": 199,
+          "startFrame": 71,
+          "endFrame": 205,
           "text": "Angkanya naik sampai sembilan belas, lalu pintunya terbuka."
         }
       ],
@@ -181,12 +181,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 131,
+            "startFrame": 132,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 173,
+            "startFrame": 175,
             "volume": 0.4
           }
         ]
@@ -195,26 +195,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 276,
+      "durationFrames": 225,
       "image": "images/scene-03.png",
-      "narration": "Di luar lift ada kantor yang sama persis dengan lantaimu. Semua komputer menyala, semua kursi berputar pelan.",
+      "narration": "Di luar lift ada kantor yang sama persis dengan lantaimu. Semua kursi berputar pelan.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 77,
+          "atFrame": 63,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 155,
+          "atFrame": 126,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 226,
+          "atFrame": 184,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -223,14 +223,14 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 158,
+          "startFrame": 4,
+          "endFrame": 156,
           "text": "Di luar lift ada kantor yang sama persis dengan lantaimu."
         },
         {
-          "startFrame": 158,
-          "endFrame": 264,
-          "text": "Semua komputer menyala, semua kursi berputar pelan."
+          "startFrame": 156,
+          "endFrame": 217,
+          "text": "Semua kursi berputar pelan."
         }
       ],
       "visual": {
@@ -253,12 +253,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 171,
+            "startFrame": 140,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 226,
+            "startFrame": 184,
             "volume": 0.4
           }
         ]
@@ -267,26 +267,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 276,
+      "durationFrames": 201,
       "image": "images/scene-04.png",
-      "narration": "Di ruang rapat, rekan-rekanmu duduk dengan pakaian hari ini. Tidak ada yang bergerak. Tidak ada yang bernafas.",
+      "narration": "Di ruang rapat, rekan-rekanmu duduk dengan pakaian hari ini. Tidak ada yang bernapas.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 77,
+          "atFrame": 57,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 155,
+          "atFrame": 112,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 226,
+          "atFrame": 165,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -295,19 +295,14 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 143,
+          "startFrame": 4,
+          "endFrame": 135,
           "text": "Di ruang rapat, rekan-rekanmu duduk dengan pakaian hari ini."
         },
         {
-          "startFrame": 143,
-          "endFrame": 204,
-          "text": "Tidak ada yang bergerak."
-        },
-        {
-          "startFrame": 204,
-          "endFrame": 264,
-          "text": "Tidak ada yang bernafas."
+          "startFrame": 135,
+          "endFrame": 193,
+          "text": "Tidak ada yang bernapas."
         }
       ],
       "visual": {
@@ -330,12 +325,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 171,
+            "startFrame": 125,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 226,
+            "startFrame": 165,
             "volume": 0.4
           }
         ]
@@ -344,26 +339,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 237,
+      "durationFrames": 254,
       "image": "images/scene-05.png",
       "narration": "Salah satu menoleh. Wajahnya kosong tanpa mata, dan ia mengangkat tangan seperti menyuruhmu duduk.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 66,
+          "atFrame": 71,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 133,
+          "atFrame": 143,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 194,
+          "atFrame": 208,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -372,13 +367,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 53,
+          "startFrame": 4,
+          "endFrame": 56,
           "text": "Salah satu menoleh."
         },
         {
-          "startFrame": 53,
-          "endFrame": 225,
+          "startFrame": 56,
+          "endFrame": 246,
           "text": "Wajahnya kosong tanpa mata, dan ia mengangkat tangan seperti menyuruhmu duduk."
         }
       ],
@@ -403,12 +398,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 147,
+            "startFrame": 158,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 194,
+            "startFrame": 208,
             "volume": 0.4
           }
         ]
@@ -417,26 +412,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 276,
+      "durationFrames": 262,
       "image": "images/scene-06.png",
       "narration": "Kamu menekan satu. Pintunya terbuka ke ruang rapat yang sama, dan yang duduk di kursimu sedang menunggumu.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 77,
+          "atFrame": 73,
           "camera": "pull_out",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 155,
+          "atFrame": 147,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 226,
+          "atFrame": 215,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -445,13 +440,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 52,
+          "startFrame": 4,
+          "endFrame": 48,
           "text": "Kamu menekan satu."
         },
         {
-          "startFrame": 52,
-          "endFrame": 264,
+          "startFrame": 48,
+          "endFrame": 254,
           "text": "Pintunya terbuka ke ruang rapat yang sama, dan yang duduk di kursimu sedang menunggumu."
         }
       ],
@@ -476,12 +471,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 171,
+            "startFrame": 162,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 226,
+            "startFrame": 215,
             "volume": 0.4
           }
         ]
@@ -490,26 +485,26 @@
     {
       "id": "scene_07",
       "order": 6,
-      "durationFrames": 263,
+      "durationFrames": 239,
       "image": "images/scene-07.png",
       "narration": "Kalau kamu tidak ingin lift itu berhenti di lantaimu, klik subscribe. Komentar: pernah naik lift sendirian?",
       "narrationAudio": "audio/narration/scene-07.mp3",
       "cuts": [
         {
-          "atFrame": 74,
+          "atFrame": 67,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 147,
+          "atFrame": 134,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 216,
+          "atFrame": 196,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -518,13 +513,13 @@
       ],
       "subtitles": [
         {
-          "startFrame": 6,
-          "endFrame": 174,
+          "startFrame": 4,
+          "endFrame": 160,
           "text": "Kalau kamu tidak ingin lift itu berhenti di lantaimu, klik subscribe."
         },
         {
-          "startFrame": 174,
-          "endFrame": 251,
+          "startFrame": 160,
+          "endFrame": 231,
           "text": "Komentar: pernah naik lift sendirian?"
         }
       ],
@@ -547,12 +542,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.wav",
-            "startFrame": 163,
+            "startFrame": 148,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.wav",
-            "startFrame": 216,
+            "startFrame": 196,
             "volume": 0.4
           }
         ]

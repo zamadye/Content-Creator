@@ -1033,14 +1033,14 @@
       "structure": "perjalanan lift (naik → berhenti → turun)",
       "story": {
         "title": "Lantai Sembilan Belas",
-        "hook": "Pernah lembur sampai gedung tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini.",
+        "hook": "Pernah lembur di gedung dua belas lantai sampai tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas.",
         "premise": "Karyawan yang lembur sendirian naik lift dan menemukan panel berisi lantai yang tidak ada di gedung itu.",
         "twist": "Lantai sembilan belas adalah gedung yang sama, hanya saja semua orang di dalamnya masih lembur, dan mereka tidak pernah pulang.",
         "ending": "Lift kembali ke lantai satu, tetapi pintunya membuka ke ruang rapat yang sama — dan dirinya sudah duduk di kursi itu, menunggu."
       },
       "scenes": [
         {
-          "narration": "Pernah lembur sampai gedung tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas, lantai yang tidak ada di gedung ini.",
+          "narration": "Pernah lembur di gedung dua belas lantai sampai tinggal kamu sendiri? Liftnya berhenti di lantai sembilan belas.",
           "imagePrompt": "office elevator interior at night, brushed steel walls, numbered buttons panel, one extra unlabeled button glowing, harsh light, cinematic",
           "camera": "static",
           "shot": "medium",
@@ -1066,7 +1066,7 @@
           "intensity": 0.75
         },
         {
-          "narration": "Di luar lift ada kantor yang sama persis dengan lantaimu. Semua komputer menyala, semua kursi berputar pelan.",
+          "narration": "Di luar lift ada kantor yang sama persis dengan lantaimu. Semua kursi berputar pelan.",
           "imagePrompt": "empty open plan office at night with monitors on and office chairs slowly turned toward the camera, cold light, wide cinematic",
           "camera": "handheld",
           "shot": "wide",
@@ -1079,7 +1079,7 @@
           "intensity": 0.8
         },
         {
-          "narration": "Di ruang rapat, rekan-rekanmu duduk dengan pakaian hari ini. Tidak ada yang bergerak. Tidak ada yang bernafas.",
+          "narration": "Di ruang rapat, rekan-rekanmu duduk dengan pakaian hari ini. Tidak ada yang bernapas.",
           "imagePrompt": "meeting room at night with several people sitting still with their backs to the camera, monitors glowing, no faces visible, cinematic dread",
           "camera": "push_in",
           "shot": "medium",

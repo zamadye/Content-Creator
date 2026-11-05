@@ -98,13 +98,14 @@ unggah dan metadata diperbaiki — bukan bersamaan.
 4. **LS-0010 naskahnya diubah di scene 1** agar dibuka dengan sapaan penonton,
    bukan laporan gedung.
 
-## 5. Yang belum diputuskan
+## 5. Keputusan pemilik kanal: dua slot per hari
 
-Irama unggah. Rekomendasi: **satu unggahan per hari, jam tetap**, sampai ada
-video yang melewati 100 tayangan — lalu naikkan lagi. Alasan: kalau penjelasan
-(1) atau (2) yang benar, menambah unggahan memperburuk; kalau penjelasan (3)
-yang benar, tidak ada ruginya karena tayangan yang tertunda tetap terhitung.
-Keputusan ini mengubah arahan lama "jeda ±1 jam", jadi menunggu pemilik kanal.
+Irama unggah diganti dari "±1 jam sekali" menjadi **dua slot tetap per hari** —
+09.00 WIB (02.00 UTC) dan 20.00 WIB (13.00 UTC). Alasinya ada di
+`knowledge/growth.md`; ringkasnya: sembilan unggahan beruntun berakhir nol, dan
+pengalaman sebelumnya menunjukkan kanal perlu terlihat punya jadwal, bukan
+semburan. Yang berubah bukan hanya jaraknya, tapi juga jumlah: dari delapan
+video per hari menjadi dua.
 
 ## 6. Cara menilai ulang
 

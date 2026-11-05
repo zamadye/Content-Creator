@@ -32,5 +32,17 @@ log "release diganti: $(ls -la releases/LL-0001.mp4 | awk '{printf "%.1f MB", $5
 cd /home/user/Content-Creator || exit 1
 git add the-last-signal/releases/LL-0001.mp4 the-last-signal/projects/episodes/LL-0001/reports the-last-signal/knowledge
 git commit -q -m "render(LL-0001): 57 shot + atmosfer bergerak, QC lolos — release diganti" || log "tidak ada yang berubah"
-git push -q origin arena/479de245-content-creator && log "push ok"
-log "selesai"
+
+# push bisa ditolak kalau ada commit lain masuk selagi render berjalan —
+# ulangi setelah rebase, dan jangan pernah mengaku sukses tanpa konfirmasi.
+for attempt in 1 2 3; do
+  if git push -q origin arena/479de245-content-creator; then
+    log "push ok (percobaan $attempt)"
+    log "selesai"
+    exit 0
+  fi
+  log "push ditolak (percobaan $attempt) — rebase lalu ulangi"
+  git pull --rebase -q origin arena/479de245-content-creator || sleep 20
+done
+log "GAGAL: tidak bisa push setelah 3 percobaan — release sudah diganti secara lokal, commit tertinggal"
+exit 1

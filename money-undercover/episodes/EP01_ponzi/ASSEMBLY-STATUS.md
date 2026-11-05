@@ -7,15 +7,16 @@
 
 ## Deliverable
 
-**`render/out/EP01-ponzi-1080p24.mp4`** — 115 MB
+**`render/out/EP01-ruangmargin-1080p24-AV.mp4`** — rebrand render + VO mux (supersedes picture-lock `EP01-ponzi-1080p24.mp4`)
 
 | Spec | Value |
 |---|---|
-| Duration | 11:25.00 (within 8–12 min target) |
+| Duration | 11:25.00 video / 11:25.02 A+V (within 8–12 min target) |
 | Frames | 16,440 @ 24 fps (exact) |
 | Resolution | 1920×1080, 16:9 SAR/DAR 1:1 |
-| Codec | H.264 High, yuv420p, CRF 18 |
-| Audio | none (picture-lock cut — VO pending, see below) |
+| Codec | H.264 High, CRF 18 master / CRF 22 upload copy |
+| Audio | VO track `vo/vo_track_final.wav` → AAC LC 192k, loudnorm −16 LUFS / TP −1.5 dB, voice-00, 14-scene cue cascade (MIX-PLAN.md) |
+| QC | see `QC-RESULTS.md` (frame QC f00600/f16200 + A/V sync anchors ✓) |
 
 ## Toolchain (all verified working in this environment)
 
@@ -50,11 +51,11 @@ Pre-fix render archived as `render/out/EP01-ponzi-1080p24.pre-fix.mp4`.
 
 ## Remaining before publish
 
-- [x] **Rebrand (user)**: brand renamed MONEY UNDERCOVER → **RUANG MARGIN** — docs (00/01/03/04/05/10) + render source (brand bug, outro) + Drive sync done; full re-render running → `render/out/EP01-ruangmargin-1080p24.mp4` (supersedes `EP01-ponzi-1080p24.mp4`)
+- [x] **Rebrand (user)**: brand renamed MONEY UNDERCOVER → **RUANG MARGIN** — docs (00/01/03/04/05/10) + render source (brand bug, outro) + Drive sync done; rebrand render DONE → `render/out/EP01-ruangmargin-1080p24.mp4` (16,440f, QC f00600/f16200 pass)
 - [x] Thumbnail final: `assets/THUMB_EP01_FINAL.png` (1280×720; headline "MEREKA DIBAYAR." bone+amber, RUANG MARGIN mark; from THUMB_EP01_CONCEPT_01)
-- [ ] **VO recording** (Stage 08 script + cue sheet ready) → mix; add `<Audio>` in Remotion or mux with ffmpeg → re-render audio track
-- [ ] Full `QC-CHECKLIST.md` final-video section (audio loudness, etc.)
-- [ ] Publish per `10-publishing-package.md`
+- [x] **VO recording**: voice-00, 14/14 scene clips from Stage-08 script → cue cascade atempo mix → `vo/vo_track_final.wav` (685.00 s, −16 LUFS) → muxed into `-AV.mp4`; A/V sync anchors verified
+- [x] `QC-RESULTS.md` written (video + audio sections); music/SFX pass not produced (VO-only delivery)
+- [ ] Upload CRF-22 copy → Drive; publish per `10-publishing-package.md`
 
 ## Scene → asset map (as implemented in `render/src/Episode.tsx`)
 

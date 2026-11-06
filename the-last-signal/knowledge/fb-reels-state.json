@@ -22,12 +22,17 @@
     "LS-0001": {
       "status": "error",
       "note": "media tidak bisa disiapkan",
-      "at": "2026-11-06T03:47:46.782Z"
+      "at": "2026-11-06T04:02:57.765Z"
     },
     "LS-0002": {
       "status": "error",
-      "note": "media tidak bisa disiapkan",
-      "at": "2026-11-06T03:47:49.312Z"
+      "runId": 42161058091,
+      "conclusion": "failure",
+      "request": "the-last-signal/publish-queue/2026-11-06T04-11-FBREEL-LS-0002.json",
+      "postedAt": null,
+      "url": null,
+      "conclusion_was": "failure",
+      "at": "2026-11-06T04:18:07.894Z"
     },
     "LS-0003": {
       "status": "error",
@@ -38,16 +43,6 @@
       "status": "error",
       "note": "media tidak bisa disiapkan",
       "at": "2026-11-06T03:47:53.367Z"
-    },
-    "LS-0005": {
-      "status": "error",
-      "runId": 42160041766,
-      "conclusion": "cancelled",
-      "request": "the-last-signal/publish-queue/2026-11-06T04-01-FBREEL-LS-0005.json",
-      "postedAt": null,
-      "url": null,
-      "conclusion_was": "cancelled",
-      "at": "2026-11-06T04:12:13.410Z"
     }
   }
 }

@@ -608,6 +608,74 @@ def sfx_detak_jantung():
     return normalize(stereo(out, width=0.25), -4.0)
 
 
+def sfx_geraman_setan():
+    """Geraman: sumber nada rendah yang dicacah, bukan derau — terdengar bernapas."""
+    dur = 4.2
+    tt = t(dur)
+    base = saw(np.linspace(52, 40, len(tt)), dur) * 0.5 + saw(np.linspace(78, 61, len(tt)), dur) * 0.3
+    # cacahan 11 Hz membuatnya terdengar seperti tenggorokan, bukan sinyal uji
+    grate = 0.45 + 0.55 * (0.5 + 0.5 * np.sin(2 * np.pi * 11 * tt + 0.6 * np.sin(2 * np.pi * 3 * tt)))
+    growl = lowpass(base * grate, 900)
+    breath = bandpass(RNG.standard_normal(len(tt)), 200, 1800) * 0.22 * grate
+    out = (growl + breath) * env(dur, attack=0.35, decay=0.9)
+    out = reverb(out, 1.6, 0.28, seed=41)
+    return normalize(stereo(out, width=0.5), -3.0)
+
+
+def sfx_teriakan():
+    """Pekik: saturasi tajam dengan forman naik — jangan dipakai lebih dari sekali."""
+    dur = 2.2
+    tt = t(dur)
+    f0 = np.linspace(320, 780, len(tt)) * (1 + 0.03 * np.sin(2 * np.pi * 8 * tt))
+    src = saw(f0, dur) + 0.6 * saw(f0 * 2.02, dur)
+    scream = bandpass(src, 700, 3200) * 0.8 + bandpass(src, 2200, 5200) * 0.4
+    scream *= np.sin(np.pi * np.clip(tt / dur, 0, 1)) ** 0.7
+    rasp = bandpass(RNG.standard_normal(len(tt)), 1200, 6000) * 0.2
+    out = np.tanh((scream + rasp) * 1.8) * 0.7
+    out = reverb(out, 1.4, 0.3, seed=42)
+    return normalize(stereo(out, width=0.6), -2.0)
+
+
+def sfx_tangisan():
+    """Tangis perempuan dari ruang lain: dua nada turun, tanpa kata."""
+    dur = 7.0
+    out = np.zeros(int(dur * SR))
+    starts = [0.2, 1.15, 2.35, 3.1, 4.4, 5.25, 6.0]
+    for index, start in enumerate(starts):
+        length = RNG.uniform(0.55, 0.95)
+        m = int(length * SR)
+        tt = np.arange(m) / SR
+        f0 = (420 if index % 2 == 0 else 370) * (1 - 0.18 * tt / length)
+        vib = 1 + 0.02 * np.sin(2 * np.pi * 6.5 * tt)
+        voice = sine(f0 * vib, length) + 0.45 * sine(f0 * 2 * vib, length) + 0.18 * sine(f0 * 3 * vib, length)
+        voice = bandpass(voice, 300, 2600)
+        sob = 0.55 + 0.45 * np.sin(2 * np.pi * 9 * tt) ** 2
+        voice *= np.sin(np.pi * tt / length) ** 0.8 * 0.3 * sob
+        i = int(start * SR)
+        seg = voice[: min(m, len(out) - i)]
+        out[i:i + len(seg)] += seg
+    out = reverb(out, 2.4, 0.35, seed=43)
+    return normalize(stereo(out, width=0.7), -5.0)
+
+
+def sfx_desahan_iblis():
+    """Desahan berlapis: tiga napas dengan nada berbeda, seperti lebih dari satu mulut."""
+    dur = 5.5
+    out = np.zeros(int(dur * SR))
+    for k, (start, low, high) in enumerate(((0.0, 180, 900), (1.2, 140, 700), (2.6, 220, 1100))):
+        length = RNG.uniform(1.1, 1.6)
+        m = int(length * SR)
+        tt = np.arange(m) / SR
+        breath = bandpass(RNG.standard_normal(m), low, high)
+        tone = sine(np.linspace(88, 62, m), length) * 0.25
+        layer = (breath * 0.5 + tone) * np.sin(np.pi * tt / length) ** 1.4
+        i = int(start * SR)
+        seg = layer[: min(m, len(out) - i)]
+        out[i:i + len(seg)] += seg * (0.5 - 0.08 * k)
+    out = reverb(out, 2.0, 0.32, seed=44)
+    return normalize(stereo(out, width=0.75), -5.0)
+
+
 # ── Daftar aset ───────────────────────────────────────────────────────────────
 @dataclass
 class Asset:
@@ -646,6 +714,11 @@ ASSETS: list[Asset] = [
     Asset("sfx_riser", "sfx", ["naik", "tegang", "sebelum", "klimaks"], "Riser 6 s.", sfx_riser),
     Asset("sfx_whoosh", "sfx", ["transisi", "pindah", "cepat"], "Whoosh 1,3 s.", sfx_whoosh),
     Asset("sfx_detak_jantung", "sfx", ["jantung", "detak", "tegang", "tunggu"], "Detak jantung 8 s.", sfx_detak_jantung),
+
+    Asset("sfx_geraman_setan", "sfx", ["geram", "setan", "iblis", "makhluk", "dekat"], "Geraman bertenggorokan 4,2 s.", sfx_geraman_setan),
+    Asset("sfx_teriakan", "sfx", ["teriak", "pekik", "kaget", "klimaks"], "Pekik 2,2 s — sekali per episode.", sfx_teriakan),
+    Asset("sfx_tangisan", "sfx", ["tangis", "menangis", "perempuan", "ruang"], "Tangis dari ruang lain 7 s.", sfx_tangisan),
+    Asset("sfx_desahan_iblis", "sfx", ["desah", "napas", "iblis", "berlapis", "dekat"], "Desahan tiga lapis 5,5 s.", sfx_desahan_iblis),
 ]
 
 

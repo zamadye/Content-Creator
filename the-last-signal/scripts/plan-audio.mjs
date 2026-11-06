@@ -58,6 +58,10 @@ const TRIGGERS = [
   { regex: /logam|besi|rantai|pipa|pagar besi/, asset: "sfx_logam_tergesek", volume: 0.45, weight: 6 },
   { regex: /jantung|dada|berdebar|degup/, asset: "sfx_detak_jantung", volume: 0.45, weight: 7 },
   { regex: /lari|kabur|berlari|dikejar/, asset: "sfx_whoosh", volume: 0.35, weight: 5 },
+  { regex: /geram|menggeram|setan|iblis|makhluk|bayangan itu|bukan manusia/, asset: "sfx_geraman_setan", volume: 0.5, weight: 9 },
+  { regex: /teriak|berteriak|pekik|menjerit|menjeri/, asset: "sfx_teriakan", volume: 0.5, weight: 9 },
+  { regex: /tangis|menangis|tersedu|isak/, asset: "sfx_tangisan", volume: 0.45, weight: 8 },
+  { regex: /desah|mendesah|napas di telinga|tepat di belakang/, asset: "sfx_desahan_iblis", volume: 0.45, weight: 8 },
 ];
 
 /** Bed dipilih dari tema episode, bukan dari satu scene. */

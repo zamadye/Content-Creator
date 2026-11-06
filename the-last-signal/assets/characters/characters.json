@@ -1,0 +1,41 @@
+{
+  "catatan": "Bible visual THE LAST SIGNAL. Berkas di folder ini adalah acuan gambar, bukan gambar yang dipakai langsung di episode. Saat membuat gambar scene, sertakan berkas acuan sebagai referensi dan tempelkan promptCore ke prompt adegan.",
+  "aturan": [
+    "Tokoh utama harus terlihat di minimal dua shot per episode — bukan hanya POV kosong.",
+    "Entitas muncul pertama sebagai siluet atau bagian tubuh (tangan, rambut, kaki) sebelum pernah tampil utuh.",
+    "Wajah entitas tidak pernah tajam. Samar, terpotong rambut, atau di luar fokus.",
+    "Wajah tokoh utama tidak pernah menghadap kamera; penonton yang mengisi wajahnya.",
+    "Warna: tokoh utama selalu lampu ponsel hangat (amber) di antara bayangan biru-hijau dingin."
+  ],
+  "characters": [
+    {
+      "id": "protagonis",
+      "nama": "Tokoh utama (punggung)",
+      "berkas": "assets/characters/protagonis-punggung.png",
+      "peran": "orang kedua — penonton",
+      "promptCore": "young Indonesian man, late twenties, seen from behind only, worn dark green coach jacket over a plain black t-shirt, dark jeans, cheap rubber sandals, grey canvas backpack on one shoulder, shoulder-length black hair tied loosely, right hand holding an old phone with the flashlight on, face never visible",
+      "promptLingkungan": "old Indonesian boarding house corridor at night, damp concrete walls, peeling paint, warm phone light against cold blue-green shadows, 35mm film grain",
+      "negatif": "no face visible, no smiling, no studio lighting, no text, no watermark"
+    },
+    {
+      "id": "entitas-penunggu",
+      "nama": "Penunggu",
+      "berkas": "assets/characters/entitas-penunggu.png",
+      "peran": "entitas utama",
+      "promptCore": "extremely tall emaciated humanoid entity of uncertain gender, about 2.2 meters, soaked filthy plain long grey-white garment to the ankles, neck slightly too long and bent forward, narrow shoulders, arms hanging past the knees, long wet black hair over a smooth blank face with no eyes and no mouth, pale grey skin with dark water-damage blotches, human hands with one joint too many, standing perfectly still as if waiting",
+      "promptLingkungan": "dark empty concrete corridor, single distant bare bulb, deep shadows, thin warm rim light on one shoulder",
+      "negatif": "no lunging pose, no open mouth, no visible eyes, no gore, no blood, no text, no watermark",
+      "catatan": "Dipakai sebagai siluet di awal episode, utuh hanya sekali, dan selalu di tengah frame dengan ruang kosong di sekelilingnya."
+    },
+    {
+      "id": "entitas-bayangan",
+      "nama": "Bayangan di ujung lorong",
+      "berkas": null,
+      "peran": "varian jauh (belum dibuat)",
+      "promptCore": "same entity as entitas-penunggu, seen far away at the end of the corridor, mostly silhouette, only the outline and the wet hair catching light, no detail readable",
+      "promptLingkungan": "long empty corridor, single bulb blowing out",
+      "negatif": "no face detail, no text, no watermark",
+      "catatan": "Dibuat saat dibutuhkan dengan entitas-penunggu.png sebagai referensi."
+    }
+  ]
+}

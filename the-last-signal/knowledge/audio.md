@@ -8,7 +8,7 @@ Sebelum ini, episode hanya punya satu ambience drone dan tiga efek
 (`knock`, `heartbeat`, `scare`) yang ditempel manual. Tidak ada musik, tidak ada
 suara yang mengikuti apa yang sedang diceritakan.
 
-Sekarang ada 26 aset di `assets/audio/horror/`, semuanya
+Sekarang ada 30 aset di `assets/audio/horror/`, semuanya
 disintesis sendiri oleh `tools/audio/build-horror-assets.py` — bukan diunduh.
 Alasannya bukan sekadar ukuran berkas: aset yang dibuat dari rumus bebas
 royalti, bisa dibangun ulang dengan hasil identik (seed tetap), dan tidak akan
@@ -41,7 +41,9 @@ tidak jadi jauh lebih pelan daripada drone.
 | `sfx_anak_bersenandung` | 10.0 s | -20 dB | Senandung anak tanpa kata 10 s. | anak, senandung, lemari, musik |
 | `sfx_angin` | 24.0 s | -25 dB | Angin 24 s. | angin, luar, malam, jendela |
 | `sfx_bisikan` | 4.2 s | -20 dB | Bisikan 4,2 s dengan forman bergerak. | bisik, suara, nama, telinga |
+| `sfx_desahan_iblis` | 5.5 s | -18 dB | Desahan tiga lapis 5,5 s. | desah, napas, iblis, berlapis, dekat |
 | `sfx_detak_jantung` | 8.0 s | -21 dB | Detak jantung 8 s. | jantung, detak, tegang, tunggu |
+| `sfx_geraman_setan` | 4.2 s | -16 dB | Geraman bertenggorokan 4,2 s. | geram, setan, iblis, makhluk, dekat |
 | `sfx_hujan` | 40.0 s | -22 dB | Hujan 40 s, loop-able. | hujan, deras, malam, luar |
 | `sfx_jam_berdetak` | 12.0 s | -29 dB | Detak 12 s. | jam, detak, waktu, tunggu |
 | `sfx_ketukan` | 2.4 s | -25 dB | Tiga ketukan 2,4 s. | ketuk, pintu, tok, dinding |
@@ -54,8 +56,10 @@ tidak jadi jauh lebih pelan daripada drone.
 | `sfx_radio_statis` | 4.0 s | -24 dB | Burst statik 4 s. | radio, statik, siaran, putus |
 | `sfx_riser` | 6.0 s | -25 dB | Riser 6 s. | naik, tegang, sebelum, klimaks |
 | `sfx_stinger` | 1.4 s | -17 dB | Pukulan jumpscare 1,4 s. | kaget, jumpscare, pukul, klimaks |
+| `sfx_tangisan` | 7.0 s | -19 dB | Tangis dari ruang lain 7 s. | tangis, menangis, perempuan, ruang |
 | `sfx_tawa_cekikikan` | 3.4 s | -20 dB | Tawa anak 3,4 s — sengaja tidak natural. | tawa, cekikikan, anak, kaget |
 | `sfx_telepon_lama` | 6.0 s | -15 dB | Dering telepon rumah tua 6 s. | telepon, dering, panggilan, kantor |
+| `sfx_teriakan` | 2.2 s | -16 dB | Pekik 2,2 s — sekali per episode. | teriak, pekik, kaget, klimaks |
 | `sfx_tetes_air` | 5.0 s | -19 dB | Tetes air 5 s dengan ruang beton. | air, tetes, bocor, beton |
 | `sfx_whoosh` | 1.3 s | -23 dB | Whoosh 1,3 s. | transisi, pindah, cepat |
 

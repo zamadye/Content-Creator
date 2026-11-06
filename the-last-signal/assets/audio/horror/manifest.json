@@ -151,6 +151,23 @@
       "sizeKb": 58.1
     },
     {
+      "name": "sfx_desahan_iblis",
+      "file": "assets/audio/horror/sfx_desahan_iblis.mp3",
+      "kind": "sfx",
+      "tags": [
+        "desah",
+        "napas",
+        "iblis",
+        "berlapis",
+        "dekat"
+      ],
+      "note": "Desahan tiga lapis 5,5 s.",
+      "durationSeconds": 5.5,
+      "peakDb": -5.0,
+      "rmsDb": -18.4,
+      "sizeKb": 76.2
+    },
+    {
       "name": "sfx_detak_jantung",
       "file": "assets/audio/horror/sfx_detak_jantung.mp3",
       "kind": "sfx",
@@ -165,6 +182,23 @@
       "peakDb": -4.0,
       "rmsDb": -20.9,
       "sizeKb": 110.3
+    },
+    {
+      "name": "sfx_geraman_setan",
+      "file": "assets/audio/horror/sfx_geraman_setan.mp3",
+      "kind": "sfx",
+      "tags": [
+        "geram",
+        "setan",
+        "iblis",
+        "makhluk",
+        "dekat"
+      ],
+      "note": "Geraman bertenggorokan 4,2 s.",
+      "durationSeconds": 4.2,
+      "peakDb": -3.0,
+      "rmsDb": -16.1,
+      "sizeKb": 58.1
     },
     {
       "name": "sfx_hujan",
@@ -358,6 +392,22 @@
       "sizeKb": 20.1
     },
     {
+      "name": "sfx_tangisan",
+      "file": "assets/audio/horror/sfx_tangisan.mp3",
+      "kind": "sfx",
+      "tags": [
+        "tangis",
+        "menangis",
+        "perempuan",
+        "ruang"
+      ],
+      "note": "Tangis dari ruang lain 7 s.",
+      "durationSeconds": 7.0,
+      "peakDb": -5.0,
+      "rmsDb": -18.8,
+      "sizeKb": 96.5
+    },
+    {
       "name": "sfx_tawa_cekikikan",
       "file": "assets/audio/horror/sfx_tawa_cekikikan.mp3",
       "kind": "sfx",
@@ -388,6 +438,22 @@
       "peakDb": -5.0,
       "rmsDb": -14.7,
       "sizeKb": 82.7
+    },
+    {
+      "name": "sfx_teriakan",
+      "file": "assets/audio/horror/sfx_teriakan.mp3",
+      "kind": "sfx",
+      "tags": [
+        "teriak",
+        "pekik",
+        "kaget",
+        "klimaks"
+      ],
+      "note": "Pekik 2,2 s — sekali per episode.",
+      "durationSeconds": 2.2,
+      "peakDb": -2.0,
+      "rmsDb": -15.7,
+      "sizeKb": 30.9
     },
     {
       "name": "sfx_tetes_air",

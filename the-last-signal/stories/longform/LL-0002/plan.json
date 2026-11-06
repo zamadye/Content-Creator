@@ -51,7 +51,7 @@
       "sfx": [],
       "shots": [
         {
-          "image": "images/surat-ukur-2004.png",
+          "image": "images/surat-ukur-2004.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -64,7 +64,7 @@
           "sfx": "satu ketukan kayu"
         },
         {
-          "image": "images/surat-ukur-2004.png",
+          "image": "images/surat-ukur-2004.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -77,7 +77,7 @@
           "sfx": "kertas"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -90,7 +90,7 @@
           "sfx": "pensil"
         },
         {
-          "image": "images/peralatan-ukur.png",
+          "image": "images/peralatan-ukur.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -103,7 +103,7 @@
           "sfx": "debu, angin"
         },
         {
-          "image": "images/peralatan-ukur.png",
+          "image": "images/peralatan-ukur.jpg",
           "camera": "push_in",
           "scale": 1.06,
           "offsetX": 0,
@@ -116,7 +116,7 @@
           "sfx": "satu nada piano"
         },
         {
-          "image": "images/protagonis-belakang.png",
+          "image": "images/protagonis-belakang.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -129,7 +129,7 @@
           "sfx": "angin sawah, jangkrik pagi"
         },
         {
-          "image": "images/s1-07.png",
+          "image": "images/s1-07.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -142,7 +142,7 @@
           "sfx": "kertas"
         },
         {
-          "image": "images/protagonis-belakang.png",
+          "image": "images/protagonis-belakang.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -155,7 +155,7 @@
           "sfx": "uang"
         },
         {
-          "image": "images/s1-09.png",
+          "image": "images/s1-09.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -168,7 +168,7 @@
           "sfx": "pintu"
         },
         {
-          "image": "images/patok.png",
+          "image": "images/patok.jpg",
           "camera": "push_in",
           "scale": 1.18,
           "offsetX": 40,
@@ -181,7 +181,7 @@
           "sfx": "pukulan kayu 3x"
         },
         {
-          "image": "images/s1-11.png",
+          "image": "images/s1-11.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -194,7 +194,7 @@
           "sfx": "suara jauh tanpa kata"
         },
         {
-          "image": "images/s1-12.png",
+          "image": "images/s1-12.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -207,7 +207,7 @@
           "sfx": "motor lewat"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -220,7 +220,7 @@
           "sfx": "halaman buku"
         },
         {
-          "image": "images/layar-alat.png",
+          "image": "images/layar-alat.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -233,7 +233,7 @@
           "sfx": "bunyi konfirmasi"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -246,7 +246,7 @@
           "sfx": "halaman buku"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -259,7 +259,7 @@
           "sfx": "pensil"
         },
         {
-          "image": "images/s1-17.png",
+          "image": "images/s1-17.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -287,7 +287,7 @@
       "sfx": [],
       "shots": [
         {
-          "image": "images/s2-01.png",
+          "image": "images/s2-01.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -300,7 +300,7 @@
           "sfx": "nada panggilan terpotong"
         },
         {
-          "image": "images/s2-02.png",
+          "image": "images/s2-02.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -313,7 +313,7 @@
           "sfx": "pasar, orang"
         },
         {
-          "image": "images/pak-hadi.png",
+          "image": "images/pak-hadi.jpg",
           "camera": "handheld",
           "scale": 1.1,
           "offsetX": -30,
@@ -326,7 +326,7 @@
           "sfx": "map plastik"
         },
         {
-          "image": "images/s2-04.png",
+          "image": "images/s2-04.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -339,7 +339,7 @@
           "sfx": "klik tombol 2x"
         },
         {
-          "image": "images/s2-05.png",
+          "image": "images/s2-05.jpg",
           "camera": "push_in",
           "scale": 1.06,
           "offsetX": 0,
@@ -352,7 +352,7 @@
           "sfx": "pensil"
         },
         {
-          "image": "images/s2-06.png",
+          "image": "images/s2-06.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -365,7 +365,7 @@
           "sfx": "ketukan jari"
         },
         {
-          "image": "images/protagonis-belakang.png",
+          "image": "images/protagonis-belakang.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -378,7 +378,7 @@
           "sfx": "jam berdetik"
         },
         {
-          "image": "images/kamling.png",
+          "image": "images/kamling.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -391,7 +391,7 @@
           "sfx": "angin"
         },
         {
-          "image": "images/s2-09.png",
+          "image": "images/s2-09.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -404,7 +404,7 @@
           "sfx": "langkah"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -417,7 +417,7 @@
           "sfx": "daun beringin"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "push_in",
           "scale": 1.1,
           "offsetX": -30,
@@ -430,7 +430,7 @@
           "sfx": "angin turun"
         },
         {
-          "image": "images/pak-hadi.png",
+          "image": "images/pak-hadi.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -443,7 +443,7 @@
           "sfx": null
         },
         {
-          "image": "images/pak-hadi.png",
+          "image": "images/pak-hadi.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -456,7 +456,7 @@
           "sfx": "jam"
         },
         {
-          "image": "images/s2-14.png",
+          "image": "images/s2-14.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -469,7 +469,7 @@
           "sfx": "ritsleting"
         },
         {
-          "image": "images/s2-15.png",
+          "image": "images/s2-15.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -482,7 +482,7 @@
           "sfx": "kertas"
         },
         {
-          "image": "images/sppt.png",
+          "image": "images/sppt.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -495,7 +495,7 @@
           "sfx": "kertas"
         },
         {
-          "image": "images/sppt.png",
+          "image": "images/sppt.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -508,7 +508,7 @@
           "sfx": "kertas"
         },
         {
-          "image": "images/surat-ukur-2004.png",
+          "image": "images/surat-ukur-2004.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -521,7 +521,7 @@
           "sfx": "kertas"
         },
         {
-          "image": "images/surat-ukur-2004.png",
+          "image": "images/surat-ukur-2004.jpg",
           "camera": "push_in",
           "scale": 1.1,
           "offsetX": -30,
@@ -549,7 +549,7 @@
       "sfx": [],
       "shots": [
         {
-          "image": "images/mang-karta.png",
+          "image": "images/mang-karta.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -562,7 +562,7 @@
           "sfx": "angin, jangkrik"
         },
         {
-          "image": "images/s3-02.png",
+          "image": "images/s3-02.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -575,7 +575,7 @@
           "sfx": "gunting 2x"
         },
         {
-          "image": "images/mang-karta.png",
+          "image": "images/mang-karta.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -588,7 +588,7 @@
           "sfx": null
         },
         {
-          "image": "images/peralatan-ukur.png",
+          "image": "images/peralatan-ukur.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -601,7 +601,7 @@
           "sfx": "logam"
         },
         {
-          "image": "images/peralatan-ukur.png",
+          "image": "images/peralatan-ukur.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -614,7 +614,7 @@
           "sfx": "klik kancing"
         },
         {
-          "image": "images/mang-karta.png",
+          "image": "images/mang-karta.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -627,7 +627,7 @@
           "sfx": null
         },
         {
-          "image": "images/mang-karta.png",
+          "image": "images/mang-karta.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -640,7 +640,7 @@
           "sfx": null
         },
         {
-          "image": "images/s3-08.png",
+          "image": "images/s3-08.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -653,7 +653,7 @@
           "sfx": "angin"
         },
         {
-          "image": "images/s3-09.png",
+          "image": "images/s3-09.jpg",
           "camera": "push_in",
           "scale": 1.06,
           "offsetX": 0,
@@ -666,7 +666,7 @@
           "sfx": "hening, angin berhenti"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -679,7 +679,7 @@
           "sfx": "satu nada rendah"
         },
         {
-          "image": "images/s3-11.png",
+          "image": "images/s3-11.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -692,7 +692,7 @@
           "sfx": null
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -705,7 +705,7 @@
           "sfx": "angin turun"
         },
         {
-          "image": "images/s3-13.png",
+          "image": "images/s3-13.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -718,7 +718,7 @@
           "sfx": "hening"
         },
         {
-          "image": "images/s3-14.png",
+          "image": "images/s3-14.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -747,7 +747,7 @@
       "sfx": [],
       "shots": [
         {
-          "image": "images/peralatan-ukur.png",
+          "image": "images/peralatan-ukur.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -760,7 +760,7 @@
           "sfx": "logam, sekrup"
         },
         {
-          "image": "images/s4-02.png",
+          "image": "images/s4-02.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -773,7 +773,7 @@
           "sfx": "sekrup halus"
         },
         {
-          "image": "images/patok.png",
+          "image": "images/patok.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -786,7 +786,7 @@
           "sfx": "ketukan logam"
         },
         {
-          "image": "images/s4-04.png",
+          "image": "images/s4-04.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -799,7 +799,7 @@
           "sfx": "jangkrik siang"
         },
         {
-          "image": "images/s4-05.png",
+          "image": "images/s4-05.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -812,7 +812,7 @@
           "sfx": "desis panas"
         },
         {
-          "image": "images/layar-alat.png",
+          "image": "images/layar-alat.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -825,7 +825,7 @@
           "sfx": "bunyi bidik 3x"
         },
         {
-          "image": "images/s4-07.png",
+          "image": "images/s4-07.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -838,7 +838,7 @@
           "sfx": "pensil"
         },
         {
-          "image": "images/layar-alat.png",
+          "image": "images/layar-alat.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -851,7 +851,7 @@
           "sfx": "bunyi mati elektronik pendek"
         },
         {
-          "image": "images/layar-alat.png",
+          "image": "images/layar-alat.jpg",
           "camera": "handheld",
           "scale": 1.06,
           "offsetX": 0,
@@ -864,7 +864,7 @@
           "sfx": "ketukan jari"
         },
         {
-          "image": "images/s4-10.png",
+          "image": "images/s4-10.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -877,7 +877,7 @@
           "sfx": "klik plastik"
         },
         {
-          "image": "images/layar-alat.png",
+          "image": "images/layar-alat.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -890,7 +890,7 @@
           "sfx": "hening"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -903,7 +903,7 @@
           "sfx": "langkah"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -916,7 +916,7 @@
           "sfx": "nada nyala, dengung naik"
         },
         {
-          "image": "images/s4-14.png",
+          "image": "images/s4-14.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -929,7 +929,7 @@
           "sfx": "napas"
         },
         {
-          "image": "images/s4-15.png",
+          "image": "images/s4-15.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -942,7 +942,7 @@
           "sfx": "langkah"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -955,7 +955,7 @@
           "sfx": "angin naik"
         },
         {
-          "image": "images/entitas-s4-17.png",
+          "image": "images/entitas-s4-17.jpg",
           "camera": "push_in",
           "scale": 1.06,
           "offsetX": 0,
@@ -968,7 +968,7 @@
           "sfx": "satu nada rendah di bawah ambang"
         },
         {
-          "image": "images/protagonis-belakang.png",
+          "image": "images/protagonis-belakang.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -981,7 +981,7 @@
           "sfx": "ponsel dibuka"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -994,7 +994,7 @@
           "sfx": "shutter 4x"
         },
         {
-          "image": "images/peralatan-ukur.png",
+          "image": "images/peralatan-ukur.jpg",
           "camera": "handheld",
           "scale": 1.24,
           "offsetX": 20,
@@ -1023,7 +1023,7 @@
       "sfx": [],
       "shots": [
         {
-          "image": "images/layar-alat.png",
+          "image": "images/layar-alat.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1036,7 +1036,7 @@
           "sfx": "bunyi konfirmasi"
         },
         {
-          "image": "images/s5-02.png",
+          "image": "images/s5-02.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1049,7 +1049,7 @@
           "sfx": "klik"
         },
         {
-          "image": "images/layar-alat.png",
+          "image": "images/layar-alat.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1062,7 +1062,7 @@
           "sfx": "dengung rendah"
         },
         {
-          "image": "images/s5-04.png",
+          "image": "images/s5-04.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1075,7 +1075,7 @@
           "sfx": "langkah, logam"
         },
         {
-          "image": "images/patok.png",
+          "image": "images/patok.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1088,7 +1088,7 @@
           "sfx": "tanah"
         },
         {
-          "image": "images/peralatan-ukur.png",
+          "image": "images/peralatan-ukur.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1101,7 +1101,7 @@
           "sfx": "pita ditarik, klik"
         },
         {
-          "image": "images/s5-07.png",
+          "image": "images/s5-07.jpg",
           "camera": "push_in",
           "scale": 1.1,
           "offsetX": -30,
@@ -1114,7 +1114,7 @@
           "sfx": "pensil, musik turun"
         },
         {
-          "image": "images/makam.png",
+          "image": "images/makam.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1127,7 +1127,7 @@
           "sfx": "angin"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "handheld",
           "scale": 1.06,
           "offsetX": 0,
@@ -1140,7 +1140,7 @@
           "sfx": "jangkrik malam, langkah"
         },
         {
-          "image": "images/patok.png",
+          "image": "images/patok.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1153,7 +1153,7 @@
           "sfx": "ketukan ringan"
         },
         {
-          "image": "images/s5-11.png",
+          "image": "images/s5-11.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1166,7 +1166,7 @@
           "sfx": "napas ditahan"
         },
         {
-          "image": "images/s5-12.png",
+          "image": "images/s5-12.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1179,7 +1179,7 @@
           "sfx": "ketikan"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1192,7 +1192,7 @@
           "sfx": "pensil"
         },
         {
-          "image": "images/s5-14.png",
+          "image": "images/s5-14.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1205,7 +1205,7 @@
           "sfx": "notifikasi"
         },
         {
-          "image": "images/s5-15.png",
+          "image": "images/s5-15.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1218,7 +1218,7 @@
           "sfx": "notifikasi, hening"
         },
         {
-          "image": "images/patok.png",
+          "image": "images/patok.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1231,7 +1231,7 @@
           "sfx": "burung pagi"
         },
         {
-          "image": "images/entitas-s5-17.png",
+          "image": "images/entitas-s5-17.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1244,7 +1244,7 @@
           "sfx": "tetesan air, satu nada"
         },
         {
-          "image": "images/s5-18.png",
+          "image": "images/s5-18.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1257,7 +1257,7 @@
           "sfx": "tetesan air"
         },
         {
-          "image": "images/s5-19.png",
+          "image": "images/s5-19.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1270,7 +1270,7 @@
           "sfx": "tanah"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1298,7 +1298,7 @@
       "sfx": [],
       "shots": [
         {
-          "image": "images/protagonis-belakang.png",
+          "image": "images/protagonis-belakang.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1311,7 +1311,7 @@
           "sfx": "kertas, kipas angin"
         },
         {
-          "image": "images/pak-darto.png",
+          "image": "images/pak-darto.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1324,7 +1324,7 @@
           "sfx": "kursi berderit"
         },
         {
-          "image": "images/s6-03.png",
+          "image": "images/s6-03.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1337,7 +1337,7 @@
           "sfx": "buku dijatuhkan pelan"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1350,7 +1350,7 @@
           "sfx": "halaman dibuka"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "push_in",
           "scale": 1.06,
           "offsetX": 0,
@@ -1363,7 +1363,7 @@
           "sfx": null
         },
         {
-          "image": "images/s6-06.png",
+          "image": "images/s6-06.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1376,7 +1376,7 @@
           "sfx": "pena menekan"
         },
         {
-          "image": "images/pak-darto.png",
+          "image": "images/pak-darto.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1389,7 +1389,7 @@
           "sfx": "kipas angin"
         },
         {
-          "image": "images/s6-08.png",
+          "image": "images/s6-08.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1402,7 +1402,7 @@
           "sfx": null
         },
         {
-          "image": "images/s6-09.png",
+          "image": "images/s6-09.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1415,7 +1415,7 @@
           "sfx": "satu nada rendah"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1428,7 +1428,7 @@
           "sfx": "hening"
         },
         {
-          "image": "images/surat-ukur-2004.png",
+          "image": "images/surat-ukur-2004.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1441,7 +1441,7 @@
           "sfx": "kertas bergeser"
         },
         {
-          "image": "images/surat-ukur-2004.png",
+          "image": "images/surat-ukur-2004.jpg",
           "camera": "push_in",
           "scale": 1.24,
           "offsetX": 20,
@@ -1454,7 +1454,7 @@
           "sfx": "satu nada piano"
         },
         {
-          "image": "images/surat-ukur-2004.png",
+          "image": "images/surat-ukur-2004.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1467,7 +1467,7 @@
           "sfx": "hening total"
         },
         {
-          "image": "images/surat-ukur-2004.png",
+          "image": "images/surat-ukur-2004.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1480,7 +1480,7 @@
           "sfx": "napas"
         },
         {
-          "image": "images/s6-15.png",
+          "image": "images/s6-15.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1493,7 +1493,7 @@
           "sfx": "hening"
         },
         {
-          "image": "images/surat-ukur-2004.png",
+          "image": "images/surat-ukur-2004.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1506,7 +1506,7 @@
           "sfx": null
         },
         {
-          "image": "images/protagonis-belakang.png",
+          "image": "images/protagonis-belakang.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1519,7 +1519,7 @@
           "sfx": "kipas angin"
         },
         {
-          "image": "images/s6-18.png",
+          "image": "images/s6-18.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1532,7 +1532,7 @@
           "sfx": "kertas berkibar"
         },
         {
-          "image": "images/s6-19.png",
+          "image": "images/s6-19.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1545,7 +1545,7 @@
           "sfx": "hening, kipas"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1558,7 +1558,7 @@
           "sfx": "satu nada rendah panjang"
         },
         {
-          "image": "images/s6-21.png",
+          "image": "images/s6-21.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1571,7 +1571,7 @@
           "sfx": "hening"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1584,7 +1584,7 @@
           "sfx": "halaman buku"
         },
         {
-          "image": "images/s6-23.png",
+          "image": "images/s6-23.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1597,7 +1597,7 @@
           "sfx": "satu nada piano"
         },
         {
-          "image": "images/s6-24.png",
+          "image": "images/s6-24.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1626,7 +1626,7 @@
       "sfx": [],
       "shots": [
         {
-          "image": "images/kamling.png",
+          "image": "images/kamling.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1639,7 +1639,7 @@
           "sfx": "jangkrik"
         },
         {
-          "image": "images/s7-02.png",
+          "image": "images/s7-02.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1652,7 +1652,7 @@
           "sfx": "gelas diletakkan"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "push_in",
           "scale": 1.1,
           "offsetX": -30,
@@ -1665,7 +1665,7 @@
           "sfx": "angin malam"
         },
         {
-          "image": "images/mang-karta.png",
+          "image": "images/mang-karta.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1678,7 +1678,7 @@
           "sfx": null
         },
         {
-          "image": "images/makam.png",
+          "image": "images/makam.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1691,7 +1691,7 @@
           "sfx": "pensil"
         },
         {
-          "image": "images/s7-06.png",
+          "image": "images/s7-06.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1704,7 +1704,7 @@
           "sfx": "kertas"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1717,7 +1717,7 @@
           "sfx": "pena menekan keras"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1730,7 +1730,7 @@
           "sfx": "angin, satu nada"
         },
         {
-          "image": "images/patok.png",
+          "image": "images/patok.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1743,7 +1743,7 @@
           "sfx": "tanah bergeser"
         },
         {
-          "image": "images/berita-acara.png",
+          "image": "images/berita-acara.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1756,7 +1756,7 @@
           "sfx": "pena"
         },
         {
-          "image": "images/s7-11.png",
+          "image": "images/s7-11.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1769,7 +1769,7 @@
           "sfx": "kertas uang"
         },
         {
-          "image": "images/mang-karta.png",
+          "image": "images/mang-karta.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1782,7 +1782,7 @@
           "sfx": null
         },
         {
-          "image": "images/mang-karta.png",
+          "image": "images/mang-karta.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1795,7 +1795,7 @@
           "sfx": null
         },
         {
-          "image": "images/mang-karta.png",
+          "image": "images/mang-karta.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1808,7 +1808,7 @@
           "sfx": "hening"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1821,7 +1821,7 @@
           "sfx": "satu nada rendah"
         },
         {
-          "image": "images/kamling.png",
+          "image": "images/kamling.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1834,7 +1834,7 @@
           "sfx": null
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1847,7 +1847,7 @@
           "sfx": "satu nada rendah panjang"
         },
         {
-          "image": "images/pak-hadi.png",
+          "image": "images/pak-hadi.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1860,7 +1860,7 @@
           "sfx": "radio jauh"
         },
         {
-          "image": "images/s7-19.png",
+          "image": "images/s7-19.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1873,7 +1873,7 @@
           "sfx": "angin"
         },
         {
-          "image": "images/kamling.png",
+          "image": "images/kamling.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1886,7 +1886,7 @@
           "sfx": "jangkrik"
         },
         {
-          "image": "images/kamling.png",
+          "image": "images/kamling.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1914,7 +1914,7 @@
       "sfx": [],
       "shots": [
         {
-          "image": "images/s8-pembuka.png",
+          "image": "images/s8-pembuka.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1927,7 +1927,7 @@
           "sfx": "burung pagi, embun"
         },
         {
-          "image": "images/peralatan-ukur.png",
+          "image": "images/peralatan-ukur.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1940,7 +1940,7 @@
           "sfx": "pita"
         },
         {
-          "image": "images/entitas-s8-03.png",
+          "image": "images/entitas-s8-03.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1953,7 +1953,7 @@
           "sfx": "tanah dipadatkan 3x, napas ditahan"
         },
         {
-          "image": "images/s8-04.png",
+          "image": "images/s8-04.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1966,7 +1966,7 @@
           "sfx": "shutter, klik"
         },
         {
-          "image": "images/berita-acara.png",
+          "image": "images/berita-acara.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1979,7 +1979,7 @@
           "sfx": "pena"
         },
         {
-          "image": "images/berita-acara.png",
+          "image": "images/berita-acara.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1992,7 +1992,7 @@
           "sfx": "kertas ditekan"
         },
         {
-          "image": "images/pak-hadi.png",
+          "image": "images/pak-hadi.jpg",
           "camera": "handheld",
           "scale": 1.1,
           "offsetX": -30,
@@ -2005,7 +2005,7 @@
           "sfx": "suara meninggi tanpa kata"
         },
         {
-          "image": "images/s8-08.png",
+          "image": "images/s8-08.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -2018,7 +2018,7 @@
           "sfx": "hening setelah suara"
         },
         {
-          "image": "images/bu-sri.png",
+          "image": "images/bu-sri.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -2031,7 +2031,7 @@
           "sfx": "uang dihitung"
         },
         {
-          "image": "images/bu-sri.png",
+          "image": "images/bu-sri.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -2044,7 +2044,7 @@
           "sfx": null
         },
         {
-          "image": "images/makam.png",
+          "image": "images/makam.jpg",
           "camera": "push_in",
           "scale": 1.1,
           "offsetX": -30,
@@ -2057,7 +2057,7 @@
           "sfx": "angin, burung"
         },
         {
-          "image": "images/patok.png",
+          "image": "images/patok.jpg",
           "camera": "push_in",
           "scale": 1.24,
           "offsetX": 20,
@@ -2085,7 +2085,7 @@
       "sfx": [],
       "shots": [
         {
-          "image": "images/beringin.png",
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -2098,7 +2098,7 @@
           "sfx": "angin, musik penutup"
         },
         {
-          "image": "images/bu-sri.png",
+          "image": "images/bu-sri.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -2111,7 +2111,7 @@
           "sfx": null
         },
         {
-          "image": "images/s9-03.png",
+          "image": "images/s9-03.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -2124,7 +2124,7 @@
           "sfx": "pena berhenti"
         },
         {
-          "image": "images/buku-c.png",
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -2137,7 +2137,7 @@
           "sfx": "buku ditutup"
         },
         {
-          "image": "images/protagonis-belakang.png",
+          "image": "images/protagonis-belakang.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,

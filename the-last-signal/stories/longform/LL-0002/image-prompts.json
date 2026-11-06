@@ -1,6 +1,6 @@
 [
   {
-    "berkas": "images/buku-c.png",
+    "berkas": "images/buku-c.jpg",
     "segmen": "S1",
     "jumlah_shot": 13,
     "prioritas": true,
@@ -14,7 +14,7 @@
     ]
   },
   {
-    "berkas": "images/surat-ukur-2004.png",
+    "berkas": "images/surat-ukur-2004.jpg",
     "segmen": "S1",
     "jumlah_shot": 9,
     "prioritas": true,
@@ -28,7 +28,7 @@
     ]
   },
   {
-    "berkas": "images/mang-karta.png",
+    "berkas": "images/mang-karta.jpg",
     "segmen": "S3",
     "jumlah_shot": 8,
     "prioritas": true,
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "berkas": "images/protagonis-belakang.png",
+    "berkas": "images/protagonis-belakang.jpg",
     "segmen": "S1",
     "jumlah_shot": 7,
     "prioritas": true,
@@ -56,7 +56,7 @@
     ]
   },
   {
-    "berkas": "images/patok.png",
+    "berkas": "images/patok.jpg",
     "segmen": "S1",
     "jumlah_shot": 7,
     "prioritas": true,
@@ -70,7 +70,7 @@
     ]
   },
   {
-    "berkas": "images/makam.png",
+    "berkas": "images/makam.jpg",
     "segmen": "S5",
     "jumlah_shot": 3,
     "prioritas": true,
@@ -83,7 +83,7 @@
     ]
   },
   {
-    "berkas": "images/berita-acara.png",
+    "berkas": "images/berita-acara.jpg",
     "segmen": "S7",
     "jumlah_shot": 3,
     "prioritas": true,
@@ -96,7 +96,7 @@
     ]
   },
   {
-    "berkas": "images/entitas-s4-17.png",
+    "berkas": "images/entitas-s4-17.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": true,
@@ -107,7 +107,7 @@
     ]
   },
   {
-    "berkas": "images/entitas-s5-17.png",
+    "berkas": "images/entitas-s5-17.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": true,
@@ -118,7 +118,7 @@
     ]
   },
   {
-    "berkas": "images/s8-pembuka.png",
+    "berkas": "images/s8-pembuka.jpg",
     "segmen": "S8",
     "jumlah_shot": 1,
     "prioritas": true,
@@ -129,7 +129,7 @@
     ]
   },
   {
-    "berkas": "images/entitas-s8-03.png",
+    "berkas": "images/entitas-s8-03.jpg",
     "segmen": "S8",
     "jumlah_shot": 1,
     "prioritas": true,
@@ -140,7 +140,7 @@
     ]
   },
   {
-    "berkas": "images/beringin.png",
+    "berkas": "images/beringin.jpg",
     "segmen": "S2",
     "jumlah_shot": 14,
     "prioritas": false,
@@ -154,7 +154,7 @@
     ]
   },
   {
-    "berkas": "images/peralatan-ukur.png",
+    "berkas": "images/peralatan-ukur.jpg",
     "segmen": "S1",
     "jumlah_shot": 8,
     "prioritas": false,
@@ -168,7 +168,7 @@
     ]
   },
   {
-    "berkas": "images/layar-alat.png",
+    "berkas": "images/layar-alat.jpg",
     "segmen": "S1",
     "jumlah_shot": 7,
     "prioritas": false,
@@ -182,7 +182,7 @@
     ]
   },
   {
-    "berkas": "images/pak-hadi.png",
+    "berkas": "images/pak-hadi.jpg",
     "segmen": "S2",
     "jumlah_shot": 5,
     "prioritas": false,
@@ -196,7 +196,7 @@
     ]
   },
   {
-    "berkas": "images/kamling.png",
+    "berkas": "images/kamling.jpg",
     "segmen": "S2",
     "jumlah_shot": 5,
     "prioritas": false,
@@ -210,7 +210,7 @@
     ]
   },
   {
-    "berkas": "images/bu-sri.png",
+    "berkas": "images/bu-sri.jpg",
     "segmen": "S8",
     "jumlah_shot": 3,
     "prioritas": false,
@@ -223,7 +223,7 @@
     ]
   },
   {
-    "berkas": "images/sppt.png",
+    "berkas": "images/sppt.jpg",
     "segmen": "S2",
     "jumlah_shot": 2,
     "prioritas": false,
@@ -235,7 +235,7 @@
     ]
   },
   {
-    "berkas": "images/pak-darto.png",
+    "berkas": "images/pak-darto.jpg",
     "segmen": "S6",
     "jumlah_shot": 2,
     "prioritas": false,
@@ -247,7 +247,7 @@
     ]
   },
   {
-    "berkas": "images/s1-07.png",
+    "berkas": "images/s1-07.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -258,7 +258,7 @@
     ]
   },
   {
-    "berkas": "images/s1-09.png",
+    "berkas": "images/s1-09.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -269,7 +269,7 @@
     ]
   },
   {
-    "berkas": "images/s1-11.png",
+    "berkas": "images/s1-11.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -280,7 +280,7 @@
     ]
   },
   {
-    "berkas": "images/s1-12.png",
+    "berkas": "images/s1-12.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -291,7 +291,7 @@
     ]
   },
   {
-    "berkas": "images/s1-17.png",
+    "berkas": "images/s1-17.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -302,7 +302,7 @@
     ]
   },
   {
-    "berkas": "images/s2-01.png",
+    "berkas": "images/s2-01.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -313,7 +313,7 @@
     ]
   },
   {
-    "berkas": "images/s2-02.png",
+    "berkas": "images/s2-02.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -324,7 +324,7 @@
     ]
   },
   {
-    "berkas": "images/s2-04.png",
+    "berkas": "images/s2-04.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -335,7 +335,7 @@
     ]
   },
   {
-    "berkas": "images/s2-05.png",
+    "berkas": "images/s2-05.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -346,7 +346,7 @@
     ]
   },
   {
-    "berkas": "images/s2-06.png",
+    "berkas": "images/s2-06.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -357,7 +357,7 @@
     ]
   },
   {
-    "berkas": "images/s2-09.png",
+    "berkas": "images/s2-09.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -368,7 +368,7 @@
     ]
   },
   {
-    "berkas": "images/s2-14.png",
+    "berkas": "images/s2-14.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -379,7 +379,7 @@
     ]
   },
   {
-    "berkas": "images/s2-15.png",
+    "berkas": "images/s2-15.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -390,7 +390,7 @@
     ]
   },
   {
-    "berkas": "images/s3-02.png",
+    "berkas": "images/s3-02.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -401,7 +401,7 @@
     ]
   },
   {
-    "berkas": "images/s3-08.png",
+    "berkas": "images/s3-08.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -412,7 +412,7 @@
     ]
   },
   {
-    "berkas": "images/s3-09.png",
+    "berkas": "images/s3-09.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -423,7 +423,7 @@
     ]
   },
   {
-    "berkas": "images/s3-11.png",
+    "berkas": "images/s3-11.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -434,7 +434,7 @@
     ]
   },
   {
-    "berkas": "images/s3-13.png",
+    "berkas": "images/s3-13.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -445,7 +445,7 @@
     ]
   },
   {
-    "berkas": "images/s3-14.png",
+    "berkas": "images/s3-14.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -456,7 +456,7 @@
     ]
   },
   {
-    "berkas": "images/s4-02.png",
+    "berkas": "images/s4-02.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -467,7 +467,7 @@
     ]
   },
   {
-    "berkas": "images/s4-04.png",
+    "berkas": "images/s4-04.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -478,7 +478,7 @@
     ]
   },
   {
-    "berkas": "images/s4-05.png",
+    "berkas": "images/s4-05.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -489,7 +489,7 @@
     ]
   },
   {
-    "berkas": "images/s4-07.png",
+    "berkas": "images/s4-07.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -500,7 +500,7 @@
     ]
   },
   {
-    "berkas": "images/s4-10.png",
+    "berkas": "images/s4-10.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -511,7 +511,7 @@
     ]
   },
   {
-    "berkas": "images/s4-14.png",
+    "berkas": "images/s4-14.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -522,7 +522,7 @@
     ]
   },
   {
-    "berkas": "images/s4-15.png",
+    "berkas": "images/s4-15.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -533,7 +533,7 @@
     ]
   },
   {
-    "berkas": "images/s5-02.png",
+    "berkas": "images/s5-02.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -544,7 +544,7 @@
     ]
   },
   {
-    "berkas": "images/s5-04.png",
+    "berkas": "images/s5-04.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -555,7 +555,7 @@
     ]
   },
   {
-    "berkas": "images/s5-07.png",
+    "berkas": "images/s5-07.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -566,7 +566,7 @@
     ]
   },
   {
-    "berkas": "images/s5-11.png",
+    "berkas": "images/s5-11.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -577,7 +577,7 @@
     ]
   },
   {
-    "berkas": "images/s5-12.png",
+    "berkas": "images/s5-12.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -588,7 +588,7 @@
     ]
   },
   {
-    "berkas": "images/s5-14.png",
+    "berkas": "images/s5-14.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -599,7 +599,7 @@
     ]
   },
   {
-    "berkas": "images/s5-15.png",
+    "berkas": "images/s5-15.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -610,7 +610,7 @@
     ]
   },
   {
-    "berkas": "images/s5-18.png",
+    "berkas": "images/s5-18.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -621,7 +621,7 @@
     ]
   },
   {
-    "berkas": "images/s5-19.png",
+    "berkas": "images/s5-19.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -632,7 +632,7 @@
     ]
   },
   {
-    "berkas": "images/s6-03.png",
+    "berkas": "images/s6-03.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -643,7 +643,7 @@
     ]
   },
   {
-    "berkas": "images/s6-06.png",
+    "berkas": "images/s6-06.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -654,7 +654,7 @@
     ]
   },
   {
-    "berkas": "images/s6-08.png",
+    "berkas": "images/s6-08.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -665,7 +665,7 @@
     ]
   },
   {
-    "berkas": "images/s6-09.png",
+    "berkas": "images/s6-09.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -676,7 +676,7 @@
     ]
   },
   {
-    "berkas": "images/s6-15.png",
+    "berkas": "images/s6-15.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -687,7 +687,7 @@
     ]
   },
   {
-    "berkas": "images/s6-18.png",
+    "berkas": "images/s6-18.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -698,7 +698,7 @@
     ]
   },
   {
-    "berkas": "images/s6-19.png",
+    "berkas": "images/s6-19.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -709,7 +709,7 @@
     ]
   },
   {
-    "berkas": "images/s6-21.png",
+    "berkas": "images/s6-21.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -720,7 +720,7 @@
     ]
   },
   {
-    "berkas": "images/s6-23.png",
+    "berkas": "images/s6-23.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -731,7 +731,7 @@
     ]
   },
   {
-    "berkas": "images/s6-24.png",
+    "berkas": "images/s6-24.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -742,7 +742,7 @@
     ]
   },
   {
-    "berkas": "images/s7-02.png",
+    "berkas": "images/s7-02.jpg",
     "segmen": "S7",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -753,7 +753,7 @@
     ]
   },
   {
-    "berkas": "images/s7-06.png",
+    "berkas": "images/s7-06.jpg",
     "segmen": "S7",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -764,7 +764,7 @@
     ]
   },
   {
-    "berkas": "images/s7-11.png",
+    "berkas": "images/s7-11.jpg",
     "segmen": "S7",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -775,7 +775,7 @@
     ]
   },
   {
-    "berkas": "images/s7-19.png",
+    "berkas": "images/s7-19.jpg",
     "segmen": "S7",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -786,7 +786,7 @@
     ]
   },
   {
-    "berkas": "images/s8-04.png",
+    "berkas": "images/s8-04.jpg",
     "segmen": "S8",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -797,7 +797,7 @@
     ]
   },
   {
-    "berkas": "images/s8-08.png",
+    "berkas": "images/s8-08.jpg",
     "segmen": "S8",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -808,7 +808,7 @@
     ]
   },
   {
-    "berkas": "images/s9-03.png",
+    "berkas": "images/s9-03.jpg",
     "segmen": "S9",
     "jumlah_shot": 1,
     "prioritas": false,

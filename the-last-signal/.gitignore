@@ -26,8 +26,8 @@ report/
 # Backup edit manual episode.json (lokal saja)
 projects/episodes/*/episode.json.bak
 
-# Gambar episode (puluhan berkas ~2,7 MB tiap episode). Disimpan di Drive;
-# yang masuk git hanya promptnya (stories/**/image-prompts.json) dan pilihan
-# kolamnya (stories/**/plan.json), jadi gambar bisa dibuat ulang.
-projects/episodes/*/images/*
-!projects/episodes/*/images/thumb.png
+# Gambar episode HARUS dilacak git: sandbox/runner hanya mempertahankan berkas
+# yang dilacak, jadi gambar yang di-ignore hilang antar-sesi. Disimpan sebagai
+# JPEG (q=4, ±300–500 kB) supaya tidak membengkakkan repo.
+# Gambar dibuat langsung berformat .jpg (bukan PNG lalu dikonversi).
+projects/episodes/*/images/*.png

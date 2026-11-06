@@ -144,7 +144,7 @@ const segments = peta.segmen.map((seg) => {
     // terasa seperti gambar yang sama.
     const step = [1.06, 1.18, 1.1, 1.24][index % 4];
     return {
-      image: `images/${ref}.png`,
+      image: `images/${ref}.jpg`,
       camera: kameraDari(shot.kamera),
       scale: step,
       offsetX: [0, 40, -30, 20][index % 4],
@@ -162,7 +162,7 @@ const segments = peta.segmen.map((seg) => {
   // dipakai dua scene). Kalau kena kolam yang sudah dipakai segmen lain, shot
   // pembuka itu diberi berkasnya sendiri.
   if (masterDipakai.has(shots[0].image)) {
-    shots[0].image = `images/${slug(`${seg.id}-pembuka`)}.png`;
+    shots[0].image = `images/${slug(`${seg.id}-pembuka`)}.jpg`;
   }
   masterDipakai.add(shots[0].image);
 

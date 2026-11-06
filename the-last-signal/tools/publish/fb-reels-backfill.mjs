@@ -42,6 +42,40 @@ const only = arg("only"); // uji: satu episode saja
 const log = (message) => console.log(`[${new Date().toISOString().slice(11, 19)}] ${message}`);
 
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
+
+/**
+ * Kunci berkas. Dua proses backfill pernah berjalan bersamaan (sisa proses lama
+ * yang belum benar-benar mati) dan masing-masing membuat permintaan untuk
+ * episode yang sama — hasilnya satu Reel terbit dua kali.
+ */
+const LOCK_PATH = join(SIGNAL_ROOT, "knowledge", ".fb-reels.lock");
+function takeLock() {
+  if (existsSync(LOCK_PATH)) {
+    const pid = Number(readFileSync(LOCK_PATH, "utf8").trim());
+    let alive = false;
+    try {
+      alive = pid > 0 && process.kill(pid, 0);
+    } catch {
+      alive = false;
+    }
+    if (alive) {
+      log(`proses lain masih berjalan (pid ${pid}) — keluar supaya tidak ada dua penjadwal`);
+      process.exit(0);
+    }
+    log(`kunci basi dari pid ${pid} — diambil alih`);
+  }
+  writeFileSync(LOCK_PATH, String(process.pid));
+  const release = () => {
+    try {
+      if (readFileSync(LOCK_PATH, "utf8").trim() === String(process.pid)) unlinkSync(LOCK_PATH);
+    } catch {
+      /* sudah hilang */
+    }
+  };
+  process.on("exit", release);
+  process.on("SIGTERM", () => process.exit(0));
+  process.on("SIGINT", () => process.exit(0));
+}
 // Penanda versi: setiap perubahan di berkas ini memicu pemeriksaan Zernio,
 // jadi commit kecil di sini juga berfungsi sebagai pemicu saat verifikasi manual.
 
@@ -158,6 +192,8 @@ async function ensureMedia(item) {
 }
 
 function writeRequest(item) {
+  // Berkas permintaan bersifat sekali pakai: setiap perubahan pada berkas
+  // berstatus "requested" memicu satu jalan workflow = satu unggahan tambahan.
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 16);
   const path = join(QUEUE_DIR, `${stamp}-FBREEL-${item.episodeId}.json`);
   const request = {
@@ -239,6 +275,7 @@ async function main() {
   const state = loadState();
   const queue = only ? catalog.filter((item) => item.episodeId === only) : catalog;
 
+  takeLock();
   log(`${queue.length} Shorts dalam katalog: ${queue.map((item) => item.episodeId).join(", ")}`);
 
   for (const item of queue) {

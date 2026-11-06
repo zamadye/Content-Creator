@@ -3,7 +3,7 @@
   "platforms": [
     "facebook"
   ],
-  "status": "requested",
+  "status": "published",
   "createdAt": "2026-11-06T06:47:58.802Z",
   "media": "the-last-signal/releases/LS-0002.mp4",
   "youtube": {
@@ -28,5 +28,6 @@
   "facebook": {
     "title": "TV Daerah Itu Berhenti Mengudara 28 Tahun Lalu. Malam Ini Ia Menyebut Namamu."
   },
-  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook",
+  "note": "terbit lewat workflow; berkas ditutup supaya tidak memicu unggahan ketiga"
 }

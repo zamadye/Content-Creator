@@ -1,50 +1,18 @@
 {
-  "lastPostAt": "2026-11-06T09:33:51Z",
+  "lastPostAt": "2026-11-06T10:53:27Z",
   "items": {
-    "LS-0008": {
-      "status": "posted",
-      "postedAt": "2026-11-05T23:00:08Z",
-      "url": "https://www.facebook.com/reel/1844482003236290",
-      "note": "terverifikasi dari daftar post Zernio"
-    },
-    "LS-0011": {
-      "status": "posted",
-      "postedAt": "2026-11-05T23:36:47Z",
-      "url": "https://www.facebook.com/reel/1462522629410776",
-      "note": "terverifikasi dari daftar post Zernio"
-    },
-    "LS-0009": {
-      "status": "posted",
-      "postedAt": "2026-11-05T23:38:59Z",
-      "url": "https://www.facebook.com/reel/1132739076024331",
-      "note": "terverifikasi dari daftar post Zernio"
-    },
-    "LS-0001": {
-      "status": "posted",
-      "postedAt": "2026-11-06T04:28:38Z",
-      "url": "https://www.facebook.com/reel/1205919018455599",
-      "note": "terverifikasi dari daftar post Zernio"
-    },
-    "LS-0002": {
-      "status": "posted",
-      "postedAt": "2026-11-06T06:47:58Z",
-      "url": "https://www.facebook.com/reel/2591835701239855",
-      "duplicate": {
-        "url": "https://www.facebook.com/reel/1104255752419431",
-        "postedAt": "2026-11-06T06:50:52Z",
-        "note": "terbit dua kali; Zernio menolak menghapus post yang sudah terbit — hapus manual di Meta Business Suite"
-      }
-    },
     "LS-0005": {
       "status": "posted",
       "postedAt": "2026-11-06T09:33:51Z",
       "url": "https://www.facebook.com/reel/1002441906232966",
       "note": "run 42191176183 · 49,0 s · -14,2 LUFS · durasi pendek karena episode ini versi ringkas"
     },
-    "LS-0006": {
-      "status": "error",
-      "note": "push gagal; per 10:33Z belum ada post LS-0006 di akun Zernio",
-      "at": "2026-11-06T08:51:24.892Z"
+    "LS-0010": {
+      "status": "posted",
+      "postedAt": "2026-11-06T10:53:27Z",
+      "url": "https://www.facebook.com/reel/1109243115286734",
+      "youtube": "https://www.youtube.com/watch?v=Yyr8QFQjgA8",
+      "note": "desain v1, unggah dua platform sekaligus (run 42205915549)"
     }
   }
 }

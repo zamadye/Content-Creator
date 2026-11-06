@@ -39,7 +39,7 @@ function arg(name, fallback) {
 }
 
 const storyId = arg("story");
-const slatePath = resolve(ROOT, arg("slate", "stories/slate-2026-11-04.json"));
+const slatePath = resolve(ROOT, arg("slate", "stories/slate.json"));
 
 if (!storyId) {
   console.error("Pakai: node scripts/build-episode.mjs --story LS-0002");

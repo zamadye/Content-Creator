@@ -14,8 +14,8 @@ node scripts/make-overlays.mjs        # tile grain & scanline
 node scripts/make-score.mjs           # skor musik + stinger jump scare
 pnpm test                              # test kontrak
 pnpm validate                          # validasi kontrak episode
-pnpm render                            # → renders/LS-0001.mp4 (master 153 MB)
-pnpm encode                            # → renders/LS-0001-delivery.mp4 (54 MB)
+pnpm render                            # → renders/LS-0010.mp4 (master 153 MB)
+pnpm encode                            # → renders/LS-0010-delivery.mp4
 ```
 
 ---
@@ -31,18 +31,19 @@ pnpm encode                            # → renders/LS-0001-delivery.mp4 (54 MB
 4. **Validasi deterministik lebih dulu.** Schema Zod + pemeriksaan lintas-field,
    sebelum satu frame pun dirender.
 
-## Yang sudah terbit
+## Yang terbit sekarang
 
-| Episode | Judul | Durasi | QC | YouTube |
-| --- | --- | --- | --- | --- |
-| LS-0001 | Jangan Pernah Membuka Lemari Itu Dua Kali | 57,1 s | 8/8 | [8UnXLrjbDqE](https://www.youtube.com/watch?v=8UnXLrjbDqE) |
-| LS-0002 | TV Daerah Itu Berhenti Mengudara 28 Tahun Lalu | 56,2 s | 8/8 | [e9Eh7EV7wHQ](https://www.youtube.com/watch?v=e9Eh7EV7wHQ) |
+Hanya satu episode yang dipakai sebagai acuan desain. Sisanya sudah diarsipkan
+ke Google Drive dan berkasnya dihapus dari repo (lihat `knowledge/drive.md`).
 
-Publikasi berjalan lewat `.github/workflows/zernio-publish.yml`: menambah file di
-`publish-queue/` adalah perintah unggah. Workflow memeriksa ulang QC di runner
-(resolusi, fps, durasi, codec, loudness, true peak, ukuran) sebelum satu byte pun
-diunggah ke Zernio. Lihat `knowledge/` untuk catatan produksi dan `stories/`
-untuk naskah yang belum diproduksi.
+| Episode | Judul | Durasi | QC | YouTube | Facebook |
+| --- | --- | --- | --- | --- | --- |
+| LS-0010 | Lift Berhenti di Lantai 19 | 54,2 s | 9/9 | [Yyr8QFQjgA8](https://www.youtube.com/watch?v=Yyr8QFQjgA8) | [reel](https://www.facebook.com/reel/1109243115286734) |
+
+Desain v1 yang dipakai episode ini — tokoh tetap, entitas tiga kali makin dekat,
+empat suara makhluk, caption satu-tiga kata di tengah layar, shot 1,5 detik,
+bed tanpa jeda — dijelaskan di `knowledge/design-v2.md`, dengan rencana per
+episode di `projects/episodes/LS-0010/design.json`.
 
 ## Struktur
 
@@ -61,9 +62,11 @@ the-last-signal/
 │   ├── stills.ts             QC visual cepat (PNG per frame)
 │   ├── make-demo-audio.mjs   ambience + SFX placeholder deterministik
 │   └── make-overlays.mjs     tile grain & scanline PNG
-├── projects/episodes/LS-0001/  episode demo: episode.json + images + audio + overlays
-├── renders/                  output MP4 & still (git-ignored)
-└── docs/                     arsitektur & catatan phase
+├── projects/episodes/LS-0010/  episode acuan: episode.json + design.json + images-v2 + images/thumb + audio
+├── publish-queue/            satu berkas = satu perintah unggah
+├── releases/                 media yang sedang menunggu diunggah (kosong setelah terbit)
+├── renders/                  output MP4 & still (git-ignored, tidak untuk disimpan)
+└── docs/                     arsitektur
 ```
 
 ## Perintah
@@ -71,15 +74,15 @@ the-last-signal/
 | Perintah | Fungsi |
 | --- | --- |
 | `pnpm validate` | validasi `episode.json` terhadap kontrak + cek aset |
-| `pnpm render` | render episode penuh → `renders/LS-0001.mp4` (master, besar) |
+| `pnpm render` | render episode penuh → `renders/LS-0010.mp4` (master, besar) |
 | `pnpm encode` | transcode master → delivery (crf 24, ~5 Mbps, loudnorm −14 LUFS) |
 | `pnpm qc` | QC deterministik: resolusi, fps, durasi, LUFS, true peak, ukuran, ritme cut |
-| `tsx scripts/align-narration.ts --episode LS-0001` | tulis ulang timing scene + subtitle dari audio TTS |
+| `tsx scripts/align-narration.ts --episode LS-0010` | tulis ulang timing scene + subtitle dari audio TTS |
 | `pnpm render -- --frames 0-59` | render potongan timeline (uji cepat) |
 | `pnpm render -- --scale 0.5` | draft setengah resolusi |
 | `pnpm studio` | Remotion Studio untuk preview interaktif |
 | `pnpm exec tsx scripts/stills.ts --frames 210,760,1320` | still PNG untuk QC |
-| `pnpm exec tsx scripts/new-episode.ts --id LS-0002 --title "Kamar 307"` | scaffold episode baru |
+| `pnpm exec tsx scripts/new-episode.ts --id LS-0011 --title "Kamar 307"` | scaffold episode baru |
 | `pnpm test` | 11 test kontrak (durasi, order, aset, subtitle, disclosure) |
 | `pnpm audio:demo` | regenerate ambience & SFX placeholder |
 
@@ -101,36 +104,41 @@ Kalau variabel ini kosong, Remotion akan mengunduh Chrome Headless Shell sendiri
 
 Satu scene boleh punya beberapa **cut** (`scene.cuts`): master image yang sama
 dipakai dengan framing berbeda, kameranya "mendarat" (punch) di setiap cut, dan
-ada kedipan 2 frame seperti pindah feed kamera. LS-0001 kini 26 shot untuk 50 detik
-— rata-rata 1,9 detik per shot. Tanpa ini, hasilnya memang terasa slideshow.
+ada kedipan 2 frame seperti pindah feed kamera. LS-0010 kini 35 shot untuk 54 detik
+— rata-rata 1,55 detik per shot, sesuai video pembanding (1,0 detik). Tanpa ini,
+hasilnya memang terasa slideshow.
 
 Kartu teks 2–3 kata (`episode.onScreenText`) dipakai sebagai tanda baca ritme:
 `JANGAN DIBUKA` → `PINTU KEDUA` → `TERLAMBAT`.
 
-Alasan dan referensinya ada di [`docs/REFERENCE-NOTES.md`](docs/REFERENCE-NOTES.md).
+Alasan dan angkanya ada di [`knowledge/reference-design.md`](knowledge/reference-design.md).
 
-## Episode demo — LS-0001 “Ketukan Ketiga”
+## Episode acuan — LS-0010 "Lantai Sembilan Belas"
 
-6 scene / 1500 frame / 50 detik: CCTV koridor kosong → pos jaga → lemari besi
-terkunci → isi lemari → sosok di ujung koridor → sinyal putus.
+7 scene / 1624 frame / 54 detik: lift kantor → panel 19 → kantor kosong → ruang
+rapat → makhluk menoleh → pintu lift terbuka lagi → penutup. Isi
+`projects/episodes/LS-0010/episode.json` adalah kontrak lengkap: timing per
+scene, subtitle frame-exact, cue SFX, framing setiap shot, efek.
 
-Isi `projects/episodes/LS-0001/episode.json` adalah kontrak lengkap: timing per
-scene, subtitle (frame-exact), cue SFX, arah kamera, lighting, efek.
+Dua berkas yang membuat episode ini bisa diulang:
 
-> Visual pada episode demo dibuat dengan AI generatif dan seluruh peristiwa adalah
-> fiksi. Format found footage **tidak boleh** dipakai untuk mengklaim kejadian nyata;
-> label `ARSIP FIKSI` dan `publishing.syntheticDisclosure` dijaga oleh schema.
+- `design.json` — keputusan cerita: kapan makhluk muncul, suara apa, kartu teks
+  apa, target panjang shot. Diterapkan oleh `node scripts/plan-design.mjs
+  --episode LS-0010`.
+- `images-v2/` — tujuh adegan + wajah jumpscare, semuanya dengan tokoh tetap.
+
+> Pengungkapan konten sintetis dikirim sebagai **flag unggahan**
+> (`containsSyntheticMedia`, `isAiGenerated`) dan `publishing.syntheticDisclosure`
+> di kontrak. Tidak ada label "ARSIP FIKSI" di frame, judul, deskripsi, maupun
+> komentar — dilarang sejak 2026-11-06 dan ditegakkan `scripts/check-copy.mjs`.
 
 ## Status roadmap
 
 | Phase | Isi | Status |
 | --- | --- | --- |
-| 1 | Fondasi, schema, satu composition, render MP4 | ✅ selesai |
-| 2 | Cinematic engine (camera, grain, flicker, subtitle, sound) | ✅ sebagian besar sudah ikut terbangun |
-| 3 | Research/Story/Director agent, image generation, TTS, alignment | ⏳ berikutnya |
-| 4 | Orchestrator, queue/retry, Continuity + QC agent | ⏳ |
-| 5 | Publishing YouTube + analytics | ⏳ |
-| 6 | Optimasi 30 Shorts | ⏳ |
-
-Detail keputusan teknis dan batas Phase 1: [`docs/PHASE-1.md`](docs/PHASE-1.md).
-Peta arsitektur blueprint → kode: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+| 1 | Fondasi, schema, satu composition, render MP4 | ✅ |
+| 2 | Cinematic engine (camera, grain, flicker, subtitle, sound) | ✅ |
+| 3 | Story/director, image generation, TTS, alignment | ✅ dipakai manual per episode |
+| 4 | Orchestrator, queue/retry, QC agent | ✅ publish + QC otomatis |
+| 5 | Publikasi YouTube + Facebook + analytics | ✅ dua platform per push |
+| 6 | Optimasi: desain v1 sebagai baseline, iterasi berikutnya | ⏳ |

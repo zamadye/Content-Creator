@@ -3,7 +3,7 @@
   "platforms": [
     "facebook"
   ],
-  "status": "requested",
+  "status": "cancelled",
   "createdAt": "2026-11-06T04:11:51.844Z",
   "media": "the-last-signal/releases/LS-0002.mp4",
   "youtube": {
@@ -28,5 +28,6 @@
   "facebook": {
     "title": "TV Daerah Itu Berhenti Mengudara 28 Tahun Lalu. Malam Ini Ia Menyebut Namamu."
   },
-  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook",
+  "note": "run gagal di langkah pertama (git diff 128); diterbitkan ulang oleh backfill"
 }

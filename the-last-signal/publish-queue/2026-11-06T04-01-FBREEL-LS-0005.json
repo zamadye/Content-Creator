@@ -3,7 +3,7 @@
   "platforms": [
     "facebook"
   ],
-  "status": "requested",
+  "status": "cancelled",
   "createdAt": "2026-11-06T04:01:51.875Z",
   "media": "the-last-signal/releases/LS-0005.mp4",
   "youtube": {
@@ -26,5 +26,6 @@
   "facebook": {
     "title": "Video Ini Baru Diunggah Besok Pagi. Ketiga Anak Itu Tidak Pernah Keluar."
   },
-  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook",
+  "note": "run dibatalkan; diterbitkan ulang oleh backfill"
 }

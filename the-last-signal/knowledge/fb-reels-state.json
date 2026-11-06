@@ -5,44 +5,19 @@
       "status": "posted",
       "postedAt": "2026-11-05T23:00:08Z",
       "url": "https://www.facebook.com/reel/1844482003236290",
-      "note": "terverifikasi dari daftar post Zernio (bukan dari kode keluar workflow)"
+      "note": "terverifikasi dari daftar post Zernio"
     },
     "LS-0011": {
       "status": "posted",
       "postedAt": "2026-11-05T23:36:47Z",
       "url": "https://www.facebook.com/reel/1462522629410776",
-      "note": "terverifikasi dari daftar post Zernio (bukan dari kode keluar workflow)"
+      "note": "terverifikasi dari daftar post Zernio"
     },
     "LS-0009": {
       "status": "posted",
       "postedAt": "2026-11-05T23:38:59Z",
       "url": "https://www.facebook.com/reel/1132739076024331",
-      "note": "terverifikasi dari daftar post Zernio (bukan dari kode keluar workflow)"
-    },
-    "LS-0001": {
-      "status": "error",
-      "note": "media tidak bisa disiapkan",
-      "at": "2026-11-06T04:02:57.765Z"
-    },
-    "LS-0002": {
-      "status": "error",
-      "runId": 42161058091,
-      "conclusion": "failure",
-      "request": "the-last-signal/publish-queue/2026-11-06T04-11-FBREEL-LS-0002.json",
-      "postedAt": null,
-      "url": null,
-      "conclusion_was": "failure",
-      "at": "2026-11-06T04:18:07.894Z"
-    },
-    "LS-0003": {
-      "status": "error",
-      "note": "media tidak bisa disiapkan",
-      "at": "2026-11-06T03:47:51.354Z"
-    },
-    "LS-0004": {
-      "status": "error",
-      "note": "media tidak bisa disiapkan",
-      "at": "2026-11-06T03:47:53.367Z"
+      "note": "terverifikasi dari daftar post Zernio"
     }
   }
 }

@@ -1,5 +1,10 @@
 # Insights — THE LAST SIGNAL
 
+> Catatan 2026-11-06: episode yang disebut sebagai bukti di bawah (LS-0001..LS-0011,
+> LL-0001) sudah diarsipkan ke Google Drive dan berkasnya dihapus dari repo.
+> Angkanya tetap berlaku; yang perlu dicari di Drive hanya videonya.
+
+
 Hanya berisi hal yang sudah diukur pada file nyata. Setiap baris menyebut buktinya.
 
 ## Narasi & suara

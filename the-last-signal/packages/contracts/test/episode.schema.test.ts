@@ -6,7 +6,10 @@ import { test } from "node:test";
 import { safeParseEpisode, sceneOffsets, totalFrames } from "../src/episode.schema";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const EPISODE_PATH = join(HERE, "..", "..", "..", "projects", "episodes", "LS-0001", "episode.json");
+// Fixture-nya episode acuan yang benar-benar ada di repo. Dulu LS-0001; episode
+// lama sudah diarsipkan ke Drive (knowledge/drive.md), jadi uji ini menunjuk
+// LS-0010 supaya tetap menguji kontrak, bukan episode yang sudah hilang.
+const EPISODE_PATH = join(HERE, "..", "..", "..", "projects", "episodes", "LS-0010", "episode.json");
 
 const base = () => JSON.parse(readFileSync(EPISODE_PATH, "utf8"));
 
@@ -23,7 +26,7 @@ const issuePaths = (input: unknown) => {
   return result.success ? [] : result.error.issues.map((issue) => issue.path.join("."));
 };
 
-test("episode demo LS-0001 valid", () => {
+test("episode acuan LS-0010 valid", () => {
   const result = safeParseEpisode(base());
   assert.equal(result.success, true, JSON.stringify(result.success ? [] : result.error.issues));
 });

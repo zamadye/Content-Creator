@@ -137,7 +137,9 @@ async function ensureMedia(item) {
     log(`render ${item.episodeId} gagal: ${render.err.slice(-300)}`);
     return false;
   }
-  const encode = sh("npx", ["tsx", "scripts/encode-delivery.ts", "--episode", item.episodeId, "--maxrate", "2.8M", "--crf", "26", "--tp", "-3"], {
+  const encode = sh("npx", // Short lama hanya diunggah ulang ke Facebook, bukan dinaikkan ke YouTube:
+// 1,2M/crf 30 memberi ±9 MB, cukup untuk Reel dan tidak membengkakkan repo.
+    ["tsx", "scripts/encode-delivery.ts", "--episode", item.episodeId, "--maxrate", "1.2M", "--crf", "30", "--tp", "-3"], {
     cwd: SIGNAL_ROOT,
   });
   if (encode.code !== 0) {

@@ -1,4 +1,19 @@
 {
   "catatan": "Daftar episode yang sedang disiapkan. Satu entri = satu episode yang belum dirender. Kosongkan lagi setelah episode selesai diproduksi.",
-  "episodes": []
+  "episodes": [
+    {
+      "episodeId": "LL-0002",
+      "judul": "Dua Belas Meter",
+      "format": "longform_16x9",
+      "status": "naskah siap, belum dirender",
+      "folder": "stories/longform/LL-0002",
+      "kata_narasi": 1251,
+      "estimasi_durasi_detik": 569,
+      "shot": 54,
+      "entitas": 3,
+      "selesai": ["dossier riset (R1–R12)", "naskah 9 segmen", "peta visual terkunci kata pemicu"],
+      "berikutnya": ["pilih suara narator", "alignment per kata", "design.json + grade per scene", "render", "jadwalkan unggah besok 09.00 WIB"],
+      "target_unggah": "2026-11-07T09:00+08:00"
+    }
+  ]
 }

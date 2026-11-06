@@ -1,0 +1,769 @@
+{
+  "episode": "LL-0002",
+  "judul": "Dua Belas Meter",
+  "format": "longform_16x9",
+  "fps": 30,
+  "resolusi": [
+    1920,
+    1080
+  ],
+  "total_kata_narasi": 1251,
+  "estimasi_durasi_detik": 569,
+  "aturan_sinkron": {
+    "dasar": "knowledge/ATURAN.md §III.3 — visual tidak boleh mendahului kata",
+    "offset_masuk_frame": [
+      2,
+      4
+    ],
+    "offset_insert_frame": [
+      2,
+      8
+    ],
+    "artinya": "Shot baru dipotong 2–4 frame SETELAH onset kata pemicu. Insert benda boleh masuk 2–8 frame setelah kata pemicu. Latar boleh lebih awal.",
+    "catatan": "Offset di bawah adalah nilai awal; nilai final dihitung dari word-level alignment (ATURAN §X, item 3.3)."
+  },
+  "karakter_tetap": {
+    "protagonis": "pria Indonesia akhir 20-an, jaket coach gelap hijau, kaos hitam, celana jeans gelap, rambut sebahu diikat, wajah tidak pernah terlihat",
+    "entitas": "Penunggu — tinggi ±2,2 m, sangat kurus, kain basah abu-putih sampai mata kaki, leher terlalu panjang dan condong ke depan, rambut hitam basah menutup wajah, wajah kosong tanpa mata dan mulut, kulit abu pucat berbintik, satu tangan sangat panjang beruas tunggal",
+    "entitas_muncul": "3 kali, makin dekat: (1) siluet jauh di ujung pematang, (2) setengah badan di balik beringin, (3) seluruh badan di tepi makam. Tubuh penuh hanya di kemunculan ke-3."
+  },
+  "segmen": [
+    {
+      "id": "S1",
+      "judul": "Pekerjaan dan satu aturan",
+      "mulai_detik": 0,
+      "atmosfer": {
+        "waktu": "pagi, matahari baru naik",
+        "palet": [
+          "#c9a15a",
+          "#6b7a4e",
+          "#2f2a22",
+          "#e8dfc9"
+        ],
+        "cahaya": "matahari rendah dari kiri, kontras tinggi, debu di udara",
+        "catatan": "terang, bukan horor — penonton harus percaya ini hari kerja biasa"
+      },
+      "shots": [
+        {
+          "id": "S1-01",
+          "pemicu": "Nama saya Ilham",
+          "offset_frame": 3,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "sawah luas, pematang, satu pria berjaket hijau gelap berdiri membelakangi kamera, tas kanvas abu-abu di punggung",
+          "entitas": null,
+          "sfx": "angin sawah, jangkrik pagi"
+        },
+        {
+          "id": "S1-02",
+          "pemicu": "Alatnya saya sewa",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "nota sewa alat bertuliskan angka, tangan memegang, latar sawah blur",
+          "entitas": null,
+          "sfx": "kertas"
+        },
+        {
+          "id": "S1-03",
+          "pemicu": "Ada satu aturan",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "slow push_in",
+          "isi": "patok kayu ditanam di galengan, tangan memukul dengan batu, tanah memercik",
+          "entitas": null,
+          "sfx": "pukulan kayu 3x"
+        },
+        {
+          "id": "S1-04",
+          "pemicu": "Letter C nomor dua dua satu",
+          "offset_frame": 5,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "halaman Buku C desa, tulisan tangan, angka 221, garis-garis kolom, tepi kertas cokelat",
+          "entitas": null,
+          "sfx": "halaman buku dibuka"
+        },
+        {
+          "id": "S1-05",
+          "pemicu": "Yang terakhir berhenti jadi juru ukur",
+          "offset_frame": 4,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "pria itu berdiri di pematang, alat ukur di tripod, wajah di luar frame, langit pucat",
+          "entitas": null,
+          "sfx": "angin turun, musik masuk"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "judul": "Tawaran, harga, dan tempat",
+      "mulai_detik": 59,
+      "atmosfer": {
+        "waktu": "pagi sampai siang",
+        "palet": [
+          "#d8b273",
+          "#7d8f5c",
+          "#3a3227",
+          "#f2ece0"
+        ],
+        "cahaya": "terik penuh, bayangan pendek, langit putih panas",
+        "catatan": "paling terang di episode — kontras untuk malam nanti"
+      },
+      "shots": [
+        {
+          "id": "S2-01",
+          "pemicu": "Yang menelepon saya Pak Hadi",
+          "offset_frame": 3,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "layar ponsel, kontak 'Pak Hadi', jari menekan terima, latar sawah",
+          "entitas": null,
+          "sfx": "nada panggilan terpotong"
+        },
+        {
+          "id": "S2-02",
+          "pemicu": "Diukur ulang saja",
+          "offset_frame": 4,
+          "ukuran": "medium",
+          "kamera": "handheld halus",
+          "isi": "pria tua berpeci memegang map plastik, hanya dari dada ke bawah dan tangan yang terlihat",
+          "entitas": null,
+          "sfx": "map plastik"
+        },
+        {
+          "id": "S2-03",
+          "pemicu": "Satu koma dua juta satu meter",
+          "offset_frame": 6,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "kalkulator ponsel, angka 1.200.000, jempol berhenti di atas tombol",
+          "entitas": null,
+          "sfx": "klik tombol 2x"
+        },
+        {
+          "id": "S2-04",
+          "pemicu": "Saya sampai pukul sembilan pagi",
+          "offset_frame": 4,
+          "ukuran": "wide",
+          "kamera": "slow push_in",
+          "isi": "sawah di belakang pos kamling kayu, kira-kira 200 m dari jalan, satu pria berjalan di pematang",
+          "entitas": null,
+          "sfx": "langkah di tanah kering"
+        },
+        {
+          "id": "S2-05",
+          "pemicu": "Di pojok utara ada pohon beringin",
+          "offset_frame": 5,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "pohon beringin besar di pojok sawah, di bawahnya tanah lebih tinggi, rumput pendek rapi, tidak ditanami",
+          "entitas": null,
+          "sfx": "daun beringin, angin naik"
+        },
+        {
+          "id": "S2-06",
+          "pemicu": "Fotokopi letter C",
+          "offset_frame": 3,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "tiga dokumen ditata di atas tas: fotokopi letter C, SPPT PBB, surat ukur tua",
+          "entitas": null,
+          "sfx": "kertas 3x"
+        },
+        {
+          "id": "S2-07",
+          "pemicu": "kertasnya sudah seperti kulit bawang",
+          "offset_frame": 6,
+          "ukuran": "close",
+          "kamera": "slow push_in",
+          "isi": "surat ukur 2004, kertas menguning transparan, lipatan dalam, tepi sobek, segel pudar",
+          "entitas": null,
+          "sfx": "kertas rapuh, musik turun satu nada"
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "judul": "Orang lain yang mengelak",
+      "mulai_detik": 138,
+      "atmosfer": {
+        "waktu": "siang",
+        "palet": [
+          "#b99a63",
+          "#6f7f4a",
+          "#332c22",
+          "#e6dcc6"
+        ],
+        "cahaya": "matahari dari atas, wajah Mang Karta setengah bayangan topi",
+        "catatan": "hangat, tetapi ada satu sudut frame yang selalu lebih gelap"
+      },
+      "shots": [
+        {
+          "id": "S3-01",
+          "pemicu": "Mang Karta menggarap sawah itu",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "pria tua bertopi jerami duduk di galengan, memotong tembakau dengan gunting kecil, tangan keriput",
+          "entitas": null,
+          "sfx": "gunting kecil 2x"
+        },
+        {
+          "id": "S3-02",
+          "pemicu": "Anak Slamet, ya",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "static",
+          "isi": "wajah pria tua dari sudut rendah, mata melihat ke atas ke arah lawan bicara, tidak ada kontak mata kamera",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S3-03",
+          "pemicu": "Bawa alat dua",
+          "offset_frame": 4,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "dua tripod dan dua kotak alat di pematang, pria muda menata, dari belakang",
+          "entitas": null,
+          "sfx": "logam"
+        },
+        {
+          "id": "S3-04",
+          "pemicu": "pulangnya nanya-nanya",
+          "offset_frame": 5,
+          "ukuran": "close",
+          "kamera": "slow push_in",
+          "isi": "tangan pria tua berhenti memotong, gunting diam di udara, tembakau jatuh",
+          "entitas": null,
+          "sfx": "hening, angin berhenti"
+        },
+        {
+          "id": "S3-05",
+          "pemicu": "Patoknya jangan di situ",
+          "offset_frame": 4,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "jari menunjuk ke pojok beringin, dari belakang; tanah tinggi berumput rapi seperti habis dipangkas",
+          "entitas": null,
+          "sfx": "satu nada rendah"
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "judul": "Kejadian pertama yang masih bisa dijelaskan",
+      "mulai_detik": 176,
+      "atmosfer": {
+        "waktu": "siang menuju sore, matahari mulai turun",
+        "palet": [
+          "#d9a55d",
+          "#8a8f57",
+          "#40331f",
+          "#f6e7c8"
+        ],
+        "cahaya": "terik keras lalu berubah keemasan, bayangan memanjang, udara bergetar di atas pematang",
+        "catatan": "entitas pertama muncul saat cahaya paling menyilaukan — bukan di kegelapan"
+      },
+      "shots": [
+        {
+          "id": "S4-01",
+          "pemicu": "Pukul sepuluh saya mendirikan alat",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "tripod dipasang, gelembung udara disetel ke tengah, tangan memutar sekrup",
+          "entitas": null,
+          "sfx": "sekrup logam 3x"
+        },
+        {
+          "id": "S4-02",
+          "pemicu": "Titik acuan saya ambil",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "patok beton BPN berlubang di dekat pos kamling, lumut di sisinya",
+          "entitas": null,
+          "sfx": "ketukan logam ringan"
+        },
+        {
+          "id": "S4-03",
+          "pemicu": "Udara bergetar di atas pematang",
+          "offset_frame": 6,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "sawah terik, distorsi panas, pematang lurus, satu pria kecil di tengah frame",
+          "entitas": null,
+          "sfx": "jangkrik siang"
+        },
+        {
+          "id": "S4-04",
+          "pemicu": "Di patok keempat, alat mati",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "static",
+          "isi": "layar Total Station hitam, pantulan langit di kaca, satu titik debu",
+          "entitas": null,
+          "sfx": "bunyi mati elektronik pendek"
+        },
+        {
+          "id": "S4-05",
+          "pemicu": "Baterainya saya cek: penuh",
+          "offset_frame": 5,
+          "ukuran": "insert",
+          "kamera": "handheld halus",
+          "isi": "indikator baterai penuh di layar kecil, jempol mengetuk, tangan gemetar sedikit",
+          "entitas": null,
+          "sfx": "ketukan jari"
+        },
+        {
+          "id": "S4-06",
+          "pemicu": "dalam tiga detik ia menyala sendiri",
+          "offset_frame": 6,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "alat di bawah beringin, layar menyala sendiri, cahaya hijau pucat menerpa lengan jaket",
+          "entitas": null,
+          "sfx": "nada nyala, dengung naik"
+        },
+        {
+          "id": "S4-07",
+          "pemicu": "Ada sesuatu berdiri di sana",
+          "offset_frame": 4,
+          "ukuran": "wide",
+          "kamera": "slow push_in sangat lambat",
+          "isi": "ujung pematang, matahari rendah: siluet tinggi kurus berdiri di pematang tipis, kain panjang, tidak bergerak",
+          "entitas": "1 — siluet jauh (tinggi 1/5 frame, tanpa detail wajah)",
+          "sfx": "satu nada rendah di bawah ambang"
+        },
+        {
+          "id": "S4-08",
+          "pemicu": "Bidikan tiga kali, empat kali",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "layar ponsel memperbesar gambar: hanya beringin dan langit, tidak ada siluet",
+          "entitas": null,
+          "sfx": "shutter 4x"
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "judul": "Kejadian kedua yang melanggar aturan",
+      "mulai_detik": 255,
+      "atmosfer": {
+        "waktu": "sore, lalu malam",
+        "palet": [
+          "#c98d4f",
+          "#5d6b45",
+          "#241f18",
+          "#dfd0b4",
+          "#3a4a6b"
+        ],
+        "cahaya": "sore keemasan → malam hanya lampu ponsel biru-putih, kontras keras",
+        "catatan": "pergantian cahaya di dalam satu segmen, tanpa memotong narasi"
+      },
+      "shots": [
+        {
+          "id": "S5-01",
+          "pemicu": "Pukul tiga saya menutup bidikan",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "layar alat menampilkan poligon tertutup, angka luas terbaca, jari menunjuk",
+          "entitas": null,
+          "sfx": "bunyi konfirmasi alat"
+        },
+        {
+          "id": "S5-02",
+          "pemicu": "Seribu dua ratus dua puluh delapan",
+          "offset_frame": 5,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "angka 1.228 m² di layar alat, tajam, satu-satunya angka di frame",
+          "entitas": null,
+          "sfx": "dengung rendah"
+        },
+        {
+          "id": "S5-03",
+          "pemicu": "Saya ukur dengan pita lima puluh meter",
+          "offset_frame": 4,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "dua orang menarik pita ukur di pematang, sore keemasan, bayangan panjang",
+          "entitas": null,
+          "sfx": "pita ditarik, klik"
+        },
+        {
+          "id": "S5-04",
+          "pemicu": "Selisih dua belas meter persegi",
+          "offset_frame": 6,
+          "ukuran": "insert",
+          "kamera": "slow push_in",
+          "isi": "coretan tangan di buku catatan: 1240 − 1228 = 12, lingkaran tebal mengelilingi angka 12",
+          "entitas": null,
+          "sfx": "pensil, musik turun"
+        },
+        {
+          "id": "S5-05",
+          "pemicu": "Malamnya saya kembali ke sawah",
+          "offset_frame": 4,
+          "ukuran": "wide",
+          "kamera": "handheld, napas",
+          "isi": "sawah malam, satu berkas lampu ponsel menyapu pematang, beringin jadi bentuk hitam",
+          "entitas": null,
+          "sfx": "jangkrik malam, langkah di tanah"
+        },
+        {
+          "id": "S5-06",
+          "pemicu": "menemukannya sebelas langkah ke utara",
+          "offset_frame": 6,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "patok kayu berdiri tegak di tepi beringin, tanah basah mengelilinginya, lampu ponsel dari samping",
+          "entitas": "2 — setengah badan di balik beringin, di luar fokus, hanya sisi tubuh dan kain basah",
+          "sfx": "tetesan air, satu nada"
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "judul": "Penyelidikan",
+      "mulai_detik": 323,
+      "atmosfer": {
+        "waktu": "pagi di dalam ruangan",
+        "palet": [
+          "#dfe6ea",
+          "#9fb0bd",
+          "#3b4a58",
+          "#f7f9fa"
+        ],
+        "cahaya": "neon putih dingin 6000K, rata, tanpa bayangan — kebalikan total dari sawah",
+        "catatan": "ruangan terang justru paling menakutkan karena tidak ada tempat untuk bayangan"
+      },
+      "shots": [
+        {
+          "id": "S6-01",
+          "pemicu": "Di kantor desa saya minta Buku C",
+          "offset_frame": 3,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "ruang kantor desa, lemari arsip kayu, meja, neon putih, satu pria berjaket hijau dari belakang",
+          "entitas": null,
+          "sfx": "kertas, kipas angin"
+        },
+        {
+          "id": "S6-02",
+          "pemicu": "seperti sudah menyiapkannya",
+          "offset_frame": 4,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "petugas desa menaruh buku besar di meja tanpa diminta, tangan kurus, wajah di luar frame",
+          "entitas": null,
+          "sfx": "buku dijatuhkan pelan"
+        },
+        {
+          "id": "S6-03",
+          "pemicu": "Halaman dua ratus dua puluh satu",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "static",
+          "isi": "halaman Buku C, angka 221 di pojok, kolom nama dan luas, tinta lama",
+          "entitas": null,
+          "sfx": "halaman dibuka"
+        },
+        {
+          "id": "S6-04",
+          "pemicu": "ada satu baris yang dicoret",
+          "offset_frame": 6,
+          "ukuran": "insert",
+          "kamera": "slow push_in",
+          "isi": "satu baris nama dicoret tinta hitam tebal, nama baru ditulis di atasnya, kertas sedikit sobek di coretan",
+          "entitas": null,
+          "sfx": "pena menekan kertas"
+        },
+        {
+          "id": "S6-05",
+          "pemicu": "Meninggal seribu sembilan ratus delapan puluh satu",
+          "offset_frame": 5,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "kolom keterangan bertuliskan tahun 1981, tulisan tangan kecil",
+          "entitas": null,
+          "sfx": "hening, kipas angin"
+        },
+        {
+          "id": "S6-06",
+          "pemicu": "Di sudut kanan bawah ada inisial kecil",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "slow push_in",
+          "isi": "surat ukur 2004, inisial S.P. di sudut, tinta pudar, kertas transparan",
+          "entitas": null,
+          "sfx": "kertas bergeser"
+        },
+        {
+          "id": "S6-07",
+          "pemicu": "dengan pensil yang hampir hilang",
+          "offset_frame": 6,
+          "ukuran": "extreme close",
+          "kamera": "static",
+          "isi": "tulisan pensil 'kurang 12' di pinggir kertas, hampir hilang, serat kertas terlihat",
+          "entitas": null,
+          "sfx": "satu nada piano"
+        },
+        {
+          "id": "S6-08",
+          "pemicu": "enam puluh hari",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "papan pengumuman desa, kertas pengumuman lapuk, tanggal, tidak ada tanda tangan keberatan",
+          "entitas": null,
+          "sfx": "kertas berkibar"
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "judul": "Sebab manusianya",
+      "mulai_detik": 414,
+      "atmosfer": {
+        "waktu": "malam",
+        "palet": [
+          "#2b3a2e",
+          "#8a6a3a",
+          "#12100d",
+          "#d8c48f"
+        ],
+        "cahaya": "satu lampu kamling kuning, wajah setengah gelap, asap teh",
+        "catatan": "satu-satunya sumber cahaya di frame adalah lampu publik — bukan lampu ponsel"
+      },
+      "shots": [
+        {
+          "id": "S7-01",
+          "pemicu": "Mang Karta bicara malam itu",
+          "offset_frame": 3,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "pos kamling kayu malam, satu lampu kuning, dua orang duduk di bangku, dari belakang",
+          "entitas": null,
+          "sfx": "jangkrik, gelas diletakkan"
+        },
+        {
+          "id": "S7-02",
+          "pemicu": "makam Mbah Sastro",
+          "offset_frame": 5,
+          "ukuran": "medium",
+          "kamera": "slow push_in",
+          "isi": "tanah tinggi di bawah beringin, nisan batu sederhana tertutup rumput, terlihat dari jarak",
+          "entitas": null,
+          "sfx": "angin malam"
+        },
+        {
+          "id": "S7-03",
+          "pemicu": "Kalau makam ikut dihitung",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "hitungan di kertas: luas dikurangi 12, harga per meter dikali, angka rupiah",
+          "entitas": null,
+          "sfx": "pensil"
+        },
+        {
+          "id": "S7-04",
+          "pemicu": "cukup digeser selebar telapak tangan",
+          "offset_frame": 6,
+          "ukuran": "close",
+          "kamera": "static",
+          "isi": "telapak tangan menutupi patok kayu, jari mengukur jarak di tanah, dua lubang patok berdekatan",
+          "entitas": null,
+          "sfx": "tanah bergeser"
+        },
+        {
+          "id": "S7-05",
+          "pemicu": "Dia dibayar satu juta",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "uang kertas di atas meja kayu, tangan tua menutupinya, lampu kuning",
+          "entitas": null,
+          "sfx": "kertas uang"
+        },
+        {
+          "id": "S7-06",
+          "pemicu": "Dia tahu persis apa yang ada di bawah pohon itu",
+          "offset_frame": 6,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "beringin dari jauh di malam hari, satu lampu kamling di kiri frame, tanah tinggi di bawahnya lebih gelap dari sekitarnya",
+          "entitas": null,
+          "sfx": "satu nada rendah panjang"
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "judul": "Narator melakukan sesuatu",
+      "mulai_detik": 488,
+      "atmosfer": {
+        "waktu": "pagi cerah",
+        "palet": [
+          "#e8cf9a",
+          "#8fa06a",
+          "#4a3f2c",
+          "#fbf4e4"
+        ],
+        "cahaya": "matahari pagi lembut, embun, tidak ada bayangan keras",
+        "catatan": "kembali terang — penonton harus merasa lega sebelum baris terakhir"
+      },
+      "shots": [
+        {
+          "id": "S8-01",
+          "pemicu": "Pagi berikutnya saya kembali ke sawah",
+          "offset_frame": 3,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "sawah pagi berkabut tipis, satu pria berjalan membawa pita ukur, bukan tripod",
+          "entitas": null,
+          "sfx": "burung pagi, embun"
+        },
+        {
+          "id": "S8-02",
+          "pemicu": "Saya tanam patok keempat di tepi makam",
+          "offset_frame": 6,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "tangan menanam patok di batas tanah tinggi, nisan di latar, rumput basah",
+          "entitas": "3 — SELURUH BADAN: tinggi 2,2 m berdiri di belakang nisan, kain basah sampai mata kaki, leher panjang condong, tangan panjang beruas tunggal di sisi tubuh, wajah kosong tertutup rambut basah",
+          "sfx": "tanah dipadatkan 3x, napas ditahan"
+        },
+        {
+          "id": "S8-03",
+          "pemicu": "bidang dikecualikan, dua belas meter persegi",
+          "offset_frame": 5,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "berita acara, satu baris tulisan tangan, meterai, tanda tangan",
+          "entitas": null,
+          "sfx": "pena"
+        },
+        {
+          "id": "S8-04",
+          "pemicu": "Pak Hadi marah",
+          "offset_frame": 4,
+          "ukuran": "medium",
+          "kamera": "handheld halus",
+          "isi": "pria tua berpeci menunjuk-nunjuk, hanya punggung dan tangan yang terlihat, sawah di latar",
+          "entitas": null,
+          "sfx": "suara meninggi, tanpa kata"
+        },
+        {
+          "id": "S8-05",
+          "pemicu": "Saya kembalikan uang muka empat ratus ribu",
+          "offset_frame": 5,
+          "ukuran": "close",
+          "kamera": "static",
+          "isi": "uang diletakkan di atas meja warung, tangan perempuan tua menerimanya, dua tangan di frame",
+          "entitas": null,
+          "sfx": "uang dihitung"
+        },
+        {
+          "id": "S8-06",
+          "pemicu": "di atas nisan ada satu patok kecil",
+          "offset_frame": 6,
+          "ukuran": "close",
+          "kamera": "slow push_in lalu berhenti",
+          "isi": "nisan bersih, rumput dipotong, satu patok kecil bukan milik narator tertancap di atasnya, tanah sekitar baru",
+          "entitas": null,
+          "sfx": "hening total, lalu satu nada rendah"
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "judul": "Ajakan",
+      "mulai_detik": 547,
+      "atmosfer": {
+        "waktu": "sore",
+        "palet": [
+          "#d7b075",
+          "#7e8a5a",
+          "#3b3226",
+          "#f0e6d2"
+        ],
+        "cahaya": "sore hangat, tenang",
+        "catatan": "frame terakhir tanpa entitas — cerita ditutup oleh manusia, bukan oleh makhluk"
+      },
+      "shots": [
+        {
+          "id": "S9-01",
+          "pemicu": "tidak jadi dijual",
+          "offset_frame": 3,
+          "ukuran": "wide",
+          "kamera": "static",
+          "isi": "sawah sore, beringin, pematang kosong, tidak ada orang",
+          "entitas": null,
+          "sfx": "angin, musik penutup"
+        },
+        {
+          "id": "S9-02",
+          "pemicu": "kamu tulis angka yang diminta",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "static",
+          "isi": "dua angka di kertas: 1240 dan 1228, pena berhenti di antara keduanya",
+          "entitas": null,
+          "sfx": "pena berhenti"
+        },
+        {
+          "id": "S9-03",
+          "pemicu": "klik subscribe",
+          "offset_frame": 8,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "pria berjaket hijau dari belakang, menutup buku catatan, berjalan menjauh di pematang",
+          "entitas": null,
+          "sfx": "musik selesai"
+        }
+      ]
+    }
+  ],
+  "qc_khusus_episode": {
+    "wajib_terang": [
+      "S2",
+      "S4",
+      "S8"
+    ],
+    "entitas_3x_makin_dekat": [
+      "S4-07 siluet jauh",
+      "S5-06 setengah badan",
+      "S8-02 seluruh badan"
+    ],
+    "insert_berbasis_kata": [
+      "S1-02",
+      "S1-04",
+      "S2-03",
+      "S2-06",
+      "S2-07",
+      "S4-05",
+      "S4-08",
+      "S5-02",
+      "S5-04",
+      "S6-03",
+      "S6-04",
+      "S6-05",
+      "S6-06",
+      "S6-07",
+      "S6-08",
+      "S7-03",
+      "S7-05",
+      "S8-03",
+      "S9-02"
+    ],
+    "jumpscare": "tidak ada — episode ini memakai pendekatan 'berdiri diam', bukan lompatan"
+  }
+}

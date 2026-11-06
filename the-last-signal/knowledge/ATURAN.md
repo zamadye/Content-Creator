@@ -200,6 +200,12 @@ bercak air, tangan satu sendi terlalu panjang, berdiri diam seperti menunggu.
 > alignment baru sampai batas kalimat — itulah sebabnya visual bisa muncul lebih
 > dulu. Sampai peta kata ada, insert ditaruh di **awal kalimat yang menyebutnya**
 > (lebih lambat, tapi tidak pernah mendahului).
+>
+> **[status] 6 Nov 2026:** sejak LL-0002 setiap shot di `visual-map.json` wajib
+> punya `pemicu` (kata yang harus sudah diucapkan) dan `offset_frame` 2–8.
+> `node scripts/check-visual-triggers.mjs stories/longform/<id>` gagal kalau ada
+> pemicu yang tidak terdapat di narasi segmennya. Ini mengikat gambar ke kalimat,
+> belum ke frame persis — itu tetap pekerjaan alignment per kata.
 
 ## 3.4 Irama shot
 
@@ -319,8 +325,8 @@ Segala yang tidak boleh muncul lagi:
 | Musik satu berkas + ducking | ya (`Soundscape.tsx`) |
 | Larangan "ARSIP FIKSI" di teks | ya (`check-copy.mjs`, `zernio-publish.mjs`) |
 | Label AI tidak dicentang | ya (`zernio-publish.mjs`) |
-| Entitas 3× makin dekat | ya di `design.json` LS-0010 (pola, bukan penegak otomatis) |
-| Konsistensi tokoh/entitas | **belum** — belum ada pemeriksa otomatis |
-| Atmosfer variatif per scene | **belum** — grade masih tetap di renderer |
-| Visual mengikuti kata (3.3) | **belum** — butuh alignment per kata + pemeriksa insert |
+| Entitas 3× makin dekat | ya — `scripts/check-visual-triggers.mjs` gagal kalau kemunculan ≠ 3 atau urutannya bukan siluet → setengah → utuh |
+| Konsistensi tokoh/entitas | **belum** — belum ada pemeriksa otomatis terhadap `assets/characters/*.png` |
+| Atmosfer variatif per scene | sebagian — palet per scene sudah ditulis di `visual-map.json`, grade per scene **belum** di renderer |
+| Visual mengikuti kata (3.3) | sebagian — `scripts/check-visual-triggers.mjs` memastikan setiap shot punya kata pemicu yang benar-benar ada di narasi segmennya; pemetaan kata → frame tetap butuh alignment per kata |
 | QC butir 5, 6, 9 | **belum** ada di `qc.ts` |

@@ -5,7 +5,7 @@
       "episodeId": "LL-0002",
       "judul": "Dua Belas Meter",
       "format": "longform_16x9",
-      "status": "naskah siap, belum dirender",
+      "status": "produksi: narasi 3/9 segmen",
       "folder": "stories/longform/LL-0002",
       "kata_narasi": 1259,
       "estimasi_durasi_detik": 572,
@@ -14,12 +14,14 @@
       "selesai": [
         "dossier riset (R1–R12)",
         "naskah 9 segmen",
-        "peta visual terkunci kata pemicu"
+        "peta visual 152 shot terkunci kata pemicu",
+        "suara: voice-01 (id-ID maskulin)",
+        "narasi scene 01–03 (3:12 dari total)"
       ],
       "berikutnya": [
-        "suara narator: id-ID maskulin yang sama dengan LS-0010",
+        "narasi scene 04–09",
         "alignment per kata",
-        "design.json + grade per scene",
+        "plan.json + design.json + grade per scene",
         "render + encode",
         "antrean Zernio 7 Nov 13.00 WIB"
       ],

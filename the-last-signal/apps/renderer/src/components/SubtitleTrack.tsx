@@ -5,118 +5,148 @@ import { sceneOffsets } from "@the-last-signal/contracts";
 import { theme } from "../lib/theme";
 
 /**
- * Subtitle di TENGAH layar (arahan pemilik kanal, 2026-11-06).
+ * Caption di TENGAH layar, satu sampai tiga kata per kartu.
  *
- * Dulu subtitle menempel di bawah dengan satu kalimat utuh berwarna putih.
- * Di layar ponsel, mata penonton Shorts berhenti di tengah — teks di bawah
- * sering tertutup ibu jari dan UI YouTube. Sekarang:
+ * Dua arahan yang membentuk berkas ini:
+ *  1. pemilik kanal (2026-11-06): subtitle harus di tengah layar, bukan di bawah;
+ *  2. hasil bedah referensi "The true story of the 1876 haunted house":
+ *     kartu teks berganti ±0,4 detik dengan satu kata per kartu ("HOUSE",
+ *     "YOUTUBERS"), tinggi ±6% tinggi layar, di tengah, putih dengan garis luar
+ *     hitam tebal, dan tidak pernah menampilkan kalimat utuh.
  *
- *  - posisi tengah (50% tinggi), bukan dasar layar,
- *  - huruf jauh lebih besar dengan garis luar tebal supaya tetap terbaca di
- *    atas gambar yang terang,
- *  - kata yang sedang diucapkan menyala kuning; kata yang belum diucapkan
- *    redup. Penonton jadi punya alasan mengikuti teks, bukan hanya mendengar.
- *
- * Penyorotan per kata memakai pembagian rata panjang kata di dalam cue:
- * alignment kita per kalimat, bukan per kata, jadi ini perkiraan yang jujur —
- * kata panjang dapat porsi waktu lebih besar.
+ * Karena alignment kita per kalimat (bukan per kata), panjang tiap kata dipakai
+ * sebagai bobot waktu: kata panjang mendapat porsi lebih besar. Itu perkiraan
+ * yang jujur, dan hasilnya jauh lebih dekat ke irama referensi daripada satu
+ * kalimat yang menggantung sepuluh detik.
  */
 
-const HIGHLIGHT = "#f5c451";
 const TEXT = "#f7f4ec";
+const HIGHLIGHT = "#f5c451";
+const MAX_CHARS = 16;
+const MAX_WORDS = 3;
 
-const splitWords = (text: string) => text.split(/(\s+)/).filter((part) => part.trim().length > 0);
+type Chunk = { words: string[]; start: number; end: number };
 
-const Cue: React.FC<{ text: string; durationInFrames: number }> = ({ text, durationInFrames }) => {
+const splitWords = (text: string) => text.split(/\s+/).filter((word) => word.length > 0);
+
+export function chunkCue(text: string, durationInFrames: number): Chunk[] {
+  const words = splitWords(text);
+  const groups: string[][] = [];
+  let current: string[] = [];
+
+  for (const word of words) {
+    const candidate = [...current, word];
+    const tooLong = candidate.join(" ").length > MAX_CHARS;
+    if (current.length && (tooLong || candidate.length > MAX_WORDS)) {
+      groups.push(current);
+      current = [word];
+    } else {
+      current = candidate;
+    }
+  }
+  if (current.length) groups.push(current);
+
+  const weights = groups.map((group) => Math.max(6, group.join(" ").replace(/[^\p{L}\p{N}]/gu, "").length));
+  const total = weights.reduce((sum, value) => sum + value, 0) || 1;
+  let cursor = 0;
+
+  return groups.map((group, index) => {
+    const start = Math.round((cursor / total) * durationInFrames);
+    cursor += weights[index];
+    const end = index === groups.length - 1 ? durationInFrames : Math.round((cursor / total) * durationInFrames);
+    return { words: group, start, end: Math.max(start + 1, end) };
+  });
+}
+
+const ChunkCard: React.FC<{ words: string[]; durationInFrames: number; last: boolean }> = ({
+  words,
+  durationInFrames,
+  last,
+}) => {
   const frame = useCurrentFrame();
   const { width, height, fps } = useVideoConfig();
   const landscape = width > height;
-
-  // Geometri dua orientasi. Vertikal: teks besar di tengah. Lanskap: sedikit
-  // lebih kecil supaya tidak menutupi wajah/adegan di 16:9.
   const geometry = landscape
-    ? { size: 58, maxWidth: 1360, padding: "0 96px", stroke: 9 }
-    : { size: theme.subtitle.size, maxWidth: 900, padding: "0 44px", stroke: 12 };
+    ? { size: 62, maxWidth: 1380, padding: "0 96px", stroke: 9 }
+    : { size: theme.subtitle.size, maxWidth: 950, padding: "0 40px", stroke: 13 };
 
-  const fade = Math.min(6, Math.floor(durationInFrames / 5));
+  const fade = Math.min(3, Math.max(1, Math.floor(durationInFrames / 4)));
   const opacity = interpolate(
     frame,
-    [0, fade, Math.max(fade + 1, durationInFrames - fade), durationInFrames],
-    [0, 1, 1, 0],
+    [0, fade, durationInFrames - (last ? fade : 1), durationInFrames],
+    [0, 1, 1, last ? 0 : 1],
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
-  const pop = spring({ frame, fps, config: { damping: 18, stiffness: 220, mass: 0.6 }, durationInFrames: 10 });
-  const scale = 0.94 + 0.06 * Math.min(1, pop);
+  const pop = spring({ frame, fps, config: { damping: 16, stiffness: 280, mass: 0.5 }, durationInFrames: 8 });
+  const scale = 0.92 + 0.08 * Math.min(1, pop);
 
-  // Kata mana yang sedang diucapkan. Bobot = panjang kata, supaya "kamu" tidak
-  // memakan waktu yang sama dengan "memperhatikan".
-  const words = splitWords(text);
-  const weights = words.map((word) => Math.max(2, word.replace(/[^\p{L}\p{N}]/gu, "").length));
-  const totalWeight = weights.reduce((sum, value) => sum + value, 0) || 1;
+  // Kata di kartu ini berubah warna berurutan — sisa dari gaya karaoke, dipakai
+  // halus supaya kartu tidak terasa mati.
+  const wordList = words;
+  const weights = wordList.map((word) => Math.max(2, word.replace(/[^\p{L}\p{N}]/gu, "").length));
+  const total = weights.reduce((sum, value) => sum + value, 0) || 1;
   const progress = Math.min(0.999, Math.max(0, frame / Math.max(1, durationInFrames - 1)));
-  let spokenUntil = progress * totalWeight;
-  let activeIndex = 0;
-  let running = 0;
-  for (let index = 0; index < weights.length; index += 1) {
-    running += weights[index];
-    if (spokenUntil <= running) {
-      activeIndex = index;
-      break;
-    }
-    activeIndex = index;
-  }
-  let weightCursor = 0;
-  const wordProgress = words.map((_, index) => {
-    weightCursor += weights[index];
-    return weightCursor / totalWeight;
+  let cursor = 0;
+  const activeIndex = wordList.findIndex((_, index) => {
+    cursor += weights[index];
+    return progress * total <= cursor;
   });
 
   return (
-    <AbsoluteFill
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-        padding: geometry.padding,
-      }}
-    >
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: geometry.padding }}>
       <div
         style={{
           opacity,
           transform: `scale(${scale})`,
           maxWidth: geometry.maxWidth,
           textAlign: "center",
-          textWrap: "balance" as never,
           fontFamily: theme.font.sans,
           fontSize: geometry.size,
-          lineHeight: 1.18,
+          lineHeight: 1.05,
           fontWeight: 900,
-          letterSpacing: -0.2,
-          // Garis luar tebal: satu-satunya cara teks tetap terbaca di atas
-          // gambar terang tanpa kotak hitam di belakangnya.
-          WebkitTextStroke: `${geometry.stroke}px rgba(4,4,6,0.94)`,
+          letterSpacing: 0.5,
+          textTransform: "uppercase",
+          WebkitTextStroke: `${geometry.stroke}px rgba(3,3,5,0.96)`,
           paintOrder: "stroke fill" as never,
-          textShadow: "0 6px 26px rgba(0,0,0,0.85)",
+          textShadow: "0 8px 32px rgba(0,0,0,0.92)",
         }}
       >
-        {words.map((word, index) => {
-          const spoken = progress >= wordProgress[index] - 1e-6;
-          const active = index === activeIndex && !spoken;
-          return (
-            <span
-              key={`${word}-${index}`}
-              style={{
-                color: spoken ? HIGHLIGHT : active ? HIGHLIGHT : TEXT,
-                opacity: spoken ? 1 : active ? 1 : 0.82,
-                transition: "none",
-                marginRight: "0.26em",
-                display: "inline-block",
-              }}
-            >
-              {word}
-            </span>
-          );
-        })}
+        {wordList.map((word, index) => (
+          <span
+            key={`${word}-${index}`}
+            style={{
+              color: index === activeIndex ? HIGHLIGHT : TEXT,
+              display: "inline-block",
+              marginRight: "0.24em",
+            }}
+          >
+            {word}
+          </span>
+        ))}
       </div>
+    </AbsoluteFill>
+  );
+};
+
+/** Satu cue subtitle dipecah menjadi kartu 1–3 kata. */
+const Cue: React.FC<{ text: string; durationInFrames: number }> = ({ text, durationInFrames }) => {
+  const chunks = chunkCue(text, durationInFrames);
+  return (
+    <AbsoluteFill>
+      {chunks.map((chunk, index) => (
+        <Sequence
+          key={`chunk-${index}`}
+          from={chunk.start}
+          durationInFrames={Math.max(1, chunk.end - chunk.start)}
+          name={`caption ${index + 1}`}
+        >
+          <ChunkCard
+            words={chunk.words}
+            durationInFrames={Math.max(1, chunk.end - chunk.start)}
+            last={index === chunks.length - 1}
+          />
+        </Sequence>
+      ))}
     </AbsoluteFill>
   );
 };

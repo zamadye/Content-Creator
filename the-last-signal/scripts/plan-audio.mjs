@@ -205,6 +205,9 @@ for (const name of needed) {
 }
 
 // ── 4. Tulis ke episode.json ────────────────────────────────────────────────
+// Bed dipasang di scene pertama lalu DILANJUTKAN (loop) oleh renderer per
+// scene. Referensi memakai musik tanpa satu pun jeda hening; karena itu setiap
+// scene mendapat ambience yang sama, bukan hanya scene pertama.
 for (const [index, scene] of episode.scenes.entries()) {
   const sceneCues = kept.filter((cue) => cue.sceneIndex === index);
   scene.audio = {

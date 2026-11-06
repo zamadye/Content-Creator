@@ -15,7 +15,7 @@ export const theme = {
   subtitle: {
     // Subtitle pindah ke tengah layar (2026-11-06). Huruf dinaikkan dari 56 ke
     // 74 px: di layar ponsel, teks tengah harus terbaca dalam sekali lihat.
-    size: 74,
+    size: 92,
     lineHeight: 1.18,
     maxWidth: 900,
     bottom: 0, // tidak dipakai lagi; posisi sekarang tengah

@@ -126,6 +126,48 @@ for (const id of ids) {
     (published.has(id) ? warnings : errors).push(`${id}: kalimat terakhir belum berisi ajakan (subscribe/like/komentar)`);
   }
 
+  // Retensi Short: penonton berhenti saat penjelasan masih berjalan, bukan saat
+  // cerita berbelok. LS-0009 (487 tayangan, 40,81% tetap menonton) ditonton
+  // rata-rata 17 detik dari 58 detik — dan belokan pertamanya baru datang di
+  // detik 15,5, setelah dua scene menjelaskan cara kerja log router. Aturannya:
+  // cerita berbelok sebelum detik 11, paling lambat 13.
+  if (!longform) {
+    const fps = episode.targetFps || 30;
+    const scenes = episode.scenes ?? [];
+    let elapsedFrames = 0;
+    let turnAt = null;
+    for (let index = 0; index < scenes.length; index += 1) {
+      if (index === 2) {
+        turnAt = elapsedFrames / fps;
+        break;
+      }
+      elapsedFrames += scenes[index].durationFrames ?? 0;
+    }
+    // Episode yang sudah dirender tidak bisa diperbaiki tanpa membuang hasil
+    // produksi: temuan untuk mereka selalu peringatan, bukan kegagalan.
+    const sudahDirender =
+      existsSync(join(ROOT, "releases", `${id}.mp4`)) ||
+      existsSync(join(ROOT, "projects", "episodes", id, "reports", "render.json"));
+    if (turnAt !== null) {
+      const report = published.has(id) || sudahDirender ? warnings : errors;
+      if (turnAt > 13) {
+        report.push(
+          `${id}: belokan cerita baru di detik ${turnAt.toFixed(1)} — penonton Short berhenti sekitar detik 10–17; rapatkan scene pembuka supaya belokan datang sebelum detik 11`,
+        );
+      } else if (turnAt > 11) {
+        warnings.push(`${id}: belokan cerita di detik ${turnAt.toFixed(1)} — masih boleh, tapi tipis`);
+      }
+    }
+
+    // Ajakan di akhir harus berupa pertanyaan yang ditujukan ke penonton.
+    const closing = scenes.at(-1)?.narration ?? "";
+    if (!/[?]/.test(closing) || !/\b(kamu|kalian|anda)\b/i.test(closing)) {
+      warnings.push(
+        `${id}: penutup belum bertanya ke penonton — akhiri dengan pertanyaan yang bisa dijawab di komentar (mis. "pernah cek daftar perangkat asing di Wi-Fi kosmu?")`,
+      );
+    }
+  }
+
   const maxOpenerWords = longform ? 28 : 20;
   if (wordCount(first) > maxOpenerWords) {
     errors.push(`${id}: kalimat pertama ${wordCount(first)} kata (maks ${maxOpenerWords}) — "${first.slice(0, 60)}…"`);

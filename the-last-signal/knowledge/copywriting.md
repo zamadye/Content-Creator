@@ -216,3 +216,44 @@ Contoh (LS-0010): "Pernah naik lift sendirian dan angkanya melewati lantai
 paling atas? Di gedung ini satu tombol tambahan menyala tiap kali kamu lembur
 lewat pukul sebelas. / Kalau kamu punya cerita lift yang berhenti di lantai yang
 tidak ada di denah, tulis di komentar."
+
+---
+
+## 9. Retensi Short: belokan harus datang sebelum detik 11
+
+> Data 2026-11-06 (YouTube Studio, LS-0009 "Perangkat Ketujuh", 487 tayangan,
+> 40,81% tetap menonton): rata-rata tonton **17 detik dari 58 detik** (30,56%).
+> Video ini memenangkan hook — penonton berhenti dan menonton — lalu pergi
+> sebelum cerita berbelok.
+
+Bedah detiknya:
+
+| Detik | Isi | Apa yang terjadi |
+|---|---|---|
+| 0–8 | Router mencatat perangkat yang tidak dibeli | hook, bekerja |
+| 8–15,5 | perangkat menyala 03.33, tiga detik setelah kamu | **penjelasan**, bukan kejadian |
+| 15,5 | kamera ponselmu menyala sendiri | belokan pertama — **terlambat 5 detik** |
+| 23,2 | dua belas foto kamar, dari sudut langit-langit | klimaks |
+| 48,6 | ajakan + pertanyaan | penonton yang tersisa |
+
+Rata-rata 17 detik artinya sebagian besar penonton berhenti tepat di ujung blok
+penjelasan itu. Bukan karena ceritanya jelek — karena tiga belas detik pertama
+dipakai untuk menerangkan mekanisme sebelum ada yang terjadi.
+
+**Hukumnya sekarang, ditegakkan `check-copy.mjs`:**
+
+1. **Belokan pertama sebelum detik 11.** Scene 3 (belokan) harus mulai ≤ 11 s.
+   Di detik 11–13 masih boleh tapi dicatat; lewat 13 s = gagal untuk episode
+   yang belum dirender.
+   Caranya: potong scene 1 dan 2, bukan scene 3. Penjelasan yang dibuang di
+   depan bisa diselipkan sebagai satu kalimat di tengah cerita.
+2. **Penutup harus pertanyaan yang ditujukan ke penonton**, bukan hanya
+   "klik subscribe". LS-0009 sudah benar: *"kamu pernah periksa daftar perangkat
+   di Wi-Fi kosmu?"* — tapi itu belum menghasilkan satu komentar pun. Karena
+   itu pertanyaannya harus (a) bisa dijawab dalam satu kalimat, (b) tentang
+   pengalaman penonton sendiri, (c) tidak menuntut pengetahuan teknis.
+3. **Jumlah scene 6–8 untuk 50–60 detik**, dan scene yang menjelaskan mekanisme
+   tidak boleh lebih dari satu.
+
+Larangan lama tetap berlaku: satu kalimat, satu pukulan. Yang berubah adalah
+**urutan** — kejadian dulu, penjelasan menyusul.

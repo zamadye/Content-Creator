@@ -54,7 +54,9 @@ const episode = ({
 }) => {
   const n = ++seq;
   return {
-    scenes: (scenes ?? [narration]).map((line) => ({ narration: line })),
+    // Boleh berupa kalimat saja atau scene utuh (dengan durationFrames) —
+    // aturan retensi perlu durasi tiap scene untuk tahu kapan cerita berbelok.
+    scenes: (scenes ?? [narration]).map((line) => (typeof line === "string" ? { narration: line } : line)),
     publishing: {
       thumbnail: { headline },
       ...(withCta ? { cta } : {}),
@@ -78,6 +80,60 @@ test("menerima naskah yang mengikuti aturan", () => {
     },
   });
   assert.equal(code, 0, out);
+});
+
+const detik = (frames) => ({ durationFrames: frames });
+
+test("menolak belokan cerita yang baru datang setelah detik 13", () => {
+  const { code, out } = run({
+    episodes: {
+      "LS-0200": episode({
+        narration: "Router di kamar kosmu mencatat satu perangkat asing. Namanya namamu.",
+        scenes: [
+          { narration: "Router di kamar kosmu mencatat satu perangkat asing.", durationFrames: 240 },
+          { narration: "Perangkat itu menyala tiap malam pukul tiga lewat tiga puluh tiga.", durationFrames: 240 },
+          { narration: "Kamu mematikan internet, tapi kameramu menyala sendiri.", durationFrames: 240 },
+          { narration: "Kalau kamu tidak ingin diganggu, klik subscribe. Kamu pernah mengalaminya?", durationFrames: 240 },
+        ],
+      }),
+    },
+  });
+  assert.equal(code, 1, out);
+  assert.match(out, /belokan cerita baru di detik 16\.0/);
+});
+
+test("menerima belokan cerita sebelum detik 11", () => {
+  const { code, out } = run({
+    episodes: {
+      "LS-0201": episode({
+        narration: "Router di kamar kosmu mencatat satu perangkat asing. Namanya namamu.",
+        scenes: [
+          { narration: "Router di kamar kosmu mencatat satu perangkat asing.", durationFrames: 150 },
+          { narration: "Namanya namamu, dan ia online sejak malam kamu pindah.", durationFrames: 150 },
+          { narration: "Kamu mematikan internet, tapi kameramu menyala sendiri.", durationFrames: 240 },
+          { narration: "Kalau kamu tidak ingin diganggu, klik subscribe. Kamu pernah mengalaminya?", durationFrames: 240 },
+        ],
+      }),
+    },
+  });
+  assert.equal(code, 0, out);
+  assert.doesNotMatch(out, /belokan cerita/);
+});
+
+test("mengingatkan penutup yang tidak bertanya ke penonton", () => {
+  const { code, out } = run({
+    episodes: {
+      "LS-0202": episode({
+        narration: "Lift itu berhenti di lantai yang tidak ada. Kamu menekan tombol tutup.",
+        scenes: [
+          { narration: "Lift itu berhenti di lantai yang tidak ada.", durationFrames: 150 },
+          { narration: "Kamu menekan tombol tutup, pintunya tidak bergerak.", durationFrames: 150 },
+          { narration: "Kalau kamu tidak ingin ikut, klik subscribe.", durationFrames: 240 },
+        ],
+      }),
+    },
+  });
+  assert.match(out, /penutup belum bertanya ke penonton/);
 });
 
 test("menolak pembuka yang seragam pada episode yang belum terbit", () => {

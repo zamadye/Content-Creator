@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "mission": "danau-dalam-laut-2026",
+  "action": "preflight",
+  "media": {
+    "url": "https://drive.google.com/uc?export=download&id=1i7vI8jS6Tvp448Y68M-qeJa6EDCSzEfX",
+    "sha256": "83bba750a07c4f4effb355218e98f854d60619463a02ebe25956e9e57283a575",
+    "sizeBytes": 18792520
+  },
+  "approvals": {
+    "sameVideoBothPlatformsSameTime": true
+  },
+  "posts": [
+    {
+      "platform": "facebook",
+      "dueAt": "2026-11-07T07:30:00+07:00",
+      "text": "Ada danau di dalam laut? 🌊\n\nDi beberapa bagian dasar laut, air yang jauh lebih asin dan lebih padat bisa mengalir ke cekungan dan membentuk kolam yang tampak seperti danau. Namanya brine pool—bukan danau air tawar, ya.\n\nNOAA pernah menemukan salah satunya dalam ekspedisi Teluk Meksiko pada 2017. Ilustrasi dalam video bukan rekaman lokasi sebenarnya.\n\nKalau robotmu menemukan tempat ini, kamu pilih MAJU atau PUTAR BALIK? Tulis di komentar, lalu ikuti KNOT untuk cerita aneh berikutnya. 👇\n\nSumber: NOAA Ocean Exploration.\n#DanauBawahLaut #BrinePool #FaktaLaut #DuniaKebalik #KNOT"
+    },
+    {
+      "platform": "youtube",
+      "dueAt": "2026-11-07T07:30:00+07:00",
+      "title": "Ada Danau di Dalam Laut? Kenalan dengan Brine Pool 🌊",
+      "text": "Bagaimana mungkin ada “danau” di dasar laut? Kolam ini disebut brine pool: air yang sangat asin dan lebih padat daripada air laut di sekitarnya. Cairan pekat itu bisa mengalir di dasar laut dan terkumpul di cekungan. Perbedaan kepadatan membuat batasnya dapat terlihat, tetapi bukan berarti kedua air tidak pernah bercampur.\n\nNOAA mendokumentasikan salah satu kolam dalam ekspedisi Teluk Meksiko pada 2017. Di tepi beberapa kolam, kerang dan mikroba dapat hidup. Ilustrasi video bukan rekaman lokasi sebenarnya.\n\nKalau robotmu menemukan tempat ini, lanjut menyelam atau putar balik? Tulis pilihanmu di komentar, like, dan subscribe KNOT untuk cerita Dunia Kebalik berikutnya.\n\nSumber:\nNOAA, Brine Pool (ekspedisi 2017): https://oceanexplorer.noaa.gov/multimedia/daily-image-media-20200720/\nNOAA, A Waterfall Under the Sea (2018): https://archive.oceanexplorer.noaa.gov/okeanos/explorations/ex1803/logs/apr27/welcome.html\n\n#Shorts #BrinePool #DanauBawahLaut #DuniaKebalik #KNOT"
+    }
+  ],
+  "preflightAttempt": "initial"
+}

@@ -250,7 +250,19 @@ async function main() {
       const waitMs = due - Date.now();
       if (waitMs > 0) {
         log(`menunggu ${Math.round(waitMs / 60000)} menit sampai jeda ${gapMinutes} menit terpenuhi`);
-        await sleep(waitMs);
+        // Tidur per menit, bukan sekali tidur panjang: di lingkungan ini proses
+        // bisa tertidur lebih lama dari timer-nya saat mesin tidak aktif, dan
+        // satu timer raksasa berarti tidak ada jejak sampai alarm itu berbunyi.
+        const deadline = Date.now() + waitMs;
+        let lastNote = 0;
+        while (Date.now() < deadline) {
+          await sleep(60000);
+          const sisa = Math.round((deadline - Date.now()) / 60000);
+          if (sisa > 0 && Date.now() - lastNote > 15 * 60000) {
+            lastNote = Date.now();
+            log(`masih menunggu ${sisa} menit`);
+          }
+        }
       }
     }
 

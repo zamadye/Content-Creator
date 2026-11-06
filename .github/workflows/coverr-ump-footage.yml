@@ -1,8 +1,9 @@
 name: Coverr - UMP native HD transfer
-# User-approved API-only high-resolution candidates, session branch only.
+# User-approved: API-only search and up to 20 candidates for this revision.
+# Two pilots were already requested; this run requests 18 distinct candidates.
 # No PR, main change, publishing, scheduling, raw media, or secrets in git.
-# Excerpts are encrypted before being placed into unreferenced Git blobs in the
-# public repo; garbage-collection timing is not guaranteed.
+# Excerpts are encrypted before unreferenced blobs reach the public repo;
+# GitHub's garbage-collection timing is not guaranteed.
 on:
   push:
     branches:
@@ -12,11 +13,25 @@ on:
       - 'editorial-engine/pipeline/coverr-transfer/transfer.mjs'
       - 'editorial-engine/pipeline/coverr-transfer/session-public.pem'
 permissions:
-  contents: write # unreferenced encrypted blobs, not branch writes
+  contents: write # unreferenced encrypted blobs only, no branch writes
 jobs:
-  pilot:
+  curated:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - batch: A
+            first: 'p2NYqNmDfb d1TlvfGhEe 3fJfi4ShuV'
+            second: 'kb9wpjSAE1 3SwnR0xhjQ MT3tCwbjcy'
+          - batch: B
+            first: '7gd22xxSqJ vphOc3TBrz BawOwNcxEs'
+            second: 'VSlrIawADU XIvMon1nqS 4CT8468xlv'
+          - batch: C
+            first: 'bDq8DcJF9D 27bG4pHuoI 5nsZYDS2cZ'
+            second: 'nixAjqTzvU 3qAZd7N07s cpOJToP5PN'
     steps:
       - uses: actions/checkout@v5
       - name: Run offline source-quality and safety tests
@@ -31,27 +46,38 @@ jobs:
           fi
           ffmpeg -version | sed -n '1p'
           ffprobe -version | sed -n '1p'
-      - name: Native HD pilot - household expense tracking
+      # At most six notices per step, below Actions' annotation cap. Continue
+      # past a single rejected premium/short/low-res candidate; each failure
+      # remains a FAIL in its individual sanitized result, never a PASS.
+      - name: Transfer native-HD candidates batch ${{ matrix.batch }} part 1
         env:
           COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
-          COVERR_VIDEO_ID: 1XR9FPo67A
+          COVERR_VIDEO_IDS: ${{ matrix.first }}
           GITHUB_TOKEN: ${{ github.token }}
         shell: bash
         continue-on-error: true
         run: |
-          set -euo pipefail
+          set -uo pipefail
           if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
           if [ -n "${GITHUB_TOKEN:-}" ]; then echo "::add-mask::${GITHUB_TOKEN}"; fi
-          node editorial-engine/pipeline/coverr-transfer/transfer.mjs
-      - name: Native HD pilot - clothing work
+          failures=0
+          for id in $COVERR_VIDEO_IDS; do
+            COVERR_VIDEO_ID="$id" node editorial-engine/pipeline/coverr-transfer/transfer.mjs || failures=$((failures+1))
+          done
+          [ "$failures" -eq 0 ]
+      - name: Transfer native-HD candidates batch ${{ matrix.batch }} part 2
         env:
           COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
-          COVERR_VIDEO_ID: 4EggJk9r6n
+          COVERR_VIDEO_IDS: ${{ matrix.second }}
           GITHUB_TOKEN: ${{ github.token }}
         shell: bash
         continue-on-error: true
         run: |
-          set -euo pipefail
+          set -uo pipefail
           if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
           if [ -n "${GITHUB_TOKEN:-}" ]; then echo "::add-mask::${GITHUB_TOKEN}"; fi
-          node editorial-engine/pipeline/coverr-transfer/transfer.mjs
+          failures=0
+          for id in $COVERR_VIDEO_IDS; do
+            COVERR_VIDEO_ID="$id" node editorial-engine/pipeline/coverr-transfer/transfer.mjs || failures=$((failures+1))
+          done
+          [ "$failures" -eq 0 ]

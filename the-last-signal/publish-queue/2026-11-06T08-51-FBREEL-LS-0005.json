@@ -1,0 +1,30 @@
+{
+  "episodeId": "LS-0005",
+  "platforms": [
+    "facebook"
+  ],
+  "status": "requested",
+  "createdAt": "2026-11-06T08:51:21.594Z",
+  "media": "the-last-signal/releases/LS-0005.mp4",
+  "youtube": {
+    "title": "Video Ini Baru Diunggah Besok Pagi. Ketiga Anak Itu Tidak Pernah Keluar.",
+    "description": "ARSIP FIKSI — Rekaman camcorder tiga orang di perumahan yang belum dijual. Unggahan terakhir muncul sebelum keberangkatan mereka.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #FoundFootage #CeritaHoror",
+    "tags": [
+      "found footage",
+      "cerita horor",
+      "horor indonesia",
+      "urban exploration",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya."
+  },
+  "facebook": {
+    "title": "Video Ini Baru Diunggah Besok Pagi. Ketiga Anak Itu Tidak Pernah Keluar."
+  },
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+}

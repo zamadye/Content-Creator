@@ -30,7 +30,9 @@ async function listPosts(limit = 20) {
 function summarize(post) {
   const facebook = (post.platforms ?? []).find((entry) => entry?.platform === "facebook");
   return {
-    id: post.id,
+    // Post memakai _id (gaya Mongo), bukan id. Percobaan pertama menghapus
+    // "undefined" karena perbedaan itu.
+    id: post._id ?? post.id,
     episodeId: post.metadata?.episodeId ?? "?",
     createdAt: post.createdAt,
     status: post.status,
@@ -59,29 +61,30 @@ async function main() {
       .filter((post) => post.metadata?.episodeId === episodeId)
       // Post tanpa id tidak bisa dihapus; jangan pernah memasukkannya ke daftar
       // target (dulu ini berujung permintaan hapus "undefined").
-      .filter((post) => typeof post.id === "string" && post.id.length > 0);
+      .filter((post) => typeof (post._id ?? post.id) === "string");
     for (const post of matches) {
-      console.log(`::notice::kandidat ${episodeId}: ${post.id} ${post.createdAt} ${post.status}`);
+      console.log(`::notice::kandidat ${episodeId}: ${post._id ?? post.id} ${post.createdAt} ${post.status}`);
     }
     // Simpan yang paling awal terbit — itu yang sudah dibagikan algoritma.
     const ordered = matches.sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+    const idOf = (post) => post._id ?? post.id;
     for (const extra of ordered.slice(1)) {
-      console.log(`::warning::duplikat ${episodeId}: ${extra.id} (${extra.createdAt}) → dihapus; disimpan ${ordered[0].id}`);
-      targets.add(extra.id);
+      console.log(`::warning::duplikat ${episodeId}: ${idOf(extra)} (${extra.createdAt}) → dihapus; disimpan ${idOf(ordered[0])}`);
+      targets.add(idOf(extra));
     }
     if (ordered.length <= 1) {
       console.log(`::warning::${episodeId}: tidak ada duplikat (${ordered.length} post terlihat)`);
       // Tanpa ini, "tidak ada duplikat" tidak bisa dibedakan dari "metadata-nya
       // tidak terbaca". Delapan post terakhir dicetak sebagai anotasi.
       for (const post of all.slice(0, 8)) {
-        console.log(`::warning::lihat: ${post.id} | episode=${post.metadata?.episodeId ?? "-"} | ${post.createdAt} | ${post.status}`);
+        console.log(`::warning::lihat: ${post._id ?? post.id} | episode=${post.metadata?.episodeId ?? "-"} | ${post.createdAt} | ${post.status}`);
       }
     }
   }
 
   for (const postId of targets) {
     try {
-      await zernio.posts.deletePost({ path: { id: postId } });
+      await zernio.posts.deletePost({ path: { postId } });
       console.log(`::notice::post ${postId} dihapus`);
     } catch (error) {
       console.log(`::error::gagal menghapus ${postId}: ${error?.message ?? error}`);

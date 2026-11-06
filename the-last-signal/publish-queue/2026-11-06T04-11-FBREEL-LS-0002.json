@@ -1,0 +1,32 @@
+{
+  "episodeId": "LS-0002",
+  "platforms": [
+    "facebook"
+  ],
+  "status": "requested",
+  "createdAt": "2026-11-06T04:11:51.844Z",
+  "media": "the-last-signal/releases/LS-0002.mp4",
+  "youtube": {
+    "title": "TV Daerah Itu Berhenti Mengudara 28 Tahun Lalu. Malam Ini Ia Menyebut Namamu.",
+    "description": "ARSIP FIKSI — Rekaman VHS siaran lokal, 23.11. Pembawa acara menyebut nama penonton dan menghitung mundur.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #AnalogHorror #CeritaHoror",
+    "tags": [
+      "analog horror",
+      "cerita horor",
+      "horor indonesia",
+      "vhs",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya.",
+    "videoId": "e9Eh7EV7wHQ",
+    "url": "https://www.youtube.com/watch?v=e9Eh7EV7wHQ"
+  },
+  "facebook": {
+    "title": "TV Daerah Itu Berhenti Mengudara 28 Tahun Lalu. Malam Ini Ia Menyebut Namamu."
+  },
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+}

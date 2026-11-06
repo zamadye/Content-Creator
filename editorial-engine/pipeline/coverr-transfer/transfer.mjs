@@ -14,7 +14,7 @@ import { pathToFileURL } from 'node:url';
 
 export class SafeError extends Error { constructor(code) { super(code); this.code=code; } }
 export const MAGIC=Buffer.from('UMPF1');
-export const MAX_DOWNLOAD_BYTES=180*1024*1024, MAX_TRANSFER_BYTES=8*1024*1024;
+export const MAX_DOWNLOAD_BYTES=250*1024*1024, MAX_TRANSFER_BYTES=32*1024*1024;
 export function validId(id) { return typeof id==='string' && /^[A-Za-z0-9_-]{1,80}$/.test(id); }
 export function validRepository(repo) { return /^[A-Za-z0-9][A-Za-z0-9_.-]*\/[A-Za-z0-9][A-Za-z0-9_.-]*$/.test(repo || '') && !repo.includes('..'); }
 export function cleanText(value,key='',limit=160) {
@@ -106,8 +106,28 @@ async function download(url,destination) {
   try {await pipeline(Readable.fromWeb(response.body),limiter,fs.createWriteStream(destination,{mode:0o600}));} catch(e) {if(e instanceof SafeError) throw e; throw new SafeError('MEDIA_STREAM_FAILED');}
   if(count<1000) throw new SafeError('MEDIA_TOO_SMALL'); return count;
 }
+export function validateSourceProbe(data) {
+  const stream=data?.streams?.[0], duration=Number(data?.format?.duration);
+  const width=Number(stream?.width),height=Number(stream?.height);
+  if(!Number.isInteger(width) || !Number.isInteger(height) || !Number.isFinite(duration)) throw new SafeError('SOURCE_PROBE_INVALID');
+  // Never call an enlarged 720p source genuine 1080p. Aspect-ratio crops can
+  // only reduce effective resolution further, so demand at least 16:9 area.
+  if(width<1920 || height<1080 || Math.min(width, height*16/9)<1920 || Math.min(height,width*9/16)<1080) throw new SafeError('SOURCE_BELOW_1080P');
+  if(duration<7.1) throw new SafeError('SOURCE_TOO_SHORT');
+  return {width,height,duration_seconds:Math.round(duration*1000)/1000};
+}
+function probeSource(source) {
+  const p=spawnSync('ffprobe',['-v','error','-select_streams','v:0','-show_entries','stream=width,height:format=duration','-of','json',source],{encoding:'utf8',timeout:30000});
+  if(p.error?.code==='ENOENT') throw new SafeError('FFPROBE_MISSING');
+  if(p.status!==0) throw new SafeError('SOURCE_PROBE_FAILED');
+  let data; try {data=JSON.parse(p.stdout);} catch {throw new SafeError('SOURCE_PROBE_INVALID');}
+  return validateSourceProbe(data);
+}
+export function buildTrimArgs(source,dest) {
+  return ['-hide_banner','-loglevel','error','-y','-ss','1','-i',source,'-t','6','-map','0:v:0','-an','-vf','scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30','-c:v','libx264','-preset','medium','-crf','17','-pix_fmt','yuv420p','-color_range','tv','-colorspace','bt709','-color_primaries','bt709','-color_trc','bt709','-movflags','+faststart',dest];
+}
 function trim(source,dest) {
-  const args=['-hide_banner','-loglevel','error','-y','-ss','2','-i',source,'-t','5','-map','0:v:0','-an','-vf','scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720,setsar=1,fps=30','-c:v','libx264','-preset','medium','-crf','23','-pix_fmt','yuv420p','-movflags','+faststart',dest];
+  const args=buildTrimArgs(source,dest);
   const run=spawnSync('ffmpeg',args,{encoding:'utf8',timeout:120000});
   if(run.status!==0 || !fs.existsSync(dest)) {
     if(run.error?.code==='ENOENT') throw new SafeError('FFMPEG_MISSING');
@@ -121,7 +141,7 @@ function trim(source,dest) {
   }
   const probe=spawnSync('ffprobe',['-v','error','-show_entries','format=duration','-of','default=noprint_wrappers=1:nokey=1',dest],{encoding:'utf8',timeout:30000});
   const duration=Number((probe.stdout||'').trim());
-  if(probe.status!==0 || !Number.isFinite(duration) || duration<4.95 || duration>5.1) throw new SafeError('EXCERPT_DURATION_INVALID');
+  if(probe.status!==0 || !Number.isFinite(duration) || duration<5.95 || duration>6.1) throw new SafeError('EXCERPT_DURATION_INVALID');
   const result=fs.readFileSync(dest); if(result.length<1000 || result.length>MAX_TRANSFER_BYTES) throw new SafeError('TRIM_SIZE_INVALID'); return result;
 }
 async function createBlob(data,token,repo) {
@@ -153,9 +173,10 @@ async function main() {
     const looksHls=prefix.toString('utf8',0,32).startsWith('#EXTM3U');
     const looksHtml=/^\s*(?:<!doctype|<html)/i.test(prefix.toString('utf8',0,80));
     emit({status:'DOWNLOADED_FOR_DIAGNOSTIC',id,tracking,original_bytes:originalBytes,container_signature:looksMp4?'MP4':looksHls?'HLS':looksHtml?'HTML':'UNKNOWN'});
+    const sourceInfo=probeSource(raw);
     const trimmed=trim(raw,clip), publicKey=fs.readFileSync('editorial-engine/pipeline/coverr-transfer/session-public.pem');
     const blob=encryptBytes(trimmed,publicKey), sha=await createBlob(blob,token,repo);
-    emit({status:'PASS_DOWNLOAD',video:{id:candidate.id,title:candidate.title,creator:candidate.creator,duration_seconds:candidate.duration_seconds,is_premium:false,is_ai_generated:false,is_vertical:false},tracking,download_route:'Coverr API mp4_download',original_bytes:originalBytes,excerpt_bytes:trimmed.length,excerpt_sha256:sha256(trimmed),encrypted_blob_sha:sha,transport:'encrypted-unreferenced-git-blob'});
+    emit({status:'PASS_DOWNLOAD',video:{id:candidate.id,title:candidate.title,creator:candidate.creator,duration_seconds:candidate.duration_seconds,is_premium:false,is_ai_generated:false,is_vertical:false},tracking,download_route:'Coverr API mp4_download',source_probe:sourceInfo,original_bytes:originalBytes,excerpt_seconds:6,excerpt_resolution:'1920x1080',excerpt_crf:17,excerpt_bytes:trimmed.length,excerpt_sha256:sha256(trimmed),encrypted_blob_sha:sha,transport:'encrypted-unreferenced-git-blob'});
   } catch(e) {emit({status:'FAIL',id:validId(id)?id:null,code:e instanceof SafeError?e.code:'UNEXPECTED_FAILURE'}); process.exitCode=1;}
   finally {if(dir) fs.rmSync(dir,{recursive:true,force:true});}
 }

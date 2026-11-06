@@ -68,10 +68,12 @@ jobs:
         working-directory: the-last-signal/tools/publish
         run: node zernio-check.mjs
 
+      # Delapan, bukan tiga: duplikat Reels 2026-11-06 (LS-0002 terbit dua kali
+      # dalam tiga menit) hanya kelihatan kalau jendela bacaannya cukup lebar.
       - name: Status post terakhir (read-only)
         working-directory: the-last-signal/tools/publish
         continue-on-error: true
-        run: node zernio-posts.mjs --limit 3
+        run: node zernio-posts.mjs --limit 8
 
       - name: Analytics semua episode terbit (read-only, boleh kosong)
         working-directory: the-last-signal/tools/publish

@@ -1,0 +1,6 @@
+{
+  "aksi": "dedupe-episode",
+  "episodeId": "LS-0002",
+  "percobaan": 3,
+  "alasan": "Percobaan sebelumnya melaporkan sukses tanpa anotasi; sekarang daftar post ikut dicetak untuk memastikan apakah duplikat benar-benar terlihat oleh API"
+}

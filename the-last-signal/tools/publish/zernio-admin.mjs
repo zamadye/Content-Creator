@@ -46,7 +46,7 @@ async function main() {
   if (args.includes("--list")) {
     for (const post of await listPosts()) {
       const info = summarize(post);
-      console.log(`${info.createdAt}  ${info.episodeId.padEnd(8)}  ${info.status.padEnd(10)}  ${info.id}  ${info.facebookUrl ?? ""}`);
+      console.log(`::notice::${info.createdAt} | ${info.episodeId} | ${info.status} | ${info.id} | ${info.facebookUrl ?? ""}`);
     }
     return;
   }
@@ -69,7 +69,14 @@ async function main() {
       console.log(`::warning::duplikat ${episodeId}: ${extra.id} (${extra.createdAt}) → dihapus; disimpan ${ordered[0].id}`);
       targets.add(extra.id);
     }
-    if (ordered.length <= 1) console.log(`::warning::${episodeId}: tidak ada duplikat (${ordered.length} post terlihat)`);
+    if (ordered.length <= 1) {
+      console.log(`::warning::${episodeId}: tidak ada duplikat (${ordered.length} post terlihat)`);
+      // Tanpa ini, "tidak ada duplikat" tidak bisa dibedakan dari "metadata-nya
+      // tidak terbaca". Delapan post terakhir dicetak sebagai anotasi.
+      for (const post of all.slice(0, 8)) {
+        console.log(`::warning::lihat: ${post.id} | episode=${post.metadata?.episodeId ?? "-"} | ${post.createdAt} | ${post.status}`);
+      }
+    }
   }
 
   for (const postId of targets) {

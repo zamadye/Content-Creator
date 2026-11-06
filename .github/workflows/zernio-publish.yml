@@ -59,7 +59,7 @@ jobs:
       - name: Ambil kode
         uses: actions/checkout@v5
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Pasang Node 22
         uses: actions/setup-node@v5
@@ -88,7 +88,12 @@ jobs:
             # Berkas "held" (dijadwalkan) boleh ikut berubah pada push yang sama
             # tanpa memicu unggahan — itu yang membuat antrean bisa disiapkan
             # lebih awal tanpa melanggar aturan satu-unggahan-per-jalan.
-            CHANGED=$(git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json')
+            # github.event.before bisa saja tidak ada di checkout (history
+            # ditulis ulang oleh rebase, atau dua push beruntun). Dulu itu
+            # membuat langkah ini mati dengan exit 128 sebelum apa pun diunggah.
+            # Kalau diff-nya gagal, jatuh ke daftar berkas yang diubah commit ini.
+            CHANGED=$(git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json' 2>/dev/null \
+              || git show --pretty=format: --name-only --diff-filter=AM "${{ github.sha }}" -- 'the-last-signal/publish-queue/*.json')
             READY=""
             for f in $CHANGED; do
               [ -f "$f" ] || continue

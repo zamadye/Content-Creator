@@ -955,7 +955,7 @@
           "sfx": "angin naik"
         },
         {
-          "image": "images/s4-17.png",
+          "image": "images/entitas-s4-17.png",
           "camera": "push_in",
           "scale": 1.06,
           "offsetX": 0,
@@ -1231,7 +1231,7 @@
           "sfx": "burung pagi"
         },
         {
-          "image": "images/beringin.png",
+          "image": "images/entitas-s5-17.png",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1940,7 +1940,7 @@
           "sfx": "pita"
         },
         {
-          "image": "images/makam.png",
+          "image": "images/entitas-s8-03.png",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,

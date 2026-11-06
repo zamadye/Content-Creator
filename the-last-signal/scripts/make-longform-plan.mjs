@@ -135,7 +135,10 @@ const segments = peta.segmen.map((seg) => {
 
   const shots = seg.shots.map((shot, index) => {
     jumlahShot += 1;
-    const ref = kolamUntuk(shot);
+    // Shot yang memuat entitas TIDAK boleh menumpang gambar kolam: kalau ikut,
+    // makhluknya akan muncul di semua shot lain yang memakai berkas itu
+    // (ATURAN 3.1: entitas muncul 3 kali, tidak lebih).
+    const ref = shot.entitas ? `entitas-${shot.id.toLowerCase()}` : kolamUntuk(shot);
     pool.add(ref);
     // Tangga framing 0,25: skala bergantian supaya dua shot berurutan tidak
     // terasa seperti gambar yang sama.

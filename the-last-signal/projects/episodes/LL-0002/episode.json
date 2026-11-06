@@ -948,7 +948,7 @@
         },
         {
           "atFrame": 1908,
-          "image": "images/s4-17.png",
+          "image": "images/entitas-s4-17.png",
           "camera": "push_in",
           "scale": 1.06,
           "offsetX": 0,
@@ -1296,7 +1296,7 @@
         },
         {
           "atFrame": 1624,
-          "image": "images/beringin.png",
+          "image": "images/entitas-s5-17.png",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -2172,7 +2172,7 @@
         },
         {
           "atFrame": 298,
-          "image": "images/makam.png",
+          "image": "images/entitas-s8-03.png",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,

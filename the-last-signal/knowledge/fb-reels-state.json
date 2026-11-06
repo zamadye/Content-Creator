@@ -23,6 +23,11 @@
       "status": "error",
       "note": "media tidak bisa disiapkan",
       "at": "2026-11-06T03:47:46.782Z"
+    },
+    "LS-0002": {
+      "status": "error",
+      "note": "media tidak bisa disiapkan",
+      "at": "2026-11-06T03:47:49.312Z"
     }
   }
 }

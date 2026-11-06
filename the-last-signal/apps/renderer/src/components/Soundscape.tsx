@@ -98,7 +98,10 @@ export const Soundscape: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =>
               <Sequence
                 key={`sfx-${scene.id}-${cueIndex}`}
                 from={from + cue.startFrame}
-                durationInFrames={Math.max(1, Math.round(fps * 4))}
+                // Durasi mengikuti panjang berkasnya kalau perencana audio
+                // menuliskannya. Dulu dikunci 4 detik, jadi guntur 7 detik
+                // terpotong di tengah dan terdengar seperti kesalahan render.
+                durationInFrames={Math.max(1, cue.durationFrames ?? Math.round(fps * 4))}
                 name={`sfx ${scene.id}.${cueIndex + 1}`}
               >
                 <Audio src={staticFile(cue.assetId)} volume={cue.volume} />

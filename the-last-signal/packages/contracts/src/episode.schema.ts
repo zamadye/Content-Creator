@@ -76,6 +76,12 @@ export const SfxCueSchema = z.object({
   /** Posisi relatif terhadap awal scene (bukan timeline episode). */
   startFrame: z.number().int().nonnegative(),
   volume: z.number().min(0).max(1).default(1),
+  /**
+   * Panjang cue dalam frame. Diisi perencana audio dari durasi berkas aslinya.
+   * Tanpa ini renderer memakai 4 detik untuk semua efek, sehingga guntur 7
+   * detik terpotong di tengah.
+   */
+  durationFrames: z.number().int().positive().optional(),
 });
 export type SfxCue = z.infer<typeof SfxCueSchema>;
 

@@ -1,0 +1,424 @@
+{
+  "generatedBy": "tools/audio/build-horror-assets.py",
+  "sampleRate": 48000,
+  "format": "mp3 112 kbps stereo",
+  "note": "Semua aset disintesis dari rumus, bebas royalti. Dibangun ulang dengan hasil sama karena seed tetap.",
+  "assets": [
+    {
+      "name": "bed_drone_dread",
+      "file": "assets/audio/horror/bed_drone_dread.mp3",
+      "kind": "bed",
+      "tags": [
+        "gelap",
+        "sunyi",
+        "ruang",
+        "umum"
+      ],
+      "note": "Drone rendah bergerak, denting logam jauh. Latar default.",
+      "durationSeconds": 60.0,
+      "peakDb": -9.3,
+      "rmsDb": -20.0,
+      "sizeKb": 821.0
+    },
+    {
+      "name": "bed_music_box",
+      "file": "assets/audio/horror/bed_music_box.mp3",
+      "kind": "bed",
+      "tags": [
+        "anak",
+        "musik",
+        "lemari",
+        "kamar",
+        "umum"
+      ],
+      "note": "Kotak musik sumbang 66 bpm, satu nada meleset 30 sen.",
+      "durationSeconds": 48.0,
+      "peakDb": -8.3,
+      "rmsDb": -21.0,
+      "sizeKb": 656.9
+    },
+    {
+      "name": "bed_night_ambience",
+      "file": "assets/audio/horror/bed_night_ambience.mp3",
+      "kind": "bed",
+      "tags": [
+        "malam",
+        "luar",
+        "jangkrik",
+        "kos",
+        "umum"
+      ],
+      "note": "Jangkrik, angin jauh, kodok. Untuk pembuka tenang.",
+      "durationSeconds": 70.0,
+      "peakDb": -4.3,
+      "rmsDb": -22.0,
+      "sizeKb": 957.8
+    },
+    {
+      "name": "bed_pulse_ritual",
+      "file": "assets/audio/horror/bed_pulse_ritual.mp3",
+      "kind": "bed",
+      "tags": [
+        "jantung",
+        "ritual",
+        "lorong",
+        "umum"
+      ],
+      "note": "Denyut lambat 41 bpm seperti jantung gedung.",
+      "durationSeconds": 64.0,
+      "peakDb": -7.4,
+      "rmsDb": -20.0,
+      "sizeKb": 875.8
+    },
+    {
+      "name": "bed_static_tension",
+      "file": "assets/audio/horror/bed_static_tension.mp3",
+      "kind": "bed",
+      "tags": [
+        "radio",
+        "siaran",
+        "telepon",
+        "rekaman"
+      ],
+      "note": "Statik radio hidup dengan crackle dan heterodyne.",
+      "durationSeconds": 45.0,
+      "peakDb": -2.0,
+      "rmsDb": -22.0,
+      "sizeKb": 615.9
+    },
+    {
+      "name": "bed_strings_swell",
+      "file": "assets/audio/horror/bed_strings_swell.mp3",
+      "kind": "bed",
+      "tags": [
+        "naik",
+        "klimaks",
+        "akhir",
+        "umum"
+      ],
+      "note": "Gesekan sumbang yang naik lalu putus di detik 48.",
+      "durationSeconds": 56.0,
+      "peakDb": -4.4,
+      "rmsDb": -22.0,
+      "sizeKb": 766.5
+    },
+    {
+      "name": "sfx_anak_bersenandung",
+      "file": "assets/audio/horror/sfx_anak_bersenandung.mp3",
+      "kind": "sfx",
+      "tags": [
+        "anak",
+        "senandung",
+        "lemari",
+        "musik"
+      ],
+      "note": "Senandung anak tanpa kata 10 s.",
+      "durationSeconds": 10.0,
+      "peakDb": -7.0,
+      "rmsDb": -19.5,
+      "sizeKb": 137.5
+    },
+    {
+      "name": "sfx_angin",
+      "file": "assets/audio/horror/sfx_angin.mp3",
+      "kind": "sfx",
+      "tags": [
+        "angin",
+        "luar",
+        "malam",
+        "jendela"
+      ],
+      "note": "Angin 24 s.",
+      "durationSeconds": 24.0,
+      "peakDb": -9.0,
+      "rmsDb": -25.1,
+      "sizeKb": 328.8
+    },
+    {
+      "name": "sfx_bisikan",
+      "file": "assets/audio/horror/sfx_bisikan.mp3",
+      "kind": "sfx",
+      "tags": [
+        "bisik",
+        "suara",
+        "nama",
+        "telinga"
+      ],
+      "note": "Bisikan 4,2 s dengan forman bergerak.",
+      "durationSeconds": 4.2,
+      "peakDb": -6.0,
+      "rmsDb": -19.8,
+      "sizeKb": 58.1
+    },
+    {
+      "name": "sfx_detak_jantung",
+      "file": "assets/audio/horror/sfx_detak_jantung.mp3",
+      "kind": "sfx",
+      "tags": [
+        "jantung",
+        "detak",
+        "tegang",
+        "tunggu"
+      ],
+      "note": "Detak jantung 8 s.",
+      "durationSeconds": 8.0,
+      "peakDb": -4.0,
+      "rmsDb": -20.9,
+      "sizeKb": 110.3
+    },
+    {
+      "name": "sfx_hujan",
+      "file": "assets/audio/horror/sfx_hujan.mp3",
+      "kind": "sfx",
+      "tags": [
+        "hujan",
+        "deras",
+        "malam",
+        "luar"
+      ],
+      "note": "Hujan 40 s, loop-able.",
+      "durationSeconds": 40.0,
+      "peakDb": -8.0,
+      "rmsDb": -22.3,
+      "sizeKb": 547.7
+    },
+    {
+      "name": "sfx_jam_berdetak",
+      "file": "assets/audio/horror/sfx_jam_berdetak.mp3",
+      "kind": "sfx",
+      "tags": [
+        "jam",
+        "detak",
+        "waktu",
+        "tunggu"
+      ],
+      "note": "Detak 12 s.",
+      "durationSeconds": 12.0,
+      "peakDb": -6.0,
+      "rmsDb": -28.7,
+      "sizeKb": 164.8
+    },
+    {
+      "name": "sfx_ketukan",
+      "file": "assets/audio/horror/sfx_ketukan.mp3",
+      "kind": "sfx",
+      "tags": [
+        "ketuk",
+        "pintu",
+        "tok",
+        "dinding"
+      ],
+      "note": "Tiga ketukan 2,4 s.",
+      "durationSeconds": 2.4,
+      "peakDb": -3.0,
+      "rmsDb": -25.0,
+      "sizeKb": 33.5
+    },
+    {
+      "name": "sfx_langkah_kayu",
+      "file": "assets/audio/horror/sfx_langkah_kayu.mp3",
+      "kind": "sfx",
+      "tags": [
+        "langkah",
+        "kaki",
+        "lorong",
+        "atap"
+      ],
+      "note": "Lima langkah di lantai kayu 3 s.",
+      "durationSeconds": 3.0,
+      "peakDb": -4.0,
+      "rmsDb": -22.4,
+      "sizeKb": 41.7
+    },
+    {
+      "name": "sfx_logam_tergesek",
+      "file": "assets/audio/horror/sfx_logam_tergesek.mp3",
+      "kind": "sfx",
+      "tags": [
+        "logam",
+        "besi",
+        "gesek",
+        "pagar"
+      ],
+      "note": "Gesekan logam 2 s.",
+      "durationSeconds": 2.0,
+      "peakDb": -4.0,
+      "rmsDb": -19.1,
+      "sizeKb": 28.3
+    },
+    {
+      "name": "sfx_nafas_berat",
+      "file": "assets/audio/horror/sfx_nafas_berat.mp3",
+      "kind": "sfx",
+      "tags": [
+        "napas",
+        "bernapas",
+        "dekat",
+        "ketakutan"
+      ],
+      "note": "Napas 5 s.",
+      "durationSeconds": 5.0,
+      "peakDb": -6.0,
+      "rmsDb": -22.8,
+      "sizeKb": 69.3
+    },
+    {
+      "name": "sfx_petir",
+      "file": "assets/audio/horror/sfx_petir.mp3",
+      "kind": "sfx",
+      "tags": [
+        "petir",
+        "hujan",
+        "badai",
+        "guntur"
+      ],
+      "note": "Guntur 7 s: retak di depan, gemuruh panjang.",
+      "durationSeconds": 7.0,
+      "peakDb": -2.0,
+      "rmsDb": -19.8,
+      "sizeKb": 96.5
+    },
+    {
+      "name": "sfx_pintu_dibanting",
+      "file": "assets/audio/horror/sfx_pintu_dibanting.mp3",
+      "kind": "sfx",
+      "tags": [
+        "pintu",
+        "banting",
+        "kaget"
+      ],
+      "note": "Bantingan pintu 1,5 s.",
+      "durationSeconds": 1.5,
+      "peakDb": -2.0,
+      "rmsDb": -21.6,
+      "sizeKb": 21.4
+    },
+    {
+      "name": "sfx_pintu_terbuka",
+      "file": "assets/audio/horror/sfx_pintu_terbuka.mp3",
+      "kind": "sfx",
+      "tags": [
+        "pintu",
+        "lemari",
+        "buka",
+        "kamar"
+      ],
+      "note": "Gesekan kayu 3,6 s — model stick-slip.",
+      "durationSeconds": 3.6,
+      "peakDb": -3.0,
+      "rmsDb": -17.1,
+      "sizeKb": 49.9
+    },
+    {
+      "name": "sfx_radio_statis",
+      "file": "assets/audio/horror/sfx_radio_statis.mp3",
+      "kind": "sfx",
+      "tags": [
+        "radio",
+        "statik",
+        "siaran",
+        "putus"
+      ],
+      "note": "Burst statik 4 s.",
+      "durationSeconds": 4.0,
+      "peakDb": -4.0,
+      "rmsDb": -24.1,
+      "sizeKb": 55.5
+    },
+    {
+      "name": "sfx_riser",
+      "file": "assets/audio/horror/sfx_riser.mp3",
+      "kind": "sfx",
+      "tags": [
+        "naik",
+        "tegang",
+        "sebelum",
+        "klimaks"
+      ],
+      "note": "Riser 6 s.",
+      "durationSeconds": 6.0,
+      "peakDb": -5.0,
+      "rmsDb": -25.1,
+      "sizeKb": 82.7
+    },
+    {
+      "name": "sfx_stinger",
+      "file": "assets/audio/horror/sfx_stinger.mp3",
+      "kind": "sfx",
+      "tags": [
+        "kaget",
+        "jumpscare",
+        "pukul",
+        "klimaks"
+      ],
+      "note": "Pukulan jumpscare 1,4 s.",
+      "durationSeconds": 1.4,
+      "peakDb": -1.5,
+      "rmsDb": -16.9,
+      "sizeKb": 20.1
+    },
+    {
+      "name": "sfx_tawa_cekikikan",
+      "file": "assets/audio/horror/sfx_tawa_cekikikan.mp3",
+      "kind": "sfx",
+      "tags": [
+        "tawa",
+        "cekikikan",
+        "anak",
+        "kaget"
+      ],
+      "note": "Tawa anak 3,4 s — sengaja tidak natural.",
+      "durationSeconds": 3.4,
+      "peakDb": -5.0,
+      "rmsDb": -20.1,
+      "sizeKb": 47.3
+    },
+    {
+      "name": "sfx_telepon_lama",
+      "file": "assets/audio/horror/sfx_telepon_lama.mp3",
+      "kind": "sfx",
+      "tags": [
+        "telepon",
+        "dering",
+        "panggilan",
+        "kantor"
+      ],
+      "note": "Dering telepon rumah tua 6 s.",
+      "durationSeconds": 6.0,
+      "peakDb": -5.0,
+      "rmsDb": -14.7,
+      "sizeKb": 82.7
+    },
+    {
+      "name": "sfx_tetes_air",
+      "file": "assets/audio/horror/sfx_tetes_air.mp3",
+      "kind": "sfx",
+      "tags": [
+        "air",
+        "tetes",
+        "bocor",
+        "beton"
+      ],
+      "note": "Tetes air 5 s dengan ruang beton.",
+      "durationSeconds": 5.0,
+      "peakDb": -5.0,
+      "rmsDb": -18.8,
+      "sizeKb": 69.3
+    },
+    {
+      "name": "sfx_whoosh",
+      "file": "assets/audio/horror/sfx_whoosh.mp3",
+      "kind": "sfx",
+      "tags": [
+        "transisi",
+        "pindah",
+        "cepat"
+      ],
+      "note": "Whoosh 1,3 s.",
+      "durationSeconds": 1.3,
+      "peakDb": -6.0,
+      "rmsDb": -23.0,
+      "sizeKb": 18.7
+    }
+  ]
+}

@@ -245,6 +245,10 @@ async function main() {
     }
     report.events.push({name:'payload_dry_run',status:'PASS'});
     if (req.action==='preflight') {
+      for (const p of req.posts) if (inspection.mine[p.platform]) {
+        const checked=inspectPost(inspection.mine[p.platform].id,p,channels[p.platform]);
+        report.posts.push({platform:p.platform,outcome:'ALREADY_SCHEDULED_VERIFIED',...checked});
+      }
       report.status='PREFLIGHT_PASS';
       console.log('Preflight passed. No Buffer posts created.');
       write();return;

@@ -5,7 +5,7 @@
       "episodeId": "LL-0002",
       "judul": "Dua Belas Meter",
       "format": "longform_16x9",
-      "status": "produksi: narasi 9/9 + alignment + skor, gambar 37/71",
+      "status": "produksi: narasi+skor selesai, gambar 10/71 (37 gambar hilang karena gitignore)",
       "folder": "stories/longform/LL-0002",
       "kata_narasi": 1259,
       "estimasi_durasi_detik": 572,

@@ -1,5 +1,6 @@
 {
   "aksi": "dedupe-episode",
   "episodeId": "LS-0002",
-  "alasan": "Dua permintaan identik terpicu karena berkas yang sama ditulis ulang; Reel kedua 06.50.52Z dihapus, yang pertama 06.47.58Z dipertahankan"
+  "alasan": "Dua permintaan identik terpicu karena berkas yang sama ditulis ulang; Reel kedua 06.50.52Z dihapus, yang pertama 06.47.58Z dipertahankan (percobaan 2: post tanpa id disaring sebelum dihapus)",
+  "percobaan": 2
 }

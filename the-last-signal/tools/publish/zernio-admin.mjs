@@ -54,7 +54,15 @@ async function main() {
   const targets = new Set(deletes);
 
   for (const episodeId of dedupeEpisodes) {
-    const matches = (await listPosts()).filter((post) => post.metadata?.episodeId === episodeId);
+    const all = await listPosts();
+    const matches = all
+      .filter((post) => post.metadata?.episodeId === episodeId)
+      // Post tanpa id tidak bisa dihapus; jangan pernah memasukkannya ke daftar
+      // target (dulu ini berujung permintaan hapus "undefined").
+      .filter((post) => typeof post.id === "string" && post.id.length > 0);
+    for (const post of matches) {
+      console.log(`kandidat ${episodeId}: ${post.id} ${post.createdAt} ${post.status}`);
+    }
     // Simpan yang paling awal terbit — itu yang sudah dibagikan algoritma.
     const ordered = matches.sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
     for (const extra of ordered.slice(1)) {

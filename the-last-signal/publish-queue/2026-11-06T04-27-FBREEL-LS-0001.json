@@ -1,0 +1,32 @@
+{
+  "episodeId": "LS-0001",
+  "platforms": [
+    "facebook"
+  ],
+  "status": "requested",
+  "createdAt": "2026-11-06T04:27:08.371Z",
+  "media": "the-last-signal/releases/LS-0001.mp4",
+  "youtube": {
+    "title": "Jangan Pernah Membuka Lemari Itu Dua Kali",
+    "description": "ARSIP FIKSI — Rekaman CCTV lantai tujuh, 03.17. Ketukan pertama pukul satu. Kedua pukul dua. Ketiga selalu pukul tiga lewat tujuh belas.\n\nSeluruh kejadian, karakter, dan rekaman dalam video ini adalah fiksi. Visual dibuat dengan bantuan AI.\n\n#TheLastSignal #CeritaHoror #FoundFootage",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "found footage",
+      "the last signal",
+      "arsip fiksi"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Fiksi. Visual dibuat dengan bantuan AI.\n\nCerita ini bagian dari seri THE LAST SIGNAL. Kalau kamu pernah mengalami hal serupa, tulis di komentar — cerita yang paling sering disebut akan jadi episode berikutnya.",
+    "videoId": "8UnXLrjbDqE",
+    "url": "https://www.youtube.com/watch?v=8UnXLrjbDqE"
+  },
+  "facebook": {
+    "title": "Jangan Pernah Membuka Lemari Itu Dua Kali"
+  },
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+}

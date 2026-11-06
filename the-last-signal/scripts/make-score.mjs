@@ -102,7 +102,19 @@ const sceneWindows = episode.scenes.map((scene) => {
 
 const scareFrames = (episode.jumpscares ?? []).map((s) => s.atFrame);
 // Klimaks skor mengikuti scare TERAKHIR (yang paling besar), bukan yang pertama.
-const climax = scareFrames.length ? Math.max(...scareFrames) / fps : duration * 0.9;
+// Episode tanpa jumpscare (mis. LL-0002) bisa menentukannya sendiri lewat
+// --climax <detik>: puncak musik harus di beat yang memuncak, bukan di 90% durasi.
+const climaxArg = process.argv.indexOf("--climax");
+const climax =
+  climaxArg !== -1
+    ? Number(process.argv[climaxArg + 1])
+    : scareFrames.length
+      ? Math.max(...scareFrames) / fps
+      : duration * 0.9;
+if (!Number.isFinite(climax) || climax <= 0 || climax >= duration) {
+  console.error(`✖ nilai --climax ${process.argv[climaxArg + 1]} di luar 0–${duration.toFixed(1)}s`);
+  process.exit(1);
+}
 
 // Bagian skor: [mulai, selesai, nama]
 const t1 = duration * 0.18; // intro
@@ -121,7 +133,7 @@ function sectionAt(time) {
   return { name: "reveal", energy: time > climax ? 0.55 : 0.95, gain: time > climax ? 0.62 : 1 };
 }
 
-console.log(`Skor ${EPISODE_ID}: ${duration.toFixed(1)}s, scare di ${climax.toFixed(1)}s`);
+console.log(`Skor ${EPISODE_ID}: ${duration.toFixed(1)}s, klimaks di ${climax.toFixed(1)}s${scareFrames.length ? "" : " (tanpa jumpscare)"}`);
 
 const left = new Float32Array(totalSamples);
 const right = new Float32Array(totalSamples);

@@ -128,7 +128,7 @@ function listChannels(org) {
 function listPosts(org) {
   let cursor;const items=[];const seen=new Set();
   for (let page=0;page<25;page++) {
-    const args=['posts','list','--organization-id',org,'--limit','100','--fields','items.id,items.text,items.channelId,items.channelService,items.dueAt,items.status,pageInfo.hasNextPage,pageInfo.endCursor'];
+    const args=['posts','list','--organization-id',org,'--limit','100','--fields','items.id,items.text,items.channelId,items.channelService,items.dueAt,items.status,items.assets.source,items.assets.type,pageInfo.hasNextPage,pageInfo.endCursor'];
     if (cursor) args.push('--after',cursor);
     const j=needBuffer(args);
     const obj = (j.items && j.pageInfo) ? j : (j.posts?.items && j.posts?.pageInfo) ? j.posts : findObject(j,x=>Array.isArray(x.items) && x.pageInfo);
@@ -147,8 +147,20 @@ function findPost(j) {
   if (j.id && (j.status || j.dueAt || j.channelId)) return j;
   return findObject(j,x=>x.post && typeof x.post==='object')?.post ?? findObject(j,x=>x.id && (x.status || x.dueAt || x.channelId));
 }
+const getFields='id,text,status,dueAt,channelId,channelService,metadata.title,assets.source,assets.type';
+function probePostShapes(queue, channels) {
+  const shapes=[];
+  for (const platform of ['facebook','youtube']) {
+    const sample=queue.find(p=>String(p.channelId ?? '')===channels[platform].id && p.id && Array.isArray(p.assets) && p.assets.some(a=>String(a.type ?? '').toLowerCase()==='video'));
+    if (!sample) {shapes.push({platform,status:'NO_PREVIOUS_VIDEO'});continue;}
+    const p=findPost(needBuffer(['posts','get','--id',String(sample.id),'--fields',getFields]));
+    assert(p?.id && String(p.id)===String(sample.id), `Cannot verify ${platform} posts-get response shape`);
+    shapes.push({platform,status:'READ',postStatus:p.status,hasChannelId:!!p.channelId,textType:typeof p.text,assetsArray:Array.isArray(p.assets),assetCount:p.assets?.length ?? 0,hasTitle:typeof p.metadata?.title==='string'});
+  }
+  return shapes;
+}
 function inspectPost(id, expected, channel) {
-  const j=needBuffer(['posts','get','--id',String(id),'--fields','id,text,status,dueAt,channelId,channelService,metadata.title,assets.source,assets.type']);
+  const j=needBuffer(['posts','get','--id',String(id),'--fields',getFields]);
   const p=findPost(j);
   assert(p?.id && String(p.id)===String(id), `Could not retrieve ${expected.platform} post`);
   assert(String(p.channelId ?? p.channel?.id ?? '')===channel.id, `${expected.platform} channel mismatch`);
@@ -223,6 +235,7 @@ async function main() {
     const queue=listPosts(org);const inspection=inspectQueue(queue,req.posts,channels);
     report.queue={checkedPosts:queue.length,collisions:inspection.collisions,existing:Object.keys(inspection.mine)};
     assert(!inspection.collisions.length,'Existing scheduled posts violate the two-hour gap; no new posts created');
+    if (req.action==='preflight') report.verifierProbe=probePostShapes(queue,channels);
     for (const p of req.posts) {
       const dr=buffer(['posts','create','--json',JSON.stringify(buildPayload(req,p,channels[p.platform].id)),'--dry-run']);
       assert(dr.ok, `Buffer dry-run rejected ${p.platform}: ${dr.diagnostic}`);

@@ -18,6 +18,11 @@
       "postedAt": "2026-11-05T23:38:59Z",
       "url": "https://www.facebook.com/reel/1132739076024331",
       "note": "terverifikasi dari daftar post Zernio (bukan dari kode keluar workflow)"
+    },
+    "LS-0001": {
+      "status": "error",
+      "note": "media tidak bisa disiapkan",
+      "at": "2026-11-06T03:47:46.782Z"
     }
   }
 }

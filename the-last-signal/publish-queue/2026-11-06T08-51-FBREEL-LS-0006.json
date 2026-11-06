@@ -3,7 +3,7 @@
   "platforms": [
     "facebook"
   ],
-  "status": "requested",
+  "status": "cancelled",
   "createdAt": "2026-11-06T08:51:23.726Z",
   "media": "the-last-signal/releases/LS-0006.mp4",
   "youtube": {
@@ -26,5 +26,6 @@
   "facebook": {
     "title": "Mobil Itu Masuk Lima Kali Malam Itu. Kamu Berdiri di Pos Tanpa Bergerak Empat Jam."
   },
-  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook",
+  "note": "dibuat bersamaan saat jeda 2 jam; ditutup supaya workflow tidak memproses dua sekaligus"
 }

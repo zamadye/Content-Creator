@@ -276,6 +276,24 @@ async function main() {
   const queue = only ? catalog.filter((item) => item.episodeId === only) : catalog;
 
   takeLock();
+
+  // Jangan pernah membuat permintaan baru selama masih ada permintaan yang
+  // belum selesai: dua berkas "requested" dalam satu push ditolak workflow, dan
+  // kalau lolos, dua Short terbit berdekatan tanpa jeda.
+  const outstanding = readdirSync(QUEUE_DIR)
+    .filter((file) => file.includes("FBREEL") && file.endsWith(".json"))
+    .filter((file) => {
+      try {
+        return JSON.parse(readFileSync(join(QUEUE_DIR, file), "utf8")).status === "requested";
+      } catch {
+        return false;
+      }
+    });
+  if (outstanding.length) {
+    log(`masih ada permintaan terbuka: ${outstanding.join(", ")} — keluar dulu`);
+    process.exit(0);
+  }
+
   log(`${queue.length} Shorts dalam katalog: ${queue.map((item) => item.episodeId).join(", ")}`);
 
   for (const item of queue) {

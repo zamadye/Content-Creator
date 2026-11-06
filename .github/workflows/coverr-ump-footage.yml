@@ -24,9 +24,30 @@ jobs:
         run: |
           python3 editorial-engine/pipeline/coverr-transfer/test-search-hq.py
           node --test editorial-engine/pipeline/coverr-transfer/test-transfer.mjs
-      - name: Search Coverr API for relevant candidate metadata
+      # Separate steps avoid the per-step Actions annotation cap, so every
+      # query result remains inspectable when raw logs are unavailable.
+      - name: Search workplaces
         env:
           COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+          COVERR_QUERY_GROUP: '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
+          python3 editorial-engine/pipeline/coverr-transfer/search-hq.py
+      - name: Search living costs and small business
+        env:
+          COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+          COVERR_QUERY_GROUP: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
+          python3 editorial-engine/pipeline/coverr-transfer/search-hq.py
+      - name: Search practical steps
+        env:
+          COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+          COVERR_QUERY_GROUP: '2'
         shell: bash
         run: |
           set -euo pipefail

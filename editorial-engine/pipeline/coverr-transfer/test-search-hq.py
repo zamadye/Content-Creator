@@ -27,7 +27,7 @@ class SearchTests(unittest.TestCase):
     def test_allowlist_and_key_in_header_only(self):
         with patch.object(hq, 'build_opener') as opener:
             opener.return_value.open.return_value = Response()
-            result = hq.search('factory worker', 'DUMMY_SECRET')
+            result = hq.search('factory', 'DUMMY_SECRET')
             req = opener.return_value.open.call_args.args[0]
             self.assertEqual(req.headers['X-api-key'], 'DUMMY_SECRET')
             self.assertNotIn('DUMMY_SECRET', req.full_url)
@@ -40,19 +40,19 @@ class SearchTests(unittest.TestCase):
     def test_invalid_query_no_key_or_network(self):
         with patch.object(hq, 'build_opener') as opener:
             self.assertEqual(hq.search('anything\n::error::', 'key')['status'], 'INVALID_QUERY')
-            self.assertEqual(hq.search('factory worker', '')['status'], 'MISSING_SECRET')
+            self.assertEqual(hq.search('factory', '')['status'], 'MISSING_SECRET')
             opener.assert_not_called()
 
     def test_http_error_no_url_or_body(self):
         with patch.object(hq, 'build_opener') as opener:
             opener.return_value.open.side_effect = HTTPError('https://unsafe/?token=SECRET', 429, 'bad', {}, None)
-            result = hq.search('factory worker', 'secret')
+            result = hq.search('factory', 'secret')
         self.assertEqual((result['status'], result['http_status']), ('HTTP_ERROR', 429))
         self.assertNotIn('unsafe', json.dumps(result))
 
     def test_invalid_shapes(self):
-        self.assertEqual(hq.summarize_batch({}, 'factory worker', 'x')['status'], 'INVALID_RESPONSE')
-        self.assertEqual(hq.summarize_batch({'hits':[]}, 'factory worker', 'x')['status'], 'NO_RESULTS')
+        self.assertEqual(hq.summarize_batch({}, 'factory', 'x')['status'], 'INVALID_RESPONSE')
+        self.assertEqual(hq.summarize_batch({'hits':[]}, 'factory', 'x')['status'], 'NO_RESULTS')
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

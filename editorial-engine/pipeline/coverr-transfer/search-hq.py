@@ -18,13 +18,12 @@ spec = importlib.util.spec_from_file_location('safe_coverr', Path(__file__).pare
 safe = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(safe)
 
-QUERIES = [
-    'garment factory worker', 'sewing machine worker', 'factory worker',
-    'small business owner', 'grocery shopping', 'market vegetables',
-    'motorcycle commute', 'counting money', 'bills budget calculator',
-    'employment contract', 'meeting coworkers', 'freelance laptop',
-    'food vendor', 'office woman writing', 'workers discussion',
+QUERY_GROUPS = [
+    ['sewing', 'factory', 'workers', 'warehouse', 'assembly line', 'garment', 'industrial', 'seamstress'],
+    ['market', 'supermarket', 'shopping', 'food stall', 'store owner', 'restaurant', 'cooking', 'vegetables'],
+    ['budget', 'salary', 'document', 'contract', 'office meeting', 'motorcycle', 'freelance', 'payroll'],
 ]
+QUERIES = [q for group in QUERY_GROUPS for q in group]
 PAGE_SIZE = 8
 
 
@@ -81,8 +80,12 @@ def emit(result):
 
 def main():
     key = os.environ.get('COVERR_API_KEY', '').strip()
+    group = os.environ.get('COVERR_QUERY_GROUP', '')
+    if group not in ('0', '1', '2'):
+        emit({'status': 'INVALID_QUERY_GROUP'})
+        return 1
     failures = 0
-    for query in QUERIES:
+    for query in QUERY_GROUPS[int(group)]:
         result = search(query, key)
         emit(result)
         if result['status'] not in ('PASS', 'NO_RESULTS'):

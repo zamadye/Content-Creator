@@ -1,0 +1,6 @@
+node_modules/
+out/
+*.log
+vo/*.wav
+vo/*.mp3
+vo/concat.txt

@@ -5,7 +5,7 @@
 
 **Master prompt:** RUANG MARGIN — AI VIDEO PRODUCTION AGENT v1.0  
 **Project initialized:** 2026-11-04  
-**Overall status:** INITIALIZED — AWAITING FIRST EPISODE TOPIC
+**Overall status:** ACTIVE — EP01 DELIVERED (Drive review); EP02 IN PRODUCTION (render + VO mix)
 
 ---
 
@@ -32,7 +32,8 @@ money-undercover/
 │   ├── infographics/
 │   └── effects/
 └── episodes/
-    └── EP01_<slug>/
+    ├── EP01_ponzi/
+    └── EP02_emas/
         ├── 01-topic-analysis.md
         ├── 02-research-ledger.md
         ├── 03-story-outline.md
@@ -91,6 +92,8 @@ For small corrections: update only the affected section; preserve approved work.
 | 2026-11-05 | EP01 STAGE 02–08, 10 completed (research, outline, script, storyboard, 9 assets, animation sheet, audio design, publishing) | EP01 all v1.0 | STAGE 09 final render uploaded (ffmpeg npm + Chromium sparticuz + Remotion + bpy all proven) |
 | 2026-11-05 | Full EP01 package uploaded to Google Drive for review | — | User review |
 | 2026-11-05 | Brand renamed MONEY UNDERCOVER → RUANG MARGIN across docs + render source; video re-render in progress | brand v1.1 | VO recording |
+| 2026-11-05 | EP01 FINAL: rebrand render + VO (voice-00, 14 clips, cue cascade) muxed; QC passed; `EP01-ruangmargin-1080p24-AV.mp4` (66 MB) uploaded to Drive | EP01 v1.1 final | platform publish (user) |
+| 2026-11-06 | EP02 topic: **Emas Bodong 2026** (Pandeglang Mitra Makmur + Divine Gold) — user pick "topik hot"; STAGE 01–08, 10 docs done; 9 assets generated; render running; VO 14/14 + mix track 635.00s executed | EP02 v1.0 | render → QC → mux → Drive |
 
 ### Registered character references (approved v1.0)
 

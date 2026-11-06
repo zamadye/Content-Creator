@@ -27,7 +27,7 @@ export function validateRequest(req, now = Date.now()) {
   assert(['preflight','schedule'].includes(req.action), 'Invalid action');
   assert(req.media?.sha256 === expectedSha && req.media?.sizeBytes === expectedBytes, 'Unapproved media checksum or size');
   let url; try {url = new URL(req.media.url);} catch {throw new Error('Invalid media URL');}
-  assert(url.protocol === 'https:' && ['drive.google.com','drive.usercontent.google.com'].includes(url.hostname), 'Media host must be the approved public Drive copy');
+  assert(url.protocol === 'https:' && ['drive.google.com','drive.usercontent.google.com','docs.google.com'].includes(url.hostname), 'Media host must be the approved public Drive copy');
   assert(Array.isArray(req.posts) && req.posts.length === 2, 'Exactly two requested posts required');
   assert(new Set(req.posts.map(p => p.platform)).size === 2, 'Duplicate or missing platform');
   for (const p of req.posts) {
@@ -161,7 +161,12 @@ function inspectPost(id, expected, channel) {
 }
 export async function verifyMedia(media, fetcher=fetch) {
   const r=await fetcher(media.url,{redirect:'follow',signal:AbortSignal.timeout(120_000)});
-  assert(r.ok, `Public media HTTP ${r.status}`);
+  if (!r.ok) {
+    let snippet='';
+    try {const reader=r.body?.getReader();if(reader) {const first=await reader.read();snippet=Buffer.from(first.value ?? []).toString('utf8').replace(/\s+/g,' ').slice(0,200);await reader.cancel();}} catch {}
+    let host='unknown';try {host=new URL(r.url).hostname;} catch {}
+    throw new Error(`Public media HTTP ${r.status}; final host=${host}; server=${r.headers.get('server') ?? 'unknown'}; body=${snippet}`);
+  }
   const type=(r.headers.get('content-type') ?? '').toLowerCase();
   assert(type.startsWith('video/') || type.includes('octet-stream'), `Public media is not a direct video (content-type ${type})`);
   assert(r.body, 'Public media has no response body');
@@ -170,6 +175,30 @@ export async function verifyMedia(media, fetcher=fetch) {
   const sha=hash.digest('hex');
   assert(bytes===media.sizeBytes && sha===media.sha256, 'Public media bytes/checksum do not match approved video');
   return {status:'PASS',bytes,sha256:sha,contentType:type};
+}
+
+async function checkMedia(req, report) {
+  const initial=new URL(req.media.url);
+  const id=initial.searchParams.get('id');
+  assert(id && /^[A-Za-z0-9_-]+$/.test(id), 'Drive media ID is missing');
+  const candidates=[req.media.url];
+  if (req.action==='preflight') {
+    // Probe only alternate direct-download forms of the same approved copy.
+    // A different successful URL is reported, not silently written to Git.
+    candidates.push(`https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t`);
+    candidates.push(`https://drive.google.com/uc?export=download&id=${id}&confirm=t`);
+    candidates.push(`https://docs.google.com/uc?export=download&id=${id}`);
+  }
+  report.mediaProbes=[];
+  for (const url of [...new Set(candidates)]) {
+    try {
+      const verified=await verifyMedia({...req.media,url});
+      report.mediaProbes.push({url,...verified});
+      req.media.url=url;
+      return verified;
+    } catch (e) {report.mediaProbes.push({url,status:'FAIL',error:String(e?.message ?? e)});}
+  }
+  throw new Error('No approved Drive direct-download URL could be verified anonymously');
 }
 
 async function main() {
@@ -183,7 +212,7 @@ async function main() {
     validateRequest(req);
     assert(process.env.BUFFER_API_KEY, 'BUFFER_API_KEY missing in runner');
     report.events.push({name:'request',status:'PASS'});
-    report.events.push({name:'public_media',...(await verifyMedia(req.media))});
+    report.events.push({name:'public_media',...(await checkMedia(req,report))});
     const orgs=listOrganizations().filter(x=>x.id);
     const configured=process.env.BUFFER_ORGANIZATION_ID;
     let org;

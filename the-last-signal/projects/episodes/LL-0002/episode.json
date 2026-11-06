@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1920,
   "height": 1080,
-  "targetDurationSeconds": 575.9,
+  "targetDurationSeconds": 598.3,
   "story": {
     "hook": "Kurang dua belas meter.",
     "premise": "Juru ukur tanah mengukur satu bidang dan hasilnya selalu kurang dua belas meter persegi — persis seluas makam yang namanya dihapus dari Buku C desa.",
@@ -23,20 +23,20 @@
     {
       "text": "KURANG 12 M²",
       "startFrame": 0,
-      "endFrame": 90
+      "endFrame": 93
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 2153,
+      "durationFrames": 2199,
       "image": "images/surat-ukur-2004.png",
       "narration": "Kurang dua belas meter.  Itu selisih antara angka di kertas dan angka di tanah. Tiga juru ukur sebelum saya mendapat angka yang sama. Yang terakhir berhenti jadi juru ukur.  Dia ayah saya.  Nama saya Ilham. Dua puluh tujuh tahun. Pekerjaan saya mengukur tanah orang.  Alatnya saya sewa dua ratus lima puluh ribu sehari. Upah saya empat ratus ribu satu bidang, belum dipotong bensin. Kontrakan saya sembilan ratus ribu sebulan. Kalau dapat enam bidang saya aman. Bulan ini baru dua.  Ada satu aturan yang tidak pernah saya langgar. Patok yang sudah saya tanam tidak saya pindahkan. Angkanya boleh membuat orang marah. Patoknya tidak boleh membuat orang menang.  Minggu lalu saya dapat bidang di Desa Sumber. Letter C nomor dua dua satu. Luas di kertas: seribu dua ratus empat puluh meter persegi. Hasil pengukuran saya: seribu dua ratus dua puluh delapan.  Tiga juru ukur sebelumnya mengukur bidang yang sama. Dua sudah pindah kota. Yang ketiga tidak mau datang lagi.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 127,
+          "atFrame": 63,
           "image": "images/surat-ukur-2004.png",
           "camera": "static",
           "scale": 1.18,
@@ -44,7 +44,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 253,
+          "atFrame": 203,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.1,
@@ -52,7 +52,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 380,
+          "atFrame": 328,
           "image": "images/peralatan-ukur.png",
           "camera": "static",
           "scale": 1.24,
@@ -60,7 +60,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 507,
+          "atFrame": 413,
           "image": "images/peralatan-ukur.png",
           "camera": "push_in",
           "scale": 1.06,
@@ -68,7 +68,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 633,
+          "atFrame": 453,
           "image": "images/protagonis-belakang.png",
           "camera": "static",
           "scale": 1.18,
@@ -76,7 +76,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 760,
+          "atFrame": 621,
           "image": "images/s1-07.png",
           "camera": "static",
           "scale": 1.1,
@@ -84,7 +84,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 887,
+          "atFrame": 746,
           "image": "images/protagonis-belakang.png",
           "camera": "static",
           "scale": 1.24,
@@ -92,7 +92,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1013,
+          "atFrame": 887,
           "image": "images/s1-09.png",
           "camera": "static",
           "scale": 1.06,
@@ -100,7 +100,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1140,
+          "atFrame": 1107,
           "image": "images/patok.png",
           "camera": "push_in",
           "scale": 1.18,
@@ -108,7 +108,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1266,
+          "atFrame": 1332,
           "image": "images/s1-11.png",
           "camera": "static",
           "scale": 1.1,
@@ -116,7 +116,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1393,
+          "atFrame": 1485,
           "image": "images/s1-12.png",
           "camera": "static",
           "scale": 1.24,
@@ -124,7 +124,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1520,
+          "atFrame": 1597,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.06,
@@ -132,7 +132,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1646,
+          "atFrame": 1819,
           "image": "images/layar-alat.png",
           "camera": "static",
           "scale": 1.18,
@@ -140,7 +140,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1773,
+          "atFrame": 1945,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.1,
@@ -148,7 +148,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1900,
+          "atFrame": 2057,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.24,
@@ -156,7 +156,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 2026,
+          "atFrame": 2112,
           "image": "images/s1-17.png",
           "camera": "static",
           "scale": 1.06,
@@ -167,137 +167,137 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 57,
+          "endFrame": 60,
           "text": "Kurang dua belas meter."
         },
         {
-          "startFrame": 57,
-          "endFrame": 165,
+          "startFrame": 60,
+          "endFrame": 185,
           "text": "Itu selisih antara angka di kertas dan angka di"
         },
         {
-          "startFrame": 165,
-          "endFrame": 179,
+          "startFrame": 185,
+          "endFrame": 199,
           "text": "tanah."
         },
         {
-          "startFrame": 179,
-          "endFrame": 301,
+          "startFrame": 199,
+          "endFrame": 324,
           "text": "Tiga juru ukur sebelum saya mendapat angka yang sama."
         },
         {
-          "startFrame": 301,
-          "endFrame": 388,
+          "startFrame": 324,
+          "endFrame": 408,
           "text": "Yang terakhir berhenti jadi juru ukur."
         },
         {
-          "startFrame": 388,
-          "endFrame": 420,
+          "startFrame": 408,
+          "endFrame": 450,
           "text": "Dia ayah saya."
         },
         {
-          "startFrame": 420,
-          "endFrame": 457,
+          "startFrame": 450,
+          "endFrame": 492,
           "text": "Nama saya Ilham."
         },
         {
-          "startFrame": 457,
-          "endFrame": 507,
+          "startFrame": 492,
+          "endFrame": 548,
           "text": "Dua puluh tujuh tahun."
         },
         {
-          "startFrame": 507,
-          "endFrame": 590,
+          "startFrame": 548,
+          "endFrame": 618,
           "text": "Pekerjaan saya mengukur tanah orang."
         },
         {
-          "startFrame": 590,
-          "endFrame": 707,
+          "startFrame": 618,
+          "endFrame": 743,
           "text": "Alatnya saya sewa dua ratus lima puluh ribu sehari."
         },
         {
-          "startFrame": 707,
-          "endFrame": 831,
+          "startFrame": 743,
+          "endFrame": 868,
           "text": "Upah saya empat ratus ribu satu bidang, belum dipotong"
         },
         {
-          "startFrame": 831,
-          "endFrame": 847,
+          "startFrame": 868,
+          "endFrame": 882,
           "text": "bensin."
         },
         {
-          "startFrame": 847,
-          "endFrame": 946,
+          "startFrame": 882,
+          "endFrame": 966,
           "text": "Kontrakan saya sembilan ratus ribu sebulan."
         },
         {
-          "startFrame": 946,
-          "endFrame": 1024,
+          "startFrame": 966,
+          "endFrame": 1050,
           "text": "Kalau dapat enam bidang saya aman."
         },
         {
-          "startFrame": 1024,
-          "endFrame": 1068,
+          "startFrame": 1050,
+          "endFrame": 1106,
           "text": "Bulan ini baru dua."
         },
         {
-          "startFrame": 1068,
-          "endFrame": 1176,
+          "startFrame": 1106,
+          "endFrame": 1217,
           "text": "Ada satu aturan yang tidak pernah saya langgar."
         },
         {
-          "startFrame": 1176,
-          "endFrame": 1288,
+          "startFrame": 1217,
+          "endFrame": 1328,
           "text": "Patok yang sudah saya tanam tidak saya pindahkan."
         },
         {
-          "startFrame": 1288,
-          "endFrame": 1368,
+          "startFrame": 1328,
+          "endFrame": 1398,
           "text": "Angkanya boleh membuat orang marah."
         },
         {
-          "startFrame": 1368,
-          "endFrame": 1464,
+          "startFrame": 1398,
+          "endFrame": 1482,
           "text": "Patoknya tidak boleh membuat orang menang."
         },
         {
-          "startFrame": 1464,
-          "endFrame": 1567,
+          "startFrame": 1482,
+          "endFrame": 1593,
           "text": "Minggu lalu saya dapat bidang di Desa Sumber."
         },
         {
-          "startFrame": 1567,
-          "endFrame": 1631,
+          "startFrame": 1593,
+          "endFrame": 1677,
           "text": "Letter C nomor dua dua satu."
         },
         {
-          "startFrame": 1631,
-          "endFrame": 1746,
+          "startFrame": 1677,
+          "endFrame": 1802,
           "text": "Luas di kertas: seribu dua ratus empat puluh meter"
         },
         {
-          "startFrame": 1746,
-          "endFrame": 1764,
+          "startFrame": 1802,
+          "endFrame": 1816,
           "text": "persegi."
         },
         {
-          "startFrame": 1764,
-          "endFrame": 1897,
+          "startFrame": 1816,
+          "endFrame": 1941,
           "text": "Hasil pengukuran saya: seribu dua ratus dua puluh delapan."
         },
         {
-          "startFrame": 1897,
-          "endFrame": 2016,
+          "startFrame": 1941,
+          "endFrame": 2052,
           "text": "Tiga juru ukur sebelumnya mengukur bidang yang sama."
         },
         {
-          "startFrame": 2016,
-          "endFrame": 2066,
+          "startFrame": 2052,
+          "endFrame": 2108,
           "text": "Dua sudah pindah kota."
         },
         {
-          "startFrame": 2066,
-          "endFrame": 2145,
+          "startFrame": 2108,
+          "endFrame": 2191,
           "text": "Yang ketiga tidak mau datang lagi."
         }
       ],
@@ -323,13 +323,13 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 2126,
+      "durationFrames": 2181,
       "image": "images/s2-01.png",
       "narration": "Yang menelepon saya Pak Hadi. Tanah warisan, mau dijual ke Bu Sri, yang punya warung besar di depan pasar.  \"Diukur ulang saja, Mas. Biar pembeli percaya.\"  Saya tanya harga. Satu koma dua juta satu meter. Jadi dua belas meter itu kira-kira empat belas juta rupiah. Pak Hadi diam sebentar, seperti menghitung ulang di kepala. \"Ya sudah, ukur yang benar,\" katanya.  Saya sampai pukul sembilan pagi. Sawah itu di belakang pos kamling, kira-kira dua ratus meter dari jalan. Pematangnya sempit, selebar telapak kaki. Di pojok utara ada pohon beringin. Di bawahnya tanahnya lebih tinggi dari sekitarnya, dan tidak ditanami apa pun.  Pak Hadi menunggu sambil memegang map plastik. Dia bilang pengukuran ini harus selesai hari ini, karena Bu Sri mau bayar tunai besok pagi.  Berkasnya saya buka di atas tas. Fotokopi letter C. SPPT PBB tahun ini, lunas, stempel bank di pojok. Dan satu surat ukur lama, tahun dua ribu empat, kertasnya sudah seperti kulit bawang. ",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 112,
+          "atFrame": 202,
           "image": "images/s2-02.png",
           "camera": "static",
           "scale": 1.18,
@@ -337,7 +337,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 224,
+          "atFrame": 270,
           "image": "images/pak-hadi.png",
           "camera": "handheld",
           "scale": 1.1,
@@ -345,7 +345,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 336,
+          "atFrame": 410,
           "image": "images/s2-04.png",
           "camera": "static",
           "scale": 1.24,
@@ -353,7 +353,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 448,
+          "atFrame": 590,
           "image": "images/s2-05.png",
           "camera": "push_in",
           "scale": 1.06,
@@ -361,7 +361,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 559,
+          "atFrame": 700,
           "image": "images/s2-06.png",
           "camera": "static",
           "scale": 1.18,
@@ -369,7 +369,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 671,
+          "atFrame": 850,
           "image": "images/protagonis-belakang.png",
           "camera": "static",
           "scale": 1.1,
@@ -377,7 +377,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 783,
+          "atFrame": 947,
           "image": "images/kamling.png",
           "camera": "static",
           "scale": 1.24,
@@ -385,7 +385,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 895,
+          "atFrame": 1099,
           "image": "images/s2-09.png",
           "camera": "static",
           "scale": 1.06,
@@ -393,7 +393,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1007,
+          "atFrame": 1169,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.18,
@@ -401,7 +401,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1119,
+          "atFrame": 1280,
           "image": "images/beringin.png",
           "camera": "push_in",
           "scale": 1.1,
@@ -409,7 +409,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1231,
+          "atFrame": 1417,
           "image": "images/pak-hadi.png",
           "camera": "static",
           "scale": 1.24,
@@ -417,7 +417,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1343,
+          "atFrame": 1569,
           "image": "images/pak-hadi.png",
           "camera": "static",
           "scale": 1.06,
@@ -425,7 +425,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1455,
+          "atFrame": 1735,
           "image": "images/s2-14.png",
           "camera": "static",
           "scale": 1.18,
@@ -433,7 +433,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1567,
+          "atFrame": 1819,
           "image": "images/s2-15.png",
           "camera": "static",
           "scale": 1.1,
@@ -441,7 +441,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1678,
+          "atFrame": 1859,
           "image": "images/sppt.png",
           "camera": "static",
           "scale": 1.24,
@@ -449,7 +449,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1790,
+          "atFrame": 1929,
           "image": "images/sppt.png",
           "camera": "static",
           "scale": 1.06,
@@ -457,7 +457,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1902,
+          "atFrame": 1984,
           "image": "images/surat-ukur-2004.png",
           "camera": "static",
           "scale": 1.18,
@@ -465,7 +465,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 2014,
+          "atFrame": 2110,
           "image": "images/surat-ukur-2004.png",
           "camera": "push_in",
           "scale": 1.1,
@@ -476,127 +476,127 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 70,
+          "endFrame": 74,
           "text": "Yang menelepon saya Pak Hadi."
         },
         {
-          "startFrame": 70,
-          "endFrame": 177,
+          "startFrame": 74,
+          "endFrame": 200,
           "text": "Tanah warisan, mau dijual ke Bu Sri, yang punya"
         },
         {
-          "startFrame": 177,
-          "endFrame": 241,
+          "startFrame": 200,
+          "endFrame": 270,
           "text": "warung besar di depan pasar."
         },
         {
-          "startFrame": 241,
-          "endFrame": 296,
+          "startFrame": 270,
+          "endFrame": 326,
           "text": "\"Diukur ulang saja, Mas."
         },
         {
-          "startFrame": 296,
-          "endFrame": 389,
+          "startFrame": 326,
+          "endFrame": 410,
           "text": "Biar pembeli percaya.\"  Saya tanya harga."
         },
         {
-          "startFrame": 389,
-          "endFrame": 457,
+          "startFrame": 410,
+          "endFrame": 494,
           "text": "Satu koma dua juta satu meter."
         },
         {
-          "startFrame": 457,
-          "endFrame": 573,
+          "startFrame": 494,
+          "endFrame": 620,
           "text": "Jadi dua belas meter itu kira-kira empat belas juta"
         },
         {
-          "startFrame": 573,
-          "endFrame": 589,
+          "startFrame": 620,
+          "endFrame": 634,
           "text": "rupiah."
         },
         {
-          "startFrame": 589,
-          "endFrame": 724,
+          "startFrame": 634,
+          "endFrame": 760,
           "text": "Pak Hadi diam sebentar, seperti menghitung ulang di kepala."
         },
         {
-          "startFrame": 724,
-          "endFrame": 808,
+          "startFrame": 760,
+          "endFrame": 844,
           "text": "\"Ya sudah, ukur yang benar,\" katanya."
         },
         {
-          "startFrame": 808,
-          "endFrame": 881,
+          "startFrame": 844,
+          "endFrame": 914,
           "text": "Saya sampai pukul sembilan pagi."
         },
         {
-          "startFrame": 881,
-          "endFrame": 1004,
+          "startFrame": 914,
+          "endFrame": 1040,
           "text": "Sawah itu di belakang pos kamling, kira-kira dua ratus"
         },
         {
-          "startFrame": 1004,
-          "endFrame": 1043,
+          "startFrame": 1040,
+          "endFrame": 1082,
           "text": "meter dari jalan."
         },
         {
-          "startFrame": 1043,
-          "endFrame": 1136,
+          "startFrame": 1082,
+          "endFrame": 1152,
           "text": "Pematangnya sempit, selebar telapak kaki."
         },
         {
-          "startFrame": 1136,
-          "endFrame": 1214,
+          "startFrame": 1152,
+          "endFrame": 1236,
           "text": "Di pojok utara ada pohon beringin."
         },
         {
-          "startFrame": 1214,
-          "endFrame": 1351,
+          "startFrame": 1236,
+          "endFrame": 1362,
           "text": "Di bawahnya tanahnya lebih tinggi dari sekitarnya, dan tidak"
         },
         {
-          "startFrame": 1351,
-          "endFrame": 1390,
+          "startFrame": 1362,
+          "endFrame": 1404,
           "text": "ditanami apa pun."
         },
         {
-          "startFrame": 1390,
-          "endFrame": 1495,
+          "startFrame": 1404,
+          "endFrame": 1502,
           "text": "Pak Hadi menunggu sambil memegang map plastik."
         },
         {
-          "startFrame": 1495,
-          "endFrame": 1623,
+          "startFrame": 1502,
+          "endFrame": 1628,
           "text": "Dia bilang pengukuran ini harus selesai hari ini, karena"
         },
         {
-          "startFrame": 1623,
-          "endFrame": 1701,
+          "startFrame": 1628,
+          "endFrame": 1726,
           "text": "Bu Sri mau bayar tunai besok pagi."
         },
         {
-          "startFrame": 1701,
-          "endFrame": 1774,
+          "startFrame": 1726,
+          "endFrame": 1810,
           "text": "Berkasnya saya buka di atas tas."
         },
         {
-          "startFrame": 1774,
-          "endFrame": 1815,
+          "startFrame": 1810,
+          "endFrame": 1852,
           "text": "Fotokopi letter C."
         },
         {
-          "startFrame": 1815,
-          "endFrame": 1927,
+          "startFrame": 1852,
+          "endFrame": 1978,
           "text": "SPPT PBB tahun ini, lunas, stempel bank di pojok."
         },
         {
-          "startFrame": 1927,
-          "endFrame": 2034,
+          "startFrame": 1978,
+          "endFrame": 2104,
           "text": "Dan satu surat ukur lama, tahun dua ribu empat,"
         },
         {
-          "startFrame": 2034,
-          "endFrame": 2118,
+          "startFrame": 2104,
+          "endFrame": 2173,
           "text": "kertasnya sudah seperti kulit bawang."
         }
       ],
@@ -622,13 +622,13 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 1157,
+      "durationFrames": 1415,
       "image": "images/mang-karta.png",
       "narration": "Mang Karta menggarap sawah itu sejak sebelum saya lahir. Dia duduk di galengan, memotong tembakau dengan gunting kecil.  \"Anak Slamet, ya?\"  \"Iya, Mang.\"  \"Bawa alat dua?\"  \"Bawa yang bisa dipakai kalau satu rewel.\"  Dia mengangguk pelan. \"Biasanya yang bawa satu, pulangnya nanya-nanya.\"  \"Ada yang pernah nanya apa?\"  Dia tidak menjawab. Tangannya berhenti memotong. Dia menunjuk pojok beringin. \"Patoknya jangan di situ. Di situ bukan sawah.\"  Saya lihat ke arah yang dia tunjuk. Tanahnya lebih tinggi, ditumbuhi rumput pendek yang rapi, seperti habis dipangkas orang.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 83,
+          "atFrame": 223,
           "image": "images/s3-02.png",
           "camera": "static",
           "scale": 1.18,
@@ -636,7 +636,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 165,
+          "atFrame": 305,
           "image": "images/mang-karta.png",
           "camera": "static",
           "scale": 1.1,
@@ -644,7 +644,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 248,
+          "atFrame": 388,
           "image": "images/peralatan-ukur.png",
           "camera": "static",
           "scale": 1.24,
@@ -652,7 +652,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 331,
+          "atFrame": 504,
           "image": "images/peralatan-ukur.png",
           "camera": "static",
           "scale": 1.06,
@@ -660,7 +660,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 413,
+          "atFrame": 553,
           "image": "images/mang-karta.png",
           "camera": "static",
           "scale": 1.18,
@@ -668,7 +668,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 496,
+          "atFrame": 669,
           "image": "images/mang-karta.png",
           "camera": "static",
           "scale": 1.1,
@@ -676,7 +676,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 579,
+          "atFrame": 719,
           "image": "images/s3-08.png",
           "camera": "static",
           "scale": 1.24,
@@ -684,7 +684,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 661,
+          "atFrame": 852,
           "image": "images/s3-09.png",
           "camera": "push_in",
           "scale": 1.06,
@@ -692,7 +692,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 744,
+          "atFrame": 899,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.18,
@@ -700,7 +700,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 826,
+          "atFrame": 965,
           "image": "images/s3-11.png",
           "camera": "static",
           "scale": 1.1,
@@ -708,7 +708,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 909,
+          "atFrame": 1032,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.24,
@@ -716,7 +716,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 992,
+          "atFrame": 1099,
           "image": "images/s3-13.png",
           "camera": "static",
           "scale": 1.06,
@@ -724,7 +724,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1074,
+          "atFrame": 1280,
           "image": "images/s3-14.png",
           "camera": "static",
           "scale": 1.18,
@@ -735,67 +735,67 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 120,
+          "endFrame": 154,
           "text": "Mang Karta menggarap sawah itu sejak sebelum saya lahir."
         },
         {
-          "startFrame": 120,
-          "endFrame": 249,
+          "startFrame": 154,
+          "endFrame": 304,
           "text": "Dia duduk di galengan, memotong tembakau dengan gunting kecil."
         },
         {
-          "startFrame": 249,
-          "endFrame": 361,
+          "startFrame": 304,
+          "endFrame": 454,
           "text": "\"Anak Slamet, ya?\" \"Iya, Mang.\" \"Bawa alat dua?\" \"Bawa"
         },
         {
-          "startFrame": 361,
-          "endFrame": 482,
+          "startFrame": 454,
+          "endFrame": 604,
           "text": "yang bisa dipakai kalau satu rewel.\" Dia mengangguk pelan."
         },
         {
-          "startFrame": 482,
-          "endFrame": 619,
+          "startFrame": 604,
+          "endFrame": 754,
           "text": "\"Biasanya yang bawa satu, pulangnya nanya-nanya.\" \"Ada yang pernah"
         },
         {
-          "startFrame": 619,
-          "endFrame": 683,
+          "startFrame": 754,
+          "endFrame": 838,
           "text": "nanya apa?\" Dia tidak menjawab."
         },
         {
-          "startFrame": 683,
-          "endFrame": 741,
+          "startFrame": 838,
+          "endFrame": 888,
           "text": "Tangannya berhenti memotong."
         },
         {
-          "startFrame": 741,
-          "endFrame": 799,
+          "startFrame": 888,
+          "endFrame": 955,
           "text": "Dia menunjuk pojok beringin."
         },
         {
-          "startFrame": 799,
-          "endFrame": 851,
+          "startFrame": 955,
+          "endFrame": 1022,
           "text": "\"Patoknya jangan di situ."
         },
         {
-          "startFrame": 851,
-          "endFrame": 945,
+          "startFrame": 1022,
+          "endFrame": 1172,
           "text": "Di situ bukan sawah.\" Saya lihat ke arah yang"
         },
         {
-          "startFrame": 945,
-          "endFrame": 968,
+          "startFrame": 1172,
+          "endFrame": 1205,
           "text": "dia tunjuk."
         },
         {
-          "startFrame": 968,
-          "endFrame": 1103,
+          "startFrame": 1205,
+          "endFrame": 1355,
           "text": "Tanahnya lebih tinggi, ditumbuhi rumput pendek yang rapi, seperti"
         },
         {
-          "startFrame": 1103,
-          "endFrame": 1149,
+          "startFrame": 1355,
+          "endFrame": 1407,
           "text": "habis dipangkas orang."
         }
       ],
@@ -821,13 +821,13 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 2385,
+      "durationFrames": 2625,
       "image": "images/peralatan-ukur.png",
       "narration": "Pukul sepuluh saya mendirikan alat. Statif saya setel sampai gelembung udaranya tepat di tengah. Titik acuan saya ambil dari patok beton di dekat kamling.  Terik. Bayangan pendek. Udara bergetar di atas pematang.  Bidikan pertama, kedua, ketiga. Semua normal. Selisih bacaan paling besar dua sentimeter.  Di patok keempat, alat mati. Layarnya hitam. Baterainya saya cek: penuh. Saya ganti dengan baterai cadangan, tetap hitam. Saya bawa alat itu ke bawah beringin, ke tempat teduh, dan dalam tiga detik ia menyala sendiri.  Saya bilang ke diri saya: alatnya kepanasan. Empat puluh derajat, dipakai enam jam, wajar.  Saya tunggu lima menit. Alatnya normal lagi, jadi saya lanjut ke patok kelima. Selesai. Tidak ada yang salah lagi sepanjang siang itu.  Lalu saya menoleh ke ujung pematang, ke arah matahari yang mulai turun.  Ada sesuatu berdiri di sana. Tinggi. Terlalu tinggi untuk orang yang berdiri di pematang selebar itu.  Saya angkat ponsel dan memperbesar gambar. Bidikan tiga kali, empat kali. Yang terlihat cuma beringin dan langit. Saya jatuhkan ponsel itu ke kantong dan menyelesaikan pekerjaan saya lebih cepat dari biasanya.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 119,
+          "atFrame": 144,
           "image": "images/s4-02.png",
           "camera": "static",
           "scale": 1.18,
@@ -835,7 +835,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 239,
+          "atFrame": 218,
           "image": "images/patok.png",
           "camera": "static",
           "scale": 1.1,
@@ -843,7 +843,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 358,
+          "atFrame": 367,
           "image": "images/s4-04.png",
           "camera": "static",
           "scale": 1.24,
@@ -851,7 +851,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 477,
+          "atFrame": 415,
           "image": "images/s4-05.png",
           "camera": "static",
           "scale": 1.06,
@@ -859,7 +859,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 596,
+          "atFrame": 489,
           "image": "images/layar-alat.png",
           "camera": "static",
           "scale": 1.18,
@@ -867,7 +867,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 716,
+          "atFrame": 580,
           "image": "images/s4-07.png",
           "camera": "static",
           "scale": 1.1,
@@ -875,7 +875,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 835,
+          "atFrame": 669,
           "image": "images/layar-alat.png",
           "camera": "static",
           "scale": 1.24,
@@ -883,7 +883,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 954,
+          "atFrame": 775,
           "image": "images/layar-alat.png",
           "camera": "handheld",
           "scale": 1.06,
@@ -891,7 +891,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1073,
+          "atFrame": 834,
           "image": "images/s4-10.png",
           "camera": "static",
           "scale": 1.18,
@@ -899,7 +899,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1193,
+          "atFrame": 910,
           "image": "images/layar-alat.png",
           "camera": "static",
           "scale": 1.1,
@@ -907,7 +907,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1312,
+          "atFrame": 999,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.24,
@@ -915,7 +915,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1431,
+          "atFrame": 1106,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.06,
@@ -923,7 +923,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1550,
+          "atFrame": 1269,
           "image": "images/s4-14.png",
           "camera": "static",
           "scale": 1.18,
@@ -931,7 +931,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1670,
+          "atFrame": 1525,
           "image": "images/s4-15.png",
           "camera": "static",
           "scale": 1.1,
@@ -939,7 +939,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1789,
+          "atFrame": 1735,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.24,
@@ -947,7 +947,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1908,
+          "atFrame": 1915,
           "image": "images/entitas-s4-17.png",
           "camera": "push_in",
           "scale": 1.06,
@@ -955,7 +955,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 2027,
+          "atFrame": 2155,
           "image": "images/protagonis-belakang.png",
           "camera": "static",
           "scale": 1.18,
@@ -963,7 +963,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 2147,
+          "atFrame": 2322,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.1,
@@ -971,7 +971,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 2266,
+          "atFrame": 2516,
           "image": "images/peralatan-ukur.png",
           "camera": "handheld",
           "scale": 1.24,
@@ -982,167 +982,167 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 80,
+          "endFrame": 79,
           "text": "Pukul sepuluh saya mendirikan alat."
         },
         {
-          "startFrame": 80,
-          "endFrame": 210,
+          "startFrame": 79,
+          "endFrame": 214,
           "text": "Statif saya setel sampai gelembung udaranya tepat di tengah."
         },
         {
-          "startFrame": 210,
-          "endFrame": 314,
+          "startFrame": 214,
+          "endFrame": 349,
           "text": "Titik acuan saya ambil dari patok beton di dekat"
         },
         {
-          "startFrame": 314,
-          "endFrame": 331,
+          "startFrame": 349,
+          "endFrame": 364,
           "text": "kamling."
         },
         {
-          "startFrame": 331,
-          "endFrame": 344,
+          "startFrame": 364,
+          "endFrame": 379,
           "text": "Terik."
         },
         {
-          "startFrame": 344,
-          "endFrame": 379,
+          "startFrame": 379,
+          "endFrame": 409,
           "text": "Bayangan pendek."
         },
         {
-          "startFrame": 379,
-          "endFrame": 448,
+          "startFrame": 409,
+          "endFrame": 484,
           "text": "Udara bergetar di atas pematang."
         },
         {
-          "startFrame": 448,
-          "endFrame": 515,
+          "startFrame": 484,
+          "endFrame": 544,
           "text": "Bidikan pertama, kedua, ketiga."
         },
         {
-          "startFrame": 515,
-          "endFrame": 543,
+          "startFrame": 544,
+          "endFrame": 574,
           "text": "Semua normal."
         },
         {
-          "startFrame": 543,
-          "endFrame": 636,
+          "startFrame": 574,
+          "endFrame": 664,
           "text": "Selisih bacaan paling besar dua sentimeter."
         },
         {
-          "startFrame": 636,
-          "endFrame": 697,
+          "startFrame": 664,
+          "endFrame": 739,
           "text": "Di patok keempat, alat mati."
         },
         {
-          "startFrame": 697,
-          "endFrame": 729,
+          "startFrame": 739,
+          "endFrame": 769,
           "text": "Layarnya hitam."
         },
         {
-          "startFrame": 729,
-          "endFrame": 787,
+          "startFrame": 769,
+          "endFrame": 829,
           "text": "Baterainya saya cek: penuh."
         },
         {
-          "startFrame": 787,
-          "endFrame": 891,
+          "startFrame": 829,
+          "endFrame": 934,
           "text": "Saya ganti dengan baterai cadangan, tetap hitam."
         },
         {
-          "startFrame": 891,
-          "endFrame": 993,
+          "startFrame": 934,
+          "endFrame": 1069,
           "text": "Saya bawa alat itu ke bawah beringin, ke tempat"
         },
         {
-          "startFrame": 993,
-          "endFrame": 1095,
+          "startFrame": 1069,
+          "endFrame": 1189,
           "text": "teduh, dan dalam tiga detik ia menyala sendiri."
         },
         {
-          "startFrame": 1095,
-          "endFrame": 1190,
+          "startFrame": 1189,
+          "endFrame": 1294,
           "text": "Saya bilang ke diri saya: alatnya kepanasan."
         },
         {
-          "startFrame": 1190,
-          "endFrame": 1287,
+          "startFrame": 1294,
+          "endFrame": 1399,
           "text": "Empat puluh derajat, dipakai enam jam, wajar."
         },
         {
-          "startFrame": 1287,
-          "endFrame": 1337,
+          "startFrame": 1399,
+          "endFrame": 1459,
           "text": "Saya tunggu lima menit."
         },
         {
-          "startFrame": 1337,
-          "endFrame": 1454,
+          "startFrame": 1459,
+          "endFrame": 1594,
           "text": "Alatnya normal lagi, jadi saya lanjut ke patok kelima."
         },
         {
-          "startFrame": 1454,
-          "endFrame": 1471,
+          "startFrame": 1594,
+          "endFrame": 1609,
           "text": "Selesai."
         },
         {
-          "startFrame": 1471,
-          "endFrame": 1571,
+          "startFrame": 1609,
+          "endFrame": 1729,
           "text": "Tidak ada yang salah lagi sepanjang siang itu."
         },
         {
-          "startFrame": 1571,
-          "endFrame": 1686,
+          "startFrame": 1729,
+          "endFrame": 1864,
           "text": "Lalu saya menoleh ke ujung pematang, ke arah matahari"
         },
         {
-          "startFrame": 1686,
-          "endFrame": 1723,
+          "startFrame": 1864,
+          "endFrame": 1909,
           "text": "yang mulai turun."
         },
         {
-          "startFrame": 1723,
-          "endFrame": 1784,
+          "startFrame": 1909,
+          "endFrame": 1984,
           "text": "Ada sesuatu berdiri di sana."
         },
         {
-          "startFrame": 1784,
-          "endFrame": 1799,
+          "startFrame": 1984,
+          "endFrame": 1999,
           "text": "Tinggi."
         },
         {
-          "startFrame": 1799,
-          "endFrame": 1927,
+          "startFrame": 1999,
+          "endFrame": 2134,
           "text": "Terlalu tinggi untuk orang yang berdiri di pematang selebar"
         },
         {
-          "startFrame": 1927,
-          "endFrame": 1936,
+          "startFrame": 2134,
+          "endFrame": 2149,
           "text": "itu."
         },
         {
-          "startFrame": 1936,
-          "endFrame": 2027,
+          "startFrame": 2149,
+          "endFrame": 2239,
           "text": "Saya angkat ponsel dan memperbesar gambar."
         },
         {
-          "startFrame": 2027,
-          "endFrame": 2092,
+          "startFrame": 2239,
+          "endFrame": 2314,
           "text": "Bidikan tiga kali, empat kali."
         },
         {
-          "startFrame": 2092,
-          "endFrame": 2176,
+          "startFrame": 2314,
+          "endFrame": 2404,
           "text": "Yang terlihat cuma beringin dan langit."
         },
         {
-          "startFrame": 2176,
-          "endFrame": 2312,
+          "startFrame": 2404,
+          "endFrame": 2539,
           "text": "Saya jatuhkan ponsel itu ke kantong dan menyelesaikan pekerjaan"
         },
         {
-          "startFrame": 2312,
-          "endFrame": 2377,
+          "startFrame": 2539,
+          "endFrame": 2617,
           "text": "saya lebih cepat dari biasanya."
         }
       ],
@@ -1169,13 +1169,13 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 2030,
+      "durationFrames": 2182,
       "image": "images/layar-alat.png",
       "narration": "Pukul tiga saya menutup bidikan. Alat menghitung luas sendiri.  Seribu dua ratus dua puluh delapan meter persegi.  Saya ukur ulang dari arah selatan, titik awal berbeda. Sama. Saya ukur dengan pita lima puluh meter, dua orang, dua kali. Sama.  Selisih dua belas meter persegi. Kira-kira seluas dua petak makam.  Malamnya saya kembali ke sawah dengan lampu ponsel. Saya periksa patok satu sampai tiga: masih di lubangnya, masih tegak. Patok ketiga bergeser tiga sentimeter, tapi itu mungkin saya sendiri yang menyenggolnya siang tadi.  Saya kirim pesan ke Pak Rohmat, juru ukur yang dulu terakhir masuk ke Desa Sumber. Dia balas satu kalimat: \"Patoknya jangan dipindah, Mas. Biar dia yang pindah sendiri.\"  Pagi berikutnya patok keempat tidak ada di lubangnya. Saya menemukannya sebelas langkah ke utara, di tepi beringin, berdiri tegak, ditanam rapi, dengan tanah yang masih lembap di sekelilingnya. Saya tidak menanamnya di situ. Tidak ada yang mengaku menanamnya.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 102,
+          "atFrame": 81,
           "image": "images/s5-02.png",
           "camera": "static",
           "scale": 1.18,
@@ -1183,7 +1183,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 203,
+          "atFrame": 140,
           "image": "images/layar-alat.png",
           "camera": "static",
           "scale": 1.1,
@@ -1191,7 +1191,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 305,
+          "atFrame": 256,
           "image": "images/s5-04.png",
           "camera": "static",
           "scale": 1.24,
@@ -1199,7 +1199,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 406,
+          "atFrame": 344,
           "image": "images/patok.png",
           "camera": "static",
           "scale": 1.06,
@@ -1207,7 +1207,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 508,
+          "atFrame": 401,
           "image": "images/peralatan-ukur.png",
           "camera": "static",
           "scale": 1.18,
@@ -1215,7 +1215,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 609,
+          "atFrame": 577,
           "image": "images/s5-07.png",
           "camera": "push_in",
           "scale": 1.1,
@@ -1223,7 +1223,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 711,
+          "atFrame": 680,
           "image": "images/makam.png",
           "camera": "static",
           "scale": 1.24,
@@ -1231,7 +1231,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 812,
+          "atFrame": 736,
           "image": "images/beringin.png",
           "camera": "handheld",
           "scale": 1.06,
@@ -1239,7 +1239,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 914,
+          "atFrame": 940,
           "image": "images/patok.png",
           "camera": "static",
           "scale": 1.18,
@@ -1247,7 +1247,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1015,
+          "atFrame": 1014,
           "image": "images/s5-11.png",
           "camera": "static",
           "scale": 1.1,
@@ -1255,7 +1255,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1117,
+          "atFrame": 1217,
           "image": "images/s5-12.png",
           "camera": "static",
           "scale": 1.24,
@@ -1263,7 +1263,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1218,
+          "atFrame": 1304,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.06,
@@ -1271,7 +1271,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1320,
+          "atFrame": 1495,
           "image": "images/s5-14.png",
           "camera": "static",
           "scale": 1.18,
@@ -1279,7 +1279,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1421,
+          "atFrame": 1554,
           "image": "images/s5-15.png",
           "camera": "static",
           "scale": 1.1,
@@ -1287,7 +1287,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1523,
+          "atFrame": 1654,
           "image": "images/patok.png",
           "camera": "static",
           "scale": 1.24,
@@ -1295,7 +1295,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1624,
+          "atFrame": 1758,
           "image": "images/entitas-s5-17.png",
           "camera": "static",
           "scale": 1.06,
@@ -1303,7 +1303,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1726,
+          "atFrame": 1903,
           "image": "images/s5-18.png",
           "camera": "static",
           "scale": 1.18,
@@ -1311,7 +1311,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1827,
+          "atFrame": 2033,
           "image": "images/s5-19.png",
           "camera": "static",
           "scale": 1.1,
@@ -1319,7 +1319,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1929,
+          "atFrame": 2106,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.24,
@@ -1330,127 +1330,127 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 73,
+          "endFrame": 77,
           "text": "Pukul tiga saya menutup bidikan."
         },
         {
-          "startFrame": 73,
+          "startFrame": 77,
           "endFrame": 136,
           "text": "Alat menghitung luas sendiri."
         },
         {
           "startFrame": 136,
-          "endFrame": 242,
+          "endFrame": 253,
           "text": "Seribu dua ratus dua puluh delapan meter persegi."
         },
         {
-          "startFrame": 242,
-          "endFrame": 359,
+          "startFrame": 253,
+          "endFrame": 385,
           "text": "Saya ukur ulang dari arah selatan, titik awal berbeda."
         },
         {
-          "startFrame": 359,
-          "endFrame": 370,
+          "startFrame": 385,
+          "endFrame": 400,
           "text": "Sama."
         },
         {
-          "startFrame": 370,
-          "endFrame": 478,
+          "startFrame": 400,
+          "endFrame": 532,
           "text": "Saya ukur dengan pita lima puluh meter, dua orang,"
         },
         {
-          "startFrame": 478,
-          "endFrame": 497,
+          "startFrame": 532,
+          "endFrame": 561,
           "text": "dua kali."
         },
         {
-          "startFrame": 497,
-          "endFrame": 508,
+          "startFrame": 561,
+          "endFrame": 576,
           "text": "Sama."
         },
         {
-          "startFrame": 508,
-          "endFrame": 577,
+          "startFrame": 576,
+          "endFrame": 649,
           "text": "Selisih dua belas meter persegi."
         },
         {
-          "startFrame": 577,
-          "endFrame": 648,
+          "startFrame": 649,
+          "endFrame": 722,
           "text": "Kira-kira seluas dua petak makam."
         },
         {
-          "startFrame": 648,
-          "endFrame": 758,
+          "startFrame": 722,
+          "endFrame": 839,
           "text": "Malamnya saya kembali ke sawah dengan lampu ponsel."
         },
         {
-          "startFrame": 758,
-          "endFrame": 879,
+          "startFrame": 839,
+          "endFrame": 971,
           "text": "Saya periksa patok satu sampai tiga: masih di lubangnya,"
         },
         {
-          "startFrame": 879,
-          "endFrame": 905,
+          "startFrame": 971,
+          "endFrame": 1000,
           "text": "masih tegak."
         },
         {
-          "startFrame": 905,
-          "endFrame": 1034,
+          "startFrame": 1000,
+          "endFrame": 1132,
           "text": "Patok ketiga bergeser tiga sentimeter, tapi itu mungkin saya"
         },
         {
-          "startFrame": 1034,
-          "endFrame": 1116,
+          "startFrame": 1132,
+          "endFrame": 1205,
           "text": "sendiri yang menyenggolnya siang tadi."
         },
         {
-          "startFrame": 1116,
-          "endFrame": 1215,
+          "startFrame": 1205,
+          "endFrame": 1337,
           "text": "Saya kirim pesan ke Pak Rohmat, juru ukur yang"
         },
         {
-          "startFrame": 1215,
-          "endFrame": 1291,
+          "startFrame": 1337,
+          "endFrame": 1425,
           "text": "dulu terakhir masuk ke Desa Sumber."
         },
         {
-          "startFrame": 1291,
-          "endFrame": 1410,
+          "startFrame": 1425,
+          "endFrame": 1542,
           "text": "Dia balas satu kalimat: \"Patoknya jangan dipindah, Mas."
         },
         {
-          "startFrame": 1410,
-          "endFrame": 1539,
+          "startFrame": 1542,
+          "endFrame": 1674,
           "text": "Biar dia yang pindah sendiri.\" Pagi berikutnya patok keempat"
         },
         {
-          "startFrame": 1539,
-          "endFrame": 1589,
+          "startFrame": 1674,
+          "endFrame": 1733,
           "text": "tidak ada di lubangnya."
         },
         {
-          "startFrame": 1589,
-          "endFrame": 1721,
+          "startFrame": 1733,
+          "endFrame": 1865,
           "text": "Saya menemukannya sebelas langkah ke utara, di tepi beringin,"
         },
         {
-          "startFrame": 1721,
-          "endFrame": 1848,
+          "startFrame": 1865,
+          "endFrame": 1997,
           "text": "berdiri tegak, ditanam rapi, dengan tanah yang masih lembap"
         },
         {
-          "startFrame": 1848,
-          "endFrame": 1885,
+          "startFrame": 1997,
+          "endFrame": 2026,
           "text": "di sekelilingnya."
         },
         {
-          "startFrame": 1885,
-          "endFrame": 1950,
+          "startFrame": 2026,
+          "endFrame": 2099,
           "text": "Saya tidak menanamnya di situ."
         },
         {
-          "startFrame": 1950,
-          "endFrame": 2022,
+          "startFrame": 2099,
+          "endFrame": 2174,
           "text": "Tidak ada yang mengaku menanamnya."
         }
       ],
@@ -1477,13 +1477,13 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 2739,
+      "durationFrames": 2784,
       "image": "images/protagonis-belakang.png",
       "narration": "Di kantor desa saya minta Buku C. Pak Darto yang jaga, sudah hafal isi lemari itu. Dia menaruh buku besar itu di meja tanpa saya minta, seperti sudah menyiapkannya.  Halaman dua ratus dua puluh satu. Nama pemilik: Hadi Sutrisno. Di bawahnya ada satu baris yang dicoret dengan tinta hitam, lalu namanya diganti.  \"Ini coretan siapa, Pak?\"  \"Coretan zaman saya belum masuk,\" katanya. \"Yang tanda tangan camat, bukan saya.\"  Baris yang dicoret: Sastro Wijaya. Meninggal seribu sembilan ratus delapan puluh satu.  Saya minta surat ukur lama yang saya bawa. Di sudut kanan bawah ada inisial kecil: S.P. Di pinggir kertas, dengan pensil yang hampir hilang, ada tulisan: kurang 12.  Itu tulisan ayah saya. Saya hafal bentuk huruf koreksinya. Dia sudah menemukan selisih itu dua puluh satu tahun lalu, dan yang dia lakukan hanya menuliskannya di pinggir kertas.  Pengumuman data yuridis tahun itu dibuka enam puluh hari, sesuai aturan. Tidak ada satu keberatan. Karena yang berhak mengajukan keberatan sudah tidak punya suara.  Ayah saya meninggal dua tahun lalu. Jadi saya tidak bisa bertanya kenapa dia diam. Yang saya temukan cuma satu kalimat di buku catatannya: pengukuran tidak boleh menambah dan tidak boleh mengurangi. Kalimat itu saya salin di halaman pertama buku saya.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 114,
+          "atFrame": 160,
           "image": "images/pak-darto.png",
           "camera": "static",
           "scale": 1.18,
@@ -1491,7 +1491,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 228,
+          "atFrame": 368,
           "image": "images/s6-03.png",
           "camera": "static",
           "scale": 1.1,
@@ -1499,7 +1499,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 342,
+          "atFrame": 408,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.24,
@@ -1507,7 +1507,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 457,
+          "atFrame": 492,
           "image": "images/buku-c.png",
           "camera": "push_in",
           "scale": 1.06,
@@ -1515,7 +1515,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 571,
+          "atFrame": 589,
           "image": "images/s6-06.png",
           "camera": "static",
           "scale": 1.18,
@@ -1523,7 +1523,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 685,
+          "atFrame": 725,
           "image": "images/pak-darto.png",
           "camera": "static",
           "scale": 1.1,
@@ -1531,7 +1531,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 799,
+          "atFrame": 864,
           "image": "images/s6-08.png",
           "camera": "static",
           "scale": 1.24,
@@ -1539,7 +1539,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 913,
+          "atFrame": 947,
           "image": "images/s6-09.png",
           "camera": "static",
           "scale": 1.06,
@@ -1547,7 +1547,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1027,
+          "atFrame": 1016,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.18,
@@ -1555,7 +1555,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1141,
+          "atFrame": 1111,
           "image": "images/surat-ukur-2004.png",
           "camera": "static",
           "scale": 1.1,
@@ -1563,7 +1563,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1255,
+          "atFrame": 1292,
           "image": "images/surat-ukur-2004.png",
           "camera": "push_in",
           "scale": 1.24,
@@ -1571,7 +1571,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1370,
+          "atFrame": 1403,
           "image": "images/surat-ukur-2004.png",
           "camera": "static",
           "scale": 1.06,
@@ -1579,7 +1579,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1484,
+          "atFrame": 1511,
           "image": "images/surat-ukur-2004.png",
           "camera": "static",
           "scale": 1.18,
@@ -1587,7 +1587,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1598,
+          "atFrame": 1595,
           "image": "images/s6-15.png",
           "camera": "static",
           "scale": 1.1,
@@ -1595,7 +1595,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1712,
+          "atFrame": 1705,
           "image": "images/surat-ukur-2004.png",
           "camera": "static",
           "scale": 1.24,
@@ -1603,7 +1603,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1826,
+          "atFrame": 1842,
           "image": "images/protagonis-belakang.png",
           "camera": "static",
           "scale": 1.06,
@@ -1611,7 +1611,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1940,
+          "atFrame": 1980,
           "image": "images/s6-18.png",
           "camera": "static",
           "scale": 1.18,
@@ -1619,7 +1619,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 2054,
+          "atFrame": 2050,
           "image": "images/s6-19.png",
           "camera": "static",
           "scale": 1.1,
@@ -1627,7 +1627,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 2168,
+          "atFrame": 2229,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.24,
@@ -1635,7 +1635,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 2283,
+          "atFrame": 2340,
           "image": "images/s6-21.png",
           "camera": "static",
           "scale": 1.06,
@@ -1643,7 +1643,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 2397,
+          "atFrame": 2477,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.18,
@@ -1651,7 +1651,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 2511,
+          "atFrame": 2561,
           "image": "images/s6-23.png",
           "camera": "static",
           "scale": 1.1,
@@ -1659,7 +1659,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 2625,
+          "atFrame": 2657,
           "image": "images/s6-24.png",
           "camera": "static",
           "scale": 1.24,
@@ -1670,157 +1670,157 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 77,
+          "endFrame": 101,
           "text": "Di kantor desa saya minta Buku C."
         },
         {
-          "startFrame": 77,
-          "endFrame": 183,
+          "startFrame": 101,
+          "endFrame": 226,
           "text": "Pak Darto yang jaga, sudah hafal isi lemari itu."
         },
         {
-          "startFrame": 183,
-          "endFrame": 283,
+          "startFrame": 226,
+          "endFrame": 351,
           "text": "Dia menaruh buku besar itu di meja tanpa saya"
         },
         {
-          "startFrame": 283,
-          "endFrame": 360,
+          "startFrame": 351,
+          "endFrame": 406,
           "text": "minta, seperti sudah menyiapkannya."
         },
         {
-          "startFrame": 360,
-          "endFrame": 433,
+          "startFrame": 406,
+          "endFrame": 489,
           "text": "Halaman dua ratus dua puluh satu."
         },
         {
-          "startFrame": 433,
-          "endFrame": 495,
+          "startFrame": 489,
+          "endFrame": 544,
           "text": "Nama pemilik: Hadi Sutrisno."
         },
         {
-          "startFrame": 495,
-          "endFrame": 610,
+          "startFrame": 544,
+          "endFrame": 669,
           "text": "Di bawahnya ada satu baris yang dicoret dengan tinta"
         },
         {
-          "startFrame": 610,
-          "endFrame": 672,
+          "startFrame": 669,
+          "endFrame": 724,
           "text": "hitam, lalu namanya diganti."
         },
         {
-          "startFrame": 672,
-          "endFrame": 802,
+          "startFrame": 724,
+          "endFrame": 849,
           "text": "\"Ini coretan siapa, Pak?\" \"Coretan zaman saya belum masuk,\""
         },
         {
-          "startFrame": 802,
-          "endFrame": 820,
+          "startFrame": 849,
+          "endFrame": 863,
           "text": "katanya."
         },
         {
-          "startFrame": 820,
-          "endFrame": 948,
+          "startFrame": 863,
+          "endFrame": 988,
           "text": "\"Yang tanda tangan camat, bukan saya.\" Baris yang dicoret:"
         },
         {
-          "startFrame": 948,
-          "endFrame": 979,
+          "startFrame": 988,
+          "endFrame": 1016,
           "text": "Sastro Wijaya."
         },
         {
-          "startFrame": 979,
-          "endFrame": 1092,
+          "startFrame": 1016,
+          "endFrame": 1113,
           "text": "Meninggal seribu sembilan ratus delapan puluh satu."
         },
         {
-          "startFrame": 1092,
-          "endFrame": 1185,
+          "startFrame": 1113,
+          "endFrame": 1224,
           "text": "Saya minta surat ukur lama yang saya bawa."
         },
         {
-          "startFrame": 1185,
-          "endFrame": 1282,
+          "startFrame": 1224,
+          "endFrame": 1335,
           "text": "Di sudut kanan bawah ada inisial kecil: S.P."
         },
         {
-          "startFrame": 1282,
-          "endFrame": 1406,
+          "startFrame": 1335,
+          "endFrame": 1460,
           "text": "Di pinggir kertas, dengan pensil yang hampir hilang, ada"
         },
         {
-          "startFrame": 1406,
-          "endFrame": 1448,
+          "startFrame": 1460,
+          "endFrame": 1502,
           "text": "tulisan: kurang 12."
         },
         {
-          "startFrame": 1448,
-          "endFrame": 1497,
+          "startFrame": 1502,
+          "endFrame": 1557,
           "text": "Itu tulisan ayah saya."
         },
         {
-          "startFrame": 1497,
-          "endFrame": 1574,
+          "startFrame": 1557,
+          "endFrame": 1626,
           "text": "Saya hafal bentuk huruf koreksinya."
         },
         {
-          "startFrame": 1574,
-          "endFrame": 1689,
+          "startFrame": 1626,
+          "endFrame": 1751,
           "text": "Dia sudah menemukan selisih itu dua puluh satu tahun"
         },
         {
-          "startFrame": 1689,
-          "endFrame": 1815,
+          "startFrame": 1751,
+          "endFrame": 1876,
           "text": "lalu, dan yang dia lakukan hanya menuliskannya di pinggir"
         },
         {
-          "startFrame": 1815,
-          "endFrame": 1830,
+          "startFrame": 1876,
+          "endFrame": 1890,
           "text": "kertas."
         },
         {
-          "startFrame": 1830,
-          "endFrame": 1956,
+          "startFrame": 1890,
+          "endFrame": 2015,
           "text": "Pengumuman data yuridis tahun itu dibuka enam puluh hari,"
         },
         {
-          "startFrame": 1956,
-          "endFrame": 1987,
+          "startFrame": 2015,
+          "endFrame": 2043,
           "text": "sesuai aturan."
         },
         {
-          "startFrame": 1987,
-          "endFrame": 2042,
+          "startFrame": 2043,
+          "endFrame": 2098,
           "text": "Tidak ada satu keberatan."
         },
         {
-          "startFrame": 2042,
-          "endFrame": 2184,
+          "startFrame": 2098,
+          "endFrame": 2223,
           "text": "Karena yang berhak mengajukan keberatan sudah tidak punya suara."
         },
         {
-          "startFrame": 2184,
-          "endFrame": 2261,
+          "startFrame": 2223,
+          "endFrame": 2306,
           "text": "Ayah saya meninggal dua tahun lalu."
         },
         {
-          "startFrame": 2261,
-          "endFrame": 2363,
+          "startFrame": 2306,
+          "endFrame": 2417,
           "text": "Jadi saya tidak bisa bertanya kenapa dia diam."
         },
         {
-          "startFrame": 2363,
-          "endFrame": 2485,
+          "startFrame": 2417,
+          "endFrame": 2542,
           "text": "Yang saya temukan cuma satu kalimat di buku catatannya:"
         },
         {
-          "startFrame": 2485,
-          "endFrame": 2615,
+          "startFrame": 2542,
+          "endFrame": 2653,
           "text": "pengukuran tidak boleh menambah dan tidak boleh mengurangi."
         },
         {
-          "startFrame": 2615,
-          "endFrame": 2731,
+          "startFrame": 2653,
+          "endFrame": 2776,
           "text": "Kalimat itu saya salin di halaman pertama buku saya."
         }
       ],
@@ -1846,13 +1846,13 @@
     {
       "id": "scene_07",
       "order": 6,
-      "durationFrames": 2235,
+      "durationFrames": 2130,
       "image": "images/kamling.png",
       "narration": "Mang Karta bicara malam itu, di pos kamling, setelah saya belikan teh.  Tanah di pojok beringin itu makam Mbah Sastro. Bapaknya Pak Hadi sendiri.  Waktu tanah mau dijual, luasnya dihitung ulang. Kalau makam ikut dihitung, harga berkurang dua belas meter. Jadi nama di Buku C dicoret. Jadi makamnya dianggap tidak ada. Dan patoknya cukup digeser selebar telapak tangan, supaya yang di kertas dan yang di tanah kelihatan cocok.  Mang Karta tanda tangan sebagai saksi batas. Dia dibayar satu juta.  \"Saya cuma tanda tangan, Mas. Bukan saya yang mindahin patoknya.\"  Saya tanya siapa yang memindahkan. Dia menyebut satu nama, nama yang sama dengan yang tertulis di halaman dua ratus dua puluh satu. Lalu dia bilang yang membuat saya tidak bisa tidur: menurut adat, anak bungsu yang menjaga makam orang tuanya. Pak Hadi anak bungsu. Dia tahu persis apa yang ada di bawah pohon itu, dan dia tetap menghapusnya dari kertas.  Dia pulang tanpa menghabiskan tehnya. Saya duduk di situ sampai lampu kamling hidup sendiri.",
       "narrationAudio": "audio/narration/scene-07.mp3",
       "cuts": [
         {
-          "atFrame": 106,
+          "atFrame": 112,
           "image": "images/s7-02.png",
           "camera": "static",
           "scale": 1.18,
@@ -1860,7 +1860,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 213,
+          "atFrame": 230,
           "image": "images/beringin.png",
           "camera": "push_in",
           "scale": 1.1,
@@ -1868,7 +1868,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 319,
+          "atFrame": 269,
           "image": "images/mang-karta.png",
           "camera": "static",
           "scale": 1.24,
@@ -1876,7 +1876,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 426,
+          "atFrame": 372,
           "image": "images/makam.png",
           "camera": "static",
           "scale": 1.06,
@@ -1884,7 +1884,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 532,
+          "atFrame": 464,
           "image": "images/s7-06.png",
           "camera": "static",
           "scale": 1.18,
@@ -1892,7 +1892,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 639,
+          "atFrame": 529,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.1,
@@ -1900,7 +1900,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 745,
+          "atFrame": 608,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.24,
@@ -1908,7 +1908,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 851,
+          "atFrame": 712,
           "image": "images/patok.png",
           "camera": "static",
           "scale": 1.06,
@@ -1916,7 +1916,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 958,
+          "atFrame": 892,
           "image": "images/berita-acara.png",
           "camera": "static",
           "scale": 1.18,
@@ -1924,7 +1924,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1064,
+          "atFrame": 983,
           "image": "images/s7-11.png",
           "camera": "static",
           "scale": 1.1,
@@ -1932,7 +1932,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1171,
+          "atFrame": 1036,
           "image": "images/mang-karta.png",
           "camera": "static",
           "scale": 1.24,
@@ -1940,7 +1940,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1277,
+          "atFrame": 1100,
           "image": "images/mang-karta.png",
           "camera": "static",
           "scale": 1.06,
@@ -1948,7 +1948,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1384,
+          "atFrame": 1230,
           "image": "images/mang-karta.png",
           "camera": "static",
           "scale": 1.18,
@@ -1956,7 +1956,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1490,
+          "atFrame": 1373,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.1,
@@ -1964,7 +1964,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1596,
+          "atFrame": 1504,
           "image": "images/kamling.png",
           "camera": "static",
           "scale": 1.24,
@@ -1972,7 +1972,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1703,
+          "atFrame": 1595,
           "image": "images/beringin.png",
           "camera": "static",
           "scale": 1.06,
@@ -1980,7 +1980,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1809,
+          "atFrame": 1737,
           "image": "images/pak-hadi.png",
           "camera": "static",
           "scale": 1.18,
@@ -1988,7 +1988,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1916,
+          "atFrame": 1945,
           "image": "images/s7-19.png",
           "camera": "static",
           "scale": 1.1,
@@ -1996,7 +1996,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 2022,
+          "atFrame": 2010,
           "image": "images/kamling.png",
           "camera": "static",
           "scale": 1.24,
@@ -2004,7 +2004,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 2129,
+          "atFrame": 2076,
           "image": "images/kamling.png",
           "camera": "static",
           "scale": 1.06,
@@ -2015,122 +2015,122 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 122,
+          "endFrame": 121,
           "text": "Mang Karta bicara malam itu, di pos kamling, setelah"
         },
         {
-          "startFrame": 122,
-          "endFrame": 161,
+          "startFrame": 121,
+          "endFrame": 160,
           "text": "saya belikan teh."
         },
         {
-          "startFrame": 161,
-          "endFrame": 265,
+          "startFrame": 160,
+          "endFrame": 264,
           "text": "Tanah di pojok beringin itu makam Mbah Sastro."
         },
         {
-          "startFrame": 265,
-          "endFrame": 324,
+          "startFrame": 264,
+          "endFrame": 316,
           "text": "Bapaknya Pak Hadi sendiri."
         },
         {
-          "startFrame": 324,
-          "endFrame": 431,
+          "startFrame": 316,
+          "endFrame": 407,
           "text": "Waktu tanah mau dijual, luasnya dihitung ulang."
         },
         {
-          "startFrame": 431,
-          "endFrame": 565,
+          "startFrame": 407,
+          "endFrame": 524,
           "text": "Kalau makam ikut dihitung, harga berkurang dua belas meter."
         },
         {
-          "startFrame": 565,
-          "endFrame": 628,
+          "startFrame": 524,
+          "endFrame": 602,
           "text": "Jadi nama di Buku C dicoret."
         },
         {
-          "startFrame": 628,
-          "endFrame": 703,
+          "startFrame": 602,
+          "endFrame": 667,
           "text": "Jadi makamnya dianggap tidak ada."
         },
         {
-          "startFrame": 703,
-          "endFrame": 843,
+          "startFrame": 667,
+          "endFrame": 784,
           "text": "Dan patoknya cukup digeser selebar telapak tangan, supaya yang"
         },
         {
-          "startFrame": 843,
-          "endFrame": 943,
+          "startFrame": 784,
+          "endFrame": 888,
           "text": "di kertas dan yang di tanah kelihatan cocok."
         },
         {
-          "startFrame": 943,
-          "endFrame": 1043,
+          "startFrame": 888,
+          "endFrame": 979,
           "text": "Mang Karta tanda tangan sebagai saksi batas."
         },
         {
-          "startFrame": 1043,
-          "endFrame": 1093,
+          "startFrame": 979,
+          "endFrame": 1031,
           "text": "Dia dibayar satu juta."
         },
         {
-          "startFrame": 1093,
-          "endFrame": 1159,
+          "startFrame": 1031,
+          "endFrame": 1096,
           "text": "\"Saya cuma tanda tangan, Mas."
         },
         {
-          "startFrame": 1159,
-          "endFrame": 1288,
+          "startFrame": 1096,
+          "endFrame": 1213,
           "text": "Bukan saya yang mindahin patoknya.\" Saya tanya siapa yang"
         },
         {
-          "startFrame": 1288,
-          "endFrame": 1315,
+          "startFrame": 1213,
+          "endFrame": 1226,
           "text": "memindahkan."
         },
         {
-          "startFrame": 1315,
-          "endFrame": 1428,
+          "startFrame": 1226,
+          "endFrame": 1343,
           "text": "Dia menyebut satu nama, nama yang sama dengan yang"
         },
         {
-          "startFrame": 1428,
-          "endFrame": 1530,
+          "startFrame": 1343,
+          "endFrame": 1447,
           "text": "tertulis di halaman dua ratus dua puluh satu."
         },
         {
-          "startFrame": 1530,
-          "endFrame": 1646,
+          "startFrame": 1447,
+          "endFrame": 1564,
           "text": "Lalu dia bilang yang membuat saya tidak bisa tidur:"
         },
         {
-          "startFrame": 1646,
-          "endFrame": 1777,
+          "startFrame": 1564,
+          "endFrame": 1681,
           "text": "menurut adat, anak bungsu yang menjaga makam orang tuanya."
         },
         {
-          "startFrame": 1777,
-          "endFrame": 1825,
+          "startFrame": 1681,
+          "endFrame": 1733,
           "text": "Pak Hadi anak bungsu."
         },
         {
-          "startFrame": 1825,
-          "endFrame": 1922,
+          "startFrame": 1733,
+          "endFrame": 1850,
           "text": "Dia tahu persis apa yang ada di bawah pohon"
         },
         {
-          "startFrame": 1922,
-          "endFrame": 2022,
+          "startFrame": 1850,
+          "endFrame": 1941,
           "text": "itu, dan dia tetap menghapusnya dari kertas."
         },
         {
-          "startFrame": 2022,
-          "endFrame": 2106,
+          "startFrame": 1941,
+          "endFrame": 2006,
           "text": "Dia pulang tanpa menghabiskan tehnya."
         },
         {
-          "startFrame": 2106,
-          "endFrame": 2227,
+          "startFrame": 2006,
+          "endFrame": 2122,
           "text": "Saya duduk di situ sampai lampu kamling hidup sendiri."
         }
       ],
@@ -2157,13 +2157,13 @@
     {
       "id": "scene_08",
       "order": 7,
-      "durationFrames": 1785,
+      "durationFrames": 1811,
       "image": "images/s8-pembuka.png",
       "narration": "Pagi berikutnya saya kembali ke sawah dengan pita ukur, bukan dengan alat.  Saya tanam patok keempat di tepi makam, tepat di batas tanah yang lebih tinggi. Sudah saya catat koordinatnya, sudah saya potret, sudah saya kirim ke ponsel saya sendiri.  Di berita acara saya tulis satu baris: bidang dikecualikan, dua belas meter persegi, makam keluarga. Saya tanda tangan di atas meterai.  Pak Hadi marah. Katanya pembeli tidak mau tanah yang ada makamnya. Dia bilang saya cuma juru ukur, tidak perlu ikut mengurus orang mati.  Saya kembalikan uang muka empat ratus ribu, di depan Bu Sri. Bu Sri tidak berkata apa-apa. Dia melihat ke arah beringin, lalu mengangguk.  Sehari kemudian Mang Karta menelepon. Makam itu sudah dibersihkan. Rumputnya dipotong. Dan di atas nisan ada satu patok kecil, yang bukan patok saya.",
       "narrationAudio": "audio/narration/scene-08.mp3",
       "cuts": [
         {
-          "atFrame": 149,
+          "atFrame": 90,
           "image": "images/peralatan-ukur.png",
           "camera": "static",
           "scale": 1.18,
@@ -2171,7 +2171,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 298,
+          "atFrame": 175,
           "image": "images/entitas-s8-03.png",
           "camera": "static",
           "scale": 1.1,
@@ -2179,7 +2179,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 446,
+          "atFrame": 365,
           "image": "images/s8-04.png",
           "camera": "static",
           "scale": 1.24,
@@ -2187,7 +2187,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 595,
+          "atFrame": 558,
           "image": "images/berita-acara.png",
           "camera": "static",
           "scale": 1.06,
@@ -2195,7 +2195,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 744,
+          "atFrame": 763,
           "image": "images/berita-acara.png",
           "camera": "static",
           "scale": 1.18,
@@ -2203,7 +2203,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 893,
+          "atFrame": 846,
           "image": "images/pak-hadi.png",
           "camera": "handheld",
           "scale": 1.1,
@@ -2211,7 +2211,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1041,
+          "atFrame": 1080,
           "image": "images/s8-08.png",
           "camera": "static",
           "scale": 1.24,
@@ -2219,7 +2219,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 1190,
+          "atFrame": 1163,
           "image": "images/bu-sri.png",
           "camera": "static",
           "scale": 1.06,
@@ -2227,7 +2227,7 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1339,
+          "atFrame": 1396,
           "image": "images/bu-sri.png",
           "camera": "static",
           "scale": 1.18,
@@ -2235,7 +2235,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1488,
+          "atFrame": 1561,
           "image": "images/makam.png",
           "camera": "push_in",
           "scale": 1.1,
@@ -2243,7 +2243,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1636,
+          "atFrame": 1658,
           "image": "images/patok.png",
           "camera": "push_in",
           "scale": 1.24,
@@ -2254,112 +2254,112 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 128,
+          "endFrame": 129,
           "text": "Pagi berikutnya saya kembali ke sawah dengan pita ukur,"
         },
         {
-          "startFrame": 128,
-          "endFrame": 169,
+          "startFrame": 129,
+          "endFrame": 171,
           "text": "bukan dengan alat."
         },
         {
-          "startFrame": 169,
-          "endFrame": 277,
+          "startFrame": 171,
+          "endFrame": 296,
           "text": "Saya tanam patok keempat di tepi makam, tepat di"
         },
         {
-          "startFrame": 277,
-          "endFrame": 345,
+          "startFrame": 296,
+          "endFrame": 365,
           "text": "batas tanah yang lebih tinggi."
         },
         {
-          "startFrame": 345,
-          "endFrame": 481,
+          "startFrame": 365,
+          "endFrame": 490,
           "text": "Sudah saya catat koordinatnya, sudah saya potret, sudah saya"
         },
         {
-          "startFrame": 481,
-          "endFrame": 546,
+          "startFrame": 490,
+          "endFrame": 559,
           "text": "kirim ke ponsel saya sendiri."
         },
         {
-          "startFrame": 546,
-          "endFrame": 679,
+          "startFrame": 559,
+          "endFrame": 684,
           "text": "Di berita acara saya tulis satu baris: bidang dikecualikan,"
         },
         {
-          "startFrame": 679,
-          "endFrame": 769,
+          "startFrame": 684,
+          "endFrame": 767,
           "text": "dua belas meter persegi, makam keluarga."
         },
         {
-          "startFrame": 769,
-          "endFrame": 846,
+          "startFrame": 767,
+          "endFrame": 850,
           "text": "Saya tanda tangan di atas meterai."
         },
         {
-          "startFrame": 846,
-          "endFrame": 880,
+          "startFrame": 850,
+          "endFrame": 892,
           "text": "Pak Hadi marah."
         },
         {
-          "startFrame": 880,
-          "endFrame": 993,
+          "startFrame": 892,
+          "endFrame": 1003,
           "text": "Katanya pembeli tidak mau tanah yang ada makamnya."
         },
         {
-          "startFrame": 993,
-          "endFrame": 1101,
+          "startFrame": 1003,
+          "endFrame": 1128,
           "text": "Dia bilang saya cuma juru ukur, tidak perlu ikut"
         },
         {
-          "startFrame": 1101,
-          "endFrame": 1146,
+          "startFrame": 1128,
+          "endFrame": 1170,
           "text": "mengurus orang mati."
         },
         {
-          "startFrame": 1146,
-          "endFrame": 1263,
+          "startFrame": 1170,
+          "endFrame": 1295,
           "text": "Saya kembalikan uang muka empat ratus ribu, di depan"
         },
         {
-          "startFrame": 1263,
-          "endFrame": 1279,
+          "startFrame": 1295,
+          "endFrame": 1323,
           "text": "Bu Sri."
         },
         {
-          "startFrame": 1279,
-          "endFrame": 1344,
+          "startFrame": 1323,
+          "endFrame": 1392,
           "text": "Bu Sri tidak berkata apa-apa."
         },
         {
-          "startFrame": 1344,
-          "endFrame": 1448,
+          "startFrame": 1392,
+          "endFrame": 1489,
           "text": "Dia melihat ke arah beringin, lalu mengangguk."
         },
         {
-          "startFrame": 1448,
-          "endFrame": 1532,
+          "startFrame": 1489,
+          "endFrame": 1558,
           "text": "Sehari kemudian Mang Karta menelepon."
         },
         {
-          "startFrame": 1532,
-          "endFrame": 1595,
+          "startFrame": 1558,
+          "endFrame": 1613,
           "text": "Makam itu sudah dibersihkan."
         },
         {
-          "startFrame": 1595,
-          "endFrame": 1638,
+          "startFrame": 1613,
+          "endFrame": 1641,
           "text": "Rumputnya dipotong."
         },
         {
-          "startFrame": 1638,
-          "endFrame": 1737,
+          "startFrame": 1641,
+          "endFrame": 1766,
           "text": "Dan di atas nisan ada satu patok kecil, yang"
         },
         {
-          "startFrame": 1737,
-          "endFrame": 1777,
+          "startFrame": 1766,
+          "endFrame": 1803,
           "text": "bukan patok saya."
         }
       ],
@@ -2385,7 +2385,7 @@
     {
       "id": "scene_09",
       "order": 8,
-      "durationFrames": 667,
+      "durationFrames": 621,
       "image": "images/beringin.png",
       "narration": "Tanah itu akhirnya tidak jadi dijual. Bu Sri bilang dia tidak sanggup membeli sesuatu yang tidak mau dihitung.  Kalau kamu jadi saya: kamu tulis angka yang diminta, atau angka yang benar? Tulis di komentar.  Dan kalau kamu tidak ingin ada patok yang tiba-tiba pindah di tanahmu, klik subscribe.",
       "narrationAudio": "audio/narration/scene-09.mp3",
@@ -2399,7 +2399,7 @@
           "offsetY": -20
         },
         {
-          "atFrame": 267,
+          "atFrame": 281,
           "image": "images/s9-03.png",
           "camera": "static",
           "scale": 1.1,
@@ -2407,7 +2407,7 @@
           "offsetY": 25
         },
         {
-          "atFrame": 400,
+          "atFrame": 394,
           "image": "images/buku-c.png",
           "camera": "static",
           "scale": 1.24,
@@ -2415,7 +2415,7 @@
           "offsetY": -10
         },
         {
-          "atFrame": 534,
+          "atFrame": 596,
           "image": "images/protagonis-belakang.png",
           "camera": "static",
           "scale": 1.06,
@@ -2426,42 +2426,42 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 89,
+          "endFrame": 80,
           "text": "Tanah itu akhirnya tidak jadi dijual."
         },
         {
-          "startFrame": 89,
-          "endFrame": 209,
+          "startFrame": 80,
+          "endFrame": 194,
           "text": "Bu Sri bilang dia tidak sanggup membeli sesuatu yang"
         },
         {
-          "startFrame": 209,
-          "endFrame": 253,
+          "startFrame": 194,
+          "endFrame": 232,
           "text": "tidak mau dihitung."
         },
         {
-          "startFrame": 253,
-          "endFrame": 373,
+          "startFrame": 232,
+          "endFrame": 346,
           "text": "Kalau kamu jadi saya: kamu tulis angka yang diminta,"
         },
         {
-          "startFrame": 373,
-          "endFrame": 424,
+          "startFrame": 346,
+          "endFrame": 397,
           "text": "atau angka yang benar?"
         },
         {
-          "startFrame": 424,
-          "endFrame": 465,
+          "startFrame": 397,
+          "endFrame": 435,
           "text": "Tulis di komentar."
         },
         {
-          "startFrame": 465,
-          "endFrame": 582,
+          "startFrame": 435,
+          "endFrame": 549,
           "text": "Dan kalau kamu tidak ingin ada patok yang tiba-tiba"
         },
         {
-          "startFrame": 582,
-          "endFrame": 659,
+          "startFrame": 549,
+          "endFrame": 613,
           "text": "pindah di tanahmu, klik subscribe."
         }
       ],

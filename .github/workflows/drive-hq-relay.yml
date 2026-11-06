@@ -1,10 +1,9 @@
-name: One-time private Drive relay
-# Separate user approval covers a test and, if safe, one UMP master upload.
-# This branch and an explicit marker are both required. No Drive credential,
-# media, runner private key or bearer token is committed or printed. The
-# preauthorized session URI reaches the runner only inside an RSA/AES envelope.
-# The public preview host serves only encrypted handshake data and authenticated
-# HTTPS byte ranges; the owner stops it immediately after the transfer.
+name: One-time encrypted Drive relay
+# Explicit user approval covers encrypted unreferenced Git blobs for one UMP
+# master. The repo is public; ciphertext may survive until GitHub GC. A new
+# job requires both this branch and a deliberate trigger marker. No Drive URI,
+# plaintext media, or private key is committed or logged. Runner key is
+# ephemeral; the resulting private Drive file ID is encrypted for the owner.
 on:
   push:
     branches:
@@ -18,13 +17,16 @@ jobs:
   one-time-relay:
     if: ${{ contains(github.event.head_commit.message, '[approved-drive-relay]') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
       - name: Offline cryptographic and endpoint tests
         run: node --test editorial-engine/pipeline/drive-relay/test-relay.mjs
-      - name: One-time encrypted session handshake and resumable upload
+      - name: Encrypted blob handshake and resumable upload
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
+          if [ -n "${GITHUB_TOKEN:-}" ]; then echo "::add-mask::${GITHUB_TOKEN}"; fi
           node editorial-engine/pipeline/drive-relay/relay-upload.mjs

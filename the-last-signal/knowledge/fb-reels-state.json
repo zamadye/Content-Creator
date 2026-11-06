@@ -34,6 +34,11 @@
         "postedAt": "2026-11-06T06:50:52Z",
         "note": "terbit dua kali; Zernio menolak menghapus post yang sudah terbit — hapus manual di Meta Business Suite"
       }
+    },
+    "LS-0005": {
+      "status": "error",
+      "note": "push gagal",
+      "at": "2026-11-06T08:51:22.768Z"
     }
   }
 }

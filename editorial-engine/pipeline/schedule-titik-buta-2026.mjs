@@ -91,7 +91,10 @@ export function inspectQueue(existing, posts, channels) {
   }
   const collisions = [];
   for (const p of posts) for (const old of existing) {
-    if (!['scheduled','sending'].includes(String(old.status ?? '').toLowerCase()) || !Number.isFinite(due(old.dueAt))) continue;
+    const status=String(old.status ?? '').toLowerCase();
+    assert(['scheduled','sending','needs_approval','draft','error','sent'].includes(status), 'Unknown Buffer post state; cannot check the two-hour gap safely');
+    if (['scheduled','sending'].includes(status)) assert(Number.isFinite(due(old.dueAt)), 'Scheduled Buffer post has no usable publication time');
+    if (!['scheduled','sending','needs_approval'].includes(status) || !Number.isFinite(due(old.dueAt))) continue;
     if (mine[p.platform] && String(old.id) === String(mine[p.platform].id)) continue;
     if (posts.some(q => mine[q.platform] && String(old.id) === String(mine[q.platform].id))) continue;
     if (Math.abs(due(old.dueAt)-due(p.dueAt)) < minGapMs)
@@ -167,7 +170,7 @@ function inspectPost(id, expected, channel) {
   assert(String(p.status ?? '').toLowerCase()==='scheduled', `${expected.platform} post is not scheduled`);
   assert(due(p.dueAt) === due(expected.dueAt), `${expected.platform} schedule mismatch`);
   assert(String(p.text ?? '').trim() === expected.text.trim(), `${expected.platform} caption mismatch`);
-  assert(Array.isArray(p.assets) && p.assets.length > 0, `${expected.platform} has no visible media asset`);
+  assert(Array.isArray(p.assets) && p.assets.some(a=>String(a.type ?? '').toLowerCase()==='video' && typeof a.source==='string' && a.source), `${expected.platform} has no visible video source`);
   if (expected.platform==='youtube') assert(p.metadata?.title === expected.title, 'YouTube title mismatch');
   return {id:String(p.id),channelId:channel.id,status:p.status,dueAt:p.dueAt,title:expected.title ?? null,assets:p.assets.map(a=>({type:a.type ?? null,hasSource:!!a.source}))};
 }
@@ -233,7 +236,7 @@ async function main() {
     const channels=selectChannels(listChannels(org));report.channels=channels;
     report.events.push({name:'channels',status:'PASS'});
     const queue=listPosts(org);const inspection=inspectQueue(queue,req.posts,channels);
-    report.queue={checkedPosts:queue.length,collisions:inspection.collisions,existing:Object.keys(inspection.mine)};
+    report.queue={checkedPosts:queue.length,byStatus:queue.reduce((a,p)=>(a[String(p.status ?? 'unknown')]=(a[String(p.status ?? 'unknown')] ?? 0)+1,a),{}),collisions:inspection.collisions,existing:Object.keys(inspection.mine)};
     assert(!inspection.collisions.length,'Existing scheduled posts violate the two-hour gap; no new posts created');
     if (req.action==='preflight') report.verifierProbe=probePostShapes(queue,channels);
     for (const p of req.posts) {

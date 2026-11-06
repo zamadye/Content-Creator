@@ -44,6 +44,9 @@ test('detect collisions cross-platform and allow precisely two-hour gap',()=>{
   const collision=inspectQueue([unrelated],req.posts,channels);assert.equal(collision.collisions.length,1);
   const twoHours={...unrelated,dueAt:'2026-11-07T17:00:00+07:00'};
   assert.equal(inspectQueue([twoHours],req.posts,channels).collisions.length,0);
+  assert.equal(inspectQueue([{...unrelated,status:'needs_approval'}],req.posts,channels).collisions.length,1);
+  assert.throws(()=>inspectQueue([{...unrelated,dueAt:null}],req.posts,channels),/no usable publication time/);
+  assert.throws(()=>inspectQueue([{...unrelated,status:'unrecognized'}],req.posts,channels),/Unknown Buffer post state/);
 });
 
 test('matching posts are reused only when status and time are verified',()=>{

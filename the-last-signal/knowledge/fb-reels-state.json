@@ -1,5 +1,5 @@
 {
-  "lastPostAt": "2026-11-06T06:52:00Z",
+  "lastPostAt": "2026-11-06T06:50:52Z",
   "items": {
     "LS-0008": {
       "status": "posted",
@@ -21,21 +21,19 @@
     },
     "LS-0001": {
       "status": "posted",
-      "runId": 42162595121,
-      "conclusion": "success",
-      "request": "the-last-signal/publish-queue/2026-11-06T04-27-FBREEL-LS-0001.json",
-      "postedAt": "2026-11-06T04:30:46.590Z",
-      "url": null,
-      "conclusion_was": "success",
-      "at": "2026-11-06T04:30:46.590Z",
-      "note": "terbit 04.30.46Z; URL belum terbaca dari anotasi (kuota anotasi notice per langkah sudah penuh oleh baris QC)"
+      "postedAt": "2026-11-06T04:28:38Z",
+      "url": "https://www.facebook.com/reel/1205919018455599",
+      "note": "terverifikasi dari daftar post Zernio"
     },
     "LS-0002": {
       "status": "posted",
-      "postedAt": "2026-11-06T06:52:00Z",
-      "url": null,
-      "request": "publish-queue/2026-11-06T06-47-FBREEL-LS-0002.json",
-      "note": "terbit; URL belum terbaca — perlu pemeriksaan daftar post (kemungkinan ada dua Reel karena dua permintaan identik)"
+      "postedAt": "2026-11-06T06:47:58Z",
+      "url": "https://www.facebook.com/reel/2591835701239855",
+      "duplicate": {
+        "url": "https://www.facebook.com/reel/1104255752419431",
+        "postedAt": "2026-11-06T06:50:52Z",
+        "note": "terbit dua kali; Zernio menolak menghapus post yang sudah terbit — hapus manual di Meta Business Suite"
+      }
     }
   }
 }

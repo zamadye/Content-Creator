@@ -56,12 +56,15 @@ async function main() {
   const targets = new Set(deletes);
 
   for (const episodeId of dedupeEpisodes) {
-    const all = await listPosts();
+    const all = await listPosts(50);
     const matches = all
       .filter((post) => post.metadata?.episodeId === episodeId)
       // Post tanpa id tidak bisa dihapus; jangan pernah memasukkannya ke daftar
       // target (dulu ini berujung permintaan hapus "undefined").
-      .filter((post) => typeof (post._id ?? post.id) === "string");
+      .filter((post) => typeof (post._id ?? post.id) === "string")
+      // Hanya post 24 jam terakhir: yang lama adalah unggahan YouTube asli dan
+      // tidak boleh dianggap duplikat.
+      .filter((post) => Date.now() - Date.parse(post.createdAt) < 24 * 3600 * 1000);
     for (const post of matches) {
       console.log(`::notice::kandidat ${episodeId}: ${post._id ?? post.id} ${post.createdAt} ${post.status}`);
     }
@@ -87,7 +90,15 @@ async function main() {
       await zernio.posts.deletePost({ path: { postId } });
       console.log(`::notice::post ${postId} dihapus`);
     } catch (error) {
-      console.log(`::error::gagal menghapus ${postId}: ${error?.message ?? error}`);
+      const pesan = String(error?.message ?? error);
+      // Zernio menolak menghapus post yang sudah terbit; Meta harus dilakukan
+      // manual dari Halaman. Dicatat sebagai peringatan, bukan kegagalan, supaya
+      // langkah berikutnya tetap jalan.
+      if (/cannot be deleted/i.test(pesan)) {
+        console.log(`::warning::${postId}: sudah terbit, tidak bisa dihapus lewat API — hapus manual di Meta Business Suite`);
+        continue;
+      }
+      console.log(`::error::gagal menghapus ${postId}: ${pesan}`);
       process.exitCode = 1;
     }
   }

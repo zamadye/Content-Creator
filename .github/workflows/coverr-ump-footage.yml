@@ -16,6 +16,9 @@ permissions:
   contents: write # unreferenced encrypted blobs only, no branch writes
 jobs:
   curated:
+    # A new API run requires a new explicit user approval and an intentional
+    # trigger marker. Ordinary maintenance pushes must never re-download.
+    if: ${{ contains(github.event.head_commit.message, '[approved-coverr-run]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy:
@@ -60,9 +63,16 @@ jobs:
           set -uo pipefail
           if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
           if [ -n "${GITHUB_TOKEN:-}" ]; then echo "::add-mask::${GITHUB_TOKEN}"; fi
+          if [ -e /tmp/coverr-stop-batch ]; then echo "Batch stopped after API access/quota failure"; exit 1; fi
           failures=0
           for id in $COVERR_VIDEO_IDS; do
-            COVERR_VIDEO_ID="$id" node editorial-engine/pipeline/coverr-transfer/transfer.mjs || failures=$((failures+1))
+            if COVERR_VIDEO_ID="$id" node editorial-engine/pipeline/coverr-transfer/transfer.mjs; then
+              :
+            else
+              status=$?
+              if [ "$status" -eq 78 ]; then touch /tmp/coverr-stop-batch; exit 1; fi
+              failures=$((failures+1))
+            fi
           done
           [ "$failures" -eq 0 ]
       - name: Transfer native-HD candidates batch ${{ matrix.batch }} part 2
@@ -76,8 +86,15 @@ jobs:
           set -uo pipefail
           if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
           if [ -n "${GITHUB_TOKEN:-}" ]; then echo "::add-mask::${GITHUB_TOKEN}"; fi
+          if [ -e /tmp/coverr-stop-batch ]; then echo "Batch stopped after API access/quota failure"; exit 1; fi
           failures=0
           for id in $COVERR_VIDEO_IDS; do
-            COVERR_VIDEO_ID="$id" node editorial-engine/pipeline/coverr-transfer/transfer.mjs || failures=$((failures+1))
+            if COVERR_VIDEO_ID="$id" node editorial-engine/pipeline/coverr-transfer/transfer.mjs; then
+              :
+            else
+              status=$?
+              if [ "$status" -eq 78 ]; then touch /tmp/coverr-stop-batch; exit 1; fi
+              failures=$((failures+1))
+            fi
           done
           [ "$failures" -eq 0 ]

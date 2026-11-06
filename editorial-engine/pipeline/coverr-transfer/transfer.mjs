@@ -177,7 +177,13 @@ async function main() {
     const trimmed=trim(raw,clip), publicKey=fs.readFileSync('editorial-engine/pipeline/coverr-transfer/session-public.pem');
     const blob=encryptBytes(trimmed,publicKey), sha=await createBlob(blob,token,repo);
     emit({status:'PASS_DOWNLOAD',video:{id:candidate.id,title:candidate.title,creator:candidate.creator,duration_seconds:candidate.duration_seconds,is_premium:false,is_ai_generated:false,is_vertical:false},tracking,download_route:'Coverr API mp4_download',source_probe:sourceInfo,original_bytes:originalBytes,excerpt_seconds:6,excerpt_resolution:'1920x1080',excerpt_crf:17,excerpt_bytes:trimmed.length,excerpt_sha256:sha256(trimmed),encrypted_blob_sha:sha,transport:'encrypted-unreferenced-git-blob'});
-  } catch(e) {emit({status:'FAIL',id:validId(id)?id:null,code:e instanceof SafeError?e.code:'UNEXPECTED_FAILURE'}); process.exitCode=1;}
+  } catch(e) {
+    const code=e instanceof SafeError?e.code:'UNEXPECTED_FAILURE';
+    emit({status:'FAIL',id:validId(id)?id:null,code});
+    // Authentication, permission and quota failures must stop a batch: do not
+    // hammer an API after a 401/403/429 or misrepresent it as a media failure.
+    process.exitCode=/^COVERR_(?:GET|PATCH)_HTTP_(?:401|403|429)$/.test(code)||code==='MISSING_INPUT'?78:1;
+  }
   finally {if(dir) fs.rmSync(dir,{recursive:true,force:true});}
 }
 if(process.argv[1] && import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href) await main();

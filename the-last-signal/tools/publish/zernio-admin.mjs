@@ -61,15 +61,15 @@ async function main() {
       // target (dulu ini berujung permintaan hapus "undefined").
       .filter((post) => typeof post.id === "string" && post.id.length > 0);
     for (const post of matches) {
-      console.log(`kandidat ${episodeId}: ${post.id} ${post.createdAt} ${post.status}`);
+      console.log(`::notice::kandidat ${episodeId}: ${post.id} ${post.createdAt} ${post.status}`);
     }
     // Simpan yang paling awal terbit — itu yang sudah dibagikan algoritma.
     const ordered = matches.sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
     for (const extra of ordered.slice(1)) {
-      console.log(`duplikat ${episodeId}: ${extra.id} (${extra.createdAt}) → dihapus; disimpan ${ordered[0].id}`);
+      console.log(`::warning::duplikat ${episodeId}: ${extra.id} (${extra.createdAt}) → dihapus; disimpan ${ordered[0].id}`);
       targets.add(extra.id);
     }
-    if (ordered.length <= 1) console.log(`${episodeId}: tidak ada duplikat (${ordered.length} post)`);
+    if (ordered.length <= 1) console.log(`::warning::${episodeId}: tidak ada duplikat (${ordered.length} post terlihat)`);
   }
 
   for (const postId of targets) {

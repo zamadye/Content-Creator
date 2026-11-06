@@ -160,6 +160,9 @@ const episode = {
     categoryId: "24",
     privacyStatus: "public",
     selfDeclaredMadeForKids: false,
+    // Catatan INTERNAL, bukan label platform. Kontrak mewajibkan true karena
+    // gambarnya dibuat dengan bantuan AI; saat unggah `zernio-publish.mjs`
+    // memaksa containsSyntheticMedia=false (arahan 2026-11-06).
     syntheticDisclosure: true,
     pinComment: plan.youtube.pinComment,
     thumbnail: {

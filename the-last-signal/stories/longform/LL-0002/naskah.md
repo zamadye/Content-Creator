@@ -1,6 +1,6 @@
 # LL-0002 — "Dua Belas Meter"
 
-**Format:** video panjang 16:9 · narasi **1.251 kata** · perkiraan 9:29 pada 2,2 kata/detik (masuk rentang 8–10 menit)
+**Format:** video panjang 16:9 · narasi **1.259 kata** · perkiraan 9:32 pada 2,2 kata/detik (masuk rentang 8–10 menit)
 **Sudut pandang:** orang pertama, "Ilham", 27 tahun, juru ukur tanah honorer
 **Masalah uang:** sewa alat Rp250.000/hari, upah Rp400.000/bidang, kontrakan nunggak, tanah dijual Rp1,2 juta/m²
 **Premis:** tanah yang diukur selalu kurang dua belas meter persegi — persis seluas makam yang namanya dihapus dari Buku C desa.
@@ -12,21 +12,23 @@
 
 ## Segmen 1 — Pekerjaan dan satu aturan (0:00–0:59)
 
+> Kurang dua belas meter.
+>
+> Itu selisih antara angka di kertas dan angka di tanah. Tiga juru ukur sebelum saya mendapat angka yang sama. Yang terakhir berhenti jadi juru ukur.
+>
+> Dia ayah saya.
+>
 > Nama saya Ilham. Dua puluh tujuh tahun. Pekerjaan saya mengukur tanah orang.
 >
 > Alatnya saya sewa dua ratus lima puluh ribu sehari. Upah saya empat ratus ribu satu bidang, belum dipotong bensin. Kontrakan saya sembilan ratus ribu sebulan. Kalau dapat enam bidang saya aman. Bulan ini baru dua.
 >
 > Ada satu aturan yang tidak pernah saya langgar. Patok yang sudah saya tanam tidak saya pindahkan. Angkanya boleh membuat orang marah. Patoknya tidak boleh membuat orang menang.
 >
-> Minggu lalu saya dapat bidang di Desa Sumber. Letter C nomor dua dua satu. Luas di kertas: seribu dua ratus empat puluh meter persegi.
+> Minggu lalu saya dapat bidang di Desa Sumber. Letter C nomor dua dua satu. Luas di kertas: seribu dua ratus empat puluh meter persegi. Hasil pengukuran saya: seribu dua ratus dua puluh delapan.
 >
-> Hasil pengukuran saya: seribu dua ratus dua puluh delapan.
->
-> Kurang dua belas meter. Tiga juru ukur sebelum saya mendapat angka yang sama.
->
-> Yang terakhir berhenti jadi juru ukur. Dia ayah saya.
+> Tiga juru ukur sebelumnya mengukur bidang yang sama. Dua sudah pindah kota. Yang ketiga tidak mau datang lagi.
 
-**Fungsi:** aturan kerja dulu, klaim liar di klausa yang sudah membawa angka, dan satu baris terakhir yang mengubah cerita dari "hantu" jadi "warisan".
+**Fungsi:** tiga detik pertama sudah membawa kejanggalan dan angka (teks layar: **KURANG 12 M²**). Identitas dan masalah uang baru masuk setelah penonton terpancing. Baris "dia ayah saya" mengubah cerita dari hantu jadi warisan.
 
 ---
 
@@ -44,7 +46,6 @@
 >
 > Berkasnya saya buka di atas tas. Fotokopi letter C. SPPT PBB tahun ini, lunas, stempel bank di pojok. Dan satu surat ukur lama, tahun dua ribu empat, kertasnya sudah seperti kulit bawang.
 >
-> Tiga nama juru ukur pernah tercatat masuk ke bidang ini. Dua sudah pindah kota. Yang ketiga tidak mau datang lagi.
 
 **Fungsi:** motif uang masuk sebelum kejadian apa pun. Tempat harus bisa digambar penonton.
 

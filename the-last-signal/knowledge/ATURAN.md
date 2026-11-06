@@ -23,6 +23,11 @@ Setiap aturan diberi tanda sumbernya:
 | 1.4 | Setiap unggahan = **dua platform sekaligus** (YouTube + Facebook) dalam satu panggilan. **Facebook tidak boleh tayang lebih dahulu dari YouTube.** |
 | 1.5 | Video panjang ditempatkan di slot pagi; Short di slot malam. |
 
+> **[arahan] 6 Nov 2026 (uji, mulai LL-0002):** jam tayang video panjang digeser
+> dari 09.00 ke **12.00–18.00 WIB** (target 13.00 WIB) untuk menangkap jam aktif
+> penonton di jam-jam pertama. Kalau data 48 jam setelah LL-0002 tidak lebih baik
+> dari LS-0010, kembalikan ke 09.00 WIB. Aturan 1.2 tetap berlaku untuk Short.
+
 ---
 
 # BAGIAN II — NASKAH: SETIAP KALIMAT DIHITUNG

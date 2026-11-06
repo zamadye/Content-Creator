@@ -12,7 +12,9 @@
  *   2. offset_frame berada di rentang 2–8 frame,
  *   3. id shot unik,
  *   4. entitas muncul tepat 3 kali dan makin dekat (siluet → setengah → utuh),
- *   5. minimal satu segmen ditandai terang (qc_khusus_episode.wajib_terang).
+ *   5. minimal satu segmen ditandai terang (qc_khusus_episode.wajib_terang),
+ *   6. tidak ada shot yang bertahan lebih dari 8 detik (permintaan penonton:
+ *      perubahan gambar tiap 5–7 detik). Estimasi pakai 2,2 kata/detik.
  *
  *   node scripts/check-visual-triggers.mjs stories/longform/LL-0002
  *   node scripts/check-visual-triggers.mjs stories/longform/LL-0002 --strict
@@ -61,6 +63,8 @@ const peringatan = [];
 const idTerpakai = new Set();
 let jumlahShot = 0;
 const entitas = [];
+const KATA_PER_DETIK = 2.2;
+const MAKS_SHOT_DETIK = 8;
 
 for (const seg of peta.segmen ?? []) {
   const nomor = Number(String(seg.id).replace(/\D/g, ""));
@@ -69,21 +73,60 @@ for (const seg of peta.segmen ?? []) {
     gagal.push(`${seg.id}: segmen tidak ditemukan di naskah.md`);
     continue;
   }
+  const kata = badan.split(" ");
+  let kursor = 0;
+  let onsetSebelum = 0;
+
   for (const shot of seg.shots ?? []) {
     jumlahShot += 1;
     if (idTerpakai.has(shot.id)) gagal.push(`${shot.id}: id shot ganda`);
     idTerpakai.add(shot.id);
 
-    if (!normalize(shot.pemicu ?? "")) {
+    const frasa = normalize(shot.pemicu ?? "").split(" ").filter(Boolean);
+    if (frasa.length === 0) {
       gagal.push(`${shot.id}: tidak punya pemicu`);
-    } else if (!badan.includes(normalize(shot.pemicu))) {
+      continue;
+    }
+    if (!badan.includes(normalize(shot.pemicu))) {
       gagal.push(`${shot.id}: pemicu "${shot.pemicu}" tidak ada di narasi ${seg.id}`);
+      continue;
+    }
+
+    // Cari kemunculan frasa mulai dari posisi shot sebelumnya, supaya kata yang
+    // berulang tidak selalu dihitung dari awal segmen.
+    let idx = -1;
+    for (let i = kursor; i <= kata.length - frasa.length; i += 1) {
+      let cocok = true;
+      for (let j = 0; j < frasa.length; j += 1) {
+        if (kata[i + j] !== frasa[j]) {
+          cocok = false;
+          break;
+        }
+      }
+      if (cocok) {
+        idx = i;
+        break;
+      }
+    }
+    if (idx === -1) {
+      peringatan.push(`${shot.id}: pemicu muncul sebelum shot sebelumnya — urutan shot tidak maju`);
+      idx = kata.indexOf(frasa[0]);
     }
 
     const offset = Number(shot.offset_frame);
     if (!Number.isFinite(offset) || offset < 2 || offset > 8) {
       gagal.push(`${shot.id}: offset_frame ${shot.offset_frame} di luar 2–8 frame`);
     }
+
+    const onset = Math.max(0, idx) / KATA_PER_DETIK;
+    const durasi = onset - onsetSebelum;
+    if (durasi > MAKS_SHOT_DETIK) {
+      gagal.push(
+        `${shot.id}: shot sebelumnya bertahan ${durasi.toFixed(1)} detik (maks ${MAKS_SHOT_DETIK}) — tambah insert`
+      );
+    }
+    kursor = idx >= 0 ? idx : kursor;
+    onsetSebelum = Math.max(onsetSebelum, onset);
 
     if (shot.entitas) entitas.push({ id: shot.id, segmen: seg.id, teks: shot.entitas });
   }

@@ -7,13 +7,24 @@
       "format": "longform_16x9",
       "status": "naskah siap, belum dirender",
       "folder": "stories/longform/LL-0002",
-      "kata_narasi": 1251,
-      "estimasi_durasi_detik": 569,
-      "shot": 54,
+      "kata_narasi": 1259,
+      "estimasi_durasi_detik": 572,
+      "shot": 152,
       "entitas": 3,
-      "selesai": ["dossier riset (R1–R12)", "naskah 9 segmen", "peta visual terkunci kata pemicu"],
-      "berikutnya": ["pilih suara narator", "alignment per kata", "design.json + grade per scene", "render", "jadwalkan unggah besok 09.00 WIB"],
-      "target_unggah": "2026-11-07T09:00+08:00"
+      "selesai": [
+        "dossier riset (R1–R12)",
+        "naskah 9 segmen",
+        "peta visual terkunci kata pemicu"
+      ],
+      "berikutnya": [
+        "suara narator: id-ID maskulin yang sama dengan LS-0010",
+        "alignment per kata",
+        "design.json + grade per scene",
+        "render + encode",
+        "antrean Zernio 7 Nov 13.00 WIB"
+      ],
+      "target_unggah": "2026-11-07T13:00+08:00",
+      "judul_unggah": "Dua Belas Meter yang Hilang"
     }
   ]
 }

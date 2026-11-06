@@ -1,0 +1,83 @@
+#!/usr/bin/env node
+/**
+ * zernio-admin.mjs — tindakan sekali pakai untuk post yang sudah terlanjur salah.
+ *
+ * Sandbox tidak bisa menghubungi zernio.com; semua tindakan harus lewat runner
+ * Actions. Skrip ini dipanggil workflow `zernio-fix.yml`.
+ *
+ *   node zernio-admin.mjs --list
+ *   node zernio-admin.mjs --delete <postId> [--delete <postId>...]
+ *   node zernio-admin.mjs --dedupe-episode LS-0002   # simpan yang paling awal
+ */
+import Zernio from "@zernio/node";
+
+const zernio = new Zernio({ apiKey: process.env.ZERNIO_API_KEY ?? process.env.ZERNIO_KEY });
+const args = process.argv.slice(2);
+
+function values(name) {
+  const out = [];
+  args.forEach((value, index) => {
+    if (value === `--${name}` && args[index + 1]) out.push(args[index + 1]);
+  });
+  return out;
+}
+
+async function listPosts(limit = 20) {
+  const { data } = await zernio.posts.listPosts({ query: { limit } });
+  return data?.posts ?? data?.data ?? [];
+}
+
+function summarize(post) {
+  const facebook = (post.platforms ?? []).find((entry) => entry?.platform === "facebook");
+  return {
+    id: post.id,
+    episodeId: post.metadata?.episodeId ?? "?",
+    createdAt: post.createdAt,
+    status: post.status,
+    facebookUrl: facebook?.url ?? null,
+    facebookId: facebook?.id ?? null,
+  };
+}
+
+async function main() {
+  const deletes = values("delete");
+  const dedupeEpisodes = values("dedupe-episode");
+
+  if (args.includes("--list")) {
+    for (const post of await listPosts()) {
+      const info = summarize(post);
+      console.log(`${info.createdAt}  ${info.episodeId.padEnd(8)}  ${info.status.padEnd(10)}  ${info.id}  ${info.facebookUrl ?? ""}`);
+    }
+    return;
+  }
+
+  const targets = new Set(deletes);
+
+  for (const episodeId of dedupeEpisodes) {
+    const matches = (await listPosts()).filter((post) => post.metadata?.episodeId === episodeId);
+    // Simpan yang paling awal terbit — itu yang sudah dibagikan algoritma.
+    const ordered = matches.sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+    for (const extra of ordered.slice(1)) {
+      console.log(`duplikat ${episodeId}: ${extra.id} (${extra.createdAt}) → dihapus; disimpan ${ordered[0].id}`);
+      targets.add(extra.id);
+    }
+    if (ordered.length <= 1) console.log(`${episodeId}: tidak ada duplikat (${ordered.length} post)`);
+  }
+
+  for (const postId of targets) {
+    try {
+      await zernio.posts.deletePost({ path: { id: postId } });
+      console.log(`::notice::post ${postId} dihapus`);
+    } catch (error) {
+      console.log(`::error::gagal menghapus ${postId}: ${error?.message ?? error}`);
+      process.exitCode = 1;
+    }
+  }
+
+  if (!targets.size) console.log("tidak ada yang dihapus");
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

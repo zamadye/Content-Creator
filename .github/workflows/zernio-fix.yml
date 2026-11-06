@@ -1,0 +1,94 @@
+name: Perbaikan post Zernio
+
+# Tindakan sekali pakai untuk post yang sudah terlanjur terbit (mis. duplikat
+# akibat dua permintaan identik). Sandbox tidak bisa menghubungi zernio.com,
+# jadi tindakan dijalankan di runner lewat berkas permintaan di
+# the-last-signal/tools/publish/fixes/*.json:
+#
+#   { "aksi": "dedupe-episode", "episodeId": "LS-0002" }
+#   { "aksi": "hapus", "postIds": ["..."] }
+#   { "aksi": "daftar" }
+#
+# Berkas dipindahkan ke fixes/selesai/ sesudah dijalankan supaya tidak berulang.
+
+on:
+  push:
+    paths:
+      - 'the-last-signal/tools/publish/fixes/*.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zernio-fix
+  cancel-in-progress: false
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+      ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Pasang SDK Zernio
+        working-directory: the-last-signal/tools/publish
+        run: npm install --no-audit --no-fund --loglevel=error
+
+      - name: Jalankan perbaikan
+        working-directory: the-last-signal/tools/publish
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          files=(fixes/*.json)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "::notice::tidak ada berkas perbaikan"
+            exit 0
+          fi
+          for file in "${files[@]}"; do
+            echo "::group::$file"
+            AKSI=$(node -e "console.log(require('./'+process.argv[1]).aksi)" "$file")
+            case "$AKSI" in
+              daftar)
+                node zernio-admin.mjs --list
+                ;;
+              hapus)
+                IDS=$(node -e "const r=require('./'+process.argv[1]);console.log((r.postIds||[]).map(i=>'--delete '+i).join(' '))" "$file")
+                node zernio-admin.mjs $IDS
+                ;;
+              dedupe-episode)
+                EP=$(node -e "console.log(require('./'+process.argv[1]).episodeId)" "$file")
+                node zernio-admin.mjs --dedupe-episode "$EP"
+                ;;
+              *)
+                echo "::error::aksi tidak dikenal: $AKSI"
+                exit 1
+                ;;
+            esac
+            echo "::endgroup::"
+            mkdir -p fixes/selesai
+            git mv "$file" "fixes/selesai/$(basename "$file")"
+          done
+
+      - name: Catat hasil
+        if: always()
+        run: |
+          set -euo pipefail
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
+            exit 0
+          fi
+          git config user.name "the-last-signal bot"
+          git config user.email "bot@the-last-signal.invalid"
+          git add the-last-signal/tools/publish/fixes
+          git commit -q -m "perbaikan(zernio): tindakan dijalankan $(date -u +%H:%MZ)"
+          git push

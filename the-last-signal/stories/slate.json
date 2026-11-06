@@ -5,7 +5,7 @@
       "episodeId": "LL-0002",
       "judul": "Dua Belas Meter",
       "format": "longform_16x9",
-      "status": "produksi: narasi 9/9 + alignment, gambar 17/71",
+      "status": "produksi: narasi 9/9 + alignment, gambar 27/71",
       "folder": "stories/longform/LL-0002",
       "kata_narasi": 1259,
       "estimasi_durasi_detik": 572,
@@ -21,7 +21,7 @@
         "17 gambar: 3 entitas, tokoh, beringin, buku C, patok, makam, Mang Karta, Pak Hadi, Bu Sri, surat ukur, berita acara, layar alat, layar ponsel, kamling, peralatan"
       ],
       "berikutnya": [
-        "gambar sisa 54 berkas (maks 10 per giliran)",
+        "gambar sisa 44 berkas (maks 10 per giliran)",
         "skor musik + ambience",
         "render 17.948 frame + encode < 40 MB",
         "QC 9 butir",

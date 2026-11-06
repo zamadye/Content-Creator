@@ -3,7 +3,7 @@
   "platforms": [
     "facebook"
   ],
-  "status": "requested",
+  "status": "published",
   "createdAt": "2026-11-06T08:56:00.000Z",
   "media": "the-last-signal/releases/LS-0005.mp4",
   "youtube": {
@@ -26,5 +26,8 @@
   "facebook": {
     "title": "Video Ini Baru Diunggah Besok Pagi. Ketiga Anak Itu Tidak Pernah Keluar."
   },
-  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook"
+  "reason": "memindahkan katalog Shorts yang sudah terbit di YouTube ke Reels Facebook",
+  "publishedAt": "2026-11-06T09:33:51Z",
+  "url": "https://www.facebook.com/reel/1002441906232966",
+  "note": "terbit lewat run 42191176183 (QC lolos, 49,0 s, -14,2 LUFS); URL diverifikasi dari daftar post Zernio, bukan dari log Actions"
 }

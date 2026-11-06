@@ -66,3 +66,21 @@ tebal 900, garis luar 12 px. Kata yang sedang diucapkan menyala kuning
 (`#f5c451`), kata yang belum diredupkan ke 82%. Alasan: di ponsel, mata
 berhenti di tengah layar, dan teks bawah sering tertutup ibu jari serta UI
 YouTube.
+
+## Implementasi acuan: LS-0010 versi desain baru
+
+Episode pertama yang memakai tokoh dan entitas di dalam gambar adalah **LS-0010
+"Lantai Sembilan Belas"** (2026-11-06). Gambar barunya ada di
+`projects/episodes/LS-0010/images-v2/`, rencananya di
+`projects/episodes/LS-0010/design.json`, dan hasilnya di
+`knowledge/design-v2.md`.
+
+Pemetaan yang dipakai — dan bisa dipakai ulang untuk episode lain:
+
+| Peran | Scene | Isi gambar |
+|---|---|---|
+| tokoh (punggung) | 01, 03, 04, 07 | selalu dari belakang, jaket hijau, tas kanvas, lampu ponsel |
+| entitas jauh | 02 | siluet di refleksi baja lift — bukan di tengah frame |
+| entitas setengah | 05 | duduk di ujung meja, wajah kosong, satu tangan terangkat |
+| entitas utuh | 06 | berdiri di belakang kursi, paling dekat dengan kamera |
+| wajah (jumpscare) | `scare-face.png` | wajah kosong yang sama, dipotong ketat |

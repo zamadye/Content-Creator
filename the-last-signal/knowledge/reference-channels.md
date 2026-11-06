@@ -102,7 +102,7 @@ yang sudah susah payah dibangun di 40 detik pertama.
 | Pembuka | kalimat hook kuat | hook + **janji berangka** ("tiga panggilan tercatat, yang ketiga tidak dijawab") |
 | Bukti | detail prosedural kadang ada | **wajib**: 3 detail yang bisa diperiksa + 1 dokumen tampil di layar |
 | Nada | tenang | tenang — dipertahankan, jangan dinaikkan |
-| Bentuk | episode lepas | **payung ARSIP**: nomor berkas + tanggal + kalimat pembuka tetap |
+| Bentuk | episode lepas | **tetap episode lepas** — payung ARSIP ditolak pemilik kanal ("Tidak, biarkan lepas") |
 | Penutup | pertanyaan ke penonton | dipertahankan (aturan retensi 2026-11-06) |
 | Kebenaran | disebut fiksi + AI | tidak berubah — ini yang membedakan kita dari referensi |
 
@@ -113,10 +113,22 @@ yang sudah susah payah dibangun di 40 detik pertama.
    (versus/curiosities, penjelasan makhluk Trevor Henderson), atau kanal lain
    dengan nama serupa?
 3. **Nightline Horror**: alamat channel yang benar.
-4. Mana yang jadi **model utama** — kalau harus memilih satu untuk bentuk
-   episode, saya sarankan Horror Shorts Party (bentuknya paling dekat dengan
-   format kita), dengan Night Mind dan Wendigoon sebagai sumber cara bercerita.
+4. ~~Mana yang jadi model utama~~ → **dijawab 2026-11-06: Horror Shorts Party**
+   (premis yang bisa diulang, padat, presentasi tidak terikat seri). Night Mind
+   dan Wendigoon tetap dipakai sebagai sumber *cara bercerita*, bukan bentuk.
 
 Sumber yang dipakai untuk memastikan: nightmind.info/about, Know Your Meme
 (Night Mind), TV Tropes (Horror Shorts Party), statistik publik kanal Horror
 Shorts Party.
+
+## 6. Keputusan pemilik kanal (2026-11-06)
+
+- **Payung ARSIP: ditolak.** Jawaban pemilik kanal atas usulan payung seri
+  adalah "Tidak, biarkan lepas". Episode tetap berdiri sendiri: tidak ada nomor
+  berkas yang diulang, tidak ada kalimat pembuka wajib, tidak ada nama seri di
+  judul. HUD "ARSIP FIKSI" tetap ada karena itu label pengungkapan fiksi, bukan
+  penanda seri.
+- **Model bentuk: Horror Shorts Party.** Yang diambil adalah strukturnya —
+  premis yang bisa diulang tiap episode, satu gagasan per episode, presentasi
+  yang tidak menuntut penonton menonton episode sebelumnya — bukan wajah,
+  narator, atau grafisnya.

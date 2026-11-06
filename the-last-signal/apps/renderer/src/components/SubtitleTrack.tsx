@@ -27,7 +27,16 @@ const MAX_WORDS = 3;
 
 type Chunk = { words: string[]; start: number; end: number };
 
-const splitWords = (text: string) => text.split(/\s+/).filter((word) => word.length > 0);
+/**
+ * Tanda baca dibuang dari kata yang tampil. Referensi menulis "HOUSE" dan
+ * "YOUTUBERS", bukan "HOUSE." — titik dan koma di kartu besar hanya terlihat
+ * seperti salah ketik, dan tidak menambah arti apa pun di layar.
+ */
+const splitWords = (text: string) =>
+  text
+    .split(/\s+/)
+    .map((word) => word.replace(/^[("'\u201c]+/, "").replace(/[)"'\u201d.,!?;:]+$/, ""))
+    .filter((word) => word.length > 0);
 
 export function chunkCue(text: string, durationInFrames: number): Chunk[] {
   const words = splitWords(text);
@@ -80,6 +89,15 @@ const ChunkCard: React.FC<{ words: string[]; durationInFrames: number; last: boo
   const pop = spring({ frame, fps, config: { damping: 16, stiffness: 280, mass: 0.5 }, durationInFrames: 8 });
   const scale = 0.92 + 0.08 * Math.min(1, pop);
 
+  /**
+   * Satu kartu harus muat SATU baris. Referensi tidak pernah membungkus caption
+   * jadi dua baris: "HOUSE", "YOUTUBERS", "A" — semuanya satu baris, besar,
+   * dan langsung terbaca. Kalau teksnya panjang, huruf mengecil sedikit, bukan
+   * turun ke baris kedua.
+   */
+  const characters = words.join(" ").length;
+  const fit = characters <= 10 ? 1 : characters <= 13 ? 0.86 : 0.74;
+
   // Kata di kartu ini berubah warna berurutan — sisa dari gaya karaoke, dipakai
   // halus supaya kartu tidak terasa mati.
   const wordList = words;
@@ -101,7 +119,7 @@ const ChunkCard: React.FC<{ words: string[]; durationInFrames: number; last: boo
           maxWidth: geometry.maxWidth,
           textAlign: "center",
           fontFamily: theme.font.sans,
-          fontSize: geometry.size,
+          fontSize: Math.round(geometry.size * fit),
           lineHeight: 1.05,
           fontWeight: 900,
           letterSpacing: 0.5,

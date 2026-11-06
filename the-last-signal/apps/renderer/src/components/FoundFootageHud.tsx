@@ -11,7 +11,7 @@ export const FoundFootageHud: React.FC<{
   cameraLabel?: string;
   startSeconds?: number;
   showFictionLabel?: boolean;
-}> = ({ cameraLabel = "CAM 07 — LT. 07", startSeconds = 3 * 3600 + 17 * 60 + 4, showFictionLabel = true }) => {
+}> = ({ cameraLabel = "CAM 07", startSeconds = 3 * 3600 + 17 * 60 + 4, showFictionLabel = true }) => {
   const frame = useCurrentFrame();
   const totalSeconds = Math.floor(startSeconds + frame / 30);
   const hh = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");

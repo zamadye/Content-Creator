@@ -42,8 +42,8 @@ ke Google Drive dan berkasnya dihapus dari repo (lihat `knowledge/drive.md`).
 
 Desain v1 yang dipakai episode ini — tokoh tetap, entitas tiga kali makin dekat,
 empat suara makhluk, caption satu-tiga kata di tengah layar, shot 1,5 detik,
-bed tanpa jeda — dijelaskan di `knowledge/design-v2.md`, dengan rencana per
-episode di `projects/episodes/LS-0010/design.json`.
+bed tanpa jeda — semuanya aturan tetap di `knowledge/ATURAN.md` bagian III–V,
+dengan rencana per episode di `projects/episodes/LS-0010/design.json`.
 
 ## Struktur
 

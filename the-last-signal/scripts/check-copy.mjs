@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-copy.mjs — penjaga hukum penulisan (knowledge/copywriting.md).
+ * check-copy.mjs — penjaga hukum penulisan (knowledge/ATURAN.md bagian II & VI).
  *
  * Yang diperiksa hanya hal yang bisa dinilai tanpa selera:
  *   1. kalimat pertama tidak boleh dibuka dengan kata yang sudah dipakai

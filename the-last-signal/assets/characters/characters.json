@@ -1,11 +1,15 @@
 {
-  "catatan": "Bible visual THE LAST SIGNAL. Berkas di folder ini adalah acuan gambar, bukan gambar yang dipakai langsung di episode. Saat membuat gambar scene, sertakan berkas acuan sebagai referensi dan tempelkan promptCore ke prompt adegan.",
+  "catatan": "Bible visual THE LAST SIGNAL. Berkas di folder ini adalah acuan gambar, bukan gambar yang dipakai langsung di episode. Saat membuat gambar scene, sertakan berkas acuan sebagai referensi dan tempelkan promptCore apa adanya. Tokoh dan entitas TETAP: satu identitas untuk seluruh kanal, tidak pernah didesain ulang per episode (arahan 2026-11-06).",
   "aturan": [
-    "Tokoh utama harus terlihat di minimal dua shot per episode — bukan hanya POV kosong.",
-    "Entitas muncul pertama sebagai siluet atau bagian tubuh (tangan, rambut, kaki) sebelum pernah tampil utuh.",
-    "Wajah entitas tidak pernah tajam. Samar, terpotong rambut, atau di luar fokus.",
-    "Wajah tokoh utama tidak pernah menghadap kamera; penonton yang mengisi wajahnya.",
-    "Warna: tokoh utama selalu lampu ponsel hangat (amber) di antara bayangan biru-hijau dingin."
+    "SATU tokoh dan SATU entitas untuk semua episode. Dilarang mendesain makhluk baru; kalau cerita butuh makhluk lain, ia varian dari Penunggu (siluet, tangan, rambut, bayangan).",
+    "promptCore disalin apa adanya ke setiap prompt; dilarang meringkas atau menambah atribut baru (jubah lain, tanduk, kumis, ganti jaket).",
+    "Berkas acuan selalu disertakan saat membuat gambar baru, supaya wajah, pakaian, dan proporsi sama dari shot ke shot dan dari episode ke episode.",
+    "Tokoh utama harus terlihat di minimal dua shot per episode - bukan hanya POV kosong.",
+    "Entitas muncul pertama sebagai siluet atau bagian tubuh sebelum pernah tampil utuh; urutannya siluet -> setengah badan -> utuh, makin dekat.",
+    "Wajah entitas tidak pernah tajam, kecuali di jumpscare.",
+    "Wajah tokoh utama tidak pernah menghadap kamera.",
+    "Atmosfer TIDAK selalu gelap: palette, sumber cahaya, dan suhu warna ditentukan konteks cerita per scene (pasar malam kuning hangat, kantor siang putih, hutan hijau lembap, gudang gelap). Minimal satu adegan terang di setiap episode.",
+    "Warna pakaian tokoh tetap hijau tua; itu satu-satunya jangkar warna yang tidak berubah. Cahaya di sekitarnya bebas mengikuti tempat."
   ],
   "characters": [
     {

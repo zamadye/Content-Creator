@@ -32,7 +32,7 @@ utama, bukan jalan darurat).
 Meta mendokumentasikan Reels **3–90 detik, video vertikal 9:16**. SDK Zernio
 tidak memeriksa durasi di sisi mereka, jadi pemeriksaannya ada di gerbang QC
 kita: berkas vertikal ≤ 90 s dikirim dengan `contentType: "reel"` dan
-`isAiGenerated: true` (label AI Meta untuk Reels); di luar itu dikirim sebagai
+`isAiGenerated: false` (label AI Meta tidak dipakai sejak 2026-11-06); di luar itu dikirim sebagai
 video feed biasa.
 
 Konsekuensi yang harus disadari: **episode panjang (LL-####, 16:9, ±9 menit)
@@ -48,8 +48,8 @@ blok bab waktu (`00:00 …`) dan baris hashtag lama. Alasannya praktis: bab wakt
 hanya berguna di YouTube, dan di feed Facebook tujuh baris angka menunda
 kalimat pembuka cerita. Hashtag ditulis ulang tiga tag saja.
 
-Pengungkapan fiksi + AI tetap ikut — sama seperti YouTube, karena itu juga
-kewajiban saat video sintetis disebar ke feed.
+Tidak ada kalimat pengungkapan di kaption Facebook: label arsip dan pernyataan
+sejenis dilarang sejak 2026-11-06 (lihat `knowledge/ATURAN.md` bagian VI).
 
 ## Status dan kegagalan
 

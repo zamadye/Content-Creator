@@ -45,7 +45,7 @@ detik per shot.
 
 **Yang kita ambil untuk Shorts:** potong lebih rapat (target 1,2–1,8 detik per
 shot, bukan 2 detik), dan biarkan efek atmosfer (hujan, debu, statik) yang
-memberi gerak di dalam frame. Zoom pelan tetap dipakai untuk video panjang,
+memberi gerak di dalam frame. Pada aturan 6 Nov 2026, video panjang memakai cut 2-4 detik dengan zoom hanya sebagai pengisi shot (bukan pengganti cut);
 karena di sana penonton menonton 9 menit, bukan 25 detik.
 
 ## 2. Subtitle — satu kata per kartu, di tengah
@@ -75,7 +75,7 @@ sesuatu yang sedang berjalan (dan mendorong like/subscribe untuk "menaikkan"
 angkanya).
 
 Kita tidak meniru angka palsu seperti itu. Padanan yang jujur untuk kanal kita:
-penanda berkas di HUD bawah (`ARSIP FIKSI · 03 NOV 2026 · SINYAL 42%`) sudah
+penanda berkas di HUD bawah (label itu sudah dihapus 6 Nov 2026 dan dilarang; yang tersisa hanya REC, CAM, dan timestamp) sudah
 ada dan sudah berfungsi sebagai penanda seri.
 
 ## 4. Audio

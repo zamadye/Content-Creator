@@ -5,7 +5,7 @@
 
 **Master prompt:** RUANG MARGIN — AI VIDEO PRODUCTION AGENT v1.0  
 **Project initialized:** 2026-11-04  
-**Overall status:** ACTIVE — EP01 DELIVERED (Drive review); EP02 IN PRODUCTION (render + VO mix)
+**Overall status:** ACTIVE — EP01 + EP02 DELIVERED (Drive review)
 
 ---
 
@@ -58,8 +58,8 @@ money-undercover/
 | STAGE 05 — Storyboard | COMPLETE STORYBOARD | APPROVED |
 | STAGE 06 — Asset Generation | ORGANIZED ASSET INVENTORY (9 key assets generated) | COMPLETED |
 | STAGE 07 — Animation Direction | ANIMATION DIRECTION SHEET + SHOT LIST | APPROVED |
-| STAGE 08 — Voice & Sound Design | VOICE-OVER SCRIPT + AUDIO CUE SHEET | APPROVED (recording pending) |
-| STAGE 09 — Video Editing | FINAL VIDEO + PROJECT FILES (or clearly listed manual steps) | DONE — final 1080p24 MP4 rendered + QC passed (11:25, 16440 frames); see episodes/EP01_ponzi/ASSEMBLY-STATUS.md |
+| STAGE 08 — Voice & Sound Design | VOICE-OVER SCRIPT + AUDIO CUE SHEET | APPROVED — VO voice-00 recorded EP01+EP02 (14/14 each); cue-cascade mixes executed (MIX-PLAN.md) |
+| STAGE 09 — Video Editing | FINAL VIDEO + PROJECT FILES (or clearly listed manual steps) | DONE — EP01 11:25 (16440 f) + EP02 10:35 (15240 f) rendered, muxed, QC passed; see episodes/*/ASSEMBLY-STATUS.md |
 | STAGE 10 — Publishing Package | YOUTUBE PUBLISHING PACKAGE | COMPLETED |
 
 **Status values:** NOT STARTED · IN PROGRESS · NEEDS REVIEW · APPROVED · COMPLETED · BLOCKED
@@ -94,6 +94,7 @@ For small corrections: update only the affected section; preserve approved work.
 | 2026-11-05 | Brand renamed MONEY UNDERCOVER → RUANG MARGIN across docs + render source; video re-render in progress | brand v1.1 | VO recording |
 | 2026-11-05 | EP01 FINAL: rebrand render + VO (voice-00, 14 clips, cue cascade) muxed; QC passed; `EP01-ruangmargin-1080p24-AV.mp4` (66 MB) uploaded to Drive | EP01 v1.1 final | platform publish (user) |
 | 2026-11-06 | EP02 topic: **Emas Bodong 2026** (Pandeglang Mitra Makmur + Divine Gold) — user pick "topik hot"; STAGE 01–08, 10 docs done; 9 assets generated; render running; VO 14/14 + mix track 635.00s executed | EP02 v1.0 | render → QC → mux → Drive |
+| 2026-11-06 | **EP02 DELIVERED**: full render v1 QC → source-line fix (8 scenes) → render v2 → QC frames PASS → mux (635.01s) → thumbnail → CRF-22 upload + 4 review docs → Drive | EP02 v1.0 final | user publishes to platform |
 
 ### Registered character references (approved v1.0)
 

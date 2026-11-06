@@ -92,3 +92,36 @@ Dua konsekuensi yang harus diingat:
 2. Berkas antrean yang sudah dieksekusi harus ditutup (`status: published` +
    `url`). Berkas `requested` yang tertinggal akan dianggap permintaan baru
    oleh jadwal backfill berikutnya dan berakhir sebagai duplikat.
+
+## Label AI di platform: TIDAK dicentang (keputusan 2026-11-06)
+
+Arahan pemilik kanal:
+
+> "Jangan centang label AI pada kedua platform, karena kita memakai Remotion dan
+> tools lain untuk membangun kode, naskah, dan seterusnya — ada unsur manusia di
+> dalamnya. Label AI itu untuk video yang 100% di-generate otomatis oleh AI video,
+> bukan yang ditulis per scene."
+
+Yang dikirim sekarang:
+
+| Platform | Field | Nilai |
+|---|---|---|
+| YouTube | `containsSyntheticMedia` (kotak *altered content*) | **false** |
+| Facebook Reel | `isAiGenerated` (label *AI generated*) | **false** |
+
+Bersama itu, larangan teks tetap berlaku: tidak ada "ARSIP FIKSI", "dibuat dengan
+bantuan AI", atau "adalah fiksi" di judul, deskripsi, komentar, maupun frame
+(ditegakkan `check-copy.mjs` dan gerbang `zernio-publish.mjs`).
+
+### Catatan yang harus diingat
+
+- `publishing.syntheticDisclosure` di `episode.json` **bukan** label platform. Itu
+  catatan internal bahwa gambarnya dibuat dengan bantuan AI — dipakai supaya kita
+  sendiri tidak lupa, dan tidak pernah dikirim ke mana pun.
+- Untuk video yang **sudah** tayang sebelum 2026-11-06, label terpasang saat
+  unggah dan tidak bisa dilepas lewat API. Perubahan hanya berlaku untuk unggahan
+  berikutnya; kalau label lama ingin dihapus, jalurnya manual di YouTube Studio
+  dan Meta Business Suite.
+- Kalau nanti ada episode yang seluruh visualnya hasil generate video utuh (bukan
+  gambar per scene), keputusan ini perlu ditinjau ulang: di situ label memang
+  tempatnya.

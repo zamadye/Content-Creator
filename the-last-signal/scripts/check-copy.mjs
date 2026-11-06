@@ -202,9 +202,9 @@ for (const id of ids) {
    * kalimat semacam itu memakan 12 karakter pertama judul (bagian yang paling
    * berbobot untuk pencarian) dan mengganti hook dengan pengumuman.
    *
-   * Pengungkapan konten sintetis tetap berjalan — tetapi lewat flag platform
-   * (`containsSyntheticMedia` di YouTube, `isAiGenerated` di Meta), bukan lewat
-   * teks yang dibaca penonton.
+   * Label AI di platform juga tidak dicentang (arahan 2026-11-06): video disusun
+   * per scene lewat kode, bukan hasil generate video otomatis. Yang tersisa
+   * hanyalah larangan ini — tidak ada label di frame, judul, deskripsi, komentar.
    */
   const BANNED_COPY = /arsip fiksi|dibuat dengan bantuan ai|seluruh kejadian[^.]*fiksi|adalah fiksi/i;
 

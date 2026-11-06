@@ -98,15 +98,15 @@ if (wantsYoutube && (!yt.title || String(yt.title).length > 100)) {
   die(2, 'Judul YouTube wajib ada dan ≤ 100 karakter.');
 }
 if (!yt.description || String(yt.description).length < 40) die(2, 'Deskripsi wajib ada (≥ 40 karakter).');
-// Arahan pemilik kanal 2026-11-06: label "ARSIP FIKSI" dan kalimat pengungkapan
-// sejenis dilarang di judul, deskripsi, maupun komentar. Kewajiban pengungkapan
-// konten sintetis dipenuhi lewat flag unggahan (containsSyntheticMedia di
-// YouTube, isAiGenerated di Meta), bukan lewat kalimat yang dibaca penonton.
+// Arahan pemilik kanal 2026-11-06: tidak ada label AI di kedua platform, dan
+// tidak ada kalimat pengungkapan di judul/deskripsi/komentar. Videonya disusun
+// per scene lewat kode (Remotion), bukan hasil generate video otomatis, jadi
+// kotak "altered content" / "AI generated" sengaja TIDAK dicentang.
 if (/arsip fiksi|dibuat dengan bantuan ai|adalah fiksi/i.test(`${yt.title} ${yt.description}`)) {
   die(2, 'Judul/deskripsi memuat label arsip atau kalimat pengungkapan — dilarang sejak 2026-11-06.');
 }
-if (!request.youtube?.containsSyntheticMedia) {
-  warn('containsSyntheticMedia tidak aktif — nyalakan agar YouTube menandai konten sintetis.');
+if (request.youtube?.containsSyntheticMedia) {
+  warn('Berkas antrean menyetel containsSyntheticMedia=true — kotak label AI akan tercentang. Setel false (arahan 2026-11-06).');
 }
 
 // ---------------------------------------------------------------------------
@@ -419,7 +419,9 @@ try {
                   title: String(yt.title),
                   visibility: yt.visibility ?? 'public',
                   madeForKids: false,
-                  containsSyntheticMedia: true,
+                  // Tidak dicentang (arahan pemilik kanal 2026-11-06): video
+                  // disusun per scene dengan kode, bukan generate video utuh.
+                  containsSyntheticMedia: false,
                   categoryId: String(yt.categoryId ?? '24'),
                   notifySubscribers: yt.notifySubscribers !== false,
                   ...(yt.firstComment ? { firstComment: String(yt.firstComment) } : {}),
@@ -437,7 +439,8 @@ try {
                 // Facebook memotong teks setelah ±125 karakter.
                 customContent: String(fb.caption ?? defaultFacebookCaption(yt.description)),
                 platformSpecificData: {
-                  ...(fbMode === 'reel' ? { contentType: 'reel', isAiGenerated: true } : {}),
+                  // Label "AI generated" Meta tidak dipakai (arahan 2026-11-06).
+                  ...(fbMode === 'reel' ? { contentType: 'reel', isAiGenerated: false } : {}),
                   ...(fb.title ? { title: String(fb.title) } : {}),
                   ...(fb.firstComment ?? yt.firstComment
                     ? { firstComment: String(fb.firstComment ?? yt.firstComment) }

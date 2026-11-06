@@ -90,7 +90,8 @@ const request = {
     categoryId: publishing.categoryId ?? "24",
     visibility: publishing.privacyStatus ?? "public",
     madeForKids: false,
-    containsSyntheticMedia: true,
+    // Kotak "altered content" YouTube tidak dicentang (arahan 2026-11-06).
+    containsSyntheticMedia: false,
     notifySubscribers: true,
     firstComment: pinCommentFor(episode),
   },

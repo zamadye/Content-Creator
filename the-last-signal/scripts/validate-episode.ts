@@ -44,7 +44,9 @@ async function main() {
   const narrated = episode.scenes.filter((s) => s.narrationAudio).length;
   console.log(`  narasi     : ${narrated}/${episode.scenes.length} scene punya audio`);
   console.log(`  kartu teks : ${episode.onScreenText.length}`);
-  console.log(`  disclosure : ${episode.publishing.syntheticDisclosure ? "aktif" : "TIDAK AKTIF"}`);
+  // Catatan internal: gambar dibuat dengan bantuan AI. Ini BUKAN label platform —
+  // kotak "altered content"/"AI generated" sengaja tidak dicentang (arahan 2026-11-06).
+  console.log(`  catatan AI : ${episode.publishing.syntheticDisclosure ? "internal, tanpa label platform" : "tidak dicatat"}`);
 
   if (missing.length > 0) {
     console.error(`\n✖ aset belum tersedia:\n  - ${missing.join("\n  - ")}`);

@@ -50,6 +50,18 @@ async function safeFetch(url,options,timeout=60000) {
   catch { throw new RelayError('NETWORK_OR_TIMEOUT'); }
 }
 function headers(token,raw=false) {return {'Authorization':`Bearer ${token}`,'Accept':raw?'application/vnd.github.raw+json':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'ContentCreator-Drive-Relay/1.0'};}
+async function publishHandshake(token,nonce,publicKey) {
+  const head=process.env.GITHUB_SHA||'';if(!/^[a-f0-9]{40}$/.test(head))throw new RelayError('BAD_HEAD_SHA');
+  const body={name:'Drive relay handshake',head_sha:head,status:'in_progress',output:{title:'Ephemeral public key',summary:JSON.stringify({nonce,public_key_b64:Buffer.from(publicKey).toString('base64')})}};
+  const r=await safeFetch(`https://api.github.com/repos/${REPO}/check-runs`,{method:'POST',headers:{...headers(token),'Content-Type':'application/json'},body:JSON.stringify(body)},30000);
+  if(!r.ok)throw new RelayError(`CHECK_CREATE_HTTP_${r.status}`);
+  let obj;try{obj=await r.json();}catch{throw new RelayError('CHECK_RESPONSE_INVALID');}
+  if(!Number.isSafeInteger(obj.id))throw new RelayError('CHECK_RESPONSE_INVALID');return obj.id;
+}
+async function closeHandshake(token,id,success) {
+  if(!id)return;
+  try{await safeFetch(`https://api.github.com/repos/${REPO}/check-runs/${id}`,{method:'PATCH',headers:{...headers(token),'Content-Type':'application/json'},body:JSON.stringify({status:'completed',conclusion:success?'success':'failure',output:{title:'Handshake closed',summary:'Ephemeral public key expired.'}})},30000);}catch{}
+}
 async function getEnvelope(nonce,privateKey,token) {
   const url=`https://api.github.com/repos/${REPO}/contents/editorial-engine/pipeline/drive-relay/payload.json?ref=${encodeURIComponent(BRANCH)}`;
   const deadline=Date.now()+20*60*1000;
@@ -97,14 +109,17 @@ async function upload(secret,privateKey,token) {
   return {...result,sha256:sha};
 }
 async function main() {
+  let checkId,success=false;const token=process.env.GITHUB_TOKEN||'';
   try {
     const req=validateRequest(JSON.parse(fs.readFileSync('editorial-engine/pipeline/drive-relay/run-request.json','utf8')));
-    const token=process.env.GITHUB_TOKEN||'';if(!token||process.env.GITHUB_REPOSITORY!==REPO)throw new RelayError('MISSING_GITHUB_INPUT');
+    if(!token||process.env.GITHUB_REPOSITORY!==REPO)throw new RelayError('MISSING_GITHUB_INPUT');
     const {publicKey,privateKey}=crypto.generateKeyPairSync('rsa',{modulusLength:3072,publicKeyEncoding:{type:'spki',format:'pem'},privateKeyEncoding:{type:'pkcs8',format:'pem'}});
-    emit({status:'READY',nonce:req.nonce,mode:req.mode,public_key_b64:Buffer.from(publicKey).toString('base64')});
+    checkId=await publishHandshake(token,req.nonce,publicKey);
+    emit({status:'READY',nonce:req.nonce,mode:req.mode});
     const secret=await getEnvelope(req.nonce,privateKey,token);
     const result=await upload(secret,privateKey,token);
-    emit({status:'PASS_UPLOAD',nonce:req.nonce,mode:req.mode,result_ciphertext_b64:encryptBytes(Buffer.from(JSON.stringify(result)),req.ownerKey).toString('base64')});
+    emit({status:'PASS_UPLOAD',nonce:req.nonce,mode:req.mode,result_ciphertext_b64:encryptBytes(Buffer.from(JSON.stringify(result)),req.ownerKey).toString('base64')});success=true;
   } catch(e) {emit({status:'FAIL',code:e instanceof RelayError?e.code:'UNEXPECTED_FAILURE'});process.exitCode=1;}
+  finally {await closeHandshake(token,checkId,success);}
 }
 if(process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href) await main();

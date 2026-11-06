@@ -1,0 +1,98 @@
+name: Jadwal Reels Facebook
+
+# ---------------------------------------------------------------------------
+#  Kenapa ada workflow ini: jadwal Reels tidak boleh bergantung pada proses
+#  panjang di sandbox. Proses seperti itu tidur saat mesin tidak aktif — LS-0001
+#  terbit 04.30Z padahal jatahnya 01.38Z, dan lima Short lain tertunda diam-diam.
+#
+#  Satu ketukan = paling banyak satu unggahan. Jeda antar-unggahan (2 jam)
+#  dihitung dari lastPostAt di knowledge/fb-reels-state.json, bukan dari jam
+#  workflow, jadi ketukan yang terlewat tidak pernah menghasilkan dua unggahan
+#  berdekatan.
+#
+#  Gerbang QC tetap di zernio-publish.mjs dan berjalan sebelum ada byte yang
+#  diunggah.
+# ---------------------------------------------------------------------------
+
+on:
+  schedule:
+    - cron: '*/20 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reels-slot
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    name: satu ketukan jadwal
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    env:
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+      ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
+      ZERNIO_FACEBOOK_ACCOUNT_ID: ${{ vars.ZERNIO_FACEBOOK_ACCOUNT_ID }}
+
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Pasang Node 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Pasang ffmpeg (gerbang QC)
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          ffmpeg -version | head -1
+
+      - name: Pasang SDK Zernio
+        working-directory: the-last-signal/tools/publish
+        run: npm install --no-audit --no-fund --loglevel=error
+
+      - name: Jalankan satu ketukan
+        id: tick
+        working-directory: the-last-signal/tools/publish
+        run: |
+          set -euo pipefail
+          set +e
+          node reels-slot.mjs
+          STATUS=$?
+          set -e
+          echo "status=$STATUS" >> "$GITHUB_OUTPUT"
+          # Kode 1 berarti unggahan gagal, bukan jadwalnya salah: state sudah
+          # diperbarui, dan ketukan berikutnya akan mencoba lagi.
+          exit 0
+
+      - name: Simpan state dan permintaan
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "::notice::tidak ada perubahan"
+            exit 0
+          fi
+          git config user.name "the-last-signal bot"
+          git config user.email "bot@the-last-signal.invalid"
+          git add the-last-signal/knowledge/fb-reels-state.json the-last-signal/publish-queue
+          git commit -q -m "jadwal(reels): catat hasil ketukan $(date -u +%H:%MZ)"
+          # Agen lain juga menulis ke cabang ini; rebase dulu, ulangi sebentar
+          # kalau push ditolak.
+          for attempt in 1 2 3; do
+            if git pull --rebase --quiet origin "${GITHUB_REF_NAME}" && git push --quiet; then
+              echo "::notice::state tersimpan (percobaan $attempt)"
+              exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "::warning::state tidak tersimpan; ketukan berikutnya akan menghitung ulang dari state lama"

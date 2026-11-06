@@ -61,7 +61,7 @@ const episode = ({
       thumbnail: { headline },
       ...(withCta ? { cta } : {}),
       title: title ?? `Judul ${n} Untuk Episode Ini.`,
-      description: description ?? `Pintu nomor ${n} terbuka pukul tiga. Ini fiksi, visual dibantu AI.\n\n#TheLastSignal`,
+      description: description ?? `Pintu nomor ${n} terbuka pukul tiga. Tidak ada yang membukanya.\n\n#TheLastSignal`,
       pinComment: pinComment ?? `Kamu pernah membuka pintu jam ${n}? Tulis di komentar.`,
     },
   };
@@ -247,6 +247,32 @@ test("menolak kerangka judul yang dipakai ulang di episode belum terbit", () => 
   assert.match(out, /bentuk judul/);
 });
 
+test("menolak label arsip dan kalimat pengungkapan di judul, deskripsi, dan komentar", () => {
+  const { code, out } = run({
+    episodes: {
+      "LS-0200": episode({
+        narration: "Kamu membuka pintu itu pukul tiga.",
+        scenes: withClosing(["Kamu membuka pintu itu pukul tiga."]),
+        title: "Pintu Itu Terbuka Sendiri, Ternyata Ini Sebabnya.",
+        description: "ARSIP FIKSI — pintu itu terbuka pukul tiga.",
+      }),
+      "LS-0201": episode({
+        narration: "Kamu mendengar suara itu dari dalam.",
+        scenes: withClosing(["Kamu mendengar suara itu dari dalam."]),
+        description: "Suara dari dalam lemari. Seluruh kejadian dalam video ini adalah fiksi.",
+      }),
+      "LS-0202": episode({
+        narration: "Kamu melihat lapak itu dari jauh.",
+        scenes: withClosing(["Kamu melihat lapak itu dari jauh."]),
+        pinComment: "Visual dibuat dengan bantuan AI. Kamu pernah melihat lapak itu?",
+      }),
+    },
+  });
+  assert.equal(code, 1);
+  assert.match(out, /deskripsi memuat label arsip/);
+  assert.match(out, /komentar pertama memuat label arsip/);
+});
+
 test("menolak deskripsi yang masih dibuka label arsip dan yang memuat \\n harfiah", () => {
   const { code, out } = run({
     episodes: {
@@ -263,7 +289,7 @@ test("menolak deskripsi yang masih dibuka label arsip dan yang memuat \\n harfia
     },
   });
   assert.equal(code, 1);
-  assert.match(out, /ARSIP FIKSI/);
+  assert.match(out, /label arsip/);
   assert.match(out, /harfiah/);
 });
 

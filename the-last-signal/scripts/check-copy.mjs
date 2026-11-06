@@ -196,6 +196,18 @@ for (const id of ids) {
   // sepuluh video yang tampak dicetak dari satu berkas.
   const meta = (id, isPublished, text) => (isPublished ? warnings : errors).push(`${id}: ${text}`);
 
+  /**
+   * Arahan pemilik kanal 2026-11-06: "ARSIP FIKSI" dan pernyataan sejenis tidak
+   * boleh ada lagi di judul, deskripsi, maupun komentar. Alasannya bukan selera:
+   * kalimat semacam itu memakan 12 karakter pertama judul (bagian yang paling
+   * berbobot untuk pencarian) dan mengganti hook dengan pengumuman.
+   *
+   * Pengungkapan konten sintetis tetap berjalan — tetapi lewat flag platform
+   * (`containsSyntheticMedia` di YouTube, `isAiGenerated` di Meta), bukan lewat
+   * teks yang dibaca penonton.
+   */
+  const BANNED_COPY = /arsip fiksi|dibuat dengan bantuan ai|seluruh kejadian[^.]*fiksi|adalah fiksi/i;
+
   const title = episode.publishing?.title ?? "";
   const description = episode.publishing?.description ?? "";
   const pinComment = episode.publishing?.pinComment ?? "";
@@ -206,18 +218,17 @@ for (const id of ids) {
   } else {
     if (title.length > 100) errors.push(`${id}: judul ${title.length} karakter (maks 100)`);
     if (title.includes("\\n")) meta(id, isPublished, "judul memuat \\n harfiah — naskah salah escape");
-    if (/^arsip fiksi/i.test(title)) meta(id, isPublished, "judul dibuka dengan label arsip, bukan cerita");
+    if (BANNED_COPY.test(title)) {
+      errors.push(`${id}: judul memuat label arsip/pengungkapan — dilarang (arahan pemilik kanal 2026-11-06)`);
+    }
   }
 
   if (!description.trim()) {
     meta(id, isPublished, "tidak punya publishing.description");
   } else {
     if (description.includes("\\n")) meta(id, isPublished, "deskripsi memuat \\n harfiah — penonton akan melihatnya sebagai teks");
-    if (!/fiksi/i.test(description) || !/\bAI\b/i.test(description)) {
-      errors.push(`${id}: deskripsi belum mengungkap fiksi + visual AI (kewajiban, bukan selera)`);
-    }
-    if (/^arsip fiksi\s*[—-]/i.test(firstLineOf(description))) {
-      meta(id, isPublished, 'baris pertama deskripsi masih "ARSIP FIKSI —": itu templat, bukan hook');
+    if (BANNED_COPY.test(description)) {
+      errors.push(`${id}: deskripsi memuat label arsip atau kalimat pengungkapan — dilarang (arahan 2026-11-06)`);
     }
   }
 
@@ -229,6 +240,9 @@ for (const id of ids) {
     }
     if (/^Fiksi\. Visual dibuat dengan bantuan AI\.\s*Cerita ini bagian dari seri THE LAST SIGNAL\.\s*Kalau kamu pernah mengalami hal serupa/i.test(pinComment)) {
       meta(id, isPublished, "komentar pertama masih templat lama yang dipakai semua episode");
+    }
+    if (BANNED_COPY.test(pinComment)) {
+      errors.push(`${id}: komentar pertama memuat label arsip/pengungkapan — dilarang (arahan 2026-11-06)`);
     }
   }
 

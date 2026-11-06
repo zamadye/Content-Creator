@@ -3,15 +3,18 @@ import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { theme } from "../lib/theme";
 
 /**
- * Overlay kamera pengawas: REC, identitas kamera, timestamp yang benar-benar
- * berjalan, dan label ARSIP FIKSI. HUD ini bagian dari bahasa visual channel,
- * bukan sekadar dekorasi.
+ * Overlay kamera pengawas: REC, identitas kamera, dan timestamp yang
+ * benar-benar berjalan. HUD ini bagian dari bahasa visual channel, bukan
+ * sekadar dekorasi.
+ *
+ * Label "ARSIP FIKSI" di sudut kanan bawah DIHAPUS pada 2026-11-06 (arahan
+ * pemilik kanal). Pengungkapan konten sintetis tetap ada, tetapi lewat flag
+ * platform saat unggah — bukan teks yang menempel di setiap frame.
  */
 export const FoundFootageHud: React.FC<{
   cameraLabel?: string;
   startSeconds?: number;
-  showFictionLabel?: boolean;
-}> = ({ cameraLabel = "CAM 07", startSeconds = 3 * 3600 + 17 * 60 + 4, showFictionLabel = true }) => {
+}> = ({ cameraLabel = "CAM 07", startSeconds = 3 * 3600 + 17 * 60 + 4 }) => {
   const frame = useCurrentFrame();
   const totalSeconds = Math.floor(startSeconds + frame / 30);
   const hh = String(Math.floor(totalSeconds / 3600)).padStart(2, "0");
@@ -74,23 +77,6 @@ export const FoundFootageHud: React.FC<{
         </div>
       </div>
 
-      {/* Sudut bawah kanan: identitas editorial */}
-      {showFictionLabel ? (
-        <div
-          style={{
-            position: "absolute",
-            bottom: 96,
-            right: 64,
-            color: theme.colors.bone,
-            fontSize: 22,
-            letterSpacing: 6,
-            opacity: 0.55,
-            textShadow,
-          }}
-        >
-          ARSIP FIKSI
-        </div>
-      ) : null}
     </AbsoluteFill>
   );
 };

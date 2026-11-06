@@ -1,0 +1,34 @@
+{
+  "episodeId": "LS-0010",
+  "status": "requested",
+  "createdAt": "2026-11-06T10:51:44.670Z",
+  "media": "the-last-signal/releases/LS-0010.mp4",
+  "episode": {
+    "title": "Lantai Sembilan Belas",
+    "subgenre": "Abandoned Location",
+    "structure": "perjalanan lift (naik → berhenti → turun)",
+    "durationSeconds": 54.1,
+    "scenes": 7,
+    "jumpscares": 1
+  },
+  "youtube": {
+    "title": "Lift Berhenti di Lantai 19 — Padahal Gedungnya Cuma 12 Lantai | Cerita Horor Indonesia",
+    "description": "Gedung tempat kamu lembur cuma punya dua belas lantai. Lift itu berhenti di sembilan belas, dan pintunya terbuka ke kantor yang sama persis.\n\nSemua kursi sudah berputar ke arah pintu. Rekan-rekanmu masih di mejanya, masih memakai pakaian hari ini, dan tidak ada satu pun yang bernapas.\n\nKamu menekan tombol satu. Pintunya terbuka ke ruang rapat yang sama. Yang duduk di kursimu sedang menunggumu.\n\nPertanyaan buat kamu: kalau lift di kantormu berhenti di lantai yang tidak ada di denah, kamu keluar atau menekan tombol tutup?\n\n#CeritaHoror #HororIndonesia #FoundFootage #KisahSeram",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "cerita seram",
+      "kisah horor",
+      "found footage",
+      "horor lift",
+      "kantor malam",
+      "the last signal"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Tombol paling bawah di panel lift itu bukan angka satu. Di gedung ini ada satu tombol tambahan yang hanya menyala kalau kamu lembur lewat pukul sebelas.\n\nPernah naik lift sendirian dan angkanya melewati lantai paling atas? Tulis di komentar."
+  }
+}

@@ -94,7 +94,7 @@ const episode = {
   scenes,
   publishing: {
     title: "TODO",
-    description: "ARSIP FIKSI — rekaman ini adalah fiksi. Visual dibuat dengan bantuan AI.",
+    description: "TODO — baris pertama harus hook, bukan pengumuman.",
     tags: ["cerita horor", "horor indonesia", "found footage"],
     categoryId: "24",
     privacyStatus: "public",

@@ -68,7 +68,7 @@ function pinCommentFor(ep) {
   const explicit = unescapeText(ep.publishing?.pinComment);
   if (explicit.trim()) return explicit;
   const hook = ep.story?.hook ?? ep.scenes?.[0]?.narration ?? "";
-  return `Fiksi. Visual dibuat dengan bantuan AI.\n\n${hook.trim()} Kamu pernah mengalami yang mirip? Tulis di komentar.`;
+  return `${hook.trim()} Kamu pernah mengalami yang mirip? Tulis di komentar.`;
 }
 const request = {
   episodeId,

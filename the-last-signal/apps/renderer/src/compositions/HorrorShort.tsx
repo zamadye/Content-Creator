@@ -33,16 +33,6 @@ const EndCard: React.FC<{ title: string; episodeId: string }> = ({ title, episod
     >
       <div
         style={{
-          fontFamily: theme.font.mono,
-          fontSize: 26,
-          letterSpacing: 10,
-          color: theme.colors.fog,
-        }}
-      >
-        {episodeId} · ARSIP FIKSI
-      </div>
-      <div
-        style={{
           fontFamily: theme.font.sans,
           fontWeight: 700,
           fontSize: 74,

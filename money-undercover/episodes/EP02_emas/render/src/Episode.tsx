@@ -263,6 +263,9 @@ const S01: React.FC = () => {
           Emas tidak pernah bohong. Yang berbohong — orang yang menjanjikannya.
         </div>
       </div>
+      <div style={{position: 'absolute', left: 48, bottom: 56, width: 1100, textAlign: 'left'}}>
+        <Source>Sumber: Logam Mulia/Antam; detik.com; World Gold Council (2026)</Source>
+      </div>
       <Ilustrasi />
       <Vignette />
     </AbsoluteFill>
@@ -389,6 +392,9 @@ const S03: React.FC<{dur: number}> = ({dur}) => {
         >
           — makanya kotak itu terbuka terlalu cepat.
         </div>
+      </div>
+      <div style={{position: 'absolute', left: 48, bottom: 56, width: 1100, textAlign: 'left'}}>
+        <Source>Sumber: edukasi OJK; laporan media titip emas (Sep–Nov 2026)</Source>
       </div>
       <Ilustrasi />
       <Vignette />
@@ -573,6 +579,9 @@ const S05: React.FC<{dur: number}> = ({dur}) => {
           </div>
           <div style={{fontSize: 28, color: C.bone, marginTop: 6}}>total korban gelombang ini — diperkirakan &gt; Rp1 miliar</div>
         </div>
+      </div>
+      <div style={{position: 'absolute', left: 48, bottom: 56, width: 1100, textAlign: 'left'}}>
+        <Source>Sumber: Kompas/Tirto (Mar 2026); tvOneNews; IDN Times Banten — kutipan media</Source>
       </div>
       <Ilustrasi />
       <Vignette />
@@ -846,6 +855,9 @@ const S08: React.FC<{dur: number}> = ({dur}) => {
           </div>
         ))}
       </div>
+      <div style={{position: 'absolute', left: 48, bottom: 56, width: 1100, textAlign: 'left'}}>
+        <Source>Sumber: Liputan6; Harianbasis; edukasi OJK — praduga tidak bersalah</Source>
+      </div>
       <Ilustrasi />
       <Vignette />
     </AbsoluteFill>
@@ -925,6 +937,9 @@ const S09: React.FC<{dur: number}> = ({dur}) => {
           Korban bukan orang bodoh — sistemnya <span style={{color: C.red}}>'dirancang terlihat bisa dipercaya'</span>
         </div>
         <div style={{marginTop: 10, fontSize: 22, letterSpacing: 3, color: C.slate}}>ANALISIS — PSIKOLOGI KORBAN</div>
+      </div>
+      <div style={{position: 'absolute', left: 48, bottom: 56, width: 1100, textAlign: 'left'}}>
+        <Source>Sumber: edukasi OJK — 7 ciri ponzi &amp; 2L; literasi keuangan keluarga</Source>
       </div>
       <Ilustrasi />
       <Vignette />
@@ -1079,6 +1094,9 @@ const S11: React.FC<{dur: number}> = ({dur}) => {
           </div>
         </div>
       </div>
+      <div style={{position: 'absolute', left: 48, bottom: 56, width: 1100, textAlign: 'left'}}>
+        <Source>Sumber: sikapiuangmu.OJK; edukasi OJK (2024–2026); IASC (2026)</Source>
+      </div>
       <Ilustrasi />
       <Vignette />
     </AbsoluteFill>
@@ -1227,6 +1245,9 @@ const S13: React.FC<{dur: number}> = ({dur}) => {
           ✓ lapor lebih awal → peluang dana tertahan dikembalikan
         </div>
       </div>
+      <div style={{position: 'absolute', left: 48, bottom: 56, width: 1100, textAlign: 'left'}}>
+        <Source>Sumber: liputan korban (Sep–Nov 2026); IASC — pengembalian dana</Source>
+      </div>
       <Ilustrasi />
       <Vignette />
     </AbsoluteFill>
@@ -1300,6 +1321,9 @@ const S14: React.FC<{dur: number}> = ({dur}) => {
             THE STORIES BEHIND MONEY.
           </div>
         </div>
+      </div>
+      <div style={{position: 'absolute', left: 48, bottom: 56, width: 1100, textAlign: 'left'}}>
+        <Source>Sumber: ringkasan F01–F22 — lampiran 02-research-ledger.md</Source>
       </div>
       <Ilustrasi />
       <Vignette />

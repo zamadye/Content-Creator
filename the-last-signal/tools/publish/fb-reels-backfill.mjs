@@ -42,6 +42,8 @@ const only = arg("only"); // uji: satu episode saja
 const log = (message) => console.log(`[${new Date().toISOString().slice(11, 19)}] ${message}`);
 
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
+// Penanda versi: setiap perubahan di berkas ini memicu pemeriksaan Zernio,
+// jadi commit kecil di sini juga berfungsi sebagai pemicu saat verifikasi manual.
 
 function sh(command, args, options = {}) {
   const result = spawnSync(command, args, { cwd: REPO_ROOT, encoding: "utf8", ...options });

@@ -70,3 +70,25 @@ yang mengganti `globalThis.fetch`. Yang diperiksa: susunan payload
 `platforms[]`, mode Reel vs feed, dan pemisahan hasil per platform. Stub harus
 dihapus setelah uji — kalau tertinggal, unggahan "sukses" padahal tidak ada
 apa pun yang dikirim.
+
+## Jebakan yang sudah kena: status terbit tidak bisa ditulis dari runner
+
+`zernio-publish.yml` memakai `permissions: contents: read`. Artinya langkah di
+dalam runner **tidak bisa** meng-commit `knowledge/fb-reels-state.json`.
+Akibatnya pada 6 November 2026 status LS-0005 tertulis `error` selama hampir
+satu jam padahal Reel-nya sudah terbit (09:33:51Z, `reel/1002441906232966`);
+run-nya sukses, laporannya hanya tidak pernah tersimpan.
+
+Cara membaca kebenaran sekarang: jalankan **Diagnostik Zernio**
+(`zernio-posts.mjs --limit 8`), lalu baca anotasi `POST-<id>` lewat
+`gh run view <run-id>`. Anotasi itu memuat `metadata.episodeId`, waktu terbit,
+dan URL per platform — cukup untuk memastikan mana yang benar-benar tayang dan
+mendeteksi duplikat.
+
+Dua konsekuensi yang harus diingat:
+
+1. Jangan percaya `knowledge/fb-reels-state.json` sebagai sumber tunggal;
+   setelah run panjang, periksa daftar post sebelum menyusun ulang antrean.
+2. Berkas antrean yang sudah dieksekusi harus ditutup (`status: published` +
+   `url`). Berkas `requested` yang tertinggal akan dianggap permintaan baru
+   oleh jadwal backfill berikutnya dan berakhir sebagai duplikat.

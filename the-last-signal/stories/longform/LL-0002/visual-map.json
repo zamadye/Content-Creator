@@ -66,16 +66,6 @@
         },
         {
           "id": "S1-02",
-          "pemicu": "Itu selisih antara angka di kertas",
-          "offset_frame": 3,
-          "ukuran": "insert",
-          "kamera": "static",
-          "isi": "dua dokumen berhadapan: surat ukur bertuliskan 1.240 dan foto udara bidang tanah",
-          "entitas": null,
-          "sfx": "kertas"
-        },
-        {
-          "id": "S1-03",
           "pemicu": "Tiga juru ukur sebelum saya",
           "offset_frame": 4,
           "ukuran": "close",
@@ -85,17 +75,7 @@
           "sfx": "pensil"
         },
         {
-          "id": "S1-04",
-          "pemicu": "Yang terakhir berhenti jadi juru ukur",
-          "offset_frame": 4,
-          "ukuran": "medium",
-          "kamera": "static",
-          "isi": "tripod tua berdebu tersandar di dinding rumah, sarung alat tergantung",
-          "entitas": null,
-          "sfx": "debu, angin"
-        },
-        {
-          "id": "S1-05",
+          "id": "S1-03",
           "pemicu": "Dia ayah saya",
           "offset_frame": 5,
           "ukuran": "insert",
@@ -105,17 +85,7 @@
           "sfx": "satu nada piano"
         },
         {
-          "id": "S1-06",
-          "pemicu": "Nama saya Ilham",
-          "offset_frame": 3,
-          "ukuran": "wide",
-          "kamera": "static",
-          "isi": "sawah luas, pematang, pria berjaket hijau gelap berdiri membelakangi kamera, tas kanvas abu-abu",
-          "entitas": null,
-          "sfx": "angin sawah, jangkrik pagi"
-        },
-        {
-          "id": "S1-07",
+          "id": "S1-04",
           "pemicu": "Alatnya saya sewa",
           "offset_frame": 4,
           "ukuran": "insert",
@@ -125,7 +95,7 @@
           "sfx": "kertas"
         },
         {
-          "id": "S1-08",
+          "id": "S1-05",
           "pemicu": "Upah saya empat ratus ribu",
           "offset_frame": 4,
           "ukuran": "close",
@@ -135,7 +105,7 @@
           "sfx": "uang"
         },
         {
-          "id": "S1-09",
+          "id": "S1-06",
           "pemicu": "Kontrakan saya sembilan ratus ribu sebulan",
           "offset_frame": 5,
           "ukuran": "medium",
@@ -145,7 +115,7 @@
           "sfx": "pintu"
         },
         {
-          "id": "S1-10",
+          "id": "S1-07",
           "pemicu": "Ada satu aturan",
           "offset_frame": 3,
           "ukuran": "close",
@@ -155,7 +125,7 @@
           "sfx": "pukulan kayu 3x"
         },
         {
-          "id": "S1-11",
+          "id": "S1-08",
           "pemicu": "Angkanya boleh membuat orang marah",
           "offset_frame": 5,
           "ukuran": "wide",
@@ -165,7 +135,7 @@
           "sfx": "suara jauh tanpa kata"
         },
         {
-          "id": "S1-12",
+          "id": "S1-09",
           "pemicu": "Minggu lalu saya dapat bidang di Desa Sumber",
           "offset_frame": 4,
           "ukuran": "wide",
@@ -175,7 +145,7 @@
           "sfx": "motor lewat"
         },
         {
-          "id": "S1-13",
+          "id": "S1-10",
           "pemicu": "Letter C nomor dua dua satu",
           "offset_frame": 5,
           "ukuran": "insert",
@@ -185,7 +155,7 @@
           "sfx": "halaman buku"
         },
         {
-          "id": "S1-14",
+          "id": "S1-11",
           "pemicu": "Hasil pengukuran saya",
           "offset_frame": 4,
           "ukuran": "close",
@@ -195,17 +165,7 @@
           "sfx": "bunyi konfirmasi"
         },
         {
-          "id": "S1-15",
-          "pemicu": "Tiga juru ukur sebelumnya mengukur bidang yang sama",
-          "offset_frame": 5,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "halaman buku catatan: tiga baris tanda tangan berbeda, satu baris masih kosong untuk dirinya",
-          "entitas": null,
-          "sfx": "halaman buku"
-        },
-        {
-          "id": "S1-16",
+          "id": "S1-12",
           "pemicu": "Dua sudah pindah kota",
           "offset_frame": 5,
           "ukuran": "insert",
@@ -215,7 +175,7 @@
           "sfx": "pensil"
         },
         {
-          "id": "S1-17",
+          "id": "S1-13",
           "pemicu": "Yang ketiga tidak mau datang lagi",
           "offset_frame": 5,
           "ukuran": "insert",
@@ -264,16 +224,6 @@
         },
         {
           "id": "S2-03",
-          "pemicu": "Diukur ulang saja",
-          "offset_frame": 4,
-          "ukuran": "medium",
-          "kamera": "handheld halus",
-          "isi": "pria tua berpeci memegang map plastik, hanya dari dada ke bawah dan tangan yang terlihat",
-          "entitas": null,
-          "sfx": "map plastik"
-        },
-        {
-          "id": "S2-04",
           "pemicu": "Satu koma dua juta satu meter",
           "offset_frame": 5,
           "ukuran": "insert",
@@ -283,7 +233,7 @@
           "sfx": "klik tombol 2x"
         },
         {
-          "id": "S2-05",
+          "id": "S2-04",
           "pemicu": "empat belas juta rupiah",
           "offset_frame": 6,
           "ukuran": "insert",
@@ -293,7 +243,7 @@
           "sfx": "pensil"
         },
         {
-          "id": "S2-06",
+          "id": "S2-05",
           "pemicu": "seperti menghitung ulang di kepala",
           "offset_frame": 5,
           "ukuran": "close",
@@ -303,7 +253,7 @@
           "sfx": "ketukan jari"
         },
         {
-          "id": "S2-07",
+          "id": "S2-06",
           "pemicu": "Saya sampai pukul sembilan pagi",
           "offset_frame": 3,
           "ukuran": "close",
@@ -313,7 +263,7 @@
           "sfx": "jam berdetik"
         },
         {
-          "id": "S2-08",
+          "id": "S2-07",
           "pemicu": "di belakang pos kamling",
           "offset_frame": 4,
           "ukuran": "wide",
@@ -323,17 +273,7 @@
           "sfx": "angin"
         },
         {
-          "id": "S2-09",
-          "pemicu": "Pematangnya sempit",
-          "offset_frame": 4,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "kaki bersandal karet berjalan di pematang selebar telapak kaki, tanah kering pecah",
-          "entitas": null,
-          "sfx": "langkah"
-        },
-        {
-          "id": "S2-10",
+          "id": "S2-08",
           "pemicu": "Di pojok utara ada pohon beringin",
           "offset_frame": 5,
           "ukuran": "wide",
@@ -343,7 +283,7 @@
           "sfx": "daun beringin"
         },
         {
-          "id": "S2-11",
+          "id": "S2-09",
           "pemicu": "tanahnya lebih tinggi dari sekitarnya",
           "offset_frame": 5,
           "ukuran": "medium",
@@ -353,7 +293,7 @@
           "sfx": "angin turun"
         },
         {
-          "id": "S2-12",
+          "id": "S2-10",
           "pemicu": "Pak Hadi menunggu sambil memegang map plastik",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -363,7 +303,7 @@
           "sfx": null
         },
         {
-          "id": "S2-13",
+          "id": "S2-11",
           "pemicu": "harus selesai hari ini",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -373,7 +313,7 @@
           "sfx": "jam"
         },
         {
-          "id": "S2-14",
+          "id": "S2-12",
           "pemicu": "Berkasnya saya buka di atas tas",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -383,27 +323,7 @@
           "sfx": "ritsleting"
         },
         {
-          "id": "S2-15",
-          "pemicu": "Fotokopi letter C",
-          "offset_frame": 5,
-          "ukuran": "insert",
-          "kamera": "static",
-          "isi": "fotokopi letter C diletakkan di atas tas, bayangan tangan melintas",
-          "entitas": null,
-          "sfx": "kertas"
-        },
-        {
-          "id": "S2-16",
-          "pemicu": "SPPT PBB tahun ini, lunas",
-          "offset_frame": 4,
-          "ukuran": "insert",
-          "kamera": "static",
-          "isi": "SPPT PBB, stempel bank dan tulisan lunas, kertas tipis, latar tas kanvas",
-          "entitas": null,
-          "sfx": "kertas"
-        },
-        {
-          "id": "S2-17",
+          "id": "S2-13",
           "pemicu": "stempel bank di pojok",
           "offset_frame": 5,
           "ukuran": "extreme close",
@@ -413,7 +333,7 @@
           "sfx": "kertas"
         },
         {
-          "id": "S2-18",
+          "id": "S2-14",
           "pemicu": "Dan satu surat ukur lama",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -423,7 +343,7 @@
           "sfx": "kertas"
         },
         {
-          "id": "S2-19",
+          "id": "S2-15",
           "pemicu": "kertasnya sudah seperti kulit bawang",
           "offset_frame": 6,
           "ukuran": "extreme close",
@@ -472,26 +392,6 @@
         },
         {
           "id": "S3-03",
-          "pemicu": "Anak Slamet, ya",
-          "offset_frame": 4,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "wajah pria tua dari sudut rendah di bawah topi, mata melihat ke atas, tidak ke kamera",
-          "entitas": null,
-          "sfx": null
-        },
-        {
-          "id": "S3-04",
-          "pemicu": "Bawa alat dua",
-          "offset_frame": 4,
-          "ukuran": "medium",
-          "kamera": "static",
-          "isi": "dua tripod dan dua kotak alat berdiri di pematang, dari belakang",
-          "entitas": null,
-          "sfx": "logam"
-        },
-        {
-          "id": "S3-05",
           "pemicu": "kalau satu rewel",
           "offset_frame": 5,
           "ukuran": "close",
@@ -501,27 +401,7 @@
           "sfx": "klik kancing"
         },
         {
-          "id": "S3-06",
-          "pemicu": "Dia mengangguk pelan",
-          "offset_frame": 4,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "kepala pria tua mengangguk, topi bergoyang, leher keriput",
-          "entitas": null,
-          "sfx": null
-        },
-        {
-          "id": "S3-07",
-          "pemicu": "pulangnya nanya-nanya",
-          "offset_frame": 5,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "mulut pria tua berhenti bergerak, sepotong tembakau di tangan",
-          "entitas": null,
-          "sfx": null
-        },
-        {
-          "id": "S3-08",
+          "id": "S3-04",
           "pemicu": "Ada yang pernah nanya apa",
           "offset_frame": 5,
           "ukuran": "medium",
@@ -531,17 +411,7 @@
           "sfx": "angin"
         },
         {
-          "id": "S3-09",
-          "pemicu": "Tangannya berhenti memotong",
-          "offset_frame": 6,
-          "ukuran": "close",
-          "kamera": "slow push_in",
-          "isi": "gunting diam di udara, tembakau terlepas dan jatuh ke tanah",
-          "entitas": null,
-          "sfx": "hening, angin berhenti"
-        },
-        {
-          "id": "S3-10",
+          "id": "S3-05",
           "pemicu": "Dia menunjuk pojok beringin",
           "offset_frame": 4,
           "ukuran": "wide",
@@ -551,7 +421,7 @@
           "sfx": "satu nada rendah"
         },
         {
-          "id": "S3-11",
+          "id": "S3-06",
           "pemicu": "Patoknya jangan di situ",
           "offset_frame": 4,
           "ukuran": "close",
@@ -561,17 +431,7 @@
           "sfx": null
         },
         {
-          "id": "S3-12",
-          "pemicu": "Di situ bukan sawah",
-          "offset_frame": 5,
-          "ukuran": "wide",
-          "kamera": "static",
-          "isi": "tanah meninggi tanpa tanaman di bawah beringin, dilihat dari jauh, pematang di depan",
-          "entitas": null,
-          "sfx": "angin turun"
-        },
-        {
-          "id": "S3-13",
+          "id": "S3-07",
           "pemicu": "Saya lihat ke arah yang dia tunjuk",
           "offset_frame": 6,
           "ukuran": "wide",
@@ -581,7 +441,7 @@
           "sfx": "hening"
         },
         {
-          "id": "S3-14",
+          "id": "S3-08",
           "pemicu": "rumput pendek yang rapi",
           "offset_frame": 5,
           "ukuran": "close",
@@ -620,16 +480,6 @@
         },
         {
           "id": "S4-02",
-          "pemicu": "gelembung udaranya tepat di tengah",
-          "offset_frame": 5,
-          "ukuran": "extreme close",
-          "kamera": "static",
-          "isi": "gelembung nivo bulat tepat di tengah lingkaran, tangan memutar sekrup",
-          "entitas": null,
-          "sfx": "sekrup halus"
-        },
-        {
-          "id": "S4-03",
           "pemicu": "Titik acuan saya ambil dari patok beton",
           "offset_frame": 4,
           "ukuran": "close",
@@ -639,17 +489,7 @@
           "sfx": "ketukan logam"
         },
         {
-          "id": "S4-04",
-          "pemicu": "Terik",
-          "offset_frame": 3,
-          "ukuran": "wide",
-          "kamera": "static",
-          "isi": "langit putih panas, sawah berkilau, tidak ada bayangan orang",
-          "entitas": null,
-          "sfx": "jangkrik siang"
-        },
-        {
-          "id": "S4-05",
+          "id": "S4-03",
           "pemicu": "Udara bergetar di atas pematang",
           "offset_frame": 6,
           "ukuran": "wide",
@@ -659,27 +499,7 @@
           "sfx": "desis panas"
         },
         {
-          "id": "S4-06",
-          "pemicu": "Bidikan pertama, kedua, ketiga",
-          "offset_frame": 4,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "layar alat, angka sudut dan jarak berubah tiga kali, jari menekan tombol",
-          "entitas": null,
-          "sfx": "bunyi bidik 3x"
-        },
-        {
-          "id": "S4-07",
-          "pemicu": "Selisih bacaan paling besar dua sentimeter",
-          "offset_frame": 5,
-          "ukuran": "insert",
-          "kamera": "static",
-          "isi": "catatan tangan: 0,2 cm, 0,1 cm, 0,2 cm, tanda centang",
-          "entitas": null,
-          "sfx": "pensil"
-        },
-        {
-          "id": "S4-08",
+          "id": "S4-04",
           "pemicu": "Di patok keempat, alat mati",
           "offset_frame": 4,
           "ukuran": "close",
@@ -689,27 +509,7 @@
           "sfx": "bunyi mati elektronik pendek"
         },
         {
-          "id": "S4-09",
-          "pemicu": "Baterainya saya cek: penuh",
-          "offset_frame": 5,
-          "ukuran": "extreme close",
-          "kamera": "handheld halus",
-          "isi": "indikator baterai penuh di layar kecil, jempol mengetuk, tangan sedikit gemetar",
-          "entitas": null,
-          "sfx": "ketukan jari"
-        },
-        {
-          "id": "S4-10",
-          "pemicu": "Saya ganti dengan baterai cadangan",
-          "offset_frame": 4,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "baterai ditukar, tutup dibuka, plastik hitam, tangan cepat",
-          "entitas": null,
-          "sfx": "klik plastik"
-        },
-        {
-          "id": "S4-11",
+          "id": "S4-05",
           "pemicu": "tetap hitam",
           "offset_frame": 5,
           "ukuran": "close",
@@ -719,7 +519,7 @@
           "sfx": "hening"
         },
         {
-          "id": "S4-12",
+          "id": "S4-06",
           "pemicu": "ke bawah beringin",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -729,7 +529,7 @@
           "sfx": "langkah"
         },
         {
-          "id": "S4-13",
+          "id": "S4-07",
           "pemicu": "dalam tiga detik ia menyala sendiri",
           "offset_frame": 6,
           "ukuran": "medium",
@@ -739,7 +539,7 @@
           "sfx": "nada nyala, dengung naik"
         },
         {
-          "id": "S4-14",
+          "id": "S4-08",
           "pemicu": "alatnya kepanasan",
           "offset_frame": 4,
           "ukuran": "close",
@@ -749,7 +549,7 @@
           "sfx": "napas"
         },
         {
-          "id": "S4-15",
+          "id": "S4-09",
           "pemicu": "saya lanjut ke patok kelima",
           "offset_frame": 4,
           "ukuran": "wide",
@@ -759,7 +559,7 @@
           "sfx": "langkah"
         },
         {
-          "id": "S4-16",
+          "id": "S4-10",
           "pemicu": "Lalu saya menoleh ke ujung pematang",
           "offset_frame": 4,
           "ukuran": "wide",
@@ -769,7 +569,7 @@
           "sfx": "angin naik"
         },
         {
-          "id": "S4-17",
+          "id": "S4-11",
           "pemicu": "Ada sesuatu berdiri di sana",
           "offset_frame": 4,
           "ukuran": "wide",
@@ -779,7 +579,7 @@
           "sfx": "satu nada rendah di bawah ambang"
         },
         {
-          "id": "S4-18",
+          "id": "S4-12",
           "pemicu": "Saya angkat ponsel dan memperbesar gambar",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -789,7 +589,7 @@
           "sfx": "ponsel dibuka"
         },
         {
-          "id": "S4-19",
+          "id": "S4-13",
           "pemicu": "Yang terlihat cuma beringin dan langit",
           "offset_frame": 5,
           "ukuran": "insert",
@@ -799,7 +599,7 @@
           "sfx": "shutter 4x"
         },
         {
-          "id": "S4-20",
+          "id": "S4-14",
           "pemicu": "menyelesaikan pekerjaan saya lebih cepat",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -839,16 +639,6 @@
         },
         {
           "id": "S5-02",
-          "pemicu": "Alat menghitung luas sendiri",
-          "offset_frame": 4,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "jari menekan tombol hitung, kursor berputar di layar",
-          "entitas": null,
-          "sfx": "klik"
-        },
-        {
-          "id": "S5-03",
           "pemicu": "Seribu dua ratus dua puluh delapan meter persegi",
           "offset_frame": 5,
           "ukuran": "insert",
@@ -858,17 +648,7 @@
           "sfx": "dengung rendah"
         },
         {
-          "id": "S5-04",
-          "pemicu": "Saya ukur ulang dari arah selatan",
-          "offset_frame": 4,
-          "ukuran": "wide",
-          "kamera": "static",
-          "isi": "alat didirikan dari sisi berlawanan, bayangan panjang ke timur",
-          "entitas": null,
-          "sfx": "langkah, logam"
-        },
-        {
-          "id": "S5-05",
+          "id": "S5-03",
           "pemicu": "titik awal berbeda",
           "offset_frame": 5,
           "ukuran": "close",
@@ -878,17 +658,7 @@
           "sfx": "tanah"
         },
         {
-          "id": "S5-06",
-          "pemicu": "Saya ukur dengan pita lima puluh meter",
-          "offset_frame": 4,
-          "ukuran": "wide",
-          "kamera": "static",
-          "isi": "dua orang menarik pita ukur di pematang, sore keemasan, bayangan panjang",
-          "entitas": null,
-          "sfx": "pita ditarik, klik"
-        },
-        {
-          "id": "S5-07",
+          "id": "S5-04",
           "pemicu": "Selisih dua belas meter persegi",
           "offset_frame": 5,
           "ukuran": "insert",
@@ -898,7 +668,7 @@
           "sfx": "pensil, musik turun"
         },
         {
-          "id": "S5-08",
+          "id": "S5-05",
           "pemicu": "seluas dua petak makam",
           "offset_frame": 6,
           "ukuran": "medium",
@@ -908,7 +678,7 @@
           "sfx": "angin"
         },
         {
-          "id": "S5-09",
+          "id": "S5-06",
           "pemicu": "Malamnya saya kembali ke sawah",
           "offset_frame": 4,
           "ukuran": "wide",
@@ -918,7 +688,7 @@
           "sfx": "jangkrik malam, langkah"
         },
         {
-          "id": "S5-10",
+          "id": "S5-07",
           "pemicu": "masih di lubangnya, masih tegak",
           "offset_frame": 4,
           "ukuran": "close",
@@ -928,7 +698,7 @@
           "sfx": "ketukan ringan"
         },
         {
-          "id": "S5-11",
+          "id": "S5-08",
           "pemicu": "Patok ketiga bergeser tiga sentimeter",
           "offset_frame": 5,
           "ukuran": "extreme close",
@@ -938,7 +708,7 @@
           "sfx": "napas ditahan"
         },
         {
-          "id": "S5-12",
+          "id": "S5-09",
           "pemicu": "Saya kirim pesan ke Pak Rohmat",
           "offset_frame": 4,
           "ukuran": "insert",
@@ -948,7 +718,7 @@
           "sfx": "ketikan"
         },
         {
-          "id": "S5-13",
+          "id": "S5-10",
           "pemicu": "juru ukur yang dulu terakhir",
           "offset_frame": 4,
           "ukuran": "insert",
@@ -958,7 +728,7 @@
           "sfx": "pensil"
         },
         {
-          "id": "S5-14",
+          "id": "S5-11",
           "pemicu": "Patoknya jangan dipindah",
           "offset_frame": 5,
           "ukuran": "close",
@@ -968,17 +738,7 @@
           "sfx": "notifikasi"
         },
         {
-          "id": "S5-15",
-          "pemicu": "Biar dia yang pindah sendiri",
-          "offset_frame": 6,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "balasan masuk satu kalimat, wajah tidak terlihat, hanya layar dan jempol",
-          "entitas": null,
-          "sfx": "notifikasi, hening"
-        },
-        {
-          "id": "S5-16",
+          "id": "S5-12",
           "pemicu": "patok keempat tidak ada di lubangnya",
           "offset_frame": 4,
           "ukuran": "close",
@@ -988,7 +748,7 @@
           "sfx": "burung pagi"
         },
         {
-          "id": "S5-17",
+          "id": "S5-13",
           "pemicu": "menemukannya sebelas langkah ke utara",
           "offset_frame": 6,
           "ukuran": "medium",
@@ -998,7 +758,7 @@
           "sfx": "tetesan air, satu nada"
         },
         {
-          "id": "S5-18",
+          "id": "S5-14",
           "pemicu": "ditanam rapi",
           "offset_frame": 6,
           "ukuran": "extreme close",
@@ -1008,17 +768,7 @@
           "sfx": "tetesan air"
         },
         {
-          "id": "S5-19",
-          "pemicu": "Saya tidak menanamnya di situ",
-          "offset_frame": 5,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "tangan menyentuh tanah lembap di sekitar patok, jari mengangkat tanah",
-          "entitas": null,
-          "sfx": "tanah"
-        },
-        {
-          "id": "S5-20",
+          "id": "S5-15",
           "pemicu": "Tidak ada yang mengaku menanamnya",
           "offset_frame": 5,
           "ukuran": "wide",
@@ -1077,26 +827,6 @@
         },
         {
           "id": "S6-04",
-          "pemicu": "Halaman dua ratus dua puluh satu",
-          "offset_frame": 4,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "halaman Buku C, angka 221 di pojok, kolom nama dan luas, tinta lama",
-          "entitas": null,
-          "sfx": "halaman dibuka"
-        },
-        {
-          "id": "S6-05",
-          "pemicu": "Nama pemilik: Hadi Sutrisno",
-          "offset_frame": 5,
-          "ukuran": "close",
-          "kamera": "slow push_in",
-          "isi": "kolom nama bertuliskan Hadi Sutrisno, tulisan tangan tegak, tinta hitam",
-          "entitas": null,
-          "sfx": null
-        },
-        {
-          "id": "S6-06",
           "pemicu": "satu baris yang dicoret dengan tinta hitam",
           "offset_frame": 6,
           "ukuran": "extreme close",
@@ -1106,7 +836,7 @@
           "sfx": "pena menekan"
         },
         {
-          "id": "S6-07",
+          "id": "S6-05",
           "pemicu": "Ini coretan siapa",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -1116,17 +846,7 @@
           "sfx": "kipas angin"
         },
         {
-          "id": "S6-08",
-          "pemicu": "Yang tanda tangan camat, bukan saya",
-          "offset_frame": 5,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "kolom tanda tangan dengan nama camat dan cap pudar, jari menunjuk",
-          "entitas": null,
-          "sfx": null
-        },
-        {
-          "id": "S6-09",
+          "id": "S6-06",
           "pemicu": "Baris yang dicoret: Sastro Wijaya",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1136,17 +856,7 @@
           "sfx": "satu nada rendah"
         },
         {
-          "id": "S6-10",
-          "pemicu": "Meninggal seribu sembilan ratus delapan puluh satu",
-          "offset_frame": 5,
-          "ukuran": "extreme close",
-          "kamera": "static",
-          "isi": "kolom keterangan bertuliskan tahun 1981, tulisan tangan kecil",
-          "entitas": null,
-          "sfx": "hening"
-        },
-        {
-          "id": "S6-11",
+          "id": "S6-07",
           "pemicu": "Saya minta surat ukur lama yang saya bawa",
           "offset_frame": 4,
           "ukuran": "insert",
@@ -1156,7 +866,7 @@
           "sfx": "kertas bergeser"
         },
         {
-          "id": "S6-12",
+          "id": "S6-08",
           "pemicu": "inisial kecil: S",
           "offset_frame": 5,
           "ukuran": "extreme close",
@@ -1166,7 +876,7 @@
           "sfx": "satu nada piano"
         },
         {
-          "id": "S6-13",
+          "id": "S6-09",
           "pemicu": "pensil yang hampir hilang",
           "offset_frame": 6,
           "ukuran": "extreme close",
@@ -1176,7 +886,7 @@
           "sfx": "hening total"
         },
         {
-          "id": "S6-14",
+          "id": "S6-10",
           "pemicu": "Itu tulisan ayah saya",
           "offset_frame": 4,
           "ukuran": "close",
@@ -1186,17 +896,7 @@
           "sfx": "napas"
         },
         {
-          "id": "S6-15",
-          "pemicu": "bentuk huruf koreksinya",
-          "offset_frame": 5,
-          "ukuran": "extreme close",
-          "kamera": "static",
-          "isi": "huruf koreksi tangan di pinggir kertas, tinta pudar, serat kertas terlihat",
-          "entitas": null,
-          "sfx": "hening"
-        },
-        {
-          "id": "S6-16",
+          "id": "S6-11",
           "pemicu": "dua puluh satu tahun lalu",
           "offset_frame": 5,
           "ukuran": "insert",
@@ -1206,7 +906,7 @@
           "sfx": null
         },
         {
-          "id": "S6-17",
+          "id": "S6-12",
           "pemicu": "menuliskannya di pinggir kertas",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -1216,17 +916,7 @@
           "sfx": "kipas angin"
         },
         {
-          "id": "S6-18",
-          "pemicu": "enam puluh hari, sesuai aturan",
-          "offset_frame": 4,
-          "ukuran": "wide",
-          "kamera": "static",
-          "isi": "papan pengumuman desa, kertas pengumuman lapuk, neon putih di atasnya",
-          "entitas": null,
-          "sfx": "kertas berkibar"
-        },
-        {
-          "id": "S6-19",
+          "id": "S6-13",
           "pemicu": "Tidak ada satu keberatan",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1236,7 +926,7 @@
           "sfx": "hening, kipas"
         },
         {
-          "id": "S6-20",
+          "id": "S6-14",
           "pemicu": "Ayah saya meninggal dua tahun lalu",
           "offset_frame": 5,
           "ukuran": "medium",
@@ -1246,7 +936,7 @@
           "sfx": "satu nada rendah panjang"
         },
         {
-          "id": "S6-21",
+          "id": "S6-15",
           "pemicu": "tidak bisa bertanya kenapa dia diam",
           "offset_frame": 5,
           "ukuran": "medium",
@@ -1256,7 +946,7 @@
           "sfx": "hening"
         },
         {
-          "id": "S6-22",
+          "id": "S6-16",
           "pemicu": "satu kalimat di buku catatannya",
           "offset_frame": 4,
           "ukuran": "close",
@@ -1266,17 +956,7 @@
           "sfx": "halaman buku"
         },
         {
-          "id": "S6-23",
-          "pemicu": "tidak boleh menambah",
-          "offset_frame": 6,
-          "ukuran": "extreme close",
-          "kamera": "static",
-          "isi": "kalimat tulisan tangan: pengukuran tidak boleh menambah dan tidak boleh mengurangi",
-          "entitas": null,
-          "sfx": "satu nada piano"
-        },
-        {
-          "id": "S6-24",
+          "id": "S6-17",
           "pemicu": "Kalimat itu saya salin di halaman pertama buku saya",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1315,16 +995,6 @@
         },
         {
           "id": "S7-02",
-          "pemicu": "setelah saya belikan teh",
-          "offset_frame": 4,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "dua gelas teh di bangku kayu, uap naik, lampu kuning dari atas",
-          "entitas": null,
-          "sfx": "gelas diletakkan"
-        },
-        {
-          "id": "S7-03",
           "pemicu": "makam Mbah Sastro",
           "offset_frame": 5,
           "ukuran": "medium",
@@ -1334,17 +1004,7 @@
           "sfx": "angin malam"
         },
         {
-          "id": "S7-04",
-          "pemicu": "Bapaknya Pak Hadi sendiri",
-          "offset_frame": 5,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "wajah Mang Karta setengah gelap, lampu kuning dari samping, mata tidak ke kamera",
-          "entitas": null,
-          "sfx": null
-        },
-        {
-          "id": "S7-05",
+          "id": "S7-03",
           "pemicu": "luasnya dihitung ulang",
           "offset_frame": 4,
           "ukuran": "insert",
@@ -1354,7 +1014,7 @@
           "sfx": "pensil"
         },
         {
-          "id": "S7-06",
+          "id": "S7-04",
           "pemicu": "harga berkurang dua belas meter",
           "offset_frame": 5,
           "ukuran": "extreme close",
@@ -1364,7 +1024,7 @@
           "sfx": "kertas"
         },
         {
-          "id": "S7-07",
+          "id": "S7-05",
           "pemicu": "Jadi nama di Buku C dicoret",
           "offset_frame": 5,
           "ukuran": "extreme close",
@@ -1374,7 +1034,7 @@
           "sfx": "pena menekan keras"
         },
         {
-          "id": "S7-08",
+          "id": "S7-06",
           "pemicu": "Jadi makamnya dianggap tidak ada",
           "offset_frame": 6,
           "ukuran": "wide",
@@ -1384,7 +1044,7 @@
           "sfx": "angin, satu nada"
         },
         {
-          "id": "S7-09",
+          "id": "S7-07",
           "pemicu": "digeser selebar telapak tangan",
           "offset_frame": 6,
           "ukuran": "close",
@@ -1394,7 +1054,7 @@
           "sfx": "tanah bergeser"
         },
         {
-          "id": "S7-10",
+          "id": "S7-08",
           "pemicu": "Mang Karta tanda tangan sebagai saksi batas",
           "offset_frame": 4,
           "ukuran": "close",
@@ -1404,27 +1064,7 @@
           "sfx": "pena"
         },
         {
-          "id": "S7-11",
-          "pemicu": "Dia dibayar satu juta",
-          "offset_frame": 4,
-          "ukuran": "insert",
-          "kamera": "static",
-          "isi": "uang kertas di atas meja kayu, tangan tua menutupinya",
-          "entitas": null,
-          "sfx": "kertas uang"
-        },
-        {
-          "id": "S7-12",
-          "pemicu": "Saya cuma tanda tangan",
-          "offset_frame": 5,
-          "ukuran": "medium",
-          "kamera": "static",
-          "isi": "Mang Karta menunduk, topi di pangkuan, gelas teh masih penuh",
-          "entitas": null,
-          "sfx": null
-        },
-        {
-          "id": "S7-13",
+          "id": "S7-09",
           "pemicu": "Bukan saya yang mindahin patoknya",
           "offset_frame": 5,
           "ukuran": "medium",
@@ -1434,7 +1074,7 @@
           "sfx": null
         },
         {
-          "id": "S7-14",
+          "id": "S7-10",
           "pemicu": "Dia menyebut satu nama",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1444,7 +1084,7 @@
           "sfx": "hening"
         },
         {
-          "id": "S7-15",
+          "id": "S7-11",
           "pemicu": "halaman dua ratus dua puluh satu",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1454,17 +1094,7 @@
           "sfx": "satu nada rendah"
         },
         {
-          "id": "S7-16",
-          "pemicu": "membuat saya tidak bisa tidur",
-          "offset_frame": 6,
-          "ukuran": "wide",
-          "kamera": "static",
-          "isi": "pos kamling malam, dua orang diam, lampu kuning, asap teh",
-          "entitas": null,
-          "sfx": null
-        },
-        {
-          "id": "S7-17",
+          "id": "S7-12",
           "pemicu": "anak bungsu yang menjaga makam",
           "offset_frame": 6,
           "ukuran": "wide",
@@ -1474,7 +1104,7 @@
           "sfx": "satu nada rendah panjang"
         },
         {
-          "id": "S7-18",
+          "id": "S7-13",
           "pemicu": "Dia tahu persis",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1484,7 +1114,7 @@
           "sfx": "radio jauh"
         },
         {
-          "id": "S7-19",
+          "id": "S7-14",
           "pemicu": "Dia pulang tanpa menghabiskan tehnya",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1494,17 +1124,7 @@
           "sfx": "angin"
         },
         {
-          "id": "S7-20",
-          "pemicu": "Saya duduk di situ",
-          "offset_frame": 5,
-          "ukuran": "wide",
-          "kamera": "static",
-          "isi": "satu orang duduk sendiri di bangku kamling, punggung terlihat, malam",
-          "entitas": null,
-          "sfx": "jangkrik"
-        },
-        {
-          "id": "S7-21",
+          "id": "S7-15",
           "pemicu": "lampu kamling hidup sendiri",
           "offset_frame": 6,
           "ukuran": "wide",
@@ -1543,16 +1163,6 @@
         },
         {
           "id": "S8-02",
-          "pemicu": "dengan pita ukur, bukan dengan alat",
-          "offset_frame": 4,
-          "ukuran": "close",
-          "kamera": "static",
-          "isi": "gulungan pita ukur di tangan, bukan tripod, embun di logam",
-          "entitas": null,
-          "sfx": "pita"
-        },
-        {
-          "id": "S8-03",
           "pemicu": "Saya tanam patok keempat di tepi makam",
           "offset_frame": 6,
           "ukuran": "medium",
@@ -1562,7 +1172,7 @@
           "sfx": "tanah dipadatkan 3x, napas ditahan"
         },
         {
-          "id": "S8-04",
+          "id": "S8-03",
           "pemicu": "Sudah saya catat koordinatnya",
           "offset_frame": 4,
           "ukuran": "insert",
@@ -1572,7 +1182,7 @@
           "sfx": "shutter, klik"
         },
         {
-          "id": "S8-05",
+          "id": "S8-04",
           "pemicu": "Di berita acara saya tulis satu baris",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1582,7 +1192,7 @@
           "sfx": "pena"
         },
         {
-          "id": "S8-06",
+          "id": "S8-05",
           "pemicu": "Saya tanda tangan di atas meterai",
           "offset_frame": 4,
           "ukuran": "extreme close",
@@ -1592,7 +1202,7 @@
           "sfx": "kertas ditekan"
         },
         {
-          "id": "S8-07",
+          "id": "S8-06",
           "pemicu": "Pak Hadi marah",
           "offset_frame": 4,
           "ukuran": "medium",
@@ -1602,7 +1212,7 @@
           "sfx": "suara meninggi tanpa kata"
         },
         {
-          "id": "S8-08",
+          "id": "S8-07",
           "pemicu": "tidak perlu ikut mengurus orang mati",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1612,7 +1222,7 @@
           "sfx": "hening setelah suara"
         },
         {
-          "id": "S8-09",
+          "id": "S8-08",
           "pemicu": "Saya kembalikan uang muka empat ratus ribu",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1622,7 +1232,7 @@
           "sfx": "uang dihitung"
         },
         {
-          "id": "S8-10",
+          "id": "S8-09",
           "pemicu": "Dia melihat ke arah beringin, lalu mengangguk",
           "offset_frame": 5,
           "ukuran": "close",
@@ -1632,7 +1242,7 @@
           "sfx": null
         },
         {
-          "id": "S8-11",
+          "id": "S8-10",
           "pemicu": "Makam itu sudah dibersihkan",
           "offset_frame": 5,
           "ukuran": "medium",
@@ -1642,7 +1252,7 @@
           "sfx": "angin, burung"
         },
         {
-          "id": "S8-12",
+          "id": "S8-11",
           "pemicu": "di atas nisan ada satu patok kecil",
           "offset_frame": 6,
           "ukuran": "close",

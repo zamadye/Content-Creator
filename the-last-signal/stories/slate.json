@@ -5,11 +5,11 @@
       "episodeId": "LL-0002",
       "judul": "Dua Belas Meter",
       "format": "longform_16x9",
-      "status": "produksi: narasi+skor selesai, gambar 10/71 (37 gambar hilang karena gitignore)",
+      "status": "produksi: 113 shot / 53 gambar, gambar 0/53 (37 gambar lama hilang)",
       "folder": "stories/longform/LL-0002",
       "kata_narasi": 1259,
       "estimasi_durasi_detik": 572,
-      "shot": 152,
+      "shot": 113,
       "entitas": 3,
       "selesai": [
         "dossier riset (R1–R12)",
@@ -22,11 +22,11 @@
         "37 gambar"
       ],
       "berikutnya": [
-        "gambar sisa 44 berkas (maks 10 per giliran)",
-        "skor musik + ambience",
-        "render 17.948 frame + encode < 40 MB",
+        "53 gambar (maks 10 per giliran)",
+        "render 17.948 frame dalam satu giliran",
+        "encode < 40 MB (lihat catatan-encode.md)",
         "QC 9 butir",
-        "antrean Zernio 7 Nov 13.00 WIB"
+        "unggah begitu QC lolos"
       ],
       "target_unggah": "2026-11-07T13:00+08:00",
       "judul_unggah": "Dua Belas Meter yang Hilang"

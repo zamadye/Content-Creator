@@ -8,7 +8,7 @@ Status: **naskah + peta visual siap, belum dirender, target unggah 7 Nov 2026 pu
 | `naskah.md` | narasi lengkap 9 segmen, 1.251 kata, ±9:29, plus fungsi tiap segmen dan tabel pembeda dari cerita hantu umum |
 | `narration.json` | narasi terpecah per segmen siap masuk TTS (id, judul, paragraf, jumlah kata, estimasi detik) |
 | `dossier.md` | 12 rujukan (R1–R12): prosedur BPN, letter C/Buku C, kasus patok Purbalingga, beban juru ukur, adat juru kunci makam |
-| `visual-map.json` | 152 shot (rata-rata 3,8 detik/shot, tidak ada shot > 8 detik), tiap shot punya **kata pemicu** + offset 2–8 frame, palet & cahaya per segmen, 3 kemunculan entitas |
+| `visual-map.json` | 113 shot (rata-rata 5,1 detik/shot, tidak ada shot > 8 detik), tiap shot punya **kata pemicu** + offset 2–8 frame, palet & cahaya per segmen, 3 kemunculan entitas |
 
 ## Periksa sebelum lanjut
 

@@ -36,63 +36,63 @@
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 62,
-          "image": "images/surat-ukur-2004.jpg",
+          "atFrame": 199,
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
-        },
-        {
-          "atFrame": 199,
-          "image": "images/buku-c.jpg",
-          "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 322,
-          "image": "images/peralatan-ukur.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
         },
         {
           "atFrame": 404,
           "image": "images/peralatan-ukur.jpg",
           "camera": "push_in",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 443,
-          "image": "images/protagonis-belakang.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 608,
-          "image": "images/s1-07.jpg",
-          "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
         },
         {
-          "atFrame": 731,
-          "image": "images/protagonis-belakang.jpg",
+          "atFrame": 608,
+          "image": "images/s1-04.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
         },
         {
+          "atFrame": 731,
+          "image": "images/protagonis-belakang.jpg",
+          "camera": "static",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
           "atFrame": 868,
+          "image": "images/s1-06.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 1084,
+          "image": "images/patok.jpg",
+          "camera": "push_in",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        },
+        {
+          "atFrame": 1305,
+          "image": "images/s1-08.jpg",
+          "camera": "static",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 1454,
           "image": "images/s1-09.jpg",
           "camera": "static",
           "scale": 1.06,
@@ -100,48 +100,16 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1084,
-          "image": "images/patok.jpg",
-          "camera": "push_in",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 1305,
-          "image": "images/s1-11.jpg",
-          "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 1454,
-          "image": "images/s1-12.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
           "atFrame": 1564,
           "image": "images/buku-c.jpg",
           "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
         },
         {
           "atFrame": 1781,
           "image": "images/layar-alat.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 1905,
-          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -157,7 +125,7 @@
         },
         {
           "atFrame": 2068,
-          "image": "images/s1-17.jpg",
+          "image": "images/s1-13.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -337,112 +305,80 @@
           "offsetY": -20
         },
         {
-          "atFrame": 264,
-          "image": "images/pak-hadi.jpg",
-          "camera": "handheld",
+          "atFrame": 399,
+          "image": "images/s2-03.jpg",
+          "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
         },
         {
-          "atFrame": 399,
+          "atFrame": 576,
           "image": "images/s2-04.jpg",
-          "camera": "static",
+          "camera": "push_in",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
         },
         {
-          "atFrame": 576,
+          "atFrame": 682,
           "image": "images/s2-05.jpg",
-          "camera": "push_in",
+          "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
           "offsetY": 0
-        },
-        {
-          "atFrame": 682,
-          "image": "images/s2-06.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
         },
         {
           "atFrame": 828,
           "image": "images/protagonis-belakang.jpg",
           "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
         },
         {
           "atFrame": 924,
           "image": "images/kamling.jpg",
           "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
-          "atFrame": 1072,
-          "image": "images/s2-09.jpg",
-          "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
         },
         {
           "atFrame": 1140,
           "image": "images/beringin.jpg",
           "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 1248,
-          "image": "images/beringin.jpg",
-          "camera": "push_in",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 1381,
-          "image": "images/pak-hadi.jpg",
-          "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
         },
         {
-          "atFrame": 1530,
-          "image": "images/pak-hadi.jpg",
-          "camera": "static",
+          "atFrame": 1248,
+          "image": "images/beringin.jpg",
+          "camera": "push_in",
           "scale": 1.06,
           "offsetX": 0,
           "offsetY": 0
         },
         {
-          "atFrame": 1691,
-          "image": "images/s2-14.jpg",
+          "atFrame": 1381,
+          "image": "images/pak-hadi.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 1773,
-          "image": "images/s2-15.jpg",
+          "atFrame": 1530,
+          "image": "images/pak-hadi.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
         },
         {
-          "atFrame": 1812,
-          "image": "images/sppt.jpg",
+          "atFrame": 1691,
+          "image": "images/s2-12.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -636,40 +572,8 @@
           "offsetY": -20
         },
         {
-          "atFrame": 250,
-          "image": "images/mang-karta.jpg",
-          "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 318,
-          "image": "images/peralatan-ukur.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
           "atFrame": 413,
           "image": "images/peralatan-ukur.jpg",
-          "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 453,
-          "image": "images/mang-karta.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 548,
-          "image": "images/mang-karta.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -677,59 +581,43 @@
         },
         {
           "atFrame": 588,
-          "image": "images/s3-08.jpg",
+          "image": "images/s3-04.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
         },
         {
-          "atFrame": 697,
-          "image": "images/s3-09.jpg",
-          "camera": "push_in",
+          "atFrame": 735,
+          "image": "images/beringin.jpg",
+          "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
           "offsetY": 0
         },
         {
-          "atFrame": 735,
-          "image": "images/beringin.jpg",
+          "atFrame": 789,
+          "image": "images/s3-06.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 789,
-          "image": "images/s3-11.jpg",
+          "atFrame": 899,
+          "image": "images/s3-07.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
         },
         {
-          "atFrame": 844,
-          "image": "images/beringin.jpg",
+          "atFrame": 1046,
+          "image": "images/s3-08.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
-        },
-        {
-          "atFrame": 899,
-          "image": "images/s3-13.jpg",
-          "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 1046,
-          "image": "images/s3-14.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
         }
       ],
       "subtitles": [
@@ -827,48 +715,16 @@
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 132,
-          "image": "images/s4-02.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
           "atFrame": 199,
           "image": "images/patok.jpg",
           "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 334,
-          "image": "images/s4-04.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
-          "atFrame": 378,
-          "image": "images/s4-05.jpg",
-          "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 444,
-          "image": "images/layar-alat.jpg",
-          "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 527,
-          "image": "images/s4-07.jpg",
+          "atFrame": 378,
+          "image": "images/s4-03.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -883,100 +739,84 @@
           "offsetY": -10
         },
         {
-          "atFrame": 705,
-          "image": "images/layar-alat.jpg",
-          "camera": "handheld",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 758,
-          "image": "images/s4-10.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
           "atFrame": 827,
           "image": "images/layar-alat.jpg",
           "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
         },
         {
           "atFrame": 908,
           "image": "images/beringin.jpg",
           "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
         },
         {
           "atFrame": 1006,
           "image": "images/beringin.jpg",
           "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 1154,
-          "image": "images/s4-14.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 1385,
-          "image": "images/s4-15.jpg",
-          "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
+        },
+        {
+          "atFrame": 1154,
+          "image": "images/s4-08.jpg",
+          "camera": "static",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 1385,
+          "image": "images/s4-09.jpg",
+          "camera": "static",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
         },
         {
           "atFrame": 1576,
           "image": "images/beringin.jpg",
           "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
-          "atFrame": 1740,
-          "image": "images/entitas-s4-17.jpg",
-          "camera": "push_in",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 1958,
-          "image": "images/protagonis-belakang.jpg",
-          "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 2109,
-          "image": "images/beringin.jpg",
-          "camera": "static",
+          "atFrame": 1740,
+          "image": "images/entitas-s4-11.jpg",
+          "camera": "push_in",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
         },
         {
-          "atFrame": 2286,
-          "image": "images/peralatan-ukur.jpg",
-          "camera": "handheld",
+          "atFrame": 1958,
+          "image": "images/protagonis-belakang.jpg",
+          "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
+        },
+        {
+          "atFrame": 2109,
+          "image": "images/beringin.jpg",
+          "camera": "static",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "atFrame": 2286,
+          "image": "images/peralatan-ukur.jpg",
+          "camera": "handheld",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
         }
       ],
       "subtitles": [
@@ -1175,112 +1015,80 @@
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 76,
-          "image": "images/s5-02.jpg",
+          "atFrame": 131,
+          "image": "images/layar-alat.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
-        },
-        {
-          "atFrame": 131,
-          "image": "images/layar-alat.jpg",
-          "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 238,
-          "image": "images/s5-04.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
         },
         {
           "atFrame": 321,
           "image": "images/patok.jpg",
           "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 374,
-          "image": "images/peralatan-ukur.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 537,
-          "image": "images/s5-07.jpg",
-          "camera": "push_in",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
+        },
+        {
+          "atFrame": 537,
+          "image": "images/s5-04.jpg",
+          "camera": "push_in",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
         },
         {
           "atFrame": 633,
           "image": "images/makam.jpg",
           "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
-          "atFrame": 685,
-          "image": "images/beringin.jpg",
-          "camera": "handheld",
           "scale": 1.06,
           "offsetX": 0,
           "offsetY": 0
         },
         {
-          "atFrame": 875,
-          "image": "images/patok.jpg",
-          "camera": "static",
+          "atFrame": 685,
+          "image": "images/beringin.jpg",
+          "camera": "handheld",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 944,
-          "image": "images/s5-11.jpg",
+          "atFrame": 875,
+          "image": "images/patok.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
         },
         {
-          "atFrame": 1132,
-          "image": "images/s5-12.jpg",
+          "atFrame": 944,
+          "image": "images/s5-08.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
         },
         {
-          "atFrame": 1213,
-          "image": "images/buku-c.jpg",
+          "atFrame": 1132,
+          "image": "images/s5-09.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
           "offsetY": 0
         },
         {
-          "atFrame": 1390,
-          "image": "images/s5-14.jpg",
+          "atFrame": 1213,
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 1446,
-          "image": "images/s5-15.jpg",
+          "atFrame": 1390,
+          "image": "images/s5-11.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
@@ -1296,7 +1104,7 @@
         },
         {
           "atFrame": 1635,
-          "image": "images/entitas-s5-17.jpg",
+          "image": "images/entitas-s5-13.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
@@ -1304,27 +1112,19 @@
         },
         {
           "atFrame": 1771,
-          "image": "images/s5-18.jpg",
+          "image": "images/s5-14.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 1892,
-          "image": "images/s5-19.jpg",
+          "atFrame": 1959,
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
-        },
-        {
-          "atFrame": 1959,
-          "image": "images/beringin.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
         }
       ],
       "subtitles": [
@@ -1499,56 +1299,24 @@
           "offsetY": 25
         },
         {
-          "atFrame": 401,
-          "image": "images/buku-c.jpg",
+          "atFrame": 580,
+          "image": "images/s6-04.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
-        },
-        {
-          "atFrame": 484,
-          "image": "images/buku-c.jpg",
-          "camera": "push_in",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 580,
-          "image": "images/s6-06.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
         },
         {
           "atFrame": 713,
           "image": "images/pak-darto.jpg",
           "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 850,
-          "image": "images/s6-08.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
-          "atFrame": 932,
-          "image": "images/s6-09.jpg",
-          "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
           "offsetY": 0
         },
         {
-          "atFrame": 999,
-          "image": "images/buku-c.jpg",
+          "atFrame": 932,
+          "image": "images/s6-06.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
@@ -1587,7 +1355,39 @@
           "offsetY": -20
         },
         {
-          "atFrame": 1569,
+          "atFrame": 1678,
+          "image": "images/surat-ukur-2004.jpg",
+          "camera": "static",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        },
+        {
+          "atFrame": 1812,
+          "image": "images/protagonis-belakang.jpg",
+          "camera": "static",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 2017,
+          "image": "images/s6-13.jpg",
+          "camera": "static",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "atFrame": 2193,
+          "image": "images/buku-c.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 2302,
           "image": "images/s6-15.jpg",
           "camera": "static",
           "scale": 1.1,
@@ -1595,76 +1395,20 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1678,
-          "image": "images/surat-ukur-2004.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
-          "atFrame": 1812,
-          "image": "images/protagonis-belakang.jpg",
-          "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 1948,
-          "image": "images/s6-18.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 2017,
-          "image": "images/s6-19.jpg",
-          "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 2193,
-          "image": "images/buku-c.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
-          "atFrame": 2302,
-          "image": "images/s6-21.jpg",
-          "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
           "atFrame": 2437,
           "image": "images/buku-c.jpg",
           "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 2520,
-          "image": "images/s6-23.jpg",
-          "camera": "static",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 2614,
-          "image": "images/s6-24.jpg",
-          "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
+        },
+        {
+          "atFrame": 2614,
+          "image": "images/s6-17.jpg",
+          "camera": "static",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
         }
       ],
       "subtitles": [
@@ -1852,88 +1596,56 @@
       "narrationAudio": "audio/narration/scene-07.mp3",
       "cuts": [
         {
-          "atFrame": 117,
-          "image": "images/s7-02.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
           "atFrame": 241,
           "image": "images/beringin.jpg",
           "camera": "push_in",
-          "scale": 1.1,
-          "offsetX": -30,
-          "offsetY": 25
-        },
-        {
-          "atFrame": 282,
-          "image": "images/mang-karta.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
         },
         {
           "atFrame": 390,
           "image": "images/makam.jpg",
           "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
-        },
-        {
-          "atFrame": 486,
-          "image": "images/s7-06.jpg",
-          "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
-        },
-        {
-          "atFrame": 555,
-          "image": "images/buku-c.jpg",
-          "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
         },
         {
-          "atFrame": 637,
-          "image": "images/beringin.jpg",
+          "atFrame": 486,
+          "image": "images/s7-04.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
         },
         {
-          "atFrame": 746,
-          "image": "images/patok.jpg",
+          "atFrame": 555,
+          "image": "images/buku-c.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
           "offsetY": 0
         },
         {
-          "atFrame": 935,
-          "image": "images/berita-acara.jpg",
+          "atFrame": 637,
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 1031,
-          "image": "images/s7-11.jpg",
+          "atFrame": 746,
+          "image": "images/patok.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
         },
         {
-          "atFrame": 1086,
-          "image": "images/mang-karta.jpg",
+          "atFrame": 935,
+          "image": "images/berita-acara.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
@@ -1964,52 +1676,36 @@
           "offsetY": 25
         },
         {
-          "atFrame": 1578,
-          "image": "images/kamling.jpg",
+          "atFrame": 1674,
+          "image": "images/beringin.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
         },
         {
-          "atFrame": 1674,
-          "image": "images/beringin.jpg",
+          "atFrame": 1823,
+          "image": "images/pak-hadi.jpg",
           "camera": "static",
           "scale": 1.06,
           "offsetX": 0,
           "offsetY": 0
         },
         {
-          "atFrame": 1823,
-          "image": "images/pak-hadi.jpg",
+          "atFrame": 2041,
+          "image": "images/s7-14.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 2041,
-          "image": "images/s7-19.jpg",
+          "atFrame": 2178,
+          "image": "images/kamling.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
-        },
-        {
-          "atFrame": 2109,
-          "image": "images/kamling.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
-        },
-        {
-          "atFrame": 2178,
-          "image": "images/kamling.jpg",
-          "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
         }
       ],
       "subtitles": [
@@ -2163,63 +1859,63 @@
       "narrationAudio": "audio/narration/scene-08.mp3",
       "cuts": [
         {
-          "atFrame": 89,
-          "image": "images/peralatan-ukur.jpg",
+          "atFrame": 172,
+          "image": "images/entitas-s8-02.jpg",
           "camera": "static",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 172,
-          "image": "images/entitas-s8-03.jpg",
+          "atFrame": 360,
+          "image": "images/s8-03.jpg",
           "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
-        },
-        {
-          "atFrame": 360,
-          "image": "images/s8-04.jpg",
-          "camera": "static",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
         },
         {
           "atFrame": 550,
           "image": "images/berita-acara.jpg",
           "camera": "static",
-          "scale": 1.06,
-          "offsetX": 0,
-          "offsetY": 0
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
         },
         {
           "atFrame": 752,
           "image": "images/berita-acara.jpg",
           "camera": "static",
-          "scale": 1.18,
-          "offsetX": 40,
-          "offsetY": -20
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
         },
         {
           "atFrame": 834,
           "image": "images/pak-hadi.jpg",
           "camera": "handheld",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 1065,
+          "image": "images/s8-07.jpg",
+          "camera": "static",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
         },
         {
-          "atFrame": 1065,
-          "image": "images/s8-08.jpg",
+          "atFrame": 1146,
+          "image": "images/bu-sri.jpg",
           "camera": "static",
           "scale": 1.24,
           "offsetX": 20,
           "offsetY": -10
         },
         {
-          "atFrame": 1146,
+          "atFrame": 1376,
           "image": "images/bu-sri.jpg",
           "camera": "static",
           "scale": 1.06,
@@ -2227,28 +1923,20 @@
           "offsetY": 0
         },
         {
-          "atFrame": 1376,
-          "image": "images/bu-sri.jpg",
-          "camera": "static",
+          "atFrame": 1538,
+          "image": "images/makam.jpg",
+          "camera": "push_in",
           "scale": 1.18,
           "offsetX": 40,
           "offsetY": -20
         },
         {
-          "atFrame": 1538,
-          "image": "images/makam.jpg",
+          "atFrame": 1634,
+          "image": "images/patok.jpg",
           "camera": "push_in",
           "scale": 1.1,
           "offsetX": -30,
           "offsetY": 25
-        },
-        {
-          "atFrame": 1634,
-          "image": "images/patok.jpg",
-          "camera": "push_in",
-          "scale": 1.24,
-          "offsetX": 20,
-          "offsetY": -10
         }
       ],
       "subtitles": [

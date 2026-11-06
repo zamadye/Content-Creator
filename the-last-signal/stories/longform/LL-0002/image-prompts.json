@@ -2,57 +2,29 @@
   {
     "berkas": "images/buku-c.jpg",
     "segmen": "S1",
-    "jumlah_shot": 13,
+    "jumlah_shot": 9,
     "prioritas": true,
     "referensi": null,
     "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, buku catatan, tiga baris nama dengan tanggal berbeda, tinta berbeda, no people facing the camera, no visible faces, lighting: morning_sun_low_4200k, bright daylight, the scene must read as ordinary daytime work",
     "pemicu": [
       "Tiga juru ukur sebelum saya",
       "Letter C nomor dua dua satu",
-      "Tiga juru ukur sebelumnya mengukur bidang yang sama",
-      "Dua sudah pindah kota"
+      "Dua sudah pindah kota",
+      "juru ukur yang dulu terakhir"
     ]
   },
   {
     "berkas": "images/surat-ukur-2004.jpg",
     "segmen": "S1",
-    "jumlah_shot": 9,
+    "jumlah_shot": 8,
     "prioritas": true,
     "referensi": null,
     "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, layar hitam, teks besar KURANG 12 M² di tengah, tidak ada gambar lain, no people facing the camera, no visible faces, lighting: morning_sun_low_4200k, bright daylight, the scene must read as ordinary daytime work",
     "pemicu": [
       "Kurang dua belas meter",
-      "Itu selisih antara angka di kertas",
       "Dan satu surat ukur lama",
-      "kertasnya sudah seperti kulit bawang"
-    ]
-  },
-  {
-    "berkas": "images/mang-karta.jpg",
-    "segmen": "S3",
-    "jumlah_shot": 8,
-    "prioritas": true,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, pria tua bertopi jerami duduk di galengan, sawah di latar, siang, no people facing the camera, no visible faces, lighting: high_sun_hard_shadow_5200k",
-    "pemicu": [
-      "Mang Karta menggarap sawah itu",
-      "Anak Slamet, ya",
-      "Dia mengangguk pelan",
-      "pulangnya nanya-nanya"
-    ]
-  },
-  {
-    "berkas": "images/protagonis-belakang.jpg",
-    "segmen": "S1",
-    "jumlah_shot": 7,
-    "prioritas": true,
-    "referensi": "assets/characters/protagonis-punggung.png",
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, sawah luas, pematang, pria berjaket hijau gelap berdiri membelakangi kamera, tas kanvas abu-abu, young Indonesian man, late twenties, seen from behind only, worn dark green coach jacket over a plain black t-shirt, dark jeans, cheap rubber sandals, grey canvas backpack on one shoulder, shoulder-length black hair tied loosely, right hand holding an old phone with the flashlight on, face never visible, no face visible, no smiling, no studio lighting, no text, no watermark, lighting: morning_sun_low_4200k, bright daylight, the scene must read as ordinary daytime work",
-    "pemicu": [
-      "Nama saya Ilham",
-      "Upah saya empat ratus ribu",
-      "Saya sampai pukul sembilan pagi",
-      "Saya angkat ponsel dan memperbesar gambar"
+      "kertasnya sudah seperti kulit bawang",
+      "Saya minta surat ukur lama yang saya bawa"
     ]
   },
   {
@@ -67,6 +39,33 @@
       "Titik acuan saya ambil dari patok beton",
       "titik awal berbeda",
       "masih di lubangnya, masih tegak"
+    ]
+  },
+  {
+    "berkas": "images/protagonis-belakang.jpg",
+    "segmen": "S1",
+    "jumlah_shot": 6,
+    "prioritas": true,
+    "referensi": "assets/characters/protagonis-punggung.png",
+    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, empat lembar uang seratus ribu di telapak tangan, lengan jaket hijau, young Indonesian man, late twenties, seen from behind only, worn dark green coach jacket over a plain black t-shirt, dark jeans, cheap rubber sandals, grey canvas backpack on one shoulder, shoulder-length black hair tied loosely, right hand holding an old phone with the flashlight on, face never visible, no face visible, no smiling, no studio lighting, no text, no watermark, lighting: morning_sun_low_4200k, bright daylight, the scene must read as ordinary daytime work",
+    "pemicu": [
+      "Upah saya empat ratus ribu",
+      "Saya sampai pukul sembilan pagi",
+      "Saya angkat ponsel dan memperbesar gambar",
+      "Di kantor desa saya minta Buku C"
+    ]
+  },
+  {
+    "berkas": "images/mang-karta.jpg",
+    "segmen": "S3",
+    "jumlah_shot": 3,
+    "prioritas": true,
+    "referensi": null,
+    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, pria tua bertopi jerami duduk di galengan, sawah di latar, siang, no people facing the camera, no visible faces, lighting: high_sun_hard_shadow_5200k",
+    "pemicu": [
+      "Mang Karta menggarap sawah itu",
+      "Bukan saya yang mindahin patoknya",
+      "Dia menyebut satu nama"
     ]
   },
   {
@@ -96,7 +95,7 @@
     ]
   },
   {
-    "berkas": "images/entitas-s4-17.jpg",
+    "berkas": "images/entitas-s4-11.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": true,
@@ -107,7 +106,7 @@
     ]
   },
   {
-    "berkas": "images/entitas-s5-17.jpg",
+    "berkas": "images/entitas-s5-13.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": true,
@@ -129,7 +128,7 @@
     ]
   },
   {
-    "berkas": "images/entitas-s8-03.jpg",
+    "berkas": "images/entitas-s8-02.jpg",
     "segmen": "S8",
     "jumlah_shot": 1,
     "prioritas": true,
@@ -142,7 +141,7 @@
   {
     "berkas": "images/beringin.jpg",
     "segmen": "S2",
-    "jumlah_shot": 14,
+    "jumlah_shot": 13,
     "prioritas": false,
     "referensi": null,
     "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, pohon beringin besar di pojok sawah, akar menggantung, bayangan lebar, no people facing the camera, no visible faces, lighting: harsh_midday_sun_5600k, bright daylight, the scene must read as ordinary daytime work",
@@ -150,63 +149,62 @@
       "Di pojok utara ada pohon beringin",
       "tanahnya lebih tinggi dari sekitarnya",
       "Dia menunjuk pojok beringin",
-      "Di situ bukan sawah"
-    ]
-  },
-  {
-    "berkas": "images/peralatan-ukur.jpg",
-    "segmen": "S1",
-    "jumlah_shot": 8,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, tripod tua berdebu tersandar di dinding rumah, sarung alat tergantung, no people facing the camera, no visible faces, lighting: morning_sun_low_4200k, bright daylight, the scene must read as ordinary daytime work",
-    "pemicu": [
-      "Yang terakhir berhenti jadi juru ukur",
-      "Dia ayah saya",
-      "Bawa alat dua",
-      "kalau satu rewel"
+      "ke bawah beringin"
     ]
   },
   {
     "berkas": "images/layar-alat.jpg",
     "segmen": "S1",
-    "jumlah_shot": 7,
+    "jumlah_shot": 5,
     "prioritas": false,
     "referensi": null,
     "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, layar alat ukur menampilkan 1.228, angka tajam, latar sawah blur, no people facing the camera, no visible faces, lighting: morning_sun_low_4200k, bright daylight, the scene must read as ordinary daytime work",
     "pemicu": [
       "Hasil pengukuran saya",
-      "Bidikan pertama, kedua, ketiga",
       "Di patok keempat, alat mati",
-      "Baterainya saya cek: penuh"
+      "tetap hitam",
+      "Pukul tiga saya menutup bidikan"
+    ]
+  },
+  {
+    "berkas": "images/peralatan-ukur.jpg",
+    "segmen": "S1",
+    "jumlah_shot": 4,
+    "prioritas": false,
+    "referensi": null,
+    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, foto lama: pria memegang tripod di sawah, dari belakang, wajah tidak terlihat, foto pudar, no people facing the camera, no visible faces, lighting: morning_sun_low_4200k, bright daylight, the scene must read as ordinary daytime work",
+    "pemicu": [
+      "Dia ayah saya",
+      "kalau satu rewel",
+      "Pukul sepuluh saya mendirikan alat",
+      "menyelesaikan pekerjaan saya lebih cepat"
     ]
   },
   {
     "berkas": "images/pak-hadi.jpg",
     "segmen": "S2",
-    "jumlah_shot": 5,
+    "jumlah_shot": 4,
     "prioritas": false,
     "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, pria tua berpeci memegang map plastik, hanya dari dada ke bawah dan tangan yang terlihat, no people facing the camera, no visible faces, lighting: harsh_midday_sun_5600k, bright daylight, the scene must read as ordinary daytime work",
+    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, Pak Hadi berdiri di tepi sawah memegang map, dari belakang, jaket lusuh, topi, no people facing the camera, no visible faces, lighting: harsh_midday_sun_5600k, bright daylight, the scene must read as ordinary daytime work",
     "pemicu": [
-      "Diukur ulang saja",
       "Pak Hadi menunggu sambil memegang map plastik",
       "harus selesai hari ini",
-      "Dia tahu persis"
+      "Dia tahu persis",
+      "Pak Hadi marah"
     ]
   },
   {
     "berkas": "images/kamling.jpg",
     "segmen": "S2",
-    "jumlah_shot": 5,
+    "jumlah_shot": 3,
     "prioritas": false,
     "referensi": null,
     "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, pos kamling kayu di tepi sawah, bendera pudar, bangku panjang kosong, no people facing the camera, no visible faces, lighting: harsh_midday_sun_5600k, bright daylight, the scene must read as ordinary daytime work",
     "pemicu": [
       "di belakang pos kamling",
       "Mang Karta bicara malam itu",
-      "membuat saya tidak bisa tidur",
-      "Saya duduk di situ"
+      "lampu kamling hidup sendiri"
     ]
   },
   {
@@ -223,18 +221,6 @@
     ]
   },
   {
-    "berkas": "images/sppt.jpg",
-    "segmen": "S2",
-    "jumlah_shot": 2,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, SPPT PBB, stempel bank dan tulisan lunas, kertas tipis, latar tas kanvas, no people facing the camera, no visible faces, lighting: harsh_midday_sun_5600k, bright daylight, the scene must read as ordinary daytime work",
-    "pemicu": [
-      "SPPT PBB tahun ini, lunas",
-      "stempel bank di pojok"
-    ]
-  },
-  {
     "berkas": "images/pak-darto.jpg",
     "segmen": "S6",
     "jumlah_shot": 2,
@@ -247,7 +233,7 @@
     ]
   },
   {
-    "berkas": "images/s1-07.jpg",
+    "berkas": "images/s1-04.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -258,7 +244,7 @@
     ]
   },
   {
-    "berkas": "images/s1-09.jpg",
+    "berkas": "images/s1-06.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -269,7 +255,7 @@
     ]
   },
   {
-    "berkas": "images/s1-11.jpg",
+    "berkas": "images/s1-08.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -280,7 +266,7 @@
     ]
   },
   {
-    "berkas": "images/s1-12.jpg",
+    "berkas": "images/s1-09.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -291,7 +277,7 @@
     ]
   },
   {
-    "berkas": "images/s1-17.jpg",
+    "berkas": "images/s1-13.jpg",
     "segmen": "S1",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -324,7 +310,7 @@
     ]
   },
   {
-    "berkas": "images/s2-04.jpg",
+    "berkas": "images/s2-03.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -335,7 +321,7 @@
     ]
   },
   {
-    "berkas": "images/s2-05.jpg",
+    "berkas": "images/s2-04.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -346,7 +332,7 @@
     ]
   },
   {
-    "berkas": "images/s2-06.jpg",
+    "berkas": "images/s2-05.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -357,18 +343,7 @@
     ]
   },
   {
-    "berkas": "images/s2-09.jpg",
-    "segmen": "S2",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, kaki bersandal karet berjalan di pematang selebar telapak kaki, tanah kering pecah, no people facing the camera, no visible faces, lighting: harsh_midday_sun_5600k, bright daylight, the scene must read as ordinary daytime work",
-    "pemicu": [
-      "Pematangnya sempit"
-    ]
-  },
-  {
-    "berkas": "images/s2-14.jpg",
+    "berkas": "images/s2-12.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -379,14 +354,14 @@
     ]
   },
   {
-    "berkas": "images/s2-15.jpg",
+    "berkas": "images/sppt.jpg",
     "segmen": "S2",
     "jumlah_shot": 1,
     "prioritas": false,
     "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, fotokopi letter C diletakkan di atas tas, bayangan tangan melintas, no people facing the camera, no visible faces, lighting: harsh_midday_sun_5600k, bright daylight, the scene must read as ordinary daytime work",
+    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, stempel bank dan tulisan lunas di SPPT, tinta biru pudar, no people facing the camera, no visible faces, lighting: harsh_midday_sun_5600k, bright daylight, the scene must read as ordinary daytime work",
     "pemicu": [
-      "Fotokopi letter C"
+      "stempel bank di pojok"
     ]
   },
   {
@@ -401,7 +376,7 @@
     ]
   },
   {
-    "berkas": "images/s3-08.jpg",
+    "berkas": "images/s3-04.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -412,18 +387,7 @@
     ]
   },
   {
-    "berkas": "images/s3-09.jpg",
-    "segmen": "S3",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, gunting diam di udara, tembakau terlepas dan jatuh ke tanah, no people facing the camera, no visible faces, lighting: high_sun_hard_shadow_5200k",
-    "pemicu": [
-      "Tangannya berhenti memotong"
-    ]
-  },
-  {
-    "berkas": "images/s3-11.jpg",
+    "berkas": "images/s3-06.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -434,7 +398,7 @@
     ]
   },
   {
-    "berkas": "images/s3-13.jpg",
+    "berkas": "images/s3-07.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -445,7 +409,7 @@
     ]
   },
   {
-    "berkas": "images/s3-14.jpg",
+    "berkas": "images/s3-08.jpg",
     "segmen": "S3",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -456,29 +420,7 @@
     ]
   },
   {
-    "berkas": "images/s4-02.jpg",
-    "segmen": "S4",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, gelembung nivo bulat tepat di tengah lingkaran, tangan memutar sekrup, no people facing the camera, no visible faces, lighting: heat_haze_late_afternoon_4800k",
-    "pemicu": [
-      "gelembung udaranya tepat di tengah"
-    ]
-  },
-  {
-    "berkas": "images/s4-04.jpg",
-    "segmen": "S4",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, langit putih panas, sawah berkilau, tidak ada bayangan orang, no people facing the camera, no visible faces, lighting: heat_haze_late_afternoon_4800k",
-    "pemicu": [
-      "Terik"
-    ]
-  },
-  {
-    "berkas": "images/s4-05.jpg",
+    "berkas": "images/s4-03.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -489,29 +431,7 @@
     ]
   },
   {
-    "berkas": "images/s4-07.jpg",
-    "segmen": "S4",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, catatan tangan: 0,2 cm, 0,1 cm, 0,2 cm, tanda centang, no people facing the camera, no visible faces, lighting: heat_haze_late_afternoon_4800k",
-    "pemicu": [
-      "Selisih bacaan paling besar dua sentimeter"
-    ]
-  },
-  {
-    "berkas": "images/s4-10.jpg",
-    "segmen": "S4",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, baterai ditukar, tutup dibuka, plastik hitam, tangan cepat, no people facing the camera, no visible faces, lighting: heat_haze_late_afternoon_4800k",
-    "pemicu": [
-      "Saya ganti dengan baterai cadangan"
-    ]
-  },
-  {
-    "berkas": "images/s4-14.jpg",
+    "berkas": "images/s4-08.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -522,7 +442,7 @@
     ]
   },
   {
-    "berkas": "images/s4-15.jpg",
+    "berkas": "images/s4-09.jpg",
     "segmen": "S4",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -533,29 +453,7 @@
     ]
   },
   {
-    "berkas": "images/s5-02.jpg",
-    "segmen": "S5",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, jari menekan tombol hitung, kursor berputar di layar, no people facing the camera, no visible faces, lighting: golden_then_phone_led_night",
-    "pemicu": [
-      "Alat menghitung luas sendiri"
-    ]
-  },
-  {
     "berkas": "images/s5-04.jpg",
-    "segmen": "S5",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, alat didirikan dari sisi berlawanan, bayangan panjang ke timur, no people facing the camera, no visible faces, lighting: golden_then_phone_led_night",
-    "pemicu": [
-      "Saya ukur ulang dari arah selatan"
-    ]
-  },
-  {
-    "berkas": "images/s5-07.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -566,7 +464,7 @@
     ]
   },
   {
-    "berkas": "images/s5-11.jpg",
+    "berkas": "images/s5-08.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -577,7 +475,7 @@
     ]
   },
   {
-    "berkas": "images/s5-12.jpg",
+    "berkas": "images/s5-09.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -588,7 +486,7 @@
     ]
   },
   {
-    "berkas": "images/s5-14.jpg",
+    "berkas": "images/s5-11.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -599,18 +497,7 @@
     ]
   },
   {
-    "berkas": "images/s5-15.jpg",
-    "segmen": "S5",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, balasan masuk satu kalimat, wajah tidak terlihat, hanya layar dan jempol, no people facing the camera, no visible faces, lighting: golden_then_phone_led_night",
-    "pemicu": [
-      "Biar dia yang pindah sendiri"
-    ]
-  },
-  {
-    "berkas": "images/s5-18.jpg",
+    "berkas": "images/s5-14.jpg",
     "segmen": "S5",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -618,17 +505,6 @@
     "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, tanah dipadatkan rapi di sekeliling patok, sidik jari terlihat di permukaan tanah, no people facing the camera, no visible faces, lighting: golden_then_phone_led_night",
     "pemicu": [
       "ditanam rapi"
-    ]
-  },
-  {
-    "berkas": "images/s5-19.jpg",
-    "segmen": "S5",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, tangan menyentuh tanah lembap di sekitar patok, jari mengangkat tanah, no people facing the camera, no visible faces, lighting: golden_then_phone_led_night",
-    "pemicu": [
-      "Saya tidak menanamnya di situ"
     ]
   },
   {
@@ -643,7 +519,7 @@
     ]
   },
   {
-    "berkas": "images/s6-06.jpg",
+    "berkas": "images/s6-04.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -654,18 +530,7 @@
     ]
   },
   {
-    "berkas": "images/s6-08.jpg",
-    "segmen": "S6",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, kolom tanda tangan dengan nama camat dan cap pudar, jari menunjuk, no people facing the camera, no visible faces, lighting: flat_white_neon_6000k",
-    "pemicu": [
-      "Yang tanda tangan camat, bukan saya"
-    ]
-  },
-  {
-    "berkas": "images/s6-09.jpg",
+    "berkas": "images/s6-06.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -676,29 +541,7 @@
     ]
   },
   {
-    "berkas": "images/s6-15.jpg",
-    "segmen": "S6",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, huruf koreksi tangan di pinggir kertas, tinta pudar, serat kertas terlihat, no people facing the camera, no visible faces, lighting: flat_white_neon_6000k",
-    "pemicu": [
-      "bentuk huruf koreksinya"
-    ]
-  },
-  {
-    "berkas": "images/s6-18.jpg",
-    "segmen": "S6",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, papan pengumuman desa, kertas pengumuman lapuk, neon putih di atasnya, no people facing the camera, no visible faces, lighting: flat_white_neon_6000k",
-    "pemicu": [
-      "enam puluh hari, sesuai aturan"
-    ]
-  },
-  {
-    "berkas": "images/s6-19.jpg",
+    "berkas": "images/s6-13.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -709,7 +552,7 @@
     ]
   },
   {
-    "berkas": "images/s6-21.jpg",
+    "berkas": "images/s6-15.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -720,18 +563,7 @@
     ]
   },
   {
-    "berkas": "images/s6-23.jpg",
-    "segmen": "S6",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, kalimat tulisan tangan: pengukuran tidak boleh menambah dan tidak boleh mengurangi, no people facing the camera, no visible faces, lighting: flat_white_neon_6000k",
-    "pemicu": [
-      "tidak boleh menambah"
-    ]
-  },
-  {
-    "berkas": "images/s6-24.jpg",
+    "berkas": "images/s6-17.jpg",
     "segmen": "S6",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -742,18 +574,7 @@
     ]
   },
   {
-    "berkas": "images/s7-02.jpg",
-    "segmen": "S7",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, dua gelas teh di bangku kayu, uap naik, lampu kuning dari atas, no people facing the camera, no visible faces, lighting: single_warm_practical_night_2800k",
-    "pemicu": [
-      "setelah saya belikan teh"
-    ]
-  },
-  {
-    "berkas": "images/s7-06.jpg",
+    "berkas": "images/s7-04.jpg",
     "segmen": "S7",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -764,18 +585,7 @@
     ]
   },
   {
-    "berkas": "images/s7-11.jpg",
-    "segmen": "S7",
-    "jumlah_shot": 1,
-    "prioritas": false,
-    "referensi": null,
-    "prompt": "cinematic 16:9 film still, Indonesian rural setting, natural light only, 35mm film grain, muted earthy palette, documentary realism, no text, no watermark, no captions, uang kertas di atas meja kayu, tangan tua menutupinya, no people facing the camera, no visible faces, lighting: single_warm_practical_night_2800k",
-    "pemicu": [
-      "Dia dibayar satu juta"
-    ]
-  },
-  {
-    "berkas": "images/s7-19.jpg",
+    "berkas": "images/s7-14.jpg",
     "segmen": "S7",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -786,7 +596,7 @@
     ]
   },
   {
-    "berkas": "images/s8-04.jpg",
+    "berkas": "images/s8-03.jpg",
     "segmen": "S8",
     "jumlah_shot": 1,
     "prioritas": false,
@@ -797,7 +607,7 @@
     ]
   },
   {
-    "berkas": "images/s8-08.jpg",
+    "berkas": "images/s8-07.jpg",
     "segmen": "S8",
     "jumlah_shot": 1,
     "prioritas": false,

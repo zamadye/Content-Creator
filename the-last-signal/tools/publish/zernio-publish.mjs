@@ -98,8 +98,15 @@ if (wantsYoutube && (!yt.title || String(yt.title).length > 100)) {
   die(2, 'Judul YouTube wajib ada dan ≤ 100 karakter.');
 }
 if (!yt.description || String(yt.description).length < 40) die(2, 'Deskripsi wajib ada (≥ 40 karakter).');
-if (!String(yt.description).toLowerCase().includes('fiksi')) {
-  warn('Deskripsi tidak memuat kata "fiksi" — pengungkapan konten sintetis sebaiknya eksplisit.');
+// Arahan pemilik kanal 2026-11-06: label "ARSIP FIKSI" dan kalimat pengungkapan
+// sejenis dilarang di judul, deskripsi, maupun komentar. Kewajiban pengungkapan
+// konten sintetis dipenuhi lewat flag unggahan (containsSyntheticMedia di
+// YouTube, isAiGenerated di Meta), bukan lewat kalimat yang dibaca penonton.
+if (/arsip fiksi|dibuat dengan bantuan ai|adalah fiksi/i.test(`${yt.title} ${yt.description}`)) {
+  die(2, 'Judul/deskripsi memuat label arsip atau kalimat pengungkapan — dilarang sejak 2026-11-06.');
+}
+if (!request.youtube?.containsSyntheticMedia) {
+  warn('containsSyntheticMedia tidak aktif — nyalakan agar YouTube menandai konten sintetis.');
 }
 
 // ---------------------------------------------------------------------------

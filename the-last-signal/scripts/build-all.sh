@@ -27,9 +27,47 @@ while [ $# -gt 0 ]; do
 done
 
 STORY="stories/longform/$EPISODE"
-if [ ! -d "$STORY" ]; then
-  echo "✖ folder naskah $STORY tidak ada" >&2
+SHORT="stories/shorts/$EPISODE"
+
+# Short dan video panjang punya rantai berbeda, dan bedanya bukan kosmetik:
+# Short dibangun dari stories/slate.json (satu sumber), lalu durasinya
+# ditetapkan audio terukur. Rantai panjang butuh make-longform-plan yang
+# menurunkan plan.json dari naskah.md — Short tidak punya naskah.md sebagai
+# masukan, naskah.md-nya justru hasil (scripts/make-story-files.mjs).
+if [ ! -d "$STORY" ] && [ ! -d "$SHORT" ]; then
+  echo "✖ folder naskah $STORY atau $SHORT tidak ada" >&2
   exit 1
+fi
+
+if [ -d "$SHORT" ]; then
+  echo "== 1/6 slate.json -> episode.json (durasi taksiran)"
+  node scripts/build-episode.mjs --story "$EPISODE" | tail -3
+
+  echo "== 2/6 durasi dari audio terukur"
+  npx tsx scripts/align-narration.ts --episode "$EPISODE" | tail -4
+
+  # align-cuts dilewati untuk Short, dan itu bukan kelalaian: skrip itu
+  # memindahkan potongan ke posisi kata pemicu dari daftar shot di plan.json
+  # longform. Short hanya punya satu narasi per scene dan tiga potongan yang
+  # sudah ditempatkan build-episode.mjs di 28/56/82% scene — tepat di dalam
+  # kalimat, jadi tidak ada kata pemicu yang perlu dikejar.
+  echo "== 3/6 potongan: dibagi build-episode.mjs (28/56/82% per scene)"
+
+  echo "== 4/6 skor"
+  if [ -n "$CLIMAX" ]; then
+    node scripts/make-score.mjs --episode "$EPISODE" --climax "$CLIMAX" | head -2
+  else
+    node scripts/make-score.mjs --episode "$EPISODE" | head -2
+  fi
+
+  echo "== 5/6 ambience + overlay + thumbnail"
+  node scripts/make-ambience.mjs --episode "$EPISODE"
+  node scripts/make-overlays.mjs --episode "$EPISODE" >/dev/null
+  node scripts/make-thumb-frame.mjs --episode "$EPISODE"
+
+  echo "== 6/6 validasi"
+  npx tsx scripts/validate-episode.ts --episode "$EPISODE" | tail -14
+  exit 0
 fi
 
 echo "== 1/6 naskah + peta visual -> plan.json"

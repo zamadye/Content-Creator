@@ -2,7 +2,11 @@ import React from "react";
 import { Composition } from "remotion";
 import { ParsedEpisodeSchema, totalFrames } from "@the-last-signal/contracts";
 import type { ParsedEpisode } from "@the-last-signal/contracts";
-import sampleEpisodeJson from "../../../projects/episodes/LS-0001/episode.json";
+// Fixture, BUKAN episode tertentu: dulu berkas ini mengimpor
+// projects/episodes/LS-0001/episode.json, sehingga render episode apa pun gagal
+// begitu LS-0001 diarsipkan. Nilai di sini hanya default — render selalu
+// mengirim episode sebenarnya lewat inputProps + calculateMetadata.
+import sampleEpisodeJson from "./fixture-episode.json";
 import { HorrorShort } from "./compositions/HorrorShort";
 
 const sampleEpisode = sampleEpisodeJson as unknown as ParsedEpisode;

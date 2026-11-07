@@ -50,3 +50,22 @@ keputusan teknis kecil.
 
 **Yang tidak boleh terjadi:** render 17.948 frame selesai, lalu encode gagal
 karena 45 MB, dan tidak ada waktu mengulang sebelum jadwal 13.00 WIB.
+
+---
+
+## Kenapa render pindah ke GitHub Actions (6 Nov 2026)
+
+Sandbox kerja **tidak bisa meluncurkan Chromium**: `ldd /tmp/chromium` melaporkan
+`libnss3.so`, `libnssutil3.so`, `libnspr4.so` tidak ditemukan, dan `apt` terkunci
+tanpa root. Remotion tidak punya jalur render tanpa browser, jadi render 17.965
+frame tidak mungkin dikerjakan di sini — bukan soal waktu, soal pustaka sistem.
+
+Jalurnya sekarang `.github/workflows/render.yml` (workflow_dispatch):
+bangun → render `crf 20` → encode `crf 27 / maxrate 520k` → cek < 40 MB → QC →
+artefak + commit `releases/<ID>.mp4`. Runner ubuntu punya semua pustaka dan
+4 core, dan berkas rilis langsung tersedia untuk `zernio-publish.yml`.
+
+Dua ketergantungan lama pada LS-0001 (sudah diarsipkan) ikut dibereskan karena
+memblokir render: `apps/renderer/src/Root.tsx` mengimpor
+`projects/episodes/LS-0001/episode.json`, dan `remotion.config.ts` menunjuk
+folder itu sebagai publicDir.

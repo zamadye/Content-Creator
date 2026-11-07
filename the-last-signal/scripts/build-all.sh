@@ -51,6 +51,7 @@ if [ -n "$CLIMAX" ]; then
 else
   node scripts/make-score.mjs --episode "$EPISODE" | head -2
 fi
+node scripts/make-ambience.mjs --episode "$EPISODE"
 node scripts/make-overlays.mjs --episode "$EPISODE" >/dev/null
 
 echo "== 6/6 validasi"

@@ -1,0 +1,108 @@
+name: Render episode
+
+# Kenapa render dijalankan di runner, bukan di sandbox kerja:
+# sandbox tidak punya `libnss3/libnspr4` dan tidak bisa memasangnya (tanpa root,
+# apt terkunci), jadi Chromium Remotion tidak bisa diluncurkan sama sekali.
+# Runner ubuntu-latest punya semua pustaka itu dan jaringan penuh, dan 10 menit
+# video 1080p lebih aman dirender di mesin 4 core daripada sandbox 2 core.
+
+on:
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: "ID episode (mis. LL-0002)"
+        required: true
+        default: "LL-0002"
+      climax:
+        description: "Detik puncak skor (kosongkan = 90% durasi)"
+        required: false
+        default: "523"
+      commit_release:
+        description: "Commit berkas rilis ke cabang ini (dibutuhkan publikasi)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Pasang pnpm
+        run: npm i -g pnpm@9
+
+      - name: Pasang dependensi
+        working-directory: the-last-signal
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Bangun (naskah -> episode -> alignment -> skor -> ambience)
+        working-directory: the-last-signal
+        env:
+          EPISODE: ${{ inputs.episode }}
+          CLIMAX: ${{ inputs.climax }}
+        run: |
+          if [ -n "$CLIMAX" ]; then
+            bash scripts/build-all.sh "$EPISODE" --climax "$CLIMAX"
+          else
+            bash scripts/build-all.sh "$EPISODE"
+          fi
+
+      - name: Render master
+        working-directory: the-last-signal
+        env:
+          EPISODE: ${{ inputs.episode }}
+        run: npx tsx scripts/render.ts --episode "$EPISODE" --crf 20 --concurrency 4
+
+      - name: Encode delivery (target < 40 MB)
+        working-directory: the-last-signal
+        env:
+          EPISODE: ${{ inputs.episode }}
+        run: |
+          npx tsx scripts/encode-delivery.ts --episode "$EPISODE" \
+            --crf 27 --maxrate 520k --loudness -14 --tp -3
+          ls -la "renders/$EPISODE-delivery.mp4"
+          SIZE=$(stat -c%s "renders/$EPISODE-delivery.mp4")
+          echo "ukuran: $((SIZE/1024/1024)) MB"
+          if [ "$SIZE" -gt 41943040 ]; then
+            echo "::error::berkas > 40 MB, turunkan crf sebelum diunggah"
+            exit 1
+          fi
+
+      - name: QC
+        working-directory: the-last-signal
+        env:
+          EPISODE: ${{ inputs.episode }}
+        run: npx tsx scripts/qc.ts --episode "$EPISODE"
+
+      - name: Simpan artefak (selalu)
+        uses: actions/upload-artifact@v4
+        with:
+          name: delivery-${{ inputs.episode }}
+          path: |
+            the-last-signal/renders/${{ inputs.episode }}.mp4
+            the-last-signal/renders/${{ inputs.episode }}-delivery.mp4
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Commit berkas rilis ke cabang
+        if: ${{ inputs.commit_release }}
+        env:
+          EPISODE: ${{ inputs.episode }}
+        run: |
+          mkdir -p the-last-signal/releases
+          cp "the-last-signal/renders/$EPISODE-delivery.mp4" "the-last-signal/releases/$EPISODE.mp4"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "the-last-signal/releases/$EPISODE.mp4"
+          git commit -m "rilis: $EPISODE ($(du -h "the-last-signal/releases/$EPISODE.mp4" | cut -f1))" || echo "tidak ada perubahan"
+          git push

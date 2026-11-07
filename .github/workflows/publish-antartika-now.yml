@@ -1,0 +1,56 @@
+name: Antartika — secure Buffer publication
+# Dedicated mission, explicit approval only. No public URL or Buffer credential
+# is placed in Git or logs. An encrypted envelope is delivered after the runner
+# publishes an ephemeral public key. Creates are non-idempotent; never retry an
+# uncertain result without reconciling the queue first.
+on:
+  push:
+    branches:
+      - arena/54cb36c6-content-creator
+    paths:
+      - '.github/antartika-now-request.json'
+permissions:
+  contents: read
+  checks: write
+concurrency:
+  group: buffer-publish
+  cancel-in-progress: false
+jobs:
+  run:
+    if: ${{ contains(github.event.head_commit.message, '[approved-antartika-run]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Test local safety rules
+        run: node --test editorial-engine/pipeline/publish-antartika/test-runner.mjs
+      - name: Install pinned Buffer CLI
+        run: npm install --global @bufferapp/cli@2.2.0 --no-audit --no-fund
+      - name: Verify or publish the authorised pilot
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_ORGANIZATION_ID: ${{ secrets.BUFFER_ORGANIZATION_ID }}
+          KNOT_REPORT_PATH: /tmp/knot-antartika-now-report.json
+          NO_COLOR: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${BUFFER_API_KEY:-}" ]; then echo "::add-mask::${BUFFER_API_KEY}"; fi
+          if [ -n "${BUFFER_ORGANIZATION_ID:-}" ]; then echo "::add-mask::${BUFFER_ORGANIZATION_ID}"; fi
+          node editorial-engine/pipeline/publish-antartika/runner.mjs
+      - name: Return encrypted result
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          f=/tmp/knot-antartika-now-report.json
+          if [ -s "$f" ]; then
+            node -e "const r=require('./.github/antartika-now-request.json');require('fs').writeFileSync('/tmp/report-public.pem',Buffer.from(r.owner_public_key_b64,'base64'))"
+            node editorial-engine/pipeline/encrypt-diagnostic.mjs /tmp/report-public.pem < "$f"
+          else
+            echo 'No report exists; the runner step may not have started.'
+          fi

@@ -32,7 +32,10 @@ if (!key) {
   process.exit(2);
 }
 
-const zernio = await loadSdk();
+// Bentuk SDK: kelas yang harus diinstansiasi dengan apiKey (sama seperti
+// zernio-publish.mjs). Memakai modulnya langsung membuat `posts` undefined.
+const Zernio = await loadSdk();
+const zernio = new Zernio({ apiKey: key.value });
 
 let listing;
 try {

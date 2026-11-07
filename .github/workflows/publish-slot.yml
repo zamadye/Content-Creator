@@ -61,7 +61,6 @@ jobs:
       ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
       ZERNIO_YOUTUBE_ACCOUNT_ID: ${{ vars.ZERNIO_YOUTUBE_ACCOUNT_ID }}
       ZERNIO_FACEBOOK_ACCOUNT_ID: ${{ vars.ZERNIO_FACEBOOK_ACCOUNT_ID }}
-      SLOTS: ${{ inputs.slots || '1' }}
       FORCE: ${{ inputs.force }}
 
     steps:
@@ -82,7 +81,33 @@ jobs:
           [ -n "${ZERNIO_KEY:-}" ] && echo "::add-mask::${ZERNIO_KEY}"
           exit 0
 
+      - name: Baca target dari berkas pemicu
+        id: target
+        env:
+          INPUT_SLOTS: ${{ inputs.slots || '1' }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          # Hanya pemicu push yang membaca berkas; cron memakai jadwalnya sendiri
+          # (12:05, satu video) supaya isi berkas pemicu tidak menggeser jadwal.
+          if [ "$EVENT" = "push" ]; then
+            LINE="$(head -1 the-last-signal/.publish-trigger 2>/dev/null || echo "")"
+          else
+            LINE=""
+          fi
+          # Format: "target=13:05 slots=2" (boleh hanya salah satu).
+          TARGET="$(printf '%s' "$LINE" | grep -oE 'target=[0-9]{2}:[0-9]{2}' | cut -d= -f2 || true)"
+          NSLOT="$(printf '%s' "$LINE" | grep -oE 'slots=[0-9]+' | cut -d= -f2 || true)"
+          echo "target=${TARGET:-12:05}" >> "$GITHUB_OUTPUT"
+          # SLOTS dipakai dua langkah berikutnya; $GITHUB_ENV yang benar untuk
+          # nilai lintas-langkah (env tingkat job tidak bisa membaca steps.*).
+          echo "SLOTS=${NSLOT:-${INPUT_SLOTS:-1}}" >> "$GITHUB_ENV"
+          echo "slots=${NSLOT:-1}" >> "$GITHUB_OUTPUT"
+          echo "::notice::target ${TARGET:-12:05} · slot ${NSLOT:-1} (dari: ${LINE:-<kosong>})"
+
       - name: Tunggu jendela tayang
+        env:
+          TARGET: ${{ steps.target.outputs.target }}
         run: |
           set -euo pipefail
           if [ "${FORCE:-false}" = "true" ]; then
@@ -90,15 +115,16 @@ jobs:
             exit 0
           fi
           # Jam lokal kanal, bukan jam runner (runner UTC).
-          now=$(TZ=Asia/Kuching date +%H:%M)
-          target="12:05"
-          echo "::notice::jam lokal sekarang $now, target slot pertama $target"
-          if [ "$(printf '%s\n' "$target" "$now" | sort | head -1)" = "$target" ]; then
-            echo "::notice::masih sebelum jendela — menunggu"
-            while [ "$(TZ=Asia/Kuching date +%H%M)" \< "1205" ]; do
-              sleep 60
-            done
-          fi
+          TARGET_HHMM="$(echo "${TARGET:-12:05}" | tr -d ':')"
+          echo "::notice::jam lokal sekarang $(TZ=Asia/Kuching date '+%H:%M'), target $TARGET"
+          # Loop sampai target; batas 6 jam kerja runner dijaga timeout job.
+          for _ in $(seq 1 350); do
+            NOW="$(TZ=Asia/Kuching date +%H%M)"
+            if [ "$NOW" \> "$TARGET_HHMM" ] || [ "$NOW" = "$TARGET_HHMM" ]; then
+              break
+            fi
+            sleep 60
+          done
           echo "::notice::mulai slot pada $(TZ=Asia/Kuching date '+%H:%M %Z')"
 
       - name: Pasang ffmpeg (gerbang QC)

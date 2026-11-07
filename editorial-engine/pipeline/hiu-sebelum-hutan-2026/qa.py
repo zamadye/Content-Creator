@@ -47,6 +47,11 @@ def sha(f):
 poster_meta=json.loads(subprocess.check_output([str(PROBE),'-v','error','-show_streams','-of','json',str(poster)],text=True))
 checks['poster_1080x1350_png']=any(s.get('codec_name')=='png' and s.get('width')==1080 and s.get('height')==1350 for s in poster_meta['streams'])
 checks['two_distinct_sample_frames_per_scene']=all(sha(D/f'qa-sample-{i+1:02d}.png')!=sha(D/f'qa-sample-{i+10:02d}.png') for i in range(9))
+# Remove the subtitle zone before comparing, so changing words alone cannot pass.
+# Background movement or tiny host movement can still account for differences.
+def upper_frame_md5(f):
+ return subprocess.check_output([str(FF),'-nostdin','-hide_banner','-loglevel','error','-i',str(f),'-vf','crop=1080:1440:0:0,format=rgb24','-frames:v','1','-f','md5','-'],text=True).strip()
+checks['scene_samples_differ_above_subtitle_zone']=all(upper_frame_md5(D/f'qa-sample-{i+1:02d}.png')!=upper_frame_md5(D/f'qa-sample-{i+10:02d}.png') for i in range(9))
 files=[video,thumb,poster,caption,srt,voice,bed,inputs]
 manifest=''.join(f'{sha(f)}  {f.name}\n' for f in files)
 (D/'SHA256SUMS.txt').write_text(manifest,encoding='utf8')
@@ -57,7 +62,7 @@ lines += ['', '## Batas pengujian',
  '- NEEDS REVIEW: dengarkan seluruh narasi yang dipercepat 1,15× (atempo), terutama kelancaran, pengucapan “ikuti knot theory”, transisi dan keseimbangan musik; teks input bukan bukti pengucapan.',
  '- NEEDS REVIEW: sinkronisasi subtitle terhadap kata-kata audio. Batas adegan berasal dari sampel audio; waktu per frasa diperkirakan dari jeda dan panjang teks, bukan forced alignment.',
  '- NEEDS REVIEW: penilaian kreatif dari pengguna; gerak utuh, prop, ekspresi, pacing, keterbacaan pada ponsel, kesesuaian fakta dan hak suara/ilustrasi.',
- '- TESTED: beberapa gambar diam diperiksa visual; dua contoh frame per adegan memiliki hash berbeda. Hash berbeda saja bukan bukti gerak baik atau seluruh animasi benar.',
+ '- TESTED: beberapa gambar diam diperiksa visual; dua contoh frame per adegan berbeda juga ketika area subtitle dibuang. Perbedaan bisa berasal dari latar atau gerak kecil dan bukan bukti kualitas interaksi atau gerak utuh.',
  '- NOT TESTED: mendengarkan manusia, review gerak penuh, pemutaran di ponsel dan platform, serta membangun ulang lengkap dari cadangan yang dipulihkan.',
  '- Ilustrasi lingkungan dibuat dengan AI; sisik adalah ikon, bukan foto ilmiah; hutan/hiu dan garis waktu tidak berskala; musik disintesis dari kode. Tidak memakai logo resmi.',
  '', '## Sumber dan batas klaim']+[f'- {s["url"]} — {s["supports"]}' for s in p['story']['sources']]+['','## SHA-256 lokal','```',manifest.strip(),'```','']

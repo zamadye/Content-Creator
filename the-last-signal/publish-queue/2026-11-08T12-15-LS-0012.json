@@ -1,0 +1,40 @@
+{
+  "episodeId": "LS-0012",
+  "status": "held",
+  "createdAt": "2026-11-08T22:50:00Z",
+  "media": "the-last-signal/releases/LS-0012.mp4",
+  "format": "short",
+  "platforms": [
+    "youtube",
+    "facebook"
+  ],
+  "episode": {
+    "title": "Nomor Tiga Belas",
+    "subgenre": "Documentary horror",
+    "structure": "hook → daftar desa → pekerjaan saya → kolom kosong → piring ketiga → plat nomor → twist & pilihan",
+    "durationSeconds": 50.7,
+    "scenes": 7,
+    "jumpscares": 0
+  },
+  "youtube": {
+    "title": "Nomor Tiga Belas Tidak Ada di Gang Kami",
+    "description": "Di gang kami cuma ada dua belas pintu. Daftar desa tetap mencatat tiga belas kepala keluarga.\n\nSaya petugas sensus. Tugas saya menghitung pintu, bukan mencari cerita. Tapi setiap sensus, kolom ketiga belas kosong, dan Bu Sarmi tetap menyiapkan piring ketiga tiap malam.\n\nYang tidak saya duga: baris ketiga belas di daftar lama berisi nomor rumah saya sendiri.\n\nKalau kamu yang jadi petugasnya, mana yang kamu tanda tangani?",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "cerita seram",
+      "sensus desa",
+      "kisah nyata"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Kalau nomor rumahmu pernah diganti, kamu akan tanda tangan, atau pindah?"
+  },
+  "facebook": {
+    "enabled": true
+  },
+  "catatan": "Short cerita baru (bukan potongan video panjang). status=held: belum diunggah; slot harian yang melepas menjadi requested."
+}

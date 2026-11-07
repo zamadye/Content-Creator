@@ -1,0 +1,169 @@
+name: Slot tayang harian
+
+# ---------------------------------------------------------------------------
+#  Satu video per slot, hanya di dalam jendela 12.00–18.00 waktu lokal
+#  (WITA, UTC+8), dengan jeda minimal 2 jam antar-video.
+#
+#  Kenapa tidak sekadar "push berkas requested": unggahan yang dipicu push
+#  keluar kapan saja — termasuk pukul 06.42 pagi, di luar jendela tayang, dan
+#  tiga berkas dalam satu push akan tayang berdekatan.
+#
+#  Kenapa ada dua pemicu:
+#    • schedule — bentuk yang benar, tetapi GitHub hanya menjalankan jadwal
+#      dari branch default (main). Jadi ini baru hidup setelah digabung.
+#    • push ke the-last-signal/.publish-trigger — jembatan selama work branch
+#      belum masuk main: runner bangun, menunggu sampai jam jendela, lalu
+#      menjalankan slot. Isi berkas bebas; yang penting berubah.
+#
+#  Berkas antrean disiapkan berstatus `held`, jadi menyimpannya tidak
+#  mengunggah apa pun. Skrip melepas SATU berkas menjadi `requested`,
+#  menjalankan gerbang QC + unggah yang sudah ada, lalu menulis `published`.
+# ---------------------------------------------------------------------------
+
+on:
+  schedule:
+    # 04:15Z = 12:15 WITA. Satu slot di awal jendela tiap hari.
+    - cron: "15 4 * * *"
+  push:
+    branches:
+      - "arena/479de245-content-creator"
+    paths:
+      - "the-last-signal/.publish-trigger"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Abaikan jam jendela (untuk uji/manual)"
+        type: boolean
+        default: false
+      slots:
+        description: "Jumlah slot dalam satu jalan (1-3)"
+        default: "3"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-slot
+  cancel-in-progress: false
+
+jobs:
+  slot:
+    name: slot tayang
+    runs-on: ubuntu-latest
+    # 3 slot × jeda 2 jam + unggahan ≈ 4,5 jam; ditambah antrean menunggu
+    # jendela. Maksimum runner 360 menit.
+    timeout-minutes: 355
+
+    env:
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+      ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
+      ZERNIO_YOUTUBE_ACCOUNT_ID: ${{ vars.ZERNIO_YOUTUBE_ACCOUNT_ID }}
+      ZERNIO_FACEBOOK_ACCOUNT_ID: ${{ vars.ZERNIO_FACEBOOK_ACCOUNT_ID }}
+      SLOTS: ${{ inputs.slots || '3' }}
+      FORCE: ${{ inputs.force }}
+
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Pasang Node 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Sembunyikan nilai rahasia dari log
+        run: |
+          set -euo pipefail
+          [ -n "${ZERNIO_API_KEY:-}" ] && echo "::add-mask::${ZERNIO_API_KEY}"
+          [ -n "${ZERNIO_KEY:-}" ] && echo "::add-mask::${ZERNIO_KEY}"
+          exit 0
+
+      - name: Tunggu jendela tayang
+        run: |
+          set -euo pipefail
+          if [ "${FORCE:-false}" = "true" ]; then
+            echo "::notice::force — jendela diabaikan"
+            exit 0
+          fi
+          # Jam lokal kanal, bukan jam runner (runner UTC).
+          now=$(TZ=Asia/Kuching date +%H:%M)
+          target="12:05"
+          echo "::notice::jam lokal sekarang $now, target slot pertama $target"
+          if [ "$(printf '%s\n' "$target" "$now" | sort | head -1)" = "$target" ]; then
+            echo "::notice::masih sebelum jendela — menunggu"
+            while [ "$(TZ=Asia/Kuching date +%H%M)" \< "1205" ]; do
+              sleep 60
+            done
+          fi
+          echo "::notice::mulai slot pada $(TZ=Asia/Kuching date '+%H:%M %Z')"
+
+      - name: Pasang ffmpeg (gerbang QC)
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          ffmpeg -version | head -1
+
+      - name: Pasang SDK Zernio
+        working-directory: the-last-signal/tools/publish
+        run: npm install --no-audit --no-fund --loglevel=error
+
+      - name: Jalankan slot (satu video per slot, jeda 2 jam)
+        working-directory: the-last-signal/tools/publish
+        run: |
+          set -uo pipefail
+          git config user.name "the-last-signal bot"
+          git config user.email "bot@the-last-signal.invalid"
+
+          simpan_status() {
+            cd "$GITHUB_WORKSPACE"
+            if git diff --quiet -- the-last-signal/publish-queue; then
+              echo "::notice::status antrean tidak berubah"
+              cd - >/dev/null
+              return 0
+            fi
+            git add the-last-signal/publish-queue
+            EPISODE=$(git diff --cached --name-only | grep -oE 'LS-[0-9]{4}' | head -1 || echo "-")
+            git commit -q -m "tayang(slot): ${EPISODE} lewat slot otomatis $(TZ=Asia/Kuching date '+%H:%M')"
+            for attempt in 1 2 3; do
+              if git pull --rebase --quiet origin "${GITHUB_REF_NAME}" && git push --quiet; then
+                echo "::notice::status antrean tersimpan (percobaan $attempt)"
+                cd - >/dev/null
+                return 0
+              fi
+              sleep $((attempt * 5))
+            done
+            echo "::warning::status antrean tidak tersimpan"
+            cd - >/dev/null
+          }
+
+          for i in $(seq 1 "${SLOTS:-1}"); do
+            echo "::notice::slot $i dari ${SLOTS}"
+            set +e
+            if [ "${FORCE:-false}" = "true" ]; then
+              node publish-slot.mjs --force
+            else
+              node publish-slot.mjs
+            fi
+            STATUS=$?
+            set -e
+            echo "::notice::slot $i selesai dengan kode $STATUS"
+            simpan_status
+            if [ "$i" -lt "${SLOTS:-1}" ]; then
+              # Jeda antar-video: 2 jam, sama dengan aturan Reels Facebook.
+              echo "::notice::tunggu 2 jam sebelum slot berikutnya"
+              sleep 7200
+            fi
+          done
+
+      - name: Publikasikan laporan
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-slot-report
+          path: the-last-signal/report/publish-*.json
+          if-no-files-found: warn

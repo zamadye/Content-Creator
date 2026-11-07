@@ -1,0 +1,40 @@
+{
+  "episodeId": "LS-0014",
+  "status": "held",
+  "createdAt": "2026-11-08T22:50:00Z",
+  "media": "the-last-signal/releases/LS-0014.mp4",
+  "format": "short",
+  "platforms": [
+    "youtube",
+    "facebook"
+  ],
+  "episode": {
+    "title": "Kursi Ketujuh",
+    "subgenre": "Ritual horror",
+    "structure": "hook → gelas separuh → pintu jangan dikunci → sepupu duduk di situ → hitungan kursi → twist & pilihan",
+    "durationSeconds": 50.9,
+    "scenes": 6,
+    "jumpscares": 0
+  },
+  "youtube": {
+    "title": "Kursi Ketujuh di Rumah Nenek Tidak Pernah Kosong",
+    "description": "Ayah saya selalu menyiapkan tujuh kursi untuk enam orang. Setiap Kamis. Tidak pernah kurang.\n\nGelas ketujuh selalu terisi teh, dan tidak ada yang meneguknya. Tapi saat meja dibereskan, isinya tinggal separuh.\n\nNenek bilang rumah ini tidak menghitung orang. Rumah ini menghitung kursi.\n\nKamis lalu sepupu saya duduk di situ.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "ritual",
+      "cerita seram",
+      "kisah nyata"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Kalau keluargamu menyiapkan kursi lebih banyak dari orangnya, kamu akan bertanya?"
+  },
+  "facebook": {
+    "enabled": true
+  },
+  "catatan": "Short cerita baru (bukan potongan video panjang). status=held: belum diunggah; slot harian yang melepas menjadi requested."
+}

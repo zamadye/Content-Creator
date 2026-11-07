@@ -1,0 +1,40 @@
+{
+  "episodeId": "LS-0013",
+  "status": "held",
+  "createdAt": "2026-11-08T22:50:00Z",
+  "media": "the-last-signal/releases/LS-0013.mp4",
+  "format": "short",
+  "platforms": [
+    "youtube",
+    "facebook"
+  ],
+  "episode": {
+    "title": "Lima Menit Sebelum",
+    "subgenre": "Domestic horror",
+    "structure": "hook → layar itu → saya lari, dia tidur → lima menit yang dibeli murah → kamera mendahului → twist & pilihan",
+    "durationSeconds": 41,
+    "scenes": 6,
+    "jumpscares": 0
+  },
+  "youtube": {
+    "title": "Monitor Bayi Itu Selalu Terlambat Lima Menit",
+    "description": "Anak saya menangis tiga kali semalam dan saya tidak bangun sekali pun.\n\nMonitornya bekas, dua ratus ribu, dan penjualnya sudah memperingatkan: kameranya kadang telat lima menit. Saya pikir itu wajar untuk barang murah.\n\nSampai saya menghitung ulang. Setiap kali saya sampai di kamarnya, kejadiannya belum terjadi.\n\nYang telat bukan kameranya.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "monitor bayi",
+      "cerita seram",
+      "kisah nyata"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": true,
+    "notifySubscribers": true,
+    "firstComment": "Kalau kamu yang menonton rekaman itu, kamu bangun atau tetap di kasur?"
+  },
+  "facebook": {
+    "enabled": true
+  },
+  "catatan": "Short cerita baru (bukan potongan video panjang). status=held: belum diunggah; slot harian yang melepas menjadi requested."
+}

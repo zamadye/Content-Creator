@@ -23,6 +23,9 @@ VOICE = ROOT / 'audio/voiceovers/episode-shark-2026-11-07'
 OUT.mkdir(parents=True, exist_ok=True)
 SR = 48000
 FPS = 30
+# Preserve all narration while fitting Buffer's 90-second Facebook Reel limit.
+# atempo preserves pitch approximately; human listening is still essential.
+SPEECH_TEMPO = 1.15
 # Human-authored phrase boundaries. Their *timing* is still only an estimate.
 SUBTITLE_BREAKS = {
  'S01': [['Hiu sudah ada sebelum pohon?'], ['Catatan fosil memberi petunjuk','yang mengejutkan.'], ['Mari kita buka arsip Bumi.']],
@@ -86,7 +89,7 @@ for i, scene in enumerate(DATA['scenes']):
     src=VOICE / f"{scene['id']}.mp3"
     if not src.is_file(): raise FileNotFoundError(src)
     wav=OUT / f"{scene['id']}-decoded.wav"
-    subprocess.run([str(FF),'-nostdin','-hide_banner','-loglevel','error','-y','-i',str(src),'-ac','1','-ar',str(SR),'-c:a','pcm_s16le',str(wav)],check=True)
+    subprocess.run([str(FF),'-nostdin','-hide_banner','-loglevel','error','-y','-i',str(src),'-af',f'atempo={SPEECH_TEMPO}','-ac','1','-ar',str(SR),'-c:a','pcm_s16le',str(wav)],check=True)
     with wave.open(str(wav),'rb') as w:
         if (w.getnchannels(),w.getsampwidth(),w.getframerate()) != (1,2,SR): raise ValueError('Bad decoded voice')
         samples=w.getnframes(); audio=w.readframes(samples)
@@ -121,6 +124,8 @@ with wave.open(str(narration),'wb') as w:
     w.setparams((1,2,SR,sample_offset,'NONE','not compressed'));w.writeframes(raw)
 subprocess.run([str(FF),'-nostdin','-loglevel','error','-y','-i',str(narration),'-b:a','128k',str(OUT/'narasi-gabungan.mp3')],check=True)
 length=math.ceil((sample_offset/SR)*FPS)/FPS
+if not 3 <= length <= 90:
+    raise ValueError(f'Facebook Reels via Buffer requires 3–90 seconds; generated {length:.2f}s')
 art={}
 for name in ['hero','lab','forest']:
     src=ART/f'{name}.png'
@@ -131,6 +136,6 @@ for name in ['hero','lab','forest']:
 score=OUT/'musik-tonal-original.wav';synth_score(score,length,[x['start'] for x in timeline[1:]])
 with (OUT/'subtitle-perkiraan.srt').open('w',encoding='utf8') as f:
     for n,q in enumerate(cues,1):f.write(f"{n}\n{stamp(q['start'])} --> {stamp(q['end'])}\n"+'\n'.join(q['lines'])+'\n\n')
-prepared={'id':DATA['id'],'story':DATA,'timeline':timeline,'cues':cues,'duration':length,'fps':FPS,'art':art,'narration':str(narration),'score':str(score),'narrationSHA256':sha(narration),'timingNote':'Scene offsets sample-accurate from assembled clips; subtitle phrase times estimated using pauses and text length, NOT forced-aligned.'}
+prepared={'id':DATA['id'],'story':DATA,'timeline':timeline,'cues':cues,'duration':length,'fps':FPS,'speechTempo':SPEECH_TEMPO,'art':art,'narration':str(narration),'score':str(score),'narrationSHA256':sha(narration),'timingNote':'Narration sped up 1.15x using atempo. Scene offsets sample-accurate from assembled clips; subtitle phrase times estimated using pauses and text length, NOT forced-aligned.'}
 (OUT/'prepared.json').write_text(json.dumps(prepared,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 print(json.dumps({'id':DATA['id'],'duration':length,'sceneCount':len(timeline),'cueCount':len(cues),'sceneDurations':[round(x['end']-x['start'],2) for x in timeline]},ensure_ascii=False))

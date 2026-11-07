@@ -14,7 +14,7 @@ for name in ['archivo-latin-400-normal.ttf','archivo-latin-600-normal.ttf','arch
  files[f'source/editorial-engine/assets/fonts/{name}']=ROOT/'assets/fonts'/name
 for name,p in files.items():
  if not p.is_file():raise FileNotFoundError(f'{name}: {p}')
-prepared=json.loads((D/'prepared.json').read_text(encoding='utf8'));timeline={k:prepared[k] for k in ['id','timeline','cues','duration','fps','narrationSHA256','timingNote']}
+prepared=json.loads((D/'prepared.json').read_text(encoding='utf8'));timeline={k:prepared[k] for k in ['id','timeline','cues','duration','fps','speechTempo','narrationSHA256','timingNote']}
 notes=f'''CADANGAN PRIVAT — HIU SEBELUM HUTAN
 Source branch arena/54cb36c6-content-creator; Git HEAD saat pengepakan: {commit}.
 Input berisi ilustrasi dan segmen suara privat, naskah, dan manifest sendiri.

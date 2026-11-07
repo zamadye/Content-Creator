@@ -20,6 +20,8 @@ v=next(s for s in meta['streams'] if s['codec_type']=='video');a=next(s for s in
 actual=float(meta['format']['duration']);checks={}
 checks['video_1080x1920_h264_cfr_30fps']=(v['codec_name']=='h264' and v['width']==1080 and v['height']==1920 and v['avg_frame_rate']=='30/1' and v['r_frame_rate']=='30/1' and int(v['nb_frames'])==round(p['duration']*30))
 checks['audio_aac_present']=a['codec_name']=='aac'
+# Buffer's documented automatic Facebook Reels limit is 3–90 seconds.
+checks['facebook_reels_duration_3_to_90s']=3<=actual<=90
 checks['duration_matches_single_timeline']=p['duration']-.10<=actual<=p['duration']+.10
 read=subprocess.run([str(FF),'-nostdin','-v','error','-i',str(video),'-f','null','-'],capture_output=True,text=True)
 checks['full_audio_video_decode']=read.returncode==0 and not read.stderr.strip()
@@ -52,7 +54,7 @@ commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).st
 lines=['# QA mekanis — episode Hiu Sebelum Hutan', '',f'- Status: {"PASS" if all(checks.values()) else "FAIL"} hanya untuk pemeriksaan mekanis berikut. Ini bukan bukti penjadwalan atau penerbitan.',f'- Durasi: {actual:.2f} detik, 9 adegan, satu master narasi dari sembilan segmen voice-05.',f'- Loudness terukur: {lufs} LUFS; true peak: {peak} dBTP.',f'- Source Git HEAD saat pemeriksaan: {commit}', '- Tidak ada penjadwalan atau publikasi dari pipeline ini.', '', '## Hasil mekanis']
 lines += [f'- {"PASS" if ok else "FAIL"}: {name}' for name,ok in checks.items()]
 lines += ['', '## Batas pengujian',
- '- NEEDS REVIEW: dengarkan seluruh narasi, terutama pengucapan “ikuti knot theory”, transisi dan keseimbangan musik; teks input bukan bukti pengucapan.',
+ '- NEEDS REVIEW: dengarkan seluruh narasi yang dipercepat 1,15× (atempo), terutama kelancaran, pengucapan “ikuti knot theory”, transisi dan keseimbangan musik; teks input bukan bukti pengucapan.',
  '- NEEDS REVIEW: sinkronisasi subtitle terhadap kata-kata audio. Batas adegan berasal dari sampel audio; waktu per frasa diperkirakan dari jeda dan panjang teks, bukan forced alignment.',
  '- NEEDS REVIEW: penilaian kreatif dari pengguna; gerak utuh, prop, ekspresi, pacing, keterbacaan pada ponsel, kesesuaian fakta dan hak suara/ilustrasi.',
  '- TESTED: beberapa gambar diam diperiksa visual; dua contoh frame per adegan memiliki hash berbeda. Hash berbeda saja bukan bukti gerak baik atau seluruh animasi benar.',

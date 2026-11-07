@@ -12,3 +12,23 @@
 - Detail dan batas API dapat berubah. Verifikasi dengan [panduan media Buffer](https://developers.buffer.com/guides/hosting-media.html), [Facebook Buffer](https://support.buffer.com/article/555-using-facebook-with-buffer) dan [YouTube Shorts Buffer](https://support.buffer.com/article/562-using-youtube-shorts-with-buffer) saat eksekusi.
 
 Catat hasil sebagai `scheduled`, `sent`, gagal, atau belum diketahui berdasarkan bukti yang benar-benar terbaca; playback platform secara terpisah tetap perlu diuji.
+
+## Diagnostik performa dan status read-only
+
+Workflow `.github/workflows/buffer-performance-readonly.yml` berjalan saat request `.github/analytics-readonly-request.json` diubah pada branch sesi. Ia memakai secret `BUFFER_API_KEY`, CLI Buffer dan `pipeline/inspect-buffer-performance.mjs` untuk membaca akun, kanal yang namanya cocok, hingga 10 halaman post dan metrik agregat. ID post yang pernah disetujui ditambahkan eksplisit agar Page Facebook dengan nama berbeda dan post terjadwal dapat diperiksa. Script hanya menjalankan query, tidak membuat, mengubah atau menghapus post; ia tidak memantau secara otomatis. Data dan timestamp dapat tertinggal, sebagian field mungkin tidak tersedia, dan kesuksesan workflow tidak membuktikan posting telah terbit ataupun grafik retensi tersedia.
+
+Output digzip dan dienkripsi RSA-OAEP-SHA256 / AES-256-GCM oleh `pipeline/encrypt-diagnostic.mjs`, lalu dipecah menjadi annotations bernomor karena repo dan logs publik. **Kunci publik yang ada adalah sekali pakai untuk sesi terdahulu; jangan memicu ulang sebelum membuat pasangan kunci baru dan menyimpan private key secara aman.** Contoh, setelah mendapat persetujuan pemeriksaan yang relevan:
+
+```bash
+mkdir -p editorial-engine/deliverables/retensi-research/private
+chmod 700 editorial-engine/deliverables/retensi-research/private
+openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:3072 \
+  -out editorial-engine/deliverables/retensi-research/private/analytics-private.pem
+chmod 600 editorial-engine/deliverables/retensi-research/private/analytics-private.pem
+openssl pkey -in editorial-engine/deliverables/retensi-research/private/analytics-private.pem \
+  -pubout -out editorial-engine/pipeline/diagnostic-public.pem
+# Perbarui request, tinjau diff nonrahasia dan push ke branch sesi.
+# Ambil check-run annotations, urutkan chunk 01..N, lalu dekripsi secara lokal.
+```
+
+Private key, hasil dekripsi, URL media, identitas pemilik dan log mentah jangan di-commit atau dicetak ke log publik; `private/` diabaikan Git. Setelah hasil yang diperlukan dicatat privat, hapus kunci sementara dan hasil mentah. Periksa `errors`, `retrievedAt`, `status`, `sentAt`, `externalLink` dan `metricsUpdatedAt`; bila dekripsi atau hasil gagal, status **UNKNOWN**. Gunakan `node --check editorial-engine/pipeline/inspect-buffer-performance.mjs` untuk pemeriksaan sintaks. Audit read-only teruji pada 7 November 2026; koneksi, izin dan skema Buffer tetap dapat berubah.

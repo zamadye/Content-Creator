@@ -3,8 +3,10 @@
 Tiga Short **cerita baru**, bukan potongan video panjang. Ditulis dengan hukum
 `knowledge/NASKAH.md` dan diuji mesin sebelum masuk produksi.
 
-Status: **siap tayang, ditahan** atas arahan pemilik kanal (7 Nov 2026) — belum
-ada berkas di `publish-queue/`, jadi tidak ada unggahan yang berjalan sendiri.
+Status: **dalam antrean tayang** (8 Nov 2026). Ketiga berkas ada di
+`publish-queue/` dengan status `held`, jadi menyimpannya tidak mengunggah apa pun.
+Yang melepas adalah slot otomatis (`tools/publish/publish-slot.mjs`) di dalam
+jendela 12.00–18.00 WITA, satu video per slot, jeda 2 jam antar-video.
 
 ## Daftar
 
@@ -38,10 +40,16 @@ Ketiganya 1080×1920 native, 30 fps, H.264 + AAC 48 kHz, ±500 kbps.
   overlay, thumb).
 - Suara: LS-0012 `voice-02`, LS-0013 `voice-03`, LS-0014 `voice-04`.
 
-## Kalau batch ini dilanjutkan
+## Cara tayangnya bekerja
 
-1. Tulis berkas `publish-queue/<ISO>-<ID>.json` — push berkas itu berarti
-   unggah publik lewat `zernio-publish.yml`. Jangan dibuat sebelum pemilik
-   kanal menyetujui.
-2. Jendela tayang 12.00–18.00 waktu lokal; jangan menyebut tanggal tetap.
-3. Setelah tayang, catat di `knowledge/episodes.jsonl` seperti LL-0002.
+1. Berkas antrean ditulis dengan `status: "held"`. Push berkas `held` **tidak**
+   mengunggah apa pun — `zernio-publish.mjs` hanya memproses `requested`.
+2. Slot harian (`publish-slot.yml`, cron 04:15Z = 12:15 WITA) mengambil satu
+   berkas `held` paling lama, melepasnya jadi `requested`, menjalankan gerbang
+   QC + unggah, lalu menulis `published` + URL. Gagal → kembali `held`.
+3. Jendela 12.00–18.00 WITA, satu video per slot, jeda 2 jam. Jangan menyebut
+   tanggal tetap di judul/deskripsi.
+4. Catatan: cron GitHub hanya berjalan dari branch default (`main`). Selama
+   work branch belum digabung, slot dipicu lewat push ke
+   `the-last-signal/.publish-trigger` — runner menunggu sampai jam jendela.
+5. Setelah tayang, catat di `knowledge/episodes.jsonl` seperti LL-0002.

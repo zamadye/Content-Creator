@@ -354,6 +354,22 @@ Mekanisme teknis: `knowledge/distribution.md` · struktur Drive: `knowledge/driv
 
 ---
 
+## 7.5 Tayang hanya lewat slot, di dalam jendela
+
+Unggahan tidak dipicu oleh "pekerjaan selesai", tetapi oleh slot di dalam
+jendela **12.00–18.00 WITA**. Aturan teknisnya:
+
+- Berkas antrean ditulis berstatus `held`. Push berkas `held` tidak mengunggah
+  apa pun; hanya `requested` yang diproses `zernio-publish.mjs`.
+- `tools/publish/publish-slot.mjs` melepas satu berkas `held` per slot,
+  menjalankan QC + unggah, lalu menulis `published` beserta URL. Kalau gagal,
+  berkasnya kembali `held` — tidak pernah tertinggal sebagai `requested` yang
+  memblokir slot berikutnya.
+- Jeda minimal 2 jam antar-video, maksimal tiga video per hari.
+- Alasan: unggahan yang dipicu push keluar kapan saja (pernah pukul 06.42 pagi)
+  dan tiga berkas dalam satu push bisa tayang berdekatan. Keduanya terlihat
+  seperti kanal yang menyemburkan konten, bukan kanal yang bercerita.
+
 # BAGIAN VIII — GERBANG QC
 
 Semua harus hijau sebelum satu byte diunggah:

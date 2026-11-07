@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "mission": "shark-forest-2026-11-07-1900",
-  "action": "schedule",
+  "action": "inspect",
   "dueAt": "2026-11-07T19:00:00+07:00",
-  "nonce": "c16d9fdfcf107cb1cb09bcf06bdf1ccf",
+  "nonce": "d8997dc8e6ceab7938658e26f3cd40b2",
   "media": {
     "sha256": "e1528df2e9460a866f049a79c132860b43001b7db66f192aa88dbc792c57a236",
     "sizeBytes": 8988067,

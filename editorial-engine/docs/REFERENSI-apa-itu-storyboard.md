@@ -1,6 +1,6 @@
 # Bedah referensi: "Explain What is a StoryBoard_!"
 
-> **Arsip analisis, bukan standar aktif.** Usulan misi dan asumsi tempo/Remotion di bawah adalah catatan lama; gunakan `RISET-STORYTELLING-DUNIA-KEBALIK.md` dan `STANDARD-MINIMAL-CONTENT-PRODUCTION.md` sebagai acuan aktif. Video sumber dipertahankan privat. Contact sheet turunannya belum berhasil dicadangkan ke Drive akibat batas unggah; ada salinan lokal sementara, sehingga pemulihannya di lingkungan lain **NOT TESTED**.
+> **Arsip analisis, bukan standar aktif.** Usulan misi dan asumsi tempo/Remotion di bawah adalah catatan lama; gunakan `RISET-STORYTELLING-DUNIA-KEBALIK.md` dan `STANDARD-MINIMAL-CONTENT-PRODUCTION.md` sebagai acuan aktif. Video sumber dan contact sheet turunan dipertahankan di Drive privat. Ukuran, MD5, dan izin pemilik contact sheet cocok; pemulihan di lingkungan lain dan hak distribusinya tetap **NOT TESTED**.
 
 Berkas: `Explain What is a StoryBoard_!.mp4` — diunggah ke folder Deliverables, 3 Nov 2026 14:09 UTC.
 Dianalisis: 3 Nov 2026. Semua angka di bawah **diukur** dari berkasnya, bukan dikira-kira.
@@ -20,7 +20,7 @@ Dianalisis: 3 Nov 2026. Semua angka di bawah **diukur** dari berkasnya, bukan di
 | Loudness | mean −34,5 dB, max −13,4 dB |
 | Jumlah cut (scene > 0,25) | **13** → rata-rata satu perubahan visual tiap **5,3 detik** |
 
-Contact sheet 16 frame: dipindahkan dari tree publik; cadangan Drive privat **belum terverifikasi**. Video sumber dengan MD5 di atas tetap ada di Drive privat.
+Contact sheet 16 frame: dipindahkan dari tree publik dan dicadangkan di folder referensi Drive privat. MD5 `51ab9c707580d2fd3d091e04df9af054` cocok; permission hanya pemilik. Video sumber dengan MD5 di atas tetap ada di Drive privat.
 
 ---
 

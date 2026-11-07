@@ -28,7 +28,13 @@ chmod 600 editorial-engine/deliverables/retensi-research/private/analytics-priva
 openssl pkey -in editorial-engine/deliverables/retensi-research/private/analytics-private.pem \
   -pubout -out editorial-engine/pipeline/diagnostic-public.pem
 # Perbarui request, tinjau diff nonrahasia dan push ke branch sesi.
-# Ambil check-run annotations, urutkan chunk 01..N, lalu dekripsi secara lokal.
+# Setelah workflow selesai, ambil RUN_ID dari `gh run list` lalu:
+P=editorial-engine/deliverables/retensi-research/private
+JOB_ID=$(gh api "repos/zamadye/Content-Creator/actions/runs/$RUN_ID/jobs" \
+  --jq '.jobs[] | select(.name == "inspect") | .id')
+gh api "repos/zamadye/Content-Creator/check-runs/$JOB_ID/annotations?per_page=100" > "$P/annotations.json"
+node editorial-engine/pipeline/decrypt-diagnostic.mjs \
+  "$P/annotations.json" "$P/analytics-private.pem" "$P/analytics-result.json"
 ```
 
-Private key, hasil dekripsi, URL media, identitas pemilik dan log mentah jangan di-commit atau dicetak ke log publik; `private/` diabaikan Git. Setelah hasil yang diperlukan dicatat privat, hapus kunci sementara dan hasil mentah. Periksa `errors`, `retrievedAt`, `status`, `sentAt`, `externalLink` dan `metricsUpdatedAt`; bila dekripsi atau hasil gagal, status **UNKNOWN**. Gunakan `node --check editorial-engine/pipeline/inspect-buffer-performance.mjs` untuk pemeriksaan sintaks. Audit read-only teruji pada 7 November 2026; koneksi, izin dan skema Buffer tetap dapat berubah.
+Alat dekripsi memeriksa urutan chunk dan autentikasi, hanya menulis di `private/` dengan mode 0600, dan menolak menimpa hasil. Private key, hasil dekripsi, URL media, identitas pemilik dan log mentah jangan di-commit atau dicetak ke log publik; `private/` diabaikan Git. Setelah hasil yang diperlukan dicatat privat, hapus kunci sementara dan hasil mentah. Periksa `errors`, `retrievedAt`, `status`, `sentAt`, `externalLink` dan `metricsUpdatedAt`; bila dekripsi atau hasil gagal, status **UNKNOWN**. Gunakan `node --check editorial-engine/pipeline/inspect-buffer-performance.mjs` dan `node --test editorial-engine/pipeline/tests/decrypt-diagnostic.test.mjs` untuk pemeriksaan komponen. Audit read-only teruji pada 7 November 2026; koneksi, izin dan skema Buffer tetap dapat berubah.

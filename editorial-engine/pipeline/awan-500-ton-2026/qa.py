@@ -6,8 +6,8 @@ ROOT=Path(__file__).resolve().parents[2];D=ROOT/'deliverables/awan-500-ton-2026'
 FF=ROOT/'node_modules/@ffmpeg-installer/linux-x64/ffmpeg';PROBE=ROOT/'node_modules/@remotion/compositor-linux-x64-gnu/ffprobe'
 p=json.loads((D/'prepared.json').read_text(encoding='utf8'))
 video=D/'awan-500-ton.mp4';thumb=D/'awan-500-ton-thumbnail.png';poster=D/'awan-500-ton-poster-4x5.png'
-caption=D/'caption-4-platform.txt';srt=D/'subtitle-perkiraan.srt';voice=ROOT/'audio/voiceovers/awan-500-ton-2026/narasi-utuh.mp3';bed=D/'musik-tonal-original.wav';inputs=D/'01-INPUT-PRIVAT-AWAN.zip'
-for f in [video,thumb,poster,caption,srt,voice,bed,inputs]:
+caption=D/'caption-4-platform.txt';storyboard=D/'STORYBOARD.md';srt=D/'subtitle-perkiraan.srt';voice=ROOT/'audio/voiceovers/awan-500-ton-2026/narasi-utuh.mp3';bed=D/'musik-tonal-original.wav';inputs=D/'01-INPUT-PRIVAT-AWAN.zip'
+for f in [video,thumb,poster,caption,storyboard,srt,voice,bed,inputs]:
     if not f.is_file():sys.exit(f'FAIL missing {f.name}')
 def probe(p):return json.loads(subprocess.check_output([str(PROBE),'-v','error','-show_streams','-show_format','-of','json',str(p)],text=True))
 def sha(p):
@@ -40,11 +40,12 @@ checks['subtitle_text_matches_script']=normal(' '.join(s['narration'] for s in p
 checks['subtitle_line_length_and_nonoverlap']=all(0<q['end']-q['start'] and len(q['lines'])<=2 and max(map(len,q['lines']))<=36 for q in p['cues']) and all(a['end']<=b['start'] for a,b in zip(p['cues'],p['cues'][1:]))
 checks['closing_cta_lowercase_in_script_srt_and_renderer']=all('ikuti knot theory' in normal(t) for t in [p['story']['scenes'][-1]['narration'],srt.read_text(encoding='utf8'),(ROOT/'pipeline/awan-500-ton-2026/render.tsx').read_text(encoding='utf8')])
 checks['four_caption_sections']=all(t in caption.read_text(encoding='utf8') for t in ['FACEBOOK REELS','TIKTOK','YOUTUBE SHORTS','INSTAGRAM REELS'])
+checks['storyboard_has_nine_scene_ids_and_estimate']=all('## '+s['id'] in storyboard.read_text(encoding='utf8') for s in p['story']['scenes']) and '500.000 kg = 500 ton metrik' in storyboard.read_text(encoding='utf8')
 checks['thumbnail_independent_1080x1920_png']=any(s.get('codec_name')=='png' and s.get('width')==1080 and s.get('height')==1920 for s in probe(thumb)['streams']) and thumb.read_bytes()!=(D/'qa-sample-00.png').read_bytes()
 checks['poster_1080x1350_png']=any(s.get('codec_name')=='png' and s.get('width')==1080 and s.get('height')==1350 for s in probe(poster)['streams'])
 def upper_md5(f):return subprocess.check_output([str(FF),'-nostdin','-hide_banner','-loglevel','error','-i',str(f),'-vf','crop=1080:1440:0:0,format=rgb24','-frames:v','1','-f','md5','-'],text=True).strip()
 checks['two_different_samples_above_subtitles_per_scene']=all(upper_md5(D/f'qa-sample-{i+1:02d}.png')!=upper_md5(D/f'qa-sample-{i+10:02d}.png') for i in range(9))
-files=[video,thumb,poster,caption,srt,voice,bed,inputs];manifest=''.join(f'{sha(f)}  {f.name}\n' for f in files)
+files=[video,thumb,poster,caption,storyboard,srt,voice,bed,inputs];manifest=''.join(f'{sha(f)}  {f.name}\n' for f in files)
 (D/'SHA256SUMS.txt').write_text(manifest,encoding='utf8')
 try:commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True,stderr=subprocess.DEVNULL).strip()
 except (subprocess.CalledProcessError, FileNotFoundError):commit='UNKNOWN (source archive, no Git)'

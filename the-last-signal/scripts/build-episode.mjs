@@ -213,6 +213,9 @@ const episode = {
   production: {
     subgenre: entry.subgenre,
     experiment: entry.experiment,
+    // HUD kamera pengawas (REC / CAM 07 / timestamp) hanya untuk episode yang
+    // memang berupa rekaman kamera. Naskah narasi orang pertama: matikan.
+    hud: entry.hud === true,
     structure: entry.structure,
     slate: slatePath.replace(`${ROOT}/`, ""),
   },

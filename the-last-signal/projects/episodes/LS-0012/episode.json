@@ -579,6 +579,7 @@
   "production": {
     "subgenre": "Documentary horror",
     "experiment": "Horornya dari kolom daftar yang tidak boleh kosong: sensus menemukan satu keluarga yang pintunya tidak ada, dan nomor rumahnya sendiri.",
+    "hud": false,
     "structure": "hook → daftar desa → pekerjaan saya → kolom kosong → piring ketiga → plat nomor → twist & pilihan",
     "slate": "stories/slate.json"
   }

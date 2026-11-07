@@ -89,10 +89,15 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
         <SubtitleTrack episode={episode} />
       </Sequence>
       <OnScreenTextTrack episode={episode} />
-      {/* HUD rekaman CCTV hanya masuk akal untuk Short found-footage. Video
-          panjang adalah cerita orang pertama, bukan rekaman kamar pengawas —
-          "CAM 07 · LT. 07" di sini akan langsung membocorkan bahwa ini templat. */}
-      {episode.format === "longform_narration" ? null : <FoundFootageHud />}
+      {/* HUD rekaman CCTV hanya masuk akal kalau episode MEMANG rekaman kamera.
+          Cerita orang pertama ("saya petugas sensus…") tidak punya kamera yang
+          merekamnya: stempel REC/CAM langsung membocorkan bahwa ini templat,
+          dan pemilik kanal sudah melarang HUD itu untuk narasi orang pertama.
+          Jadi bukan format yang menentukan, melainkan pernyataan episode:
+          production.hud === true (bawaan: tidak ada HUD). */}
+      {(episode as { production?: { hud?: boolean } }).production?.hud === true ? (
+        <FoundFootageHud />
+      ) : null}
       {episode.jumpscares.map((scare, index) => (
         <Sequence
           key={`scare-${index}`}

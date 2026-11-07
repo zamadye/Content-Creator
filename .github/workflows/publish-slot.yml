@@ -121,12 +121,12 @@ jobs:
 
           simpan_status() {
             cd "$GITHUB_WORKSPACE"
-            if git diff --quiet -- the-last-signal/publish-queue; then
+            if git diff --quiet -- the-last-signal/publish-queue the-last-signal/knowledge/fb-reels-state.json; then
               echo "::notice::status antrean tidak berubah"
               cd - >/dev/null
               return 0
             fi
-            git add the-last-signal/publish-queue
+            git add the-last-signal/publish-queue the-last-signal/knowledge/fb-reels-state.json
             EPISODE=$(git diff --cached --name-only | grep -oE 'LS-[0-9]{4}' | head -1 || echo "-")
             git commit -q -m "tayang(slot): ${EPISODE} lewat slot otomatis $(TZ=Asia/Kuching date '+%H:%M')"
             for attempt in 1 2 3; do

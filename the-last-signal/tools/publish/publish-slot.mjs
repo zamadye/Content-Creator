@@ -32,6 +32,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const SIGNAL_ROOT = resolve(HERE, "..", "..");
 const QUEUE_DIR = join(SIGNAL_ROOT, "publish-queue");
 const REPORT_DIR = join(SIGNAL_ROOT, "report");
+const REELS_STATE = join(SIGNAL_ROOT, "knowledge", "fb-reels-state.json");
 
 const dryRun = process.argv.includes("--dry-run");
 const force = process.argv.includes("--force");
@@ -123,6 +124,37 @@ const youtubeOk = Boolean(report?.youtube?.url);
 const facebookOk = Boolean(report?.facebook?.url);
 const ok = Boolean(report?.ok) || youtubeOk;
 
+/**
+ * Catat ke state Reels Facebook.
+ *
+ * `zernio-publish` mengunggah ke YouTube DAN Halaman Facebook sekaligus. Kalau
+ * hasilnya tidak dicatat di sini, `reels-slot.mjs` (cron di main) akan melihat
+ * episode ini "sudah tayang di YouTube tapi belum di Reels" dan mempostingnya
+ * lagi ke Facebook — dua kali tayang untuk satu video.
+ */
+function catatReelsState({ youtubeUrl, facebookUrl }) {
+  let state = { lastPostAt: null, items: {} };
+  if (existsSync(REELS_STATE)) {
+    try {
+      const raw = JSON.parse(readFileSync(REELS_STATE, "utf8"));
+      state = { lastPostAt: raw.lastPostAt ?? null, items: raw.items ?? {} };
+    } catch {
+      /* state rusak: mulai dari bersih, jangan sampai unggahan batal */
+    }
+  }
+  if (!facebookUrl) return false;
+  state.items[chosen.entry.episodeId] = {
+    status: "posted",
+    postedAt: new Date().toISOString(),
+    url: facebookUrl,
+    youtube: youtubeUrl ?? null,
+    note: "lewat slot tayang: YouTube + Facebook sekaligus, tidak perlu backfill Reels",
+  };
+  state.lastPostAt = new Date().toISOString();
+  writeFileSync(REELS_STATE, `${JSON.stringify(state, null, 2)}\n`);
+  return true;
+}
+
 if (ok) {
   chosen.entry.status = "published";
   chosen.entry.publishedAt = new Date().toISOString();
@@ -135,7 +167,12 @@ if (ok) {
   ]
     .filter(Boolean)
     .join(" · ");
+  const reelsTercatat = catatReelsState({
+    youtubeUrl: report?.youtube?.url ?? null,
+    facebookUrl: report?.facebook?.url ?? null,
+  });
   log(`terbit: ${chosen.entry.episodeId} → ${report?.youtube?.url ?? "(tanpa URL YouTube)"}`);
+  log(reelsTercatat ? "state Reels Facebook dicatat (tidak akan diunggah ulang)" : "tanpa URL Facebook — state Reels tidak dicatat");
 } else {
   // Kembali ke held supaya slot berikutnya mencoba lagi. Jangan pernah
   // meninggalkan berkas berstatus requested yang gagal — itu akan memblokir

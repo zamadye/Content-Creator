@@ -4,6 +4,9 @@ rendering/frames/
 rendering/previews/tmp/
 *.pyc
 
+# Rebuilt episode deliverables include private paths and QA/manifests; back up to Drive.
+deliverables/rebuild-2026-11-11/
+
 # generated media (reproducible from pipeline/)
 audio/processing/generated/*.wav
 audio/voiceovers/*.wav

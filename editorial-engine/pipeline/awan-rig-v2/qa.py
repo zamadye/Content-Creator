@@ -38,7 +38,7 @@ hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in outputs}
 lines=['# QA — Awan 500 ton, rig V2 (draft privat)','',f'Video {float(meta["format"]["duration"]):.3f} dtk; {v[0]["width"]}×{v[0]["height"]}, {v[0].get("avg_frame_rate")} fps, {v[0].get("nb_read_frames")} frame; AAC satu track.',f'Loudness hasil pengukuran: {lufs:.1f} LUFS integrated / {peak:.1f} dBTP true peak.','', '## Pemeriksaan mekanis']
 for label,ok in checks.items():lines.append(f'- {"PASS" if ok else "FAIL"}: {label}')
 lines += ['', '## Peninjauan terbatas dan batas',
-'- TESTED: 4 unit test IK/transformasi dan TypeScript; sampel still pembuka, berbagai adegan dan penutup telah dilihat. Ini bukan pemeriksaan seluruh gerakan.',
+'- TESTED: 5 unit test IK/transformasi/gerak butir dan TypeScript; sampel still pembuka, berbagai adegan dan penutup telah dilihat. Ini bukan pemeriksaan seluruh gerakan.',
 '- NEEDS REVIEW: dengarkan seluruh narasi, pelafalan “ikuti knot theory”, musik dan keseimbangan suara. Belum ada pemeriksaan pendengaran manusia.',
 '- NEEDS REVIEW: batas cue mendekati jeda; pembagian di dalam kalimat masih estimasi, bukan forced alignment. Gerak mulut prosedural, bukan lip sync fonem.',
 '- NEEDS REVIEW: kualitas gerak, interaksi tiap properti, kenyamanan visual di ponsel, safe-area serta hak distribusi aset AI/voice/font/codec.',

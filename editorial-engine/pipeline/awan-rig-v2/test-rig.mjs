@@ -1,6 +1,6 @@
 import {strict as assert} from 'node:assert';
 import {test} from 'node:test';
-import {solveArm,wristWorld} from './rig-math.mjs';
+import {solveArm,wristWorld,risingDroplet} from './rig-math.mjs';
 import {pose} from './poses.mjs';
 const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
 test('two-bone IK preserves both segment lengths and reaches feasible target',()=>{
@@ -30,5 +30,15 @@ test('wrist locator matches the rendered group transform on both sides',()=>{
   const [x,y]=solveArm(shoulder,p[side],140,135,side==='right'?1:-1).wrist;
   const angle=p.lean*Math.PI/180,expected=[p.x+p.scale*(Math.cos(angle)*x-Math.sin(angle)*(y-450)),p.y+p.scale*(Math.sin(angle)*x+Math.cos(angle)*(y-450)+450)];
   assert.ok(dist(wristWorld(p,side),expected)<1e-8);
+ }
+});
+
+
+test('model droplets visibly rise while in a loop segment',()=>{
+ for(let i=0;i<9;i++){
+  const t=(1-i*.137)/.18+0.7; // safely inside a cycle
+  const first=risingDroplet(t,i),second=risingDroplet(t+0.5,i);
+  assert.ok(first.opacity>0 && second.opacity>0);
+  assert.ok(second.y<first.y);
  }
 });

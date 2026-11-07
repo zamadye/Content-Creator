@@ -15,3 +15,9 @@ export function wristWorld(p,side='right'){
  const [x,y]=solveArm(sh,target,140,135,bend).wrist,rad=(p.lean||0)*Math.PI/180,cy=450;
  return [p.x+p.scale*(Math.cos(rad)*x-Math.sin(rad)*(y-cy)),p.y+p.scale*(Math.sin(rad)*x+Math.cos(rad)*(y-cy)+cy)];
 }
+
+/** Looping model droplet moves upward while visible; fade at loop boundaries. */
+export function risingDroplet(t,i){
+ const phase=((t*.18+i*.137)%1+1)%1;
+ return {x:565+(i*83)%290+8*Math.sin(t*1.2+i),y:1030-350*phase,opacity:Math.min(1,phase*8,(1-phase)*8)};
+}

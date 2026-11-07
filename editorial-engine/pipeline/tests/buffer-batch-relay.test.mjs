@@ -11,7 +11,7 @@ import {validateTrigger,markerFor,extractMarker,openEnvelope} from '../buffer-ba
 
 const keypair=crypto.generateKeyPairSync('rsa',{modulusLength:2048,publicKeyEncoding:{type:'spki',format:'pem'},privateKeyEncoding:{type:'pkcs8',format:'pem'}});
 const digest=b=>crypto.createHash('sha256').update(b).digest('hex');
-const nonce='a'.repeat(32), data=Buffer.from(JSON.stringify({nonce,caption:'PRIVATE_EXAMPLE',url:'https://private.invalid/test'}));
+const nonce='a'.repeat(32), data=Buffer.from(JSON.stringify({nonce,_requestSalt:'d'.repeat(64),caption:'PRIVATE_EXAMPLE',url:'https://private.invalid/test'}));
 const trigger=()=>({schemaVersion:1,nonce,requestSha256:digest(data),ownerPublicKeyB64:Buffer.from(keypair.publicKey).toString('base64'),simulation:true});
 
 test('trigger contains only nonce, digest, mode and a sufficiently strong public key',()=>{
@@ -29,6 +29,8 @@ test('an unreferenced ciphertext blob is authenticated by SHA, RSA-GCM, request 
   const wrongKey=crypto.generateKeyPairSync('rsa',{modulusLength:2048}).privateKey;
   assert.throws(()=>openEnvelope(encrypted,sha,trigger(),wrongKey),/ENVELOPE_DECRYPT_FAILED/);
   assert.throws(()=>openEnvelope(encrypted,sha,{...trigger(),nonce:'b'.repeat(32)},keypair.privateKey),/REQUEST_NONCE_MISMATCH/);
+  const unsalted=Buffer.from(JSON.stringify({nonce,caption:'PRIVATE_EXAMPLE'})),encUnsalted=encryptBytes(unsalted,keypair.publicKey);
+  assert.throws(()=>openEnvelope(encUnsalted,gitBlobSha(encUnsalted),{...trigger(),requestSha256:digest(unsalted)},keypair.privateKey),/REQUEST_SALT_MISSING/);
 });
 test('signal marker accepts only the matching nonce and a full git blob SHA',()=>{
   const marker=markerFor(nonce,'c'.repeat(40));assert.equal(extractMarker(marker,nonce),'c'.repeat(40));

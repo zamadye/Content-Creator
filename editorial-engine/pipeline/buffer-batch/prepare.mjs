@@ -31,6 +31,9 @@ export function prepare(source, simulation = false) {
   let request;
   try { request = JSON.parse(bytes.toString('utf8')); } catch { throw new BatchError('BAD_PRIVATE_REQUEST'); }
   request.nonce = crypto.randomBytes(16).toString('hex');
+  // Kept inside the encrypted request: prevents guessing private schedules by
+  // hashing plausible requests against the publicly visible commitment.
+  request._requestSalt = crypto.randomBytes(32).toString('hex');
   if (simulation) ensure(request.action === 'preflight', 'SIMULATION_REQUIRES_PREFLIGHT');
   validateBatch(request);
   const plain = Buffer.from(JSON.stringify(request) + '\n');

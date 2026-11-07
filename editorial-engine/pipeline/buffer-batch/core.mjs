@@ -159,11 +159,12 @@ export function assertSafeToRevoke({allDependenciesKnown, expectedPostIds, obser
 
 /** All preflights occur before first create. Writes are non-idempotent: on any
  * ambiguous create or failed readback, stop immediately; report partial state. */
-export async function runBatch(batch, io, {now = Date.now(), report, persist = () => {}} = {}) {
+export async function runBatch(batch, io, {now, clock = Date.now, report, persist = () => {}} = {}) {
   const out = report ?? {status: 'INITIALIZING', posts: [], error: null};
   const save = () => persist(out);
+  const currentTime = () => now ?? clock();
   try {
-    const videos = validateBatch(batch, now);
+    const videos = validateBatch(batch, currentTime());
     out.posts = batch.posts.map(p => ({clientId: p.id, videoId: p.videoId, platform: p.platform, outcome: 'NOT_ATTEMPTED'}));
     out.status = 'PREFLIGHT_IN_PROGRESS'; save();
     validateChannels(batch.posts, await io.listChannels());
@@ -175,7 +176,14 @@ export async function runBatch(batch, io, {now = Date.now(), report, persist = (
     for (const post of batch.posts) await io.dryRun(buildPayload(post, videos.get(post.videoId)));
     out.status = 'PREFLIGHT_PASS'; save();
     if (batch.action === 'preflight') return out;
+    const createdIds = new Set();
     for (const post of batch.posts) {
+      // Recheck as close to each write as practical. This reduces, but cannot
+      // eliminate, races with changes made directly in Buffer by other people.
+      const latest = await io.listPosts();
+      requireSafe(Array.isArray(latest), 'QUEUE_UNAVAILABLE');
+      validateQueue(batch.posts, latest.filter(q => !createdIds.has(String(q.id ?? ''))));
+      requireSafe(wibTime(post.dueAt) >= currentTime() + 5 * MINUTE, 'SCHEDULE_WINDOW_EXPIRED');
       const record = out.posts.find(p => p.clientId === post.id);
       record.outcome = 'CREATE_IN_PROGRESS'; out.status = 'CREATING'; save();
       let id;
@@ -185,6 +193,7 @@ export async function runBatch(batch, io, {now = Date.now(), report, persist = (
       record.id = String(id); record.outcome = 'CREATED_NOT_VERIFIED'; save();
       const actual = await io.getPost(id);
       checkReadback(post, actual, id);
+      createdIds.add(String(id));
       record.outcome = 'SCHEDULED_VERIFIED'; record.status = 'scheduled'; record.dueAt = post.dueAt; save();
     }
     out.status = 'SUBMITTED'; save();

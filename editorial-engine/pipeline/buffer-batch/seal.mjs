@@ -33,7 +33,7 @@ export async function seal(session, triggerSha) {
     const checks=Array.isArray(result.check_runs)?result.check_runs:[];
     for(const check of checks) {
       if(check.name!=='Buffer batch secure input' || check.status!=='in_progress'
-        || check.head_sha!==triggerSha || check.app?.slug!=='github-actions') continue;
+        || check.head_sha!==triggerSha || check.app?.slug!=='github-actions' || check.app?.id!==15368) continue;
       let data;try{data=JSON.parse(check.output?.summary ?? '');}catch{continue;}
       if(data.nonce!==trigger.nonce)continue;
       try{pub=crypto.createPublicKey(Buffer.from(data.public_key_b64,'base64'));}catch{throw new BatchError('BAD_RUNNER_PUBLIC_KEY');}

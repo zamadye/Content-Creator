@@ -41,6 +41,7 @@ export function openEnvelope(ciphertext, blobSha, trigger, privateKey) {
   let batch;
   try { batch = JSON.parse(plaintext.toString('utf8')); } catch { throw new BatchError('BAD_PRIVATE_REQUEST'); }
   ensure(batch.nonce === trigger.nonce, 'REQUEST_NONCE_MISMATCH');
+  ensure(/^[a-f0-9]{64}$/.test(batch._requestSalt ?? ''), 'REQUEST_SALT_MISSING');
   return batch;
 }
 

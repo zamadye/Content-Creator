@@ -119,6 +119,29 @@ test('media or queue preflight failure causes no writes',async()=>{
   await assert.rejects(runBatch(batch(),io,{now,report}),/MEDIA_UNAVAILABLE/);
   assert.equal(io.calls,0);assert.equal(report.status,'STOPPED_BEFORE_CREATION');
 });
+test('a newly conflicting queue item stops the remaining batch without another write',async()=>{
+  const io=fakeAdapter(),report={};let queueReads=0;
+  io.listPosts=async()=>{queueReads++;return queueReads<3?[]:[
+    {id:'buffer1',status:'scheduled',channelId:'fb1',text:batch().posts[0].text,dueAt:batch().posts[0].dueAt},
+    {id:'external',status:'scheduled',channelId:'different',text:'lain',dueAt:'2026-11-08T09:00:00+07:00'}
+  ];};
+  await assert.rejects(runBatch(batch(),io,{now,report}),/EXISTING_GAP_CONFLICT/);
+  assert.equal(io.calls,1);assert.equal(report.status,'PARTIAL_OR_UNCERTAIN');
+  assert.deepEqual(report.posts.map(x=>x.outcome),['SCHEDULED_VERIFIED','NOT_ATTEMPTED']);
+});
+test('queue rechecks exclude IDs verified earlier in this same batch',async()=>{
+  const io=fakeAdapter(),report={};let queueReads=0;
+  io.listPosts=async()=>{queueReads++;return queueReads<3?[]:[
+    {id:'buffer1',status:'scheduled',channelId:'fb1',text:batch().posts[0].text,dueAt:batch().posts[0].dueAt}
+  ];};
+  await runBatch(batch(),io,{now,report});assert.equal(io.calls,2);assert.equal(report.status,'SUBMITTED');
+});
+test('a schedule that becomes too close during preflight never starts a create',async()=>{
+  const io=fakeAdapter(),report={};let reads=0;
+  const clock=()=>reads++===0?now:Date.parse('2026-11-08T07:26:00+07:00');
+  await assert.rejects(runBatch(batch(),io,{clock,report}),/SCHEDULE_WINDOW_EXPIRED/);
+  assert.equal(io.calls,0);assert.equal(report.status,'STOPPED_BEFORE_CREATION');
+});
 test('ambiguous create stops the batch without a retry and preserves earlier ID',async()=>{
   const io=fakeAdapter({failCreate:true}),report={};
   await assert.rejects(runBatch(batch(),io,{now,report}),/CREATE_UNCERTAIN_RECONCILE/);

@@ -594,9 +594,15 @@ try {
       String(result.post.status ?? '').toLowerCase(),
       ...(payload.platforms ?? []).map((entry) => String(entry?.status ?? '').toLowerCase()),
     ];
+    // Jangan menuntut post.id: createPost menjawab
+    // { message: "Post scheduled successfully", post: { status: "scheduled" } }
+    // tanpa id, dan id baru bisa diambil lewat listPosts. Menuntut id membuat
+    // jadwal yang SUDAH dibuat dianggap gagal — lalu dijalankan ulang dan
+    // menghasilkan post kedua pada waktu yang sama.
     const terjadwal =
-      Boolean(result.post.id) &&
-      (statusAll.includes('scheduled') || statusAll.includes('pending') || statusAll.includes('queued'));
+      statusAll.includes('scheduled') ||
+      statusAll.includes('queued') ||
+      (statusAll.includes('pending') && !result.post.error);
     result.schedule = {
       requestedFor: new Date(scheduleFor).toISOString(),
       timezone: scheduleTimezone,

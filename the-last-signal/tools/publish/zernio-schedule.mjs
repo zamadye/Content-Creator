@@ -116,6 +116,19 @@ for (const item of items) {
     continue;
   }
 
+  // Jangan menjadwalkan ulang. Berkas berstatus `scheduled` sudah punya waktu
+  // di Zernio; mengirimnya lagi berarti dua post untuk satu video.
+  try {
+    const existing = JSON.parse(readFileSync(requestPath, "utf8"));
+    if (["scheduled", "published"].includes(String(existing.status))) {
+      log(`${episodeId}: sudah ${existing.status} (${existing.scheduledFor ?? "-"}) — dilewati`);
+      results.push({ episodeId, ok: true, skipped: true, scheduledFor: existing.scheduledFor ?? null });
+      continue;
+    }
+  } catch {
+    /* berkas rusak: biarkan zernio-publish yang melaporkan */
+  }
+
   let scheduledFor;
   try {
     scheduledFor = toInstant(item.scheduledFor, timezone);
@@ -164,7 +177,7 @@ for (const item of items) {
   }
 
   const confirmed = report?.schedule?.confirmedFor ?? report?.schedule?.requestedFor ?? null;
-  const ok = Boolean(report?.ok) && Boolean(report?.post?.id);
+  const ok = Boolean(report?.ok);
 
   if (ok) {
     // Berkas antrean ditandai `scheduled` supaya tidak pernah ikut jalur

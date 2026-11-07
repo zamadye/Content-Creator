@@ -1,0 +1,86 @@
+name: Rekonsiliasi jadwal (Zernio)
+
+# ---------------------------------------------------------------------------
+#  Membaca ulang daftar post di Zernio dan mencocokkannya dengan berkas antrean.
+#
+#  Kenapa perlu: createPost bisa menjawab "Post scheduled successfully" tanpa
+#  mengembalikan id post. Repo jadi tidak tahu bahwa jadwalnya sudah ada, dan
+#  berkas antrean tetap `held` — kalau dijadwalkan lagi, video tayang dua kali.
+#
+#  Skrip ini hanya MEMBACA: tidak mengunggah, tidak menjadwalkan, tidak
+#  menghapus apa pun. Pemicu: push ke the-last-signal/.reconcile-trigger.
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    branches:
+      - "arena/479de245-content-creator"
+    paths:
+      - "the-last-signal/.reconcile-trigger"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zernio-reconcile
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    name: cocokkan antrean dengan Zernio
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+      ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
+
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Pasang Node 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Sembunyikan nilai rahasia dari log
+        run: |
+          set -euo pipefail
+          [ -n "${ZERNIO_API_KEY:-}" ] && echo "::add-mask::${ZERNIO_API_KEY}"
+          [ -n "${ZERNIO_KEY:-}" ] && echo "::add-mask::${ZERNIO_KEY}"
+          exit 0
+
+      - name: Pasang SDK Zernio
+        working-directory: the-last-signal/tools/publish
+        run: npm install --no-audit --no-fund --loglevel=error
+
+      - name: Jalankan rekonsiliasi
+        working-directory: the-last-signal/tools/publish
+        run: |
+          set -uo pipefail
+          node zernio-reconcile.mjs
+          echo "::notice::rekonsiliasi keluar dengan kode $?"
+
+      - name: Simpan hasil
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- the-last-signal/publish-queue the-last-signal/knowledge/jadwal-zernio.json; then
+            echo "::notice::tidak ada perubahan"
+            exit 0
+          fi
+          git config user.name "the-last-signal bot"
+          git config user.email "bot@the-last-signal.invalid"
+          git add the-last-signal/publish-queue the-last-signal/knowledge/jadwal-zernio.json
+          git commit -q -m "rekonsiliasi(zernio): cocokkan antrean dengan post terjadwal"
+          for attempt in 1 2 3; do
+            if git pull --rebase --quiet origin "${GITHUB_REF_NAME}" && git push --quiet; then
+              echo "::notice::hasil rekonsiliasi tersimpan (percobaan $attempt)"
+              exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "::warning::hasil rekonsiliasi tidak tersimpan"

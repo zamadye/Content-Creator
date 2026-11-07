@@ -29,7 +29,7 @@
     "categoryId": "24",
     "visibility": "public",
     "madeForKids": false,
-    "containsSyntheticMedia": true,
+    "containsSyntheticMedia": false,
     "notifySubscribers": true,
     "firstComment": "Kalau kamu yang menonton rekaman itu, kamu bangun atau tetap di kasur?"
   },

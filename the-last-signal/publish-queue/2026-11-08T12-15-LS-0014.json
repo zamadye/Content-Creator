@@ -29,7 +29,7 @@
     "categoryId": "24",
     "visibility": "public",
     "madeForKids": false,
-    "containsSyntheticMedia": true,
+    "containsSyntheticMedia": false,
     "notifySubscribers": true,
     "firstComment": "Kalau keluargamu menyiapkan kursi lebih banyak dari orangnya, kamu akan bertanya?"
   },

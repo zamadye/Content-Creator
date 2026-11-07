@@ -8,6 +8,10 @@
 - **Target kerja:** tiga konten dalam jendela 07.30–08.30, 11.30–13.00 dan 19.00–20.00 WIB. Target ini tidak menjamin frekuensi atau jangkauan dan tidak membolehkan melewati QA.
 - **Durasi:** ditentukan oleh naskah yang telah diuji baca dan kebutuhan cerita. Untuk Facebook Reels melalui Buffer, rujukan yang diperiksa menyatakan **3–90 detik**; periksa lagi sebelum publikasi karena platform dapat berubah. Jangan menjadikan 85–95 detik sebagai target universal atau mempercepat suara sampai tak nyaman. Batas format platform lain dicek pada saat digunakan.
 - **Izin:** jadwal kerja bukan izin membuat/mengubah posting. Butuh persetujuan eksplisit untuk publikasi/penjadwalan dan akses publik sementara. Jarak minimal dua jam kecuali ada pengecualian yang disetujui untuk posting/waktu tertentu. Pengecualian 7 November tidak berlaku otomatis pada hari lain.
+- **Label AI untuk upload berikutnya:** sesuai preferensi pengguna, jangan aktifkan label AI secara sukarela bila platform tidak mewajibkannya. Ini berlaku pada setiap platform dan setiap upload baru; bukan pernyataan bahwa AI tidak digunakan. Posting yang sudah terbit atau terjadwal tidak diubah otomatis.
+- **Gate pengungkapan:** sebelum upload, tinjau isi visual, suara, musik, jenis posting dan aturan terkini tiap platform. Jika label/pengungkapan diwajibkan atau statusnya belum jelas, **tahan upload**, beri tahu pengguna, dan minta keputusan untuk memenuhi kewajiban atau merevisi konten. Jangan membuat pernyataan yang tidak benar atau mengakali metadata; platform juga dapat menerapkan label otomatis yang tidak selalu bisa dilepas.
+
+  Rujukan untuk dicek kembali: [YouTube: pengungkapan GenAI](https://support.google.com/youtube/answer/14328491?hl=en), [TikTok: konten buatan AI](https://support.tiktok.com/en/using-tiktok/creating-videos/ai-generated-content), dan [Meta: identifikasi konten AI](https://about.fb.com/news/2026/02/meta-prepares-for-2026-us-midterms/). Animasi tidak otomatis membebaskan pemeriksaan atas suara atau elemen lain.
 
 ## 2. Tujuh gate, dengan bukti
 

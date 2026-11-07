@@ -1,27 +1,73 @@
 {
   "timezone": "Asia/Makassar",
-  "updatedAt": "2026-11-07T23:20:47.250Z",
+  "updatedAt": "2026-11-07T23:23:57.923Z",
   "items": [
     {
       "episodeId": "LS-0012",
       "ok": true,
       "scheduledFor": "2026-11-08T04:05:00.000Z",
       "dryRun": true,
-      "updatedAt": "2026-11-07T23:20:47.250Z"
+      "updatedAt": "2026-11-07T23:23:57.922Z",
+      "zernioPostId": null,
+      "zernioStatus": "scheduled",
+      "youtube": {
+        "status": "pending",
+        "url": null
+      },
+      "facebook": {
+        "status": "pending",
+        "url": null
+      }
     },
     {
       "episodeId": "LS-0013",
       "ok": true,
       "scheduledFor": "2026-11-08T05:05:00.000Z",
       "dryRun": true,
-      "updatedAt": "2026-11-07T23:20:47.250Z"
+      "updatedAt": "2026-11-07T23:23:57.922Z",
+      "zernioPostId": null,
+      "zernioStatus": "scheduled",
+      "youtube": {
+        "status": "pending",
+        "url": null
+      },
+      "facebook": {
+        "status": "pending",
+        "url": null
+      }
     },
     {
       "episodeId": "LS-0014",
       "ok": true,
       "scheduledFor": "2026-11-08T07:05:00.000Z",
       "dryRun": true,
-      "updatedAt": "2026-11-07T23:20:47.250Z"
+      "updatedAt": "2026-11-07T23:23:57.923Z",
+      "zernioPostId": null,
+      "zernioStatus": "scheduled",
+      "youtube": {
+        "status": "pending",
+        "url": null
+      },
+      "facebook": {
+        "status": "pending",
+        "url": null
+      }
+    },
+    {
+      "episodeId": "LL-0002",
+      "ok": true,
+      "zernioPostId": null,
+      "zernioStatus": "published",
+      "scheduledFor": "2026-11-07T07:29:08.506Z",
+      "youtube": {
+        "status": "published",
+        "url": "https://www.youtube.com/watch?v=6Ag5D4PSfhI"
+      },
+      "facebook": {
+        "status": "published",
+        "url": "https://www.facebook.com/watch/?v=2144087316475744"
+      },
+      "updatedAt": "2026-11-07T23:23:57.922Z"
     }
   ]
 }

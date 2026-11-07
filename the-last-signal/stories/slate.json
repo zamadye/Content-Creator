@@ -1,35 +1,34 @@
 {
-  "catatan": "Daftar episode yang sedang disiapkan. Satu entri = satu episode yang belum dirender. Kosongkan lagi setelah episode selesai diproduksi.",
-  "episodes": [
-    {
-      "episodeId": "LL-0002",
-      "judul": "Dua Belas Meter",
-      "format": "longform_16x9",
-      "status": "produksi: 113 shot / 53 gambar, gambar 0/53 (37 gambar lama hilang)",
-      "folder": "stories/longform/LL-0002",
-      "kata_narasi": 1259,
-      "estimasi_durasi_detik": 572,
-      "shot": 113,
-      "entitas": 3,
-      "selesai": [
-        "dossier riset (R1–R12)",
-        "naskah 9 segmen",
-        "peta visual 152 shot terkunci kata pemicu",
-        "plan.json + episode.json (lolos skema)",
-        "narasi 9/9 (9:54,6) dengan voice-01",
-        "alignment kata->frame (align-cuts) + durasi terukur 598,3 s",
-        "skor musik 598,3 s (klimaks 523 s = kemunculan entitas ke-3) + ambience",
-        "37 gambar"
-      ],
-      "berikutnya": [
-        "53 gambar (maks 10 per giliran)",
-        "render 17.948 frame dalam satu giliran",
-        "encode < 40 MB (lihat catatan-encode.md)",
-        "QC 9 butir",
-        "unggah begitu QC lolos"
-      ],
-      "target_unggah": "2026-11-07T13:00+08:00",
-      "judul_unggah": "Dua Belas Meter yang Hilang"
-    }
-  ]
+ "catatan": "Daftar episode yang sedang disiapkan. Satu entri = satu episode yang belum dirender. Kosongkan lagi setelah episode selesai diproduksi.",
+ "episodes": [
+  {
+   "episodeId": "LL-0002",
+   "judul": "Dua Belas Meter",
+   "format": "longform_16x9",
+   "status": "produksi: 113 shot / 53 gambar, gambar 50/53",
+   "folder": "stories/longform/LL-0002",
+   "kata_narasi": 1259,
+   "estimasi_durasi_detik": 572,
+   "shot": 113,
+   "entitas": 3,
+   "selesai": [
+    "dossier riset (R1–R12)",
+    "naskah 9 segmen",
+    "peta visual 152 shot terkunci kata pemicu",
+    "plan.json + episode.json (lolos skema)",
+    "narasi 9/9 (9:54,6) dengan voice-01",
+    "alignment kata->frame (align-cuts) + durasi terukur 598,3 s",
+    "skor musik 598,3 s (klimaks 523 s = kemunculan entitas ke-3) + ambience",
+    "50 gambar (2 giliran, sisa 5)"
+   ],
+   "berikutnya": [
+    "5 gambar sisa (s7-04, s7-14, s8-03, s8-07, s9-03)",
+    "render via .github/workflows/render.yml (sandbox tanpa libnss3)",
+    "QC 9 butir dari log workflow",
+    "unggah begitu QC lolos"
+   ],
+   "judul_unggah": "Dua Belas Meter yang Hilang",
+   "catatan_unggah": "tanpa tanggal tetap; unggah begitu QC lolos, jendela 12.00-18.00 lokal"
+  }
+ ]
 }

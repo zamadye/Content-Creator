@@ -3,9 +3,9 @@
  * ------------------
  * React component tree -> SVG string -> PNG raster (resvg).
  *
- * This is the deterministic fallback used because Remotion's own render backend
- * requires a Chromium binary (see docs/TOOL_INTEGRATION.md). The exact same scene
- * components are used by Remotion Studio / `remotion render` when Chrome is available.
+ * This is a retained generic utility, not a complete render entrypoint. The old
+ * scenes and Remotion Studio composition were retired during the niche cleanup;
+ * validate any new integration independently before using it in production.
  */
 import fs from 'node:fs';
 import path from 'node:path';

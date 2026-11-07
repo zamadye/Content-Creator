@@ -3,22 +3,13 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Editorial Content Production Engine — 2D animated editorial storytelling",
+  "description": "KNOT THEORY — private-input Dunia Kebalik production examples and safety tests",
   "scripts": {
     "fonts": "node pipeline/prepare-fonts.mjs",
-    "timeline": "tsx pipeline/build-timeline.ts",
-    "voiceover:measure": "tsx pipeline/measure-voiceover.ts",
-    "subtitles": "tsx pipeline/build-subtitles.ts",
-    "render:frames": "tsx pipeline/render-frames.ts",
-    "render:still": "tsx pipeline/render-still.ts",
-    "sheets": "tsx pipeline/render-sheets.ts",
-    "audio:score": "python3 audio/processing/synth_score.py",
-    "audio:mix": "tsx pipeline/mix-audio.ts",
-    "encode": "tsx pipeline/encode.ts",
-    "qa": "tsx pipeline/qa.ts",
-    "studio": "remotion studio remotion/src/index.ts",
-    "render:remotion": "remotion render remotion/src/index.ts EditorialVideo rendering/final/editorial-video.remotion.mp4",
-    "build": "bash pipeline/build-all.sh"
+    "build:hiu": "bash pipeline/hiu-sebelum-hutan-2026/build.sh",
+    "build:antartika": "bash pipeline/interactive-antartika-v2/build.sh",
+    "test": "node --test pipeline/tests/*.test.mjs pipeline/schedule-shark-1900/test-runner.mjs pipeline/publish-antartika/test-runner.mjs pipeline/coverr-transfer/test-transfer.mjs pipeline/drive-relay/test-relay.mjs",
+    "test:python": "python3 -m unittest pipeline/test_coverr_search.py pipeline/coverr-transfer/test-search-hq.py"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

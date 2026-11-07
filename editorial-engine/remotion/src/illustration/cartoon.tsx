@@ -81,8 +81,8 @@ export const Hills: React.FC<{ y?: number; scale?: number }> = ({ y = 1180, scal
 export const River: React.FC<{ y?: number }> = ({ y = 1470 }) => (
   <g>
     <Path d={`M-40 ${y} C 240 ${y - 40} 700 ${y + 40} 1120 ${y - 10} L1120 ${y + 210} C 700 ${y + 250} 240 ${y + 170} -40 ${y + 200} Z`} fill={kartun.water} />
-    <Path d={`M60 ${y + 70} C 300 ${y + 50} 520 ${y + 90} 760 ${y + 60}`} stroke="#EAF2EF" strokeWidth={7} fill="none" opacity={0.55} strokeLinecap="round" />
-    <Path d={`M300 ${y + 140} C 520 ${y + 120} 700 ${y + 150} 900 ${y + 128}`} stroke="#EAF2EF" strokeWidth={6} fill="none" opacity={0.4} strokeLinecap="round" />
+    <Path d={`M60 ${y + 70} C 300 ${y + 50} 520 ${y + 90} 760 ${y + 60}`} stroke="#EAF2EF" strokeWidth={7} fill="none" opacity={0.55} linecap="round" />
+    <Path d={`M300 ${y + 140} C 520 ${y + 120} 700 ${y + 150} 900 ${y + 128}`} stroke="#EAF2EF" strokeWidth={6} fill="none" opacity={0.4} linecap="round" />
   </g>
 );
 
@@ -111,13 +111,13 @@ export const Karakter: React.FC<{
     <g transform={`translate(${x} ${y}) scale(${flip ? -s : s} ${s})`} opacity={opacity}>
       <Ellipse cx={0} cy={6} rx={64} ry={16} fill={kartun.shadow} />
       {/* kaki */}
-      <Path d={`M-16 -92 L-20 -14`} stroke={kartun.pants} strokeWidth={16} strokeLinecap="round" fill="none" />
-      <Path d={`M16 -92 L20 -14`} stroke={kartun.pants} strokeWidth={16} strokeLinecap="round" fill="none" />
+      <Path d={`M-16 -92 L-20 -14`} stroke={kartun.pants} strokeWidth={16} linecap="round" fill="none" />
+      <Path d={`M16 -92 L20 -14`} stroke={kartun.pants} strokeWidth={16} linecap="round" fill="none" />
       <Ellipse cx={-26} cy={-8} rx={20} ry={9} fill={kartun.shoe} />
       <Ellipse cx={26} cy={-8} rx={20} ry={9} fill={kartun.shoe} />
       {/* tangan */}
-      <Path d={armPath(-1, pose === 'armsUp' ? 130 : pose === 'slump' ? 8 : pose === 'carry' ? 20 : 26)} stroke={skin} strokeWidth={15} strokeLinecap="round" fill="none" />
-      <Path d={armPath(1, pose === 'armsUp' ? 130 : pose === 'pointRight' ? 96 : pose === 'pointLeft' ? 20 : pose === 'carry' ? 30 : 24)} stroke={skin} strokeWidth={15} strokeLinecap="round" fill="none" />
+      <Path d={armPath(-1, pose === 'armsUp' ? 130 : pose === 'slump' ? 8 : pose === 'carry' ? 20 : 26)} stroke={skin} strokeWidth={15} linecap="round" fill="none" />
+      <Path d={armPath(1, pose === 'armsUp' ? 130 : pose === 'pointRight' ? 96 : pose === 'pointLeft' ? 20 : pose === 'carry' ? 30 : 24)} stroke={skin} strokeWidth={15} linecap="round" fill="none" />
       {/* badan */}
       <Path d={`M-30 -100 Q-34 -150 -27 -196 Q-20 -234 0 -236 Q20 -234 27 -196 Q34 -150 30 -100 Z`} fill={shirt} />
       {cap && <Rect x={-26} y={-190} w={52} h={8} fill="#ffffff" opacity={0.35} />}
@@ -140,15 +140,15 @@ export const Karakter: React.FC<{
         </g>
       )}
       {/* alis */}
-      <Path d={face === 'angry' ? 'M-34 -314 L-8 -308' : face === 'worried' || face === 'sad' ? 'M-34 -312 L-8 -318' : 'M-34 -316 L-8 -316'} stroke={kartun.line} strokeWidth={5} strokeLinecap="round" fill="none" />
-      <Path d={face === 'angry' ? 'M34 -314 L8 -308' : face === 'worried' || face === 'sad' ? 'M34 -312 L8 -318' : 'M34 -316 L8 -316'} stroke={kartun.line} strokeWidth={5} strokeLinecap="round" fill="none" />
-      {moustache && <Path d="M-20 -268 q20 -8 40 0" stroke={kartun.hair} strokeWidth={7} fill="none" strokeLinecap="round" />}
+      <Path d={face === 'angry' ? 'M-34 -314 L-8 -308' : face === 'worried' || face === 'sad' ? 'M-34 -312 L-8 -318' : 'M-34 -316 L-8 -316'} stroke={kartun.line} strokeWidth={5} linecap="round" fill="none" />
+      <Path d={face === 'angry' ? 'M34 -314 L8 -308' : face === 'worried' || face === 'sad' ? 'M34 -312 L8 -318' : 'M34 -316 L8 -316'} stroke={kartun.line} strokeWidth={5} linecap="round" fill="none" />
+      {moustache && <Path d="M-20 -268 q20 -8 40 0" stroke={kartun.hair} strokeWidth={7} fill="none" linecap="round" />}
       {/* mulut */}
-      {face === 'smile' && <Path d="M-16 -262 q16 14 32 0" stroke={kartun.line} strokeWidth={5} fill="none" strokeLinecap="round" />}
-      {(face === 'sad' || face === 'worried') && <Path d="M-16 -252 q16 -12 32 0" stroke={kartun.line} strokeWidth={5} fill="none" strokeLinecap="round" />}
-      {face === 'angry' && <Path d="M-16 -256 h32" stroke={kartun.line} strokeWidth={6} strokeLinecap="round" />}
+      {face === 'smile' && <Path d="M-16 -262 q16 14 32 0" stroke={kartun.line} strokeWidth={5} fill="none" linecap="round" />}
+      {(face === 'sad' || face === 'worried') && <Path d="M-16 -252 q16 -12 32 0" stroke={kartun.line} strokeWidth={5} fill="none" linecap="round" />}
+      {face === 'angry' && <Path d="M-16 -256 h32" stroke={kartun.line} strokeWidth={6} linecap="round" />}
       {face === 'shock' && <Ellipse cx={0} cy={-256} rx={10} ry={13} fill={kartun.line} />}
-      {face === 'neutral' && <Path d="M-14 -258 h28" stroke={kartun.line} strokeWidth={5} strokeLinecap="round" />}
+      {face === 'neutral' && <Path d="M-14 -258 h28" stroke={kartun.line} strokeWidth={5} linecap="round" />}
     </g>
   );
 };
@@ -295,7 +295,7 @@ export const KainRol: React.FC<{ x: number; y: number; s?: number }> = ({ x, y, 
     <Rect x={-62} y={-78} w={124} h={78} rx={6} fill="#C9A25E" />
     <Ellipse cx={0} cy={-78} rx={62} ry={20} fill="#DFBB78" />
     <Ellipse cx={0} cy={-78} rx={20} ry={8} fill="#8C6E52" />
-    <Path d="M-62 -40 q-40 26 -14 58" stroke="#C9A25E" strokeWidth={16} fill="none" strokeLinecap="round" />
+    <Path d="M-62 -40 q-40 26 -14 58" stroke="#C9A25E" strokeWidth={16} fill="none" linecap="round" />
   </g>
 );
 
@@ -316,7 +316,7 @@ export const Sepatu: React.FC<{ x: number; y: number; s?: number; flip?: boolean
     <Ellipse cx={0} cy={0} rx={66} ry={14} fill="#8C6E52" opacity={0.22} />
     <Path d="M-64 -16 L-64 -54 Q-64 -66 -50 -66 L-10 -66 Q6 -66 18 -50 L40 -30 Q58 -20 58 -16 Z" fill="#4A5560" />
     <Rect x={-66} y={-16} w={126} h={16} rx={7} fill="#EDE6D6" />
-    <Path d="M-40 -46 l26 -8 M-36 -34 l26 -8" stroke="#EDE6D6" strokeWidth={6} strokeLinecap="round" />
+    <Path d="M-40 -46 l26 -8 M-36 -34 l26 -8" stroke="#EDE6D6" strokeWidth={6} linecap="round" />
   </g>
 );
 
@@ -326,7 +326,7 @@ export const Surat: React.FC<{ x: number; y: number; s?: number; rotate?: number
     {[-56, -34, -12, 10, 32].map((ly, i) => (
       <Rect key={ly} x={-44} y={ly} w={i === 4 ? 46 : 88} h={7} rx={3} fill="#B9AE9C" opacity={0.75} />
     ))}
-    <Path d="M20 50 q14 -18 22 0 q8 18 18 -6" stroke={kartun.line} strokeWidth={4} fill="none" strokeLinecap="round" />
+    <Path d="M20 50 q14 -18 22 0 q8 18 18 -6" stroke={kartun.line} strokeWidth={4} fill="none" linecap="round" />
     {stamp && (
       <g transform="rotate(-16 22 22)">
         <Rect x={-12} y={4} w={72} h={34} rx={6} fill="none" stroke={kartun.red} strokeWidth={4} opacity={0.85} />

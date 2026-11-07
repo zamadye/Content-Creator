@@ -1,5 +1,7 @@
 # Bedah referensi: "Explain What is a StoryBoard_!"
 
+> **Arsip analisis, bukan standar aktif.** Usulan misi dan asumsi tempo/Remotion di bawah adalah catatan lama; gunakan `RISET-STORYTELLING-DUNIA-KEBALIK.md` dan `STANDARD-MINIMAL-CONTENT-PRODUCTION.md` sebagai acuan aktif. Video sumber dipertahankan privat. Contact sheet turunannya belum berhasil dicadangkan ke Drive akibat batas unggah; ada salinan lokal sementara, sehingga pemulihannya di lingkungan lain **NOT TESTED**.
+
 Berkas: `Explain What is a StoryBoard_!.mp4` — diunggah ke folder Deliverables, 3 Nov 2026 14:09 UTC.
 Dianalisis: 3 Nov 2026. Semua angka di bawah **diukur** dari berkasnya, bukan dikira-kira.
 
@@ -18,7 +20,7 @@ Dianalisis: 3 Nov 2026. Semua angka di bawah **diukur** dari berkasnya, bukan di
 | Loudness | mean −34,5 dB, max −13,4 dB |
 | Jumlah cut (scene > 0,25) | **13** → rata-rata satu perubahan visual tiap **5,3 detik** |
 
-Kontak sheets 16 frame: `editorial-engine/docs/assets/ref-storyboard-contactsheet.jpg`
+Contact sheet 16 frame: dipindahkan dari tree publik; cadangan Drive privat **belum terverifikasi**. Video sumber dengan MD5 di atas tetap ada di Drive privat.
 
 ---
 

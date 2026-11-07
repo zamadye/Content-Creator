@@ -1,20 +1,9 @@
 /**
- * DETERMINISTIC FRAME RUNTIME
- * ---------------------------
- * A small, API-compatible subset of Remotion used by every scene in this engine.
- *
- * WHY THIS EXISTS (see docs/TOOL_INTEGRATION.md, "Render backend"):
- * The authoring model is Remotion's (compositions, sequences, frame-based animation,
- * pure functions of `frame`). Remotion's own render backend needs a Chromium binary.
- * This sandbox has no Chromium and no system package manager access, so the same scene
- * components are rendered through React -> SVG -> raster (resvg) instead.
- *
- * Because scenes only ever depend on this module, they are:
- *   - deterministic (no CSS transitions, no wall clock, no Math.random)
- *   - previewable in Remotion Studio (runtime/remotion-adapter.ts re-exports the real package)
- *   - renderable by the Remotion CLI on a machine that has Chrome
- *
- * Everything here is a pure function of the frame number.
+ * DETERMINISTIC FRAME RUNTIME — shared illustration reference.
+ * A small frame-based API used by the retained generic illustration primitives.
+ * Old episode scenes, compositions and their entrypoints have been retired; this
+ * runtime alone is not a render pipeline or a working Remotion Studio preview.
+ * Integration into a new production must be tested separately.
  */
 import React, { createContext, useContext } from 'react';
 import { motion } from '../../../design/tokens';

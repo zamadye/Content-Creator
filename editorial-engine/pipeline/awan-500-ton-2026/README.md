@@ -6,7 +6,7 @@ Ini satu video, satu timeline dan satu take narasi voice-05 tanpa percepatan. Co
 
 Input ZIP privat `01-INPUT-PRIVAT-AWAN.zip` berisi tiga ilustrasi lingkungan AI, satu MP3 narasi dan naskah serta SHA-256 per entri. `restore-input.py` memvalidasi daftar entri, CRC, hash dan kecocokan naskah dengan checkout; ekstraksi dibatasi empat path media. Timeline/subtitle hanya cocok dengan take yang hash-nya tercatat di `prepare.py`; perubahan suara harus membuat timing baru, bukan mengabaikan hash. Input dan hasil disimpan di Drive privat, jangan commit media atau ID/tautan privat ke Git.
 
-Di `deliverables/awan-500-ton-2026/`: MP4 vertikal 1080×1920 H.264/AAC, thumbnail PNG mandiri, poster 4:5, empat caption, SRT, musik tonal dari kode, laporan QA, SHA-256 dan ZIP cadangan berisi source, font, input serta keluaran. Skrip ini tidak memakai Coverr, membuat post, menyetel jadwal atau mengubah Drive.
+Di `deliverables/awan-500-ton-2026/`: MP4 vertikal 1080×1920 H.264/AAC, thumbnail PNG mandiri, poster 4:5, empat caption, storyboard terbaca manusia, SRT, musik tonal dari kode, laporan QA, SHA-256 dan ZIP cadangan berisi source, font, input serta keluaran. Skrip ini tidak memakai Coverr, membuat post, menyetel jadwal atau mengubah Drive.
 
 ## Build lokal sekali jalan
 

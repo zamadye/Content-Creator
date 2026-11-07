@@ -10,6 +10,7 @@ python3 pipeline/awan-500-ton-2026/restore-input.py
 python3 -m unittest pipeline/awan-500-ton-2026/test_pipeline.py
 python3 pipeline/awan-500-ton-2026/prepare.py
 python3 pipeline/awan-500-ton-2026/captions.py
+python3 pipeline/awan-500-ton-2026/storyboard.py
 ./node_modules/.bin/tsx pipeline/awan-500-ton-2026/render.tsx --stills
 ./node_modules/.bin/tsx pipeline/awan-500-ton-2026/render.tsx
 python3 pipeline/awan-500-ton-2026/qa.py

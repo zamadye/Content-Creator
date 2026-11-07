@@ -46,7 +46,8 @@ def upper_md5(f):return subprocess.check_output([str(FF),'-nostdin','-hide_banne
 checks['two_different_samples_above_subtitles_per_scene']=all(upper_md5(D/f'qa-sample-{i+1:02d}.png')!=upper_md5(D/f'qa-sample-{i+10:02d}.png') for i in range(9))
 files=[video,thumb,poster,caption,srt,voice,bed,inputs];manifest=''.join(f'{sha(f)}  {f.name}\n' for f in files)
 (D/'SHA256SUMS.txt').write_text(manifest,encoding='utf8')
-commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+try:commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True,stderr=subprocess.DEVNULL).strip()
+except (subprocess.CalledProcessError, FileNotFoundError):commit='UNKNOWN (source archive, no Git)'
 lines=['# QA mekanis dan sumber — Awan 500 Ton', '',f'- Status pemeriksaan mekanis: {"PASS" if all(checks.values()) else "FAIL"}. Ini bukan persetujuan kreatif, izin hak, atau bukti publikasi.',f'- Durasi {actual:.2f} detik; sembilan adegan; satu take narasi voice-05, tidak dipercepat.',f'- Loudness {lufs} LUFS; true peak {peak} dBTP.',f'- Source Git HEAD saat QA: {commit}.','- Tidak ada penjadwalan atau publikasi dari pipeline ini.','', '## Hasil pemeriksaan']
 lines += [f'- {"PASS" if ok else "FAIL"}: {name}' for name,ok in checks.items()]
 lines += ['','## Batas dan review yang masih diperlukan',

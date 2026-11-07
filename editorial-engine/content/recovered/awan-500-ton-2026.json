@@ -40,7 +40,7 @@
       ],
       "tagline": "CONTOH HITUNGAN AIR DI AWAN",
       "narration": "Awan yang terlihat ringan ini bisa menyimpan ratusan ton air. Kok enggak langsung jatuh?",
-      "action": "Host di atap menunjuk awan yang turun pelan ke atas timbangan, lalu jarum dan angka bergerak; hook dan kualifikasi langsung terlihat sejak frame pertama.",
+      "action": "Host berjalan mendekati timbangan; awan ilustrasi turun di atasnya, jarum bergerak, dan kualifikasi terlihat sejak frame pertama.",
       "objectMap": [
         "Host",
         "awan kumulus ilustrasi",
@@ -56,12 +56,11 @@
       ],
       "tagline": "KITA HITUNG, BUKAN DITIMBANG",
       "narration": "Kita enggak menimbangnya pakai timbangan raksasa. Berat airnya bisa diperkirakan dari ukuran dan kadar air awan.",
-      "action": "Host menggeser timbangan ke samping, membuka pita ukur dan membingkai awan dengan kubus transparan.",
+      "action": "Host bergerak mendekati awan, menunjuk kubus transparan dan merentangkan penggaris di bawahnya.",
       "objectMap": [
         "Host",
-        "timbangan",
-        "pita ukur",
-        "kubus",
+        "penggaris",
+        "kubus transparan",
         "awan"
       ]
     },
@@ -90,13 +89,12 @@
       ],
       "tagline": "YANG DIHITUNG: TETES AIR",
       "narration": "Kalau dihitung, tetesan airnya berjumlah sekitar lima ratus ribu kilogram, atau lima ratus ton. Ini contoh hitungan, bukan berat setiap awan.",
-      "action": "Host menarik kartu faktor ke dalam mesin hitung; kartu hasil muncul dengan penanda bahwa itu massa air dari contoh, bukan udara.",
+      "action": "Host menunjuk panel saat kartu volume dan kadar air bergeser; panel hasil menegaskan massa air dari contoh, bukan udara.",
       "objectMap": [
         "Host",
         "kartu volume",
         "kartu kadar air",
-        "kalkulator",
-        "hasil perkiraan"
+        "panel hasil"
       ]
     },
     {
@@ -107,7 +105,7 @@
       ],
       "tagline": "AIRNYA TERSEBAR",
       "narration": "Nah, bayangan kita sering keliru: air sebanyak itu bukan satu kantong raksasa yang menggantung di langit.",
-      "action": "Host membuka kantong gambar khayalan; bentuk kantong larut menjadi banyak butiran yang terpencar di dalam bingkai awan.",
+      "action": "Di depan Host, gambar kantong khayalan memudar dan berganti awan berisi tetes-tetes yang terpencar.",
       "objectMap": [
         "Host",
         "kantong ilustrasi",
@@ -173,7 +171,7 @@
       ],
       "tagline": "BUTIRAN KECIL, CERITA BESAR",
       "narration": "Jadi, awan bukan tanpa berat. Dalam contoh ini, tetesannya ada di udara yang terus bergerak. Kalau kamu lihat awan, bentuk apa yang sering kamu temukan? Tulis di komentar, dan ikuti knot theory.",
-      "action": "Host membuka payung di jalan hujan, lalu menunjuk awan dan gelembung komentar; CTA teks muncul saat narasi penutup.",
+      "action": "Host berdiri di bawah payung di jalan hujan, lalu gelembung komentar dan teks CTA muncul di dekatnya.",
       "objectMap": [
         "Host",
         "payung",

@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 50,
+  "targetDurationSeconds": 50.9,
   "story": {
     "hook": "Ayah selalu menyiapkan tujuh kursi untuk enam orang",
     "premise": "Setiap Kamis malam keluarga berkumpul di rumah nenek dengan tujuh kursi untuk enam orang; gelas ketujuh selalu terisi teh dan selalu tinggal separuh.",
@@ -23,43 +23,43 @@
     {
       "text": "TUJUH KURSI, ENAM ORANG",
       "startFrame": 30,
-      "endFrame": 90
+      "endFrame": 91
     },
     {
       "text": "GELAS ITU SELALU SEPARUH",
-      "startFrame": 811,
-      "endFrame": 871
+      "startFrame": 825,
+      "endFrame": 886
     },
     {
       "text": "NAMANYA HILANG",
-      "startFrame": 1171,
-      "endFrame": 1231
+      "startFrame": 1191,
+      "endFrame": 1252
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 159,
+      "durationFrames": 164,
       "image": "images/scene-01.jpg",
       "narration": "Ayah selalu menyiapkan tujuh kursi untuk enam orang.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 45,
+          "atFrame": 46,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 89,
+          "atFrame": 92,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 130,
+          "atFrame": 134,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -69,7 +69,7 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 147,
+          "endFrame": 152,
           "text": "Ayah selalu menyiapkan tujuh kursi untuk enam orang."
         }
       ],
@@ -92,12 +92,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 99,
+            "startFrame": 102,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 130,
+            "startFrame": 134,
             "volume": 0.4
           }
         ]
@@ -106,26 +106,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 159,
+      "durationFrames": 148,
       "image": "images/scene-02.jpg",
       "narration": "Gelas ketujuh terisi teh. Tidak ada yang meneguknya.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 45,
+          "atFrame": 42,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 89,
+          "atFrame": 83,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 130,
+          "atFrame": 121,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -135,12 +135,12 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 77,
+          "endFrame": 71,
           "text": "Gelas ketujuh terisi teh."
         },
         {
-          "startFrame": 77,
-          "endFrame": 147,
+          "startFrame": 71,
+          "endFrame": 136,
           "text": "Tidak ada yang meneguknya."
         }
       ],
@@ -164,12 +164,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 99,
+            "startFrame": 92,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 130,
+            "startFrame": 121,
             "volume": 0.4
           }
         ]
@@ -178,26 +178,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 289,
+      "durationFrames": 334,
       "image": "images/scene-03.jpg",
       "narration": "Saat meja dibereskan, isinya tinggal separuh. Nenek bilang pintu belakang jangan dikunci selama kursi ketujuh masih di meja.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 81,
+          "atFrame": 94,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 162,
+          "atFrame": 187,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 237,
+          "atFrame": 274,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -207,12 +207,12 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 96,
+          "endFrame": 111,
           "text": "Saat meja dibereskan, isinya tinggal separuh."
         },
         {
-          "startFrame": 96,
-          "endFrame": 277,
+          "startFrame": 111,
+          "endFrame": 322,
           "text": "Nenek bilang pintu belakang jangan dikunci selama kursi ketujuh masih di meja."
         }
       ],
@@ -236,12 +236,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 179,
+            "startFrame": 207,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 237,
+            "startFrame": 274,
             "volume": 0.4
           }
         ]
@@ -250,26 +250,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 224,
+      "durationFrames": 209,
       "image": "images/scene-04.jpg",
       "narration": "Kamis lalu sepupu saya duduk di situ. Paginya sepatunya di pintu. Namanya hilang.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 63,
+          "atFrame": 59,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 125,
+          "atFrame": 117,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 184,
+          "atFrame": 172,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -279,17 +279,17 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 117,
+          "endFrame": 109,
           "text": "Kamis lalu sepupu saya duduk di situ."
         },
         {
-          "startFrame": 117,
-          "endFrame": 180,
+          "startFrame": 109,
+          "endFrame": 168,
           "text": "Paginya sepatunya di pintu."
         },
         {
-          "startFrame": 180,
-          "endFrame": 212,
+          "startFrame": 168,
+          "endFrame": 197,
           "text": "Namanya hilang."
         }
       ],
@@ -312,12 +312,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 139,
+            "startFrame": 130,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 184,
+            "startFrame": 172,
             "volume": 0.4
           }
         ]
@@ -326,26 +326,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 198,
+      "durationFrames": 171,
       "image": "images/scene-05.jpg",
       "narration": "Nenek bilang rumah ini tidak menghitung orang. Rumah ini menghitung kursi.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 55,
+          "atFrame": 48,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 111,
+          "atFrame": 96,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 162,
+          "atFrame": 140,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -355,12 +355,12 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 121,
+          "endFrame": 103,
           "text": "Nenek bilang rumah ini tidak menghitung orang."
         },
         {
-          "startFrame": 121,
-          "endFrame": 186,
+          "startFrame": 103,
+          "endFrame": 159,
           "text": "Rumah ini menghitung kursi."
         }
       ],
@@ -383,12 +383,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 123,
+            "startFrame": 106,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 162,
+            "startFrame": 140,
             "volume": 0.4
           }
         ]
@@ -397,26 +397,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 472,
+      "durationFrames": 500,
       "image": "images/scene-06.jpg",
       "narration": "Sepupu saya masih datang tiap Kamis. Tidak ada yang berani menyebut namanya. Kursi ketujuh bukan untuk tamu. Kursi itu yang menjaga kami tetap enam. Kamu mau duduk di sana? Tulis di komentar.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 132,
+          "atFrame": 140,
           "camera": "drift",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 264,
+          "atFrame": 280,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 387,
+          "atFrame": 410,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -426,32 +426,32 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 91,
+          "endFrame": 96,
           "text": "Sepupu saya masih datang tiap Kamis."
         },
         {
-          "startFrame": 91,
-          "endFrame": 176,
+          "startFrame": 96,
+          "endFrame": 186,
           "text": "Tidak ada yang berani menyebut namanya."
         },
         {
-          "startFrame": 176,
-          "endFrame": 247,
+          "startFrame": 186,
+          "endFrame": 261,
           "text": "Kursi ketujuh bukan untuk tamu."
         },
         {
-          "startFrame": 247,
-          "endFrame": 346,
+          "startFrame": 261,
+          "endFrame": 366,
           "text": "Kursi itu yang menjaga kami tetap enam."
         },
         {
-          "startFrame": 346,
-          "endFrame": 417,
+          "startFrame": 366,
+          "endFrame": 441,
           "text": "Kamu mau duduk di sana?"
         },
         {
-          "startFrame": 417,
-          "endFrame": 460,
+          "startFrame": 441,
+          "endFrame": 488,
           "text": "Tulis di komentar."
         }
       ],
@@ -475,12 +475,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 293,
+            "startFrame": 310,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 387,
+            "startFrame": 410,
             "volume": 0.4
           }
         ]
@@ -516,6 +516,7 @@
   "production": {
     "subgenre": "Ritual horror",
     "experiment": "Horornya dari aturan rumah yang diwariskan tanpa alasan: kursi lebih banyak daripada orang, dan hitungan itu tidak boleh berubah.",
+    "hud": false,
     "structure": "hook → gelas separuh → pintu jangan dikunci → sepupu duduk di situ → hitungan kursi → twist & pilihan",
     "slate": "stories/slate.json"
   }

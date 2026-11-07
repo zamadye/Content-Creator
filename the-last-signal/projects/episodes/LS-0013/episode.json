@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 48.5,
+  "targetDurationSeconds": 41,
   "story": {
     "hook": "Anak saya menangis tiga kali semalam",
     "premise": "Ayah muda membeli monitor bayi bekas; setiap malam layar kecil itu memperlihatkan anaknya berdiri di pintu kamar menghadap lorong, padahal anaknya tidur di kasur.",
@@ -22,44 +22,44 @@
   "onScreenText": [
     {
       "text": "SUDAH LEWAT LIMA MENIT",
-      "startFrame": 29,
-      "endFrame": 89
+      "startFrame": 24,
+      "endFrame": 75
     },
     {
       "text": "PUNGGUNG ITU SAYA",
-      "startFrame": 786,
-      "endFrame": 846
+      "startFrame": 663,
+      "endFrame": 714
     },
     {
       "text": "JANGAN TONTON MALAM INI",
-      "startFrame": 1136,
-      "endFrame": 1196
+      "startFrame": 959,
+      "endFrame": 1010
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 172,
+      "durationFrames": 135,
       "image": "images/scene-01.jpg",
       "narration": "Anak saya menangis tiga kali semalam. Saya tidak bangun.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 48,
+          "atFrame": 38,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 96,
+          "atFrame": 75,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 141,
+          "atFrame": 111,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -69,12 +69,12 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 109,
+          "endFrame": 84,
           "text": "Anak saya menangis tiga kali semalam."
         },
         {
-          "startFrame": 109,
-          "endFrame": 160,
+          "startFrame": 84,
+          "endFrame": 123,
           "text": "Saya tidak bangun."
         }
       ],
@@ -98,12 +98,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 107,
+            "startFrame": 84,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 141,
+            "startFrame": 111,
             "volume": 0.4
           }
         ]
@@ -112,26 +112,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 153,
+      "durationFrames": 105,
       "image": "images/scene-02.jpg",
       "narration": "Layar itu menunjukkan dia berdiri di pintu.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 43,
+          "atFrame": 30,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 86,
+          "atFrame": 59,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 125,
+          "atFrame": 86,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -141,7 +141,7 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 141,
+          "endFrame": 93,
           "text": "Layar itu menunjukkan dia berdiri di pintu."
         }
       ],
@@ -165,12 +165,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 95,
+            "startFrame": 65,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 125,
+            "startFrame": 86,
             "volume": 0.4
           }
         ]
@@ -179,26 +179,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 211,
+      "durationFrames": 182,
       "image": "images/scene-03.jpg",
       "narration": "Selimut di kasurnya masih cekung. Saya lari ke kamar. Dia tidur tenang.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 59,
+          "atFrame": 51,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 118,
+          "atFrame": 102,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 173,
+          "atFrame": 149,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -208,17 +208,17 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 86,
+          "endFrame": 74,
           "text": "Selimut di kasurnya masih cekung."
         },
         {
-          "startFrame": 86,
-          "endFrame": 150,
+          "startFrame": 74,
+          "endFrame": 129,
           "text": "Saya lari ke kamar."
         },
         {
-          "startFrame": 150,
-          "endFrame": 199,
+          "startFrame": 129,
+          "endFrame": 170,
           "text": "Dia tidur tenang."
         }
       ],
@@ -243,12 +243,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 131,
+            "startFrame": 113,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 173,
+            "startFrame": 149,
             "volume": 0.4
           }
         ]
@@ -257,26 +257,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 250,
+      "durationFrames": 192,
       "image": "images/scene-04.jpg",
       "narration": "Penjualnya sudah bilang kameranya telat lima menit, tapi saya pikir itu wajar untuk barang murah.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 54,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 140,
+          "atFrame": 108,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 205,
+          "atFrame": 157,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -286,7 +286,7 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 238,
+          "endFrame": 180,
           "text": "Penjualnya sudah bilang kameranya telat lima menit, tapi saya pikir itu wajar untuk barang murah."
         }
       ],
@@ -309,12 +309,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 155,
+            "startFrame": 119,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 205,
+            "startFrame": 157,
             "volume": 0.4
           }
         ]
@@ -323,26 +323,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 250,
+      "durationFrames": 231,
       "image": "images/scene-05.jpg",
       "narration": "Setiap kali saya sampai, kejadiannya belum terjadi. Kamera itu tidak telat. Ia mendahului lima menit.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 65,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 140,
+          "atFrame": 129,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 205,
+          "atFrame": 189,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -352,17 +352,17 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 114,
+          "endFrame": 105,
           "text": "Setiap kali saya sampai, kejadiannya belum terjadi."
         },
         {
-          "startFrame": 114,
-          "endFrame": 176,
+          "startFrame": 105,
+          "endFrame": 162,
           "text": "Kamera itu tidak telat."
         },
         {
-          "startFrame": 176,
-          "endFrame": 238,
+          "startFrame": 162,
+          "endFrame": 219,
           "text": "Ia mendahului lima menit."
         }
       ],
@@ -386,12 +386,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 155,
+            "startFrame": 143,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 205,
+            "startFrame": 189,
             "volume": 0.4
           }
         ]
@@ -400,26 +400,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 420,
+      "durationFrames": 384,
       "image": "images/scene-06.jpg",
       "narration": "Rekaman terakhir memperlihatkan punggung saya di lorong, sebelum saya bangun. Yang telat bukan kameranya. Malam ini dia menangis tiga kali lagi. Kamu mau saya bangun? Tulis di komentar.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 118,
+          "atFrame": 108,
           "camera": "drift",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 235,
+          "atFrame": 215,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 344,
+          "atFrame": 315,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -429,27 +429,27 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 150,
+          "endFrame": 137,
           "text": "Rekaman terakhir memperlihatkan punggung saya di lorong, sebelum saya bangun."
         },
         {
-          "startFrame": 150,
-          "endFrame": 207,
+          "startFrame": 137,
+          "endFrame": 189,
           "text": "Yang telat bukan kameranya."
         },
         {
-          "startFrame": 207,
-          "endFrame": 308,
+          "startFrame": 189,
+          "endFrame": 281,
           "text": "Malam ini dia menangis tiga kali lagi."
         },
         {
-          "startFrame": 308,
-          "endFrame": 365,
+          "startFrame": 281,
+          "endFrame": 333,
           "text": "Kamu mau saya bangun?"
         },
         {
-          "startFrame": 365,
-          "endFrame": 408,
+          "startFrame": 333,
+          "endFrame": 372,
           "text": "Tulis di komentar."
         }
       ],
@@ -473,12 +473,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 260,
+            "startFrame": 238,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 344,
+            "startFrame": 315,
             "volume": 0.4
           }
         ]
@@ -514,6 +514,7 @@
   "production": {
     "subgenre": "Domestic horror",
     "experiment": "Horornya dari selisih waktu di layar monitor bayi: kamera itu tidak telat, ia mendahului.",
+    "hud": false,
     "structure": "hook → layar itu → saya lari, dia tidur → lima menit yang dibeli murah → kamera mendahului → twist & pilihan",
     "slate": "stories/slate.json"
   }

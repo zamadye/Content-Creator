@@ -1,0 +1,187 @@
+{
+  "id": "awan-500-ton-2026",
+  "series": "Dunia Kebalik",
+  "title": "Awan Bisa Menyimpan 500 Ton Air?",
+  "editionStatus": "PRODUCTION — belum disetujui untuk publikasi",
+  "premise": "USGS memberi contoh hitungan massa air di awan kumulus hipotetis; tetesan kecil dan arus naik menjelaskan mengapa air tidak langsung jatuh sekaligus.",
+  "estimateScope": "500 ton adalah massa tetesan air dalam satu contoh asumsi, bukan pengukuran atau massa total semua awan; udara tidak dihitung.",
+  "sources": [
+    {
+      "id": "usgs",
+      "label": "USGS Water Science School, How Much Does a Cloud Weigh?",
+      "url": "https://www.usgs.gov/water-science-school/science/how-much-does-a-cloud-weigh",
+      "supports": "Contoh 1 km³, 0,5 g/m³, 500.000 kg tetesan air; hasil perkiraan."
+    },
+    {
+      "id": "takahashi2017",
+      "label": "Takahashi, Suzuki, Stephens (2017), QJRMS",
+      "url": "https://doi.org/10.1002/qj.3042",
+      "supports": "Penelitian pengamatan dan pemodelan awan hangat: pengaruh updraft pada koalesensi dan tetesan hujan."
+    },
+    {
+      "id": "nasa-jpl",
+      "label": "NASA/JPL, NASA Solves a Drizzle Riddle",
+      "url": "https://www.jpl.nasa.gov/news/nasa-solves-a-drizzle-riddle/",
+      "supports": "Penjelasan tetesan awan, arus naik, dan pertumbuhan tetesan; hasil penelitian 2017."
+    },
+    {
+      "id": "noaa",
+      "label": "NOAA JetStream, Thunderstorm Development",
+      "url": "https://www.noaa.gov/jetstream/wind_damage",
+      "supports": "Udara naik dan proses pertumbuhan tetesan; tidak semua awan menghasilkan hujan."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "headline": [
+        "AWAN BISA BERAT",
+        "500 TON?"
+      ],
+      "tagline": "CONTOH HITUNGAN AIR DI AWAN",
+      "narration": "Awan yang terlihat ringan ini bisa menyimpan ratusan ton air. Kok enggak langsung jatuh?",
+      "action": "Host di atap menunjuk awan yang turun pelan ke atas timbangan, lalu jarum dan angka bergerak; hook dan kualifikasi langsung terlihat sejak frame pertama.",
+      "objectMap": [
+        "Host",
+        "awan kumulus ilustrasi",
+        "timbangan",
+        "angka perkiraan"
+      ]
+    },
+    {
+      "id": "S02",
+      "headline": [
+        "GIMANA CARA",
+        "MENIMBANGNYA?"
+      ],
+      "tagline": "KITA HITUNG, BUKAN DITIMBANG",
+      "narration": "Kita enggak menimbangnya pakai timbangan raksasa. Berat airnya bisa diperkirakan dari ukuran dan kadar air awan.",
+      "action": "Host menggeser timbangan ke samping, membuka pita ukur dan membingkai awan dengan kubus transparan.",
+      "objectMap": [
+        "Host",
+        "timbangan",
+        "pita ukur",
+        "kubus",
+        "awan"
+      ]
+    },
+    {
+      "id": "S03",
+      "headline": [
+        "CONTOH",
+        "DARI USGS"
+      ],
+      "tagline": "ANGKANYA ADALAH ASUMSI",
+      "narration": "USGS memberi contoh awan kumulus satu kilometer kubik, dengan setengah gram air di setiap meter kubik.",
+      "action": "Host menunjuk kubus satu kilometer kubik dan memperbesar satu kotak kecil berlabel setengah gram air per meter kubik.",
+      "objectMap": [
+        "Host",
+        "kubus satu kilometer kubik",
+        "kotak satu meter kubik",
+        "tetes air",
+        "label asumsi"
+      ]
+    },
+    {
+      "id": "S04",
+      "headline": [
+        "HASILNYA?",
+        "SEKITAR 500 TON"
+      ],
+      "tagline": "YANG DIHITUNG: TETES AIR",
+      "narration": "Kalau dihitung, tetesan airnya berjumlah sekitar lima ratus ribu kilogram, atau lima ratus ton. Ini contoh hitungan, bukan berat setiap awan.",
+      "action": "Host menarik kartu faktor ke dalam mesin hitung; kartu hasil muncul dengan penanda bahwa itu massa air dari contoh, bukan udara.",
+      "objectMap": [
+        "Host",
+        "kartu volume",
+        "kartu kadar air",
+        "kalkulator",
+        "hasil perkiraan"
+      ]
+    },
+    {
+      "id": "S05",
+      "headline": [
+        "BUKAN KANTONG",
+        "AIR RAKSASA"
+      ],
+      "tagline": "AIRNYA TERSEBAR",
+      "narration": "Nah, bayangan kita sering keliru: air sebanyak itu bukan satu kantong raksasa yang menggantung di langit.",
+      "action": "Host membuka kantong gambar khayalan; bentuk kantong larut menjadi banyak butiran yang terpencar di dalam bingkai awan.",
+      "objectMap": [
+        "Host",
+        "kantong ilustrasi",
+        "awan",
+        "tetes-tetes kecil"
+      ]
+    },
+    {
+      "id": "S06",
+      "headline": [
+        "LIHAT LEBIH",
+        "DEKAT"
+      ],
+      "tagline": "TETES KECIL TURUN PELAN",
+      "narration": "Airnya tersebar sebagai tetesan yang sangat kecil. Gravitasi tetap menariknya. Dalam udara tenang, tetes kecil turun sangat pelan.",
+      "action": "Host mengarahkan kaca pembesar ke awan; di dalamnya butir jatuh perlahan dan panah gravitasi menunjuk ke bawah.",
+      "objectMap": [
+        "Host",
+        "kaca pembesar",
+        "tetes air",
+        "panah gravitasi"
+      ]
+    },
+    {
+      "id": "S07",
+      "headline": [
+        "ADA UDARA",
+        "YANG NAIK"
+      ],
+      "tagline": "TETES KECIL IKUT TERBAWA",
+      "narration": "Sementara itu, udara yang bergerak naik bisa membawa tetesan kecil tetap melayang di dalam awan.",
+      "action": "Host menyalakan kipas diagram; panah arus udara naik dan tetes kecil melayang berkeliling.",
+      "objectMap": [
+        "Host",
+        "kipas skematis",
+        "panah udara naik",
+        "tetes air",
+        "awan"
+      ]
+    },
+    {
+      "id": "S08",
+      "headline": [
+        "LALU KAPAN",
+        "JADI HUJAN?"
+      ],
+      "tagline": "BEBERAPA TETES MEMBESAR",
+      "narration": "Di beberapa awan, tetesan saling bertemu dan membesar. Saat cukup besar, sebagian bisa jatuh sebagai hujan.",
+      "action": "Host mengikuti dua tetes kecil yang bergabung; tetes besar jatuh melewati udara ke genangan, sedangkan butir lain tetap di awan.",
+      "objectMap": [
+        "Host",
+        "tetes kecil",
+        "tetes besar",
+        "panah jatuh",
+        "genangan"
+      ]
+    },
+    {
+      "id": "S09",
+      "headline": [
+        "AWAN PUN",
+        "PUNYA BERAT"
+      ],
+      "tagline": "BUTIRAN KECIL, CERITA BESAR",
+      "narration": "Jadi, awan bukan tanpa berat. Dalam contoh ini, tetesannya ada di udara yang terus bergerak. Kalau kamu lihat awan, bentuk apa yang sering kamu temukan? Tulis di komentar, dan ikuti knot theory.",
+      "action": "Host membuka payung di jalan hujan, lalu menunjuk awan dan gelembung komentar; CTA teks muncul saat narasi penutup.",
+      "objectMap": [
+        "Host",
+        "payung",
+        "awan",
+        "genangan",
+        "gelembung komentar",
+        "CTA"
+      ]
+    }
+  ]
+}

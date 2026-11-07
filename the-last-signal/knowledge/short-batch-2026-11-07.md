@@ -3,9 +3,19 @@
 Tiga Short **cerita baru**, bukan potongan video panjang. Ditulis dengan hukum
 `knowledge/NASKAH.md` dan diuji mesin sebelum masuk produksi.
 
-Status: **dijadwalkan lewat Zernio** (8 Nov 2026). Jadwal ada di
-`schedule.json` dan dikirim oleh `zernio-schedule.yml`: video diunggah ke cloud
-Zernio, Zernio yang menayangkan. Repo tidak lagi menahan jadwal.
+Status: **terjadwal di Zernio** (8 Nov 2026). Video sudah diunggah ke storage
+Zernio dan Zernio yang menayangkan — repo tidak menahan jadwal lagi, dan berkas
+di `releases/` boleh hilang tanpa efek.
+
+| Video | Waktu tayang (WITA) | Status di Zernio |
+|---|---|---|
+| LS-0012 Nomor Tiga Belas | 12.05 | scheduled (`04:05Z`) |
+| LS-0013 Lima Menit Sebelum | 13.05 | scheduled (`05:05Z`) |
+| LS-0014 Kursi Ketujuh | 15.05 | scheduled (`07:05Z`) |
+
+Catatan: `createPost` menjawab "Post scheduled successfully" tanpa id post, jadi
+id kosong di berkas antrean bukan tanda gagal. Sumber kebenaran adalah
+`listPosts` lewat `zernio-reconcile.mjs` (baca-saja).
 
 ## Daftar
 
@@ -47,4 +57,6 @@ Ketiganya 1080×1920 native, 30 fps, H.264 + AAC 48 kHz, ±500 kbps.
    `zernio-schedule.yml` menjalankan QC, mengunggah ke Zernio, dan membuat post
    terjadwal. Satu jalan bisa memuat puluhan video.
 3. Jendela 12.00–18.00 WITA, jeda minimal 1 jam. Jangan menyebut tanggal tetap.
+4. Setelah tayang, jalankan `.reconcile-trigger` sekali supaya status antrean
+   ikut berubah menjadi `published` (skrip hanya membaca, tidak mengunggah).
 5. Setelah tayang, catat di `knowledge/episodes.jsonl` seperti LL-0002.

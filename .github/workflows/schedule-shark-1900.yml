@@ -1,0 +1,56 @@
+name: Hiu Sebelum Hutan — secure 19.00 WIB schedule
+# This workflow cannot make the video public on Drive. It may be triggered only
+# after the user separately authorises a temporary public-by-link COPY; the
+# original remains private. Publishing and narrow 7 Nov timing exceptions have
+# already been approved. A scheduled post is not proof of publication.
+on:
+  push:
+    branches:
+      - arena/54cb36c6-content-creator
+    paths:
+      - '.github/shark-1900-request.json'
+permissions:
+  contents: read
+  checks: write
+concurrency:
+  group: buffer-publish
+  cancel-in-progress: false
+jobs:
+  run:
+    if: ${{ contains(github.event.head_commit.message, '[approved-shark-1900]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Test scheduling safety rules
+        run: node --test editorial-engine/pipeline/schedule-shark-1900/test-runner.mjs
+      - name: Install pinned Buffer CLI
+        run: npm install --global @bufferapp/cli@2.2.0 --no-audit --no-fund
+      - name: Preflight, schedule or inspect authorised posts
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_ORGANIZATION_ID: ${{ secrets.BUFFER_ORGANIZATION_ID }}
+          KNOT_REPORT_PATH: /tmp/knot-shark-1900-report.json
+          NO_COLOR: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${BUFFER_API_KEY:-}" ]; then echo "::add-mask::${BUFFER_API_KEY}"; fi
+          if [ -n "${BUFFER_ORGANIZATION_ID:-}" ]; then echo "::add-mask::${BUFFER_ORGANIZATION_ID}"; fi
+          node editorial-engine/pipeline/schedule-shark-1900/runner.mjs
+      - name: Return encrypted result
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          f=/tmp/knot-shark-1900-report.json
+          if [ -s "$f" ]; then
+            node -e "const r=require('./.github/shark-1900-request.json');require('fs').writeFileSync('/tmp/report-public.pem',Buffer.from(r.owner_public_key_b64,'base64'))"
+            node editorial-engine/pipeline/encrypt-diagnostic.mjs /tmp/report-public.pem < "$f"
+          else
+            echo 'No report exists; the runner step may not have started.'
+          fi

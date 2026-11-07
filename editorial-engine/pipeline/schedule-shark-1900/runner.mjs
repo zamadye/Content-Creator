@@ -24,6 +24,7 @@ export function validateRequest(req,now=Date.now()) {
  ok(['preflight','schedule','inspect'].includes(req.action),'bad action');
  ok(req.dueAt===TARGET && (req.action==='inspect'||time(TARGET)>now+5*60*1000),'unapproved or past target');
  ok(/^[a-f0-9]{64}$/.test(req.media?.sha256??'')&&Number.isSafeInteger(req.media?.sizeBytes)&&req.media.sizeBytes>1000&&req.media.sizeBytes<100_000_000,'bad media fingerprint');
+ ok(Number.isFinite(req.media?.durationSeconds)&&req.media.durationSeconds>=3&&req.media.durationSeconds<=90,'outside documented Facebook Reels duration');
  ok(/^[a-f0-9]{32}$/.test(req.nonce??''),'bad nonce');
  ok(req.approvals?.schedule1900BothChannels===true && req.approvals?.exceptionForTitikButa20AndBothChannels===true && req.approvals?.temporaryPublicCopy===true,'explicit publication, timing and public-copy approvals required');
  let owner;try{owner=crypto.createPublicKey(Buffer.from(req.owner_public_key_b64??'','base64').toString('utf8'));}catch{throw new Error('bad report public key');}

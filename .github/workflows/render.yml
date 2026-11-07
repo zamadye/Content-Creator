@@ -128,11 +128,46 @@ jobs:
             bash scripts/build-all.sh "$EPISODE"
           fi
 
+      - name: "Pastikan Chromium Remotion terunduh"
+        working-directory: the-last-signal/apps/renderer
+        run: |
+          npx remotion browser ensure || echo "· ensure gagal, render akan mencoba mengunduh sendiri"
+          ls -la ~/.cache/remotion 2>/dev/null | head -5 || true
+
+      # Log runner tidak bisa dibaca dari sandbox kerja (host penyimpanan log di
+      # luar jangkauan jaringan), jadi kegagalan render diterjemahkan menjadi
+      # anotasi agar pesan aslinya tetap terbaca lewat API.
+      - name: "Uji render 2 frame"
+        working-directory: the-last-signal
+        env:
+          EPISODE: ${{ steps.p.outputs.episode }}
+        run: |
+          set +e
+          npx tsx scripts/render.ts --episode "$EPISODE" --frames 0-1 --scale 0.25 --concurrency 1 > /tmp/smoke.log 2>&1
+          STATUS=$?
+          tail -12 /tmp/smoke.log
+          if [ $STATUS -ne 0 ]; then
+            tail -8 /tmp/smoke.log | sed 's/\r//g; s/%/%25/g' | while IFS= read -r line; do
+              [ -n "$line" ] && echo "::error::UJI:: $line"
+            done
+            exit $STATUS
+          fi
+
       - name: Render master
         working-directory: the-last-signal
         env:
           EPISODE: ${{ steps.p.outputs.episode }}
-        run: npx tsx scripts/render.ts --episode "$EPISODE" --crf 20 --concurrency 4
+        run: |
+          set +e
+          npx tsx scripts/render.ts --episode "$EPISODE" --crf 20 --concurrency 4 > /tmp/render.log 2>&1
+          STATUS=$?
+          tail -20 /tmp/render.log
+          if [ $STATUS -ne 0 ]; then
+            tail -8 /tmp/render.log | sed 's/\r//g; s/%/%25/g' | while IFS= read -r line; do
+              [ -n "$line" ] && echo "::error::RENDER:: $line"
+            done
+            exit $STATUS
+          fi
 
       - name: Encode delivery (target < 40 MB)
         working-directory: the-last-signal

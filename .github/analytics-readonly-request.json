@@ -1,9 +1,8 @@
 {
-  "operation": "read-only-performance-diagnostic",
-  "scope": "KNOT THEORY channels and previously approved post IDs; read-only",
-  "publication": "not requested; no mutation commands",
-  "requestedDate": "2026-11-07",
-  "revision": 5,
-  "privacy": "Encrypt output and split it across numbered annotations to avoid truncation",
-  "purpose": "follow-up read-only check of previously approved Titik Buta delivery; no post mutations"
+  "operation": "buffer-adapter-readonly-probe",
+  "scope": "channels, complete queue, and one sample post by ID; read-only",
+  "publication": "not requested; no mutation or dry-run commands",
+  "requestedDate": "2026-11-08",
+  "revision": 6,
+  "privacy": "encrypted response annotations"
 }

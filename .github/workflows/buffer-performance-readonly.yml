@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   inspect:
+    if: ${{ !contains(github.event.head_commit.message, '[buffer-adapter-probe]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -33,4 +34,34 @@ jobs:
           set -euo pipefail
           if [ -n "${BUFFER_API_KEY:-}" ]; then echo "::add-mask::${BUFFER_API_KEY}"; fi
           node editorial-engine/pipeline/inspect-buffer-performance.mjs | \
+            node editorial-engine/pipeline/encrypt-diagnostic.mjs editorial-engine/pipeline/diagnostic-public.pem
+
+  adapter-probe:
+    # Opt-in connectivity check only; it invokes no Buffer mutations.
+    if: ${{ contains(github.event.head_commit.message, '[buffer-adapter-probe]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: buffer-publish
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Test read-only probe
+        run: node --test editorial-engine/pipeline/tests/buffer-batch-probe.test.mjs
+      - name: Install Buffer CLI
+        run: npm install --global @bufferapp/cli@2.2.0 --no-audit --no-fund
+      - name: Check adapter queries and encrypt result
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_ORGANIZATION_ID: ${{ secrets.BUFFER_ORGANIZATION_ID }}
+          NO_COLOR: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${BUFFER_API_KEY:-}" ]; then echo "::add-mask::${BUFFER_API_KEY}"; fi
+          if [ -n "${BUFFER_ORGANIZATION_ID:-}" ]; then echo "::add-mask::${BUFFER_ORGANIZATION_ID}"; fi
+          node editorial-engine/pipeline/buffer-batch/probe-readonly.mjs | \
             node editorial-engine/pipeline/encrypt-diagnostic.mjs editorial-engine/pipeline/diagnostic-public.pem

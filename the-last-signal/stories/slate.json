@@ -29,6 +29,128 @@
    ],
    "judul_unggah": "Dua Belas Meter yang Hilang",
    "catatan_unggah": "tanpa tanggal tetap; unggah begitu QC lolos, jendela 12.00-18.00 lokal"
+  },
+  {
+   "episodeId": "LS-0012",
+   "format": "short_9x16",
+   "status": "naskah — menunggu gambar + narasi",
+   "judul": "Nomor Tiga Belas",
+   "subgenre": "Documentary horror",
+   "experiment": "Horornya dari kolom daftar yang tidak boleh kosong: sensus menemukan satu keluarga yang pintunya tidak ada, dan nomor rumahnya sendiri.",
+   "structure": "hook → pekerjaan → kolom kosong → petunjuk plat nomor → baris ketiga belas → keputusan",
+   "story": {
+    "title": "Nomor Tiga Belas",
+    "hook": "Nomor tiga belas tidak ada di gang kami",
+    "premise": "Petugas sensus menghitung dua belas pintu di gangnya sendiri, sementara daftar desa mencatat tiga belas kepala keluarga yang tidak pernah bisa ditemukan.",
+    "twist": "Rumah ketiga belas itu rumah petugas sensus sendiri; nomornya diganti setelah keluarganya meninggal, dan plat lama masih meninggalkan dua lubang sekrup.",
+    "ending": "Ia mengisi kolom ketiga belas dengan nomor rumahnya sendiri, lalu menanyakan ke penonton mana yang harus ia tanda tangani."
+   },
+   "scenes": [
+    {
+     "narration": "Nomor tiga belas tidak ada di gang kami. Daftar desa tetap mencatat tiga belas keluarga.",
+     "imagePrompt": "cinematic 9:16 vertical film still, Indonesian kampung alley at dusk, narrow concrete lane, house number plates 11 and 12 on weathered walls, an empty gap between two houses where a third should stand, wet pavement, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
+     "camera": "push_in",
+     "shot": "wide",
+     "lighting": "dusk_amber_4200k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "mist_drift"
+     ]
+    },
+    {
+     "narration": "Saya petugas sensus. Saya hitung pintu, bukan cerita. Dua belas pintu. Dua belas nama.",
+     "imagePrompt": "cinematic 9:16 vertical film still, close-up of a census officer's hands in a worn khaki shirt holding a clipboard and a ballpoint pen, tally marks and columns, old wooden gate behind, warm late afternoon light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible faces",
+     "camera": "static",
+     "shot": "closeup",
+     "lighting": "warm_late_afternoon_4500k",
+     "intensity": 0.4,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Kolom ketiga belas kosong lagi. Bu Sarmi bilang rumahnya roboh dua puluh tahun lalu, sebelum saya masuk kerja.",
+     "imagePrompt": "cinematic 9:16 vertical film still, an elderly Javanese woman in a faded batik blouse standing in her doorway at night, holding the doorframe, face turned away from camera, warm single practical lamp behind her, dark kampung alley beyond, muted earthy palette, 35mm grain, documentary realism, no text, no watermark",
+     "camera": "handheld",
+     "shot": "medium",
+     "lighting": "single_warm_practical_night_2800k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "light_flicker"
+     ]
+    },
+    {
+     "narration": "Tapi ia tetap menyiapkan piring ketiga tiap malam. Kalau saya tanya untuk siapa, ia diam.",
+     "imagePrompt": "cinematic 9:16 vertical film still, three plates of rice set on an old wooden table at night, the third plate untouched with steam rising, empty chair at the head, dim warm lamp above, shadows deep in the corners, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no people",
+     "camera": "push_in",
+     "shot": "medium",
+     "lighting": "single_warm_practical_night_2800k",
+     "intensity": 0.55,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "dust_motes"
+     ]
+    },
+    {
+     "narration": "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti. Ayah bilang salah cetak.",
+     "imagePrompt": "cinematic 9:16 vertical extreme close-up film still, an old house number plate on a weathered teak wall, two empty screw holes visible beside it with dark rust trails, paint chipped, late afternoon raking light, shallow depth of field, muted earthy palette, 35mm grain, documentary realism, no legible digits, no text, no watermark",
+     "camera": "static",
+     "shot": "closeup",
+     "lighting": "warm_late_afternoon_4500k",
+     "intensity": 0.4,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "focus_rack"
+     ]
+    },
+    {
+     "narration": "Baris ketiga belas berisi nomor rumah saya. Nomornya diganti setelah keluarganya meninggal. Kamu akan tanda tangan, atau memindahkan rumahnya? Tulis di komentar.",
+     "imagePrompt": "cinematic 9:16 vertical film still, an old village register book open on a desk under a single white neon tube, one line of handwriting in the middle of the page with a thumb resting beside it, dust in the harsh light, muted palette, documentary realism, 35mm grain, no readable text, no watermark, no visible faces",
+     "camera": "drift",
+     "shot": "closeup",
+     "lighting": "flat_white_neon_6000k",
+     "intensity": 0.4,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "scanlines"
+     ]
+    }
+   ],
+   "cards": [
+    "NOMOR 13 TIDAK ADA",
+    "DUA BELAS PINTU",
+    "NOMOR ITU RUMAHNYA"
+   ],
+   "thumb": {
+    "headline": "NOMOR 13 TIDAK ADA",
+    "kicker": "daftar desa bilang ada"
+   },
+   "cta": {
+    "card": "Mana yang kamu tandatangani?",
+    "holdFrames": 84
+   },
+   "youtube": {
+    "title": "Nomor Tiga Belas Tidak Ada di Gang Kami",
+    "description": "Di gang kami cuma ada dua belas pintu. Daftar desa tetap mencatat tiga belas kepala keluarga.\n\nSaya petugas sensus. Tugas saya menghitung pintu, bukan mencari cerita. Tapi setiap sensus, kolom ketiga belas kosong, dan Bu Sarmi tetap menyiapkan piring ketiga tiap malam.\n\nYang tidak saya duga: baris ketiga belas di daftar lama berisi nomor rumah saya sendiri.\n\nKalau kamu yang jadi petugasnya, mana yang kamu tanda tangani?",
+    "tags": [
+     "cerita horor",
+     "horor indonesia",
+     "cerita seram",
+     "sensus desa",
+     "kisah nyata"
+    ],
+    "pinComment": "Kalau nomor rumahmu pernah diganti, kamu akan tanda tangan, atau pindah?"
+   },
+   "catatan": "Short baru, bukan potongan video panjang (arahan 7 Nov 2026). Ditulis dengan hukum knowledge/NASKAH.md."
   }
- ]
+ ],
+ "catatan_keputusan": "Short adalah cerita baru yang berdiri sendiri, bukan potongan video panjang (arahan pemilik kanal 7 Nov 2026)."
 }

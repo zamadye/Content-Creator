@@ -9,6 +9,7 @@
  *
  *   node scripts/build-episode.mjs --story LS-0002
  */
+import { execFileSync } from "node:child_process";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -23,7 +24,6 @@ const LEAD_IN_FRAMES = 6;
 const TAIL_FRAMES = 12;
 const CARD_FRAMES = 60;
 
-const BASE_SFX = ["knock.wav", "heartbeat.wav", "impact.wav", "door_creak.wav", "riser.wav", "whoosh.wav"];
 
 /**
  * Naskah ditulis tangan, jadi baris baru kadang masuk sebagai dua karakter
@@ -100,7 +100,7 @@ const scenes = entry.scenes.map((scene, index) => {
     id: `scene_${pad(index + 1)}`,
     order: index,
     durationFrames,
-    image: `images/scene-${pad(index + 1)}.png`,
+    image: `images/scene-${pad(index + 1)}.jpg`,
     narration: scene.narration,
     narrationAudio: `audio/narration/scene-${pad(index + 1)}.mp3`,
     cuts: [
@@ -123,8 +123,8 @@ const scenes = entry.scenes.map((scene, index) => {
       ambienceId: "audio/ambience_drone.wav",
       ambienceVolume: 0.32,
       sfx: [
-        { assetId: "audio/sfx/knock.wav", startFrame: Math.round(durationFrames * 0.62), volume: 0.5 },
-        { assetId: "audio/sfx/heartbeat.wav", startFrame: Math.round(durationFrames * 0.82), volume: 0.4 },
+        { assetId: "audio/sfx/knock.mp3", startFrame: Math.round(durationFrames * 0.62), volume: 0.5 },
+        { assetId: "audio/sfx/heartbeat.mp3", startFrame: Math.round(durationFrames * 0.82), volume: 0.4 },
       ],
     },
   };
@@ -152,8 +152,8 @@ if (entry.jumpscare) {
   jumpscares = [
     {
       atFrame: scareStart + (entry.jumpscare.atFrameOffset ?? 60),
-      image: "images/scare-face.png",
-      assetId: "audio/sfx/scare.wav",
+      image: "images/scare-face.jpg",
+      assetId: "audio/sfx/scare.mp3",
       volume: 0.95,
       flash: entry.jumpscare.flash ?? 0.85,
       shake: entry.jumpscare.shake ?? 0.9,
@@ -221,18 +221,26 @@ const episode = {
 writeFileSync(join(episodeDir, "episode.json"), `${JSON.stringify(episode, null, 2)}\n`, "utf8");
 
 // Aset audio dasar: ambience + SFX prosedural disalin dari episode acuan.
-const refDir = join(ROOT, "projects", "episodes", "LS-0001");
-const ambience = join(refDir, "audio", "ambience_drone.wav");
-if (existsSync(ambience)) {
-  copyFileSync(ambience, join(episodeDir, "audio", "ambience_drone.wav"));
+// Ambience TIDAK lagi disalin dari episode acuan: LS-0001 sudah diarsipkan
+// ke Drive, jadi salinan itu diam-diam kosong dan validator tidak tahu.
+// Dibuat sendiri per episode (make-ambience.mjs), sesuai panjang episode.
+try {
+  execFileSync(process.execPath, [join(ROOT, "scripts", "make-ambience.mjs"), "--episode", entry.episodeId], {
+    stdio: "ignore",
+  });
+} catch (error) {
+  console.warn(`⚠ ambience belum dibuat (jalankan: node scripts/make-ambience.mjs --episode ${entry.episodeId})`);
 }
-for (const file of BASE_SFX) {
-  const source = join(refDir, "audio", "sfx", file);
-  if (existsSync(source)) copyFileSync(source, join(episodeDir, "audio", "sfx", file));
-}
-const scareFace = join(refDir, "images", "scare-face.png");
-if (existsSync(scareFace)) {
-  copyFileSync(scareFace, join(episodeDir, "images", "scare-face.png"));
+
+// SFX dari pustaka kanal, bukan dari episode lain.
+const SFX_LIBRARY = {
+  "knock.mp3": "sfx_ketukan.mp3",
+  "heartbeat.mp3": "sfx_detak_jantung.mp3",
+  "scare.mp3": "sfx_geraman_setan.mp3",
+};
+for (const [target, source] of Object.entries(SFX_LIBRARY)) {
+  const from = join(ROOT, "assets", "audio", "horror", source);
+  if (existsSync(from)) copyFileSync(from, join(episodeDir, "audio", "sfx", target));
 }
 
 console.log(`\n✔ ${entry.episodeId} — ${entry.story.title}`);
@@ -240,7 +248,7 @@ console.log(`  ${scenes.length} scene · ${totalFrames} frame (${(totalFrames / 
 console.log(`  kartu: ${onScreenText.map((card) => card.text).join(" → ")}`);
 console.log(`  jumpscare: ${jumpscares[0]?.atFrame ?? "-"} (scene ${entry.jumpscare?.atScene ?? "-"})`);
 console.log(`\n  Berikutnya:`);
-console.log(`   1. gambar:  projects/episodes/${entry.episodeId}/images/scene-01..06.png (9:16)`);
+console.log(`   1. gambar:  projects/episodes/${entry.episodeId}/images/scene-01..06.jpg (9:16)`);
 console.log(`   2. TTS   :  audio/narration/scene-01..06.mp3 (voice-00)`);
 console.log(`   3. align :  pnpm tsx scripts/align-narration.ts --episode ${entry.episodeId}`);
 console.log(`   4. score :  node scripts/make-score.mjs --episode ${entry.episodeId}`);

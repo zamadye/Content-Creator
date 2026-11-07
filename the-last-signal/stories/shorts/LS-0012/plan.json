@@ -1,0 +1,64 @@
+{
+  "episodeId": "LS-0012",
+  "title": "Nomor Tiga Belas",
+  "format": "short_9x16",
+  "subgenre": "Documentary horror",
+  "experiment": "Horornya dari kolom daftar yang tidak boleh kosong: sensus menemukan satu keluarga yang pintunya tidak ada, dan nomor rumahnya sendiri.",
+  "structure": "hook → pekerjaan → kolom kosong → petunjuk plat nomor → baris ketiga belas → keputusan",
+  "story": {
+    "title": "Nomor Tiga Belas",
+    "hook": "Nomor tiga belas tidak ada di gang kami",
+    "premise": "Petugas sensus menghitung dua belas pintu di gangnya sendiri, sementara daftar desa mencatat tiga belas kepala keluarga yang tidak pernah bisa ditemukan.",
+    "twist": "Rumah ketiga belas itu rumah petugas sensus sendiri; nomornya diganti setelah keluarganya meninggal, dan plat lama masih meninggalkan dua lubang sekrup.",
+    "ending": "Ia mengisi kolom ketiga belas dengan nomor rumahnya sendiri, lalu menanyakan ke penonton mana yang harus ia tanda tangani."
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 15,
+      "narasi": "Nomor tiga belas tidak ada di gang kami. Daftar desa tetap mencatat tiga belas keluarga."
+    },
+    {
+      "segmen": "S2",
+      "kata": 14,
+      "narasi": "Saya petugas sensus. Saya hitung pintu, bukan cerita. Dua belas pintu. Dua belas nama."
+    },
+    {
+      "segmen": "S3",
+      "kata": 18,
+      "narasi": "Kolom ketiga belas kosong lagi. Bu Sarmi bilang rumahnya roboh dua puluh tahun lalu, sebelum saya masuk kerja."
+    },
+    {
+      "segmen": "S4",
+      "kata": 15,
+      "narasi": "Tapi ia tetap menyiapkan piring ketiga tiap malam. Kalau saya tanya untuk siapa, ia diam."
+    },
+    {
+      "segmen": "S5",
+      "kata": 16,
+      "narasi": "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti. Ayah bilang salah cetak."
+    },
+    {
+      "segmen": "S6",
+      "kata": 22,
+      "narasi": "Baris ketiga belas berisi nomor rumah saya. Nomornya diganti setelah keluarganya meninggal. Kamu akan tanda tangan, atau memindahkan rumahnya? Tulis di komentar."
+    }
+  ],
+  "youtube": {
+    "title": "Nomor Tiga Belas Tidak Ada di Gang Kami",
+    "description": "Di gang kami cuma ada dua belas pintu. Daftar desa tetap mencatat tiga belas kepala keluarga.\n\nSaya petugas sensus. Tugas saya menghitung pintu, bukan mencari cerita. Tapi setiap sensus, kolom ketiga belas kosong, dan Bu Sarmi tetap menyiapkan piring ketiga tiap malam.\n\nYang tidak saya duga: baris ketiga belas di daftar lama berisi nomor rumah saya sendiri.\n\nKalau kamu yang jadi petugasnya, mana yang kamu tanda tangani?",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "cerita seram",
+      "sensus desa",
+      "kisah nyata"
+    ],
+    "pinComment": "Kalau nomor rumahmu pernah diganti, kamu akan tanda tangan, atau pindah?"
+  },
+  "thumb": {
+    "headline": "NOMOR 13 TIDAK ADA",
+    "kicker": "daftar desa bilang ada"
+  },
+  "catatan": "Short baru, bukan potongan video panjang (arahan 7 Nov 2026). Ditulis dengan hukum knowledge/NASKAH.md."
+}

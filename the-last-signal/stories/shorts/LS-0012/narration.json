@@ -1,0 +1,63 @@
+{
+  "episode": "LS-0012",
+  "judul": "Nomor Tiga Belas",
+  "format": "short_9x16",
+  "total_kata": 100,
+  "estimasi_detik": 45.5,
+  "segmen": [
+    {
+      "id": "S1",
+      "segmen": 1,
+      "judul": "Nomor tiga belas tidak ada di gang kami",
+      "paragraf": [
+        "Nomor tiga belas tidak ada di gang kami. Daftar desa tetap mencatat tiga belas keluarga."
+      ],
+      "kata": 15
+    },
+    {
+      "id": "S2",
+      "segmen": 2,
+      "judul": "Saya petugas sensus",
+      "paragraf": [
+        "Saya petugas sensus. Saya hitung pintu, bukan cerita. Dua belas pintu. Dua belas nama."
+      ],
+      "kata": 14
+    },
+    {
+      "id": "S3",
+      "segmen": 3,
+      "judul": "Kolom ketiga belas kosong lagi",
+      "paragraf": [
+        "Kolom ketiga belas kosong lagi. Bu Sarmi bilang rumahnya roboh dua puluh tahun lalu, sebelum saya masuk kerja."
+      ],
+      "kata": 18
+    },
+    {
+      "id": "S4",
+      "segmen": 4,
+      "judul": "Tapi ia tetap menyiapkan piring ketiga tiap malam",
+      "paragraf": [
+        "Tapi ia tetap menyiapkan piring ketiga tiap malam. Kalau saya tanya untuk siapa, ia diam."
+      ],
+      "kata": 15
+    },
+    {
+      "id": "S5",
+      "segmen": 5,
+      "judul": "Di rumah saya ada dua lubang sekrup lama",
+      "paragraf": [
+        "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti. Ayah bilang salah cetak."
+      ],
+      "kata": 16
+    },
+    {
+      "id": "S6",
+      "segmen": 6,
+      "judul": "Baris ketiga belas berisi nomor rumah saya",
+      "paragraf": [
+        "Baris ketiga belas berisi nomor rumah saya. Nomornya diganti setelah keluarganya meninggal. Kamu akan tanda tangan, atau memindahkan rumahnya? Tulis di komentar."
+      ],
+      "kata": 22
+    }
+  ]
+}

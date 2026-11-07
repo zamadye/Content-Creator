@@ -1,0 +1,113 @@
+{
+  "episode": "LS-0012",
+  "judul": "Nomor Tiga Belas",
+  "format": "short_9x16",
+  "fps": 30,
+  "resolusi": [
+    1080,
+    1920
+  ],
+  "total_kata_narasi": 100,
+  "estimasi_durasi_detik": 45.5,
+  "hook_card": {
+    "teks": "NOMOR 13 TIDAK ADA",
+    "tampil": "frame 0–60",
+    "catatan": "teks di layar bersamaan dengan kalimat pertama; maksimal 4 kata"
+  },
+  "aturan_sinkron": {
+    "dasar": "knowledge/ATURAN.md §3.3 — visual tidak boleh mendahului kata",
+    "offset_masuk_frame": [
+      2,
+      4
+    ],
+    "offset_insert_frame": [
+      2,
+      8
+    ]
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 15,
+      "kamera": "push_in",
+      "shot": "wide",
+      "lighting": "dusk_amber_4200k",
+      "intensitas": 0.45,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "mist_drift"
+      ],
+      "berkas": "images/scene-01.jpg"
+    },
+    {
+      "segmen": "S2",
+      "kata": 14,
+      "kamera": "static",
+      "shot": "closeup",
+      "lighting": "warm_late_afternoon_4500k",
+      "intensitas": 0.4,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "berkas": "images/scene-02.jpg"
+    },
+    {
+      "segmen": "S3",
+      "kata": 18,
+      "kamera": "handheld",
+      "shot": "medium",
+      "lighting": "single_warm_practical_night_2800k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "light_flicker"
+      ],
+      "berkas": "images/scene-03.jpg"
+    },
+    {
+      "segmen": "S4",
+      "kata": 15,
+      "kamera": "push_in",
+      "shot": "medium",
+      "lighting": "single_warm_practical_night_2800k",
+      "intensitas": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "dust_motes"
+      ],
+      "berkas": "images/scene-04.jpg"
+    },
+    {
+      "segmen": "S5",
+      "kata": 16,
+      "kamera": "static",
+      "shot": "closeup",
+      "lighting": "warm_late_afternoon_4500k",
+      "intensitas": 0.4,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "focus_rack"
+      ],
+      "berkas": "images/scene-05.jpg"
+    },
+    {
+      "segmen": "S6",
+      "kata": 22,
+      "kamera": "drift",
+      "shot": "closeup",
+      "lighting": "flat_white_neon_6000k",
+      "intensitas": 0.4,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "scanlines"
+      ],
+      "berkas": "images/scene-06.jpg"
+    }
+  ]
+}

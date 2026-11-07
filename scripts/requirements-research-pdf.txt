@@ -1,0 +1,5 @@
+# Source-only PDF renderer; install in an isolated environment.
+reportlab==4.4.4
+markdown-it-py==3.0.0
+# Optional structural verification of the resulting PDF.
+pypdf==6.1.3

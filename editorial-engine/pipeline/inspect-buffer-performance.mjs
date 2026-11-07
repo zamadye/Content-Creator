@@ -17,7 +17,7 @@ const stamp = new Date();
 // Facebook pages by a loose name match. This is read-only, including scheduled
 // posts so publication can be verified before revoking temporary media links.
 const targetPosts = new Set([
-  '6aeeed2a9214322f68dbbfee', // Hiu YouTube
+  '6aeeed2a9214322f68dfbfee', // Hiu YouTube
   '6aeeed2dd6bbae6fa178242e', // Hiu Facebook
   '6aedcadaf6d00f3472b03ee4', // Titik Buta YouTube
   '6aedcad71fcdcefa468d7cfd', // Titik Buta Facebook

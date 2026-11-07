@@ -1,6 +1,10 @@
 
 # Berkas yang ditarik lewat konektor Google Drive (bukan bagian repo).
 google_drive/
+# Hasil diagnostik kanal dan kunci sementara tidak boleh masuk repo publik.
+editorial-engine/deliverables/retensi-research/private/
+.venv-research/
+__pycache__/
 
 # Media produksi BARU disimpan di Drive privat, bukan repo publik.
 # Aturan ignore tidak membatalkan tracking file lama dan bisa di-bypass `git add -f`;

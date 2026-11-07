@@ -8,7 +8,7 @@ except (subprocess.CalledProcessError, FileNotFoundError):commit='UNKNOWN (sourc
 outputs=['awan-500-ton.mp4','awan-500-ton-thumbnail.png','awan-500-ton-poster-4x5.png','caption-4-platform.txt','STORYBOARD.md','subtitle-perkiraan.srt','musik-tonal-original.wav','QA-DAN-SUMBER.md','SHA256SUMS.txt']
 files={f'hasil/{n}':D/n for n in outputs};files['input/01-INPUT-PRIVAT-AWAN.zip']=D/'01-INPUT-PRIVAT-AWAN.zip'
 files['hasil/narasi-utuh.mp3']=ROOT/'audio/voiceovers/awan-500-ton-2026/narasi-utuh.mp3'
-for name in ['README.md','build.sh','captions.py','host.tsx','prepare.py','qa.py','render.tsx','restore-input.py','storyboard.py','test_pipeline.py','pack.py']:
+for name in ['README.md','build.sh','captions.py','host.tsx','prepare.py','qa.py','render.tsx','restore-input.py','storyboard.py','test_pipeline.py','verify-backup.py','pack.py']:
     files[f'source/editorial-engine/pipeline/awan-500-ton-2026/{name}']=ROOT/'pipeline/awan-500-ton-2026'/name
 for name in ['package.json','package-lock.json','content/recovered/awan-500-ton-2026.json']:
     files[f'source/editorial-engine/{name}']=ROOT/name

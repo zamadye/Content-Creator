@@ -15,3 +15,4 @@ python3 pipeline/awan-500-ton-2026/storyboard.py
 ./node_modules/.bin/tsx pipeline/awan-500-ton-2026/render.tsx
 python3 pipeline/awan-500-ton-2026/qa.py
 python3 pipeline/awan-500-ton-2026/pack.py
+python3 pipeline/awan-500-ton-2026/verify-backup.py

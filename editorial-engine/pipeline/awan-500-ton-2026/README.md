@@ -16,7 +16,7 @@ Memerlukan Linux x64, Python 3, Node/npm, CPU/disk memadai, font repo dan akses 
 npm run build:awan
 ```
 
-Render React/SVG → resvg → FFmpeg berlangsung tanpa browser/GPU dan dapat memakan waktu. Jika proses berhenti, MP4 parsial **bukan hasil akhir**. Periksa error dan jalankan ulang. `npm ci` menginstal dependency sesuai lockfile; tidak disertakan dalam arsip. Byte output dapat berbeda lintas sistem/versi codec. Periksa lisensi FFmpeg dan seluruh hak sebelum distribusi. Build ulang lengkap dari backup Drive **belum diuji**; restore input pada direktori terisolasi diuji saat input tersedia.
+Render React/SVG → resvg → FFmpeg berlangsung tanpa browser/GPU dan dapat memakan waktu. Jika proses berhenti, MP4 parsial **bukan hasil akhir**. Periksa error dan jalankan ulang. `npm ci` menginstal dependency sesuai lockfile; tidak disertakan dalam arsip. Byte output dapat berbeda lintas sistem/versi codec. Periksa lisensi FFmpeg dan seluruh hak sebelum distribusi. Pemeriksaan parsial mengekstrak backup ke direktori sementara, membuat ulang still/thumbnail/poster/caption/storyboard dan membandingkan hash menggunakan dependency lokal. Build ulang MP4 penuh dan instalasi dependency di sistem baru **belum diuji**.
 
 ## Tes dan batas
 

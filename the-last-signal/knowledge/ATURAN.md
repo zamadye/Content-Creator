@@ -242,6 +242,39 @@ bercak air, tangan satu sendi terlalu panjang, berdiri diam seperti menunggu.
 
 ---
 
+## 3.5 HUD kamera pengawas: HANYA untuk episode yang memang rekaman kamera
+
+Overlay `REC` / `CAM 07` / timestamp bergerak adalah bahasa visual kanal, tetapi
+**bukan bawaan**. HUD menyatakan "peristiwa ini terekam kamera pengawas". Kalau
+narator bercerita orang pertama ("saya petugas sensus", "saya laki-laki 27
+tahun"), tidak ada kamera yang merekamnya — stempel REC di sudut frame langsung
+membocorkan bahwa ini templat.
+
+Karena itu keputusan HUD tidak lagi diambil dari `format`, melainkan dari
+pernyataan episode:
+
+- `production.hud: true` → HUD tampil (hanya untuk naskah berformat rekaman kamera).
+- selain itu → tidak ada HUD, apa pun formatnya (Short maupun panjang).
+
+`build-episode.mjs` menulis `hud: false` sebagai bawaan; naskah yang memang
+found-footage harus menyatakan `hud: true` di `stories/slate.json`.
+Ditemukan pada render LS-0012 (2026-11-07): HUD muncul di cerita petugas sensus
+dan harus dirender ulang.
+
+## 3.6 Short punya rantai bangun sendiri
+
+`bash scripts/build-all.sh <ID>` mengenali dua jalur:
+
+| Folder naskah | Rantai |
+|---|---|
+| `stories/longform/<ID>` | plan → build-longform → align-narration → align-cuts → skor → ambience → overlay → validasi |
+| `stories/shorts/<ID>` | slate.json → build-episode → align-narration → skor → ambience → overlay → thumb → validasi |
+
+`align-cuts` sengaja **tidak** dipakai di jalur Short: skrip itu mengejar kata
+pemicu dari daftar shot di plan longform, sedangkan Short punya satu narasi per
+scene dengan tiga potongan yang sudah ditempatkan `build-episode.mjs` di
+28/56/82% scene.
+
 # BAGIAN IV — SUARA
 
 | # | Aturan | Sumber |

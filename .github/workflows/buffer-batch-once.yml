@@ -1,0 +1,65 @@
+name: Buffer — one-shot batch
+
+# Only a nonsecret nonce, digest and public key are committed as a trigger.
+# No cron: this job submits the batch once and Buffer handles future publishing.
+on:
+  push:
+    branches:
+      - arena/54cb36c6-content-creator
+    paths:
+      - '.github/buffer-batch-trigger.json'
+
+permissions:
+  contents: read
+  checks: write
+
+concurrency:
+  group: buffer-publish
+  cancel-in-progress: false
+
+jobs:
+  batch:
+    if: ${{ contains(github.event.head_commit.message, '[buffer-batch]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Test safety gates without Buffer calls
+        run: node --test editorial-engine/pipeline/tests/buffer-batch.test.mjs editorial-engine/pipeline/tests/buffer-batch-relay.test.mjs
+      - name: Install Buffer CLI for a real batch
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "$(node -p "require('./.github/buffer-batch-trigger.json').simulation")" = false ]; then
+            npm install --global @bufferapp/cli@2.2.0 --no-audit --no-fund
+          else
+            echo 'Simulation only; skipping Buffer CLI.'
+          fi
+      - name: Preflight and submit one batch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_ORGANIZATION_ID: ${{ secrets.BUFFER_ORGANIZATION_ID }}
+          KNOT_REPORT_PATH: /tmp/knot-buffer-batch-report.json
+          NO_COLOR: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${BUFFER_API_KEY:-}" ]; then echo "::add-mask::${BUFFER_API_KEY}"; fi
+          if [ -n "${BUFFER_ORGANIZATION_ID:-}" ]; then echo "::add-mask::${BUFFER_ORGANIZATION_ID}"; fi
+          node editorial-engine/pipeline/buffer-batch/runner.mjs
+      - name: Return encrypted status for private review
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          f=/tmp/knot-buffer-batch-report.json
+          if [ -s "$f" ]; then
+            node -e "const r=require('./.github/buffer-batch-trigger.json');require('fs').writeFileSync('/tmp/batch-owner-public.pem',Buffer.from(r.ownerPublicKeyB64,'base64'))"
+            node editorial-engine/pipeline/encrypt-diagnostic.mjs /tmp/batch-owner-public.pem < "$f"
+          else
+            echo 'No report was produced. Status is UNKNOWN; do not blindly retry.'
+          fi

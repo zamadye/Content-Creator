@@ -3,6 +3,7 @@
 google_drive/
 # Hasil diagnostik kanal dan kunci sementara tidak boleh masuk repo publik.
 editorial-engine/deliverables/retensi-research/private/
+editorial-engine/deliverables/buffer-batch/private/
 .venv-research/
 __pycache__/
 

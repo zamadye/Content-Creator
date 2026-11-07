@@ -1,0 +1,156 @@
+{
+  "id": "awan-500-ton-rig-v2",
+  "series": "Dunia Kebalik",
+  "title": "500 Ton Air Melayang?",
+  "status": "PRODUCTION PRIVATE — belum disetujui publikasi",
+  "promise": "Rasa mustahil dari massa air, diikuti perubahan cara pandang dari tangki ke butiran kecil dalam udara yang bergerak.",
+  "estimateScope": "500 ton adalah massa tetesan air dalam satu contoh USGS, bukan pengukuran, massa total semua awan, atau termasuk udara.",
+  "fiveStoryGoals": [
+    "Hook 1–3 detik: jarum timbangan, ekspresi Host dan angka; konteks contoh sudah di layar.",
+    "Sesuatu terasa salah: bayangan tangki berat menggantung.",
+    "Pertanyaan ditahan oleh contoh perhitungan dan dugaan yang perlu dibuka.",
+    "Twist: bukan satu tangki; banyak tetesan kecil plus gerak udara.",
+    "Callback yang mudah diingat: bukan tangki terbang, tetapi butiran kecil seperti kabut di ketinggian."
+  ],
+  "goalsAreNotPerformanceClaims": true,
+  "sources": [
+    {
+      "id": "usgs",
+      "label": "USGS Water Science School — contoh hitungan",
+      "url": "https://www.usgs.gov/water-science-school/science/how-much-does-a-cloud-weigh",
+      "supports": "Contoh hipotetis 1 km³ × 0,5 g/m³ = 500.000 kg air; udara tidak dihitung."
+    },
+    {
+      "id": "takahashi2017",
+      "label": "Takahashi, Suzuki & Stephens (2017), QJRMS",
+      "url": "https://doi.org/10.1002/qj.3042",
+      "supports": "Penelitian observasi dan pemodelan awan hangat; peran arus naik pada koalesensi dan tetes jatuh."
+    },
+    {
+      "id": "noaa",
+      "label": "NOAA JetStream — precipitation",
+      "url": "https://www.noaa.gov/jetstream/atmosphere/precipitation",
+      "supports": "Di sebagian awan, tetesan bertumbukan dan bergabung membentuk hujan; ada proses lain juga."
+    },
+    {
+      "id": "noaa-fog",
+      "label": "National Weather Service — glossary",
+      "url": "https://www.weather.gov/tsa/weather_glossary",
+      "supports": "Kabut adalah kumpulan tetesan kecil di dekat permukaan; digunakan sebagai analogi, bukan bahwa semua awan sama."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "beat": "HOOK",
+      "narration": "Lima ratus ton air, melayang di langit? Kok bisa?",
+      "action": "Awan turun ke timbangan berjarum yang bergoyang; Host menahan tali dengan wajah terkejut, jarum bergerak sebelum detik pertama.",
+      "objectMap": [
+        "Host",
+        "timbangan berjarum",
+        "awan ilustrasi",
+        "tulisan 500 ton"
+      ]
+    },
+    {
+      "id": "S02",
+      "beat": "DUGAAN",
+      "narration": "Kalau awan seperti tangki air raksasa, harusnya tinggal tunggu jebol, kan? Tapi tunggu dulu.",
+      "action": "Host menunjuk lalu menarik bayangan tangki di dalam gelembung pikiran. Tangki hanya dugaan, dengan garis ilustrasi retak.",
+      "objectMap": [
+        "Host",
+        "gelembung pikiran",
+        "tangki khayalan",
+        "tetes kecil"
+      ]
+    },
+    {
+      "id": "S03",
+      "beat": "PETUNJUK",
+      "narration": "USGS memakai contoh awan kumulus berukuran satu kilometer kubik. Di tiap meter kubiknya, ada setengah gram air.",
+      "action": "Host menunjuk kubus transparan yang berputar perlahan; kartu sampel menampilkan satu meter kubik dan setetes air.",
+      "objectMap": [
+        "Host",
+        "kubus 1 km³",
+        "kartu sampel 1 m³",
+        "tetes air",
+        "penanda 0,5 gram"
+      ]
+    },
+    {
+      "id": "S04",
+      "beat": "TEGANGAN",
+      "narration": "Kalau dijumlahkan, hasilnya sekitar lima ratus ribu kilogram air. Itu lima ratus ton, tapi hanya untuk contoh ini.",
+      "action": "Host memegang garis penunjuk di dekat kartu hitung; hasil 500 ton ditampilkan sebagai satu contoh, bukan untuk semua awan.",
+      "objectMap": [
+        "Host",
+        "garis penunjuk",
+        "kartu hitung",
+        "angka hasil"
+      ]
+    },
+    {
+      "id": "S05",
+      "beat": "KEJUTAN",
+      "narration": "Sekarang lihat lebih dekat. Airnya bukan satu tangki yang menggantung. Ia tersebar sebagai banyak tetesan yang sangat kecil.",
+      "action": "Host membuka tanki khayalan; gambar tangki melebur menjadi tetesan, yang memenuhi bingkai awan.",
+      "objectMap": [
+        "Host",
+        "tangki ilustrasi",
+        "banyak tetesan",
+        "awan"
+      ]
+    },
+    {
+      "id": "S06",
+      "beat": "PENJELASAN",
+      "narration": "Gravitasi tetap menarik setiap tetes. Dalam udara tenang, tetes kecil turun sangat pelan.",
+      "action": "Host memegang dan menggerakkan kaca pembesar; butir turun perlahan di lensa, dengan panah gravitasi.",
+      "objectMap": [
+        "Host",
+        "kaca pembesar",
+        "tetes air",
+        "panah gravitasi"
+      ]
+    },
+    {
+      "id": "S07",
+      "beat": "PENJELASAN",
+      "narration": "Udara yang bergerak naik bisa membawa tetesan kecil, sehingga sebagian tetap berada di awan.",
+      "action": "Host menyentuh tombol kipas model; panah udara dan beberapa butir bergerak naik. Kipas diberi label model.",
+      "objectMap": [
+        "Host",
+        "tombol",
+        "kipas model",
+        "panah arus naik",
+        "tetes air"
+      ]
+    },
+    {
+      "id": "S08",
+      "beat": "AKIBAT",
+      "narration": "Di beberapa awan, tetesan bertabrakan dan membesar. Saat cukup besar, sebagian bisa jatuh sebagai hujan.",
+      "action": "Dua tetes bergabung menjadi lebih besar, lalu jatuh ke genangan; Host mengikutinya dan membuka payung.",
+      "objectMap": [
+        "Host",
+        "tetes kecil",
+        "tetes besar",
+        "payung",
+        "genangan"
+      ]
+    },
+    {
+      "id": "S09",
+      "beat": "INGATAN",
+      "narration": "Jadi, bukan tangki terbang. Bayangkan kabut di ketinggian: tetesan kecil dalam udara yang terus bergerak. Sebelumnya kamu membayangkan awan seperti apa? Ceritakan di komentar, dan ikuti knot theory.",
+      "action": "Host membandingkan siluet tangki khayalan dengan awan butiran, lalu menunjuk gelembung komentar dan CTA.",
+      "objectMap": [
+        "Host",
+        "siluet tangki",
+        "awan bertetes",
+        "gelembung komentar",
+        "CTA"
+      ]
+    }
+  ]
+}

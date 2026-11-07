@@ -10,7 +10,8 @@
     "build:antartika": "bash pipeline/interactive-antartika-v2/build.sh",
     "test": "node --test pipeline/tests/*.test.mjs pipeline/schedule-shark-1900/test-runner.mjs pipeline/publish-antartika/test-runner.mjs pipeline/coverr-transfer/test-transfer.mjs pipeline/drive-relay/test-relay.mjs",
     "test:python": "python3 -m unittest pipeline/test_coverr_search.py pipeline/coverr-transfer/test-search-hq.py",
-    "build:awan": "bash pipeline/awan-500-ton-2026/build.sh"
+    "build:awan": "bash pipeline/awan-500-ton-2026/build.sh",
+    "build:awan-rig-v2": "bash pipeline/awan-rig-v2/build.sh"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

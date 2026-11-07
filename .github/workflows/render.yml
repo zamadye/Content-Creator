@@ -5,6 +5,18 @@ name: Render episode
 # apt terkunci), jadi Chromium Remotion tidak bisa diluncurkan sama sekali.
 # Runner ubuntu-latest punya semua pustaka itu dan jaringan penuh, dan 10 menit
 # video 1080p lebih aman dirender di mesin 4 core daripada sandbox 2 core.
+#
+# Kenapa ada pemicu `push` ke berkas .render-trigger:
+# `workflow_dispatch` hanya bisa memanggil workflow yang SUDAH ADA di default
+# branch (main). Selama perubahan ini belum masuk main, `gh workflow run` akan
+# 404. Push dari branch kerja tetap menjalankan versi workflow yang ada DI
+# COMMIT YANG DIPUSH, jadi berkas penanda dipakai sebagai tombol:
+#
+#   echo "LL-0002 523" > the-last-signal/.render-trigger && git push
+#
+# Isi berkas: "<ID episode> [detik klimaks]". Hapus/ubah berkas itu hanya bila
+# memang ingin render ulang — commit rilis di akhir hanya menyentuh
+# releases/, jadi tidak memicu putaran kedua.
 
 on:
   workflow_dispatch:
@@ -21,9 +33,18 @@ on:
         description: "Commit berkas rilis ke cabang ini (dibutuhkan publikasi)"
         type: boolean
         default: true
+  push:
+    branches:
+      - "arena/479de245-content-creator"
+    paths:
+      - "the-last-signal/.render-trigger"
 
 permissions:
   contents: write
+
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   render:
@@ -33,6 +54,34 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Tentukan parameter
+        id: p
+        env:
+          EVENT: ${{ github.event_name }}
+          IN_EPISODE: ${{ inputs.episode }}
+          IN_CLIMAX: ${{ inputs.climax }}
+          IN_COMMIT: ${{ inputs.commit_release }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT" = "push" ]; then
+            LINE="$(tr -d '\r' < the-last-signal/.render-trigger | head -1)"
+            EPISODE="$(echo "$LINE" | awk '{print $1}')"
+            CLIMAX="$(echo "$LINE" | awk '{print $2}')"
+            COMMIT="true"
+          else
+            EPISODE="$IN_EPISODE"
+            CLIMAX="$IN_CLIMAX"
+            COMMIT="$IN_COMMIT"
+          fi
+          if [ -z "$EPISODE" ]; then
+            echo "::error::ID episode kosong (isi .render-trigger atau input workflow)"
+            exit 1
+          fi
+          echo "episode=$EPISODE" >> "$GITHUB_OUTPUT"
+          echo "climax=$CLIMAX" >> "$GITHUB_OUTPUT"
+          echo "commit_release=$COMMIT" >> "$GITHUB_OUTPUT"
+          echo "▶ episode=$EPISODE klimaks=${CLIMAX:-90% durasi} commit=$COMMIT pemicu=$EVENT"
 
       - uses: actions/setup-node@v4
         with:
@@ -45,11 +94,19 @@ jobs:
         working-directory: the-last-signal
         run: pnpm install --no-frozen-lockfile
 
+      - name: Cek ffmpeg (harus build penuh: ebur128 + alimiter)
+        run: |
+          ffmpeg -hide_banner -filters 2>/dev/null | grep -q ebur128 || {
+            echo "::error::ffmpeg runner tanpa filter ebur128"; exit 1; }
+          ffmpeg -hide_banner -filters 2>/dev/null | grep -q alimiter || {
+            echo "::error::ffmpeg runner tanpa filter alimiter"; exit 1; }
+          echo "✔ ffmpeg $(ffmpeg -version | head -1 | awk '{print $3}') punya ebur128 + alimiter"
+
       - name: Bangun (naskah -> episode -> alignment -> skor -> ambience)
         working-directory: the-last-signal
         env:
-          EPISODE: ${{ inputs.episode }}
-          CLIMAX: ${{ inputs.climax }}
+          EPISODE: ${{ steps.p.outputs.episode }}
+          CLIMAX: ${{ steps.p.outputs.climax }}
         run: |
           if [ -n "$CLIMAX" ]; then
             bash scripts/build-all.sh "$EPISODE" --climax "$CLIMAX"
@@ -60,14 +117,15 @@ jobs:
       - name: Render master
         working-directory: the-last-signal
         env:
-          EPISODE: ${{ inputs.episode }}
+          EPISODE: ${{ steps.p.outputs.episode }}
         run: npx tsx scripts/render.ts --episode "$EPISODE" --crf 20 --concurrency 4
 
       - name: Encode delivery (target < 40 MB)
         working-directory: the-last-signal
         env:
-          EPISODE: ${{ inputs.episode }}
+          EPISODE: ${{ steps.p.outputs.episode }}
         run: |
+          set -euo pipefail
           npx tsx scripts/encode-delivery.ts --episode "$EPISODE" \
             --crf 27 --maxrate 520k --loudness -14 --tp -3
           ls -la "renders/$EPISODE-delivery.mp4"
@@ -81,23 +139,23 @@ jobs:
       - name: QC
         working-directory: the-last-signal
         env:
-          EPISODE: ${{ inputs.episode }}
+          EPISODE: ${{ steps.p.outputs.episode }}
         run: npx tsx scripts/qc.ts --episode "$EPISODE"
 
       - name: Simpan artefak (selalu)
         uses: actions/upload-artifact@v4
         with:
-          name: delivery-${{ inputs.episode }}
+          name: delivery-${{ steps.p.outputs.episode }}
           path: |
-            the-last-signal/renders/${{ inputs.episode }}.mp4
-            the-last-signal/renders/${{ inputs.episode }}-delivery.mp4
+            the-last-signal/renders/${{ steps.p.outputs.episode }}.mp4
+            the-last-signal/renders/${{ steps.p.outputs.episode }}-delivery.mp4
           if-no-files-found: error
           retention-days: 14
 
       - name: Commit berkas rilis ke cabang
-        if: ${{ inputs.commit_release }}
+        if: ${{ steps.p.outputs.commit_release == 'true' }}
         env:
-          EPISODE: ${{ inputs.episode }}
+          EPISODE: ${{ steps.p.outputs.episode }}
         run: |
           mkdir -p the-last-signal/releases
           cp "the-last-signal/renders/$EPISODE-delivery.mp4" "the-last-signal/releases/$EPISODE.mp4"

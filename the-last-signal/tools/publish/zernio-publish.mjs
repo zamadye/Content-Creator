@@ -41,6 +41,24 @@ function arg(name, fallback = null) {
 const requestPath = resolve(REPO_ROOT, arg('request', ''));
 const dryRun = process.argv.includes('--dry-run');
 
+/**
+ * Mode jadwal (2026-11-08, arahan pemilik kanal).
+ *
+ * Jadwal tayang hidup di Zernio, bukan di repo: video diunggah ke storage
+ * Zernio SEKARANG dan Zernio yang menayangkannya pada `scheduledFor`. Setelah
+ * itu berkas di repo boleh hilang — tidak ada yang bergantung padanya.
+ *
+ *   node zernio-publish.mjs --request <berkas.json> --schedule 2026-11-08T04:05:00Z
+ */
+const scheduleFor = arg('schedule', null);
+const scheduleTimezone = arg('timezone', 'Asia/Makassar'); // WITA (UTC+8)
+if (scheduleFor && Number.isNaN(Date.parse(scheduleFor))) {
+  die(2, `--schedule bukan waktu yang sah: ${scheduleFor} (pakai ISO 8601, mis. 2026-11-08T04:05:00Z)`);
+}
+if (scheduleFor && Date.parse(scheduleFor) < Date.now() - 60_000) {
+  die(2, `--schedule sudah lewat: ${scheduleFor}`);
+}
+
 function die(code, message) {
   fail(message);
   process.exit(code);
@@ -57,7 +75,11 @@ try {
   die(2, `JSON permintaan tidak valid: ${describeError(error)}`);
 }
 
-if (request.status && request.status !== 'requested') {
+// Status "requested" = tayang sekarang. Untuk penjadwalan, berkas `held` juga
+// boleh diproses — justru itu sumbernya. Yang tetap ditolak: berkas yang sudah
+// tayang atau sudah punya jadwal, supaya tidak ada unggahan kedua.
+const bolehDijadwalkan = Boolean(scheduleFor) && ['held', 'requested'].includes(String(request.status ?? 'requested'));
+if (request.status && request.status !== 'requested' && !bolehDijadwalkan) {
   notice(`Permintaan ${request.episodeId} berstatus "${request.status}" — dilewati (sudah pernah diproses).`);
   process.exit(0);
 }
@@ -450,7 +472,11 @@ try {
             ]
           : []),
       ],
-      publishNow: true,
+      // Jadwal: Zernio yang menayangkan, jadi publishNow WAJIB false. Kalau
+      // keduanya terkirim, publishNow menang dan video tayang detik itu juga.
+      ...(scheduleFor
+        ? { scheduledFor: new Date(scheduleFor).toISOString(), timezone: scheduleTimezone, publishNow: false }
+        : { publishNow: true }),
       metadata: {
         episodeId,
         studio: 'the-last-signal',
@@ -515,7 +541,7 @@ try {
   // ditanyakan ulang ke API sampai jelas, maksimal ±6 menit.
   const pending = ['publishing', 'processing', 'pending', 'queued', 'uploading'];
   const statusOf = () => String(payload.status ?? result.facebook.status ?? '').toLowerCase();
-  if (!wantsYoutube && pending.includes(statusOf())) {
+  if (!scheduleFor && !wantsYoutube && pending.includes(statusOf())) {
     notice(`Post diterima (status=${statusOf()}) — menanyakan hasil akhir ke Zernio`);
     const episodeIdWanted = episodeId;
     const deadline = Date.now() + 6 * 60 * 1000;
@@ -560,9 +586,34 @@ try {
   // HTTP 201 saja tidak cukup, dan sebaliknya 207 parsial tetap bisa berisi
   // satu platform sukses — jadi yang dinilai adalah platform YouTube-nya.
   const platformStatus = String(platform?.status ?? '').toLowerCase();
-  result.ok = wantsYoutube
-    ? platformStatus === 'published' || Boolean(result.youtube.url)
-    : Boolean(result.facebook.ok) || result.facebook.accepted === true;
+
+  // Post terjadwal belum punya URL apa pun — yang membuktikan berhasil adalah
+  // adanya id post + status "scheduled" dan waktu yang Zernio simpan.
+  if (scheduleFor) {
+    const statusAll = [
+      String(result.post.status ?? '').toLowerCase(),
+      ...(payload.platforms ?? []).map((entry) => String(entry?.status ?? '').toLowerCase()),
+    ];
+    const terjadwal =
+      Boolean(result.post.id) &&
+      (statusAll.includes('scheduled') || statusAll.includes('pending') || statusAll.includes('queued'));
+    result.schedule = {
+      requestedFor: new Date(scheduleFor).toISOString(),
+      timezone: scheduleTimezone,
+      confirmedFor: String(payload.scheduledFor ?? '') || null,
+      status: result.post.status ?? null,
+    };
+    result.ok = terjadwal;
+    notice(
+      terjadwal
+        ? `Terjadwal di Zernio: ${result.schedule.confirmedFor ?? result.schedule.requestedFor} (${scheduleTimezone}) · post ${result.post.id}`
+        : `Zernio tidak mengonfirmasi jadwal: status=${result.post.status ?? 'tidak ada'}`,
+    );
+  } else {
+    result.ok = wantsYoutube
+      ? platformStatus === 'published' || Boolean(result.youtube.url)
+      : Boolean(result.facebook.ok) || result.facebook.accepted === true;
+  }
 
   notice(`Respons createPost: HTTP ${result.post.httpStatus} · status=${result.youtube.status ?? '-'}`);
   if (result.youtube.url) notice(`URL: ${result.youtube.url}`);
@@ -585,7 +636,11 @@ persist();
 
 if (result.ok) {
   notice(`::notice title=PUBLISH-RESULT-${episodeId}::${JSON.stringify(result)}`);
-  notice(`PUBLISH OK ${episodeId} → ${wantsYoutube ? result.youtube.url : result.facebook.url}`);
+  notice(
+    scheduleFor
+      ? `JADWAL OK ${episodeId} → ${result.schedule?.confirmedFor ?? scheduleFor}`
+      : `PUBLISH OK ${episodeId} → ${wantsYoutube ? result.youtube.url : result.facebook.url}`,
+  );
   process.exit(0);
 }
 

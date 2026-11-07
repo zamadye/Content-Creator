@@ -1,0 +1,21 @@
+{
+  "_catatan": "Jadwal tayang hidup di Zernio, bukan di repo. Satu kali push ke berkas ini = satu kali action mengirim jadwal. Waktu tanpa zona dibaca memakai timezone di bawah (WITA).",
+  "timezone": "Asia/Makassar",
+  "items": [
+    {
+      "request": "the-last-signal/publish-queue/2026-11-08T12-15-LS-0012.json",
+      "scheduledFor": "2026-11-08T12:05:00",
+      "catatan": "Short 1/3 — Nomor Tiga Belas"
+    },
+    {
+      "request": "the-last-signal/publish-queue/2026-11-08T12-15-LS-0013.json",
+      "scheduledFor": "2026-11-08T13:05:00",
+      "catatan": "Short 2/3 — Lima Menit Sebelum"
+    },
+    {
+      "request": "the-last-signal/publish-queue/2026-11-08T12-15-LS-0014.json",
+      "scheduledFor": "2026-11-08T15:05:00",
+      "catatan": "Short 3/3 — Kursi Ketujuh"
+    }
+  ]
+}

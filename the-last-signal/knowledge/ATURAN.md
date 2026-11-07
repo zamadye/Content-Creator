@@ -354,21 +354,37 @@ Mekanisme teknis: `knowledge/distribution.md` · struktur Drive: `knowledge/driv
 
 ---
 
-## 7.5 Tayang hanya lewat slot, di dalam jendela
+## 7.5 Jadwal tayang hidup di Zernio, bukan di repo
 
-Unggahan tidak dipicu oleh "pekerjaan selesai", tetapi oleh slot di dalam
-jendela **12.00–18.00 WITA**. Aturan teknisnya:
+Repo ini **bukan penjadwal**. Jadwal dikirim ke Zernio sekali lewat action, lalu
+Zernio yang menyimpan video di cloud dan menayangkannya pada waktunya. Setelah
+jadwal terkirim, berkas di `releases/` boleh hilang tanpa efek apa pun.
 
-- Berkas antrean ditulis berstatus `held`. Push berkas `held` tidak mengunggah
-  apa pun; hanya `requested` yang diproses `zernio-publish.mjs`.
-- `tools/publish/publish-slot.mjs` melepas satu berkas `held` per slot,
-  menjalankan QC + unggah, lalu menulis `published` beserta URL. Kalau gagal,
-  berkasnya kembali `held` — tidak pernah tertinggal sebagai `requested` yang
-  memblokir slot berikutnya.
-- Jeda minimal 2 jam antar-video, maksimal tiga video per hari.
-- Alasan: unggahan yang dipicu push keluar kapan saja (pernah pukul 06.42 pagi)
-  dan tiga berkas dalam satu push bisa tayang berdekatan. Keduanya terlihat
-  seperti kanal yang menyemburkan konten, bukan kanal yang bercerita.
+Kenapa berubah (arahan pemilik kanal, 8 Nov 2026): penjadwalan berbasis berkas
+`held` + cron di repo hanya bisa berjalan kalau workflow ada di branch default,
+dan `held` menahan video di repo — bukan di cloud. Zernio sudah punya penjadwal;
+memakai dua penjadwal sekaligus hanya menghasilkan unggahan ganda atau tidak
+sama sekali (kejadian 8 Nov: tidak ada Short tayang sehari penuh).
+
+Cara pakai:
+
+1. Berkas permintaan ditulis seperti biasa (`publish-queue/<ISO>-<ID>.json`),
+   status apa pun; yang penting media ada di `releases/`.
+2. Tambahkan barisnya ke `schedule.json`:
+   `{ "request": ".../LS-0012.json", "scheduledFor": "2026-11-08T12:05:00" }`.
+   Waktu tanpa zona dibaca memakai `timezone` (`Asia/Makassar`, WITA).
+3. Push. Workflow `zernio-schedule.yml` menjalankan gerbang QC, mengunggah media
+   ke storage Zernio, lalu `createPost` dengan `scheduledFor` + `timezone`.
+   Tidak ada `publishNow` — kalau keduanya terkirim, `publishNow` menang.
+4. Berkas permintaan ditandai `scheduled` + `zernioPostId`; ringkasannya di
+   `knowledge/jadwal-zernio.json`.
+
+Aturan isi jadwal:
+
+- Jendela tayang 12.00–18.00 WITA; jeda minimal 1 jam antar-video.
+- Satu berkas rencana boleh memuat puluhan video — tidak perlu satu action per
+  video.
+- Jangan menyebut tanggal tetap di judul/deskripsi.
 
 # BAGIAN VIII — GERBANG QC
 

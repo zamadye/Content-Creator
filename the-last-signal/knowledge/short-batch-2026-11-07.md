@@ -3,10 +3,9 @@
 Tiga Short **cerita baru**, bukan potongan video panjang. Ditulis dengan hukum
 `knowledge/NASKAH.md` dan diuji mesin sebelum masuk produksi.
 
-Status: **dalam antrean tayang** (8 Nov 2026). Ketiga berkas ada di
-`publish-queue/` dengan status `held`, jadi menyimpannya tidak mengunggah apa pun.
-Yang melepas adalah slot otomatis (`tools/publish/publish-slot.mjs`) di dalam
-jendela 12.00–18.00 WITA, satu video per slot, jeda 2 jam antar-video.
+Status: **dijadwalkan lewat Zernio** (8 Nov 2026). Jadwal ada di
+`schedule.json` dan dikirim oleh `zernio-schedule.yml`: video diunggah ke cloud
+Zernio, Zernio yang menayangkan. Repo tidak lagi menahan jadwal.
 
 ## Daftar
 
@@ -44,12 +43,8 @@ Ketiganya 1080×1920 native, 30 fps, H.264 + AAC 48 kHz, ±500 kbps.
 
 1. Berkas antrean ditulis dengan `status: "held"`. Push berkas `held` **tidak**
    mengunggah apa pun — `zernio-publish.mjs` hanya memproses `requested`.
-2. Slot harian (`publish-slot.yml`, cron 04:15Z = 12:15 WITA) mengambil satu
-   berkas `held` paling lama, melepasnya jadi `requested`, menjalankan gerbang
-   QC + unggah, lalu menulis `published` + URL. Gagal → kembali `held`.
-3. Jendela 12.00–18.00 WITA, satu video per slot, jeda 2 jam. Jangan menyebut
-   tanggal tetap di judul/deskripsi.
-4. Catatan: cron GitHub hanya berjalan dari branch default (`main`). Selama
-   work branch belum digabung, slot dipicu lewat push ke
-   `the-last-signal/.publish-trigger` — runner menunggu sampai jam jendela.
+2. Tambahkan baris ke `schedule.json` dengan `scheduledFor` (WITA), lalu push.
+   `zernio-schedule.yml` menjalankan QC, mengunggah ke Zernio, dan membuat post
+   terjadwal. Satu jalan bisa memuat puluhan video.
+3. Jendela 12.00–18.00 WITA, jeda minimal 1 jam. Jangan menyebut tanggal tetap.
 5. Setelah tayang, catat di `knowledge/episodes.jsonl` seperti LL-0002.

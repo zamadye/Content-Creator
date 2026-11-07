@@ -1,0 +1,27 @@
+{
+  "timezone": "Asia/Makassar",
+  "updatedAt": "2026-11-07T23:20:47.250Z",
+  "items": [
+    {
+      "episodeId": "LS-0012",
+      "ok": true,
+      "scheduledFor": "2026-11-08T04:05:00.000Z",
+      "dryRun": true,
+      "updatedAt": "2026-11-07T23:20:47.250Z"
+    },
+    {
+      "episodeId": "LS-0013",
+      "ok": true,
+      "scheduledFor": "2026-11-08T05:05:00.000Z",
+      "dryRun": true,
+      "updatedAt": "2026-11-07T23:20:47.250Z"
+    },
+    {
+      "episodeId": "LS-0014",
+      "ok": true,
+      "scheduledFor": "2026-11-08T07:05:00.000Z",
+      "dryRun": true,
+      "updatedAt": "2026-11-07T23:20:47.250Z"
+    }
+  ]
+}

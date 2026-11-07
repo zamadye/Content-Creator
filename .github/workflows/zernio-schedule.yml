@@ -1,0 +1,125 @@
+name: Jadwalkan tayang (Zernio)
+
+# ---------------------------------------------------------------------------
+#  Kirim JADWAL ke Zernio. Repo bukan penjadwal.
+#
+#  Cara kerja: berkas rencana `the-last-signal/schedule.json` berisi daftar
+#  "berkas permintaan + waktu tayang". Satu kali jalan:
+#    1. gerbang QC tiap video (resolusi, fps, durasi, codec, LUFS, true peak),
+#    2. unggah media ke storage Zernio,
+#    3. createPost dengan scheduledFor + timezone → Zernio yang menayangkan.
+#  Setelah itu video hidup di cloud Zernio; berkas di repo boleh hilang.
+#
+#  Satu berkas rencana bisa memuat puluhan video. Tidak ada cron di sini:
+#  jadwal sudah dipegang Zernio, jadi tidak perlu branch ini ada di main.
+#
+#  Pemicu: push ke schedule.json (isi berubah) atau dispatch manual.
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    branches:
+      - "arena/479de245-content-creator"
+    paths:
+      - "the-last-signal/schedule.json"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Hanya periksa (tidak mengunggah, tidak menjadwalkan)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zernio-schedule
+  cancel-in-progress: false
+
+jobs:
+  schedule:
+    name: QC → unggah → jadwalkan
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    env:
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+      ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
+      ZERNIO_YOUTUBE_ACCOUNT_ID: ${{ vars.ZERNIO_YOUTUBE_ACCOUNT_ID }}
+      ZERNIO_FACEBOOK_ACCOUNT_ID: ${{ vars.ZERNIO_FACEBOOK_ACCOUNT_ID }}
+
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Pasang Node 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Sembunyikan nilai rahasia dari log
+        run: |
+          set -euo pipefail
+          [ -n "${ZERNIO_API_KEY:-}" ] && echo "::add-mask::${ZERNIO_API_KEY}"
+          [ -n "${ZERNIO_KEY:-}" ] && echo "::add-mask::${ZERNIO_KEY}"
+          exit 0
+
+      - name: Pasang ffmpeg (gerbang QC)
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          ffmpeg -version | head -1
+
+      - name: Pasang SDK Zernio
+        working-directory: the-last-signal/tools/publish
+        run: npm install --no-audit --no-fund --loglevel=error
+
+      - name: Kirim jadwal
+        working-directory: the-last-signal/tools/publish
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -uo pipefail
+          if [ "${DRY_RUN:-false}" = "true" ]; then
+            node zernio-schedule.mjs --plan ../../schedule.json --dry-run
+          else
+            node zernio-schedule.mjs --plan ../../schedule.json
+          fi
+          STATUS=$?
+          echo "::notice::zernio-schedule keluar dengan kode $STATUS"
+          # Kegagalan satu video tidak boleh menyembunyikan yang lain: hasil
+          # per video sudah dicatat di knowledge/jadwal-zernio.json.
+          exit 0
+
+      - name: Simpan status jadwal
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- the-last-signal/publish-queue the-last-signal/knowledge/jadwal-zernio.json; then
+            echo "::notice::tidak ada perubahan status"
+            exit 0
+          fi
+          git config user.name "the-last-signal bot"
+          git config user.email "bot@the-last-signal.invalid"
+          git add the-last-signal/publish-queue the-last-signal/knowledge/jadwal-zernio.json
+          git commit -q -m "jadwal(zernio): $(TZ=Asia/Makassar date '+%d %b %H:%M') WITA"
+          for attempt in 1 2 3; do
+            if git pull --rebase --quiet origin "${GITHUB_REF_NAME}" && git push --quiet; then
+              echo "::notice::status jadwal tersimpan (percobaan $attempt)"
+              exit 0
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "::warning::status jadwal tidak tersimpan"
+
+      - name: Publikasikan laporan
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zernio-schedule-report
+          path: the-last-signal/report/publish-*.json
+          if-no-files-found: warn

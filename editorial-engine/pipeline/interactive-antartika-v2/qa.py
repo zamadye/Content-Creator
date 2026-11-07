@@ -56,7 +56,7 @@ lines += ['', '## Batas pengujian',
  '- TESTED: beberapa gambar diam per adegan diperiksa visual; dua contoh frame per adegan memiliki hash berbeda. Hash berbeda saja bukan bukti gerak baik atau seluruh animasi benar.',
  '- NOT TESTED: mendengarkan manusia, review gerak penuh, pemutaran di ponsel dan platform, serta membangun ulang lengkap dari cadangan yang dipulihkan.',
  '- Ilustrasi lingkungan dibuat dengan AI; skema tidak berskala; musik tonal dan aksen disintesis dari kode asli. Tidak memakai logo resmi.',
- '', '## Sumber primer']+[f'- {s["url"]} — {s["claim"]}' for s in p['story']['sources']]+['','## SHA-256 lokal','```',manifest.strip(),'```','']
+ '', '## Sumber primer']+[f'- {s["url"]} — {s["dukungan"]}' for s in p['story']['sources']]+['','## SHA-256 lokal','```',manifest.strip(),'```','']
 (D/'QA-DAN-SUMBER.md').write_text('\n'.join(lines),encoding='utf8')
 print(json.dumps({'checks':checks,'duration':actual,'lufs':lufs,'peak_dbtp':peak,'status':'PASS' if all(checks.values()) else 'FAIL'},ensure_ascii=False))
 if not all(checks.values()):sys.exit(1)

@@ -85,7 +85,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Pasang pnpm
         run: npm i -g pnpm@9
@@ -94,13 +94,27 @@ jobs:
         working-directory: the-last-signal
         run: pnpm install --no-frozen-lockfile
 
-      - name: "Cek ffmpeg (build penuh - ebur128 + alimiter)"
+      - name: "Pasang ffmpeg penuh (ebur128 + alimiter)"
         run: |
-          ffmpeg -hide_banner -filters 2>/dev/null | grep -q ebur128 || {
-            echo "::error::ffmpeg runner tanpa filter ebur128"; exit 1; }
-          ffmpeg -hide_banner -filters 2>/dev/null | grep -q alimiter || {
-            echo "::error::ffmpeg runner tanpa filter alimiter"; exit 1; }
-          echo "✔ ffmpeg $(ffmpeg -version | head -1 | awk '{print $3}') punya ebur128 + alimiter"
+          set -euo pipefail
+          need() {
+            ffmpeg -hide_banner -filters 2>/dev/null | grep -q ebur128 &&
+            ffmpeg -hide_banner -filters 2>/dev/null | grep -q alimiter &&
+            ffmpeg -hide_banner -filters 2>/dev/null | grep -q loudnorm
+          }
+          if need; then
+            echo "✔ ffmpeg bawaan runner sudah lengkap"
+          else
+            echo "· ffmpeg bawaan tidak lengkap, memasang lewat apt"
+            sudo apt-get update -qq
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg
+          fi
+          if ! need; then
+            echo "::error::ffmpeg tetap tanpa ebur128/alimiter/loudnorm"
+            ffmpeg -hide_banner -filters 2>/dev/null | wc -l
+            exit 1
+          fi
+          echo "✔ ffmpeg $(ffmpeg -version | head -1 | awk '{print $3}') di $(command -v ffmpeg)"
 
       - name: Bangun (naskah -> episode -> alignment -> skor -> ambience)
         working-directory: the-last-signal

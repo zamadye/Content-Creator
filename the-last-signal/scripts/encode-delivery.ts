@@ -24,6 +24,8 @@ function arg(name: string, fallback: string) {
 const episodeId = arg("episode", "LS-0001");
 const crf = arg("crf", "24");
 const maxrate = arg("maxrate", "5M");
+/** Bitrate audio. Wajib diturunkan untuk video panjang: 10 menit @192k = 14 MB. */
+const audioRate = arg("audio", "192k");
 const loudness = arg("loudness", "-14");
 // Target true peak lebih ketat dari standar: stinger jump scare sangat spiky,
 // dan limiter loudnorm bisa overshoot kalau targetnya mepet.
@@ -52,6 +54,25 @@ function measureTruePeak(file: string): number {
 // padat (LS-0001 lama) menembus -0,3 dBTP dengan batas lama walaupun loudnorm
 // sudah minta -1,5. Encoder AAC menambah inter-sample peak, jadi limiter harus
 // duduk lebih rendah dari target.
+/**
+ * "520k" / "2M" / "480000" -> bit per detik.
+ *
+ * Dulu bufsize dihitung dengan `parseInt("520k")` = 520 lalu ditempeli "M",
+ * jadi batasnya 1040 MB — praktis tidak ada VBV sama sekali, --maxrate
+ * diabaikan, dan CRF yang menentukan sendiri (hasilnya > 40 MB).
+ */
+function parseRate(value: string): number {
+  const match = value.trim().match(/^([\d.]+)\s*([kKmM]?)$/);
+  if (!match) throw new Error(`laju bit tidak dikenal: ${value}`);
+  const amount = Number.parseFloat(match[1]);
+  const suffix = match[2].toLowerCase();
+  if (suffix === "m") return amount * 1_000_000;
+  if (suffix === "k") return amount * 1_000;
+  return amount;
+}
+
+const formatRate = (bitsPerSecond: number) => `${Math.round(bitsPerSecond / 1000)}k`;
+
 const limitFor = (targetDb: number) => (10 ** (targetDb / 20)).toFixed(4);
 let filter = `aresample=192000,loudnorm=I=${loudness}:TP=-1.5:LRA=11,alimiter=limit=${limitFor(truePeakTarget)}:level=disabled:attack=5:release=50`;
 
@@ -72,7 +93,7 @@ const encode = () =>
   "-maxrate",
   maxrate,
   "-bufsize",
-  String(Number.parseInt(maxrate, 10) * 2) + "M",
+  formatRate(parseRate(maxrate) * 2),
   "-pix_fmt",
   "yuv420p",
   "-profile:v",
@@ -84,7 +105,7 @@ const encode = () =>
   "-c:a",
   "aac",
   "-b:a",
-  "192k",
+  audioRate,
   "-ar",
   "48000",
   "-movflags",

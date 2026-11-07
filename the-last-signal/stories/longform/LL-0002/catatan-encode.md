@@ -69,3 +69,36 @@ Dua ketergantungan lama pada LS-0001 (sudah diarsipkan) ikut dibereskan karena
 memblokir render: `apps/renderer/src/Root.tsx` mengimpor
 `projects/episodes/LS-0001/episode.json`, dan `remotion.config.ts` menunjuk
 folder itu sebagai publicDir.
+
+## 7 Nov 2026 — render pertama yang benar-benar berjalan (GitHub Actions)
+
+Render 17.948 frame selesai di runner (±60 menit, concurrency 4), tapi encode
+gagal karena berkas > 40 MB. Penyebabnya satu baris:
+
+    "-bufsize", String(Number.parseInt("520k", 10) * 2) + "M"
+
+`parseInt("520k")` = 520, lalu ditempeli "M" → bufsize **1040 MB**. VBV praktis
+mati, `--maxrate` diabaikan, CRF 27 menentukan sendiri, hasilnya membengkak.
+Sekarang `parseRate()`/`formatRate()` membaca akhiran k/M dan bufsize = 2× maxrate.
+
+Anggaran ukuran untuk 598,8 s (batas unggah 40 MiB = 41.943.040 byte):
+560 kbps total. Dipakai **video maxrate 400k + audio 96k** ≈ 37 MB.
+Audio dulu 192k = 14 MB untuk 10 menit, terlalu mahal untuk format panjang.
+
+Artefak `master-<ID>` sekarang disimpan SEBELUM encode (7 hari), dan
+`.render-trigger` menerima mode ketiga: `LL-0002 523 encode` memakai master itu
+sehingga menala encode tidak lagi memaksa render ulang 60 menit.
+
+Temuan lain dari run ini:
+- `publishing.thumbnail.image` = `images/thumb.png`, tapi `.gitignore` melarang
+  PNG di `images/`. Nama berkas kini `images/thumb.jpg` (1920×1080), dan
+  `collectRequiredAssets()` ikut memeriksanya — sebelum ini validator bilang
+  "aset lengkap" padahal render 404 di tengah jalan.
+- Runner tidak punya ffmpeg dengan `ebur128`/`alimiter`; workflow memasangnya
+  lewat apt sebelum build.
+- Durasi hasil ukur di runner 598,3 s / 17.948 frame, di sandbox 598,8 s /
+  17.965 frame. Selisih 17 frame berasal dari versi ffmpeg yang berbeda saat
+  mengukur audio. Tidak berbahaya karena dalam satu run semuanya diukur dengan
+  alat yang sama, tapi angka di dokumen lama tidak akan sama persis.
+- Log job tidak bisa diunduh dari sandbox (blob storage di luar jangkauan),
+  jadi `scripts/annotate-log.sh` mengirim pesan galat sebagai anotasi check-run.

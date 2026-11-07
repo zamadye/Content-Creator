@@ -3,8 +3,7 @@ name: Render episode
 # Kenapa render dijalankan di runner, bukan di sandbox kerja:
 # sandbox tidak punya `libnss3/libnspr4` dan tidak bisa memasangnya (tanpa root,
 # apt terkunci), jadi Chromium Remotion tidak bisa diluncurkan sama sekali.
-# Runner ubuntu-latest punya semua pustaka itu dan jaringan penuh, dan 10 menit
-# video 1080p lebih aman dirender di mesin 4 core daripada sandbox 2 core.
+# Runner ubuntu-latest punya semua pustaka itu dan jaringan penuh.
 #
 # Kenapa ada pemicu `push` ke berkas .render-trigger:
 # `workflow_dispatch` hanya bisa memanggil workflow yang SUDAH ADA di default
@@ -14,9 +13,13 @@ name: Render episode
 #
 #   echo "LL-0002 523" > the-last-signal/.render-trigger && git push
 #
-# Isi berkas: "<ID episode> [detik klimaks]". Hapus/ubah berkas itu hanya bila
-# memang ingin render ulang — commit rilis di akhir hanya menyentuh
-# releases/, jadi tidak memicu putaran kedua.
+# Isi berkas: "<ID episode> [detik klimaks] [mode]"
+#   mode = full   (bawaan) bangun + render + encode + QC
+#   mode = encode render dilewati, memakai artefak master dari run sebelumnya
+#          (render 10 menit butuh ±60 menit; menala encode cukup beberapa menit)
+#
+# Commit rilis di akhir hanya menyentuh releases/, jadi tidak memicu putaran
+# kedua. Artefak master disimpan 7 hari supaya mode=encode punya bahan.
 
 on:
   workflow_dispatch:
@@ -29,6 +32,11 @@ on:
         description: "Detik puncak skor (kosongkan = 90% durasi)"
         required: false
         default: "523"
+      mode:
+        description: "full = render ulang, encode = pakai master run sebelumnya"
+        type: choice
+        options: ["full", "encode"]
+        default: "full"
       commit_release:
         description: "Commit berkas rilis ke cabang ini (dibutuhkan publikasi)"
         type: boolean
@@ -41,6 +49,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: render-${{ github.ref }}
@@ -49,7 +58,7 @@ concurrency:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
         with:
@@ -61,6 +70,7 @@ jobs:
           EVENT: ${{ github.event_name }}
           IN_EPISODE: ${{ inputs.episode }}
           IN_CLIMAX: ${{ inputs.climax }}
+          IN_MODE: ${{ inputs.mode }}
           IN_COMMIT: ${{ inputs.commit_release }}
         run: |
           set -euo pipefail
@@ -68,20 +78,24 @@ jobs:
             LINE="$(tr -d '\r' < the-last-signal/.render-trigger | head -1)"
             EPISODE="$(echo "$LINE" | awk '{print $1}')"
             CLIMAX="$(echo "$LINE" | awk '{print $2}')"
+            MODE="$(echo "$LINE" | awk '{print $3}')"
             COMMIT="true"
           else
             EPISODE="$IN_EPISODE"
             CLIMAX="$IN_CLIMAX"
+            MODE="$IN_MODE"
             COMMIT="$IN_COMMIT"
           fi
+          MODE="${MODE:-full}"
           if [ -z "$EPISODE" ]; then
             echo "::error::ID episode kosong (isi .render-trigger atau input workflow)"
             exit 1
           fi
           echo "episode=$EPISODE" >> "$GITHUB_OUTPUT"
           echo "climax=$CLIMAX" >> "$GITHUB_OUTPUT"
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
           echo "commit_release=$COMMIT" >> "$GITHUB_OUTPUT"
-          echo "▶ episode=$EPISODE klimaks=${CLIMAX:-90% durasi} commit=$COMMIT pemicu=$EVENT"
+          echo "::notice::episode=$EPISODE klimaks=${CLIMAX:-90%} mode=$MODE commit=$COMMIT pemicu=$EVENT"
 
       - uses: actions/setup-node@v4
         with:
@@ -103,7 +117,7 @@ jobs:
             ffmpeg -hide_banner -filters 2>/dev/null | grep -q loudnorm
           }
           if need; then
-            echo "✔ ffmpeg bawaan runner sudah lengkap"
+            echo "· ffmpeg bawaan runner sudah lengkap"
           else
             echo "· ffmpeg bawaan tidak lengkap, memasang lewat apt"
             sudo apt-get update -qq
@@ -111,10 +125,9 @@ jobs:
           fi
           if ! need; then
             echo "::error::ffmpeg tetap tanpa ebur128/alimiter/loudnorm"
-            ffmpeg -hide_banner -filters 2>/dev/null | wc -l
             exit 1
           fi
-          echo "✔ ffmpeg $(ffmpeg -version | head -1 | awk '{print $3}') di $(command -v ffmpeg)"
+          echo "::notice::ffmpeg $(ffmpeg -version | head -1 | awk '{print $3}') di $(command -v ffmpeg)"
 
       - name: Bangun (naskah -> episode -> alignment -> skor -> ambience)
         working-directory: the-last-signal
@@ -128,16 +141,16 @@ jobs:
             bash scripts/build-all.sh "$EPISODE"
           fi
 
-      - name: "Pastikan Chromium Remotion terunduh"
-        working-directory: the-last-signal/apps/renderer
-        run: |
-          npx remotion browser ensure || echo "· ensure gagal, render akan mencoba mengunduh sendiri"
-          ls -la ~/.cache/remotion 2>/dev/null | head -5 || true
-
       # Log runner tidak bisa dibaca dari sandbox kerja (host penyimpanan log di
-      # luar jangkauan jaringan), jadi kegagalan render diterjemahkan menjadi
-      # anotasi agar pesan aslinya tetap terbaca lewat API.
+      # luar jangkauan jaringan), jadi kegagalan diterjemahkan menjadi anotasi
+      # lewat scripts/annotate-log.sh agar pesan aslinya tetap terbaca.
+      - name: "Pastikan Chromium Remotion terunduh"
+        if: ${{ steps.p.outputs.mode != 'encode' }}
+        working-directory: the-last-signal/apps/renderer
+        run: npx remotion browser ensure || echo "· ensure gagal, render akan mengunduh sendiri"
+
       - name: "Uji render 2 frame"
+        if: ${{ steps.p.outputs.mode != 'encode' }}
         working-directory: the-last-signal
         env:
           EPISODE: ${{ steps.p.outputs.episode }}
@@ -151,7 +164,33 @@ jobs:
             exit $STATUS
           fi
 
+      - name: "Ambil master dari run sebelumnya (mode=encode)"
+        if: ${{ steps.p.outputs.mode == 'encode' }}
+        working-directory: the-last-signal
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EPISODE: ${{ steps.p.outputs.episode }}
+        run: |
+          set -euo pipefail
+          ARTIFACT=$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=master-$EPISODE&per_page=20" \
+            --jq '[.artifacts[] | select(.expired == false)] | sort_by(.created_at) | last | .id // empty')
+          if [ -z "$ARTIFACT" ]; then
+            echo "::error::tidak ada artefak master-$EPISODE; jalankan mode=full dulu"
+            exit 1
+          fi
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT/zip" > /tmp/master.zip
+          rm -rf /tmp/master && mkdir -p /tmp/master renders
+          unzip -q -o /tmp/master.zip -d /tmp/master
+          MASTER=$(find /tmp/master -name "$EPISODE.mp4" | head -1)
+          if [ -z "$MASTER" ]; then
+            echo "::error::artefak $ARTIFACT tidak berisi $EPISODE.mp4"
+            exit 1
+          fi
+          cp "$MASTER" "renders/$EPISODE.mp4"
+          echo "::notice::master dipakai ulang: $(du -h "renders/$EPISODE.mp4" | cut -f1) dari artefak $ARTIFACT"
+
       - name: Render master
+        if: ${{ steps.p.outputs.mode != 'encode' }}
         working-directory: the-last-signal
         env:
           EPISODE: ${{ steps.p.outputs.episode }}
@@ -164,6 +203,18 @@ jobs:
             bash scripts/annotate-log.sh /tmp/render.log RENDER
             exit $STATUS
           fi
+          echo "::notice::master $EPISODE: $(du -h "renders/$EPISODE.mp4" | cut -f1)"
+
+      # Disimpan SEBELUM encode: encode yang gagal dulu memaksa render ulang
+      # 60 menit hanya untuk menala parameter bitrate.
+      - name: "Simpan master (bahan mode=encode)"
+        if: ${{ steps.p.outputs.mode != 'encode' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: master-${{ steps.p.outputs.episode }}
+          path: the-last-signal/renders/${{ steps.p.outputs.episode }}.mp4
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Encode delivery (target < 40 MB)
         working-directory: the-last-signal
@@ -172,7 +223,7 @@ jobs:
         run: |
           set -uo pipefail
           npx tsx scripts/encode-delivery.ts --episode "$EPISODE" \
-            --crf 27 --maxrate 520k --loudness -14 --tp -3 > /tmp/encode.log 2>&1
+            --crf 27 --maxrate 400k --audio 96k --loudness -14 --tp -3 > /tmp/encode.log 2>&1
           STATUS=$?
           tail -12 /tmp/encode.log
           if [ $STATUS -ne 0 ]; then
@@ -181,9 +232,11 @@ jobs:
           fi
           ls -la "renders/$EPISODE-delivery.mp4"
           SIZE=$(stat -c%s "renders/$EPISODE-delivery.mp4")
-          echo "ukuran: $((SIZE/1024/1024)) MB"
+          SECS=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "renders/$EPISODE-delivery.mp4" | cut -d. -f1)
+          KBPS=$((SIZE * 8 / SECS / 1000))
+          echo "::notice::delivery ${SIZE} byte (~$((SIZE/1024/1024)) MB, ${KBPS} kbps rata-rata)"
           if [ "$SIZE" -gt 41943040 ]; then
-            echo "::error::berkas > 40 MB, turunkan crf sebelum diunggah"
+            echo "::error::berkas > 40 MB ($((SIZE/1024/1024)) MB), turunkan maxrate/crf"
             exit 1
           fi
 

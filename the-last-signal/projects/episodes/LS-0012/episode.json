@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 54.7,
+  "targetDurationSeconds": 50.7,
   "story": {
     "hook": "Nomor tiga belas tidak ada di gang kami",
     "premise": "Petugas sensus menghitung dua belas pintu di gangnya sendiri, sementara daftar desa mencatat tiga belas kepala keluarga yang tidak pernah bisa ditemukan.",
@@ -22,44 +22,44 @@
   "onScreenText": [
     {
       "text": "NOMOR 13 TIDAK ADA",
-      "startFrame": 33,
-      "endFrame": 93
+      "startFrame": 31,
+      "endFrame": 86
     },
     {
       "text": "DUA BELAS PINTU",
-      "startFrame": 886,
-      "endFrame": 946
+      "startFrame": 822,
+      "endFrame": 878
     },
     {
       "text": "NOMOR ITU RUMAHNYA",
-      "startFrame": 1279,
-      "endFrame": 1339
+      "startFrame": 1187,
+      "endFrame": 1243
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 159,
+      "durationFrames": 115,
       "image": "images/scene-01.jpg",
       "narration": "Nomor tiga belas tidak ada di gang kami.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 45,
+          "atFrame": 33,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 89,
+          "atFrame": 64,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 130,
+          "atFrame": 94,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -69,7 +69,7 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 147,
+          "endFrame": 103,
           "text": "Nomor tiga belas tidak ada di gang kami."
         }
       ],
@@ -93,12 +93,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 99,
+            "startFrame": 72,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 130,
+            "startFrame": 94,
             "volume": 0.4
           }
         ]
@@ -107,26 +107,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 153,
+      "durationFrames": 126,
       "image": "images/scene-02.jpg",
       "narration": "Daftar desa tetap mencatat tiga belas keluarga.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 43,
+          "atFrame": 35,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 86,
+          "atFrame": 71,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 125,
+          "atFrame": 103,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -136,7 +136,7 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 141,
+          "endFrame": 114,
           "text": "Daftar desa tetap mencatat tiga belas keluarga."
         }
       ],
@@ -159,12 +159,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 95,
+            "startFrame": 78,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 125,
+            "startFrame": 103,
             "volume": 0.4
           }
         ]
@@ -173,26 +173,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 237,
+      "durationFrames": 261,
       "image": "images/scene-03.jpg",
       "narration": "Saya petugas sensus. Saya hitung pintu, bukan cerita. Dua belas pintu. Dua belas nama.",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 66,
+          "atFrame": 73,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 133,
+          "atFrame": 146,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 194,
+          "atFrame": 214,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -202,22 +202,22 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 53,
+          "endFrame": 58,
           "text": "Saya petugas sensus."
         },
         {
-          "startFrame": 53,
-          "endFrame": 131,
+          "startFrame": 58,
+          "endFrame": 145,
           "text": "Saya hitung pintu, bukan cerita."
         },
         {
-          "startFrame": 131,
-          "endFrame": 178,
+          "startFrame": 145,
+          "endFrame": 197,
           "text": "Dua belas pintu."
         },
         {
-          "startFrame": 178,
-          "endFrame": 225,
+          "startFrame": 197,
+          "endFrame": 249,
           "text": "Dua belas nama."
         }
       ],
@@ -240,12 +240,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 147,
+            "startFrame": 162,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 194,
+            "startFrame": 214,
             "volume": 0.4
           }
         ]
@@ -254,26 +254,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 289,
+      "durationFrames": 232,
       "image": "images/scene-04.jpg",
       "narration": "Kolom ketiga belas kosong lagi. Bu Sarmi bilang rumahnya roboh dua puluh tahun lalu, sebelum saya masuk kerja.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 81,
+          "atFrame": 65,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 162,
+          "atFrame": 130,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 237,
+          "atFrame": 190,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -283,12 +283,12 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 81,
+          "endFrame": 65,
           "text": "Kolom ketiga belas kosong lagi."
         },
         {
-          "startFrame": 81,
-          "endFrame": 277,
+          "startFrame": 65,
+          "endFrame": 220,
           "text": "Bu Sarmi bilang rumahnya roboh dua puluh tahun lalu, sebelum saya masuk kerja."
         }
       ],
@@ -312,12 +312,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 179,
+            "startFrame": 144,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 237,
+            "startFrame": 190,
             "volume": 0.4
           }
         ]
@@ -326,26 +326,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 250,
+      "durationFrames": 212,
       "image": "images/scene-05.jpg",
       "narration": "Tapi ia tetap menyiapkan piring ketiga tiap malam. Kalau saya tanya untuk siapa, ia diam.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 59,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 140,
+          "atFrame": 119,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 205,
+          "atFrame": 174,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -355,12 +355,12 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 130,
+          "endFrame": 109,
           "text": "Tapi ia tetap menyiapkan piring ketiga tiap malam."
         },
         {
-          "startFrame": 130,
-          "endFrame": 238,
+          "startFrame": 109,
+          "endFrame": 200,
           "text": "Kalau saya tanya untuk siapa, ia diam."
         }
       ],
@@ -384,12 +384,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 155,
+            "startFrame": 131,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 205,
+            "startFrame": 174,
             "volume": 0.4
           }
         ]
@@ -398,26 +398,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 211,
+      "durationFrames": 183,
       "image": "images/scene-06.jpg",
       "narration": "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 59,
+          "atFrame": 51,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 118,
+          "atFrame": 102,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 173,
+          "atFrame": 150,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -427,12 +427,12 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 135,
+          "endFrame": 116,
           "text": "Di rumah saya ada dua lubang sekrup lama."
         },
         {
-          "startFrame": 135,
-          "endFrame": 199,
+          "startFrame": 116,
+          "endFrame": 171,
           "text": "Plat nomornya pernah diganti."
         }
       ],
@@ -456,12 +456,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 131,
+            "startFrame": 114,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 173,
+            "startFrame": 150,
             "volume": 0.4
           }
         ]
@@ -470,26 +470,26 @@
     {
       "id": "scene_07",
       "order": 6,
-      "durationFrames": 341,
+      "durationFrames": 393,
       "image": "images/scene-07.jpg",
       "narration": "Baris ketiga belas berisi nomor rumah saya. Nomornya diganti setelah keluarganya meninggal. Kamu akan tanda tangan, atau memindahkan rumahnya? Tulis di komentar.",
       "narrationAudio": "audio/narration/scene-07.mp3",
       "cuts": [
         {
-          "atFrame": 95,
+          "atFrame": 109,
           "camera": "drift",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 191,
+          "atFrame": 220,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 280,
+          "atFrame": 323,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -499,22 +499,22 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 109,
+          "endFrame": 125,
           "text": "Baris ketiga belas berisi nomor rumah saya."
         },
         {
-          "startFrame": 109,
-          "endFrame": 182,
+          "startFrame": 125,
+          "endFrame": 210,
           "text": "Nomornya diganti setelah keluarganya meninggal."
         },
         {
-          "startFrame": 182,
-          "endFrame": 285,
+          "startFrame": 210,
+          "endFrame": 329,
           "text": "Kamu akan tanda tangan, atau memindahkan rumahnya?"
         },
         {
-          "startFrame": 285,
-          "endFrame": 329,
+          "startFrame": 329,
+          "endFrame": 381,
           "text": "Tulis di komentar."
         }
       ],
@@ -538,12 +538,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 211,
+            "startFrame": 243,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 280,
+            "startFrame": 323,
             "volume": 0.4
           }
         ]

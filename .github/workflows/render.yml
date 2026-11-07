@@ -147,9 +147,7 @@ jobs:
           STATUS=$?
           tail -12 /tmp/smoke.log
           if [ $STATUS -ne 0 ]; then
-            tail -8 /tmp/smoke.log | sed 's/\r//g; s/%/%25/g' | while IFS= read -r line; do
-              [ -n "$line" ] && echo "::error::UJI:: $line"
-            done
+            bash scripts/annotate-log.sh /tmp/smoke.log UJI
             exit $STATUS
           fi
 
@@ -163,9 +161,7 @@ jobs:
           STATUS=$?
           tail -20 /tmp/render.log
           if [ $STATUS -ne 0 ]; then
-            tail -8 /tmp/render.log | sed 's/\r//g; s/%/%25/g' | while IFS= read -r line; do
-              [ -n "$line" ] && echo "::error::RENDER:: $line"
-            done
+            bash scripts/annotate-log.sh /tmp/render.log RENDER
             exit $STATUS
           fi
 
@@ -174,9 +170,15 @@ jobs:
         env:
           EPISODE: ${{ steps.p.outputs.episode }}
         run: |
-          set -euo pipefail
+          set -uo pipefail
           npx tsx scripts/encode-delivery.ts --episode "$EPISODE" \
-            --crf 27 --maxrate 520k --loudness -14 --tp -3
+            --crf 27 --maxrate 520k --loudness -14 --tp -3 > /tmp/encode.log 2>&1
+          STATUS=$?
+          tail -12 /tmp/encode.log
+          if [ $STATUS -ne 0 ]; then
+            bash scripts/annotate-log.sh /tmp/encode.log ENCODE
+            exit $STATUS
+          fi
           ls -la "renders/$EPISODE-delivery.mp4"
           SIZE=$(stat -c%s "renders/$EPISODE-delivery.mp4")
           echo "ukuran: $((SIZE/1024/1024)) MB"
@@ -189,7 +191,15 @@ jobs:
         working-directory: the-last-signal
         env:
           EPISODE: ${{ steps.p.outputs.episode }}
-        run: npx tsx scripts/qc.ts --episode "$EPISODE"
+        run: |
+          set -uo pipefail
+          npx tsx scripts/qc.ts --episode "$EPISODE" > /tmp/qc.log 2>&1
+          STATUS=$?
+          cat /tmp/qc.log
+          if [ $STATUS -ne 0 ]; then
+            bash scripts/annotate-log.sh /tmp/qc.log QC
+            exit $STATUS
+          fi
 
       - name: Simpan artefak (selalu)
         uses: actions/upload-artifact@v4

@@ -275,6 +275,24 @@ pemicu dari daftar shot di plan longform, sedangkan Short punya satu narasi per
 scene dengan tiga potongan yang sudah ditempatkan `build-episode.mjs` di
 28/56/82% scene.
 
+## 3.7 Satu elemen utama per frame: kartu hook didahulukan
+
+Kartu teks dan subtitle tidak boleh berukuran sama besar. Kalau keduanya
+sebesar itu, frame pertama terbaca sebagai dua judul yang berkelahi dan mata
+tidak tahu harus mulai dari mana.
+
+Aturan (ditetapkan 7 Nov 2026, arahan pemilik kanal):
+
+| Elemen | Ukuran | Peran |
+|---|---|---|
+| Kartu hook (`onScreenText`) | **104–150 px**, adaptif panjang teks | satu-satunya hal yang dibaca di frame itu |
+| Subtitle berjalan | **64 px** | pendamping, bukan pesaing |
+
+Kartu memakai garis tepi gelap 9 px supaya tetap terbaca di atas foto terang.
+Subtitle **tidak** ikut dibesarkan lagi tanpa mengecilkan kartu — kalau nanti
+keterbacaan subtitle dinilai kurang, yang dinaikkan dulu adalah kontras dan
+garis tepi, bukan ukuran huruf.
+
 # BAGIAN IV — SUARA
 
 | # | Aturan | Sumber |

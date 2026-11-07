@@ -36,7 +36,7 @@ Perintah ini menimpa output dengan ID yang sama. Output berada di `deliverables/
 
 ## Cadangan dan pemeriksaan wajib
 
-1. Cadangkan input privat sebelum rendering: PNG dan satu MP3, naskah, dan SHA-256. Simpan di Drive privat; jangan taruh ke Git publik.
+1. Cadangkan input privat sebelum rendering: jalankan `python3 pipeline/rebuild-nov-2026/archive_inputs.py EPISODE_ID` untuk mengemas PNG, satu MP3, naskah, dan SHA-256. Simpan ZIP di Drive privat; jangan taruh ke Git publik.
 2. Commit/push source nonrahasia ke branch sesi yang disetujui, periksa kembali remote HEAD. Media tetap di Drive.
 3. Jalankan build dan simpan MP4, PNG thumbnail, caption TXT, SRT/laporan/manifes ke Drive privat. Bandingkan checksum dan periksa izin folder dan berkas. Hanya metadata checksum cocok yang dapat diklaim; pemulihan/unduhan terpisah perlu diuji tersendiri.
 4. Tinjau seluruh suara dan visual pada ponsel, sinkron subtitle, pelafalan CTA, fakta, hak media, dan visibilitas teks. Statusnya **NEEDS REVIEW** sampai benar-benar diperiksa, sekalipun QA mekanis PASS.

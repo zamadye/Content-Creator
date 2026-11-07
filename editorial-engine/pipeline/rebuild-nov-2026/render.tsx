@@ -166,7 +166,9 @@ function Artwork({time}:{time:number}){
  const scene=board.scenes[idx];
  const local=time-sceneBounds[idx];
  const cue=cues.find((q:any)=>time>=q.start&&time<q.end) || (time>=voiceDuration?cues[cues.length-1]:null);
- const name='knot theory';
+ // The animal is near the bottom of the illustration: raise only the cover
+ // subtitles in this episode so the key subject remains visible.
+ const cueTop=idx===0 && id.startsWith('darah') ? 1190 : 1510;
  return <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
  <defs>
   <linearGradient id="back" x1="0" y1="0" x2="0" y2="1"><stop stopColor={bg}/><stop offset="1" stopColor="#0c1925"/></linearGradient>
@@ -196,8 +198,8 @@ function Artwork({time}:{time:number}){
    {idx===4&&<g><rect x="265" y="1312" width="640" height="100" rx="50" fill={accent}/>{txt(585,1377,'ikuti knot theory',48,bg)}</g>}
  </>}
  {cue&&<g>
-   <rect x="62" y={1510-(cue.lines.length===1?0:18)} width="956" height={cue.lines.length===1?110:164} rx="24" fill="#06131d" opacity=".88"/>
-   {cue.lines.map((line:string,i:number)=><g key={i}>{txt(540,1581+i*60-(cue.lines.length===2?19:0),line,pretty(line,53),'#ffffff')}</g>)}
+   <rect x="62" y={cueTop-(cue.lines.length===1?0:18)} width="956" height={cue.lines.length===1?110:164} rx="24" fill="#06131d" opacity=".88"/>
+   {cue.lines.map((line:string,i:number)=><g key={i}>{txt(540,cueTop+71+i*60-(cue.lines.length===2?19:0),line,pretty(line,53),'#ffffff')}</g>)}
  </g>}
  </svg>;
 }
@@ -213,7 +215,7 @@ function Thumbnail(){return <svg xmlns="http://www.w3.org/2000/svg" width="1080"
  {txt(72,92,'KNOT THEORY  /  DUNIA KEBALIK',30,accent,'start')}
  {board.headline.map((line:string,i:number)=><g key={i}>{txt(68,220+i*115,line,pretty(line,105),cream,'start')}</g>)}
  {txt(72,235+board.headline.length*115,board.tagline,39,cream,'start',400)}
- <rect x="65" y="1570" width="330" height="94" rx="47" fill={accent}/>{txt(230,1632,'KOK BISA?',44,bg)}
+ <rect x="65" y={id.startsWith('darah')?565:1570} width="330" height="94" rx="47" fill={accent}/>{txt(230,(id.startsWith('darah')?565:1570)+62,'KOK BISA?',44,bg)}
  </svg>;}
 async function main(){
  if(process.argv.includes('--stills')){

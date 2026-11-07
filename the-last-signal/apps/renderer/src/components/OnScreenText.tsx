@@ -4,6 +4,21 @@ import type { ParsedEpisode } from "@the-last-signal/contracts";
 import { theme } from "../lib/theme";
 
 /**
+ * Ukuran kartu mengikuti panjang teks, bukan angka tetap.
+ *
+ * Dengan 96 px, kartu dan subtitle hampir sama besar — hierarki hilang dan
+ * frame pertama terasa penuh. Kartu sekarang DIDAHULUKAN (132–150 px), tapi
+ * teks panjang tidak boleh membengkak jadi empat baris dan menutupi gambar:
+ * 2–3 kata pendek dapat huruf terbesar, 5 kata dapat yang lebih kecil.
+ */
+const hookSize = (text: string): number => {
+  const characters = text.length;
+  if (characters <= 13) return 150;
+  if (characters <= 20) return 124;
+  return 104;
+};
+
+/**
  * Kartu teks 2–3 kata sebagai "tanda baca" ritme cerita.
  * Bukan subtitle: tujuannya menghentikan swipe dan menandai beat baru.
  */
@@ -22,19 +37,23 @@ const HookCard: React.FC<{ text: string; durationInFrames: number }> = ({ text, 
   const shake = Math.sin(frame * 3.1) * (1 - enter) * 5;
 
   return (
-    <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: 470 }}>
+    <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", paddingTop: 430 }}>
       <div
         style={{
           opacity: Math.min(enter, exit),
           transform: `translateX(${shake}px) scale(${scale})`,
           fontFamily: theme.font.sans,
-          fontWeight: 800,
-          fontSize: 96,
-          letterSpacing: 2,
+          fontWeight: 900,
+          fontSize: hookSize(text),
+          lineHeight: 1.02,
+          letterSpacing: 1,
           textAlign: "center",
           textTransform: "uppercase",
           color: "#f5f1e6",
-          padding: "0 70px",
+          padding: "0 56px",
+          // Garis tepi gelap: kartu harus terbaca di atas foto apa pun.
+          WebkitTextStroke: "9px rgba(3,3,5,0.92)",
+          paintOrder: "stroke fill" as never,
           textShadow: "0 6px 26px rgba(0,0,0,0.95), 0 0 60px rgba(0,0,0,0.8)",
         }}
       >

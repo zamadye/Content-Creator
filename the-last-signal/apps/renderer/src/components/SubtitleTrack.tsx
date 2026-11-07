@@ -77,7 +77,7 @@ const ChunkCard: React.FC<{ words: string[]; durationInFrames: number; last: boo
   const landscape = width > height;
   const geometry = landscape
     ? { size: 62, maxWidth: 1380, padding: "0 96px", stroke: 9 }
-    : { size: theme.subtitle.size, maxWidth: 950, padding: "0 40px", stroke: 13 };
+    : { size: theme.subtitle.size, maxWidth: 980, padding: "0 44px", stroke: 10 };
 
   const fade = Math.min(3, Math.max(1, Math.floor(durationInFrames / 4)));
   const opacity = interpolate(

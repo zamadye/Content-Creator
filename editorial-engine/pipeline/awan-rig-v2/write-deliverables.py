@@ -44,7 +44,7 @@ Kalau kamu membayangkan awan seperti apa sebelumnya? Tulis di komentar dan ikuti
 (D/'caption-empat-platform.txt').write_text(captions,encoding='utf-8')
 lines=['# Storyboard — Awan bukan tangki terbang, revisi rig V2','',f'Durasi: {prep["duration"]:.1f} detik; {prep["fps"]} fps. Satu rekaman narasi dan satu timeline untuk visual, subtitle, dan audio.','',
 'Hook: “500 ton air?” menjadi pertanyaan sejak frame 0; ini satu contoh massa air, bukan semua awan.','',
-'**Catatan:** waktu subtitle diestimasi dari proporsi teks, bukan forced alignment. Dialog, pengucapan, dan timing perlu didengarkan manusia.','']
+'**Catatan:** waktu subtitle mendekati jeda dan pemisahan dalam kalimat masih estimasi, bukan forced alignment. Dialog, pengucapan, dan timing perlu didengarkan manusia.','']
 for scene,t in zip(spec['scenes'],prep['timeline']):
  lines += [f'## {scene["id"]} · {t["start"]:.2f}–{t["end"]:.2f} dtk · {scene["beat"]}',f'**Narasi:** {scene["narration"]}',f'**Aksi:** {scene["action"]}',f'**Objek:** {", ".join(scene["objectMap"])}','']
 lines+=['## Verifikasi fakta','- 1 km³ × 0,5 g/m³ = 500.000 kg = 500 ton metrik air dalam contoh USGS; tidak termasuk massa udara dan tidak berlaku untuk seluruh awan.','- Tetesan kecil mengalami gravitasi; di udara tenang bisa turun perlahan, dan udara yang naik dapat membawanya.','- Hujan hangat dapat terjadi ketika tetes bergabung dan membesar; tidak semua awan menghasilkan hujan.','', '## Sumber']

@@ -7,7 +7,7 @@ Git. Tidak ada penjadwalan atau publikasi.
 
 ## Input yang harus dipulihkan secara privat
 
-Pulihkan dari ZIP input privat ke dalam `editorial-engine`:
+Tempatkan ZIP input privat di `deliverables/awan-rig-v2/01-INPUT-PRIVAT-RIG-V2.zip`, lalu jalankan `python3 pipeline/awan-rig-v2/restore-input.py`. Script membatasi entri dan memverifikasi CRC/SHA/narasi; ia menolak menimpa aset lokal berbeda. Hasilnya:
 
 - `assets/generated/awan-rig-v2/rooftop.png`, `microcloud.png`, `rainstreet.png`
 - `audio/voiceovers/awan-rig-v2/narasi-utuh.mp3` (SHA-256 diperiksa oleh `prepare.py`)
@@ -17,6 +17,7 @@ Pulihkan dari ZIP input privat ke dalam `editorial-engine`:
 ## Jalankan dari direktori editorial-engine
 
 ```sh
+python3 pipeline/awan-rig-v2/restore-input.py
 npm ci
 npm run fonts                  # hanya bila font TTF lokal belum ada
 bash pipeline/awan-rig-v2/build.sh

@@ -1,0 +1,31 @@
+{
+  "episodeId": "LL-0002",
+  "status": "requested",
+  "createdAt": "2026-11-07T07:27:43.999Z",
+  "media": "the-last-signal/releases/LL-0002.mp4",
+  "episode": {
+    "title": "Dua Belas Meter",
+    "subgenre": "Long-form narration",
+    "structure": "pekerjaan → tawaran → kejanggalan → arsip → sebab manusia → tindakan",
+    "durationSeconds": 598.8,
+    "scenes": 9,
+    "jumpscares": 0
+  },
+  "youtube": {
+    "title": "Dua Belas Meter yang Hilang",
+    "description": "Tanah yang saya ukur kurang dua belas meter persegi. Tiga juru ukur sebelum saya mendapat angka yang sama.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "juru ukur tanah",
+      "cerita seram",
+      "kisah nyata"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": false,
+    "notifySubscribers": true,
+    "firstComment": "Kalau kamu jadi saya: tulis angka yang diminta, atau angka yang benar?"
+  }
+}

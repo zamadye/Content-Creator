@@ -20,7 +20,13 @@ const hero='data:image/jpeg;base64,'+fs.readFileSync(data.hero).toString('base64
 const fontFiles=['archivo-latin-400-normal.ttf','archivo-latin-700-normal.ttf'].map(f=>path.join(root,'assets/fonts',f));
 const clamp=(v:number,a:number,b:number)=>Math.max(a,Math.min(b,v));
 const ease=(v:number)=>{v=clamp(v,0,1);return 1-Math.pow(1-v,3);};
-const pretty=(s:string,max=60)=>Math.min(max,Math.floor(950/(s.length*.59)));
+// Conservative width estimate: bold uppercase has much wider glyphs than
+// lowercase. Reserve a safe margin so no headline runs beyond the frame.
+const pretty=(s:string,max=60)=>{
+ const letters=[...s].filter(c=>/[A-Za-z]/.test(c));
+ const upper=letters.length>0 && letters.filter(c=>c===c.toUpperCase()).length/letters.length>.8;
+ return Math.min(max,Math.floor(925/(Math.max(1,s.length)*(upper ? 0.80 : 0.60))));
+};
 const txt=(x:number,y:number,str:string,size=50,fill=cream,anchor:'start'|'middle'|'end'='middle',weight=700)=>
   <text x={x} y={y} textAnchor={anchor} fontFamily="Archivo" fontSize={size} fontWeight={weight} fill={fill}>{str}</text>;
 const Star=({x,y,r=5}:{x:number,y:number,r?:number})=><circle cx={x} cy={y} r={r} fill={cream} opacity=".7"/>;
@@ -173,6 +179,7 @@ function Artwork({time}:{time:number}){
    <rect width="1080" height="1920" fill="url(#shade)"/>
    {txt(72,93,'KNOT THEORY  /  DUNIA KEBALIK',30,accent,'start')}
    {board.headline.map((line:string,i:number)=><g key={i}>{txt(68,205+i*113,line,pretty(line,104),cream,'start')}</g>)}
+   <rect x="55" y={205+board.headline.length*113-53} width="970" height="69" rx="12" fill="#06121d" opacity=".78"/>
    {txt(72,205+board.headline.length*113,board.tagline,39,cream,'start',400)}
  </> : <>
    <image href={hero} x="0" y="0" width="1080" height="1920" preserveAspectRatio="xMidYMid slice" opacity=".14"/>

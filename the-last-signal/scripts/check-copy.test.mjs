@@ -74,8 +74,8 @@ test("menerima naskah yang mengikuti aturan", () => {
   const { code, out } = run({
     episodes: {
       "LS-0100": episode({
-        narration: "Truk itu ditemukan pukul empat pagi di depan rumahmu. Mesinnya masih menyala.",
-        scenes: withClosing(["Truk itu ditemukan pukul empat pagi di depan rumahmu. Mesinnya masih menyala."]),
+        narration: "Truk itu ditemukan pukul empat pagi. Mesinnya tidak pernah dimatikan.",
+        scenes: withClosing(["Truk itu ditemukan pukul empat pagi. Mesinnya tidak pernah dimatikan."]),
       }),
     },
   });
@@ -108,7 +108,7 @@ test("menerima belokan cerita sebelum detik 11", () => {
       "LS-0201": episode({
         narration: "Router di kamar kosmu mencatat satu perangkat asing. Namanya namamu.",
         scenes: [
-          { narration: "Router di kamar kosmu mencatat satu perangkat asing.", durationFrames: 150 },
+          { narration: "Pukul tiga router kosmu menyala sendiri lagi.", durationFrames: 150 },
           { narration: "Namanya namamu, dan ia online sejak malam kamu pindah.", durationFrames: 150 },
           { narration: "Kamu mematikan internet, tapi kameramu menyala sendiri.", durationFrames: 240 },
           { narration: "Kalau kamu tidak ingin diganggu, klik subscribe. Kamu pernah mengalaminya?", durationFrames: 240 },
@@ -153,8 +153,8 @@ test("pembuka seragam yang seluruhnya sudah terbit hanya jadi riwayat", () => {
       "LS-0100": episode({ narration: "Bayangkan kamu membuka pintu itu. Ada suara di baliknya.", scenes: withClosing(["Bayangkan kamu membuka pintu itu. Ada suara di baliknya."]) }),
       "LS-0101": episode({ narration: "Bayangkan kamu mendengar suara itu lagi. Kali ini dari dalam.", scenes: withClosing(["Bayangkan kamu mendengar suara itu lagi. Kali ini dari dalam."]) }),
       "LS-0102": episode({
-        narration: "Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil namamu.",
-        scenes: withClosing(["Perahu itu tenggelam sebelas tahun lalu. Radionya masih memanggil namamu."]),
+        narration: "Perahu itu tenggelam sebelas tahun lalu. Radionya tidak pernah berhenti memanggil namamu.",
+        scenes: withClosing(["Perahu itu tenggelam sebelas tahun lalu. Radionya tidak pernah berhenti memanggil namamu."]),
       }),
     },
     published: ["LS-0100", "LS-0101"],
@@ -178,11 +178,13 @@ test("menolak headline thumbnail lebih dari 42 karakter", () => {
   assert.match(out, /maks 42/);
 });
 
-test("menolak kalimat pertama lebih dari 20 kata", () => {
-  const pembuka = Array.from({ length: 21 }, (_, i) => `kata${i}`).join(" ") + ".";
+test("menolak kalimat pertama lebih dari 9 kata (Short)", () => {
+  // Batas lama 20 kata: hook boleh melebar dan tidak ada yang menegur
+  // (arahan pemilik kanal 7 Nov 2026 — hook LL-0002 dinilai kurang kuat).
+  const pembuka = Array.from({ length: 10 }, (_, i) => `kata${i}`).join(" ") + ".";
   const { code, out } = run({ episodes: { "LS-0100": episode({ narration: pembuka, scenes: withClosing([pembuka]) }) } });
   assert.equal(code, 1);
-  assert.match(out, /maks 20/);
+  assert.match(out, /maks 9/);
 });
 
 test("--strict mengubah peringatan menjadi gagal", () => {
@@ -310,8 +312,8 @@ test("menolak komentar pertama yang identik dan yang tidak bertanya", () => {
 test("menerima judul, deskripsi, dan komentar yang ditulis per episode", () => {
   const { code, out } = run({
     episodes: {
-      "LS-0100": episode({ narration: "Kamu membuka pintu itu pukul tiga.", scenes: withClosing(["Kamu membuka pintu itu pukul tiga."]), title: "Pukul Tiga Pintu Itu Terbuka Sendiri." }),
-      "LS-0101": episode({ narration: "Dari dalam lemari, sesuatu mengetuk namamu.", scenes: withClosing(["Dari dalam lemari, sesuatu mengetuk namamu."]), title: "Dari Dalam Lemari, Sesuatu Mengetuk Namamu." }),
+      "LS-0100": episode({ narration: "Kamu membuka pintu itu pukul tiga. Tidak ada yang membukanya lagi.", scenes: withClosing(["Kamu membuka pintu itu pukul tiga. Tidak ada yang membukanya lagi."]), title: "Pukul Tiga Pintu Itu Terbuka Sendiri." }),
+      "LS-0101": episode({ narration: "Pukul tiga sesuatu mengetuk dari dalam lemari. Lemari itu kosong.", scenes: withClosing(["Pukul tiga sesuatu mengetuk dari dalam lemari. Lemari itu kosong."]), title: "Dari Dalam Lemari, Sesuatu Mengetuk Namamu." }),
     },
   });
   assert.equal(code, 0, out);

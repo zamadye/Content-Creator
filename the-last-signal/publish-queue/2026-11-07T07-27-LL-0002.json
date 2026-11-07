@@ -1,6 +1,6 @@
 {
   "episodeId": "LL-0002",
-  "status": "requested",
+  "status": "published",
   "createdAt": "2026-11-07T07:27:43.999Z",
   "media": "the-last-signal/releases/LL-0002.mp4",
   "episode": {
@@ -27,5 +27,7 @@
     "containsSyntheticMedia": false,
     "notifySubscribers": true,
     "firstComment": "Kalau kamu jadi saya: tulis angka yang diminta, atau angka yang benar?"
-  }
+  },
+  "publishedAt": "2026-11-07T07:31:00Z",
+  "catatan": "YouTube + Facebook sukses (run 42351390538); ID video ada di artefak publish-report yang tidak bisa diunduh dari sandbox."
 }

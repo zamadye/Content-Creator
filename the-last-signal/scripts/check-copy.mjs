@@ -67,6 +67,22 @@ const ids = existsSync(episodesDir)
 
 const openers = new Map();
 const published = new Set();
+// Dua sumber status terbit: berkas antrean bertanda "published" (episode
+// terbaru) dan registry knowledge/episodes.jsonl (arsip — berkas antreannya
+// sudah dibersihkan setelah tayang). Tanpa sumber kedua, episode lama yang
+// sudah live ditagih aturan naskah baru dan pemeriksa gagal selamanya.
+const registryPath = join(ROOT, "knowledge", "episodes.jsonl");
+if (existsSync(registryPath)) {
+  for (const line of readFileSync(registryPath, "utf8").split("\n")) {
+    if (!line.trim()) continue;
+    try {
+      const entry = JSON.parse(line);
+      if (entry.publish?.ok) published.add(entry.episodeId);
+    } catch {
+      /* satu baris rusak tidak boleh mematikan pemeriksa */
+    }
+  }
+}
 const metadata = [];
 const queueDir = join(ROOT, "publish-queue");
 if (existsSync(queueDir)) {
@@ -168,25 +184,123 @@ for (const id of ids) {
     }
   }
 
-  const maxOpenerWords = longform ? 28 : 20;
+  // ── Hook: buka satu lubang, jangan jelaskan apa pun (ATURAN 2.3) ──────
+  // Arahan pemilik kanal 7 Nov 2026: hook LL-0002 dinilai kurang kuat.
+  // "Kurang dua belas meter." lolos, tapi kalimat keduanya — "Itu selisih
+  // antara angka di kertas dan angka di tanah." — adalah DEFINISI. Lubangnya
+  // ditutup sebelum penonton sempat masuk.
+  const maxOpenerWords = longform ? 12 : 9;
   if (wordCount(first) > maxOpenerWords) {
-    errors.push(`${id}: kalimat pertama ${wordCount(first)} kata (maks ${maxOpenerWords}) — "${first.slice(0, 60)}…"`);
+    (published.has(id) ? warnings : errors).push(
+      `${id}: kalimat pertama ${wordCount(first)} kata (maks ${maxOpenerWords}) — hook harus satu tarikan napas: "${first.slice(0, 60)}…"`,
+    );
   }
 
   if (!CONCRETE.test(first)) {
-    warnings.push(`${id}: kalimat pertama tidak memuat angka atau penanda waktu — cek apakah klaimnya cukup konkret`);
+    (published.has(id) ? warnings : errors).push(
+      `${id}: kalimat pertama tanpa angka/penanda waktu — klaim tanpa ukuran terdengar seperti ringkasan, bukan kejadian`,
+    );
   }
 
-  // Semua kalimat, bukan hanya yang pertama.
+  const EXPLANATORY = /^(itu|ini|hal itu|selisih|perbedaan|masalahnya|sebenarnya|singkatnya|intinya)\b/i;
+  if (EXPLANATORY.test(first)) {
+    (published.has(id) ? warnings : errors).push(
+      `${id}: kalimat pertama dibuka dengan "${first.split(/\s+/)[0]}" — itu penjelas, bukan pukulan; pindahkan kejanggalannya ke depan`,
+    );
+  }
+
+  // Kejanggalan harus terdengar sebelum detik ±8 (tiga kalimat pertama).
+  const opening = (episode.scenes[0]?.narration ?? "")
+    .split(/(?<=[.!?])\s+/)
+    .filter(Boolean)
+    .slice(0, 3)
+    .join(" ");
+  const WRONGNESS =
+    /\b(tidak (bisa|boleh|mau|pernah|ada)|selalu|lagi|lagi-lagi|setiap kali|tiap kali|dua kali|tiga kali|empat kali|berulang|tetap|tidak berubah|sama saja|hilang|kosong)\b/i;
+  if (!WRONGNESS.test(opening)) {
+    (published.has(id) ? warnings : errors).push(
+      `${id}: tiga kalimat pertama tanpa kejanggalan (mis. "tidak bisa", "selalu", "hilang") — penonton belum punya alasan bertahan sebelum detik 8`,
+    );
+  }
+
+  // ── Telinga: satu gagasan per kalimat (NASKAH 4.x) ────────────────────
+  // Naskah ini didengar sekali. Kalimat yang butuh dua koma untuk benar
+  // terlalu panjang untuk telinga, walaupun masih di bawah batas kata.
+  const sentenceLengths = [];
   episode.scenes.forEach((scene, index) => {
     for (const sentence of (scene.narration ?? "").split(/(?<=[.!?])\s+/).filter(Boolean)) {
-      if (wordCount(sentence) > maxSentenceWords) {
+      const words = wordCount(sentence);
+      sentenceLengths.push(words);
+      if (words > maxSentenceWords) {
         errors.push(
-          `${id} scene ${index + 1}: kalimat ${wordCount(sentence)} kata (maks ${maxSentenceWords}) — "${sentence.slice(0, 60)}…"`,
+          `${id} scene ${index + 1}: kalimat ${words} kata (maks ${maxSentenceWords}) — "${sentence.slice(0, 60)}…"`,
+        );
+      }
+      const commas = (sentence.match(/,/g) ?? []).length;
+      if (commas >= 3) {
+        warnings.push(
+          `${id} scene ${index + 1}: ${commas} koma dalam satu kalimat — pecah jadi dua; telinga tidak bisa mengulang`,
         );
       }
     }
   });
+
+  if (sentenceLengths.length > 8) {
+    const average = sentenceLengths.reduce((sum, n) => sum + n, 0) / sentenceLengths.length;
+    if (average > 20) {
+      warnings.push(
+        `${id}: rata-rata ${average.toFixed(1)} kata per kalimat (target ≤ 20) — pembaca akan kehabisan napas sebelum ceritanya selesai`,
+      );
+    }
+    const spread = Math.max(...sentenceLengths) - Math.min(...sentenceLengths);
+    if (spread < 8) {
+      warnings.push(`${id}: panjang kalimat nyaris seragam (selisih ${spread} kata) — ritme monoton, variasikan`);
+    }
+  }
+
+  // ── Twist: adil berarti bahannya sudah ada (NASKAH 3.2, 3.3) ──────────
+  // Twist yang bahannya baru muncul di detik pengungkapan bukan kejutan,
+  // itu kecurangan. Uji kasar: kata isi dari `story.twist` harus sudah
+  // terdengar di narasi SEBELUM scene terakhir.
+  const STOP = new Set([
+    "yang", "untuk", "dengan", "dalam", "dari", "pada", "akan", "tidak", "sudah", "saya", "kamu",
+    "itu", "ini", "dan", "atau", "karena", "kalau", "saat", "setelah", "lebih", "bisa", "ada",
+    "juga", "mereka", "dia", "kami", "kita", "tapi", "tetapi", "hanya", "masih", "semua", "atas",
+    "bukan", "belum", "punya", "banyak", "sama", "harus", "seperti", "supaya", "malah", "justru",
+  ]);
+  const contentWords = (text) =>
+    String(text ?? "")
+      .toLowerCase()
+      .replace(/[^\p{L}\s]/gu, " ")
+      .split(/\s+/)
+      .filter((word) => word.length >= 4 && !STOP.has(word));
+
+  const twistWords = contentWords(episode.story?.twist).filter((word, index, all) => all.indexOf(word) === index);
+  if (twistWords.length >= 3) {
+    const beforeLast = episode.scenes
+      .slice(0, -1)
+      .map((scene) => (scene.narration ?? "").toLowerCase())
+      .join(" ");
+    const planted = twistWords.filter((word) => beforeLast.includes(word));
+    if (planted.length < 2) {
+      (published.has(id) ? warnings : errors).push(
+        `${id}: twist hanya punya ${planted.length} kata kunci yang sudah terdengar sebelum scene terakhir — bahan twist harus ditanam lebih awal (2–3 petunjuk berbeda bentuk)`,
+      );
+    }
+  }
+
+  // Lubang yang dibuka di hook harus ditutup di kalimat terakhir.
+  const hookWords = contentWords(episode.story?.hook);
+  if (hookWords.length > 0) {
+    const closing = (episode.scenes.at(-1)?.narration ?? "").toLowerCase();
+    const closingWords = new Set(contentWords(closing));
+    const hooked = hookWords.filter((word) => closingWords.has(word)).length;
+    if (hooked === 0) {
+      warnings.push(
+        `${id}: kalimat terakhir tidak menyentuh satu kata pun dari hook — lubang yang dibuka di awal tidak pernah ditutup`,
+      );
+    }
+  }
 
   // ── Metadata ──────────────────────────────────────────────────────────
   // Sembilan unggahan pertama memakai kerangka judul yang sama

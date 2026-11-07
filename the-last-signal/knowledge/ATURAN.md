@@ -63,7 +63,23 @@ Penjelasan mekanisme ("cara kerja", "prosedur", "alat itu berfungsi untuk")
 9. **Jangan mengulang yang sudah terlihat.** Kalau visual sudah memperlihatkan pintu terbuka, kalimatnya tidak perlu mengatakan pintu itu terbuka.
 10. **Setiap 15–20 detik harus ada kail baru** (fakta, angka, atau ancaman). Penonton tidak menunggu lebih lama dari itu.
 
-## 2.3 Hook (detik 0–5)
+## 2.3 Hook (detik 0–8)
+
+Hukum lengkapnya — hook, tangga tegangan, twist, telinga — ada di
+**`knowledge/NASKAH.md`**. Yang diuji mesin (`check-copy.mjs`):
+
+| # | Aturan |
+|---|---|
+| 2.3.1 | Kalimat pertama maks **12 kata** (panjang) / **9 kata** (Short). Satu tarikan napas. |
+| 2.3.2 | Kalimat pertama wajib memuat **angka atau penanda waktu**. |
+| 2.3.3 | Dilarang dibuka dengan kata penjelas: *itu, ini, selisih, perbedaan, masalahnya, sebenarnya*. |
+| 2.3.4 | **Kejanggalan** harus terdengar dalam tiga kalimat pertama (± 8 detik). |
+| 2.3.5 | Bentuk hook berbeda dari episode sebelumnya. |
+| 2.3.6 | Sapaan "kamu" di kalimat pertama atau kedua. |
+| 2.3.7 | Twist: 2–3 kata kunci sudah terdengar **sebelum** scene terakhir (fair play). |
+| 2.3.8 | Kalimat terakhir menyentuh kembali kata kunci hook (lubang ditutup). |
+
+Dasar riset: `knowledge/NASKAH.md` bagian "Rujukan".
 
 - Klaim liar di **klausa pertama**. Bukan latar, bukan nama tempat, bukan prosedur.
 - **3–5 detik pertama** harus sudah memuat pukulan. Tidak ada pemanasan.

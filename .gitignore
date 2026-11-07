@@ -1,3 +1,40 @@
 
-# berkas yang ditarik lewat konektor Google Drive (bukan bagian repo)
+# Berkas yang ditarik lewat konektor Google Drive (bukan bagian repo).
 google_drive/
+
+# Media produksi BARU disimpan di Drive privat, bukan repo publik.
+# Aturan ignore tidak membatalkan tracking file lama dan bisa di-bypass `git add -f`;
+# selalu tinjau staged files sebelum commit/push.
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.flac
+*.m4a
+*.aac
+*.ogg
+*.opus
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.bmp
+*.svg
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+
+# Jangan commit kredensial. Kecualikan hanya template yang memang tidak berisi rahasia.
+.env
+.env.*
+*.env
+!.env.example
+*.key
+*.p12
+*.pfx
+*.pem

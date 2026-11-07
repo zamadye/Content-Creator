@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+root="$(git rev-parse --show-toplevel)"
+expected='refs/heads/arena/54cb36c6-content-creator'
+if [[ "${1:-}" != origin ]]; then echo 'BLOCKED: push only to origin.' >&2; exit 1; fi
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [[ "$local_ref" == "$expected" && "$remote_ref" == "$expected" ]] || { echo 'BLOCKED: only the active session branch may be pushed.' >&2; exit 1; }
+  [[ "$remote_sha" != 0000000000000000000000000000000000000000 ]] || { echo 'BLOCKED: remote base unavailable; inspect manually before pushing.' >&2; exit 1; }
+  git merge-base --is-ancestor "$remote_sha" "$local_sha" || { echo 'BLOCKED: remote is not an ancestor; do not force-push.' >&2; exit 1; }
+  # Inspect every new commit, not merely the final tree: a deleted file still
+  # remains exposed in Git history. Filenames are NUL-separated.
+  git log --format= --name-only -z --diff-filter=ACMRT --no-renames "$remote_sha..$local_sha" |
+    bash "$root/scripts/check-staged-privacy.sh" --stdin0
+done

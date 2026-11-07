@@ -1,0 +1,91 @@
+{
+  "series": "knot theory / dunia kebalik",
+  "status": "Teks input TTS dipulihkan dari catatan percakapan; ini bukan pemulihan berkas audio, video, renderer, atau storyboard yang hilang. Belum dijadwalkan.",
+  "recoveredOn": "2026-11-07",
+  "timezone": "Asia/Jakarta",
+  "voiceId": "voice-05",
+  "closing": "Komentar, dan ikuti knot theory!",
+  "episodes": [
+    {
+      "id": "antartika-gurun-2026",
+      "date": "2026-11-11",
+      "time": "07:30",
+      "title": "Antartika Itu Gurun?",
+      "narration": "Hamparan es ini ternyata juga disebut gurun. Kok bisa? Ini Antartika. Gurun bukan harus panas atau penuh pasir. Kuncinya adalah sedikitnya presipitasi: hujan dan salju yang turun. Menurut NASA, Antartika disebut gurun karena menerima sangat sedikit hujan atau salju. Jumlahnya tentu bisa berbeda antarwilayah. Lapisan es yang tersimpan tidak berarti banyak salju turun setiap tahun. Dingin membantu es itu bertahan. Jadi, tempat bisa sangat dingin dan tetap termasuk gurun. Kamu baru tahu? Komentar, dan ikuti knot theory!",
+      "sources": ["https://www.nasa.gov/frequently-asked-questions-about-antarctica/"],
+      "factNote": "Gurun ditentukan oleh rendahnya presipitasi; Antartika tidak bebas salju dan tiap wilayah tidak identik."
+    },
+    {
+      "id": "merkurius-ada-es-2026",
+      "date": "2026-11-11",
+      "time": "12:00",
+      "title": "Dekat Matahari, Merkurius Punya Es?",
+      "narration": "Planet terdekat dari Matahari ternyata punya bukti es air. Bagaimana mungkin? Di dekat kutub Merkurius ada kawah yang bagian dasarnya terus berada dalam bayangan. Di tempat yang sangat teduh dan dingin itu, es air dapat bertahan, meski bagian lain planet terkena panas Matahari. Pengamatan wahana MESSENGER memberi dukungan kuat untuk adanya es air di kawah kutub tersebut. Bukan berarti seluruh Merkurius membeku. Dan planet terpanas secara keseluruhan justru Venus. Menarik, ya? Komentar, dan ikuti knot theory!",
+      "sources": ["https://www.jpl.nasa.gov/news/nasa-spacecraft-finds-new-mercury-water-ice-evidence/", "https://science.nasa.gov/venus/venus-facts/"],
+      "factNote": "Bukti es air terdapat di sebagian kawah kutub yang terus teduh, bukan di seluruh Merkurius."
+    },
+    {
+      "id": "sisi-jauh-bulan-2026",
+      "date": "2026-11-11",
+      "time": "19:30",
+      "title": "Sisi Jauh Bulan Tidak Selalu Gelap",
+      "narration": "Ada sisi Bulan yang tidak biasa kita lihat dari Bumi. Tapi bukan berarti sisi itu selalu gelap. Bulan berputar pada porosnya dalam waktu yang hampir sama dengan saat ia mengelilingi Bumi. Karena putaran itu sinkron, sisi yang kurang lebih sama terus menghadap Bumi. Sisi seberangnya disebut sisi jauh. Seperti sisi dekat, sisi jauh juga bergantian mengalami siang dan malam. Saat Bulan baru, sisi jauh justru mendapat sinar. Jadi, sisi jauh bukan sisi gelap permanen. Kamu dulu mengiranya selalu gelap? Komentar, dan ikuti knot theory!",
+      "sources": ["https://science.nasa.gov/moon/top-moon-questions/"],
+      "factNote": "Tidak ada sisi gelap permanen. Librasi membuat sebagian daerah tambahan terlihat dari Bumi."
+    },
+    {
+      "id": "gratis-ongkir-lebih-mahal-2026",
+      "date": "2026-11-12",
+      "time": "07:30",
+      "title": "Gratis Ongkir Bisa Lebih Mahal?",
+      "narration": "Gratis ongkir bisa membuat total belanja lebih mahal? Coba lihat contoh ini. Barang berharga delapan puluh ribu rupiah. Ongkirnya lima belas ribu. Totalnya sembilan puluh lima ribu. Sekarang bayangkan gratis ongkir hanya berlaku jika belanja minimal seratus ribu. Kamu menambah barang dua puluh lima ribu. Total barang jadi seratus lima ribu, tanpa ongkir dan tanpa biaya lain. Itu sepuluh ribu lebih mahal daripada total pertama. Kalau barang tambahannya memang kamu butuh, ceritanya bisa berbeda. Pernah mengalaminya? Komentar, dan ikuti knot theory!",
+      "sources": [],
+      "factNote": "Contoh hipotetis; biaya lain dianggap nol. Harga dan syarat bukan penawaran toko nyata."
+    },
+    {
+      "id": "pelangi-lingkaran-2026",
+      "date": "2026-11-12",
+      "time": "12:00",
+      "title": "Pelangi Sebenarnya Lingkaran?",
+      "narration": "Pelangi yang biasa kamu lihat seperti busur. Padahal, pelangi penuh berbentuk lingkaran. Pelangi muncul saat sinar Matahari dan tetes air berada dalam posisi yang tepat terhadap pengamat. Cahaya masuk ke tetes air, dibelokkan, memantul di dalamnya, lalu keluar sebagai warna-warna yang terpisah. Dari pesawat, dalam kondisi yang tepat, lingkaran pelangi lengkap bisa terlihat. Tapi tentu tidak selalu. Jadi busur yang kita lihat bisa saja hanya sebagian dari lingkarannya. Pernah melihat pelangi bulat? Komentar, dan ikuti knot theory!",
+      "sources": ["https://www.nesdis.noaa.gov/about/k-12-education/optical-phenomena/what-causes-rainbow"],
+      "factNote": "Lingkaran penuh bisa terlihat dari pesawat dalam kondisi tepat, tidak selalu terlihat. Matahari berada di belakang pengamat."
+    },
+    {
+      "id": "musim-poros-bumi-2026",
+      "date": "2026-11-12",
+      "time": "19:30",
+      "title": "Musim Bukan Karena Bumi Mendekat?",
+      "narration": "Musim panas bukan terutama karena Bumi sedang lebih dekat ke Matahari. Lalu apa penyebabnya? Poros putar Bumi miring sekitar dua puluh tiga setengah derajat dari garis tegak lurus bidang orbitnya. Saat Bumi mengelilingi Matahari, kemiringan ini mengubah sudut cahaya dan panjang siang di tiap belahan. Karena itu, musim di belahan utara dan selatan bisa berlawanan. Diagram ini tidak berskala. Di Indonesia, musim hujan dan kemarau juga dipengaruhi pola cuaca regional. Kamu tim hujan atau cerah? Komentar, dan ikuti knot theory!",
+      "sources": ["https://science.nasa.gov/eclips/videos/what-causes-seasons/", "https://www.bmkg.go.id/siaran-pers/hujan-di-musim-kemarau-bmkg-normal-terjadi-bukan-anomali-iklim"],
+      "factNote": "Kemiringan 23,5 derajat dari garis tegak lurus bidang orbit; di Indonesia, musim hujan/kemarau juga dipengaruhi sistem cuaca regional."
+    },
+    {
+      "id": "darah-biru-belangkas-2026",
+      "date": "2026-11-13",
+      "time": "07:30",
+      "title": "Darah Biru Belangkas",
+      "narration": "Hewan ini punya darah biru, dan meskipun sering disebut kepiting tapal kuda, dia bukan kepiting sejati. Menurut NOAA, belangkas lebih dekat kekerabatannya dengan laba-laba dan kalajengking daripada kepiting. Protein pengangkut oksigennya berbasis tembaga, sedangkan darah manusia menggunakan protein berbasis zat besi. Komponen darahnya digunakan dalam pengujian untuk mendeteksi endotoksin bakteri pada obat dan alat medis. Ada upaya mencari alternatif, dan kelestarian belangkas tetap penting. Unik, ya? Komentar, dan ikuti knot theory!",
+      "sources": ["https://oceanservice.noaa.gov/facts/horseshoe-crab.html", "https://oceantoday.noaa.gov/fullmoon-bluebloodsbattlebacteria/welcome.html"],
+      "factNote": "Belangkas bukan kepiting sejati; pengujian endotoksin tidak sama dengan mengobati infeksi."
+    },
+    {
+      "id": "nol-koma-sembilan-2026",
+      "date": "2026-11-13",
+      "time": "12:00",
+      "title": "0,999… Sama dengan 1?",
+      "narration": "Nol koma sembilan sembilan sembilan, terus tanpa akhir, itu sama persis dengan satu. Bukan cuma mendekati. Nol koma sembilan, atau nol koma sembilan sembilan, masing-masing masih lebih kecil dari satu. Tapi tanda titik-titik berarti angka sembilannya berlanjut tanpa akhir, bukan sekadar banyak. Dalam bilangan real, nilai desimal tak hingga itu adalah limit deretnya, yaitu tepat satu. Dua cara menulis angka yang sama. Jadi desimal terbatas dan yang tak berakhir itu berbeda. Masuk akal, atau masih bikin bingung? Komentar, dan ikuti knot theory!",
+      "sources": ["https://math.berkeley.edu/~gbergman/misc/numbers/9999.html"],
+      "factNote": "0,999… dengan sembilan tak terhingga sama dengan satu; desimal dengan sembilan terbatas lebih kecil dari satu."
+    },
+    {
+      "id": "saturnus-mengapung-2026",
+      "date": "2026-11-13",
+      "time": "19:30",
+      "title": "Saturnus Bisa Mengapung?",
+      "narration": "Planet sebesar Saturnus bisa mengapung di air? Ini cuma eksperimen pikiran, tapi ada alasannya. Menurut NASA, massa jenis rata-rata Saturnus lebih rendah daripada massa jenis air. Jika kita membayangkan bak air yang mustahil besarnya, perbandingan massa jenis itu memberi analogi bahwa Saturnus bisa mengapung. Saturnus adalah raksasa gas, terutama hidrogen dan helium, tanpa permukaan padat sejati seperti tanah Bumi. Jangan dibayangkan ada bak sungguhan untuk mencobanya, ya. Planet mana yang mau dibahas lagi? Komentar, dan ikuti knot theory!",
+      "sources": ["https://science.nasa.gov/saturn/facts/"],
+      "factNote": "Analogi hipotetis berdasarkan massa jenis rata-rata, bukan eksperimen yang bisa dilakukan."
+    }
+  ]
+}

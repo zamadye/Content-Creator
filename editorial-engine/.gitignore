@@ -7,7 +7,8 @@ rendering/previews/tmp/
 # generated media (reproducible from pipeline/)
 audio/processing/generated/*.wav
 audio/voiceovers/*.wav
-# narration clips ARE tracked (328 KB): the TTS service cannot be re-run offline
+# Legacy narration may already be tracked; keep NEW audio in private Drive.
+# See the root .gitignore: ignore rules do not untrack legacy files.
 audio/mix/*.wav
 rendering/frames/
 tmp/*.png

@@ -120,7 +120,6 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
             kicker={episode.publishing.thumbnail.kicker}
             image={episode.publishing.thumbnail.image ?? episode.scenes[0].image}
             durationInFrames={episode.publishing.thumbnail.holdFrames ?? 15}
-            episodeId={episode.episodeId}
           />
         </Sequence>
       ) : null}

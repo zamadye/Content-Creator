@@ -23,8 +23,7 @@ export const ThumbnailCard: React.FC<{
   kicker?: string;
   image: string;
   durationInFrames: number;
-  episodeId: string;
-}> = ({ headline, kicker, image, durationInFrames, episodeId }) => {
+}> = ({ headline, kicker, image, durationInFrames }) => {
   const frame = useCurrentFrame();
 
   // Dorongan pelan: 1.0 → 1.045. Cukup untuk terasa hidup, tidak menggeser teks.
@@ -98,11 +97,11 @@ export const ThumbnailCard: React.FC<{
           />
         </div>
 
+        {/* Hanya tanda kanal. Label "LL-0002 · FIKSI" dibuang 7 Nov 2026:
+            sebutan arsip/fiksi di dalam frame dilarang, dan frame inilah yang
+            jadi thumbnail — id episode di sana juga bahasa admin, bukan cerita. */}
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
             fontFamily: theme.font.mono,
             fontSize: 24,
             letterSpacing: 5,
@@ -110,7 +109,6 @@ export const ThumbnailCard: React.FC<{
           }}
         >
           <span>THE LAST SIGNAL</span>
-          <span>{episodeId} · FIKSI</span>
         </div>
       </AbsoluteFill>
     </AbsoluteFill>

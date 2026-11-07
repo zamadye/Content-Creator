@@ -223,7 +223,7 @@ jobs:
         run: |
           set -uo pipefail
           npx tsx scripts/encode-delivery.ts --episode "$EPISODE" \
-            --crf 27 --maxrate 400k --audio 96k --loudness -14 --tp -3 > /tmp/encode.log 2>&1
+            --crf 27 --maxrate 460k --audio 96k --loudness -14 --tp -3 > /tmp/encode.log 2>&1
           STATUS=$?
           tail -12 /tmp/encode.log
           if [ $STATUS -ne 0 ]; then

@@ -102,3 +102,14 @@ Temuan lain dari run ini:
   alat yang sama, tapi angka di dokumen lama tidak akan sama persis.
 - Log job tidak bisa diunduh dari sandbox (blob storage di luar jangkauan),
   jadi `scripts/annotate-log.sh` mengirim pesan galat sebagai anotasi check-run.
+
+## 7 Nov 2026 — label fiksi di frame 0 dibuang, bitrate dinaikkan
+
+QC pertama lolos 9/9 (30,3 MiB, −14,6 LUFS, −2,0 dBTP), tapi potongan frame
+menunjukkan `LL-0002 · FIKSI` tercetak di footer thumbnail — persis sebutan
+arsip/fiksi yang dilarang muncul di frame, dan frame 0 itulah yang jadi
+thumbnail kanal. `FoundFootageHud` sudah dibersihkan 6 Nov, `ThumbnailCard`
+tertinggal. Sekarang footer hanya memuat tanda kanal.
+
+Sisa ruang 30,3 → 40 MiB dipakai: maxrate video 400k → 460k (audio tetap 96k).
+Perkiraan 35–38 MB, masih di bawah batas.

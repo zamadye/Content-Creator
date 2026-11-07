@@ -168,7 +168,7 @@ const episode = {
     thumbnail: {
       headline: plan.thumbnail.headline.toUpperCase().slice(0, 42),
       kicker: plan.thumbnail.kicker,
-      image: "images/thumb.png",
+      image: "images/thumb.jpg",
       holdFrames: 20,
     },
     cta: { card: plan.cta.card, holdFrames: plan.cta.holdFrames ?? 90 },

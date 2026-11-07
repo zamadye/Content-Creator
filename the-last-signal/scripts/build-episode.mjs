@@ -201,7 +201,7 @@ const episode = {
     thumbnail: {
       headline: (entry.thumb?.headline ?? entry.story.title).toUpperCase().slice(0, 42),
       kicker: entry.thumb?.kicker,
-      image: "images/thumb.png",
+      image: "images/thumb.jpg",
       holdFrames: 12,
     },
     // Ajakan bertindak wajib: kartu ini muncul di ekor scene terakhir.

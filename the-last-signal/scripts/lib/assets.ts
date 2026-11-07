@@ -22,6 +22,12 @@ export function collectRequiredAssets(episode: ParsedEpisode): string[] {
   if (episode.narrationAudio) required.add(episode.narrationAudio);
   if (episode.score) required.add(episode.score.assetId);
 
+  // Frame 0 = thumbnail kanal. Dulu tidak ikut diperiksa, sehingga validator
+  // bilang "aset lengkap" padahal render gagal 404 di tengah jalan
+  // (`images/thumb.png` tidak pernah dibuat untuk LL-0002).
+  const thumbnailImage = episode.publishing.thumbnail?.image;
+  if (thumbnailImage) required.add(thumbnailImage);
+
   for (const scare of episode.jumpscares) {
     required.add(scare.assetId);
     if (scare.image) required.add(scare.image);

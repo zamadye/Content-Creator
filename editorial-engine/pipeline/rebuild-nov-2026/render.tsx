@@ -137,7 +137,7 @@ function Facts({scene,t}:{scene:number,t:number}){
  if(id.startsWith('musim')) return <g>
    {scene===1&&<><Earth x={0} y={0} r={185} tilt/><line x1="0" y1="-270" x2="0" y2="270" stroke="#dae8dc" strokeWidth="5" strokeDasharray="12 14"/>{txt(245,-210,'23,5°',53,accent)}</>}
    {scene===2&&<><Sun x={-320} y={-35} r={75}/><Earth x={120} y={20} r={175} tilt/><path d="M-195-90 H-60 M-195-20 H-60 M-195 50 H-60" stroke="#f1cf8a" strokeWidth="9" markerEnd="url(#arrow)"/></>}
-   {scene===3&&<><Sun x={0} y={0} r={66}/><Earth x={-265} y={0} r={115} tilt/><Earth x={265} y={0} r={115} tilt/>{txt(-265,200,'UTARA PANAS',31,cream)}{txt(-265,245,'SELATAN DINGIN',31,cream)}{txt(265,200,'UTARA DINGIN',31,cream)}{txt(265,245,'SELATAN PANAS',31,cream)}</>}
+   {scene===3&&<><Sun x={0} y={0} r={66}/><Earth x={-265} y={0} r={115} tilt/><Earth x={265} y={0} r={115} tilt/>{txt(-265,-240,'UTARA PANAS',31,cream)}{txt(-265,-195,'SELATAN DINGIN',31,cream)}{txt(265,-240,'UTARA DINGIN',31,cream)}{txt(265,-195,'SELATAN PANAS',31,cream)}</>}
    {scene===4&&<><Sun x={-240} y={-150} r={85}/><Cloud x={155} y={-130} s={.8}/><path d="M-230 200 Q-30-60 170 200Z" fill="#e5a35f" stroke="#f1dab3" strokeWidth="8"/><path d="M-30 200 V300 Q-30 340 10 330" stroke="#e7e1d1" strokeWidth="14" fill="none"/>{Array.from({length:6},(_,i)=><line key={i} x1={95+i*40} x2={75+i*40} y1={10+(t*35+i*20)%120} y2={50+(t*35+i*20)%120} stroke="#9cdae2" strokeWidth="8"/>)}</>}
  </g>;
  if(id.startsWith('darah')) return <g>

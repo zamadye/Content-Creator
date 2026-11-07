@@ -22,7 +22,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
 if [ ! -d node_modules ] || [ ! -x node_modules/.bin/tsx ]; then
-  echo "→ pasang dependensi (TLS longgar hanya untuk sandbox ini)"
+  echo "→ pasang dependensi (TLS longgar hanya untuk sandbox ini)" >&2
   command -v pnpm >/dev/null 2>&1 || npm i -g pnpm@9 --silent
   NODE_TLS_REJECT_UNAUTHORIZED=0 pnpm install --no-frozen-lockfile --silent
 fi

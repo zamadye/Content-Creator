@@ -1,0 +1,62 @@
+[
+  {
+    "berkas": "images/scene-01.jpg",
+    "segmen": "S1",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, an old Javanese dining room at night, six people seated around a long wooden table seen from behind their shoulders, one empty chair at the end with a cushion and a glass of tea, warm hanging lamp, shadows in the corners, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, faces not visible",
+    "pemicu": [
+      "Ayah selalu menyiapkan tujuh kursi untuk enam orang."
+    ]
+  },
+  {
+    "berkas": "images/scene-02.jpg",
+    "segmen": "S2",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, extreme close-up of a glass of tea on a wooden table, oily surface, condensation on the glass, warm lamp light from the side, cracked varnish tabletop, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no people",
+    "pemicu": [
+      "Gelas ketujuh terisi teh."
+    ]
+  },
+  {
+    "berkas": "images/scene-03.jpg",
+    "segmen": "S3",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, an old wooden back door left ajar at night, opening onto a dark yard with banana leaves, warm light spilling out, cold darkness beyond, thin mist near the ground, muted palette, 35mm grain, documentary realism, no text, no watermark, no people",
+    "pemicu": [
+      "Saat meja dibereskan, isinya tinggal separuh."
+    ]
+  },
+  {
+    "berkas": "images/scene-04.jpg",
+    "segmen": "S4",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a pair of worn sneakers left neatly side by side at an old front door at dawn, cold blue morning light, dust, doorway shadow, muted palette, 35mm grain, documentary realism, no text, no watermark, no people",
+    "pemicu": [
+      "Kamis lalu sepupu saya duduk di situ."
+    ]
+  },
+  {
+    "berkas": "images/scene-05.jpg",
+    "segmen": "S5",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, an elderly woman's hands resting on the backrest of an empty wooden chair in a dim dining room, lace tablecloth, warm lamp, deep shadows, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, face not visible",
+    "pemicu": [
+      "Nenek bilang rumah ini tidak menghitung orang."
+    ]
+  },
+  {
+    "berkas": "images/scene-06.jpg",
+    "segmen": "S6",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a candlelit family dinner table at night with six seated figures facing away, one empty chair pulled slightly out at the head of the table, warm flickering light, long shadows on the wall, muted palette, 35mm grain, documentary realism, no text, no watermark, faces not visible",
+    "pemicu": [
+      "Sepupu saya masih datang tiap Kamis."
+    ]
+  }
+]

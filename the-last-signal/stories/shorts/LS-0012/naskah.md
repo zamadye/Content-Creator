@@ -1,6 +1,6 @@
 # LS-0012 — "Nomor Tiga Belas"
 
-**Format:** Short vertikal 9:16 · narasi **100 kata** · ±45.5 s pada 2.2 kata/detik (target 40–60 s)
+**Format:** Short vertikal 9:16 · narasi **96 kata** · ±43.6 s pada 2.2 kata/detik (target 40–60 s)
 **Premis:** Petugas sensus menghitung dua belas pintu di gangnya sendiri, sementara daftar desa mencatat tiga belas kepala keluarga yang tidak pernah bisa ditemukan.
 **Hook:** "Nomor tiga belas tidak ada di gang kami"
 **Twist:** Rumah ketiga belas itu rumah petugas sensus sendiri; nomornya diganti setelah keluarganya meninggal, dan plat lama masih meninggalkan dua lubang sekrup.
@@ -8,15 +8,19 @@
 
 Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji `scripts/check-copy.mjs`.
 
-## S1 — 15 kata (±6.8 s)
+## S1 — 8 kata (±3.6 s)
 
 > Nomor tiga belas tidak ada di gang kami.
 >
-> Daftar desa tetap mencatat tiga belas keluarga.
->
 *Kamera* push_in · *shot* wide · *cahaya* dusk_amber_4200k · *efek* film_grain, vignette, mist_drift
 
-## S2 — 14 kata (±6.4 s)
+## S2 — 7 kata (±3.2 s)
+
+> Daftar desa tetap mencatat tiga belas keluarga.
+>
+*Kamera* static · *shot* medium · *cahaya* dusk_amber_4200k · *efek* film_grain, vignette
+
+## S3 — 14 kata (±6.4 s)
 
 > Saya petugas sensus.
 >
@@ -28,7 +32,7 @@ Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji
 >
 *Kamera* static · *shot* closeup · *cahaya* warm_late_afternoon_4500k · *efek* film_grain, vignette
 
-## S3 — 18 kata (±8.2 s)
+## S4 — 18 kata (±8.2 s)
 
 > Kolom ketiga belas kosong lagi.
 >
@@ -36,7 +40,7 @@ Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji
 >
 *Kamera* handheld · *shot* medium · *cahaya* single_warm_practical_night_2800k · *efek* film_grain, vignette, light_flicker
 
-## S4 — 15 kata (±6.8 s)
+## S5 — 15 kata (±6.8 s)
 
 > Tapi ia tetap menyiapkan piring ketiga tiap malam.
 >
@@ -44,17 +48,15 @@ Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji
 >
 *Kamera* push_in · *shot* medium · *cahaya* single_warm_practical_night_2800k · *efek* film_grain, vignette, dust_motes
 
-## S5 — 16 kata (±7.3 s)
+## S6 — 12 kata (±5.5 s)
 
 > Di rumah saya ada dua lubang sekrup lama.
 >
 > Plat nomornya pernah diganti.
 >
-> Ayah bilang salah cetak.
->
 *Kamera* static · *shot* closeup · *cahaya* warm_late_afternoon_4500k · *efek* film_grain, vignette, focus_rack
 
-## S6 — 22 kata (±10 s)
+## S7 — 22 kata (±10 s)
 
 > Baris ketiga belas berisi nomor rumah saya.
 >

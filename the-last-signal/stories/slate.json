@@ -37,7 +37,7 @@
    "judul": "Nomor Tiga Belas",
    "subgenre": "Documentary horror",
    "experiment": "Horornya dari kolom daftar yang tidak boleh kosong: sensus menemukan satu keluarga yang pintunya tidak ada, dan nomor rumahnya sendiri.",
-   "structure": "hook → pekerjaan → kolom kosong → petunjuk plat nomor → baris ketiga belas → keputusan",
+   "structure": "hook → daftar desa → pekerjaan saya → kolom kosong → piring ketiga → plat nomor → twist & pilihan",
    "story": {
     "title": "Nomor Tiga Belas",
     "hook": "Nomor tiga belas tidak ada di gang kami",
@@ -47,8 +47,8 @@
    },
    "scenes": [
     {
-     "narration": "Nomor tiga belas tidak ada di gang kami. Daftar desa tetap mencatat tiga belas keluarga.",
-     "imagePrompt": "cinematic 9:16 vertical film still, Indonesian kampung alley at dusk, narrow concrete lane, house number plates 11 and 12 on weathered walls, an empty gap between two houses where a third should stand, wet pavement, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
+     "narration": "Nomor tiga belas tidak ada di gang kami.",
+     "imagePrompt": "cinematic 9:16 vertical film still, Indonesian kampung alley at dusk, narrow concrete lane, weathered walls with house number plates 11 and 12, an empty gap between two houses where a third should stand, wet pavement, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
      "camera": "push_in",
      "shot": "wide",
      "lighting": "dusk_amber_4200k",
@@ -57,6 +57,18 @@
       "film_grain",
       "vignette",
       "mist_drift"
+     ]
+    },
+    {
+     "narration": "Daftar desa tetap mencatat tiga belas keluarga.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a village office desk at dusk with a stack of old registry books, one open book with ruled columns, weak warm light from a window, dust in the air, muted earthy palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+     "camera": "static",
+     "shot": "medium",
+     "lighting": "dusk_amber_4200k",
+     "intensity": 0.4,
+     "effects": [
+      "film_grain",
+      "vignette"
      ]
     },
     {
@@ -98,8 +110,8 @@
      ]
     },
     {
-     "narration": "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti. Ayah bilang salah cetak.",
-     "imagePrompt": "cinematic 9:16 vertical extreme close-up film still, an old house number plate on a weathered teak wall, two empty screw holes visible beside it with dark rust trails, paint chipped, late afternoon raking light, shallow depth of field, muted earthy palette, 35mm grain, documentary realism, no legible digits, no text, no watermark",
+     "narration": "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti.",
+     "imagePrompt": "cinematic 9:16 vertical extreme close-up film still, an old house number plate on a weathered teak wall, two empty screw holes beside it with dark rust trails, chipped paint, late afternoon raking light, shallow depth of field, muted earthy palette, 35mm grain, documentary realism, no legible digits, no text, no watermark",
      "camera": "static",
      "shot": "closeup",
      "lighting": "warm_late_afternoon_4500k",
@@ -150,6 +162,247 @@
     "pinComment": "Kalau nomor rumahmu pernah diganti, kamu akan tanda tangan, atau pindah?"
    },
    "catatan": "Short baru, bukan potongan video panjang (arahan 7 Nov 2026). Ditulis dengan hukum knowledge/NASKAH.md."
+  },
+  {
+   "episodeId": "LS-0013",
+   "format": "short_9x16",
+   "status": "naskah — menunggu gambar + narasi",
+   "judul": "Lima Menit Sebelum",
+   "subgenre": "Domestic horror",
+   "experiment": "Horornya dari selisih waktu di layar monitor bayi: kamera itu tidak telat, ia mendahului.",
+   "structure": "hook → layar itu → saya lari, dia tidur → lima menit yang dibeli murah → kamera mendahului → twist & pilihan",
+   "story": {
+    "title": "Lima Menit Sebelum",
+    "hook": "Anak saya menangis tiga kali semalam",
+    "premise": "Ayah muda membeli monitor bayi bekas; setiap malam layar kecil itu memperlihatkan anaknya berdiri di pintu kamar menghadap lorong, padahal anaknya tidur di kasur.",
+    "twist": "Kamera itu tidak terlambat lima menit — ia mendahului lima menit. Anaknya berdiri di pintu karena menunggu ayahnya yang baru akan bangun lima menit kemudian.",
+    "ending": "Rekaman terakhir memperlihatkan punggung ayahnya sendiri di lorong, sebelum ia bangun; ia bertanya ke penonton apakah ia harus bangun malam ini."
+   },
+   "scenes": [
+    {
+     "narration": "Anak saya menangis tiga kali semalam. Saya tidak bangun.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a dark bedroom at night seen from the doorway, small crib with a rumpled blanket, warm dim night lamp on the floor, long shadows, half-open door facing a black hallway, muted desaturated palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
+     "camera": "push_in",
+     "shot": "wide",
+     "lighting": "night_practical_lamp_2900k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "light_flicker"
+     ]
+    },
+    {
+     "narration": "Layar itu menunjukkan dia berdiri di pintu.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a cheap secondhand baby monitor parent unit on a nightstand, scratched plastic casing, small grey screen glowing, cold screen light on a hand, dark bedroom behind, muted palette, 35mm grain, documentary realism, no readable text, no visible faces",
+     "camera": "static",
+     "shot": "closeup",
+     "lighting": "cold_screen_glow_5600k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "scanlines"
+     ]
+    },
+    {
+     "narration": "Selimut di kasurnya masih cekung. Saya lari ke kamar. Dia tidur tenang.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a small child's silhouette standing in a bedroom doorway facing a dark hallway, low camera angle, crib with an indented blanket in the foreground, grainy surveillance-like image, cold blue-grey palette, heavy grain, documentary realism, no text, no watermark, face not visible",
+     "camera": "handheld",
+     "shot": "medium",
+     "lighting": "cold_screen_glow_5600k",
+     "intensity": 0.55,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "vhs_distortion",
+      "camera_shake"
+     ]
+    },
+    {
+     "narration": "Penjualnya sudah bilang kameranya telat lima menit, tapi saya pikir itu wajar untuk barang murah.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a young child sleeping peacefully in a crib, blanket rising with breathing, warm dim night lamp, doorway dark behind, shallow depth of field, muted warm palette, 35mm grain, documentary realism, no text, no watermark, no visible adult",
+     "camera": "handheld",
+     "shot": "closeup",
+     "lighting": "night_practical_lamp_2900k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Setiap kali saya sampai, kejadiannya belum terjadi. Kamera itu tidak telat. Ia mendahului lima menit.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a wall clock and a baby monitor screen side by side in a dark kitchen, both glowing faintly, cold light, deep shadows, muted palette, 35mm grain, documentary realism, no readable numerals, no watermark, no people",
+     "camera": "static",
+     "shot": "closeup",
+     "lighting": "cold_screen_glow_5600k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "scanlines"
+     ]
+    },
+    {
+     "narration": "Rekaman terakhir memperlihatkan punggung saya di lorong, sebelum saya bangun. Yang telat bukan kameranya. Malam ini dia menangis tiga kali lagi. Kamu mau saya bangun? Tulis di komentar.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a man's back standing motionless in a narrow dark hallway at night, seen from behind and far away, faint blue monitor light out of focus in the foreground, doorway at the end of the hall, cold shadows, muted palette, 35mm grain, documentary realism, no text, no watermark, face not visible",
+     "camera": "drift",
+     "shot": "medium",
+     "lighting": "cold_screen_glow_5600k",
+     "intensity": 0.6,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "vhs_distortion"
+     ]
+    }
+   ],
+   "cards": [
+    "SUDAH LEWAT LIMA MENIT",
+    "PUNGGUNG ITU SAYA",
+    "JANGAN TONTON MALAM INI"
+   ],
+   "thumb": {
+    "headline": "KAMERA ITU LIMA MENIT TERLAMBAT",
+    "kicker": "yang telat bukan kameranya"
+   },
+   "cta": {
+    "card": "Bangun, atau terus menonton?",
+    "holdFrames": 84
+   },
+   "youtube": {
+    "title": "Monitor Bayi Itu Selalu Terlambat Lima Menit",
+    "description": "Anak saya menangis tiga kali semalam dan saya tidak bangun sekali pun.\n\nMonitornya bekas, dua ratus ribu, dan penjualnya sudah memperingatkan: kameranya kadang telat lima menit. Saya pikir itu wajar untuk barang murah.\n\nSampai saya menghitung ulang. Setiap kali saya sampai di kamarnya, kejadiannya belum terjadi.\n\nYang telat bukan kameranya.",
+    "tags": [
+     "cerita horor",
+     "horor indonesia",
+     "monitor bayi",
+     "cerita seram",
+     "kisah nyata"
+    ],
+    "pinComment": "Kalau kamu yang menonton rekaman itu, kamu bangun atau tetap di kasur?"
+   },
+   "catatan": "Short baru, bukan potongan video panjang. Hook berbentuk pengakuan (bukan penyangkalan seperti LS-0012)."
+  },
+  {
+   "episodeId": "LS-0014",
+   "format": "short_9x16",
+   "status": "naskah — menunggu gambar + narasi",
+   "judul": "Kursi Ketujuh",
+   "subgenre": "Ritual horror",
+   "experiment": "Horornya dari aturan rumah yang diwariskan tanpa alasan: kursi lebih banyak daripada orang, dan hitungan itu tidak boleh berubah.",
+   "structure": "hook → gelas separuh → pintu jangan dikunci → sepupu duduk di situ → hitungan kursi → twist & pilihan",
+   "story": {
+    "title": "Kursi Ketujuh",
+    "hook": "Ayah selalu menyiapkan tujuh kursi untuk enam orang",
+    "premise": "Setiap Kamis malam keluarga berkumpul di rumah nenek dengan tujuh kursi untuk enam orang; gelas ketujuh selalu terisi teh dan selalu tinggal separuh.",
+    "twist": "Kursi ketujuh bukan untuk tamu yang datang — kursi itu yang menjaga jumlah keluarga tetap enam. Siapa pun yang duduk di situ dihitung rumah sebagai tamu, lalu namanya hilang dari ingatan keluarga.",
+    "ending": "Sepupunya masih datang setiap Kamis dengan wajah yang sama, tetapi tak seorang pun berani menyebut namanya; narator menanyakan ke penonton apakah ia mau duduk di kursi itu."
+   },
+   "scenes": [
+    {
+     "narration": "Ayah selalu menyiapkan tujuh kursi untuk enam orang.",
+     "imagePrompt": "cinematic 9:16 vertical film still, an old Javanese dining room at night, six people seated around a long wooden table seen from behind their shoulders, one empty chair at the end with a cushion and a glass of tea, warm hanging lamp, shadows in the corners, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, faces not visible",
+     "camera": "static",
+     "shot": "wide",
+     "lighting": "warm_dining_3400k",
+     "intensity": 0.4,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Gelas ketujuh terisi teh. Tidak ada yang meneguknya.",
+     "imagePrompt": "cinematic 9:16 vertical film still, extreme close-up of a glass of tea on a wooden table, oily surface, condensation on the glass, warm lamp light from the side, cracked varnish tabletop, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no people",
+     "camera": "push_in",
+     "shot": "closeup",
+     "lighting": "warm_dining_3400k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "dust_motes"
+     ]
+    },
+    {
+     "narration": "Saat meja dibereskan, isinya tinggal separuh. Nenek bilang pintu belakang jangan dikunci selama kursi ketujuh masih di meja.",
+     "imagePrompt": "cinematic 9:16 vertical film still, an old wooden back door left ajar at night, opening onto a dark yard with banana leaves, warm light spilling out, cold darkness beyond, thin mist near the ground, muted palette, 35mm grain, documentary realism, no text, no watermark, no people",
+     "camera": "handheld",
+     "shot": "medium",
+     "lighting": "warm_dining_3400k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "mist_drift"
+     ]
+    },
+    {
+     "narration": "Kamis lalu sepupu saya duduk di situ. Paginya sepatunya di pintu. Namanya hilang.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a pair of worn sneakers left neatly side by side at an old front door at dawn, cold blue morning light, dust, doorway shadow, muted palette, 35mm grain, documentary realism, no text, no watermark, no people",
+     "camera": "static",
+     "shot": "closeup",
+     "lighting": "dawn_cold_5400k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Nenek bilang rumah ini tidak menghitung orang. Rumah ini menghitung kursi.",
+     "imagePrompt": "cinematic 9:16 vertical film still, an elderly woman's hands resting on the backrest of an empty wooden chair in a dim dining room, lace tablecloth, warm lamp, deep shadows, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, face not visible",
+     "camera": "push_in",
+     "shot": "medium",
+     "lighting": "warm_dining_3400k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Sepupu saya masih datang tiap Kamis. Tidak ada yang berani menyebut namanya. Kursi ketujuh bukan untuk tamu. Kursi itu yang menjaga kami tetap enam. Kamu mau duduk di sana? Tulis di komentar.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a candlelit family dinner table at night with six seated figures facing away, one empty chair pulled slightly out at the head of the table, warm flickering light, long shadows on the wall, muted palette, 35mm grain, documentary realism, no text, no watermark, faces not visible",
+     "camera": "drift",
+     "shot": "wide",
+     "lighting": "warm_dining_3400k",
+     "intensity": 0.55,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "light_flicker"
+     ]
+    }
+   ],
+   "cards": [
+    "TUJUH KURSI, ENAM ORANG",
+    "GELAS ITU SELALU SEPARUH",
+    "NAMANYA HILANG"
+   ],
+   "thumb": {
+    "headline": "TUJUH KURSI UNTUK ENAM ORANG",
+    "kicker": "nama sepupunya hilang"
+   },
+   "cta": {
+    "card": "Kamu mau duduk di kursi itu?",
+    "holdFrames": 84
+   },
+   "youtube": {
+    "title": "Kursi Ketujuh di Rumah Nenek Tidak Pernah Kosong",
+    "description": "Ayah saya selalu menyiapkan tujuh kursi untuk enam orang. Setiap Kamis. Tidak pernah kurang.\n\nGelas ketujuh selalu terisi teh, dan tidak ada yang meneguknya. Tapi saat meja dibereskan, isinya tinggal separuh.\n\nNenek bilang rumah ini tidak menghitung orang. Rumah ini menghitung kursi.\n\nKamis lalu sepupu saya duduk di situ.",
+    "tags": [
+     "cerita horor",
+     "horor indonesia",
+     "ritual",
+     "cerita seram",
+     "kisah nyata"
+    ],
+    "pinComment": "Kalau keluargamu menyiapkan kursi lebih banyak dari orangnya, kamu akan bertanya?"
+   },
+   "catatan": "Short baru, bukan potongan video panjang. Hook berbentuk kebiasaan keluarga (bukan angka yang hilang)."
   }
  ],
  "catatan_keputusan": "Short adalah cerita baru yang berdiri sendiri, bukan potongan video panjang (arahan pemilik kanal 7 Nov 2026)."

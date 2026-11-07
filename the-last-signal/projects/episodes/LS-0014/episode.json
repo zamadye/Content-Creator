@@ -1,0 +1,522 @@
+{
+  "episodeId": "LS-0014",
+  "title": "Kursi Ketujuh",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 50,
+  "story": {
+    "hook": "Ayah selalu menyiapkan tujuh kursi untuk enam orang",
+    "premise": "Setiap Kamis malam keluarga berkumpul di rumah nenek dengan tujuh kursi untuk enam orang; gelas ketujuh selalu terisi teh dan selalu tinggal separuh.",
+    "twist": "Kursi ketujuh bukan untuk tamu yang datang — kursi itu yang menjaga jumlah keluarga tetap enam. Siapa pun yang duduk di situ dihitung rumah sebagai tamu, lalu namanya hilang dari ingatan keluarga.",
+    "ending": "Sepupunya masih datang setiap Kamis dengan wajah yang sama, tetapi tak seorang pun berani menyebut namanya; narator menanyakan ke penonton apakah ia mau duduk di kursi itu."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [],
+  "onScreenText": [
+    {
+      "text": "TUJUH KURSI, ENAM ORANG",
+      "startFrame": 30,
+      "endFrame": 90
+    },
+    {
+      "text": "GELAS ITU SELALU SEPARUH",
+      "startFrame": 811,
+      "endFrame": 871
+    },
+    {
+      "text": "NAMANYA HILANG",
+      "startFrame": 1171,
+      "endFrame": 1231
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 159,
+      "image": "images/scene-01.jpg",
+      "narration": "Ayah selalu menyiapkan tujuh kursi untuk enam orang.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 45,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 89,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 130,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 147,
+          "text": "Ayah selalu menyiapkan tujuh kursi untuk enam orang."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, an old Javanese dining room at night, six people seated around a long wooden table seen from behind their shoulders, one empty chair at the end with a cushion and a glass of tea, warm hanging lamp, shadows in the corners, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, faces not visible",
+        "locationId": "ls-0014_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "warm_dining_3400k",
+        "intensity": 0.4,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 99,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 130,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 159,
+      "image": "images/scene-02.jpg",
+      "narration": "Gelas ketujuh terisi teh. Tidak ada yang meneguknya.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 45,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 89,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 130,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 77,
+          "text": "Gelas ketujuh terisi teh."
+        },
+        {
+          "startFrame": 77,
+          "endFrame": 147,
+          "text": "Tidak ada yang meneguknya."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, extreme close-up of a glass of tea on a wooden table, oily surface, condensation on the glass, warm lamp light from the side, cracked varnish tabletop, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no people",
+        "locationId": "ls-0014_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "warm_dining_3400k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "dust_motes"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 99,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 130,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 289,
+      "image": "images/scene-03.jpg",
+      "narration": "Saat meja dibereskan, isinya tinggal separuh. Nenek bilang pintu belakang jangan dikunci selama kursi ketujuh masih di meja.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 81,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 162,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 237,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 96,
+          "text": "Saat meja dibereskan, isinya tinggal separuh."
+        },
+        {
+          "startFrame": 96,
+          "endFrame": 277,
+          "text": "Nenek bilang pintu belakang jangan dikunci selama kursi ketujuh masih di meja."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, an old wooden back door left ajar at night, opening onto a dark yard with banana leaves, warm light spilling out, cold darkness beyond, thin mist near the ground, muted palette, 35mm grain, documentary realism, no text, no watermark, no people",
+        "locationId": "ls-0014_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "medium",
+        "lighting": "warm_dining_3400k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "mist_drift"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 179,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 237,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 224,
+      "image": "images/scene-04.jpg",
+      "narration": "Kamis lalu sepupu saya duduk di situ. Paginya sepatunya di pintu. Namanya hilang.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 63,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 184,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 117,
+          "text": "Kamis lalu sepupu saya duduk di situ."
+        },
+        {
+          "startFrame": 117,
+          "endFrame": 180,
+          "text": "Paginya sepatunya di pintu."
+        },
+        {
+          "startFrame": 180,
+          "endFrame": 212,
+          "text": "Namanya hilang."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a pair of worn sneakers left neatly side by side at an old front door at dawn, cold blue morning light, dust, doorway shadow, muted palette, 35mm grain, documentary realism, no text, no watermark, no people",
+        "locationId": "ls-0014_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "dawn_cold_5400k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 139,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 184,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 198,
+      "image": "images/scene-05.jpg",
+      "narration": "Nenek bilang rumah ini tidak menghitung orang. Rumah ini menghitung kursi.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 55,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 111,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 162,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 121,
+          "text": "Nenek bilang rumah ini tidak menghitung orang."
+        },
+        {
+          "startFrame": 121,
+          "endFrame": 186,
+          "text": "Rumah ini menghitung kursi."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, an elderly woman's hands resting on the backrest of an empty wooden chair in a dim dining room, lace tablecloth, warm lamp, deep shadows, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, face not visible",
+        "locationId": "ls-0014_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "warm_dining_3400k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 123,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 162,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 472,
+      "image": "images/scene-06.jpg",
+      "narration": "Sepupu saya masih datang tiap Kamis. Tidak ada yang berani menyebut namanya. Kursi ketujuh bukan untuk tamu. Kursi itu yang menjaga kami tetap enam. Kamu mau duduk di sana? Tulis di komentar.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 132,
+          "camera": "drift",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 264,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 387,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 91,
+          "text": "Sepupu saya masih datang tiap Kamis."
+        },
+        {
+          "startFrame": 91,
+          "endFrame": 176,
+          "text": "Tidak ada yang berani menyebut namanya."
+        },
+        {
+          "startFrame": 176,
+          "endFrame": 247,
+          "text": "Kursi ketujuh bukan untuk tamu."
+        },
+        {
+          "startFrame": 247,
+          "endFrame": 346,
+          "text": "Kursi itu yang menjaga kami tetap enam."
+        },
+        {
+          "startFrame": 346,
+          "endFrame": 417,
+          "text": "Kamu mau duduk di sana?"
+        },
+        {
+          "startFrame": 417,
+          "endFrame": 460,
+          "text": "Tulis di komentar."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a candlelit family dinner table at night with six seated figures facing away, one empty chair pulled slightly out at the head of the table, warm flickering light, long shadows on the wall, muted palette, 35mm grain, documentary realism, no text, no watermark, faces not visible",
+        "locationId": "ls-0014_main",
+        "characterIds": [],
+        "camera": "drift",
+        "shot": "wide",
+        "lighting": "warm_dining_3400k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 293,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 387,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Kursi Ketujuh di Rumah Nenek Tidak Pernah Kosong",
+    "description": "Ayah saya selalu menyiapkan tujuh kursi untuk enam orang. Setiap Kamis. Tidak pernah kurang.\n\nGelas ketujuh selalu terisi teh, dan tidak ada yang meneguknya. Tapi saat meja dibereskan, isinya tinggal separuh.\n\nNenek bilang rumah ini tidak menghitung orang. Rumah ini menghitung kursi.\n\nKamis lalu sepupu saya duduk di situ.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "ritual",
+      "cerita seram",
+      "kisah nyata"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "pinComment": "Kalau keluargamu menyiapkan kursi lebih banyak dari orangnya, kamu akan bertanya?",
+    "thumbnail": {
+      "headline": "TUJUH KURSI UNTUK ENAM ORANG",
+      "kicker": "nama sepupunya hilang",
+      "image": "images/thumb.jpg",
+      "holdFrames": 12
+    },
+    "cta": {
+      "card": "Kamu mau duduk di kursi itu?",
+      "holdFrames": 84
+    }
+  },
+  "production": {
+    "subgenre": "Ritual horror",
+    "experiment": "Horornya dari aturan rumah yang diwariskan tanpa alasan: kursi lebih banyak daripada orang, dan hitungan itu tidak boleh berubah.",
+    "structure": "hook → gelas separuh → pintu jangan dikunci → sepupu duduk di situ → hitungan kursi → twist & pilihan",
+    "slate": "stories/slate.json"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "episodeId": "LS-0014",
+  "title": "Kursi Ketujuh",
+  "format": "short_9x16",
+  "subgenre": "Ritual horror",
+  "experiment": "Horornya dari aturan rumah yang diwariskan tanpa alasan: kursi lebih banyak daripada orang, dan hitungan itu tidak boleh berubah.",
+  "structure": "hook → gelas separuh → pintu jangan dikunci → sepupu duduk di situ → hitungan kursi → twist & pilihan",
+  "story": {
+    "title": "Kursi Ketujuh",
+    "hook": "Ayah selalu menyiapkan tujuh kursi untuk enam orang",
+    "premise": "Setiap Kamis malam keluarga berkumpul di rumah nenek dengan tujuh kursi untuk enam orang; gelas ketujuh selalu terisi teh dan selalu tinggal separuh.",
+    "twist": "Kursi ketujuh bukan untuk tamu yang datang — kursi itu yang menjaga jumlah keluarga tetap enam. Siapa pun yang duduk di situ dihitung rumah sebagai tamu, lalu namanya hilang dari ingatan keluarga.",
+    "ending": "Sepupunya masih datang setiap Kamis dengan wajah yang sama, tetapi tak seorang pun berani menyebut namanya; narator menanyakan ke penonton apakah ia mau duduk di kursi itu."
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 8,
+      "narasi": "Ayah selalu menyiapkan tujuh kursi untuk enam orang."
+    },
+    {
+      "segmen": "S2",
+      "kata": 8,
+      "narasi": "Gelas ketujuh terisi teh. Tidak ada yang meneguknya."
+    },
+    {
+      "segmen": "S3",
+      "kata": 18,
+      "narasi": "Saat meja dibereskan, isinya tinggal separuh. Nenek bilang pintu belakang jangan dikunci selama kursi ketujuh masih di meja."
+    },
+    {
+      "segmen": "S4",
+      "kata": 13,
+      "narasi": "Kamis lalu sepupu saya duduk di situ. Paginya sepatunya di pintu. Namanya hilang."
+    },
+    {
+      "segmen": "S5",
+      "kata": 11,
+      "narasi": "Nenek bilang rumah ini tidak menghitung orang. Rumah ini menghitung kursi."
+    },
+    {
+      "segmen": "S6",
+      "kata": 32,
+      "narasi": "Sepupu saya masih datang tiap Kamis. Tidak ada yang berani menyebut namanya. Kursi ketujuh bukan untuk tamu. Kursi itu yang menjaga kami tetap enam. Kamu mau duduk di sana? Tulis di komentar."
+    }
+  ],
+  "youtube": {
+    "title": "Kursi Ketujuh di Rumah Nenek Tidak Pernah Kosong",
+    "description": "Ayah saya selalu menyiapkan tujuh kursi untuk enam orang. Setiap Kamis. Tidak pernah kurang.\n\nGelas ketujuh selalu terisi teh, dan tidak ada yang meneguknya. Tapi saat meja dibereskan, isinya tinggal separuh.\n\nNenek bilang rumah ini tidak menghitung orang. Rumah ini menghitung kursi.\n\nKamis lalu sepupu saya duduk di situ.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "ritual",
+      "cerita seram",
+      "kisah nyata"
+    ],
+    "pinComment": "Kalau keluargamu menyiapkan kursi lebih banyak dari orangnya, kamu akan bertanya?"
+  },
+  "thumb": {
+    "headline": "TUJUH KURSI UNTUK ENAM ORANG",
+    "kicker": "nama sepupunya hilang"
+  },
+  "catatan": "Short baru, bukan potongan video panjang. Hook berbentuk kebiasaan keluarga (bukan angka yang hilang)."
+}

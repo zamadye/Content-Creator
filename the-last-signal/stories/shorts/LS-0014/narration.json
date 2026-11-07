@@ -1,0 +1,63 @@
+{
+  "episode": "LS-0014",
+  "judul": "Kursi Ketujuh",
+  "format": "short_9x16",
+  "total_kata": 90,
+  "estimasi_detik": 40.9,
+  "segmen": [
+    {
+      "id": "S1",
+      "segmen": 1,
+      "judul": "Ayah selalu menyiapkan tujuh kursi untuk enam orang",
+      "paragraf": [
+        "Ayah selalu menyiapkan tujuh kursi untuk enam orang."
+      ],
+      "kata": 8
+    },
+    {
+      "id": "S2",
+      "segmen": 2,
+      "judul": "Gelas ketujuh terisi teh",
+      "paragraf": [
+        "Gelas ketujuh terisi teh. Tidak ada yang meneguknya."
+      ],
+      "kata": 8
+    },
+    {
+      "id": "S3",
+      "segmen": 3,
+      "judul": "Saat meja dibereskan, isinya tinggal separuh",
+      "paragraf": [
+        "Saat meja dibereskan, isinya tinggal separuh. Nenek bilang pintu belakang jangan dikunci selama kursi ketujuh masih di meja."
+      ],
+      "kata": 18
+    },
+    {
+      "id": "S4",
+      "segmen": 4,
+      "judul": "Kamis lalu sepupu saya duduk di situ",
+      "paragraf": [
+        "Kamis lalu sepupu saya duduk di situ. Paginya sepatunya di pintu. Namanya hilang."
+      ],
+      "kata": 13
+    },
+    {
+      "id": "S5",
+      "segmen": 5,
+      "judul": "Nenek bilang rumah ini tidak menghitung orang",
+      "paragraf": [
+        "Nenek bilang rumah ini tidak menghitung orang. Rumah ini menghitung kursi."
+      ],
+      "kata": 11
+    },
+    {
+      "id": "S6",
+      "segmen": 6,
+      "judul": "Sepupu saya masih datang tiap Kamis",
+      "paragraf": [
+        "Sepupu saya masih datang tiap Kamis. Tidak ada yang berani menyebut namanya. Kursi ketujuh bukan untuk tamu. Kursi itu yang menjaga kami tetap enam. Kamu mau duduk di sana? Tulis di komentar."
+      ],
+      "kata": 32
+    }
+  ]
+}

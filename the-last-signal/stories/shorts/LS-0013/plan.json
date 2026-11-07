@@ -1,0 +1,64 @@
+{
+  "episodeId": "LS-0013",
+  "title": "Lima Menit Sebelum",
+  "format": "short_9x16",
+  "subgenre": "Domestic horror",
+  "experiment": "Horornya dari selisih waktu di layar monitor bayi: kamera itu tidak telat, ia mendahului.",
+  "structure": "hook → layar itu → saya lari, dia tidur → lima menit yang dibeli murah → kamera mendahului → twist & pilihan",
+  "story": {
+    "title": "Lima Menit Sebelum",
+    "hook": "Anak saya menangis tiga kali semalam",
+    "premise": "Ayah muda membeli monitor bayi bekas; setiap malam layar kecil itu memperlihatkan anaknya berdiri di pintu kamar menghadap lorong, padahal anaknya tidur di kasur.",
+    "twist": "Kamera itu tidak terlambat lima menit — ia mendahului lima menit. Anaknya berdiri di pintu karena menunggu ayahnya yang baru akan bangun lima menit kemudian.",
+    "ending": "Rekaman terakhir memperlihatkan punggung ayahnya sendiri di lorong, sebelum ia bangun; ia bertanya ke penonton apakah ia harus bangun malam ini."
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 9,
+      "narasi": "Anak saya menangis tiga kali semalam. Saya tidak bangun."
+    },
+    {
+      "segmen": "S2",
+      "kata": 7,
+      "narasi": "Layar itu menunjukkan dia berdiri di pintu."
+    },
+    {
+      "segmen": "S3",
+      "kata": 12,
+      "narasi": "Selimut di kasurnya masih cekung. Saya lari ke kamar. Dia tidur tenang."
+    },
+    {
+      "segmen": "S4",
+      "kata": 15,
+      "narasi": "Penjualnya sudah bilang kameranya telat lima menit, tapi saya pikir itu wajar untuk barang murah."
+    },
+    {
+      "segmen": "S5",
+      "kata": 15,
+      "narasi": "Setiap kali saya sampai, kejadiannya belum terjadi. Kamera itu tidak telat. Ia mendahului lima menit."
+    },
+    {
+      "segmen": "S6",
+      "kata": 28,
+      "narasi": "Rekaman terakhir memperlihatkan punggung saya di lorong, sebelum saya bangun. Yang telat bukan kameranya. Malam ini dia menangis tiga kali lagi. Kamu mau saya bangun? Tulis di komentar."
+    }
+  ],
+  "youtube": {
+    "title": "Monitor Bayi Itu Selalu Terlambat Lima Menit",
+    "description": "Anak saya menangis tiga kali semalam dan saya tidak bangun sekali pun.\n\nMonitornya bekas, dua ratus ribu, dan penjualnya sudah memperingatkan: kameranya kadang telat lima menit. Saya pikir itu wajar untuk barang murah.\n\nSampai saya menghitung ulang. Setiap kali saya sampai di kamarnya, kejadiannya belum terjadi.\n\nYang telat bukan kameranya.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "monitor bayi",
+      "cerita seram",
+      "kisah nyata"
+    ],
+    "pinComment": "Kalau kamu yang menonton rekaman itu, kamu bangun atau tetap di kasur?"
+  },
+  "thumb": {
+    "headline": "KAMERA ITU LIMA MENIT TERLAMBAT",
+    "kicker": "yang telat bukan kameranya"
+  },
+  "catatan": "Short baru, bukan potongan video panjang. Hook berbentuk pengakuan (bukan penyangkalan seperti LS-0012)."
+}

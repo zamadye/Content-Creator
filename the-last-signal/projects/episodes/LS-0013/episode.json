@@ -1,0 +1,520 @@
+{
+  "episodeId": "LS-0013",
+  "title": "Lima Menit Sebelum",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 48.5,
+  "story": {
+    "hook": "Anak saya menangis tiga kali semalam",
+    "premise": "Ayah muda membeli monitor bayi bekas; setiap malam layar kecil itu memperlihatkan anaknya berdiri di pintu kamar menghadap lorong, padahal anaknya tidur di kasur.",
+    "twist": "Kamera itu tidak terlambat lima menit — ia mendahului lima menit. Anaknya berdiri di pintu karena menunggu ayahnya yang baru akan bangun lima menit kemudian.",
+    "ending": "Rekaman terakhir memperlihatkan punggung ayahnya sendiri di lorong, sebelum ia bangun; ia bertanya ke penonton apakah ia harus bangun malam ini."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [],
+  "onScreenText": [
+    {
+      "text": "SUDAH LEWAT LIMA MENIT",
+      "startFrame": 29,
+      "endFrame": 89
+    },
+    {
+      "text": "PUNGGUNG ITU SAYA",
+      "startFrame": 786,
+      "endFrame": 846
+    },
+    {
+      "text": "JANGAN TONTON MALAM INI",
+      "startFrame": 1136,
+      "endFrame": 1196
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 172,
+      "image": "images/scene-01.jpg",
+      "narration": "Anak saya menangis tiga kali semalam. Saya tidak bangun.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 48,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 96,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 141,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 109,
+          "text": "Anak saya menangis tiga kali semalam."
+        },
+        {
+          "startFrame": 109,
+          "endFrame": 160,
+          "text": "Saya tidak bangun."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a dark bedroom at night seen from the doorway, small crib with a rumpled blanket, warm dim night lamp on the floor, long shadows, half-open door facing a black hallway, muted desaturated palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
+        "locationId": "ls-0013_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "wide",
+        "lighting": "night_practical_lamp_2900k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 107,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 141,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 153,
+      "image": "images/scene-02.jpg",
+      "narration": "Layar itu menunjukkan dia berdiri di pintu.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 43,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 86,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 141,
+          "text": "Layar itu menunjukkan dia berdiri di pintu."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a cheap secondhand baby monitor parent unit on a nightstand, scratched plastic casing, small grey screen glowing, cold screen light on a hand, dark bedroom behind, muted palette, 35mm grain, documentary realism, no readable text, no visible faces",
+        "locationId": "ls-0013_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "cold_screen_glow_5600k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "scanlines"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 95,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 125,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 211,
+      "image": "images/scene-03.jpg",
+      "narration": "Selimut di kasurnya masih cekung. Saya lari ke kamar. Dia tidur tenang.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 59,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 118,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 173,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 86,
+          "text": "Selimut di kasurnya masih cekung."
+        },
+        {
+          "startFrame": 86,
+          "endFrame": 150,
+          "text": "Saya lari ke kamar."
+        },
+        {
+          "startFrame": 150,
+          "endFrame": 199,
+          "text": "Dia tidur tenang."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a small child's silhouette standing in a bedroom doorway facing a dark hallway, low camera angle, crib with an indented blanket in the foreground, grainy surveillance-like image, cold blue-grey palette, heavy grain, documentary realism, no text, no watermark, face not visible",
+        "locationId": "ls-0013_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "medium",
+        "lighting": "cold_screen_glow_5600k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "vhs_distortion",
+          "camera_shake"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 131,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 173,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 250,
+      "image": "images/scene-04.jpg",
+      "narration": "Penjualnya sudah bilang kameranya telat lima menit, tapi saya pikir itu wajar untuk barang murah.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 238,
+          "text": "Penjualnya sudah bilang kameranya telat lima menit, tapi saya pikir itu wajar untuk barang murah."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a young child sleeping peacefully in a crib, blanket rising with breathing, warm dim night lamp, doorway dark behind, shallow depth of field, muted warm palette, 35mm grain, documentary realism, no text, no watermark, no visible adult",
+        "locationId": "ls-0013_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "closeup",
+        "lighting": "night_practical_lamp_2900k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 250,
+      "image": "images/scene-05.jpg",
+      "narration": "Setiap kali saya sampai, kejadiannya belum terjadi. Kamera itu tidak telat. Ia mendahului lima menit.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 114,
+          "text": "Setiap kali saya sampai, kejadiannya belum terjadi."
+        },
+        {
+          "startFrame": 114,
+          "endFrame": 176,
+          "text": "Kamera itu tidak telat."
+        },
+        {
+          "startFrame": 176,
+          "endFrame": 238,
+          "text": "Ia mendahului lima menit."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a wall clock and a baby monitor screen side by side in a dark kitchen, both glowing faintly, cold light, deep shadows, muted palette, 35mm grain, documentary realism, no readable numerals, no watermark, no people",
+        "locationId": "ls-0013_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "cold_screen_glow_5600k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "scanlines"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 420,
+      "image": "images/scene-06.jpg",
+      "narration": "Rekaman terakhir memperlihatkan punggung saya di lorong, sebelum saya bangun. Yang telat bukan kameranya. Malam ini dia menangis tiga kali lagi. Kamu mau saya bangun? Tulis di komentar.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 118,
+          "camera": "drift",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 235,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 344,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 150,
+          "text": "Rekaman terakhir memperlihatkan punggung saya di lorong, sebelum saya bangun."
+        },
+        {
+          "startFrame": 150,
+          "endFrame": 207,
+          "text": "Yang telat bukan kameranya."
+        },
+        {
+          "startFrame": 207,
+          "endFrame": 308,
+          "text": "Malam ini dia menangis tiga kali lagi."
+        },
+        {
+          "startFrame": 308,
+          "endFrame": 365,
+          "text": "Kamu mau saya bangun?"
+        },
+        {
+          "startFrame": 365,
+          "endFrame": 408,
+          "text": "Tulis di komentar."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a man's back standing motionless in a narrow dark hallway at night, seen from behind and far away, faint blue monitor light out of focus in the foreground, doorway at the end of the hall, cold shadows, muted palette, 35mm grain, documentary realism, no text, no watermark, face not visible",
+        "locationId": "ls-0013_main",
+        "characterIds": [],
+        "camera": "drift",
+        "shot": "medium",
+        "lighting": "cold_screen_glow_5600k",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "vhs_distortion"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 260,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 344,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Monitor Bayi Itu Selalu Terlambat Lima Menit",
+    "description": "Anak saya menangis tiga kali semalam dan saya tidak bangun sekali pun.\n\nMonitornya bekas, dua ratus ribu, dan penjualnya sudah memperingatkan: kameranya kadang telat lima menit. Saya pikir itu wajar untuk barang murah.\n\nSampai saya menghitung ulang. Setiap kali saya sampai di kamarnya, kejadiannya belum terjadi.\n\nYang telat bukan kameranya.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "monitor bayi",
+      "cerita seram",
+      "kisah nyata"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "pinComment": "Kalau kamu yang menonton rekaman itu, kamu bangun atau tetap di kasur?",
+    "thumbnail": {
+      "headline": "KAMERA ITU LIMA MENIT TERLAMBAT",
+      "kicker": "yang telat bukan kameranya",
+      "image": "images/thumb.jpg",
+      "holdFrames": 12
+    },
+    "cta": {
+      "card": "Bangun, atau terus menonton?",
+      "holdFrames": 84
+    }
+  },
+  "production": {
+    "subgenre": "Domestic horror",
+    "experiment": "Horornya dari selisih waktu di layar monitor bayi: kamera itu tidak telat, ia mendahului.",
+    "structure": "hook → layar itu → saya lari, dia tidur → lima menit yang dibeli murah → kamera mendahului → twist & pilihan",
+    "slate": "stories/slate.json"
+  }
+}

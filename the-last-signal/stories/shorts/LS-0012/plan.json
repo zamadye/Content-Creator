@@ -4,7 +4,7 @@
   "format": "short_9x16",
   "subgenre": "Documentary horror",
   "experiment": "Horornya dari kolom daftar yang tidak boleh kosong: sensus menemukan satu keluarga yang pintunya tidak ada, dan nomor rumahnya sendiri.",
-  "structure": "hook → pekerjaan → kolom kosong → petunjuk plat nomor → baris ketiga belas → keputusan",
+  "structure": "hook → daftar desa → pekerjaan saya → kolom kosong → piring ketiga → plat nomor → twist & pilihan",
   "story": {
     "title": "Nomor Tiga Belas",
     "hook": "Nomor tiga belas tidak ada di gang kami",
@@ -15,31 +15,36 @@
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 15,
-      "narasi": "Nomor tiga belas tidak ada di gang kami. Daftar desa tetap mencatat tiga belas keluarga."
+      "kata": 8,
+      "narasi": "Nomor tiga belas tidak ada di gang kami."
     },
     {
       "segmen": "S2",
+      "kata": 7,
+      "narasi": "Daftar desa tetap mencatat tiga belas keluarga."
+    },
+    {
+      "segmen": "S3",
       "kata": 14,
       "narasi": "Saya petugas sensus. Saya hitung pintu, bukan cerita. Dua belas pintu. Dua belas nama."
     },
     {
-      "segmen": "S3",
+      "segmen": "S4",
       "kata": 18,
       "narasi": "Kolom ketiga belas kosong lagi. Bu Sarmi bilang rumahnya roboh dua puluh tahun lalu, sebelum saya masuk kerja."
     },
     {
-      "segmen": "S4",
+      "segmen": "S5",
       "kata": 15,
       "narasi": "Tapi ia tetap menyiapkan piring ketiga tiap malam. Kalau saya tanya untuk siapa, ia diam."
     },
     {
-      "segmen": "S5",
-      "kata": 16,
-      "narasi": "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti. Ayah bilang salah cetak."
+      "segmen": "S6",
+      "kata": 12,
+      "narasi": "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti."
     },
     {
-      "segmen": "S6",
+      "segmen": "S7",
       "kata": 22,
       "narasi": "Baris ketiga belas berisi nomor rumah saya. Nomornya diganti setelah keluarganya meninggal. Kamu akan tanda tangan, atau memindahkan rumahnya? Tulis di komentar."
     }

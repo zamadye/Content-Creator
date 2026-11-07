@@ -1,0 +1,63 @@
+{
+  "episode": "LS-0013",
+  "judul": "Lima Menit Sebelum",
+  "format": "short_9x16",
+  "total_kata": 86,
+  "estimasi_detik": 39.1,
+  "segmen": [
+    {
+      "id": "S1",
+      "segmen": 1,
+      "judul": "Anak saya menangis tiga kali semalam",
+      "paragraf": [
+        "Anak saya menangis tiga kali semalam. Saya tidak bangun."
+      ],
+      "kata": 9
+    },
+    {
+      "id": "S2",
+      "segmen": 2,
+      "judul": "Layar itu menunjukkan dia berdiri di pintu",
+      "paragraf": [
+        "Layar itu menunjukkan dia berdiri di pintu."
+      ],
+      "kata": 7
+    },
+    {
+      "id": "S3",
+      "segmen": 3,
+      "judul": "Selimut di kasurnya masih cekung",
+      "paragraf": [
+        "Selimut di kasurnya masih cekung. Saya lari ke kamar. Dia tidur tenang."
+      ],
+      "kata": 12
+    },
+    {
+      "id": "S4",
+      "segmen": 4,
+      "judul": "Penjualnya sudah bilang kameranya telat lima menit, tapi say",
+      "paragraf": [
+        "Penjualnya sudah bilang kameranya telat lima menit, tapi saya pikir itu wajar untuk barang murah."
+      ],
+      "kata": 15
+    },
+    {
+      "id": "S5",
+      "segmen": 5,
+      "judul": "Setiap kali saya sampai, kejadiannya belum terjadi",
+      "paragraf": [
+        "Setiap kali saya sampai, kejadiannya belum terjadi. Kamera itu tidak telat. Ia mendahului lima menit."
+      ],
+      "kata": 15
+    },
+    {
+      "id": "S6",
+      "segmen": 6,
+      "judul": "Rekaman terakhir memperlihatkan punggung saya di lorong, seb",
+      "paragraf": [
+        "Rekaman terakhir memperlihatkan punggung saya di lorong, sebelum saya bangun. Yang telat bukan kameranya. Malam ini dia menangis tiga kali lagi. Kamu mau saya bangun? Tulis di komentar."
+      ],
+      "kata": 28
+    }
+  ]
+}

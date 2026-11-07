@@ -7,8 +7,8 @@
     1080,
     1920
   ],
-  "total_kata_narasi": 100,
-  "estimasi_durasi_detik": 45.5,
+  "total_kata_narasi": 96,
+  "estimasi_durasi_detik": 43.6,
   "hook_card": {
     "teks": "NOMOR 13 TIDAK ADA",
     "tampil": "frame 0–60",
@@ -28,7 +28,7 @@
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 15,
+      "kata": 8,
       "kamera": "push_in",
       "shot": "wide",
       "lighting": "dusk_amber_4200k",
@@ -42,10 +42,10 @@
     },
     {
       "segmen": "S2",
-      "kata": 14,
+      "kata": 7,
       "kamera": "static",
-      "shot": "closeup",
-      "lighting": "warm_late_afternoon_4500k",
+      "shot": "medium",
+      "lighting": "dusk_amber_4200k",
       "intensitas": 0.4,
       "effects": [
         "film_grain",
@@ -55,6 +55,19 @@
     },
     {
       "segmen": "S3",
+      "kata": 14,
+      "kamera": "static",
+      "shot": "closeup",
+      "lighting": "warm_late_afternoon_4500k",
+      "intensitas": 0.4,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "berkas": "images/scene-03.jpg"
+    },
+    {
+      "segmen": "S4",
       "kata": 18,
       "kamera": "handheld",
       "shot": "medium",
@@ -65,10 +78,10 @@
         "vignette",
         "light_flicker"
       ],
-      "berkas": "images/scene-03.jpg"
+      "berkas": "images/scene-04.jpg"
     },
     {
-      "segmen": "S4",
+      "segmen": "S5",
       "kata": 15,
       "kamera": "push_in",
       "shot": "medium",
@@ -79,11 +92,11 @@
         "vignette",
         "dust_motes"
       ],
-      "berkas": "images/scene-04.jpg"
+      "berkas": "images/scene-05.jpg"
     },
     {
-      "segmen": "S5",
-      "kata": 16,
+      "segmen": "S6",
+      "kata": 12,
       "kamera": "static",
       "shot": "closeup",
       "lighting": "warm_late_afternoon_4500k",
@@ -93,10 +106,10 @@
         "vignette",
         "focus_rack"
       ],
-      "berkas": "images/scene-05.jpg"
+      "berkas": "images/scene-06.jpg"
     },
     {
-      "segmen": "S6",
+      "segmen": "S7",
       "kata": 22,
       "kamera": "drift",
       "shot": "closeup",
@@ -107,7 +120,7 @@
         "vignette",
         "scanlines"
       ],
-      "berkas": "images/scene-06.jpg"
+      "berkas": "images/scene-07.jpg"
     }
   ]
 }

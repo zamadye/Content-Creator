@@ -1,0 +1,111 @@
+{
+  "episode": "LS-0014",
+  "judul": "Kursi Ketujuh",
+  "format": "short_9x16",
+  "fps": 30,
+  "resolusi": [
+    1080,
+    1920
+  ],
+  "total_kata_narasi": 90,
+  "estimasi_durasi_detik": 40.9,
+  "hook_card": {
+    "teks": "TUJUH KURSI, ENAM ORANG",
+    "tampil": "frame 0–60",
+    "catatan": "teks di layar bersamaan dengan kalimat pertama; maksimal 4 kata"
+  },
+  "aturan_sinkron": {
+    "dasar": "knowledge/ATURAN.md §3.3 — visual tidak boleh mendahului kata",
+    "offset_masuk_frame": [
+      2,
+      4
+    ],
+    "offset_insert_frame": [
+      2,
+      8
+    ]
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 8,
+      "kamera": "static",
+      "shot": "wide",
+      "lighting": "warm_dining_3400k",
+      "intensitas": 0.4,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "berkas": "images/scene-01.jpg"
+    },
+    {
+      "segmen": "S2",
+      "kata": 8,
+      "kamera": "push_in",
+      "shot": "closeup",
+      "lighting": "warm_dining_3400k",
+      "intensitas": 0.45,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "dust_motes"
+      ],
+      "berkas": "images/scene-02.jpg"
+    },
+    {
+      "segmen": "S3",
+      "kata": 18,
+      "kamera": "handheld",
+      "shot": "medium",
+      "lighting": "warm_dining_3400k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "mist_drift"
+      ],
+      "berkas": "images/scene-03.jpg"
+    },
+    {
+      "segmen": "S4",
+      "kata": 13,
+      "kamera": "static",
+      "shot": "closeup",
+      "lighting": "dawn_cold_5400k",
+      "intensitas": 0.45,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "berkas": "images/scene-04.jpg"
+    },
+    {
+      "segmen": "S5",
+      "kata": 11,
+      "kamera": "push_in",
+      "shot": "medium",
+      "lighting": "warm_dining_3400k",
+      "intensitas": 0.45,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "berkas": "images/scene-05.jpg"
+    },
+    {
+      "segmen": "S6",
+      "kata": 32,
+      "kamera": "drift",
+      "shot": "wide",
+      "lighting": "warm_dining_3400k",
+      "intensitas": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "light_flicker"
+      ],
+      "berkas": "images/scene-06.jpg"
+    }
+  ]
+}

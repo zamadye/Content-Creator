@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 54.3,
+  "targetDurationSeconds": 54.7,
   "story": {
     "hook": "Nomor tiga belas tidak ada di gang kami",
     "premise": "Petugas sensus menghitung dua belas pintu di gangnya sendiri, sementara daftar desa mencatat tiga belas kepala keluarga yang tidak pernah bisa ditemukan.",
@@ -27,39 +27,39 @@
     },
     {
       "text": "DUA BELAS PINTU",
-      "startFrame": 880,
-      "endFrame": 940
+      "startFrame": 886,
+      "endFrame": 946
     },
     {
       "text": "NOMOR ITU RUMAHNYA",
-      "startFrame": 1271,
-      "endFrame": 1331
+      "startFrame": 1279,
+      "endFrame": 1339
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 250,
+      "durationFrames": 159,
       "image": "images/scene-01.jpg",
-      "narration": "Nomor tiga belas tidak ada di gang kami. Daftar desa tetap mencatat tiga belas keluarga.",
+      "narration": "Nomor tiga belas tidak ada di gang kami.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 70,
+          "atFrame": 45,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 140,
+          "atFrame": 89,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 205,
+          "atFrame": 130,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -69,17 +69,12 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 130,
+          "endFrame": 147,
           "text": "Nomor tiga belas tidak ada di gang kami."
-        },
-        {
-          "startFrame": 130,
-          "endFrame": 238,
-          "text": "Daftar desa tetap mencatat tiga belas keluarga."
         }
       ],
       "visual": {
-        "prompt": "cinematic 9:16 vertical film still, Indonesian kampung alley at dusk, narrow concrete lane, house number plates 11 and 12 on weathered walls, an empty gap between two houses where a third should stand, wet pavement, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
+        "prompt": "cinematic 9:16 vertical film still, Indonesian kampung alley at dusk, narrow concrete lane, weathered walls with house number plates 11 and 12, an empty gap between two houses where a third should stand, wet pavement, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
         "locationId": "ls-0012_main",
         "characterIds": [],
         "camera": "push_in",
@@ -98,12 +93,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 155,
+            "startFrame": 99,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 205,
+            "startFrame": 130,
             "volume": 0.4
           }
         ]
@@ -112,10 +107,76 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 237,
+      "durationFrames": 153,
       "image": "images/scene-02.jpg",
-      "narration": "Saya petugas sensus. Saya hitung pintu, bukan cerita. Dua belas pintu. Dua belas nama.",
+      "narration": "Daftar desa tetap mencatat tiga belas keluarga.",
       "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 43,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 86,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 141,
+          "text": "Daftar desa tetap mencatat tiga belas keluarga."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a village office desk at dusk with a stack of old registry books, one open book with ruled columns, weak warm light from a window, dust in the air, muted earthy palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+        "locationId": "ls-0012_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "dusk_amber_4200k",
+        "intensity": 0.4,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 95,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 125,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 237,
+      "image": "images/scene-03.jpg",
+      "narration": "Saya petugas sensus. Saya hitung pintu, bukan cerita. Dua belas pintu. Dua belas nama.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
           "atFrame": 66,
@@ -191,12 +252,12 @@
       }
     },
     {
-      "id": "scene_03",
-      "order": 2,
+      "id": "scene_04",
+      "order": 3,
       "durationFrames": 289,
-      "image": "images/scene-03.jpg",
+      "image": "images/scene-04.jpg",
       "narration": "Kolom ketiga belas kosong lagi. Bu Sarmi bilang rumahnya roboh dua puluh tahun lalu, sebelum saya masuk kerja.",
-      "narrationAudio": "audio/narration/scene-03.mp3",
+      "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
           "atFrame": 81,
@@ -263,12 +324,12 @@
       }
     },
     {
-      "id": "scene_04",
-      "order": 3,
+      "id": "scene_05",
+      "order": 4,
       "durationFrames": 250,
-      "image": "images/scene-04.jpg",
+      "image": "images/scene-05.jpg",
       "narration": "Tapi ia tetap menyiapkan piring ketiga tiap malam. Kalau saya tanya untuk siapa, ia diam.",
-      "narrationAudio": "audio/narration/scene-04.mp3",
+      "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
           "atFrame": 70,
@@ -335,28 +396,28 @@
       }
     },
     {
-      "id": "scene_05",
-      "order": 4,
-      "durationFrames": 263,
-      "image": "images/scene-05.jpg",
-      "narration": "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti. Ayah bilang salah cetak.",
-      "narrationAudio": "audio/narration/scene-05.mp3",
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 211,
+      "image": "images/scene-06.jpg",
+      "narration": "Di rumah saya ada dua lubang sekrup lama. Plat nomornya pernah diganti.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 74,
+          "atFrame": 59,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 147,
+          "atFrame": 118,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 216,
+          "atFrame": 173,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -366,22 +427,17 @@
       "subtitles": [
         {
           "startFrame": 6,
-          "endFrame": 129,
+          "endFrame": 135,
           "text": "Di rumah saya ada dua lubang sekrup lama."
         },
         {
-          "startFrame": 129,
-          "endFrame": 190,
+          "startFrame": 135,
+          "endFrame": 199,
           "text": "Plat nomornya pernah diganti."
-        },
-        {
-          "startFrame": 190,
-          "endFrame": 251,
-          "text": "Ayah bilang salah cetak."
         }
       ],
       "visual": {
-        "prompt": "cinematic 9:16 vertical extreme close-up film still, an old house number plate on a weathered teak wall, two empty screw holes visible beside it with dark rust trails, paint chipped, late afternoon raking light, shallow depth of field, muted earthy palette, 35mm grain, documentary realism, no legible digits, no text, no watermark",
+        "prompt": "cinematic 9:16 vertical extreme close-up film still, an old house number plate on a weathered teak wall, two empty screw holes beside it with dark rust trails, chipped paint, late afternoon raking light, shallow depth of field, muted earthy palette, 35mm grain, documentary realism, no legible digits, no text, no watermark",
         "locationId": "ls-0012_main",
         "characterIds": [],
         "camera": "static",
@@ -400,24 +456,24 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 163,
+            "startFrame": 131,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 216,
+            "startFrame": 173,
             "volume": 0.4
           }
         ]
       }
     },
     {
-      "id": "scene_06",
-      "order": 5,
+      "id": "scene_07",
+      "order": 6,
       "durationFrames": 341,
-      "image": "images/scene-06.jpg",
+      "image": "images/scene-07.jpg",
       "narration": "Baris ketiga belas berisi nomor rumah saya. Nomornya diganti setelah keluarganya meninggal. Kamu akan tanda tangan, atau memindahkan rumahnya? Tulis di komentar.",
-      "narrationAudio": "audio/narration/scene-06.mp3",
+      "narrationAudio": "audio/narration/scene-07.mp3",
       "cuts": [
         {
           "atFrame": 95,
@@ -523,7 +579,7 @@
   "production": {
     "subgenre": "Documentary horror",
     "experiment": "Horornya dari kolom daftar yang tidak boleh kosong: sensus menemukan satu keluarga yang pintunya tidak ada, dan nomor rumahnya sendiri.",
-    "structure": "hook → pekerjaan → kolom kosong → petunjuk plat nomor → baris ketiga belas → keputusan",
+    "structure": "hook → daftar desa → pekerjaan saya → kolom kosong → piring ketiga → plat nomor → twist & pilihan",
     "slate": "stories/slate.json"
   }
 }

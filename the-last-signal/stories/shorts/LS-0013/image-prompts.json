@@ -1,0 +1,62 @@
+[
+  {
+    "berkas": "images/scene-01.jpg",
+    "segmen": "S1",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a dark bedroom at night seen from the doorway, small crib with a rumpled blanket, warm dim night lamp on the floor, long shadows, half-open door facing a black hallway, muted desaturated palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
+    "pemicu": [
+      "Anak saya menangis tiga kali semalam."
+    ]
+  },
+  {
+    "berkas": "images/scene-02.jpg",
+    "segmen": "S2",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a cheap secondhand baby monitor parent unit on a nightstand, scratched plastic casing, small grey screen glowing, cold screen light on a hand, dark bedroom behind, muted palette, 35mm grain, documentary realism, no readable text, no visible faces",
+    "pemicu": [
+      "Layar itu menunjukkan dia berdiri di pintu."
+    ]
+  },
+  {
+    "berkas": "images/scene-03.jpg",
+    "segmen": "S3",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a small child's silhouette standing in a bedroom doorway facing a dark hallway, low camera angle, crib with an indented blanket in the foreground, grainy surveillance-like image, cold blue-grey palette, heavy grain, documentary realism, no text, no watermark, face not visible",
+    "pemicu": [
+      "Selimut di kasurnya masih cekung."
+    ]
+  },
+  {
+    "berkas": "images/scene-04.jpg",
+    "segmen": "S4",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a young child sleeping peacefully in a crib, blanket rising with breathing, warm dim night lamp, doorway dark behind, shallow depth of field, muted warm palette, 35mm grain, documentary realism, no text, no watermark, no visible adult",
+    "pemicu": [
+      "Penjualnya sudah bilang kameranya telat lima menit, tapi saya pikir itu wajar untuk barang murah."
+    ]
+  },
+  {
+    "berkas": "images/scene-05.jpg",
+    "segmen": "S5",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a wall clock and a baby monitor screen side by side in a dark kitchen, both glowing faintly, cold light, deep shadows, muted palette, 35mm grain, documentary realism, no readable numerals, no watermark, no people",
+    "pemicu": [
+      "Setiap kali saya sampai, kejadiannya belum terjadi."
+    ]
+  },
+  {
+    "berkas": "images/scene-06.jpg",
+    "segmen": "S6",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a man's back standing motionless in a narrow dark hallway at night, seen from behind and far away, faint blue monitor light out of focus in the foreground, doorway at the end of the hall, cold shadows, muted palette, 35mm grain, documentary realism, no text, no watermark, face not visible",
+    "pemicu": [
+      "Rekaman terakhir memperlihatkan punggung saya di lorong, sebelum saya bangun."
+    ]
+  }
+]

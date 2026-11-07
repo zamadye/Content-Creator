@@ -4,7 +4,7 @@
     "segmen": "S1",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, Indonesian kampung alley at dusk, narrow concrete lane, house number plates 11 and 12 on weathered walls, an empty gap between two houses where a third should stand, wet pavement, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
+    "prompt": "cinematic 9:16 vertical film still, Indonesian kampung alley at dusk, narrow concrete lane, weathered walls with house number plates 11 and 12, an empty gap between two houses where a third should stand, wet pavement, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no visible faces",
     "pemicu": [
       "Nomor tiga belas tidak ada di gang kami."
     ]
@@ -14,14 +14,24 @@
     "segmen": "S2",
     "aspek": "9:16",
     "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a village office desk at dusk with a stack of old registry books, one open book with ruled columns, weak warm light from a window, dust in the air, muted earthy palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Daftar desa tetap mencatat tiga belas keluarga."
+    ]
+  },
+  {
+    "berkas": "images/scene-03.jpg",
+    "segmen": "S3",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
     "prompt": "cinematic 9:16 vertical film still, close-up of a census officer's hands in a worn khaki shirt holding a clipboard and a ballpoint pen, tally marks and columns, old wooden gate behind, warm late afternoon light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible faces",
     "pemicu": [
       "Saya petugas sensus."
     ]
   },
   {
-    "berkas": "images/scene-03.jpg",
-    "segmen": "S3",
+    "berkas": "images/scene-04.jpg",
+    "segmen": "S4",
     "aspek": "9:16",
     "jumlah_shot": 1,
     "prompt": "cinematic 9:16 vertical film still, an elderly Javanese woman in a faded batik blouse standing in her doorway at night, holding the doorframe, face turned away from camera, warm single practical lamp behind her, dark kampung alley beyond, muted earthy palette, 35mm grain, documentary realism, no text, no watermark",
@@ -30,8 +40,8 @@
     ]
   },
   {
-    "berkas": "images/scene-04.jpg",
-    "segmen": "S4",
+    "berkas": "images/scene-05.jpg",
+    "segmen": "S5",
     "aspek": "9:16",
     "jumlah_shot": 1,
     "prompt": "cinematic 9:16 vertical film still, three plates of rice set on an old wooden table at night, the third plate untouched with steam rising, empty chair at the head, dim warm lamp above, shadows deep in the corners, muted earthy palette, 35mm grain, documentary realism, no text, no watermark, no people",
@@ -40,18 +50,18 @@
     ]
   },
   {
-    "berkas": "images/scene-05.jpg",
-    "segmen": "S5",
+    "berkas": "images/scene-06.jpg",
+    "segmen": "S6",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical extreme close-up film still, an old house number plate on a weathered teak wall, two empty screw holes visible beside it with dark rust trails, paint chipped, late afternoon raking light, shallow depth of field, muted earthy palette, 35mm grain, documentary realism, no legible digits, no text, no watermark",
+    "prompt": "cinematic 9:16 vertical extreme close-up film still, an old house number plate on a weathered teak wall, two empty screw holes beside it with dark rust trails, chipped paint, late afternoon raking light, shallow depth of field, muted earthy palette, 35mm grain, documentary realism, no legible digits, no text, no watermark",
     "pemicu": [
       "Di rumah saya ada dua lubang sekrup lama."
     ]
   },
   {
-    "berkas": "images/scene-06.jpg",
-    "segmen": "S6",
+    "berkas": "images/scene-07.jpg",
+    "segmen": "S7",
     "aspek": "9:16",
     "jumlah_shot": 1,
     "prompt": "cinematic 9:16 vertical film still, an old village register book open on a desk under a single white neon tube, one line of handwriting in the middle of the page with a thumb resting beside it, dust in the harsh light, muted palette, documentary realism, 35mm grain, no readable text, no watermark, no visible faces",

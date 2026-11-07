@@ -1,0 +1,114 @@
+{
+  "episode": "LS-0013",
+  "judul": "Lima Menit Sebelum",
+  "format": "short_9x16",
+  "fps": 30,
+  "resolusi": [
+    1080,
+    1920
+  ],
+  "total_kata_narasi": 86,
+  "estimasi_durasi_detik": 39.1,
+  "hook_card": {
+    "teks": "SUDAH LEWAT LIMA MENIT",
+    "tampil": "frame 0–60",
+    "catatan": "teks di layar bersamaan dengan kalimat pertama; maksimal 4 kata"
+  },
+  "aturan_sinkron": {
+    "dasar": "knowledge/ATURAN.md §3.3 — visual tidak boleh mendahului kata",
+    "offset_masuk_frame": [
+      2,
+      4
+    ],
+    "offset_insert_frame": [
+      2,
+      8
+    ]
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 9,
+      "kamera": "push_in",
+      "shot": "wide",
+      "lighting": "night_practical_lamp_2900k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "light_flicker"
+      ],
+      "berkas": "images/scene-01.jpg"
+    },
+    {
+      "segmen": "S2",
+      "kata": 7,
+      "kamera": "static",
+      "shot": "closeup",
+      "lighting": "cold_screen_glow_5600k",
+      "intensitas": 0.45,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "scanlines"
+      ],
+      "berkas": "images/scene-02.jpg"
+    },
+    {
+      "segmen": "S3",
+      "kata": 12,
+      "kamera": "handheld",
+      "shot": "medium",
+      "lighting": "cold_screen_glow_5600k",
+      "intensitas": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "vhs_distortion",
+        "camera_shake"
+      ],
+      "berkas": "images/scene-03.jpg"
+    },
+    {
+      "segmen": "S4",
+      "kata": 15,
+      "kamera": "handheld",
+      "shot": "closeup",
+      "lighting": "night_practical_lamp_2900k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "berkas": "images/scene-04.jpg"
+    },
+    {
+      "segmen": "S5",
+      "kata": 15,
+      "kamera": "static",
+      "shot": "closeup",
+      "lighting": "cold_screen_glow_5600k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "scanlines"
+      ],
+      "berkas": "images/scene-05.jpg"
+    },
+    {
+      "segmen": "S6",
+      "kata": 28,
+      "kamera": "drift",
+      "shot": "medium",
+      "lighting": "cold_screen_glow_5600k",
+      "intensitas": 0.6,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "vhs_distortion"
+      ],
+      "berkas": "images/scene-06.jpg"
+    }
+  ]
+}

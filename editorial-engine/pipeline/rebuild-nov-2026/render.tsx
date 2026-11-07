@@ -155,7 +155,7 @@ function Facts({scene,t}:{scene:number,t:number}){
  if(id.startsWith('saturnus')) return <g>
    {scene===1&&<><Planet x={-150} y={0} r={150} color="#e8c38b" rings/><Vial x={245} y={25} s={.9}/>{txt(-150,260,'SATURNUS',39,cream)}{txt(245,260,'AIR',39,cream)}</>}
    {(scene===2||scene===4)&&<><path d="M-350 30 L-300 250 Q-290 290 -240 290 H240 Q290 290 300 250 L350 30Z" fill="#d8e4df" stroke="#eaf4e7" strokeWidth="9"/><path d="M-330 90 Q-240 60 -150 90 T30 90 T210 90 T330 90 L300 245 Q285 278 240 278 H-240 Q-285 278-300 245Z" fill="#74b7c4"/><Planet x={0} y={20+bob} r={145} color="#e4c18c" rings/>{txt(0,370,'BAK IMAJINER',36,cream)}</>}
-   {scene===3&&<><Planet x={0} y={20} r={175} color="#e4bf87" rings/><circle cx="-280" cy="-160" r="57" fill="#d5dfd2"/>{txt(-280,-148,'H₂',42,'#405a54')}<circle cx="280" cy="-160" r="57" fill="#d5dfd2"/>{txt(280,-148,'He',42,'#405a54')}</>}
+   {scene===3&&<><Planet x={0} y={20} r={175} color="#e4bf87" rings/><circle cx="-280" cy="-160" r="57" fill="#d5dfd2"/>{txt(-290,-148,'H',42,'#405a54')}{txt(-268,-140,'2',25,'#405a54')}<circle cx="280" cy="-160" r="57" fill="#d5dfd2"/>{txt(280,-148,'He',42,'#405a54')}</>}
  </g>;
  return <><Planet x={0} y={0}/><Talk/></>;
 }

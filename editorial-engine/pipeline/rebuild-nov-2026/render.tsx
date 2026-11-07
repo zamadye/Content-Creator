@@ -76,7 +76,7 @@ const Calendar=({x,y,t}:{x:number,y:number,t:number})=><g transform={`translate(
 const Parcel=({x,y,s=1}:{x:number,y:number,s?:number})=><g transform={`translate(${x} ${y}) scale(${s})`}><path d="M-120 -90 L0 -145 L120 -90 L120 90 L0 145 L-120 90Z" fill="#d7a373" stroke="#f6d3a7" strokeWidth="7"/><path d="M-120-90 L0-35 L120-90 M0-35 V145 M-58-118 L58-61" fill="none" stroke="#ac744f" strokeWidth="7"/></g>;
 const Receipt=({x,y,lines,scale=1}:{x:number,y:number,lines:string[],scale?:number})=><g transform={`translate(${x} ${y}) scale(${scale})`}>
  <path d="M-200 -270 H200 V260 L165 240 L130 260 L95 240 L60 260 L25 240 L-10 260 L-45 240 L-80 260 L-115 240 L-150 260 L-200 240Z" fill="#fbf0d6" stroke="#dab98d" strokeWidth="8"/>
- {lines.map((line,i)=>txt(0,-170+i*72,line,37,'#243d3b','middle',700))}
+ {lines.map((line,i)=><g key={i}>{txt(0,-170+i*72,line,Math.min(46,Math.floor(360/(line.length*.59))),'#243d3b','middle',700)}</g>)}
 </g>;
 const Rainbow=({x,y,r=240}:{x:number,y:number,r?:number})=><g transform={`translate(${x} ${y})`}>
  {['#df7a7a','#e9a75c','#e6d57c','#8ac0a4','#75b4c9','#8d9acb','#ac8eb9'].map((c,i)=><circle key={c} r={r-i*20} fill="none" stroke={c} strokeWidth="20"/>)}
@@ -119,7 +119,7 @@ function Facts({scene,t}:{scene:number,t:number}){
  if(id.startsWith('gratis')) return <g>
    {scene===1&&<><Receipt x={-140} y={5} lines={['BARANG  Rp80.000','ONGKIR   Rp15.000','TOTAL   Rp95.000']} scale={.82}/><Parcel x={240} y={50+bob} s={.85}/></>}
    {scene===2&&<><Parcel x={-240} y={-35+bob} s={.85}/><Parcel x={120} y={45-bob} s={.68}/><rect x="-300" y="190" width="610" height="105" rx="28" fill="#e8c894"/>{txt(5,257,'MINIMUM Rp100.000',43,'#254238')}</>}
-   {scene===3&&<><Receipt x={-212} y={0} lines={['BARANG','Rp80.000','ONGKIR','Rp15.000','Rp95.000']} scale={.65}/><Receipt x={212} y={0} lines={['BARANG','Rp105.000','ONGKIR Rp0','TOTAL','Rp105.000']} scale={.65}/>{txt(0,300,'SELISIH Rp10.000',42,accent)}</>}
+   {scene===3&&<><Receipt x={-212} y={0} lines={['BARANG','Rp80.000','ONGKIR','Rp15.000','TOTAL','Rp95.000']} scale={.82}/><Receipt x={212} y={0} lines={['BARANG','Rp105.000','ONGKIR Rp0','TOTAL','Rp105.000']} scale={.82}/>{txt(0,300,'SELISIH Rp10.000',42,accent)}</>}
    {scene===4&&<><Parcel x={-140} y={5} s={1}/><Receipt x={230} y={10} lines={['BUTUH?','CEK TOTAL','SEBELUM','BAYAR']} scale={.65}/><Talk x={0} y={295}/></>}
  </g>;
  if(id.startsWith('pelangi')) return <g>

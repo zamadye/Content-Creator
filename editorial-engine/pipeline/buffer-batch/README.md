@@ -4,7 +4,7 @@
 
 Video yang siap dijadwalkan dikirim **sekarang** ke Buffer dengan `customScheduled` dan `dueAt`; Buffer yang menangani penayangan pada waktunya. Workflow `.github/workflows/buffer-batch-once.yml` **tidak memiliki cron** dan tidak harus hidup sampai waktu tayang. Tidak perlu PR ke `main`. Satu run dapat memproses sampai 100 post, tetapi membuat post tetap satu panggilan API **per kanal**; ini bukan jaminan semua post akan diterima.
 
-**Pengujian:** 22 tes komponen dan gateway palsu lokal `PASS`, termasuk satu batch sintetis 30 post. Action [simulasi 42427272855](https://github.com/zamadye/Content-Creator/actions/runs/42427272855) `PASS` pada versi relay yang diperkuat: relay terenkripsi selesai dalam satu run, dua post palsu `NOT_ATTEMPTED`, dan tidak ada panggilan Buffer. Koneksi live, unggahan baru dan keberhasilan semua post pada akun pengguna tetap `NOT TESTED` untuk runner generik ini sampai ada bukti eksekusi. Skrip historis untuk episode lama tidak boleh dipakai ulang: flag AI dan izin kedaluwarsa.
+**Pengujian:** 25 tes komponen, relay dan probe hanya-baca lokal `PASS`, termasuk satu batch sintetis 30 post. Action [simulasi 42427272855](https://github.com/zamadye/Content-Creator/actions/runs/42427272855) `PASS`: relay terenkripsi selesai dalam satu run, dua post palsu `NOT_ATTEMPTED`, dan tidak ada panggilan Buffer. Action [42427619479](https://github.com/zamadye/Content-Creator/actions/runs/42427619479) `PASS` untuk pembacaan kanal, seluruh antrean, validasi status/waktu dan satu `getPost` pada akun Buffer; tidak ada operasi tulis. **Create nyata, sumber media baru dan penerbitan terjadwal tetap `NOT TESTED`** untuk runner generik ini. Skrip historis untuk episode lama tidak boleh dipakai ulang: flag AI dan izin kedaluwarsa.
 
 **Kapasitas:** [Buffer](https://support.buffer.com/article/643-how-many-posts-can-i-schedule-in-advance) menyebut paket Free maksimum 10 post terjadwal **per kanal** pada satu waktu; Essentials/Team 5.000 per kanal menurut dokumentasi saat ini. Akun pengguna belum dipastikan paketnya. Ada pula [rate limit API](https://developers.buffer.com/guides/api-limits.html). Kegagalan kapasitas/rate-limit bisa terjadi setelah sebagian batch diterima: status parsial harus direkonsiliasi sebelum pengiriman berikutnya.
 
@@ -61,7 +61,8 @@ Setelah waktu tayang, lakukan pemeriksaan Buffer read-only yang baru dan lengkap
 
 ```bash
 node --test editorial-engine/pipeline/tests/buffer-batch.test.mjs \
-            editorial-engine/pipeline/tests/buffer-batch-relay.test.mjs
+            editorial-engine/pipeline/tests/buffer-batch-relay.test.mjs \
+            editorial-engine/pipeline/tests/buffer-batch-probe.test.mjs
 ```
 
 Tes menggunakan input/gateway sintetis: tidak menghubungi Buffer, tidak memverifikasi hak, kualitas kreatif atau masa berlaku URL, dan tidak membuktikan jadwal sungguhan sudah masuk. Catat tiap post hanya sebagai `scheduled`/`sent` jika benar-benar dibaca kembali dari layanan.

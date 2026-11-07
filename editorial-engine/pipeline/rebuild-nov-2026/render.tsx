@@ -109,10 +109,10 @@ function Facts({scene,t}:{scene:number,t:number}){
    {scene===4&&<><Planet x={-210} y={0} r={130}/><Planet x={210} y={0} r={160} color="#dfb57e"/>{txt(-210,230,'MERKURIUS',39,cream)}{txt(210,230,'VENUS',39,cream)}</>}
  </g>;
  if(id.startsWith('sisi-jauh')) {
-   const a=-.7+t*.19, mx=270*Math.cos(a), my=150*Math.sin(a);
+   const a=-.7+t*.19, mx=300*Math.cos(a), my=260*Math.sin(a);
    return <g>
-    {(scene===1||scene===2)&&<><Earth x={-40} y={20} r={155}/><ellipse cx="-40" cy="20" rx="290" ry="180" fill="none" stroke="#a8c0ca" strokeDasharray="15 17" strokeWidth="5"/><Moon x={mx-40} y={my+20} r={86}/><circle cx={mx-40-(mx/Math.hypot(mx,my))*72} cy={my+20-(my/Math.hypot(mx,my))*72} r="10" fill="#edaa69"/>{txt(-40,300,'skema tidak berskala',34,cream,'middle',400)}</>}
-    {scene===3&&<><Sun x={-310} y={0} r={75}/><Moon x={0} y={0} r={112}/><Earth x={300} y={0} r={120}/><path d="M-200-40 L-125-40 M-200 0 H-125 M-200 40 H-125" stroke="#ffdc98" strokeWidth="8" markerEnd="url(#arrow)"/>{txt(0,230,'BULAN BARU',38,cream)}</>}
+    {(scene===1||scene===2)&&<><Earth x={-40} y={20} r={155}/><ellipse cx="-40" cy="20" rx="300" ry="260" fill="none" stroke="#a8c0ca" strokeDasharray="15 17" strokeWidth="5"/><Moon x={mx-40} y={my+20} r={86}/><circle cx={mx-40-(mx/Math.hypot(mx,my))*72} cy={my+20-(my/Math.hypot(mx,my))*72} r="10" fill="#edaa69"/>{txt(-40,400,'skema tidak berskala',34,cream,'middle',400)}</>}
+    {scene===3&&<><Sun x={-310} y={0} r={75}/><Moon x={0} y={0} r={112}/><path d="M0 -112 A112 112 0 0 1 0 112 L0 -112Z" fill="#59616d"/><Earth x={300} y={0} r={120}/><path d="M-200-40 L-125-40 M-200 0 H-125 M-200 40 H-125" stroke="#ffdc98" strokeWidth="8" markerEnd="url(#arrow)"/>{txt(0,230,'BULAN BARU',38,cream)}{txt(-45,285,'SISI JAUH TERANG',28,cream,'middle',400)}</>}
     {scene===4&&<><Sun x={-275} y={-100} r={75}/><Moon x={75} y={25} r={190}/><Talk x={300} y={260}/></>}
    </g>;
  }

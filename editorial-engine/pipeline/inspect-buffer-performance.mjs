@@ -11,7 +11,20 @@
 import { spawnSync } from 'node:child_process';
 
 const stamp = new Date();
-const result = { retrievedAt: stamp.toISOString(), version: 1, channels: [], posts: [], aggregates: [], errors: [] };
+// In addition to channel-name matches, include only these previously approved
+// post IDs. This covers the approved Facebook page whose display name is
+// "FACEBOOK REELS" rather than "Knot Theory"; it does not enumerate other
+// Facebook pages by a loose name match. This is read-only, including scheduled
+// posts so publication can be verified before revoking temporary media links.
+const targetPosts = new Set([
+  '6aeeed2a9214322f68dbbfee', // Hiu YouTube
+  '6aeeed2dd6bbae6fa178242e', // Hiu Facebook
+  '6aedcadaf6d00f3472b03ee4', // Titik Buta YouTube
+  '6aedcad71fcdcefa468d7cfd', // Titik Buta Facebook
+  '6aede0d5730edf821ad53844', // Danau Facebook
+  '6aeee3fd229bf05daf39e2b6', // Antartika Facebook
+]);
+const result = { retrievedAt: stamp.toISOString(), version: 2, channels: [], posts: [], aggregates: [], errors: [] };
 const call = (args) => {
   const r = spawnSync('buffer', [...args, '--output', 'json', '--quiet'], {
     encoding: 'utf8', timeout: 60_000, maxBuffer: 20 * 1024 * 1024,
@@ -75,7 +88,8 @@ try {
       const block = find(pr.value, (x) => !Array.isArray(x) && Array.isArray(x?.items));
       if (!block) { result.errors.push({ operation: 'posts.list', code: 'UNEXPECTED_SHAPE' }); break; }
       for (const p of block.items) {
-        if (!p?.id || !ids.has(String(p.channelId)) || p.status !== 'sent') continue;
+        const targeted = targetPosts.has(String(p?.id ?? ''));
+        if (!p?.id || (!ids.has(String(p.channelId)) && !targeted) || (p.status !== 'sent' && !targeted)) continue;
         result.posts.push({ id: p.id, channelId: p.channelId, channelService: p.channelService, status: p.status,
           sentAt: p.sentAt ?? null, dueAt: p.dueAt ?? null, externalLink: p.externalLink ?? null,
           text: String(p.text ?? '').slice(0, 280),

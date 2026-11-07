@@ -1,8 +1,9 @@
 {
   "operation": "read-only-performance-diagnostic",
-  "scope": "KNOT THEORY channels only",
+  "scope": "KNOT THEORY channels and previously approved post IDs; read-only",
   "publication": "not requested; no mutation commands",
-  "requestedDate": "2026-11-05",
-  "revision": 2,
-  "privacy": "Encrypt output and split it across numbered annotations to avoid truncation"
+  "requestedDate": "2026-11-07",
+  "revision": 3,
+  "privacy": "Encrypt output and split it across numbered annotations to avoid truncation",
+  "purpose": "retention research and temporary-copy publication verification"
 }

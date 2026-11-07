@@ -1,0 +1,58 @@
+{
+  "id": "antartika-gurun-interaktif-v2",
+  "status": "DRAF REVISI berdasarkan kritik pengguna; bukan video lama dan belum disetujui atau dijadwalkan.",
+  "title": "Antartika Itu Gurun?",
+  "timezone": "Asia/Jakarta",
+  "plannedSlot": "2026-11-11 07:30 WIB (rencana editorial, bukan jadwal publikasi)",
+  "voiceId": "voice-05",
+  "reference": "Video Danau di Dalam Laut, storyboard sembilan adegan dan karakter Host yang sama; rujukan visual, bukan menyalin isi atau mengubah video tersebut.",
+  "creativeContract": [
+    "Satu alur cerita dan satu timeline; panjang mengikuti kebutuhan penjelasan, bukan target produksi singkat.",
+    "Karakter: rig Host yang sama dengan Danau; muka, warna hijab dan pakaian konsisten, dengan kedipan, gerak kepala, lengan dan ekspresi.",
+    "Setiap adegan harus memiliki objek dan aksi yang terkait secara eksplisit dengan narasi; bukan sekadar ikon dan pengulangan maskot.",
+    "Lingkungan dan komposisi berubah sesuai cerita; gunakan ilustrasi bersumber jelas, bukan footage atau foto ilmiah palsu.",
+    "Teks dan subtitle tidak menutupi wajah atau objek kunci; frame nol langsung terbaca; maksimum dua keluarga font.",
+    "Sebutan brand dan penutup visual ditulis persis: ikuti knot theory. Suara perlu didengarkan manusia."
+  ],
+  "sources": [
+    {"url": "https://www.nasa.gov/frequently-asked-questions-about-antarctica/", "supports": "Antartika hampir seluruhnya tertutup es; tergolong gurun karena sangat sedikit hujan atau salju."},
+    {"url": "https://www.bas.ac.uk/about/where-we-work/antarctica/", "supports": "Lapisan es terbentuk dari akumulasi dan pemadatan salju selama waktu yang sangat lama; salju bervariasi antara pesisir dan pedalaman."},
+    {"url": "https://www.bas.ac.uk/science/science-and-society/education/antarctic-factsheet-geographical-statistics/", "supports": "Antartika gurun; salju perlahan memadat menjadi es."}
+  ],
+  "factNotes": [
+    "Presipitasi adalah air yang turun dari atmosfer, termasuk hujan dan salju; contoh visual tidak menyatakan angka resmi.",
+    "Tidak semua tempat dan tahun di Antartika sama. Arah perbandingan pesisir-pedalaman adalah gambaran umum, bukan aturan untuk setiap lokasi.",
+    "Pembentukan es digambarkan sebagai akumulasi dan pemadatan, bukan bukti perubahan iklim atau neraca es saat ini.",
+    "Diagram dan perbandingan ukuran bersifat ilustratif, bukan ukuran, peta, atau data kuantitatif.",
+    "Kata 'gurun' dalam konteks ini menunjukkan presipitasi yang rendah, bukan klaim tidak pernah turun salju."
+  ],
+  "scenes": [
+    {
+      "id": "A01", "role": "HOOK", "heading": ["ANTARTIKA", "ITU GURUN?"], "sub": "Es luas, tapi sedikit presipitasi", "narration": "Di benua yang hampir seluruhnya tertutup es, ada gurun. Namanya Antartika. Kok bisa?", "objectMap": ["tokoh Host", "lapisan es", "tenda peneliti", "stasiun cuaca"], "action": "Host yang sama dengan Danau muncul dari balik tenda, menunjuk es, berkedip dan menatap penonton. Bendera dan butiran salju bergerak; kamera mendekat perlahan.", "set": "ilustrasi lanskap es dan kamp", "sound": "motif pembuka tonal singkat", "factBoundary": "Lanskap ialah ilustrasi, bukan lokasi atau dokumentasi NASA."
+    },
+    {
+      "id": "A02", "role": "CONTRAST", "heading": ["GURUN HARUS", "PANAS?"], "sub": "Tidak selalu seperti yang kita bayangkan", "narration": "Ketika mendengar gurun, kita mungkin membayangkan pasir dan panas. Padahal, gurun tidak harus panas atau penuh pasir.", "objectMap": ["bukit pasir", "matahari", "hamparan es", "termometer", "tokoh Host"], "action": "Host membandingkan dua lanskap. Panel pasir bergeser, panel es masuk dan tanda suhu memudar untuk menunjukkan panas bukan syarat utama.", "set": "dua lanskap kontras", "sound": "aksen perubahan panel", "factBoundary": "Dua panel perbandingan konseptual, bukan lokasi tertentu."
+    },
+    {
+      "id": "A03", "role": "EXPLANATION", "heading": ["YANG DIUKUR", "YANG TURUN"], "sub": "Presipitasi: hujan dan salju", "narration": "Yang penting justru sedikitnya presipitasi: air yang turun dari atmosfer, misalnya hujan atau salju.", "objectMap": ["awan", "tetes hujan", "kristal salju", "alat penampung", "tokoh Host"], "action": "Awan mengirim tetes hujan dan kristal salju ke alat ukur; Host memperhatikan alat dan menggerakkan tangan ke arah sampel.", "set": "meja stasiun pengamatan", "sound": "tiga nada pendek mengikuti tetes", "factBoundary": "Alat dan partikel skematis; tidak menyajikan pengukuran nyata."
+    },
+    {
+      "id": "A04", "role": "EVIDENCE", "heading": ["SEDIKIT HUJAN", "DAN SALJU"], "sub": "Menurut NASA", "narration": "Menurut NASA, Antartika tergolong gurun karena menerima sangat sedikit hujan maupun salju.", "objectMap": ["stasiun cuaca", "awan", "sedikit butiran salju", "indikator rendah", "tokoh Host"], "action": "Butiran salju sedikit turun, indikator tetap rendah, lalu Host menunjuk catatan sumber NASA tanpa logo resmi.", "set": "kamp penelitian di hamparan es", "sound": "aksen penanda bukti", "factBoundary": "Indikator bersifat skematis, bukan angka atau ukuran resmi."
+    },
+    {
+      "id": "A05", "role": "QUALIFICATION", "heading": ["TIDAK SEMUA", "SAMA KERING"], "sub": "Pesisir dan pedalaman berbeda", "narration": "Tapi tidak semua tempat di sana sama kering. British Antarctic Survey menjelaskan, pesisir bisa menerima lebih banyak salju daripada pedalaman.", "objectMap": ["pesisir", "laut", "pedalaman", "awan", "butiran salju", "tokoh Host"], "action": "Kamera bergerak melintasi penampang pesisir ke pedalaman; salju ditunjukkan lebih banyak di satu sisi sebagai skema, dengan label yang tetap terbaca.", "set": "penampang benua tidak berskala", "sound": "transisi lembut", "factBoundary": "Perbandingan umum: tidak berlaku sama pada setiap tempat dan waktu; skema tidak berskala."
+    },
+    {
+      "id": "A06", "role": "QUESTION", "heading": ["LALU ESNYA", "DARI MANA?"], "sub": "Sedikit bukan berarti tidak ada", "narration": "Lalu dari mana datangnya lapisan es yang luas? Salju yang turun bisa bertahan, bukan semuanya langsung hilang.", "objectMap": ["lapisan es", "salju", "lup", "tokoh Host"], "action": "Host mengangkat lup ke irisan es; butiran mendarat dan tetap terlihat di permukaan saat lensa mendekat.", "set": "tepi irisan lapisan es", "sound": "nada rasa ingin tahu", "factBoundary": "Tidak menyatakan semua salju selalu bertahan."
+    },
+    {
+      "id": "A07", "role": "TRANSFORMATION", "heading": ["SALJU MENUMPUK", "MENJADI ES"], "sub": "Berlangsung sangat lama", "narration": "Dalam waktu yang sangat lama, salju tertimbun lapisan baru dan tertekan, hingga sebagian berubah menjadi es.", "objectMap": ["salju baru", "lapisan salju lama", "panah tekanan", "lapisan es", "kalender"], "action": "Butiran jatuh membentuk lapisan baru; lapisan lama tertekan dan berubah visual menjadi es. Kalender berganti tanpa menuliskan durasi spesifik.", "set": "penampang lapisan salju skematis", "sound": "aksen lembut pada perubahan", "factBoundary": "Animasi mempercepat waktu dan tidak menunjukkan angka durasi atau skala ketebalan."
+    },
+    {
+      "id": "A08", "role": "SYNTHESIS", "heading": ["DUA HAL", "YANG BERBEDA"], "sub": "Yang turun sekarang ≠ yang tersimpan", "narration": "Jadi, kita membandingkan dua hal berbeda: sedikitnya salju baru dalam setahun, dan es yang sudah tersimpan dari waktu yang lama.", "objectMap": ["alat presipitasi", "sedikit salju baru", "kolom es tersimpan", "tokoh Host"], "action": "Host menunjuk bergantian ke pengukur tahunan dan penampang es tersimpan; dua label muncul berurutan.", "set": "meja penjelasan dan irisan es", "sound": "dua nada pembanding", "factBoundary": "Perbandingan konsep tidak berskala; salju baru tidak diasumsikan nol."
+    },
+    {
+      "id": "A09", "role": "INTERACTIVE_CTA", "heading": ["ES ATAU GURUN?"], "sub": "Mana yang paling mengejutkan?", "narration": "Gurun tidak harus panas. Antartika adalah gurun dingin. Kamu lebih kaget dengan esnya atau fakta gurunnya? Tulis di komentar, dan ikuti knot theory!", "objectMap": ["tokoh Host", "lanskap es", "tombol pilihan es", "tombol pilihan gurun", "ajakan komentar"], "action": "Host menatap penonton, tersenyum dan menggerakkan tangan; pilihan ES dan GURUN muncul satu per satu, kemudian ajakan komentar dan ikuti knot theory.", "set": "kamp es dan panel pilihan", "sound": "nada penutup tonal", "factBoundary": "Ajakan adalah pertanyaan, bukan klaim ilmiah tambahan."
+    }
+  ]
+}

@@ -24,3 +24,7 @@ rendering/previews/s*.png
 
 # kunci API & kredensial lokal
 .env
+
+# Private original reference recovery and draft revision deliverables.
+deliverables/_reference-danau/
+deliverables/interactive-revision-2026-11-11/

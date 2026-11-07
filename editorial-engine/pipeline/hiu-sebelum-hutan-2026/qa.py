@@ -19,6 +19,12 @@ meta=json.loads(subprocess.check_output([str(PROBE),'-v','error','-show_streams'
 v=next(s for s in meta['streams'] if s['codec_type']=='video');a=next(s for s in meta['streams'] if s['codec_type']=='audio')
 actual=float(meta['format']['duration']);checks={}
 checks['video_1080x1920_h264_cfr_30fps']=(v['codec_name']=='h264' and v['width']==1080 and v['height']==1920 and v['avg_frame_rate']=='30/1' and v['r_frame_rate']=='30/1' and int(v['nb_frames'])==round(p['duration']*30))
+frame_times=subprocess.check_output([str(PROBE),'-v','error','-select_streams','v:0','-show_entries','frame=best_effort_timestamp_time','-of','csv=p=0',str(video)],text=True)
+times=[]
+for row in frame_times.splitlines():
+ try: times.append(float(row.strip().split(',')[0]))
+ except ValueError: pass
+checks['all_frame_timestamps_monotonic_at_30fps']=len(times)==round(p['duration']*30) and abs(times[0])<1e-6 and all(.0332<b-a<.0335 for a,b in zip(times,times[1:]))
 checks['audio_aac_present']=a['codec_name']=='aac'
 # Buffer's documented automatic Facebook Reels limit is 3–90 seconds.
 checks['facebook_reels_duration_3_to_90s']=3<=actual<=90

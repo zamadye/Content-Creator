@@ -6,7 +6,7 @@ R=Path(__file__).resolve().parents[2];D=R/'deliverables/awan-rig-v2'
 FF=R/'node_modules/@ffmpeg-installer/linux-x64/ffmpeg';PROBE=R/'node_modules/@remotion/compositor-linux-x64-gnu/ffprobe'
 V=D/'awan-500-ton-rig-v2.mp4';prep=json.loads((D/'prepared.json').read_text());spec=json.loads((R/'content/recovered/awan-500-ton-rig-v2.json').read_text())
 def run(args):
- p=subprocess.run([str(x) for x in args],capture_output=True,text=True)
+ p=subprocess.run([str(x) for x in args],cwd=R,capture_output=True,text=True)
  if p.returncode:raise RuntimeError(f'{args[0]} failed: {p.stderr[-2000:]}')
  return p
 meta=json.loads(run([PROBE,'-v','error','-count_frames','-show_streams','-show_format','-of','json',V]).stdout)
@@ -18,7 +18,9 @@ check('Satu video H.264 1080×1920 dan satu track AAC',len(v)==1 and len(a)==1 a
 check('Kecepatan 30 fps dan jumlah frame cocok',len(v)==1 and v[0].get('avg_frame_rate')=='30/1' and int(v[0].get('nb_read_frames','0'))==round(prep['duration']*prep['fps']))
 check('Durasi cocok dengan timeline ±0,1 detik',abs(float(meta['format']['duration'])-prep['duration'])<.1)
 check('Decode video dan audio lengkap tanpa error',run([FF,'-nostdin','-v','error','-i',V,'-f','null','-']).returncode==0)
-check('Take voice tunggal cocok hash; tidak dipercepat',voice_sha==prep['voiceSHA256'] and prep['speechTempo']==1.0)
+check('Hash input voice cocok dan parameter tempo=1',voice_sha==prep['voiceSHA256'] and prep['speechTempo']==1.0)
+for label,cmd in [('Unit test rig', ['node','--test','pipeline/awan-rig-v2/test-rig.mjs']),('TypeScript', [R/'node_modules/.bin/tsc','--noEmit'])]:
+ p=subprocess.run([str(x) for x in cmd],cwd=R,capture_output=True,text=True);check(label,p.returncode==0)
 check('Sembilan adegan dan minimal dua objek per adegan',len(spec['scenes'])==9 and all(len(s['objectMap'])>=2 for s in spec['scenes']))
 check('CTA tertulis lowercase di naskah',spec['scenes'][-1]['narration'].endswith('ikuti knot theory.'))
 cues=prep['cues'];check('26 cue subtitle monoton dan maksimal dua baris',len(cues)==26 and all(q['start']<q['end'] and len(q['lines'])<=2 and all(len(line)<=36 for line in q['lines']) for q in cues) and all(cues[i]['end']<=cues[i+1]['start']+.002 for i in range(len(cues)-1)))
@@ -38,7 +40,7 @@ hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in outputs}
 lines=['# QA — Awan 500 ton, rig V2 (draft privat)','',f'Video {float(meta["format"]["duration"]):.3f} dtk; {v[0]["width"]}×{v[0]["height"]}, {v[0].get("avg_frame_rate")} fps, {v[0].get("nb_read_frames")} frame; AAC satu track.',f'Loudness hasil pengukuran: {lufs:.1f} LUFS integrated / {peak:.1f} dBTP true peak.','', '## Pemeriksaan mekanis']
 for label,ok in checks.items():lines.append(f'- {"PASS" if ok else "FAIL"}: {label}')
 lines += ['', '## Peninjauan terbatas dan batas',
-'- TESTED: 5 unit test IK/transformasi/gerak butir dan TypeScript; sampel still pembuka, berbagai adegan dan penutup telah dilihat. Ini bukan pemeriksaan seluruh gerakan.',
+'- NEEDS REVIEW: pemeriksaan subjektif frame hasil encode dan seluruh gerakan memerlukan penonton manusia; unit test tidak membuktikannya.',
 '- NEEDS REVIEW: dengarkan seluruh narasi, pelafalan “ikuti knot theory”, musik dan keseimbangan suara. Belum ada pemeriksaan pendengaran manusia.',
 '- NEEDS REVIEW: batas cue mendekati jeda; pembagian di dalam kalimat masih estimasi, bukan forced alignment. Gerak mulut prosedural, bukan lip sync fonem.',
 '- NEEDS REVIEW: kualitas gerak, interaksi tiap properti, kenyamanan visual di ponsel, safe-area serta hak distribusi aset AI/voice/font/codec.',

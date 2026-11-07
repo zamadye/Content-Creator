@@ -62,7 +62,8 @@ async function main(){
  }
  if(process.argv.includes('--assemble')){
   const parts=['part-0.mp4','part-1.mp4'];for(const part of parts)if(!fs.existsSync(path.join(D,part)))throw new Error(`Missing ${part}`);
-  const concat=path.join(D,'chunks.txt');fs.writeFileSync(concat,parts.map(v=>`file '${v}'`).join('\n')+'\n');
+  // Container durations may round to milliseconds; override with exact frame-clock duration.
+  const concat=path.join(D,'chunks.txt'),split=Math.floor(Math.round(duration*fps)/2);fs.writeFileSync(concat,`file '${parts[0]}'\nduration ${(split/fps).toFixed(9)}\nfile '${parts[1]}'\n`);
   const out=path.join(D,'awan-500-ton-rig-v2.mp4');const args=['-nostdin','-hide_banner','-loglevel','error','-y','-f','concat','-safe','0','-i',concat,'-i',d.narration,'-i',d.score,'-filter_complex','[1:a]volume=1.8[v];[2:a]volume=0.18[m];[v][m]amix=inputs=2:duration=longest,loudnorm=I=-16:TP=-3.5:LRA=11[a]','-map','0:v:0','-map','[a]','-t',String(duration),'-c:v','copy','-c:a','aac','-b:a','192k','-ar','48000','-movflags','+faststart',out];
   const r=spawnSync(ff,args,{stdio:'inherit'});if(r.status!==0)throw new Error(`Assembly FFmpeg exit ${r.status}`);console.log(`Rendered ${out}`);return;
  }

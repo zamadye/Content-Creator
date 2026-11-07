@@ -34,7 +34,7 @@ test('wrist locator matches the rendered group transform on both sides',()=>{
 });
 
 
-test('model droplets visibly rise while in a loop segment',()=>{
+test('model droplet positions rise during a loop segment',()=>{
  for(let i=0;i<9;i++){
   const t=(1-i*.137)/.18+0.7; // safely inside a cycle
   const first=risingDroplet(t,i),second=risingDroplet(t+0.5,i);

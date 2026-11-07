@@ -9,7 +9,7 @@ outputs=['awan-500-ton-rig-v2.mp4','awan-rig-v2-thumbnail.png','awan-rig-v2-post
 files={f'hasil/{n}':D/n for n in outputs};files['input/01-INPUT-PRIVAT-RIG-V2.zip']=D/'01-INPUT-PRIVAT-RIG-V2.zip'
 for p in sorted((R/'pipeline/awan-rig-v2').iterdir()):
  if p.is_file():files[f'source/editorial-engine/pipeline/awan-rig-v2/{p.name}']=p
-for n in ['package.json','package-lock.json','pipeline/prepare-fonts.mjs','content/recovered/awan-500-ton-rig-v2.json']:
+for n in ['package.json','package-lock.json','tsconfig.json','pipeline/prepare-fonts.mjs','content/recovered/awan-500-ton-rig-v2.json']:
  files[f'source/editorial-engine/{n}']=R/n
 for n in ['archivo-latin-400-normal.ttf','archivo-latin-600-normal.ttf','archivo-latin-700-normal.ttf','permanent-marker-latin-400-normal.ttf']:
  files[f'source/editorial-engine/assets/fonts/{n}']=R/'assets/fonts'/n

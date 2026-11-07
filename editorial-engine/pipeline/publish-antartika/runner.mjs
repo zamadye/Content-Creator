@@ -75,6 +75,10 @@ export function payload(secret,p,channelId,url){
  out.metadata=p.platform==='facebook'?{facebook:{type:'reel'}}:{youtube:{title:p.title,categoryId:'27',privacy:'public',madeForKids:false,isAiGenerated:true}};
  return out;
 }
+export function recordCreated(report,platform,id){
+ ok(report.posts.length>0 && id,'cannot record missing creation');
+ report.posts[report.posts.length-1]={platform,outcome:'CREATED_NOT_VERIFIED',id:String(id)};
+}
 function findObject(root,predicate,depth=0){if(!root||typeof root!=='object'||depth>10)return null;if(predicate(root))return root;for(const v of Object.values(root)){const f=findObject(v,predicate,depth+1);if(f)return f;}return null;}
 function call(args){
  const r=spawnSync('buffer',[...args,'--output','json','--quiet'],{encoding:'utf8',timeout:90000,maxBuffer:8*1024*1024,env:{...process.env,NO_COLOR:'1'}});
@@ -161,7 +165,7 @@ async function main(){
    const r=call(['posts','create','--json',JSON.stringify(payload(secret,p,channels[p.platform].id,verified.url)),'--fields','post.id,post.status,post.channelId']);
    if(!r.ok){report.posts.at(-1).outcome='CREATE_UNCERTAIN';write();throw new Error(`Create ${p.platform} failed or timed out; reconcile before retry: ${r.diagnostic}`);}
    const created=findPost(r.value);if(!created?.id){report.posts.at(-1).outcome='CREATE_UNCERTAIN';write();throw new Error(`Create ${p.platform} returned no id; reconcile before retry`);}
-   report.posts.at(-1)={platform:p.platform,outcome:'CREATED_NOT_VERIFIED',id:String(created.id)};write();
+   recordCreated(report,p.platform,created.id);write();
    const checked=readPost(created.id,p,channels[p.platform]);report.posts[report.posts.length-1]={platform:p.platform,outcome:'CREATED_AND_READ_BACK',...checked};write();
   }
   report.status='SUBMITTED';write();completed=true;console.log('Both posts submitted or already present; final publication is not assumed.');

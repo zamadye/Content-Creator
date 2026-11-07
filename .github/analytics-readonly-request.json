@@ -3,7 +3,7 @@
   "scope": "KNOT THEORY channels and previously approved post IDs; read-only",
   "publication": "not requested; no mutation commands",
   "requestedDate": "2026-11-07",
-  "revision": 4,
+  "revision": 5,
   "privacy": "Encrypt output and split it across numbered annotations to avoid truncation",
-  "purpose": "verify previously approved Titik Buta pair after its scheduled delivery; no post mutations"
+  "purpose": "follow-up read-only check of previously approved Titik Buta delivery; no post mutations"
 }

@@ -5,6 +5,7 @@ Panduan dan source nonrahasia untuk Shorts Indonesia yang mengejutkan, dapat dit
 ## Mulai di sini
 
 - [Riset storytelling + contoh naskah](RISET-STORYTELLING-DUNIA-KEBALIK.md)
+- [Riset retensi, referensi video dan rencana eksperimen](RISET-RETENSI-DAN-PERTUMBUHAN-KNOT-THEORY.md) · [cara membuat PDF](scripts/README-research-pdf.md)
 - [Fondasi editorial](EDITORIAL-FONDATION.md)
 - [Standar minimum produksi dan QA](STANDARD-MINIMAL-CONTENT-PRODUCTION.md)
 - [Gaya narasi Indonesia](NATURAL-INDONESIAN-WRITING-HUMAN-VOICE.md)

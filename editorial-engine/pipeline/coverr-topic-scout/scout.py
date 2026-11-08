@@ -9,9 +9,9 @@ from pathlib import Path
 
 s=importlib.util.spec_from_file_location('coverr_rupert',Path(__file__).parents[1]/'coverr-rupert'/'search.py')
 coverr=importlib.util.module_from_spec(s);s.loader.exec_module(coverr)
-# Balance visual coverage (ship/port) against genuinely specific subjects
-# (ballast, plankton) and an engineering alternate (bridge/joint).
-QUERIES=['cargo ship','container ship','shipping port','ship at sea','ballast water','plankton','underwater ocean','bridge','bridge joint']
+# Second, targeted pass: one actual historic bridge, and the supporting
+# underwater/construction scenes needed to evaluate the caisson story.
+QUERIES=['brooklyn bridge','bridge construction','construction worker','underwater bubbles','air bubbles','river city','bridge pier','underwater construction']
 coverr.QUERIES=QUERIES
 coverr.PAGE_SIZE=20
 

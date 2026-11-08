@@ -1,0 +1,167 @@
+{
+  "episode": "LS-0016",
+  "judul": "Nomor 14 Dipanggil Dua Kali di Klinik Mata",
+  "format": "short_9x16",
+  "fps": 30,
+  "resolusi": [
+    1080,
+    1920
+  ],
+  "total_kata_narasi": 92,
+  "estimasi_durasi_detik": 41.8,
+  "hook_card": {
+    "teks": "NOMOR ITU DIPANGGIL DUA KALI",
+    "tampil": "frame 0–60",
+    "catatan": "teks di layar bersamaan dengan kalimat pertama; maksimal 4 kata"
+  },
+  "aturan_sinkron": {
+    "dasar": "knowledge/ATURAN.md §3.3 — visual tidak boleh mendahului kata",
+    "offset_masuk_frame": [
+      2,
+      4
+    ],
+    "offset_insert_frame": [
+      2,
+      8
+    ]
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 13,
+      "kamera": "static",
+      "shot": "medium",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "light_flicker"
+      ],
+      "berkas": "images/scene-01.jpg"
+    },
+    {
+      "segmen": "S2",
+      "kata": 5,
+      "kamera": "handheld",
+      "shot": "closeup",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.45,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "focus_rack"
+      ],
+      "berkas": "images/scene-02.jpg"
+    },
+    {
+      "segmen": "S3",
+      "kata": 8,
+      "kamera": "push_in",
+      "shot": "wide",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "camera_shake"
+      ],
+      "berkas": "images/scene-03.jpg"
+    },
+    {
+      "segmen": "S4",
+      "kata": 9,
+      "kamera": "drift",
+      "shot": "wide",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.45,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "berkas": "images/scene-04.jpg"
+    },
+    {
+      "segmen": "S5",
+      "kata": 6,
+      "kamera": "handheld",
+      "shot": "medium",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "focus_rack"
+      ],
+      "berkas": "images/scene-05.jpg"
+    },
+    {
+      "segmen": "S6",
+      "kata": 6,
+      "kamera": "push_in",
+      "shot": "closeup",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "berkas": "images/scene-06.jpg"
+    },
+    {
+      "segmen": "S7",
+      "kata": 11,
+      "kamera": "static",
+      "shot": "closeup",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "scanlines"
+      ],
+      "berkas": "images/scene-07.jpg"
+    },
+    {
+      "segmen": "S8",
+      "kata": 8,
+      "kamera": "drift",
+      "shot": "medium",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette"
+      ],
+      "berkas": "images/scene-08.jpg"
+    },
+    {
+      "segmen": "S9",
+      "kata": 11,
+      "kamera": "push_in",
+      "shot": "closeup",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.55,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "focus_rack"
+      ],
+      "berkas": "images/scene-09.jpg"
+    },
+    {
+      "segmen": "S10",
+      "kata": 15,
+      "kamera": "static",
+      "shot": "wide",
+      "lighting": "cold_clinic_fluorescent_5000k",
+      "intensitas": 0.5,
+      "effects": [
+        "film_grain",
+        "vignette",
+        "light_flicker"
+      ],
+      "berkas": "images/scene-10.jpg"
+    }
+  ]
+}

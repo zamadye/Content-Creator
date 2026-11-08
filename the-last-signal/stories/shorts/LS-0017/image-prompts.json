@@ -1,0 +1,102 @@
+[
+  {
+    "berkas": "images/scene-01.jpg",
+    "segmen": "S1",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a narrow boarding-house door seen from the corridor, thin line of light under the door, a pair of worn shoes standing still in the foreground, dim warm corridor lamp, scuffed paint, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible face",
+    "pemicu": [
+      "Satu pagi, suara dari dalam bilang: masuk."
+    ]
+  },
+  {
+    "berkas": "images/scene-02.jpg",
+    "segmen": "S2",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a hand holding an old brass room key close to a door lock, number plate on the door blurred, dim corridor light, paint chipped around the handle, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face",
+    "pemicu": [
+      "Kunci itu tidak pernah lepas dari tangan saya."
+    ]
+  },
+  {
+    "berkas": "images/scene-03.jpg",
+    "segmen": "S3",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, the same narrow corridor with nine doors, one door at the end glowing from underneath, laundry line overhead, dim warm lamp, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Kalau begitu, siapa yang menjawab dari dalam?"
+    ]
+  },
+  {
+    "berkas": "images/scene-04.jpg",
+    "segmen": "S4",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a dim boarding-house room interior: single bed neatly made, old cardboard box half under the bed, cheap wardrobe, warm bare bulb, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Kos Jalan Melati, sembilan kamar."
+    ]
+  },
+  {
+    "berkas": "images/scene-05.jpg",
+    "segmen": "S5",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical extreme close-up film still, a bright strip of light along the floor under a closed door, dust and a fallen comb beside it, dim corridor, warm tone, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Saya pulang larut."
+    ]
+  },
+  {
+    "berkas": "images/scene-06.jpg",
+    "segmen": "S6",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, an empty boarding-house room with the bed still holding the shape of someone who just left, wardrobe door slightly open, bulb still warm and glowing, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Saya belum pernah menyalakan lampu sebelum keluar."
+    ]
+  },
+  {
+    "berkas": "images/scene-07.jpg",
+    "segmen": "S7",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, an old cardboard box pulled out from under a boarding-house bed, drag marks visible in the dust on the floor tiles, dim warm bulb light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Saya buka pintu."
+    ]
+  },
+  {
+    "berkas": "images/scene-08.jpg",
+    "segmen": "S8",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical extreme close-up film still, a small pocket voice recorder lying inside an open cardboard box among old papers, red indicator faintly lit, dust, warm bulb light, shallow depth of field, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Di dalam kardus ada perekam kecil."
+    ]
+  },
+  {
+    "berkas": "images/scene-09.jpg",
+    "segmen": "S9",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, the same boarding-house door seen from inside now, chair pushed against it, recorder on the floor beside the gap of light, dim warm bulb, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Rekamannya suara saya sendiri: ketuk tiga kali, lalu masuk."
+    ]
+  },
+  {
+    "berkas": "images/scene-10.jpg",
+    "segmen": "S10",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a narrow boarding-house door seen from the corridor in near darkness, the strip of light underneath now very thin, worn shoes still standing in the same place, dim warm lamp fading, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible face",
+    "pemicu": [
+      "Saya yang mengetuk duluan tiap malam."
+    ]
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "episodeId": "LS-0016",
+  "title": "Nomor 14 Dipanggil Dua Kali di Klinik Mata",
+  "format": "short_9x16",
+  "subgenre": "Institutional horror",
+  "experiment": "Uji peta petunjuk 3 medium (visual/audio/teks) + tiga loop (L1 ditutup, L2 ke CTA, L3 dibiarkan).",
+  "structure": "klimaks panggilan kedua → potongan 'siapa yang dipanggil?' → klinik kecil → kursi hangat → layar dua baris → rekaman kamera rusak → twist: yang dipanggil nama, bukan nomor → CTA",
+  "story": {
+    "title": "Nomor 14 Dipanggil Dua Kali di Klinik Mata",
+    "hook": "Nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa",
+    "premise": "Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ia tinggalkan masih hangat dan layar antrean menampilkan nomor yang sama dua kali.",
+    "twist": "Panggilan kedua bukan nomor antrean melainkan nama narator — perawat menyebut nama itu dua kali, padahal narator mendaftar sekali dan nama itu hanya satu orang.",
+    "ending": "Narator menegaskan namanya cuma satu, lalu menanyakan ke penonton apakah ia tetap akan masuk kalau dipanggil kedua kali."
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 13,
+      "narasi": "Antrean nomor empat belas dipanggil dua kali. Yang kedua dari dalam ruang periksa."
+    },
+    {
+      "segmen": "S2",
+      "kata": 5,
+      "narasi": "Saya masih di kursi tunggu."
+    },
+    {
+      "segmen": "S3",
+      "kata": 8,
+      "narasi": "Kalau saya di sini, siapa yang dipanggil masuk?"
+    },
+    {
+      "segmen": "S4",
+      "kata": 9,
+      "narasi": "Klinik matanya kecil: enam kursi, satu perawat, satu dokter."
+    },
+    {
+      "segmen": "S5",
+      "kata": 6,
+      "narasi": "Perawat memanggil empat belas. Saya berdiri."
+    },
+    {
+      "segmen": "S6",
+      "kata": 6,
+      "narasi": "Kursi yang saya tinggalkan masih hangat."
+    },
+    {
+      "segmen": "S7",
+      "kata": 11,
+      "narasi": "Layar antrean menampilkan empat belas dua kali. Dua baris, jam beda."
+    },
+    {
+      "segmen": "S8",
+      "kata": 8,
+      "narasi": "Saya minta rekaman ruang tunggu. Kameranya katanya rusak."
+    },
+    {
+      "segmen": "S9",
+      "kata": 11,
+      "narasi": "Rekaman suara perawat masih ada. Yang dipanggil bukan nomor. Nama saya."
+    },
+    {
+      "segmen": "S10",
+      "kata": 15,
+      "narasi": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali? Tulis di komentar."
+    }
+  ],
+  "youtube": {
+    "title": "Nomor 14 Dipanggil Dua Kali di Klinik Mata",
+    "description": "Nomor antrean saya dipanggil dua kali, dan panggilan keduanya datang dari dalam ruang periksa.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Saya berdiri saat nomor saya dipanggil, lalu masuk. Kursi yang saya tinggalkan masih hangat. Layar antrean menampilkan angka yang sama dua kali, dua baris, dengan jam yang berbeda.\n\nRekaman kameranya katanya rusak sejak lama. Rekaman suaranya masih ada, dan di situ yang dipanggil bukan nomor.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "klinik",
+      "cerita seram",
+      "nomor antrean"
+    ],
+    "pinComment": "Ada dua baris angka 14 di layar itu, selisih jamnya sebelas menit. Kamu akan tetap masuk kalau dipanggil kedua kali?"
+  },
+  "thumb": {
+    "headline": "NOMOR ITU DIPANGGIL DUA KALI",
+    "kicker": "yang kedua dari dalam"
+  },
+  "catatan": "Peta petunjuk: visual (layar dua baris di frame 1), audio (bisikan 'empat belas' 0,5 s di beat 4), teks (komentar sematan soal selisih jam). L3 terbuka: siapa yang duduk sampai kursinya hangat."
+}

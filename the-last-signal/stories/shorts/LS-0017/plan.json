@@ -1,0 +1,84 @@
+{
+  "episodeId": "LS-0017",
+  "title": "Suara Itu Bilang Masuk Sebelum Saya Mengetuk",
+  "format": "short_9x16",
+  "subgenre": "Institutional horror",
+  "experiment": "Revisi setelah gerbang A menilai 11/16: twist dibalik supaya mengubah arti kalimat pertama, ditambah petunjuk audio dan teks.",
+  "structure": "suara bilang masuk → potongan → kos sembilan kamar → lampu menyala → kardus bergeser → perekam di kardus → twist: itu suara saya sendiri → CTA",
+  "story": {
+    "title": "Suara Itu Bilang Masuk Sebelum Saya Mengetuk",
+    "hook": "Suara dari dalam bilang masuk sebelum saya mengetuk, padahal kunci masih di tangan saya",
+    "premise": "Di kos sembilan kamar, kamar narator menyala dari dalam dan kardusnya bergeser, padahal ia tinggal sendiri dan kuncinya masih di tangannya.",
+    "twist": "Suara yang menyuruh masuk bukan orang di dalam kamar: itu rekaman suara narator sendiri, ketukan tiga kali lalu kata masuk, dua belas kali — artinya narator sudah mengetuk dan masuk lebih dulu setiap malam, lalu lupa.",
+    "ending": "Narator menanyakan apakah penonton akan mengetuk duluan atau menunggu suaranya, sebelum menutup dengan kalimat yang sama seperti pembuka."
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 10,
+      "narasi": "Satu pagi, suara dari dalam bilang: masuk. Saya tidak mengetuk."
+    },
+    {
+      "segmen": "S2",
+      "kata": 8,
+      "narasi": "Kunci itu tidak pernah lepas dari tangan saya."
+    },
+    {
+      "segmen": "S3",
+      "kata": 7,
+      "narasi": "Kalau begitu, siapa yang menjawab dari dalam?"
+    },
+    {
+      "segmen": "S4",
+      "kata": 8,
+      "narasi": "Kos Jalan Melati, sembilan kamar. Saya nomor enam."
+    },
+    {
+      "segmen": "S5",
+      "kata": 9,
+      "narasi": "Saya pulang larut. Lampu kamar menyala dari celah pintu."
+    },
+    {
+      "segmen": "S6",
+      "kata": 7,
+      "narasi": "Saya belum pernah menyalakan lampu sebelum keluar."
+    },
+    {
+      "segmen": "S7",
+      "kata": 9,
+      "narasi": "Saya buka pintu. Kasur rapi. Kardus di bawahnya bergeser."
+    },
+    {
+      "segmen": "S8",
+      "kata": 9,
+      "narasi": "Di dalam kardus ada perekam kecil. Tombolnya masih hangat."
+    },
+    {
+      "segmen": "S9",
+      "kata": 12,
+      "narasi": "Rekamannya suara saya sendiri: ketuk tiga kali, lalu masuk. Dua belas kali."
+    },
+    {
+      "segmen": "S10",
+      "kata": 15,
+      "narasi": "Saya yang mengetuk duluan tiap malam. Kamu mengetuk duluan, atau menunggu suaranya? Tulis di komentar."
+    }
+  ],
+  "youtube": {
+    "title": "Suara Itu Bilang Masuk Sebelum Saya Mengetuk",
+    "description": "Sebelum saya mengetuk, suara dari dalam kamar bilang: masuk. Padahal saya tinggal sendiri, dan kunci kamar itu masih di tangan saya.\n\nKos di Jalan Melati, sembilan kamar, saya di nomor enam. Saya pulang larut, lampu kamar menyala dari celah bawah pintu, dan saya belum pernah menyalakan lampu sebelum keluar.\n\nKardus di bawah kasur bergeser sepuluh senti. Di dalamnya ada perekam suara kecil, tombolnya masih hangat.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "kos",
+      "cerita seram",
+      "rekaman suara"
+    ],
+    "pinComment": "Hitung ketukan di rekaman itu: tiga ketukan, lalu suara saya sendiri. Kamu akan mengetuk duluan, atau menunggu suaranya?"
+  },
+  "thumb": {
+    "headline": "SUARA ITU BILANG MASUK",
+    "kicker": "padahal saya belum mengetuk"
+  },
+  "catatan": "Revisi gerbang A: twist kini membalik arti kalimat pertama (bukan orang di dalam, tapi suara saya sendiri). Petunjuk: visual (sepatu di frame 1), audio (napas 0,4 s di beat 5), teks (komentar sematan hitung ketukan)."
+}

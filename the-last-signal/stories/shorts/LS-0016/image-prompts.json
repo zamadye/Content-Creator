@@ -1,0 +1,102 @@
+[
+  {
+    "berkas": "images/scene-01.jpg",
+    "segmen": "S1",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a small clinic waiting room seen from a low seat, a glowing queue display on the wall showing a doubled row of numbers, six empty plastic chairs, one door slightly ajar with light spilling out, cold fluorescent light, muted green-blue palette, 35mm grain, documentary realism, digits blurred and unreadable, no readable text, no watermark, no faces",
+    "pemicu": [
+      "Antrean nomor empat belas dipanggil dua kali."
+    ]
+  },
+  {
+    "berkas": "images/scene-02.jpg",
+    "segmen": "S2",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical extreme close-up film still, a paper queue ticket held in a damp hand, the printed number blurred, an empty plastic chair in soft focus behind, cold clinic light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face",
+    "pemicu": [
+      "Saya masih di kursi tunggu."
+    ]
+  },
+  {
+    "berkas": "images/scene-03.jpg",
+    "segmen": "S3",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, an empty examination-room door standing ajar at the end of a short clinic corridor, a sliver of warm light on the floor, cold fluorescent corridor, empty chairs on both sides, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Kalau saya di sini, siapa yang dipanggil masuk?"
+    ]
+  },
+  {
+    "berkas": "images/scene-04.jpg",
+    "segmen": "S4",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a tiny eye clinic interior: six plastic chairs in a row, a nurse counter with a stack of forms, an eye chart frame on the wall with letters blurred, cold light, muted palette, 35mm grain, documentary realism, unreadable text, no watermark, no faces",
+    "pemicu": [
+      "Klinik matanya kecil: enam kursi, satu perawat, satu dokter."
+    ]
+  },
+  {
+    "berkas": "images/scene-05.jpg",
+    "segmen": "S5",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a nurse's hand pushing open a frosted clinic door from inside, silhouette of a standing patient rising in the foreground out of focus, cold light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible face",
+    "pemicu": [
+      "Perawat memanggil empat belas."
+    ]
+  },
+  {
+    "berkas": "images/scene-06.jpg",
+    "segmen": "S6",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical extreme close-up film still, an empty plastic waiting chair with a slight depression still in the seat, faint condensation on the plastic, cold clinic light from above, dust in the air, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Kursi yang saya tinggalkan masih hangat."
+    ]
+  },
+  {
+    "berkas": "images/scene-07.jpg",
+    "segmen": "S7",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a wall-mounted clinic queue display photographed close and slightly from below, two identical rows of digits glowing, small clock element beside each row, cable running down the wall, cold light, muted palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark",
+    "pemicu": [
+      "Layar antrean menampilkan empat belas dua kali."
+    ]
+  },
+  {
+    "berkas": "images/scene-08.jpg",
+    "segmen": "S8",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a small dome security camera mounted in the corner of a clinic waiting room, lens dusty, a strand of cobweb on the housing, cold fluorescent light, empty chairs below out of focus, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "pemicu": [
+      "Saya minta rekaman ruang tunggu."
+    ]
+  },
+  {
+    "berkas": "images/scene-09.jpg",
+    "segmen": "S9",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a worn clinic reception desk with a small audio recorder lying beside an open registration book, page edges blurred, cold lamp light, dust, muted palette, 35mm grain, documentary realism, unreadable handwriting, no readable text, no watermark, no people",
+    "pemicu": [
+      "Rekaman suara perawat masih ada."
+    ]
+  },
+  {
+    "berkas": "images/scene-10.jpg",
+    "segmen": "S10",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, the same clinic waiting room now empty and darker, queue display still glowing at the end of the room, one chair pulled slightly forward, door shut, cold light fading, muted palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark, no people",
+    "pemicu": [
+      "Nama itu cuma satu."
+    ]
+  }
+]

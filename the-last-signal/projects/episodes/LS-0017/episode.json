@@ -1,0 +1,787 @@
+{
+  "episodeId": "LS-0017",
+  "title": "Suara Itu Bilang Masuk Sebelum Saya Mengetuk",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 59.5,
+  "story": {
+    "hook": "Suara dari dalam bilang masuk sebelum saya mengetuk, padahal kunci masih di tangan saya",
+    "premise": "Di kos sembilan kamar, kamar narator menyala dari dalam dan kardusnya bergeser, padahal ia tinggal sendiri dan kuncinya masih di tangannya.",
+    "twist": "Suara yang menyuruh masuk bukan orang di dalam kamar: itu rekaman suara narator sendiri, ketukan tiga kali lalu kata masuk, dua belas kali — artinya narator sudah mengetuk dan masuk lebih dulu setiap malam, lalu lupa.",
+    "ending": "Narator menanyakan apakah penonton akan mengetuk duluan atau menunggu suaranya, sebelum menutup dengan kalimat yang sama seperti pembuka."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [],
+  "onScreenText": [
+    {
+      "text": "SUARA ITU BILANG MASUK",
+      "startFrame": 36,
+      "endFrame": 96
+    },
+    {
+      "text": "ITU SUARA SAYA",
+      "startFrame": 964,
+      "endFrame": 1024
+    },
+    {
+      "text": "KETUK ATAU TUNGGU",
+      "startFrame": 1393,
+      "endFrame": 1453
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 185,
+      "image": "images/scene-01.jpg",
+      "narration": "Satu pagi, suara dari dalam bilang: masuk. Saya tidak mengetuk.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 52,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 104,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 152,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 123,
+          "text": "Satu pagi, suara dari dalam bilang: masuk."
+        },
+        {
+          "startFrame": 123,
+          "endFrame": 173,
+          "text": "Saya tidak mengetuk."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a narrow boarding-house door seen from the corridor, thin line of light under the door, a pair of worn shoes standing still in the foreground, dim warm corridor lamp, scuffed paint, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible face",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 115,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 152,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 159,
+      "image": "images/scene-02.jpg",
+      "narration": "Kunci itu tidak pernah lepas dari tangan saya.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 45,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 89,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 130,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 147,
+          "text": "Kunci itu tidak pernah lepas dari tangan saya."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a hand holding an old brass room key close to a door lock, number plate on the door blurred, dim corridor light, paint chipped around the handle, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "closeup",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "focus_rack"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 99,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 130,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 153,
+      "image": "images/scene-03.jpg",
+      "narration": "Kalau begitu, siapa yang menjawab dari dalam?",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 43,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 86,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 141,
+          "text": "Kalau begitu, siapa yang menjawab dari dalam?"
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, the same narrow corridor with nine doors, one door at the end glowing from underneath, laundry line overhead, dim warm lamp, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "wide",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "camera_shake"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 95,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 125,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 159,
+      "image": "images/scene-04.jpg",
+      "narration": "Kos Jalan Melati, sembilan kamar. Saya nomor enam.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 45,
+          "camera": "drift",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 89,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 130,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 94,
+          "text": "Kos Jalan Melati, sembilan kamar."
+        },
+        {
+          "startFrame": 94,
+          "endFrame": 147,
+          "text": "Saya nomor enam."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a dim boarding-house room interior: single bed neatly made, old cardboard box half under the bed, cheap wardrobe, warm bare bulb, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "drift",
+        "shot": "medium",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 99,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 130,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 172,
+      "image": "images/scene-05.jpg",
+      "narration": "Saya pulang larut. Lampu kamar menyala dari celah pintu.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 48,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 96,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 141,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 57,
+          "text": "Saya pulang larut."
+        },
+        {
+          "startFrame": 57,
+          "endFrame": 160,
+          "text": "Lampu kamar menyala dari celah pintu."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical extreme close-up film still, a bright strip of light along the floor under a closed door, dust and a fallen comb beside it, dim corridor, warm tone, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "closeup",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "focus_rack"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 107,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 141,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 153,
+      "image": "images/scene-06.jpg",
+      "narration": "Saya belum pernah menyalakan lampu sebelum keluar.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 43,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 86,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 141,
+          "text": "Saya belum pernah menyalakan lampu sebelum keluar."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, an empty boarding-house room with the bed still holding the shape of someone who just left, wardrobe door slightly open, bulb still warm and glowing, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "medium",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 95,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 125,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 172,
+      "image": "images/scene-07.jpg",
+      "narration": "Saya buka pintu. Kasur rapi. Kardus di bawahnya bergeser.",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [
+        {
+          "atFrame": 48,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 96,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 141,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 57,
+          "text": "Saya buka pintu."
+        },
+        {
+          "startFrame": 57,
+          "endFrame": 91,
+          "text": "Kasur rapi."
+        },
+        {
+          "startFrame": 91,
+          "endFrame": 160,
+          "text": "Kardus di bawahnya bergeser."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, an old cardboard box pulled out from under a boarding-house bed, drag marks visible in the dust on the floor tiles, dim warm bulb light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "camera_shake"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 107,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 141,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_08",
+      "order": 7,
+      "durationFrames": 172,
+      "image": "images/scene-08.jpg",
+      "narration": "Di dalam kardus ada perekam kecil. Tombolnya masih hangat.",
+      "narrationAudio": "audio/narration/scene-08.mp3",
+      "cuts": [
+        {
+          "atFrame": 48,
+          "camera": "drift",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 96,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 141,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 109,
+          "text": "Di dalam kardus ada perekam kecil."
+        },
+        {
+          "startFrame": 109,
+          "endFrame": 160,
+          "text": "Tombolnya masih hangat."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical extreme close-up film still, a small pocket voice recorder lying inside an open cardboard box among old papers, red indicator faintly lit, dust, warm bulb light, shallow depth of field, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "drift",
+        "shot": "closeup",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "focus_rack"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 107,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 141,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_09",
+      "order": 8,
+      "durationFrames": 211,
+      "image": "images/scene-09.jpg",
+      "narration": "Rekamannya suara saya sendiri: ketuk tiga kali, lalu masuk. Dua belas kali.",
+      "narrationAudio": "audio/narration/scene-09.mp3",
+      "cuts": [
+        {
+          "atFrame": 59,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 118,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 173,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 151,
+          "text": "Rekamannya suara saya sendiri: ketuk tiga kali, lalu masuk."
+        },
+        {
+          "startFrame": 151,
+          "endFrame": 199,
+          "text": "Dua belas kali."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, the same boarding-house door seen from inside now, chair pushed against it, recorder on the floor beside the gap of light, dim warm bulb, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 131,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 173,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_10",
+      "order": 9,
+      "durationFrames": 250,
+      "image": "images/scene-10.jpg",
+      "narration": "Saya yang mengetuk duluan tiap malam. Kamu mengetuk duluan, atau menunggu suaranya? Tulis di komentar.",
+      "narrationAudio": "audio/narration/scene-10.mp3",
+      "cuts": [
+        {
+          "atFrame": 70,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 140,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 205,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 99,
+          "text": "Saya yang mengetuk duluan tiap malam."
+        },
+        {
+          "startFrame": 99,
+          "endFrame": 192,
+          "text": "Kamu mengetuk duluan, atau menunggu suaranya?"
+        },
+        {
+          "startFrame": 192,
+          "endFrame": 238,
+          "text": "Tulis di komentar."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a narrow boarding-house door seen from the corridor in near darkness, the strip of light underneath now very thin, worn shoes still standing in the same place, dim warm lamp fading, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible face",
+        "locationId": "ls-0017_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "warm_corridor_lamp_2900k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 155,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 205,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Suara Itu Bilang Masuk Sebelum Saya Mengetuk",
+    "description": "Sebelum saya mengetuk, suara dari dalam kamar bilang: masuk. Padahal saya tinggal sendiri, dan kunci kamar itu masih di tangan saya.\n\nKos di Jalan Melati, sembilan kamar, saya di nomor enam. Saya pulang larut, lampu kamar menyala dari celah bawah pintu, dan saya belum pernah menyalakan lampu sebelum keluar.\n\nKardus di bawah kasur bergeser sepuluh senti. Di dalamnya ada perekam suara kecil, tombolnya masih hangat.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "kos",
+      "cerita seram",
+      "rekaman suara"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "pinComment": "Hitung ketukan di rekaman itu: tiga ketukan, lalu suara saya sendiri. Kamu akan mengetuk duluan, atau menunggu suaranya?",
+    "thumbnail": {
+      "headline": "SUARA ITU BILANG MASUK",
+      "kicker": "padahal saya belum mengetuk",
+      "image": "images/thumb.jpg",
+      "holdFrames": 12
+    },
+    "cta": {
+      "card": "Kamu akan mengetuk duluan, atau menunggu suaranya?",
+      "holdFrames": 84
+    }
+  },
+  "production": {
+    "subgenre": "Institutional horror",
+    "experiment": "Revisi setelah gerbang A menilai 11/16: twist dibalik supaya mengubah arti kalimat pertama, ditambah petunjuk audio dan teks.",
+    "hud": false,
+    "structure": "suara bilang masuk → potongan → kos sembilan kamar → lampu menyala → kardus bergeser → perekam di kardus → twist: itu suara saya sendiri → CTA",
+    "slate": "stories/slate.json"
+  }
+}

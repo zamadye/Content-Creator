@@ -1,0 +1,99 @@
+{
+  "episode": "LS-0016",
+  "judul": "Nomor 14 Dipanggil Dua Kali di Klinik Mata",
+  "format": "short_9x16",
+  "total_kata": 92,
+  "estimasi_detik": 41.8,
+  "segmen": [
+    {
+      "id": "S1",
+      "segmen": 1,
+      "judul": "Antrean nomor empat belas dipanggil dua kali",
+      "paragraf": [
+        "Antrean nomor empat belas dipanggil dua kali. Yang kedua dari dalam ruang periksa."
+      ],
+      "kata": 13
+    },
+    {
+      "id": "S2",
+      "segmen": 2,
+      "judul": "Saya masih di kursi tunggu",
+      "paragraf": [
+        "Saya masih di kursi tunggu."
+      ],
+      "kata": 5
+    },
+    {
+      "id": "S3",
+      "segmen": 3,
+      "judul": "Kalau saya di sini, siapa yang dipanggil masuk?",
+      "paragraf": [
+        "Kalau saya di sini, siapa yang dipanggil masuk?"
+      ],
+      "kata": 8
+    },
+    {
+      "id": "S4",
+      "segmen": 4,
+      "judul": "Klinik matanya kecil: enam kursi, satu perawat, satu dokter",
+      "paragraf": [
+        "Klinik matanya kecil: enam kursi, satu perawat, satu dokter."
+      ],
+      "kata": 9
+    },
+    {
+      "id": "S5",
+      "segmen": 5,
+      "judul": "Perawat memanggil empat belas",
+      "paragraf": [
+        "Perawat memanggil empat belas. Saya berdiri."
+      ],
+      "kata": 6
+    },
+    {
+      "id": "S6",
+      "segmen": 6,
+      "judul": "Kursi yang saya tinggalkan masih hangat",
+      "paragraf": [
+        "Kursi yang saya tinggalkan masih hangat."
+      ],
+      "kata": 6
+    },
+    {
+      "id": "S7",
+      "segmen": 7,
+      "judul": "Layar antrean menampilkan empat belas dua kali",
+      "paragraf": [
+        "Layar antrean menampilkan empat belas dua kali. Dua baris, jam beda."
+      ],
+      "kata": 11
+    },
+    {
+      "id": "S8",
+      "segmen": 8,
+      "judul": "Saya minta rekaman ruang tunggu",
+      "paragraf": [
+        "Saya minta rekaman ruang tunggu. Kameranya katanya rusak."
+      ],
+      "kata": 8
+    },
+    {
+      "id": "S9",
+      "segmen": 9,
+      "judul": "Rekaman suara perawat masih ada",
+      "paragraf": [
+        "Rekaman suara perawat masih ada. Yang dipanggil bukan nomor. Nama saya."
+      ],
+      "kata": 11
+    },
+    {
+      "id": "S10",
+      "segmen": 10,
+      "judul": "Nama itu cuma satu",
+      "paragraf": [
+        "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali? Tulis di komentar."
+      ],
+      "kata": 15
+    }
+  ]
+}

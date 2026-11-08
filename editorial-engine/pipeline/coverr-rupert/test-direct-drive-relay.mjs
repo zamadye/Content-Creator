@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
-import {validateSession,validateProbe,MEDIA_LIMIT,CHUNK,RelayError} from './direct-drive-relay.mjs';
+import {validateSession,validateProbe,validateDriveResponse,MEDIA_LIMIT,CHUNK,RelayError} from './direct-drive-relay.mjs';
 import {encryptBytes,decryptBytes} from '../coverr-transfer/transfer.mjs';
 const ready={nonce:'a'.repeat(32),id:'azy1Cd1ZeQ',run_id:'42',size:9000,sha256:'b'.repeat(64)};
 const good=()=>({...ready,drive_uri:'https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&upload_id=FAKE&session_crd=FAKE'});
@@ -25,4 +25,10 @@ test('source probe must contain real video dimensions and finite duration',()=>{
 });
 test('Drive chunks have the required 256 KiB alignment and size cap',()=>{
  assert.equal(CHUNK%(256*1024),0);assert.equal(MEDIA_LIMIT,104857600);
+});
+test('resumable active/final header governs success; redirects are never followed',()=>{
+ assert.equal(validateDriveResponse(200,'active',false),true);
+ assert.equal(validateDriveResponse(308,'active',false),true);
+ assert.equal(validateDriveResponse(200,'final',true),true);
+ for(const [http,status,last] of [[200,'active',true],[200,'final',false],[302,'active',false],[403,'active',false],[200,null,true]])assert.throws(()=>validateDriveResponse(http,status,last),RelayError);
 });

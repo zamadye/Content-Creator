@@ -35,6 +35,10 @@ export function validateSession(obj,ready){
     u.searchParams.get('uploadType')!=='resumable' || !u.searchParams.get('upload_id')) throw new RelayError('BAD_DRIVE_URI');
  return {...obj,drive_uri:u.toString()};
 }
+export function validateDriveResponse(httpStatus,uploadStatus,last){
+ if(!Number.isInteger(httpStatus)||httpStatus<100||httpStatus>=400||(httpStatus>=300&&httpStatus!==308))throw new RelayError(`DRIVE_UPLOAD_HTTP_${httpStatus}`);
+ try{return checkUploadStatus(uploadStatus,last)}catch{throw new RelayError('DRIVE_STATUS_UNCONFIRMED')}
+}
 export function validateProbe(data){
  const s=data?.streams?.find(x=>x.codec_type==='video') || data?.streams?.[0];
  const width=Number(s?.width),height=Number(s?.height),duration=Number(data?.format?.duration);
@@ -45,8 +49,8 @@ function emit(obj){
  const line=JSON.stringify(obj);console.log('COVERR_DIRECT_DRIVE='+line);
  if(process.env.GITHUB_ACTIONS==='true')console.log('::notice title=Coverr private Drive transfer::'+line.replace(/%/g,'%25').replace(/\r/g,'%0D').replace(/\n/g,'%0A'));
 }
-async function safeFetch(url,opts={},ms=30000){
- try{return await fetch(url,{...opts,redirect:'error',signal:AbortSignal.timeout(ms)})}catch{throw new RelayError('NETWORK_OR_TIMEOUT')}
+async function safeFetch(url,opts={},ms=30000,redirect='error'){
+ try{return await fetch(url,{...opts,redirect,signal:AbortSignal.timeout(ms)})}catch{throw new RelayError('NETWORK_OR_TIMEOUT')}
 }
 function ghHeaders(token){return {'Authorization':`Bearer ${token}`,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'ContentCreator-Coverr-Private/1.0'}}
 async function coverrApi(id,key,method='GET',auth='x-api-key'){
@@ -122,9 +126,11 @@ async function upload(session,source){
    while(n<len){const k=fs.readSync(fd,buf,n,len-n,offset+n);if(k<=0)throw new RelayError('SOURCE_READ_FAILED');n+=k}
    hash.update(buf);const last=offset+len===session.size;
    if(last && hash.digest('hex')!==session.sha256)throw new RelayError('SOURCE_SHA_MISMATCH');
-   const r=await safeFetch(session.drive_uri,{method:'PUT',headers:{'Content-Type':'application/octet-stream','Content-Length':String(len),'X-Goog-Upload-Command':last?'upload, finalize':'upload','X-Goog-Upload-Offset':String(offset),'X-Goog-Upload-Total-Size':String(session.size)},body:buf},180000);
-   if(!r.ok)throw new RelayError(`DRIVE_UPLOAD_HTTP_${r.status}`);
-   try{checkUploadStatus(r.headers.get('x-goog-upload-status'),last)}catch{throw new RelayError('DRIVE_STATUS_UNCONFIRMED')}
+   const r=await safeFetch(session.drive_uri,{method:'PUT',headers:{'Content-Type':'application/octet-stream','Content-Length':String(len),'X-Goog-Upload-Command':last?'upload, finalize':'upload','X-Goog-Upload-Offset':String(offset),'X-Goog-Upload-Total-Size':String(session.size)},body:buf},180000,'manual');
+   // The resumable protocol's status header is authoritative. A 308 can mean
+   // an active session and must not be followed as a redirect or treated as
+   // completion. Never follow any redirected capability URL.
+   validateDriveResponse(r.status,r.headers.get('x-goog-upload-status'),last);
    if(last){let o;try{o=await r.json()}catch{throw new RelayError('DRIVE_RESPONSE_INVALID')}if(!/^[A-Za-z0-9_-]{10,200}$/.test(o.id||''))throw new RelayError('DRIVE_FILE_ID_MISSING')}
    offset+=len;console.log(`PRIVATE_DRIVE_UPLOAD_PROGRESS=${offset}/${session.size}`);
   }

@@ -9,7 +9,7 @@ class SearchTest(unittest.TestCase):
   self.assertEqual(result['status'],'PASS');self.assertEqual(result['videos'][0]['id'],'A123');self.assertNotIn(key,raw);self.assertNotIn('https://',raw);self.assertNotIn('mp4_download',raw)
  def test_missing_or_invalid_input(self):
   self.assertEqual(m.search('not in list','key')['status'],'INVALID_QUERY')
-  self.assertEqual(m.search('glass maker','')['status'],'MISSING_KEY')
+  self.assertEqual(m.search('glass rod','')['status'],'MISSING_KEY')
   self.assertEqual(m.summarize({'hits':[]},'glassblowing','x')['status'],'NO_RESULTS')
  def test_query_budget(self):self.assertLess(len(m.QUERIES),15)
 if __name__=='__main__':unittest.main()

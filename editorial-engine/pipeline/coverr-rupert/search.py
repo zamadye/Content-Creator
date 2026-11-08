@@ -8,8 +8,8 @@ from urllib.error import HTTPError,URLError
 from urllib.parse import urlencode
 from urllib.request import Request,build_opener
 spec=importlib.util.spec_from_file_location('coverr_safe',Path(__file__).parents[1]/'coverr-search-test.py');safe=importlib.util.module_from_spec(spec);spec.loader.exec_module(safe)
-QUERIES=['glass blowing','glass artist','glass maker','glass melting','glass fire','test tube','furnace','molten','glass breaking','laboratory glass','chemist','scientist laboratory','glass workshop']
-PAGE_SIZE=8
+QUERIES=['glass rod','glass tube','hot glass','glass flame','glass fracture','glass cracks','cracked glass','shattered','shards','glass drop']
+PAGE_SIZE=20
 
 def summarize(data,query,key):
  if not isinstance(data,dict) or not isinstance(data.get('hits'),list):return {'query':query,'status':'INVALID_RESPONSE'}

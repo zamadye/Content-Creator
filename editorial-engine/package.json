@@ -12,7 +12,8 @@
     "test:python": "python3 -m unittest pipeline/test_coverr_search.py pipeline/coverr-transfer/test-search-hq.py",
     "build:awan": "bash pipeline/awan-500-ton-2026/build.sh",
     "build:awan-rig-v2": "bash pipeline/awan-rig-v2/build.sh",
-    "build:awan-rig-v3": "bash pipeline/awan-rig-v3/build.sh"
+    "build:awan-rig-v3": "bash pipeline/awan-rig-v3/build.sh",
+    "build:kaca-rupert": "bash pipeline/kaca-rupert-visual-v1/build.sh"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

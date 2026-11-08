@@ -265,3 +265,48 @@ CTA.
 
 `node scripts/check-gate.mjs` — memeriksa hukum 1–6 di atas untuk semua episode
 yang belum tayang. Episode yang gagal **tidak boleh dirender**.
+
+## Hukum tambahan — 8 November 2026 (setelah bedah struktur): lapisan & gerbang
+
+Hukum di atas mengatur **pintu masuk**. Yang membuat penonton bertahan dan
+memutar ulang adalah **lapisan** — dan lapisan sekarang wajib, bukan opsional.
+
+### 1. Tiga petunjuk per episode (bukan satu)
+
+| Jenis | Tempat | Aturan |
+|---|---|---|
+| Visual | frame pertama | sudah terlihat sebelum dijelaskan; dibayar di ¾ durasi |
+| Audio | scene 2–4 | `sfx: [{ "asset": "whisper.mp3", "at": 0.35, "volume": 0.28 }]` — bisikan 0,4–0,8 s **di bawah** narasi |
+| Teks | deskripsi + komentar sematan | menyebut bahwa ada detail yang baru masuk akal di akhir |
+
+Petunjuk ditulis di `clues` pada `stories/slate.json`, bukan hanya di kepala
+penulis: `{ type, at, paidAt, isi }`. Episode tanpa tiga petunjuk tidak masuk
+produksi (garis merah gerbang).
+
+### 2. Uji dua bacaan
+
+Kalimat pertama harus punya **arti A** (sebelum twist) dan **arti B** (sesudah).
+Kalau B tidak bisa ditulis, itu kejutan, bukan twist.
+
+### 3. Tiga loop
+
+L1 ditutup di payoff · L2 pindah ke pertanyaan CTA · L3 **sengaja dibiarkan
+terbuka** (bahan teori di komentar). L1 dan L3 tidak boleh dari benda yang sama.
+
+### 4. Dua titik reda (koreksi ATURAN 4.1)
+
+`releases: [{ "atRatio": 0.35, "seconds": 0.9 }, { "atRatio": 0.7, "seconds": 0.9 }]`
+di `stories/slate.json` → `make-score` menurunkan musik ke 8 % selama 0,6–1,2 s
+sementara ambience tetap jalan. **Yang dilarang adalah sunyi total**, bukan
+turunnya musik.
+
+### 5. Kartu hook 0,9 detik
+
+`holdFrames` kartu hook = 27 frame (0,9 s). Pada 12 frame kartu hilang sebelum
+mata sempat mendarat — terukur di LS-0016.
+
+### 6. Gerbang kelayakan (rubrik lengkap di Drive)
+
+`THE LAST SIGNAL / 03 Struktur & Gerbang (Nov 2026)`. Ringkasnya:
+Gerbang A (12 butir naskah) → produksi; Gerbang B (10 butir hasil jadi) → tayang;
+skor 8 sumbu: ≥13 LAYAK, 9–12 REVISI sekali, ≤8 KUBUR.

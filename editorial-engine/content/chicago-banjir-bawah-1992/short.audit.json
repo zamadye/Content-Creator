@@ -1,0 +1,130 @@
+{
+  "scriptId": "chicago-banjir-bawah-short-v1",
+  "audienceAnchor": {
+    "situation": "Air di ruang kerja dan laporan yang berpindah tangan.",
+    "scope": "Analogi terbatas: tidak mengasumsikan setiap penonton pernah bekerja di kantor atau mengalami banjir."
+  },
+  "items": [
+    {
+      "sceneId": "T01",
+      "text": "Banjir datang dari bawah.",
+      "purpose": "Mengulang puncak yang mengandung pertanyaan.",
+      "viewerQuestion": "Dari mana airnya?",
+      "visualAction": "Air dan kursi bergerak di basement.",
+      "evidence": "R1; R2",
+      "nextOrPayoff": "T02–T03 menunjukkan sungai dan jalurnya.",
+      "wordChoice": "Kalimat sama dengan S01 dan tetap dapat berdiri sendiri.",
+      "connection": "Pembuka mengulang klimaks master."
+    },
+    {
+      "sceneId": "T02",
+      "text": "Pada tahun seribu sembilan ratus sembilan puluh dua, Sungai Chicago masuk ke terowongan tua dan membanjiri basement gedung-gedung.",
+      "purpose": "Memberi lokasi, peristiwa dan konsekuensi.",
+      "viewerQuestion": "Apakah ada tanda sebelum banjir?",
+      "visualAction": "Garis air bergerak dari sungai ke basement ilustratif.",
+      "evidence": "R1; R2",
+      "nextOrPayoff": "T03 mengungkap temuan sebelum banjir.",
+      "wordChoice": "Tua cukup untuk konteks; tidak perlu panjang jaringan.",
+      "connection": "Sungai biasanya berada di luar gedung."
+    },
+    {
+      "sceneId": "T03",
+      "text": "Beberapa bulan sebelumnya, kru kabel sudah merekam dinding yang rusak.",
+      "purpose": "Menanam tanda yang mendahului bencana.",
+      "viewerQuestion": "Apakah orang kota benar-benar menemukan titiknya?",
+      "visualAction": "Kamera ilustratif mengarah ke dinding.",
+      "evidence": "R5",
+      "nextOrPayoff": "T04 menyebut petugas dan batas pencarian.",
+      "wordChoice": "Beberapa bulan tidak menggeser Januari menjadi sesaat sebelum April.",
+      "connection": "Sinyal bahaya ditemukan dalam pekerjaan biasa."
+    },
+    {
+      "sceneId": "T04",
+      "text": "Setelah pencarian awal gagal dan ada jeda, petugas kota James McTigue menemukan titiknya pada Maret lalu melapor.",
+      "purpose": "Menyampaikan tindakan dan batasnya dalam versi padat.",
+      "viewerQuestion": "Apa peringatan resmi berikutnya?",
+      "visualAction": "Penanda berpindah dari lokasi salah ke titik sebenarnya.",
+      "evidence": "R6",
+      "nextOrPayoff": "T05 menunjukkan memo.",
+      "wordChoice": "Ada jeda mempertahankan fakta yang membatasi narasi pahlawan tunggal.",
+      "connection": "Lokasi salah dan tindak lanjut adalah bagian penting kisah, bukan hambatan yang dihilangkan."
+    },
+    {
+      "sceneId": "T05",
+      "text": "Awal April, memo kota meminta perbaikan segera; sebelum pekerjaan terlaksana, dinding itu jebol.",
+      "purpose": "Menghubungkan peringatan ke klimaks tanpa menyederhanakan sebab hukum.",
+      "viewerQuestion": "Apa yang terjadi pada petugas setelahnya?",
+      "visualAction": "Memo muncul, lalu retakan meluas.",
+      "evidence": "R5; R6",
+      "nextOrPayoff": "T06 menunjukkan akibat bagi James.",
+      "wordChoice": "Sebelum pekerjaan terlaksana tidak berarti tidak ada rencana sama sekali.",
+      "connection": "Dokumen dan tindakan punya waktu yang berbeda."
+    },
+    {
+      "sceneId": "T06",
+      "text": "James termasuk pekerja kota yang diberhentikan setelah banjir.",
+      "purpose": "Memberikan konflik manusia yang bersumber.",
+      "viewerQuestion": "Apakah pemecatan itu sesuai aturan?",
+      "visualAction": "Kartu kerja berpindah ke berkas.",
+      "evidence": "R6",
+      "nextOrPayoff": "T07 membayar pertanyaan hukum.",
+      "wordChoice": "Termasuk mencegah kesan ia satu-satunya.",
+      "connection": "Masalah fisik berakhir tetapi akibat manusia berlanjut."
+    },
+    {
+      "sceneId": "T07",
+      "text": "Pengadilan banding membatalkan pemecatannya pada seribu sembilan ratus sembilan puluh delapan.",
+      "purpose": "Memberikan payoff mandiri.",
+      "viewerQuestion": "Apakah semua tindakannya berarti dibenarkan?",
+      "visualAction": "Tanda pembatalan muncul di kartu kerja.",
+      "evidence": "R6",
+      "nextOrPayoff": "T08 menyatakan batas putusan.",
+      "wordChoice": "Membatalkan pemecatan spesifik pada sanksi, bukan sebab seluruh banjir.",
+      "connection": "Membedakan hasil sanksi dan temuan perilaku."
+    },
+    {
+      "sceneId": "T07",
+      "text": "Tapi dua temuan administratif tentang tindakannya sebelum menemukan titik itu tetap berlaku.",
+      "purpose": "Menjaga nuansa hukum saat durasi pendek.",
+      "viewerQuestion": "Bagaimana memastikan tanda bahaya berujung tindakan?",
+      "visualAction": "Dua catatan tetap di samping kartu kerja.",
+      "evidence": "R6",
+      "nextOrPayoff": "T09 mengundang pertanyaan yang lahir dari isi.",
+      "wordChoice": "Tetap berlaku tidak menyebutnya sepenuhnya bebas kesalahan.",
+      "connection": "Membedakan hasil sanksi dan temuan perilaku."
+    },
+    {
+      "sceneId": "T08",
+      "text": "Tandanya sudah ada, tetapi air tiba lebih dulu daripada perbaikannya.",
+      "purpose": "Meringkas perubahan dalam satu citra.",
+      "viewerQuestion": "Siapa perlu wewenang bertindak sementara?",
+      "visualAction": "Kamera dan memo terlihat sebelum garis air.",
+      "evidence": "R5; R6",
+      "nextOrPayoff": "T09 membawa pertanyaan tentang kewenangan.",
+      "wordChoice": "Lebih dulu adalah perbandingan urutan, bukan hitung mundur rekaan.",
+      "connection": "Petunjuk yang ditanam menjadi refleksi."
+    },
+    {
+      "sceneId": "T09",
+      "text": "Kalau laporan seperti ini muncul di tempatmu, siapa yang bisa mengambil tindakan sementara?",
+      "purpose": "Undangan diskusi tanpa false binary.",
+      "viewerQuestion": "Siapa perlu kewenangan bertindak?",
+      "visualAction": "Kunci keputusan mendekati laporan.",
+      "evidence": "N/A — pertanyaan normatif",
+      "nextOrPayoff": "Penutup tidak menyembunyikan hasil perkara.",
+      "wordChoice": "Sementara membuka lebih dari satu solusi.",
+      "connection": "Diskusi membahas keputusan yang mungkin ditemui di tempat kerja."
+    },
+    {
+      "sceneId": "T09",
+      "text": "Ikuti knot theory untuk cerita nyata lain tentang tanda kecil dan akibat besarnya.",
+      "purpose": "Janji serial singkat.",
+      "viewerQuestion": "Tanda biasa apa lagi yang punya konsekuensi?",
+      "visualAction": "Nama kanal muncul setelah payoff.",
+      "evidence": "N/A — janji editorial",
+      "nextOrPayoff": "Cerita sudah selesai tanpa menuntut menonton versi panjang.",
+      "wordChoice": "Nama kanal dibaca dua kata dan tetap lowercase di layar.",
+      "connection": "Diskusi membahas keputusan yang mungkin ditemui di tempat kerja."
+    }
+  ]
+}

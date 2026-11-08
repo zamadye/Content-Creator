@@ -1,0 +1,4 @@
+# Private, offline rough only; Python 3.11 on Linux was tested.
+Pillow==11.3.0
+numpy==2.2.6
+imageio-ffmpeg==0.6.0

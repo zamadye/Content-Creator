@@ -1,0 +1,31 @@
+CHICAGO 1992 — QA DRAF PRIVAT
+DRAF REKONSTRUKSI, BUKAN IZIN PRODUKSI FINAL ATAU TAYANG
+
+1. HASIL TEKNIS — TESTED, TERBATAS
+- Dua MP4 selesai dirender dan didekode lengkap dengan FFmpeg -xerror tanpa pesan error.
+- Master: 1280 × 720, 24 fps, 7.457 frame; panjang narasi 310,72 detik (~5:11), video 310,71 detik. 32 scene, 67 cue subtitle perkiraan.
+- Short: 720 × 1280, 24 fps, 1.485 frame; panjang narasi 61,88 detik (~1:02), video 61,88 detik. 9 scene, 18 cue subtitle perkiraan. Ini resolusi pratinjau, bukan master vertikal final.
+- Cut pertama di frame 66 = 2,75 detik, setelah visual banjir frame 0. Pendeteksian hening pada file voice pembuka menunjukkan aktivitas terakhir sekitar 2,36 detik; itu ukuran sinyal, bukan review mendengar atau penilaian efek hook.
+- EBU R128 FFmpeg: master -19,2 LUFS terintegrasi, puncak sejati -3,8 dBFS; Short -19,2 LUFS, -4,6 dBFS. Angka ini bukan bukti musik cocok atau ucapan jelas.
+- Timeline dan subtitle terurut; cue terpendek 2,36 detik master dan 1,68 detik Short. Tahun ditulis sebagai angka agar frasa tidak terbelah. Caption masih perkiraan: jeda/kalimat tidak disejajarkan lewat transkripsi dan harus diperiksa dengan mendengar.
+- PNG thumbnail 1280 × 720 dan 1080 × 1920, poster 1080 × 1350; file dibaca/diperiksa dan beberapa frame serta dua halaman PDF diperiksa visual. Ini bukan uji keterbacaan perangkat nyata, safe area platform, atau penilaian desain akhir.
+- Tes sintetis renderer 14/14, story gate 16/16, sentence-audit 7/7; hanya menguji hal yang dirancang tes, bukan kualitas atau kebenaran. Versi awal sempat kehabisan memori di S12; overlay statis satu frame diuji lalu render ulang berhasil.
+
+SHA-256 HASIL DRAF
+MASTER_ANIMATIC_DRAF_PRIVAT.mp4  a3367ed1754148b4e53f6022a0e98457018cb39f7fb485b9080a86b676a28f8c
+SHORT_ANIMATIC_DRAF_PRIVAT.mp4   70d746d78b14071adbadd89725736797cb30de4b9347b650b77575fba2ffa342
+master.script.json              9e3dc093cf18fd41b8b7f9aca3843fe816d62a07d906bd26aea0f53acf919be7
+short.script.json               360ad37b5cf1bc359f5bdedec62c88f9d851106b247e5e681fed0a6ed5ba6976
+
+2. GATE YANG BELUM LOLOS
+- FAIL sesuai desain: prevoice master dengan receipt kosong. Tidak ada reviewer yang telah dicatat. Gate prevoice Short turunan belum diimplementasikan; audit kalimatnya saja tidak menggantikan gate atau review manusia.
+- NOT TESTED: review independen per kalimat, penonton yang belum tahu cerita, efek emosi/keinginan diskusi, uji tonton dan dengar penuh, pelafalan nama/CTA, sinkron subtitle, playback di ponsel, izin tayang, dan kesesuaian rig/gerak dengan standar final.
+- NEEDS REVIEW: fakta dan batas sumber, hak suara/ilustrasi/font/musik, visual terhadap naskah, disclosure AI setiap platform, thumbnail dan poster. Skema bukan peta berskala atau simulasi; ilustrasi bukan foto/rekaman arsip. Tidak ada klaim kelangkaan topik atau hak atas footage arsip.
+- Sepuluh gambar rekonstruksi tersedia; upaya membuat gambar kesebelas terhenti oleh batas generator pada sesi ini. Tidak memakai footage arsip atau Coverr yang belum diizinkan. Perlu sumber visual tambahan dan clearance bila versi akhir menggunakannya.
+- Efektivitas cerita, respons penonton, kemudahan berbagi, dan alasan kembali adalah hipotesis, bukan hasil uji.
+
+3. RIWAYAT DAN BATAS FAKTA
+Pembuka master menggunakan laporan ikan berdasarkan ingatan Larry Langford di WBEZ; titik pandangnya dikoreksi menjadi tepi sungai, bukan mengklaim ia berdiri di jembatan. Putusan banding membatalkan pemecatan James McTigue namun mempertahankan dua temuan administratif sebelum 13 Maret. Jangan merangkum sebagai pembebasan total atau putusan atas semua penyebab banjir. Uraian sumber dan perbedaan biaya ada di riset-batas-fakta.md dan laporan.
+
+4. STATUS DISTRIBUSI
+Belum dijadwalkan, belum diunggah publik, dan tidak ada perubahan pada video lama. Perlu persetujuan dan gate QA yang berlaku sebelum membuat final atau mengirim ke Buffer; jika aturan platform mewajibkan disclosure AI atau belum jelas, tahan unggahan dan minta keputusan yang memenuhi aturan.

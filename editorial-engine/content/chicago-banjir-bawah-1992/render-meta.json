@@ -1,0 +1,666 @@
+{
+  "master": [
+    {
+      "id": "S01",
+      "asset": "01-basement.jpg",
+      "beat": "B6",
+      "framing": "Kilas puncak: basement, air dan kursi, cut sebelum penjelasan.",
+      "objectMap": [
+        {
+          "object": "air sungai",
+          "action": "menerobos pintu bawah"
+        },
+        {
+          "object": "kursi kantor",
+          "action": "terdorong oleh air"
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "asset": "09-evacuate.jpg",
+      "beat": "B1",
+      "framing": "Jalan dan gedung dari luar; kontras dengan ruang bawah tanah.",
+      "objectMap": [
+        {
+          "object": "jalan kota",
+          "action": "tetap kering"
+        },
+        {
+          "object": "gedung kantor",
+          "action": "menyembunyikan ruang bawahnya"
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "asset": "02-fish.jpg",
+      "beat": "B1",
+      "framing": "Close-up ikan di basement: clue, bukan kejadian rekaan arsip.",
+      "objectMap": [
+        {
+          "object": "ikan",
+          "action": "berenang melewati berkas"
+        },
+        {
+          "object": "berkas",
+          "action": "mengapung di genangan"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "asset": "08-vortex.jpg",
+      "beat": "B1",
+      "framing": "Jurnalis sebagai pengamat di tepi sungai; pusaran dekat jembatan.",
+      "objectMap": [
+        {
+          "object": "pusaran sungai",
+          "action": "berputar dekat tiang"
+        },
+        {
+          "object": "tepi sungai",
+          "action": "menjadi tempat wartawan mengamati"
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "asset": "08-vortex.jpg",
+      "beat": "B1",
+      "framing": "Diam sejenak pada pusaran; tidak mengklaim bukti tunggal.",
+      "objectMap": [
+        {
+          "object": "ikan",
+          "action": "menjadi petunjuk asal air"
+        },
+        {
+          "object": "pusaran",
+          "action": "menandai lokasi aliran ke bawah"
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "asset": "03-old-tunnel.jpg",
+      "beat": "B1",
+      "framing": "Kereta barang lama dalam satu lorong.",
+      "objectMap": [
+        {
+          "object": "kereta barang",
+          "action": "membawa batu bara dan paket"
+        },
+        {
+          "object": "rel",
+          "action": "menghubungkan bangunan"
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "asset": "03-old-tunnel.jpg",
+      "beat": "B1",
+      "framing": "Kereta hilang; kabel tetap melewati lorong.",
+      "objectMap": [
+        {
+          "object": "kereta",
+          "action": "berhenti digunakan"
+        },
+        {
+          "object": "kabel",
+          "action": "tetap melewati terowongan"
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "asset": "03-old-tunnel.jpg",
+      "beat": "B1",
+      "framing": "Penampang ilustratif sungai, terowongan dan basement.",
+      "objectMap": [
+        {
+          "object": "sungai",
+          "action": "mengalir di atas sebagian jalur"
+        },
+        {
+          "object": "basement",
+          "action": "terhubung dengan terowongan"
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "asset": "04-river-piling.jpg",
+      "beat": "B2",
+      "framing": "Pekerjaan tiang 1991 tanpa memberi niat buruk pada pekerja.",
+      "objectMap": [
+        {
+          "object": "tiang kayu",
+          "action": "dipasang untuk melindungi jembatan"
+        },
+        {
+          "object": "terowongan",
+          "action": "berada di dekat pekerjaan"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "asset": "05-leak.jpg",
+      "beat": "B3",
+      "framing": "Kamera pekerja merekam dinding, air dan lumpur.",
+      "objectMap": [
+        {
+          "object": "kamera",
+          "action": "merekam dinding rusak"
+        },
+        {
+          "object": "rembesan",
+          "action": "membasahi lantai"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "asset": "05-leak.jpg",
+      "beat": "B3",
+      "framing": "Pencarian awal di cabang lorong yang salah; tidak menyimpulkan niat.",
+      "objectMap": [
+        {
+          "object": "peta lorong",
+          "action": "menunjuk cabang awal"
+        },
+        {
+          "object": "senter",
+          "action": "menyapu dinding yang salah"
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "asset": "05-leak.jpg",
+      "beat": "B3",
+      "framing": "Jam dan peta; pengadilan membahas masa tunggu.",
+      "objectMap": [
+        {
+          "object": "kalender",
+          "action": "berpindah dari Februari ke Maret"
+        },
+        {
+          "object": "peta lorong",
+          "action": "masih tanpa titik pasti"
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "asset": "06-map.jpg",
+      "beat": "B4",
+      "framing": "Peta dan senter menghubungkan lubang dengan sungai.",
+      "objectMap": [
+        {
+          "object": "peta",
+          "action": "dicocokkan dengan titik kerusakan"
+        },
+        {
+          "object": "sungai",
+          "action": "ternyata berada di atas titik itu"
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "asset": "07-memo.jpg",
+      "beat": "B4",
+      "framing": "Laporan bergerak antar tangan; foto sebagai bukti.",
+      "objectMap": [
+        {
+          "object": "laporan",
+          "action": "disampaikan kepada atasan"
+        },
+        {
+          "object": "foto",
+          "action": "merekam dinding basah"
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "asset": "06-map.jpg",
+      "beat": "B4",
+      "framing": "Peta sebagai benda yang berubah makna.",
+      "objectMap": [
+        {
+          "object": "peta",
+          "action": "memperlihatkan sungai di atas lorong"
+        },
+        {
+          "object": "lorong",
+          "action": "tersambung ke ruang bawah gedung"
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "asset": "07-memo.jpg",
+      "beat": "B4",
+      "framing": "Memo sebagai keputusan yang dapat diverifikasi, bukan properti resmi.",
+      "objectMap": [
+        {
+          "object": "memo",
+          "action": "meminta perbaikan segera"
+        },
+        {
+          "object": "dinding",
+          "action": "tetap menahan sungai"
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "asset": "07-memo.jpg",
+      "beat": "B5",
+      "framing": "Kertas penawaran dan peta; jangan menuduh satu orang tanpa bukti.",
+      "objectMap": [
+        {
+          "object": "rencana sekat",
+          "action": "dirancang untuk mengisolasi bagian rusak"
+        },
+        {
+          "object": "penawaran kontraktor",
+          "action": "dibandingkan dengan estimasi"
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "asset": "08-vortex.jpg",
+      "beat": "B5",
+      "framing": "Kembali ke sungai tenang sebelum jebol.",
+      "objectMap": [
+        {
+          "object": "sungai",
+          "action": "tetap berada di atas lorong"
+        },
+        {
+          "object": "peringatan",
+          "action": "sudah tersampaikan"
+        }
+      ]
+    },
+    {
+      "id": "S19",
+      "asset": "01-basement.jpg",
+      "beat": "B6",
+      "framing": "Kembali ke kilas pembuka dengan sebab.",
+      "objectMap": [
+        {
+          "object": "dinding terowongan",
+          "action": "jebol"
+        },
+        {
+          "object": "air sungai",
+          "action": "masuk ke lorong barang"
+        }
+      ]
+    },
+    {
+      "id": "S20",
+      "asset": "01-basement.jpg",
+      "beat": "B6",
+      "framing": "Air ke gedung; jalan kering sebagai kontras.",
+      "objectMap": [
+        {
+          "object": "air",
+          "action": "naik ke basement"
+        },
+        {
+          "object": "pekerja",
+          "action": "meninggalkan gedung"
+        }
+      ]
+    },
+    {
+      "id": "S21",
+      "asset": "08-vortex.jpg",
+      "beat": "B6",
+      "framing": "Pusaran dan ikan kembali; momen detektif terbayar.",
+      "objectMap": [
+        {
+          "object": "pusaran",
+          "action": "menandai aliran menuju terowongan"
+        },
+        {
+          "object": "ikan",
+          "action": "dilaporkan dalam air di basement"
+        }
+      ]
+    },
+    {
+      "id": "S22",
+      "asset": "09-evacuate.jpg",
+      "beat": "B6",
+      "framing": "Evakuasi di jalan yang tetap kering; listrik dipadamkan sebagai perlindungan.",
+      "objectMap": [
+        {
+          "object": "saklar listrik",
+          "action": "dimatikan untuk keselamatan"
+        },
+        {
+          "object": "pekerja kota",
+          "action": "meninggalkan pusat kota"
+        }
+      ]
+    },
+    {
+      "id": "S23",
+      "asset": "10-repair.jpg",
+      "beat": "B6",
+      "framing": "Truk batu dan pekerja; upaya yang menemui hambatan.",
+      "objectMap": [
+        {
+          "object": "truk",
+          "action": "menuangkan material penutup"
+        },
+        {
+          "object": "arus",
+          "action": "menghalangi penyelam"
+        }
+      ]
+    },
+    {
+      "id": "S24",
+      "asset": "10-repair.jpg",
+      "beat": "B8",
+      "framing": "Skema sekat dan pompa di lorong, bukan simulasi presisi.",
+      "objectMap": [
+        {
+          "object": "sekat",
+          "action": "membatasi jalur air"
+        },
+        {
+          "object": "pompa",
+          "action": "mengalirkan air keluar perlahan"
+        }
+      ]
+    },
+    {
+      "id": "S25",
+      "asset": "09-evacuate.jpg",
+      "beat": "B8",
+      "framing": "Jalan, selang dan tempat usaha tutup.",
+      "objectMap": [
+        {
+          "object": "selang",
+          "action": "mengeluarkan air dari basement"
+        },
+        {
+          "object": "toko",
+          "action": "menunggu dapat dibuka kembali"
+        }
+      ]
+    },
+    {
+      "id": "S26",
+      "asset": "06-map.jpg",
+      "beat": "B7",
+      "framing": "Peta, kamera dan tanda penghentian kerja; tokoh tanpa likeness.",
+      "objectMap": [
+        {
+          "object": "foto",
+          "action": "mengingatkan temuan James"
+        },
+        {
+          "object": "berkas pekerjaan",
+          "action": "menandai pemberhentian"
+        }
+      ]
+    },
+    {
+      "id": "S27",
+      "asset": "07-memo.jpg",
+      "beat": "B7",
+      "framing": "Berkas dan palu abstrak; keputusan pengadilan bukan dokumen tiruan.",
+      "objectMap": [
+        {
+          "object": "berkas perkara",
+          "action": "berpindah ke pengadilan banding"
+        },
+        {
+          "object": "aturan kepegawaian",
+          "action": "menjadi dasar putusan"
+        }
+      ]
+    },
+    {
+      "id": "S28",
+      "asset": "06-map.jpg",
+      "beat": "B7",
+      "framing": "Dua temuan administratif dan peta; bukan adegan menghukum.",
+      "objectMap": [
+        {
+          "object": "dua catatan temuan",
+          "action": "tetap terbaca sebagai temuan administratif"
+        },
+        {
+          "object": "kartu kerja",
+          "action": "menunjukkan sanksi pemecatan dibatalkan"
+        }
+      ]
+    },
+    {
+      "id": "S29",
+      "asset": "10-repair.jpg",
+      "beat": "B8",
+      "framing": "Kembali ke sistem; sekat dan kartu kerja sebagai dua akibat berbeda.",
+      "objectMap": [
+        {
+          "object": "kartu kerja",
+          "action": "kembali ke meja"
+        },
+        {
+          "object": "sekat",
+          "action": "membatasi area rawan banjir"
+        }
+      ]
+    },
+    {
+      "id": "S30",
+      "asset": "05-leak.jpg",
+      "beat": "B9",
+      "framing": "Kembali ke kamera, peta, memo dan retakan pertama.",
+      "objectMap": [
+        {
+          "object": "kamera",
+          "action": "mengabadikan petunjuk"
+        },
+        {
+          "object": "memo",
+          "action": "membawa peringatan"
+        },
+        {
+          "object": "air",
+          "action": "datang sebelum perbaikan"
+        }
+      ]
+    },
+    {
+      "id": "S31",
+      "asset": "07-memo.jpg",
+      "beat": "B9",
+      "framing": "Pertanyaan keputusan di atas berkas, bukan pilihan palsu.",
+      "objectMap": [
+        {
+          "object": "laporan",
+          "action": "menunggu tindakan"
+        },
+        {
+          "object": "keputusan sementara",
+          "action": "dapat dipertimbangkan sambil biaya dihitung"
+        }
+      ]
+    },
+    {
+      "id": "S32",
+      "asset": "09-evacuate.jpg",
+      "beat": "B9",
+      "framing": "Penutup tenang, kanal dan janji serial.",
+      "objectMap": [
+        {
+          "object": "kota",
+          "action": "kembali terlihat tenang"
+        },
+        {
+          "object": "nama kanal",
+          "action": "muncul sebagai ajakan penutup"
+        }
+      ]
+    }
+  ],
+  "short": [
+    {
+      "id": "T01",
+      "asset": "01-basement.jpg",
+      "beat": "B6",
+      "framing": "Kilas puncak: air membanjiri basement.",
+      "objectMap": [
+        {
+          "object": "air",
+          "action": "memasuki basement"
+        },
+        {
+          "object": "kursi",
+          "action": "terdorong air"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "asset": "08-vortex.jpg",
+      "beat": "B6",
+      "framing": "Sungai dan lorong bawah.",
+      "objectMap": [
+        {
+          "object": "sungai",
+          "action": "mengalir ke celah"
+        },
+        {
+          "object": "terowongan",
+          "action": "menyalurkan air ke gedung"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "asset": "05-leak.jpg",
+      "beat": "B4",
+      "framing": "Dinding basah dan kru kabel.",
+      "objectMap": [
+        {
+          "object": "kamera",
+          "action": "merekam dinding rusak"
+        },
+        {
+          "object": "dinding",
+          "action": "merembes di bawah sungai"
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "asset": "06-map.jpg",
+      "beat": "B4",
+      "framing": "Petugas, peta dan laporan.",
+      "objectMap": [
+        {
+          "object": "peta",
+          "action": "membantu menemukan lokasi"
+        },
+        {
+          "object": "laporan",
+          "action": "disampaikan ke atasan"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "asset": "07-memo.jpg",
+      "beat": "B5",
+      "framing": "Memo dan rencana sekat.",
+      "objectMap": [
+        {
+          "object": "memo",
+          "action": "meminta perbaikan segera"
+        },
+        {
+          "object": "sekat",
+          "action": "belum dipasang ketika dinding jebol"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "asset": "06-map.jpg",
+      "beat": "B7",
+      "framing": "Berkas kerja setelah banjir.",
+      "objectMap": [
+        {
+          "object": "berkas",
+          "action": "menunjukkan proses disiplin"
+        },
+        {
+          "object": "kartu kerja",
+          "action": "menandai pemecatan"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "asset": "07-memo.jpg",
+      "beat": "B7",
+      "framing": "Putusan dan dua catatan dibedakan.",
+      "objectMap": [
+        {
+          "object": "putusan",
+          "action": "membatalkan pemecatan"
+        },
+        {
+          "object": "dua temuan",
+          "action": "tetap dicatat"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "asset": "05-leak.jpg",
+      "beat": "B9",
+      "framing": "Kamera, peta dan memo kembali.",
+      "objectMap": [
+        {
+          "object": "kamera",
+          "action": "merekam tanda awal"
+        },
+        {
+          "object": "memo",
+          "action": "meminta tindakan"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "asset": "07-memo.jpg",
+      "beat": "B9",
+      "framing": "Satu pertanyaan dan janji serial.",
+      "objectMap": [
+        {
+          "object": "laporan",
+          "action": "menunggu tindak lanjut"
+        },
+        {
+          "object": "penanda keputusan",
+          "action": "muncul di sampingnya"
+        }
+      ]
+    }
+  ]
+}

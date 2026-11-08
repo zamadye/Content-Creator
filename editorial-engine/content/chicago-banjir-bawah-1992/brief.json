@@ -1,0 +1,694 @@
+{
+  "schemaVersion": 1,
+  "format": "long-master",
+  "storyId": "chicago-banjir-bawah-1992",
+  "scriptId": "chicago-banjir-bawah-master-v1",
+  "truthMode": "fact",
+  "fictionDisclosure": "",
+  "premise": "Saat sungai masuk ke jaringan pengantar barang di bawah Chicago, pekerja, petugas kota dan tim darurat berusaha memahami serta menghentikan air; peringatan sudah melalui beberapa tangan sebelum dinding gagal, dan perkara seorang petugas mengubah cara menilai tanggung jawab.",
+  "dramaticQuestion": "Bagaimana sungai membanjiri basement saat jalan tetap kering, dan apa yang terjadi pada peringatan sebelumnya?",
+  "entity": "Warga dan pekerja pusat Chicago; James McTigue sebagai satu sudut pandang yang terbatas.",
+  "goal": "Mengenali kerusakan, melindungi bangunan dan orang, lalu membatasi serta mengeluarkan air.",
+  "stakes": "Keselamatan dan pekerjaan orang di pusat kota, gangguan usaha dan arsip, serta nasib kerja petugas setelah banjir.",
+  "audienceAnchor": "Pengamatan air di ruang kerja dan laporan masalah yang harus berpindah tangan; bukan asumsi semua orang punya pengalaman yang sama.",
+  "sources": [
+    {
+      "id": "R1",
+      "url": "https://www.upi.com/Archives/1992/04/13/Flooding-forces-evacuation-of-Chicago-Loop/2149703137600/",
+      "supports": "Laporan hari kejadian: jalan tidak tergenang, basement, listrik, evakuasi, upaya penutupan dan keterbatasan penyelam.",
+      "limits": "Kronologi awal; dugaan sebab dan angka hari pertama belum tentu final; tak menggunakan kutipan video atau fotonya."
+    },
+    {
+      "id": "R2",
+      "url": "https://web.archive.org/web/20080607013746/http:/www.hq.usace.army.mil/CEPA/PUBS/may02/story10.htm",
+      "supports": "US Army Corps of Engineers, 2002: pekerjaan tiang, sejarah fungsi terowongan, tanggap darurat, sekat dan pompa.",
+      "limits": "Retrospektif pemerintah berbasis ingatan dan sumber lain; bukan rekonstruksi geometrik atau putusan soal kesalahan hukum."
+    },
+    {
+      "id": "R3",
+      "url": "https://www.wbez.org/curious-city/2016/08/21/why-the-1992-loop-flood-is-the-most-chicago-story-ever",
+      "supports": "Laporan lokal dan penuturan reporter Larry Langford tentang ikan dan pusaran; sejarah serta sengketa tanggung jawab.",
+      "limits": "Detail ikan adalah ingatan Langford yang dikutip WBEZ, bukan rekaman yang kami verifikasi; sebagian penyebab dan tanggung jawab masih diperdebatkan."
+    },
+    {
+      "id": "R4",
+      "url": "https://www.cbsnews.com/chicago/news/great-chicago-flood-30th-anniversary-loop-chicago-river/",
+      "supports": "Asal banjir, dinding rusak, perubahan fungsi terowongan, pemadaman dan dampak pekerjaan.",
+      "limits": "Artikel retrospektif; foto dan footage berlisensi, tidak digunakan. Keterangan satu foto memuat salah tahun; tidak dijadikan sumber tanggal."
+    },
+    {
+      "id": "R5",
+      "url": "https://www.latimes.com/archives/la-xpm-1992-04-15-mn-141-story.html",
+      "supports": "Laporan dua hari kemudian: video kru Januari, pemberitahuan Februari, memo 2 April, estimasi internal dan penawaran.",
+      "limits": "Kronologi berdasarkan informasi awal wali kota. Estimasi internal bukan penawaran kontraktor; tak menggunakan angka biaya pasti."
+    },
+    {
+      "id": "R6",
+      "url": "https://www.courtlistener.com/opinion/2115818/mctigue-v-personnel-bd-of-chicago/",
+      "supports": "Putusan Pengadilan Banding Illinois 24 September 1998: pencarian awal, temuan, laporan, dua temuan dan pembatalan pemecatan.",
+      "limits": "Perkara disiplin McTigue, bukan penetapan seluruh tanggung jawab banjir. Hakim mempertahankan dua temuan perilaku pra-13 Maret dengan dasar tipis, namun aturan melarang pemecatan sebagai sanksi pertama untuk keduanya."
+    },
+    {
+      "id": "R7",
+      "url": "https://www.nytimes.com/1992/04/15/us/chicago-loop-faces-weeklong-close.html",
+      "supports": "Laporan 15 April mengutip isi memo 2 April: perbaikan segera dan risiko banjir.",
+      "limits": "Rincian melalui teks terindeks; artikel lengkap mungkin paywall. R5 juga menyokong klaim yang dipakai."
+    },
+    {
+      "id": "R8",
+      "url": "https://www.upi.com/Archives/1998/09/25/Loop-flood-engineer-wrongfully-fired/1054906696000/",
+      "supports": "Konfirmasi contemporaneous pembatalan pemecatan setelah banding.",
+      "limits": "Ringkasan UPI terlalu menyederhanakan temuan; narasi mengikuti nuansa putusan R6."
+    },
+    {
+      "id": "R9",
+      "url": "https://www.chicagotribune.com/2011/11/24/catching-up-with-newsmakers-of-the-90s/",
+      "supports": "Laporan 2011 bahwa McTigue kembali bekerja pada 1999 setelah keputusan 1998.",
+      "limits": "Teks terindeks di hasil pencarian; full fetch terhalang. Perlu cross-check oleh reviewer sebelum final."
+    }
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "kind": "context",
+      "before": "Pekerja datang ke gedung dan jalan terlihat kering.",
+      "event": "Laporan ikan dan pusaran mengarah ke sejarah terowongan yang menghubungkan gedung.",
+      "after": "Kita tahu satu jaringan lama masih melintas di bawah sungai.",
+      "causeToNext": "Pekerjaan pelindung jembatan terjadi dekat jaringan tersebut.",
+      "emotionHypothesis": "Akrab lalu janggal: banjir di ruang yang tak terlihat.",
+      "sourceIds": [
+        "R1",
+        "R2",
+        "R3"
+      ]
+    },
+    {
+      "id": "B2",
+      "kind": "disruption",
+      "before": "Terowongan dan sungai dipisahkan dinding.",
+      "event": "Pekerjaan tiang terlalu dekat dan dinding terowongan rusak menurut Korps Insinyur.",
+      "after": "Ada kemungkinan jalur antara sungai dan jaringan.",
+      "causeToNext": "Kru kabel kemudian menemukan kondisi dinding yang rusak.",
+      "emotionHypothesis": "Khawatir karena pekerjaan pelindung punya akibat tak diinginkan.",
+      "sourceIds": [
+        "R2",
+        "R4"
+      ]
+    },
+    {
+      "id": "B3",
+      "kind": "escalation",
+      "before": "Lokasi dan tingkat bahaya belum terkonfirmasi.",
+      "event": "Kru merekam kerusakan; laporan awal mengarah ke lokasi yang tidak cocok dan pemberitahuan berikut belum segera berujung temuan.",
+      "after": "Waktu berjalan sementara titik sebenarnya belum ditemukan oleh James.",
+      "causeToNext": "Ia dan pekerja lain akhirnya mencari titik yang benar pada 13 Maret.",
+      "emotionHypothesis": "Frustrasi pada informasi yang salah lokasi dan jeda.",
+      "sourceIds": [
+        "R5",
+        "R6"
+      ]
+    },
+    {
+      "id": "B4",
+      "kind": "escalation",
+      "before": "Kerusakan belum terhubung jelas dengan sungai dalam laporan awal.",
+      "event": "James menemukan dan memetakan titik, melapor; memo 2 April meminta tindakan segera dan memperingatkan banjir jaringan.",
+      "after": "Risiko telah masuk ke rantai pemeriksaan dan keputusan.",
+      "causeToNext": "Rencana sekat harus melalui proses kontraktor dan penawaran.",
+      "emotionHypothesis": "Risiko terasa karena petunjuk diterjemahkan menjadi ancaman konkret.",
+      "sourceIds": [
+        "R6",
+        "R5"
+      ]
+    },
+    {
+      "id": "B5",
+      "kind": "crisis",
+      "before": "Perbaikan telah disarankan tetapi belum terlaksana.",
+      "event": "Sekat direncanakan; penawaran lebih tinggi dari estimasi internal dan pemerintah mencari tawaran lain.",
+      "after": "Perbaikan belum terjadi ketika air masih ditahan dinding yang rusak.",
+      "causeToNext": "Pada 13 April dinding gagal sebelum pekerjaan terlaksana.",
+      "emotionHypothesis": "Tegang karena proses keputusan dan risiko fisik tidak menunggu pada kecepatan sama.",
+      "sourceIds": [
+        "R5",
+        "R6"
+      ]
+    },
+    {
+      "id": "B6",
+      "kind": "climax",
+      "before": "Sungai masih tertahan dari terowongan.",
+      "event": "Dinding jebol; sungai mengalir ke lorong, basement dan mengganggu aktivitas pusat kota.",
+      "after": "Evakuasi dan upaya pembatasan diperlukan; pusaran dan ikan kini punya konteks.",
+      "causeToNext": "Tindakan darurat membatasi air; sesudahnya tanggung jawab diteliti.",
+      "emotionHypothesis": "Terkejut lalu mengerti bahwa air punya rute di bawah jalan kering.",
+      "sourceIds": [
+        "R1",
+        "R2",
+        "R3"
+      ]
+    },
+    {
+      "id": "B7",
+      "kind": "turning_point",
+      "before": "James sudah memeriksa dan melaporkan kerusakan setelah menemukan lokasinya.",
+      "event": "Ia diberhentikan; pengadilan banding membatalkan pemecatan tetapi tetap membiarkan dua temuan administratif mengenai tindakan sebelumnya.",
+      "after": "Ia bukan tokoh yang tepat direduksi menjadi sepenuhnya bersalah atau sepenuhnya tanpa kekurangan.",
+      "causeToNext": "Keputusan disiplin dan perubahan fisik jaringan menghasilkan konsekuensi berbeda.",
+      "emotionHypothesis": "Terusik oleh jarak antara peringatan, tanggung jawab, dan beratnya sanksi.",
+      "sourceIds": [
+        "R6",
+        "R8"
+      ]
+    },
+    {
+      "id": "B8",
+      "kind": "consequence",
+      "before": "Air sudah menyebar dan pekerjaan James belum pulih.",
+      "event": "Sekat dan pompa membatasi serta mengeringkan banjir; James kembali bekerja pada 1999.",
+      "after": "Ada upaya membatasi banjir masa depan dan satu akibat pekerjaan dipulihkan.",
+      "causeToNext": "Perbedaan antara informasi dan tindakan menjadi gema akhir.",
+      "emotionHypothesis": "Lega parsial tanpa meniadakan kerusakan dan penantian.",
+      "sourceIds": [
+        "R2",
+        "R3",
+        "R6",
+        "R9"
+      ]
+    },
+    {
+      "id": "B9",
+      "kind": "payoff",
+      "before": "Kamera, peta dan memo tampak seperti benda terpisah.",
+      "event": "Ketiganya dirangkai sebagai tanda yang mendahului air dan pertanyaan tentang kewenangan bertindak.",
+      "after": "Jalan air dan akibatnya sudah dijawab; diskusi tinggal soal desain respons.",
+      "causeToNext": "Janji serial menawarkan kisah lain tentang tanda biasa dan konsekuensi besar.",
+      "emotionHypothesis": "Reflektif: ingin membicarakan prosedur di lingkungan sendiri tanpa mengarang kesalahan.",
+      "sourceIds": [
+        "R5",
+        "R6"
+      ]
+    }
+  ],
+  "hook": {
+    "entityAtFrame0": "Air memasuki basement dan mendorong kursi.",
+    "peakVisual": "Kilas air dan kursi dari banjir B6, jelas berlabel rekonstruksi ilustratif.",
+    "openingLine": "Banjir datang dari bawah.",
+    "cutQuestion": "Dari mana air bisa masuk saat jalan di atas kering?",
+    "climaxBeatId": "B6",
+    "answerBeatId": "B6",
+    "visualCutSeconds": null,
+    "spokenOpeningSeconds": null
+  },
+  "turn": {
+    "clueBeatId": "B4",
+    "revealBeatId": "B7",
+    "oldMeaning": "James yang melaporkan dapat disederhanakan menjadi pahlawan tanpa cela atau orang yang semata bersalah.",
+    "newMeaning": "Putusan membatalkan pemecatan namun tetap membiarkan dua temuan administratif untuk tindakan sebelum 13 Maret.",
+    "changedStake": "Pertanyaan bergeser dari siapa satu-satunya penyebab ke bagaimana sanksi dan rantai tanggung jawab dinilai.",
+    "evidenceBoundary": "R6 khusus perkara disiplin, bukan putusan menyeluruh penyebab atau bebas dari setiap kesalahan."
+  },
+  "interactions": {
+    "comment": {
+      "beatId": "B7",
+      "storyMoment": "Peringatan disampaikan, perbaikan belum berjalan, seorang petugas kemudian diberhentikan dengan putusan yang bernuansa.",
+      "question": "Siapa seharusnya berwenang mengambil tindakan sementara sambil biaya perbaikan diputuskan?",
+      "whyDiscuss": "Penonton dapat membawa pengalaman laporan masalah dan mempertimbangkan kewenangan serta pengawasan.",
+      "viewpoints": [
+        "Tim teknis lapangan perlu wewenang mengamankan risiko segera dengan batas biaya dan pengawasan.",
+        "Otoritas keselamatan independen atau pimpinan lintas unit perlu memutuskan tindakan darurat sambil teknisi memetakan bahaya."
+      ],
+      "avoidFalseBalance": "Tidak memperdebatkan apakah keselamatan harus diperhatikan; pilihan lain dan kombinasi mekanisme sah."
+    },
+    "share": {
+      "beatId": "B9",
+      "recipient": "Rekan kerja yang pernah melaporkan masalah fasilitas atau keselamatan.",
+      "value": "Kamera, peta dan memo memberi contoh perbedaan laporan, kewenangan dan tindakan."
+    },
+    "follow": {
+      "seriesPromise": "Cerita nyata tentang hal biasa atau tersembunyi yang mengubah nasib banyak orang.",
+      "whyReturn": "Cerita baru membayar petunjuk melalui kejadian dan akibat, bukan menggantung jawaban."
+    }
+  },
+  "shortPlan": {
+    "sourceBeatId": "B7",
+    "context": "Chicago 1992: kerusakan terowongan di bawah sungai ditemukan sebelum banjir.",
+    "miniConflict": "Setelah laporan dan banjir, petugas yang memeriksa ikut diberhentikan.",
+    "standalonePayoff": "Banding membatalkan pemecatan tetapi tetap membiarkan dua temuan perilaku sebelumnya.",
+    "distortionRisk": "Jangan menghapus jeda pencarian awal, dua temuan atau perbedaan sanksi dengan kesalahan keseluruhan. Naskah pendek perlu menyebut batas putusan."
+  },
+  "scenePlan": [
+    {
+      "sceneId": "S01",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "air sungai",
+          "action": "menerobos pintu bawah"
+        },
+        {
+          "object": "kursi kantor",
+          "action": "terdorong oleh air"
+        }
+      ]
+    },
+    {
+      "sceneId": "S02",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "jalan kota",
+          "action": "tetap kering"
+        },
+        {
+          "object": "gedung kantor",
+          "action": "menyembunyikan ruang bawahnya"
+        }
+      ]
+    },
+    {
+      "sceneId": "S03",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "ikan",
+          "action": "berenang melewati berkas"
+        },
+        {
+          "object": "berkas",
+          "action": "mengapung di genangan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S04",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "pusaran sungai",
+          "action": "berputar dekat tiang"
+        },
+        {
+          "object": "tepi sungai",
+          "action": "menjadi tempat wartawan mengamati"
+        }
+      ]
+    },
+    {
+      "sceneId": "S05",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "ikan",
+          "action": "menjadi petunjuk asal air"
+        },
+        {
+          "object": "pusaran",
+          "action": "menandai lokasi aliran ke bawah"
+        }
+      ]
+    },
+    {
+      "sceneId": "S06",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "kereta barang",
+          "action": "membawa batu bara dan paket"
+        },
+        {
+          "object": "rel",
+          "action": "menghubungkan bangunan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S07",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "kereta",
+          "action": "berhenti digunakan"
+        },
+        {
+          "object": "kabel",
+          "action": "tetap melewati terowongan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S08",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "sungai",
+          "action": "mengalir di atas sebagian jalur"
+        },
+        {
+          "object": "basement",
+          "action": "terhubung dengan terowongan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S09",
+      "beatId": "B2",
+      "objectMap": [
+        {
+          "object": "tiang kayu",
+          "action": "dipasang untuk melindungi jembatan"
+        },
+        {
+          "object": "terowongan",
+          "action": "berada di dekat pekerjaan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S10",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "kamera",
+          "action": "merekam dinding rusak"
+        },
+        {
+          "object": "rembesan",
+          "action": "membasahi lantai"
+        }
+      ]
+    },
+    {
+      "sceneId": "S11",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "peta lorong",
+          "action": "menunjuk cabang awal"
+        },
+        {
+          "object": "senter",
+          "action": "menyapu dinding yang salah"
+        }
+      ]
+    },
+    {
+      "sceneId": "S12",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "kalender",
+          "action": "berpindah dari Februari ke Maret"
+        },
+        {
+          "object": "peta lorong",
+          "action": "masih tanpa titik pasti"
+        }
+      ]
+    },
+    {
+      "sceneId": "S13",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "peta",
+          "action": "dicocokkan dengan titik kerusakan"
+        },
+        {
+          "object": "sungai",
+          "action": "ternyata berada di atas titik itu"
+        }
+      ]
+    },
+    {
+      "sceneId": "S14",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "laporan",
+          "action": "disampaikan kepada atasan"
+        },
+        {
+          "object": "foto",
+          "action": "merekam dinding basah"
+        }
+      ]
+    },
+    {
+      "sceneId": "S15",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "peta",
+          "action": "memperlihatkan sungai di atas lorong"
+        },
+        {
+          "object": "lorong",
+          "action": "tersambung ke ruang bawah gedung"
+        }
+      ]
+    },
+    {
+      "sceneId": "S16",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "memo",
+          "action": "meminta perbaikan segera"
+        },
+        {
+          "object": "dinding",
+          "action": "tetap menahan sungai"
+        }
+      ]
+    },
+    {
+      "sceneId": "S17",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "rencana sekat",
+          "action": "dirancang untuk mengisolasi bagian rusak"
+        },
+        {
+          "object": "penawaran kontraktor",
+          "action": "dibandingkan dengan estimasi"
+        }
+      ]
+    },
+    {
+      "sceneId": "S18",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "sungai",
+          "action": "tetap berada di atas lorong"
+        },
+        {
+          "object": "peringatan",
+          "action": "sudah tersampaikan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S19",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "dinding terowongan",
+          "action": "jebol"
+        },
+        {
+          "object": "air sungai",
+          "action": "masuk ke lorong barang"
+        }
+      ]
+    },
+    {
+      "sceneId": "S20",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "air",
+          "action": "naik ke basement"
+        },
+        {
+          "object": "pekerja",
+          "action": "meninggalkan gedung"
+        }
+      ]
+    },
+    {
+      "sceneId": "S21",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "pusaran",
+          "action": "menandai aliran menuju terowongan"
+        },
+        {
+          "object": "ikan",
+          "action": "dilaporkan dalam air di basement"
+        }
+      ]
+    },
+    {
+      "sceneId": "S22",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "saklar listrik",
+          "action": "dimatikan untuk keselamatan"
+        },
+        {
+          "object": "pekerja kota",
+          "action": "meninggalkan pusat kota"
+        }
+      ]
+    },
+    {
+      "sceneId": "S23",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "truk",
+          "action": "menuangkan material penutup"
+        },
+        {
+          "object": "arus",
+          "action": "menghalangi penyelam"
+        }
+      ]
+    },
+    {
+      "sceneId": "S24",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "sekat",
+          "action": "membatasi jalur air"
+        },
+        {
+          "object": "pompa",
+          "action": "mengalirkan air keluar perlahan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S25",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "selang",
+          "action": "mengeluarkan air dari basement"
+        },
+        {
+          "object": "toko",
+          "action": "menunggu dapat dibuka kembali"
+        }
+      ]
+    },
+    {
+      "sceneId": "S26",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "foto",
+          "action": "mengingatkan temuan James"
+        },
+        {
+          "object": "berkas pekerjaan",
+          "action": "menandai pemberhentian"
+        }
+      ]
+    },
+    {
+      "sceneId": "S27",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "berkas perkara",
+          "action": "berpindah ke pengadilan banding"
+        },
+        {
+          "object": "aturan kepegawaian",
+          "action": "menjadi dasar putusan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S28",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "dua catatan temuan",
+          "action": "tetap terbaca sebagai temuan administratif"
+        },
+        {
+          "object": "kartu kerja",
+          "action": "menunjukkan sanksi pemecatan dibatalkan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S29",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "kartu kerja",
+          "action": "kembali ke meja"
+        },
+        {
+          "object": "sekat",
+          "action": "membatasi area rawan banjir"
+        }
+      ]
+    },
+    {
+      "sceneId": "S30",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "kamera",
+          "action": "mengabadikan petunjuk"
+        },
+        {
+          "object": "memo",
+          "action": "membawa peringatan"
+        },
+        {
+          "object": "air",
+          "action": "datang sebelum perbaikan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S31",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "laporan",
+          "action": "menunggu tindakan"
+        },
+        {
+          "object": "keputusan sementara",
+          "action": "dapat dipertimbangkan sambil biaya dihitung"
+        }
+      ]
+    },
+    {
+      "sceneId": "S32",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "kota",
+          "action": "kembali terlihat tenang"
+        },
+        {
+          "object": "nama kanal",
+          "action": "muncul sebagai ajakan penutup"
+        }
+      ]
+    }
+  ]
+}

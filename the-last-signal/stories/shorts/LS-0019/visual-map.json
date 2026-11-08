@@ -7,8 +7,8 @@
     1080,
     1920
   ],
-  "total_kata_narasi": 96,
-  "estimasi_durasi_detik": 43.6,
+  "total_kata_narasi": 92,
+  "estimasi_durasi_detik": 41.8,
   "hook_card": {
     "teks": "DIA SUDAH MENUNGGU",
     "tampil": "frame 0–60",
@@ -41,7 +41,7 @@
     },
     {
       "segmen": "S2",
-      "kata": 11,
+      "kata": 7,
       "kamera": "push_in",
       "shot": "closeup",
       "lighting": "cold_clinic_fluorescent_5000k",

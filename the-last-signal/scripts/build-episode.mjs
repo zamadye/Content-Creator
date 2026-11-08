@@ -126,10 +126,19 @@ const scenes = entry.scenes.map((scene, index) => {
     },
     audio: {
       ambienceId: "audio/ambience_drone.wav",
-      ambienceVolume: 0.32,
+      ambienceVolume: scene.ambienceVolume ?? 0.32,
+      // SFX bawaan tetap, lalu cue dari naskah ditambahkan di belakangnya.
+      // Cue itulah tempat "petunjuk audio" diletakkan (bisikan 0,4–0,8 s di
+      // bawah narasi), sesuai NASKAH § lapisan petunjuk: setiap episode wajib
+      // punya satu petunjuk audio yang bisa ditemukan di tontonan kedua.
       sfx: [
         { assetId: "audio/sfx/knock.mp3", startFrame: Math.round(durationFrames * 0.62), volume: 0.5 },
         { assetId: "audio/sfx/heartbeat.mp3", startFrame: Math.round(durationFrames * 0.82), volume: 0.4 },
+        ...(scene.sfx ?? []).map((cue) => ({
+          assetId: `audio/sfx/${cue.asset ?? "whisper.mp3"}`,
+          startFrame: Math.round(durationFrames * (cue.at ?? 0.5)),
+          volume: cue.volume ?? 0.3,
+        })),
       ],
     },
   };
@@ -245,6 +254,7 @@ const SFX_LIBRARY = {
   "knock.mp3": "sfx_ketukan.mp3",
   "heartbeat.mp3": "sfx_detak_jantung.mp3",
   "scare.mp3": "sfx_geraman_setan.mp3",
+  "whisper.mp3": "sfx_bisikan.mp3",
 };
 for (const [target, source] of Object.entries(SFX_LIBRARY)) {
   const from = join(ROOT, "assets", "audio", "horror", source);

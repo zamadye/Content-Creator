@@ -1,93 +1,84 @@
 {
   "episodeId": "LS-0017",
-  "title": "Suara di Kamar Itu Sudah Ada Sebelum Saya Mengetuk",
+  "title": "Suara di Balik Pintu Itu",
   "format": "short_9x16",
   "subgenre": "Institutional horror",
-  "experiment": "Revisi dari 11/16: twist dibalik supaya mengubah arti kalimat pertama (suara sendiri, bukan orang lain).",
-  "structure": "klimaks (jawaban sebelum ketukan) → entitas celah pintu → POTONG 'siapa yang menjawab?' → kos → lampu → rekam 4 detik → twist suara saya dua tahun lalu → CTA",
+  "experiment": "Revisi dari skor 11/16: twist diubah supaya mengubah arti kalimat pertama, petunjuk audio + teks ditambah, loop disambung kata 'mengetuk'.",
+  "structure": "klimaks suara bilang masuk sebelum mengetuk → POTONG 'siapa yang menyuruh?' → kos sembilan kamar → pulang larut, lampu menyala → kardus bergeser → kunci cadangan → twist: rekaman suara saya sendiri tiga hari lalu → CTA",
   "story": {
-    "title": "Suara di Kamar Itu Sudah Ada Sebelum Saya Mengetuk",
-    "hook": "suara di dalam kamar bilang masuk sebelum saya mengetuk",
-    "premise": "Di kos sembilan kamar, narator mendengar jawaban dari dalam kamarnya sendiri sebelum ia mengetuk; lampu menyala, padahal ia mematikannya pagi.",
-    "twist": "Suara yang menjawab adalah suara narator sendiri, direkam dua tahun lalu di kamar itu — sebelum ia tinggal di sana.",
-    "dualReading": {
-      "a": "Ada orang di dalam kamar saya.",
-      "b": "Suara itu milik saya sendiri, direkam dua tahun sebelum saya tinggal — kamar itu sudah mengenal saya."
-    },
-    "loops": {
-      "l1": "jawaban 'masuk' sebelum ketukan — dijawab di beat 9 (itu rekaman suara narator)",
-      "l2": "CTA: kamu akan mengetuk kalau jawabannya sudah ada?",
-      "l3": "siapa yang merekam suara itu dua tahun lalu, dan kenapa baru diputar sekarang"
-    },
-    "ending": "Narator menyebut bahwa ia masih membayar kos itu, lalu bertanya apakah penonton akan mengetuk kalau jawabannya sudah tersedia."
+    "title": "Suara di Balik Pintu Itu",
+    "hook": "Sebelum saya mengetuk, suara dari dalam kamar bilang masuk",
+    "premise": "Narator pulang ke kos sembilan kamar dan mendengar suaranya sendiri menyuruh masuk dari dalam kamar yang ia kunci.",
+    "twist": "Suara itu bukan orang di dalam kamar, melainkan rekaman suara narator sendiri tiga hari sebelumnya — ia sudah menyuruh dirinya masuk sejak dulu.",
+    "ending": "Narator menyadari ia sudah mengetuk pintu itu sebelum sempat mengetuk, lalu bertanya apakah penonton akan masuk."
   },
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 15,
-      "narasi": "Suara di dalam kamar bilang masuk, sebelum saya mengetuk. Tidak ada siapa pun di sana."
+      "kata": 14,
+      "narasi": "Sebelum saya mengetuk, pukul sebelas, suara itu bilang masuk. Padahal tidak ada siapa pun."
     },
     {
       "segmen": "S2",
       "kata": 8,
-      "narasi": "Kamar itu kosong. Kuncinya masih di tangan saya."
+      "narasi": "Itu kamar saya. Saya tinggal sendiri, pintunya terkunci."
     },
     {
       "segmen": "S3",
-      "kata": 10,
-      "narasi": "Jadi siapa yang menjawab, dan sejak kapan dia di situ?"
+      "kata": 8,
+      "narasi": "Kalau bukan saya, siapa yang menyuruh saya masuk?"
     },
     {
       "segmen": "S4",
-      "kata": 9,
-      "narasi": "Kos Jalan Melati, sembilan kamar. Saya di nomor enam."
+      "kata": 10,
+      "narasi": "Kos di Jalan Melati, sembilan kamar. Saya di nomor enam."
     },
     {
       "segmen": "S5",
-      "kata": 5,
-      "narasi": "Saya pulang larut, seperti biasa."
+      "kata": 8,
+      "narasi": "Saya pulang larut, seperti biasa. Lampu kamar menyala."
     },
     {
       "segmen": "S6",
-      "kata": 11,
-      "narasi": "Lampu kamar menyala dari celah bawah pintu, padahal saya mematikannya pagi."
+      "kata": 7,
+      "narasi": "Saya belum pernah menyalakan lampu sebelum keluar."
     },
     {
       "segmen": "S7",
-      "kata": 10,
-      "narasi": "Saya rekam suara itu dengan ponsel. Empat detik. Satu kata."
+      "kata": 6,
+      "narasi": "Kasur rapi. Kardus di bawahnya bergeser."
     },
     {
       "segmen": "S8",
-      "kata": 7,
-      "narasi": "Saya dengarkan berulang kali. Nadanya terlalu akrab."
+      "kata": 9,
+      "narasi": "Di dalamnya kunci cadangan yang saya simpan di kantor."
     },
     {
       "segmen": "S9",
-      "kata": 13,
-      "narasi": "Itu suara saya. Direkam dua tahun lalu, di kamar ini, sebelum saya tinggal."
+      "kata": 19,
+      "narasi": "Saya putar ulang rekaman di ponsel, dan suara di dalamnya suara saya sendiri — bilang masuk, tiga hari lalu."
     },
     {
       "segmen": "S10",
-      "kata": 15,
-      "narasi": "Saya masih bayar kos itu. Kamu akan mengetuk kalau jawabannya sudah ada? Tulis di komentar."
+      "kata": 13,
+      "narasi": "Rupanya saya sudah menyuruh diri sendiri masuk. Kamu akan mengetuk? Tulis di komentar."
     }
   ],
   "youtube": {
-    "title": "Suara Itu Menjawab Sebelum Saya Mengetuk Pintu Kamar",
-    "description": "Suara di dalam kamar bilang masuk, sebelum saya mengetuk. Kamar itu kosong, dan kuncinya masih di tangan saya.\n\nKos Jalan Melati, sembilan kamar, saya di nomor enam. Saya pulang larut seperti biasa; lampu kamar sudah menyala dari celah bawah pintu, padahal saya mematikannya pagi.\n\nSaya merekam suara itu dengan ponsel. Empat detik, tiga kata. Setelah saya dengarkan berulang kali, saya sadar nadanya terlalu akrab.",
+    "title": "Suara di Balik Pintu Itu Menjawab Sebelum Saya Mengetuk",
+    "description": "Suara dari dalam kamar bilang masuk, sebelum saya sempat mengetuk.\n\nKos di Jalan Melati punya sembilan kamar, dan saya tinggal sendiri di nomor enam. Malam itu saya pulang larut dan lampu kamar sudah menyala, padahal saya tidak pernah menyalakannya sebelum keluar.\n\nKasurnya rapi. Kardus di bawah kasur bergeser, dan di dalamnya ada kunci cadangan yang seharusnya masih di kantor. Rekaman di ponsel saya menjawab sisanya.",
     "tags": [
       "cerita horor",
       "horor indonesia",
       "kos",
       "cerita seram",
-      "suara"
+      "pintu"
     ],
-    "pinComment": "Rekaman itu empat detik. Menurutmu ada berapa hembusan napas di dalamnya?"
+    "pinComment": "Kunci cadangan itu saya simpan di laci kantor, terkunci. Kamu akan tetap masuk kalau pintu kamarmu sudah menyala?"
   },
   "thumb": {
-    "headline": "JAWABANNYA DATANG SEBELUM SAYA MENGETUK",
-    "kicker": "itu suara saya sendiri"
+    "headline": "SUARA ITU BILANG MASUK",
+    "kicker": "sebelum saya mengetuk"
   },
-  "catatan": "Revisi dari 11/16 → 15/16 setelah twist dibalik dan peta petunjuk dilengkapi."
+  "catatan": "Revisi 1 dari gerbang: twist diubah dari 'ada orang di dalam' menjadi 'suara saya sendiri yang terekam'. Perlu dinilai ulang; target skor ≥13."
 }

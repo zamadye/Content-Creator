@@ -63,7 +63,9 @@ if [ -d "$SHORT" ]; then
   echo "== 5/6 ambience + overlay + thumbnail"
   node scripts/make-ambience.mjs --episode "$EPISODE"
   node scripts/make-overlays.mjs --episode "$EPISODE" >/dev/null
-  node scripts/make-thumb-frame.mjs --episode "$EPISODE"
+  # Thumbnail = frame 0 (ATURAN 6.7): kartu hook harus sama dengan gambar
+  # pertama yang dilihat penonton, bukan scene paling "bercerita".
+  node scripts/make-thumb-frame.mjs --episode "$EPISODE" --scene 1
 
   echo "== 6/6 validasi"
   npx tsx scripts/validate-episode.ts --episode "$EPISODE" | tail -14

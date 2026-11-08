@@ -1,16 +1,16 @@
 {
   "episode": "LS-0016",
-  "judul": "Nomor Empat Belas Dipanggil Dua Kali",
+  "judul": "Nomor Itu Dipanggil Dua Kali",
   "format": "short_9x16",
   "fps": 30,
   "resolusi": [
     1080,
     1920
   ],
-  "total_kata_narasi": 110,
-  "estimasi_durasi_detik": 50,
+  "total_kata_narasi": 96,
+  "estimasi_durasi_detik": 43.6,
   "hook_card": {
-    "teks": "NOMOR ITU DIPANGGIL DUA KALI",
+    "teks": "DUA KALI DIPANGGIL",
     "tampil": "frame 0–60",
     "catatan": "teks di layar bersamaan dengan kalimat pertama; maksimal 4 kata"
   },
@@ -28,37 +28,38 @@
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 14,
+      "kata": 11,
       "kamera": "static",
-      "shot": "wide",
-      "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.5,
+      "shot": "medium",
+      "lighting": "clinical_fluorescent_5000k",
+      "intensitas": 0.55,
       "effects": [
         "film_grain",
         "vignette",
-        "scanlines"
+        "light_flicker"
       ],
       "berkas": "images/scene-01.jpg"
     },
     {
       "segmen": "S2",
-      "kata": 11,
+      "kata": 10,
       "kamera": "push_in",
       "shot": "closeup",
-      "lighting": "cold_clinic_fluorescent_5000k",
+      "lighting": "clinical_fluorescent_5000k",
       "intensitas": 0.5,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "focus_rack"
       ],
       "berkas": "images/scene-02.jpg"
     },
     {
       "segmen": "S3",
       "kata": 8,
-      "kamera": "drift",
-      "shot": "medium",
-      "lighting": "cold_clinic_fluorescent_5000k",
+      "kamera": "handheld",
+      "shot": "closeup",
+      "lighting": "clinical_fluorescent_5000k",
       "intensitas": 0.5,
       "effects": [
         "film_grain",
@@ -68,23 +69,24 @@
     },
     {
       "segmen": "S4",
-      "kata": 9,
-      "kamera": "static",
+      "kata": 6,
+      "kamera": "drift",
       "shot": "wide",
-      "lighting": "cold_clinic_fluorescent_5000k",
+      "lighting": "clinical_fluorescent_5000k",
       "intensitas": 0.45,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "light_flicker"
       ],
       "berkas": "images/scene-04.jpg"
     },
     {
       "segmen": "S5",
       "kata": 8,
-      "kamera": "handheld",
+      "kamera": "push_in",
       "shot": "medium",
-      "lighting": "cold_clinic_fluorescent_5000k",
+      "lighting": "clinical_fluorescent_5000k",
       "intensitas": 0.5,
       "effects": [
         "film_grain",
@@ -95,53 +97,56 @@
     {
       "segmen": "S6",
       "kata": 10,
-      "kamera": "push_in",
+      "kamera": "handheld",
       "shot": "closeup",
-      "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.5,
+      "lighting": "clinical_fluorescent_5000k",
+      "intensitas": 0.55,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "focus_rack"
       ],
       "berkas": "images/scene-06.jpg"
     },
     {
       "segmen": "S7",
-      "kata": 11,
+      "kata": 9,
       "kamera": "push_in",
       "shot": "closeup",
-      "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.55,
+      "lighting": "clinical_fluorescent_5000k",
+      "intensitas": 0.6,
       "effects": [
         "film_grain",
-        "scanlines",
-        "vignette"
+        "vignette",
+        "scanlines"
       ],
       "berkas": "images/scene-07.jpg"
     },
     {
       "segmen": "S8",
-      "kata": 11,
-      "kamera": "drift",
+      "kata": 8,
+      "kamera": "static",
       "shot": "medium",
-      "lighting": "cold_clinic_fluorescent_5000k",
+      "lighting": "harsh_basement_fluorescent_4300k",
       "intensitas": 0.45,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "scanlines"
       ],
       "berkas": "images/scene-08.jpg"
     },
     {
       "segmen": "S9",
-      "kata": 13,
+      "kata": 11,
       "kamera": "push_in",
       "shot": "closeup",
-      "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.55,
+      "lighting": "harsh_basement_fluorescent_4300k",
+      "intensitas": 0.5,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "scanlines"
       ],
       "berkas": "images/scene-09.jpg"
     },
@@ -149,9 +154,9 @@
       "segmen": "S10",
       "kata": 15,
       "kamera": "static",
-      "shot": "wide",
-      "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.5,
+      "shot": "medium",
+      "lighting": "clinical_fluorescent_5000k",
+      "intensitas": 0.55,
       "effects": [
         "film_grain",
         "vignette",

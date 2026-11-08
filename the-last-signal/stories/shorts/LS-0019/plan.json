@@ -25,12 +25,12 @@
     {
       "segmen": "S1",
       "kata": 10,
-      "narasi": "Ojek itu sudah menunggu di depan pagar sebelum saya memesan."
+      "narasi": "Ojek itu menunggu dua puluh menit. Tidak ada pesanan saya."
     },
     {
       "segmen": "S2",
-      "kata": 11,
-      "narasi": "Plat nomornya sama dengan yang muncul lima menit kemudian di aplikasi."
+      "kata": 7,
+      "narasi": "Plat nomornya sama dengan yang muncul nanti."
     },
     {
       "segmen": "S3",

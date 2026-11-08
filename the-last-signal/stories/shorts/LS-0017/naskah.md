@@ -1,90 +1,86 @@
-# LS-0017 — "Suara di Kamar Itu Sudah Ada Sebelum Saya Mengetuk"
+# LS-0017 — "Suara di Balik Pintu Itu"
 
-**Format:** Short vertikal 9:16 · narasi **103 kata** · ±46.8 s pada 2.2 kata/detik (target 40–60 s)
-**Premis:** Di kos sembilan kamar, narator mendengar jawaban dari dalam kamarnya sendiri sebelum ia mengetuk; lampu menyala, padahal ia mematikannya pagi.
-**Hook:** "suara di dalam kamar bilang masuk sebelum saya mengetuk"
-**Twist:** Suara yang menjawab adalah suara narator sendiri, direkam dua tahun lalu di kamar itu — sebelum ia tinggal di sana.
-**Penutup:** Narator menyebut bahwa ia masih membayar kos itu, lalu bertanya apakah penonton akan mengetuk kalau jawabannya sudah tersedia.
+**Format:** Short vertikal 9:16 · narasi **102 kata** · ±46.4 s pada 2.2 kata/detik (target 40–60 s)
+**Premis:** Narator pulang ke kos sembilan kamar dan mendengar suaranya sendiri menyuruh masuk dari dalam kamar yang ia kunci.
+**Hook:** "Sebelum saya mengetuk, suara dari dalam kamar bilang masuk"
+**Twist:** Suara itu bukan orang di dalam kamar, melainkan rekaman suara narator sendiri tiga hari sebelumnya — ia sudah menyuruh dirinya masuk sejak dulu.
+**Penutup:** Narator menyadari ia sudah mengetuk pintu itu sebelum sempat mengetuk, lalu bertanya apakah penonton akan masuk.
 
 Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji `scripts/check-copy.mjs`.
 
-## S1 — 15 kata (±6.8 s)
+## S1 — 14 kata (±6.4 s)
 
-> Suara di dalam kamar bilang masuk, sebelum saya mengetuk.
+> Sebelum saya mengetuk, pukul sebelas, suara itu bilang masuk.
 >
-> Tidak ada siapa pun di sana.
+> Padahal tidak ada siapa pun.
 >
-*Kamera* static · *shot* closeup · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette, light_flicker
+*Kamera* static · *shot* closeup · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette, light_flicker
 
 ## S2 — 8 kata (±3.6 s)
 
-> Kamar itu kosong.
+> Itu kamar saya.
 >
-> Kuncinya masih di tangan saya.
+> Saya tinggal sendiri, pintunya terkunci.
 >
-*Kamera* push_in · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* push_in · *shot* closeup · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette
 
-## S3 — 10 kata (±4.5 s)
+## S3 — 8 kata (±3.6 s)
 
-> Jadi siapa yang menjawab, dan sejak kapan dia di situ?
+> Kalau bukan saya, siapa yang menyuruh saya masuk?
 >
-*Kamera* drift · *shot* wide · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette
+*Kamera* drift · *shot* wide · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette, light_flicker
 
-## S4 — 9 kata (±4.1 s)
+## S4 — 10 kata (±4.5 s)
 
-> Kos Jalan Melati, sembilan kamar.
+> Kos di Jalan Melati, sembilan kamar.
 >
 > Saya di nomor enam.
 >
-*Kamera* static · *shot* wide · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette
+*Kamera* static · *shot* closeup · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette, focus_rack
 
-## S5 — 5 kata (±2.3 s)
+## S5 — 8 kata (±3.6 s)
 
 > Saya pulang larut, seperti biasa.
 >
-*Kamera* push_in · *shot* medium · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
-
-## S6 — 11 kata (±5 s)
-
-> Lampu kamar menyala dari celah bawah pintu, padahal saya mematikannya pagi.
+> Lampu kamar menyala.
 >
-*Kamera* push_in · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* push_in · *shot* medium · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette
 
-## S7 — 10 kata (±4.5 s)
+## S6 — 7 kata (±3.2 s)
 
-> Saya rekam suara itu dengan ponsel.
+> Saya belum pernah menyalakan lampu sebelum keluar.
 >
-> Empat detik.
->
-> Satu kata.
->
-*Kamera* push_in · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* handheld · *shot* closeup · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette, light_flicker
 
-## S8 — 7 kata (±3.2 s)
+## S7 — 6 kata (±2.7 s)
 
-> Saya dengarkan berulang kali.
+> Kasur rapi.
 >
-> Nadanya terlalu akrab.
+> Kardus di bawahnya bergeser.
 >
-*Kamera* static · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* drift · *shot* medium · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette
 
-## S9 — 13 kata (±5.9 s)
+## S8 — 9 kata (±4.1 s)
 
-> Itu suara saya.
+> Di dalamnya kunci cadangan yang saya simpan di kantor.
 >
-> Direkam dua tahun lalu, di kamar ini, sebelum saya tinggal.
->
-*Kamera* push_in · *shot* wide · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette
+*Kamera* push_in · *shot* closeup · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette, focus_rack
 
-## S10 — 15 kata (±6.8 s)
+## S9 — 19 kata (±8.6 s)
 
-> Saya masih bayar kos itu.
+> Saya putar ulang rekaman di ponsel, dan suara di dalamnya suara saya sendiri — bilang masuk, tiga hari lalu.
 >
-> Kamu akan mengetuk kalau jawabannya sudah ada?
+*Kamera* push_in · *shot* closeup · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette, scanlines
+
+## S10 — 13 kata (±5.9 s)
+
+> Rupanya saya sudah menyuruh diri sendiri masuk.
+>
+> Kamu akan mengetuk?
 >
 > Tulis di komentar.
 >
-*Kamera* static · *shot* closeup · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette, light_flicker
+*Kamera* static · *shot* closeup · *cahaya* warm_corridor_2800k · *efek* film_grain, vignette, light_flicker
 
 ---
 

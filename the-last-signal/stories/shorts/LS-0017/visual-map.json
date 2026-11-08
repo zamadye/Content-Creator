@@ -1,16 +1,16 @@
 {
   "episode": "LS-0017",
-  "judul": "Suara di Kamar Itu Sudah Ada Sebelum Saya Mengetuk",
+  "judul": "Suara di Balik Pintu Itu",
   "format": "short_9x16",
   "fps": 30,
   "resolusi": [
     1080,
     1920
   ],
-  "total_kata_narasi": 103,
-  "estimasi_durasi_detik": 46.8,
+  "total_kata_narasi": 102,
+  "estimasi_durasi_detik": 46.4,
   "hook_card": {
-    "teks": "JAWABAN SEBELUM KETUKAN",
+    "teks": "SUARA ITU BILANG MASUK",
     "tampil": "frame 0–60",
     "catatan": "teks di layar bersamaan dengan kalimat pertama; maksimal 4 kata"
   },
@@ -28,11 +28,11 @@
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 15,
+      "kata": 14,
       "kamera": "static",
       "shot": "closeup",
-      "lighting": "harsh_basement_fluorescent_4300k",
-      "intensitas": 0.5,
+      "lighting": "warm_corridor_2800k",
+      "intensitas": 0.55,
       "effects": [
         "film_grain",
         "vignette",
@@ -45,7 +45,7 @@
       "kata": 8,
       "kamera": "push_in",
       "shot": "closeup",
-      "lighting": "cold_clinic_fluorescent_5000k",
+      "lighting": "warm_corridor_2800k",
       "intensitas": 0.5,
       "effects": [
         "film_grain",
@@ -55,37 +55,39 @@
     },
     {
       "segmen": "S3",
-      "kata": 10,
+      "kata": 8,
       "kamera": "drift",
       "shot": "wide",
-      "lighting": "harsh_basement_fluorescent_4300k",
+      "lighting": "warm_corridor_2800k",
       "intensitas": 0.45,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "light_flicker"
       ],
       "berkas": "images/scene-03.jpg"
     },
     {
       "segmen": "S4",
-      "kata": 9,
+      "kata": 10,
       "kamera": "static",
-      "shot": "wide",
-      "lighting": "harsh_basement_fluorescent_4300k",
-      "intensitas": 0.45,
+      "shot": "closeup",
+      "lighting": "warm_corridor_2800k",
+      "intensitas": 0.5,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "focus_rack"
       ],
       "berkas": "images/scene-04.jpg"
     },
     {
       "segmen": "S5",
-      "kata": 5,
+      "kata": 8,
       "kamera": "push_in",
       "shot": "medium",
-      "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.45,
+      "lighting": "warm_corridor_2800k",
+      "intensitas": 0.5,
       "effects": [
         "film_grain",
         "vignette"
@@ -94,23 +96,24 @@
     },
     {
       "segmen": "S6",
-      "kata": 11,
-      "kamera": "push_in",
+      "kata": 7,
+      "kamera": "handheld",
       "shot": "closeup",
-      "lighting": "cold_clinic_fluorescent_5000k",
+      "lighting": "warm_corridor_2800k",
       "intensitas": 0.5,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "light_flicker"
       ],
       "berkas": "images/scene-06.jpg"
     },
     {
       "segmen": "S7",
-      "kata": 10,
-      "kamera": "push_in",
-      "shot": "closeup",
-      "lighting": "cold_clinic_fluorescent_5000k",
+      "kata": 6,
+      "kamera": "drift",
+      "shot": "medium",
+      "lighting": "warm_corridor_2800k",
       "intensitas": 0.5,
       "effects": [
         "film_grain",
@@ -120,37 +123,39 @@
     },
     {
       "segmen": "S8",
-      "kata": 7,
-      "kamera": "static",
+      "kata": 9,
+      "kamera": "push_in",
       "shot": "closeup",
-      "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.5,
+      "lighting": "warm_corridor_2800k",
+      "intensitas": 0.55,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "focus_rack"
       ],
       "berkas": "images/scene-08.jpg"
     },
     {
       "segmen": "S9",
-      "kata": 13,
+      "kata": 19,
       "kamera": "push_in",
-      "shot": "wide",
-      "lighting": "harsh_basement_fluorescent_4300k",
+      "shot": "closeup",
+      "lighting": "warm_corridor_2800k",
       "intensitas": 0.55,
       "effects": [
         "film_grain",
-        "vignette"
+        "vignette",
+        "scanlines"
       ],
       "berkas": "images/scene-09.jpg"
     },
     {
       "segmen": "S10",
-      "kata": 15,
+      "kata": 13,
       "kamera": "static",
       "shot": "closeup",
-      "lighting": "harsh_basement_fluorescent_4300k",
-      "intensitas": 0.5,
+      "lighting": "warm_corridor_2800k",
+      "intensitas": 0.55,
       "effects": [
         "film_grain",
         "vignette",

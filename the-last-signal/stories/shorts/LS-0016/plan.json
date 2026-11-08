@@ -1,36 +1,27 @@
 {
   "episodeId": "LS-0016",
-  "title": "Nomor Empat Belas Dipanggil Dua Kali",
+  "title": "Nomor Itu Dipanggil Dua Kali",
   "format": "short_9x16",
   "subgenre": "Institutional horror",
-  "experiment": "Uji hukum lapisan: peta petunjuk 3 medium, uji dua bacaan, tiga loop, dua reda.",
-  "structure": "klimaks (14 dua kali) → entitas kursi kosong → POTONG 'siapa yang dipanggil masuk?' → klinik → kursi hangat → layar dua baris → minta rekaman → twist nama saya → CTA",
+  "experiment": "Paket 1 hukum 8 Nov: 3 petunjuk (visual/audio/teks), 3 loop, 2 reda, uji dua bacaan. Klimaks di depan, potong di detik ~10.",
+  "structure": "klimaks panggilan kedua dari dalam → POTONG 'siapa yang masuk?' → klinik kecil → perawat memanggil → kursi masih hangat → layar dua baris → minta rekaman → twist: yang dipanggil nama saya → CTA",
   "story": {
-    "title": "Nomor Empat Belas Dipanggil Dua Kali",
-    "hook": "nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa",
-    "premise": "Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ditinggalkannya masih hangat, dan layar menampilkan angka yang sama dua baris.",
-    "twist": "Panggilan kedua bukan nomor, melainkan nama narator — diucapkan dua kali oleh perawat.",
-    "dualReading": {
-      "a": "Mesin antrean klinik rusak, jadi nomor yang sama dipanggil dua kali.",
-      "b": "Ada dua orang memakai nama yang sama; yang kedua sudah masuk sebelum narator berdiri."
-    },
-    "loops": {
-      "l1": "nomor 14 dipanggil dua kali — dijawab di beat 9 (panggilan kedua = nama, bukan nomor)",
-      "l2": "CTA: kamu tetap akan masuk kalau dipanggil kedua kali?",
-      "l3": "siapa yang duduk di kursi sampai kursinya masih hangat"
-    },
-    "ending": "Narator menegaskan namanya hanya satu, lalu bertanya apakah penonton tetap masuk kalau dipanggil kedua kali."
+    "title": "Nomor Itu Dipanggil Dua Kali",
+    "hook": "Nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa",
+    "premise": "Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ia tinggalkan masih hangat dan layar antrean menampilkan nomor itu dua baris.",
+    "twist": "Panggilan kedua bukan nomor antrean melainkan nama narator, padahal pendaftaran hanya memuat satu nama itu.",
+    "ending": "Narator menyebut nama itu cuma satu, lalu bertanya apakah penonton tetap akan masuk kalau dipanggil kedua kali."
   },
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 14,
-      "narasi": "Antrean itu memanggil nomor empat belas dua kali. Yang kedua, dari dalam ruang periksa."
+      "kata": 11,
+      "narasi": "Empat belas dipanggil dua kali. Yang kedua dari dalam ruang periksa."
     },
     {
       "segmen": "S2",
-      "kata": 11,
-      "narasi": "Saya masih di kursi tunggu. Nomor itu masih di tangan saya."
+      "kata": 10,
+      "narasi": "Saya masih di kursi tunggu, nomor itu di tangan saya."
     },
     {
       "segmen": "S3",
@@ -39,8 +30,8 @@
     },
     {
       "segmen": "S4",
-      "kata": 9,
-      "narasi": "Klinik matanya kecil. Enam kursi, satu perawat, satu dokter."
+      "kata": 6,
+      "narasi": "Kliniknya kecil. Enam kursi, satu perawat."
     },
     {
       "segmen": "S5",
@@ -54,40 +45,40 @@
     },
     {
       "segmen": "S7",
-      "kata": 11,
-      "narasi": "Layar antrean menampilkan empat belas dua kali. Dua baris, angka sama."
+      "kata": 9,
+      "narasi": "Layar antrean menampilkan empat belas dua kali. Dua baris."
     },
     {
       "segmen": "S8",
-      "kata": 11,
-      "narasi": "Saya minta rekaman ruang tunggu. Petugas bilang kameranya rusak sejak lama."
+      "kata": 8,
+      "narasi": "Saya minta rekaman ruang tunggu. Kameranya katanya rusak."
     },
     {
       "segmen": "S9",
-      "kata": 13,
-      "narasi": "Rekaman suara perawat masih ada. Yang dipanggil bukan nomor. Nama saya, dua kali."
+      "kata": 11,
+      "narasi": "Rekaman suara perawat masih ada. Yang dipanggil bukan nomor. Nama saya."
     },
     {
       "segmen": "S10",
       "kata": 15,
-      "narasi": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali? Tulis di komentar."
+      "narasi": "Pendaftaran cuma satu nama. Kamu masih akan masuk kalau dipanggil kedua kali? Tulis di komentar."
     }
   ],
   "youtube": {
-    "title": "Itu Bukan Nomor Saya, Itu Nama Saya — Dipanggil Dua Kali",
-    "description": "Nomor antrean saya dipanggil dua kali. Panggilan kedua datang dari dalam ruang periksa, padahal saya masih duduk di kursi tunggu.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Waktu saya berdiri dan masuk, kursi yang saya tinggalkan masih hangat. Layar antrean menampilkan angka yang sama, dua baris, dengan jam berbeda.\n\nSaya minta rekaman ruang tunggu, dan petugas bilang kameranya rusak sejak lama. Rekaman suara perawat masih ada. Di sana, panggilan kedua bukan nomor.",
+    "title": "Nomor Itu Dipanggil Dua Kali, Panggilan Kedua dari Dalam",
+    "description": "Nomor empat belas dipanggil dua kali, dan panggilan keduanya datang dari dalam ruang periksa.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Saya mengambil nomor, duduk paling dekat pintu, lalu dipanggil. Waktu saya kembali ke kursi itu, permukaannya masih hangat, padahal saya baru berdiri.\n\nLayar antrean menampilkan nomor yang sama dua baris. Saya minta rekaman ruang tunggu; kameranya katanya rusak sejak lama. Rekaman suara perawat masih ada, dan di situ panggilan kedua bukan nomor.",
     "tags": [
       "cerita horor",
       "horor indonesia",
       "klinik",
       "cerita seram",
-      "antrean"
+      "ruang tunggu"
     ],
-    "pinComment": "Ada dua baris angka yang sama di layar itu. Berapa selisih jam di bawah angkanya menurutmu?"
+    "pinComment": "Di layar itu ada dua baris angka yang sama dengan jam berbeda. Kamu masih akan masuk kalau namamu yang dipanggil?"
   },
   "thumb": {
-    "headline": "NOMOR 14 DIPANGGIL DUA KALI",
-    "kicker": "dari dalam ruang periksa"
+    "headline": "NOMOR ITU DIPANGGIL DUA KALI",
+    "kicker": "yang kedua dari dalam ruang periksa"
   },
-  "catatan": "Gerbang A: 14/16. Lapisan: 3 petunjuk, 2 bacaan, 3 loop, 2 reda."
+  "catatan": "Paket 1 gerbang: skor 14/16. Petunjuk visual di frame 1, audio di beat 4, teks di komentar. Reda di beat 7–8 (ambience turun, bukan hening)."
 }

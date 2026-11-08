@@ -4,9 +4,9 @@
     "segmen": "S1",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a narrow gap under a cheap boarding-house door, warm light spilling out, the unmoving shadow of two feet inside, dim corridor, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical film still, extreme low angle of a gap under a wooden boarding-house door at night, warm light spilling across the floor, a shadow of two feet standing inside the light, dark corridor around, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face",
     "pemicu": [
-      "Suara di dalam kamar bilang masuk, sebelum saya mengetuk."
+      "Sebelum saya mengetuk, pukul sebelas, suara itu bilang masuk."
     ]
   },
   {
@@ -14,9 +14,9 @@
     "segmen": "S2",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical close-up of a hand holding an old room key with a plastic number tag, blurred digits, door frame behind, dim corridor light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical film still, a hand holding an old brass room key in front of a closed wooden door at night, worn paint, dim corridor light, shallow depth of field, muted palette, 35mm grain, documentary realism, no readable text, no watermark",
     "pemicu": [
-      "Kamar itu kosong."
+      "Itu kamar saya."
     ]
   },
   {
@@ -24,9 +24,9 @@
     "segmen": "S3",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a dim boarding-house corridor lined with numbered doors, one door slightly ajar at the end, single bulb, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical film still, an empty narrow boarding-house corridor at night, nine doors in a row, one door slightly brighter than the rest, fluorescent tube half-lit, muted palette, 35mm grain, documentary realism, no people, no readable text, no watermark",
     "pemicu": [
-      "Jadi siapa yang menjawab, dan sejak kapan dia di situ?"
+      "Kalau bukan saya, siapa yang menyuruh saya masuk?"
     ]
   },
   {
@@ -34,9 +34,9 @@
     "segmen": "S4",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical wide film still, exterior of an old two-storey boarding house at night, nine doors along an open corridor, one window lit, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical film still, close view of a worn door with a blank metal room plate, peeling paint, keyhole, dim warm corridor light from the side, muted palette, 35mm grain, documentary realism, plate blurred and unreadable, no readable text, no watermark",
     "pemicu": [
-      "Kos Jalan Melati, sembilan kamar."
+      "Kos di Jalan Melati, sembilan kamar."
     ]
   },
   {
@@ -44,7 +44,7 @@
     "segmen": "S5",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a worn shoes rack and a small fan outside a boarding-house door, dim bulb, night, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical film still, a lit room seen from outside through a half-open door, bed and shelf visible in warm light, dark corridor foreground, muted palette, 35mm grain, documentary realism, no people, no readable text, no watermark",
     "pemicu": [
       "Saya pulang larut, seperti biasa."
     ]
@@ -54,9 +54,9 @@
     "segmen": "S6",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical extreme close-up of warm light leaking under a door onto cracked floor tiles, dust in the beam, night, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical film still, a bare light bulb glowing inside a small boarding-house room, dust in the beam, clothesline in background, muted palette, 35mm grain, documentary realism, no people, no readable text, no watermark",
     "pemicu": [
-      "Lampu kamar menyala dari celah bawah pintu, padahal saya mematikannya pagi."
+      "Saya belum pernah menyalakan lampu sebelum keluar."
     ]
   },
   {
@@ -64,9 +64,9 @@
     "segmen": "S7",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a phone lying on a wooden floor next to a door, screen glowing with an audio recorder interface, waveform visible, dim room, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical film still, a neatly made single bed in a small room, a cardboard box dragged out from underneath it leaving a clean rectangle on the dusty floor, warm lamp light, muted palette, 35mm grain, documentary realism, no people, no readable text, no watermark",
     "pemicu": [
-      "Saya rekam suara itu dengan ponsel."
+      "Kasur rapi."
     ]
   },
   {
@@ -74,9 +74,9 @@
     "segmen": "S8",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical extreme close-up of wired earphones and a phone screen showing a short waveform loop, dark room, single light source, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical extreme close-up, an open cardboard box with a spare brass key lying on folded cloth, dust and old receipts inside, warm light from above, shallow depth of field, muted palette, 35mm grain, documentary realism, no readable text, no watermark",
     "pemicu": [
-      "Saya dengarkan berulang kali."
+      "Di dalamnya kunci cadangan yang saya simpan di kantor."
     ]
   },
   {
@@ -84,9 +84,9 @@
     "segmen": "S9",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a dusty empty room with a bare mattress and cardboard box, one window, moonlight through curtain, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical extreme close-up, a smartphone on a wooden floor playing a recording, waveform on the screen without readable text, warm lamp light, dust, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no hands visible",
     "pemicu": [
-      "Itu suara saya."
+      "Saya putar ulang rekaman di ponsel, dan suara di dalamnya suara saya sendiri — bilang masuk, tiga hari lalu."
     ]
   },
   {
@@ -94,9 +94,9 @@
     "segmen": "S10",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, the same narrow door gap as the first frame, warm light still leaking out, the shadow inside now gone, dim corridor, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+    "prompt": "cinematic 9:16 vertical film still, extreme low angle of a gap under a wooden boarding-house door at night, warm light spilling across the floor, no shadow on the tiles this time, dark corridor around, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face",
     "pemicu": [
-      "Saya masih bayar kos itu."
+      "Rupanya saya sudah menyuruh diri sendiri masuk."
     ]
   }
 ]

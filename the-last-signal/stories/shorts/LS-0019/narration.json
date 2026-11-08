@@ -2,26 +2,26 @@
   "episode": "LS-0019",
   "judul": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
   "format": "short_9x16",
-  "total_kata": 96,
-  "estimasi_detik": 43.6,
+  "total_kata": 92,
+  "estimasi_detik": 41.8,
   "segmen": [
     {
       "id": "S1",
       "segmen": 1,
-      "judul": "Ojek itu sudah menunggu di depan pagar sebelum saya memesan",
+      "judul": "Ojek itu menunggu dua puluh menit",
       "paragraf": [
-        "Ojek itu sudah menunggu di depan pagar sebelum saya memesan."
+        "Ojek itu menunggu dua puluh menit. Tidak ada pesanan saya."
       ],
       "kata": 10
     },
     {
       "id": "S2",
       "segmen": 2,
-      "judul": "Plat nomornya sama dengan yang muncul lima menit kemudian di",
+      "judul": "Plat nomornya sama dengan yang muncul nanti",
       "paragraf": [
-        "Plat nomornya sama dengan yang muncul lima menit kemudian di aplikasi."
+        "Plat nomornya sama dengan yang muncul nanti."
       ],
-      "kata": 11
+      "kata": 7
     },
     {
       "id": "S3",

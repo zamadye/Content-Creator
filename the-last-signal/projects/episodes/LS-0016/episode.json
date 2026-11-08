@@ -1,18 +1,18 @@
 {
   "episodeId": "LS-0016",
-  "title": "Nomor Empat Belas Dipanggil Dua Kali",
+  "title": "Nomor Itu Dipanggil Dua Kali",
   "language": "id-ID",
   "category": "fictional_horror",
   "format": "found_footage",
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 62.3,
+  "targetDurationSeconds": 54.6,
   "story": {
-    "hook": "nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa",
-    "premise": "Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ditinggalkannya masih hangat, dan layar menampilkan angka yang sama dua baris.",
-    "twist": "Panggilan kedua bukan nomor, melainkan nama narator — diucapkan dua kali oleh perawat.",
-    "ending": "Narator menegaskan namanya hanya satu, lalu bertanya apakah penonton tetap masuk kalau dipanggil kedua kali."
+    "hook": "Nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa",
+    "premise": "Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ia tinggalkan masih hangat dan layar antrean menampilkan nomor itu dua baris.",
+    "twist": "Panggilan kedua bukan nomor antrean melainkan nama narator, padahal pendaftaran hanya memuat satu nama itu.",
+    "ending": "Narator menyebut nama itu cuma satu, lalu bertanya apakah penonton tetap akan masuk kalau dipanggil kedua kali."
   },
   "score": {
     "assetId": "audio/score.wav",
@@ -21,28 +21,28 @@
   "jumpscares": [],
   "onScreenText": [
     {
-      "text": "NOMOR ITU DIPANGGIL DUA KALI",
-      "startFrame": 37,
-      "endFrame": 97
+      "text": "DUA KALI DIPANGGIL",
+      "startFrame": 33,
+      "endFrame": 89
     },
     {
       "text": "SIAPA YANG MASUK?",
-      "startFrame": 1009,
-      "endFrame": 1069
+      "startFrame": 885,
+      "endFrame": 941
     },
     {
       "text": "MASIH MAU MASUK?",
-      "startFrame": 1457,
-      "endFrame": 1517
+      "startFrame": 1278,
+      "endFrame": 1334
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 179,
+      "durationFrames": 177,
       "image": "images/scene-01.jpg",
-      "narration": "Antrean memanggil empat belas dua kali. Yang kedua, dari dalam.",
+      "narration": "Empat belas dipanggil dua kali. Yang kedua dari dalam ruang periksa.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
@@ -59,7 +59,7 @@
           "offsetY": 20
         },
         {
-          "atFrame": 147,
+          "atFrame": 145,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -69,27 +69,27 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 104,
-          "text": "Antrean memanggil empat belas dua kali."
+          "endFrame": 79,
+          "text": "Empat belas dipanggil dua kali."
         },
         {
-          "startFrame": 104,
-          "endFrame": 171,
-          "text": "Yang kedua, dari dalam."
+          "startFrame": 79,
+          "endFrame": 169,
+          "text": "Yang kedua dari dalam ruang periksa."
         }
       ],
       "visual": {
-        "prompt": "cinematic 9:16 vertical film still, a small clinic waiting room seen from a low seat, an LED queue display on the wall showing a two-digit number twice on two lines, blurred digits, empty plastic chairs, cold fluorescent light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+        "prompt": "cinematic 9:16 vertical film still, dim small clinic waiting room, a glowing queue display panel on the wall with blurred red digits arranged in two lines, six empty plastic chairs, one chair with a folded jacket, harsh overhead fluorescent, muted green-grey palette, 35mm grain, documentary realism, all text blurred and unreadable, no readable text, no watermark, no face",
         "locationId": "ls-0016_main",
         "characterIds": [],
         "camera": "static",
-        "shot": "wide",
-        "lighting": "cold_clinic_fluorescent_5000k",
-        "intensity": 0.5,
+        "shot": "medium",
+        "lighting": "clinical_fluorescent_5000k",
+        "intensity": 0.55,
         "effects": [
           "film_grain",
           "vignette",
-          "scanlines"
+          "light_flicker"
         ]
       },
       "audio": {
@@ -98,13 +98,18 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 111,
+            "startFrame": 110,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 147,
+            "startFrame": 145,
             "volume": 0.4
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 9,
+            "volume": 0.25
           }
         ]
       }
@@ -112,26 +117,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 192,
+      "durationFrames": 139,
       "image": "images/scene-02.jpg",
-      "narration": "Saya masih di kursi tunggu. Nomor itu masih di tangan saya.",
+      "narration": "Saya masih di kursi tunggu, nomor itu di tangan saya.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 54,
+          "atFrame": 39,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 108,
+          "atFrame": 78,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 157,
+          "atFrame": 114,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -141,26 +146,22 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 86,
-          "text": "Saya masih di kursi tunggu."
-        },
-        {
-          "startFrame": 86,
-          "endFrame": 184,
-          "text": "Nomor itu masih di tangan saya."
+          "endFrame": 131,
+          "text": "Saya masih di kursi tunggu, nomor itu di tangan saya."
         }
       ],
       "visual": {
-        "prompt": "cinematic 9:16 vertical close-up, a paper queue ticket held in a fist above a plastic waiting-room chair, empty chair beside it still slightly compressed, cold clinic light, shallow depth of field, muted palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark, no face, full-bleed no borders",
+        "prompt": "cinematic 9:16 vertical extreme close-up, a hand holding a small paper queue ticket in a clinic waiting room, blurred chairs behind, cold fluorescent light, muted palette, 35mm grain, documentary realism, digits blurred and unreadable, no readable text, no watermark",
         "locationId": "ls-0016_main",
         "characterIds": [],
         "camera": "push_in",
         "shot": "closeup",
-        "lighting": "cold_clinic_fluorescent_5000k",
+        "lighting": "clinical_fluorescent_5000k",
         "intensity": 0.5,
         "effects": [
           "film_grain",
-          "vignette"
+          "vignette",
+          "focus_rack"
         ]
       },
       "audio": {
@@ -169,12 +170,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 119,
+            "startFrame": 86,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 157,
+            "startFrame": 114,
             "volume": 0.4
           }
         ]
@@ -183,26 +184,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 153,
+      "durationFrames": 108,
       "image": "images/scene-03.jpg",
       "narration": "Kalau saya di sini, siapa yang dipanggil masuk?",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 43,
-          "camera": "drift",
+          "atFrame": 30,
+          "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 86,
-          "camera": "push_in",
+          "atFrame": 61,
+          "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 125,
+          "atFrame": 88,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -212,17 +213,17 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 145,
+          "endFrame": 100,
           "text": "Kalau saya di sini, siapa yang dipanggil masuk?"
         }
       ],
       "visual": {
-        "prompt": "cinematic 9:16 vertical film still, a half-open clinic examination room door, cold fluorescent light spilling into a dim corridor, a chair pulled out just enough to see, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+        "prompt": "cinematic 9:16 vertical film still, an empty plastic waiting chair with a slight impression on the seat cushion, shallow depth of field, cold fluorescent light from above, muted palette, 35mm grain, documentary realism, no people, no text, no watermark",
         "locationId": "ls-0016_main",
         "characterIds": [],
-        "camera": "drift",
-        "shot": "medium",
-        "lighting": "cold_clinic_fluorescent_5000k",
+        "camera": "handheld",
+        "shot": "closeup",
+        "lighting": "clinical_fluorescent_5000k",
         "intensity": 0.5,
         "effects": [
           "film_grain",
@@ -235,12 +236,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 95,
+            "startFrame": 67,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 125,
+            "startFrame": 88,
             "volume": 0.4
           }
         ]
@@ -249,26 +250,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 166,
+      "durationFrames": 151,
       "image": "images/scene-04.jpg",
-      "narration": "Klinik matanya kecil. Enam kursi, satu perawat, satu dokter.",
+      "narration": "Kliniknya kecil. Enam kursi, satu perawat.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 46,
-          "camera": "static",
+          "atFrame": 42,
+          "camera": "drift",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 93,
+          "atFrame": 84,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 136,
+          "atFrame": 124,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -278,26 +279,27 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 55,
-          "text": "Klinik matanya kecil."
+          "endFrame": 50,
+          "text": "Kliniknya kecil."
         },
         {
-          "startFrame": 55,
-          "endFrame": 158,
-          "text": "Enam kursi, satu perawat, satu dokter."
+          "startFrame": 50,
+          "endFrame": 143,
+          "text": "Enam kursi, satu perawat."
         }
       ],
       "visual": {
-        "prompt": "cinematic 9:16 vertical wide film still, a tiny eye clinic interior, six plastic chairs in a row, one reception desk, one closed door, cold fluorescent tubes, linoleum floor, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+        "prompt": "cinematic 9:16 vertical film still, a narrow eye clinic corridor with six waiting chairs in a row and a small nurse station, notice board with blurred papers, cold fluorescent light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face",
         "locationId": "ls-0016_main",
         "characterIds": [],
-        "camera": "static",
+        "camera": "drift",
         "shot": "wide",
-        "lighting": "cold_clinic_fluorescent_5000k",
+        "lighting": "clinical_fluorescent_5000k",
         "intensity": 0.45,
         "effects": [
           "film_grain",
-          "vignette"
+          "vignette",
+          "light_flicker"
         ]
       },
       "audio": {
@@ -306,13 +308,18 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 103,
+            "startFrame": 93,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 136,
+            "startFrame": 124,
             "volume": 0.4
+          },
+          {
+            "assetId": "audio/sfx/whisper.mp3",
+            "startFrame": 52,
+            "volume": 0.28
           }
         ]
       }
@@ -320,26 +327,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 153,
+      "durationFrames": 154,
       "image": "images/scene-05.jpg",
       "narration": "Perawat memanggil empat belas. Saya berdiri, lalu masuk.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
           "atFrame": 43,
-          "camera": "handheld",
+          "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 86,
-          "camera": "pan_left",
+          "atFrame": 87,
+          "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 125,
+          "atFrame": 126,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -354,21 +361,232 @@
         },
         {
           "startFrame": 75,
-          "endFrame": 145,
+          "endFrame": 146,
           "text": "Saya berdiri, lalu masuk."
         }
       ],
       "visual": {
-        "prompt": "cinematic 9:16 vertical film still, a pair of legs standing up from a plastic clinic chair, floor and chair legs in focus, cold light, motion blur on the standing figure, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
+        "prompt": "cinematic 9:16 vertical film still, a nurse in white seen from behind standing at a half-open examination room door, silhouette against cold room light, waiting chairs foreground out of focus, muted palette, 35mm grain, documentary realism, face not visible, no readable text, no watermark",
         "locationId": "ls-0016_main",
         "characterIds": [],
-        "camera": "handheld",
+        "camera": "push_in",
         "shot": "medium",
-        "lighting": "cold_clinic_fluorescent_5000k",
+        "lighting": "clinical_fluorescent_5000k",
         "intensity": 0.5,
         "effects": [
           "film_grain",
           "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 96,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 126,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 153,
+      "image": "images/scene-06.jpg",
+      "narration": "Kursi yang saya tinggalkan masih hangat, padahal saya baru berdiri.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 43,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 85,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 126,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 145,
+          "text": "Kursi yang saya tinggalkan masih hangat, padahal saya baru berdiri."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical extreme close-up, an empty waiting chair seat seen from standing height, fabric still creased, a small damp patch of warmth implied, cold light, muted palette, 35mm grain, documentary realism, no people, no text, no watermark",
+        "locationId": "ls-0016_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "closeup",
+        "lighting": "clinical_fluorescent_5000k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "focus_rack"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 95,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 126,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 190,
+      "image": "images/scene-07.jpg",
+      "narration": "Layar antrean menampilkan empat belas dua kali. Dua baris.",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [
+        {
+          "atFrame": 53,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 106,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 156,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 142,
+          "text": "Layar antrean menampilkan empat belas dua kali."
+        },
+        {
+          "startFrame": 142,
+          "endFrame": 182,
+          "text": "Dua baris."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, close view of a clinic queue display panel, two rows of blurred glowing digits, one mirroring the other, cables and wall bracket visible, dim corridor around it, muted palette, 35mm grain, documentary realism, no readable text, no watermark",
+        "locationId": "ls-0016_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "clinical_fluorescent_5000k",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "scanlines"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 118,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 156,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_08",
+      "order": 7,
+      "durationFrames": 153,
+      "image": "images/scene-08.jpg",
+      "narration": "Saya minta rekaman ruang tunggu. Kameranya katanya rusak.",
+      "narrationAudio": "audio/narration/scene-08.mp3",
+      "cuts": [
+        {
+          "atFrame": 43,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 86,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 92,
+          "text": "Saya minta rekaman ruang tunggu."
+        },
+        {
+          "startFrame": 92,
+          "endFrame": 145,
+          "text": "Kameranya katanya rusak."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a small security post window at the back of a clinic, a dark CCTV monitor inside, desk lamp, cold corridor light outside, muted palette, 35mm grain, documentary realism, screen blurred, no readable text, no watermark, no visible face",
+        "locationId": "ls-0016_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "harsh_basement_fluorescent_4300k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "scanlines"
         ]
       },
       "audio": {
@@ -389,237 +607,28 @@
       }
     },
     {
-      "id": "scene_06",
-      "order": 5,
-      "durationFrames": 179,
-      "image": "images/scene-06.jpg",
-      "narration": "Kursi yang saya tinggalkan masih hangat, padahal saya baru berdiri.",
-      "narrationAudio": "audio/narration/scene-06.mp3",
-      "cuts": [
-        {
-          "atFrame": 50,
-          "camera": "push_in",
-          "scale": 1.22,
-          "offsetY": -55
-        },
-        {
-          "atFrame": 100,
-          "camera": "handheld",
-          "scale": 1.5,
-          "offsetX": 30,
-          "offsetY": 20
-        },
-        {
-          "atFrame": 147,
-          "camera": "push_in",
-          "scale": 1.72,
-          "offsetX": -25,
-          "offsetY": 70
-        }
-      ],
-      "subtitles": [
-        {
-          "startFrame": 4,
-          "endFrame": 171,
-          "text": "Kursi yang saya tinggalkan masih hangat, padahal saya baru berdiri."
-        }
-      ],
-      "visual": {
-        "prompt": "cinematic 9:16 vertical extreme close-up of an empty plastic chair seat with a faint warm imprint, condensation on the plastic, cold clinic light from above, shallow depth of field, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
-        "locationId": "ls-0016_main",
-        "characterIds": [],
-        "camera": "push_in",
-        "shot": "closeup",
-        "lighting": "cold_clinic_fluorescent_5000k",
-        "intensity": 0.5,
-        "effects": [
-          "film_grain",
-          "vignette"
-        ]
-      },
-      "audio": {
-        "ambienceId": "audio/ambience_drone.wav",
-        "ambienceVolume": 0.32,
-        "sfx": [
-          {
-            "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 111,
-            "volume": 0.5
-          },
-          {
-            "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 147,
-            "volume": 0.4
-          }
-        ]
-      }
-    },
-    {
-      "id": "scene_07",
-      "order": 6,
-      "durationFrames": 192,
-      "image": "images/scene-07.jpg",
-      "narration": "Layar antrean menampilkan empat belas dua kali. Dua baris, angka sama.",
-      "narrationAudio": "audio/narration/scene-07.mp3",
-      "cuts": [
-        {
-          "atFrame": 54,
-          "camera": "push_in",
-          "scale": 1.22,
-          "offsetY": -55
-        },
-        {
-          "atFrame": 108,
-          "camera": "handheld",
-          "scale": 1.5,
-          "offsetX": 30,
-          "offsetY": 20
-        },
-        {
-          "atFrame": 157,
-          "camera": "push_in",
-          "scale": 1.72,
-          "offsetX": -25,
-          "offsetY": 70
-        }
-      ],
-      "subtitles": [
-        {
-          "startFrame": 4,
-          "endFrame": 119,
-          "text": "Layar antrean menampilkan empat belas dua kali."
-        },
-        {
-          "startFrame": 119,
-          "endFrame": 184,
-          "text": "Dua baris, angka sama."
-        }
-      ],
-      "visual": {
-        "prompt": "cinematic 9:16 vertical film still, an LED queue display close-up on a clinic wall showing the same two-digit number on two separate lines, digits soft and unreadable, red glow on concrete, cold corridor behind, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
-        "locationId": "ls-0016_main",
-        "characterIds": [],
-        "camera": "push_in",
-        "shot": "closeup",
-        "lighting": "cold_clinic_fluorescent_5000k",
-        "intensity": 0.55,
-        "effects": [
-          "film_grain",
-          "scanlines",
-          "vignette"
-        ]
-      },
-      "audio": {
-        "ambienceId": "audio/ambience_drone.wav",
-        "ambienceVolume": 0.32,
-        "sfx": [
-          {
-            "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 119,
-            "volume": 0.5
-          },
-          {
-            "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 157,
-            "volume": 0.4
-          }
-        ]
-      }
-    },
-    {
-      "id": "scene_08",
-      "order": 7,
-      "durationFrames": 192,
-      "image": "images/scene-08.jpg",
-      "narration": "Saya minta rekaman ruang tunggu. Petugas bilang kameranya rusak sejak lama.",
-      "narrationAudio": "audio/narration/scene-08.mp3",
-      "cuts": [
-        {
-          "atFrame": 54,
-          "camera": "drift",
-          "scale": 1.22,
-          "offsetY": -55
-        },
-        {
-          "atFrame": 108,
-          "camera": "push_in",
-          "scale": 1.5,
-          "offsetX": 30,
-          "offsetY": 20
-        },
-        {
-          "atFrame": 157,
-          "camera": "push_in",
-          "scale": 1.72,
-          "offsetX": -25,
-          "offsetY": 70
-        }
-      ],
-      "subtitles": [
-        {
-          "startFrame": 4,
-          "endFrame": 86,
-          "text": "Saya minta rekaman ruang tunggu."
-        },
-        {
-          "startFrame": 86,
-          "endFrame": 184,
-          "text": "Petugas bilang kameranya rusak sejak lama."
-        }
-      ],
-      "visual": {
-        "prompt": "cinematic 9:16 vertical film still, a clinic reception window at night, a small CCTV monitor behind the counter showing grey static, counter bell, cold fluorescent light, muted palette, 35mm grain, documentary realism, screen blurred, no readable text, no watermark, no faces, full-bleed no borders",
-        "locationId": "ls-0016_main",
-        "characterIds": [],
-        "camera": "drift",
-        "shot": "medium",
-        "lighting": "cold_clinic_fluorescent_5000k",
-        "intensity": 0.45,
-        "effects": [
-          "film_grain",
-          "vignette"
-        ]
-      },
-      "audio": {
-        "ambienceId": "audio/ambience_drone.wav",
-        "ambienceVolume": 0.32,
-        "sfx": [
-          {
-            "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 119,
-            "volume": 0.5
-          },
-          {
-            "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 157,
-            "volume": 0.4
-          }
-        ]
-      }
-    },
-    {
       "id": "scene_09",
       "order": 8,
-      "durationFrames": 218,
+      "durationFrames": 199,
       "image": "images/scene-09.jpg",
-      "narration": "Rekaman suara perawat masih ada. Yang dipanggil bukan nomor. Nama saya, dua kali.",
+      "narration": "Rekaman suara perawat masih ada. Yang dipanggil bukan nomor. Nama saya.",
       "narrationAudio": "audio/narration/scene-09.mp3",
       "cuts": [
         {
-          "atFrame": 61,
+          "atFrame": 56,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 122,
+          "atFrame": 112,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 179,
+          "atFrame": 163,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -629,31 +638,32 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 83,
+          "endFrame": 89,
           "text": "Rekaman suara perawat masih ada."
         },
         {
-          "startFrame": 83,
-          "endFrame": 146,
+          "startFrame": 89,
+          "endFrame": 157,
           "text": "Yang dipanggil bukan nomor."
         },
         {
-          "startFrame": 146,
-          "endFrame": 210,
-          "text": "Nama saya, dua kali."
+          "startFrame": 157,
+          "endFrame": 191,
+          "text": "Nama saya."
         }
       ],
       "visual": {
-        "prompt": "cinematic 9:16 vertical extreme close-up of a laptop screen playing an audio waveform, dark room, cold screen light on a desk, reflection of a face barely visible and out of focus, muted palette, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
+        "prompt": "cinematic 9:16 vertical extreme close-up, a smartphone on a desk playing an audio recording, waveform visible but no text, cold light from the screen, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no hands visible",
         "locationId": "ls-0016_main",
         "characterIds": [],
         "camera": "push_in",
         "shot": "closeup",
-        "lighting": "cold_clinic_fluorescent_5000k",
-        "intensity": 0.55,
+        "lighting": "harsh_basement_fluorescent_4300k",
+        "intensity": 0.5,
         "effects": [
           "film_grain",
-          "vignette"
+          "vignette",
+          "scanlines"
         ]
       },
       "audio": {
@@ -662,12 +672,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 135,
+            "startFrame": 123,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 179,
+            "startFrame": 163,
             "volume": 0.4
           }
         ]
@@ -676,26 +686,26 @@
     {
       "id": "scene_10",
       "order": 9,
-      "durationFrames": 244,
+      "durationFrames": 215,
       "image": "images/scene-10.jpg",
-      "narration": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali? Tulis di komentar.",
+      "narration": "Pendaftaran cuma satu nama. Kamu masih akan masuk kalau dipanggil kedua kali? Tulis di komentar.",
       "narrationAudio": "audio/narration/scene-10.mp3",
       "cuts": [
         {
-          "atFrame": 68,
+          "atFrame": 60,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 137,
+          "atFrame": 121,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 200,
+          "atFrame": 176,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -705,28 +715,28 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 66,
-          "text": "Nama itu cuma satu."
+          "endFrame": 58,
+          "text": "Pendaftaran cuma satu nama."
         },
         {
-          "startFrame": 66,
-          "endFrame": 190,
-          "text": "Kamu tetap akan masuk kalau dipanggil kedua kali?"
+          "startFrame": 58,
+          "endFrame": 166,
+          "text": "Kamu masih akan masuk kalau dipanggil kedua kali?"
         },
         {
-          "startFrame": 190,
-          "endFrame": 236,
+          "startFrame": 166,
+          "endFrame": 207,
           "text": "Tulis di komentar."
         }
       ],
       "visual": {
-        "prompt": "cinematic 9:16 vertical film still, the same clinic waiting room as the first frame, now empty and darker, the LED display showing the same two-digit number on two lines, one chair slightly turned, cold light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+        "prompt": "cinematic 9:16 vertical film still, dim small clinic waiting room, a glowing queue display panel on the wall with blurred red digits arranged in two lines, six empty plastic chairs, the folded jacket now gone from the chair, harsh overhead fluorescent, muted green-grey palette, 35mm grain, documentary realism, all text blurred and unreadable, no readable text, no watermark, no face",
         "locationId": "ls-0016_main",
         "characterIds": [],
         "camera": "static",
-        "shot": "wide",
-        "lighting": "cold_clinic_fluorescent_5000k",
-        "intensity": 0.5,
+        "shot": "medium",
+        "lighting": "clinical_fluorescent_5000k",
+        "intensity": 0.55,
         "effects": [
           "film_grain",
           "vignette",
@@ -739,12 +749,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 151,
+            "startFrame": 133,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 200,
+            "startFrame": 176,
             "volume": 0.4
           }
         ]
@@ -752,36 +762,36 @@
     }
   ],
   "publishing": {
-    "title": "Itu Bukan Nomor Saya, Itu Nama Saya — Dipanggil Dua Kali",
-    "description": "Nomor antrean saya dipanggil dua kali. Panggilan kedua datang dari dalam ruang periksa, padahal saya masih duduk di kursi tunggu.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Waktu saya berdiri dan masuk, kursi yang saya tinggalkan masih hangat. Layar antrean menampilkan angka yang sama, dua baris, dengan jam berbeda.\n\nSaya minta rekaman ruang tunggu, dan petugas bilang kameranya rusak sejak lama. Rekaman suara perawat masih ada. Di sana, panggilan kedua bukan nomor.",
+    "title": "Nomor Itu Dipanggil Dua Kali, Panggilan Kedua dari Dalam",
+    "description": "Nomor empat belas dipanggil dua kali, dan panggilan keduanya datang dari dalam ruang periksa.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Saya mengambil nomor, duduk paling dekat pintu, lalu dipanggil. Waktu saya kembali ke kursi itu, permukaannya masih hangat, padahal saya baru berdiri.\n\nLayar antrean menampilkan nomor yang sama dua baris. Saya minta rekaman ruang tunggu; kameranya katanya rusak sejak lama. Rekaman suara perawat masih ada, dan di situ panggilan kedua bukan nomor.",
     "tags": [
       "cerita horor",
       "horor indonesia",
       "klinik",
       "cerita seram",
-      "antrean"
+      "ruang tunggu"
     ],
     "categoryId": "24",
     "privacyStatus": "public",
     "selfDeclaredMadeForKids": false,
     "syntheticDisclosure": true,
-    "pinComment": "Ada dua baris angka yang sama di layar itu. Berapa selisih jam di bawah angkanya menurutmu?",
+    "pinComment": "Di layar itu ada dua baris angka yang sama dengan jam berbeda. Kamu masih akan masuk kalau namamu yang dipanggil?",
     "thumbnail": {
-      "headline": "NOMOR 14 DIPANGGIL DUA KALI",
-      "kicker": "dari dalam ruang periksa",
+      "headline": "NOMOR ITU DIPANGGIL DUA KALI",
+      "kicker": "yang kedua dari dalam",
       "image": "images/thumb.jpg",
       "holdFrames": 12
     },
     "cta": {
-      "card": "Kamu tetap akan masuk?",
+      "card": "Kamu masih akan masuk?",
       "holdFrames": 84
     }
   },
   "production": {
     "subgenre": "Institutional horror",
-    "experiment": "Uji hukum lapisan: peta petunjuk 3 medium, uji dua bacaan, tiga loop, dua reda.",
+    "experiment": "Paket 1 hukum 8 Nov: 3 petunjuk (visual/audio/teks), 3 loop, 2 reda, uji dua bacaan. Klimaks di depan, potong di detik ~10.",
     "hud": false,
-    "structure": "klimaks (14 dua kali) → entitas kursi kosong → POTONG 'siapa yang dipanggil masuk?' → klinik → kursi hangat → layar dua baris → minta rekaman → twist nama saya → CTA",
+    "structure": "klimaks panggilan kedua dari dalam → POTONG 'siapa yang masuk?' → klinik kecil → perawat memanggil → kursi masih hangat → layar dua baris → minta rekaman → twist: yang dipanggil nama saya → CTA",
     "slate": "stories/slate.json"
   }
 }

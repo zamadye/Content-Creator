@@ -1,42 +1,40 @@
-# LS-0016 — "Nomor Empat Belas Dipanggil Dua Kali"
+# LS-0016 — "Nomor Itu Dipanggil Dua Kali"
 
-**Format:** Short vertikal 9:16 · narasi **110 kata** · ±50 s pada 2.2 kata/detik (target 40–60 s)
-**Premis:** Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ditinggalkannya masih hangat, dan layar menampilkan angka yang sama dua baris.
-**Hook:** "nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa"
-**Twist:** Panggilan kedua bukan nomor, melainkan nama narator — diucapkan dua kali oleh perawat.
-**Penutup:** Narator menegaskan namanya hanya satu, lalu bertanya apakah penonton tetap masuk kalau dipanggil kedua kali.
+**Format:** Short vertikal 9:16 · narasi **96 kata** · ±43.6 s pada 2.2 kata/detik (target 40–60 s)
+**Premis:** Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ia tinggalkan masih hangat dan layar antrean menampilkan nomor itu dua baris.
+**Hook:** "Nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa"
+**Twist:** Panggilan kedua bukan nomor antrean melainkan nama narator, padahal pendaftaran hanya memuat satu nama itu.
+**Penutup:** Narator menyebut nama itu cuma satu, lalu bertanya apakah penonton tetap akan masuk kalau dipanggil kedua kali.
 
 Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji `scripts/check-copy.mjs`.
 
-## S1 — 14 kata (±6.4 s)
+## S1 — 11 kata (±5 s)
 
-> Antrean itu memanggil nomor empat belas dua kali.
+> Empat belas dipanggil dua kali.
 >
-> Yang kedua, dari dalam ruang periksa.
+> Yang kedua dari dalam ruang periksa.
 >
-*Kamera* static · *shot* wide · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette, scanlines
+*Kamera* static · *shot* medium · *cahaya* clinical_fluorescent_5000k · *efek* film_grain, vignette, light_flicker
 
-## S2 — 11 kata (±5 s)
+## S2 — 10 kata (±4.5 s)
 
-> Saya masih di kursi tunggu.
+> Saya masih di kursi tunggu, nomor itu di tangan saya.
 >
-> Nomor itu masih di tangan saya.
->
-*Kamera* push_in · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* push_in · *shot* closeup · *cahaya* clinical_fluorescent_5000k · *efek* film_grain, vignette, focus_rack
 
 ## S3 — 8 kata (±3.6 s)
 
 > Kalau saya di sini, siapa yang dipanggil masuk?
 >
-*Kamera* drift · *shot* medium · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* handheld · *shot* closeup · *cahaya* clinical_fluorescent_5000k · *efek* film_grain, vignette
 
-## S4 — 9 kata (±4.1 s)
+## S4 — 6 kata (±2.7 s)
 
-> Klinik matanya kecil.
+> Kliniknya kecil.
 >
-> Enam kursi, satu perawat, satu dokter.
+> Enam kursi, satu perawat.
 >
-*Kamera* static · *shot* wide · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* drift · *shot* wide · *cahaya* clinical_fluorescent_5000k · *efek* film_grain, vignette, light_flicker
 
 ## S5 — 8 kata (±3.6 s)
 
@@ -44,49 +42,49 @@ Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji
 >
 > Saya berdiri, lalu masuk.
 >
-*Kamera* handheld · *shot* medium · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* push_in · *shot* medium · *cahaya* clinical_fluorescent_5000k · *efek* film_grain, vignette
 
 ## S6 — 10 kata (±4.5 s)
 
 > Kursi yang saya tinggalkan masih hangat, padahal saya baru berdiri.
 >
-*Kamera* push_in · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* handheld · *shot* closeup · *cahaya* clinical_fluorescent_5000k · *efek* film_grain, vignette, focus_rack
 
-## S7 — 11 kata (±5 s)
+## S7 — 9 kata (±4.1 s)
 
 > Layar antrean menampilkan empat belas dua kali.
 >
-> Dua baris, angka sama.
+> Dua baris.
 >
-*Kamera* push_in · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, scanlines, vignette
+*Kamera* push_in · *shot* closeup · *cahaya* clinical_fluorescent_5000k · *efek* film_grain, vignette, scanlines
 
-## S8 — 11 kata (±5 s)
+## S8 — 8 kata (±3.6 s)
 
 > Saya minta rekaman ruang tunggu.
 >
-> Petugas bilang kameranya rusak sejak lama.
+> Kameranya katanya rusak.
 >
-*Kamera* drift · *shot* medium · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* static · *shot* medium · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette, scanlines
 
-## S9 — 13 kata (±5.9 s)
+## S9 — 11 kata (±5 s)
 
 > Rekaman suara perawat masih ada.
 >
 > Yang dipanggil bukan nomor.
 >
-> Nama saya, dua kali.
+> Nama saya.
 >
-*Kamera* push_in · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
+*Kamera* push_in · *shot* closeup · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette, scanlines
 
 ## S10 — 15 kata (±6.8 s)
 
-> Nama itu cuma satu.
+> Pendaftaran cuma satu nama.
 >
-> Kamu tetap akan masuk kalau dipanggil kedua kali?
+> Kamu masih akan masuk kalau dipanggil kedua kali?
 >
 > Tulis di komentar.
 >
-*Kamera* static · *shot* wide · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette, light_flicker
+*Kamera* static · *shot* medium · *cahaya* clinical_fluorescent_5000k · *efek* film_grain, vignette, light_flicker
 
 ---
 

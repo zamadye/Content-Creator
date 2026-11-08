@@ -1,6 +1,6 @@
 # LS-0019 — "Ojek Itu Sudah Menunggu Sebelum Saya Memesan"
 
-**Format:** Short vertikal 9:16 · narasi **96 kata** · ±43.6 s pada 2.2 kata/detik (target 40–60 s)
+**Format:** Short vertikal 9:16 · narasi **92 kata** · ±41.8 s pada 2.2 kata/detik (target 40–60 s)
 **Premis:** Setiap subuh narator memesan ojek ke stasiun, tapi pengemudinya sudah menunggu sebelum pesanan dibuat, dan aplikasi menagih nol rupiah.
 **Hook:** "ojek sudah menunggu di depan pagar sebelum saya memesan"
 **Twist:** Riwayat perjalanan memuat perjalanan besok subuh yang sudah lunas atas nama narator, padahal ia belum memesan.
@@ -10,13 +10,15 @@ Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji
 
 ## S1 — 10 kata (±4.5 s)
 
-> Ojek itu sudah menunggu di depan pagar sebelum saya memesan.
+> Ojek itu menunggu dua puluh menit.
+>
+> Tidak ada pesanan saya.
 >
 *Kamera* static · *shot* medium · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
 
-## S2 — 11 kata (±5 s)
+## S2 — 7 kata (±3.2 s)
 
-> Plat nomornya sama dengan yang muncul lima menit kemudian di aplikasi.
+> Plat nomornya sama dengan yang muncul nanti.
 >
 *Kamera* push_in · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
 

@@ -2,6 +2,8 @@
 """Offline component tests for the research PDF renderer."""
 import importlib.util
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -51,6 +53,23 @@ class ResearchPdfTest(unittest.TestCase):
                     if action and action.get("/URI"):
                         uris.append(str(action["/URI"]))
             self.assertIn("https://example.org/r?x=1&y=2", uris)
+
+    def test_cli_supports_document_specific_footer_and_metadata(self):
+        with tempfile.TemporaryDirectory() as td:
+            source = Path(td) / "input.md"
+            target = Path(td) / "out.pdf"
+            source.write_text("# Draft Awan\n\nBelum dirender.\n", encoding="utf-8")
+            subprocess.run(
+                [sys.executable, str(PATH), str(source), str(target),
+                 "--footer", "AWAN V3 - DRAF", "--title", "Usulan Awan",
+                 "--subject", "Storyboard privat"],
+                check=True, capture_output=True, text=True,
+            )
+            pdf = PdfReader(str(target))
+            self.assertIn("AWAN V3 - DRAF", pdf.pages[0].extract_text())
+            self.assertNotIn("RISET RETENSI", pdf.pages[0].extract_text())
+            self.assertEqual(pdf.metadata.title, "Usulan Awan")
+            self.assertEqual(pdf.metadata.subject, "Storyboard privat")
 
 
 if __name__ == "__main__":

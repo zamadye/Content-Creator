@@ -10,6 +10,17 @@ python3 -m venv .venv-research
   editorial-engine/deliverables/retensi-research/private/RISET-RETENSI-KNOT-THEORY.pdf
 ```
 
+Untuk dokumen lain, ganti footer dan metadata agar PDF tidak salah mengaku sebagai laporan riset lama; default tetap sama untuk reproduksi laporan sebelumnya:
+
+```bash
+.venv-research/bin/python scripts/render-research-pdf.py \
+  editorial-engine/content/proposals/AWAN-V3-NASKAH-DAN-STORYBOARD.md \
+  editorial-engine/deliverables/retensi-research/private/awan-opening-audit/AWAN-V3-NASKAH-DAN-STORYBOARD.pdf \
+  --footer 'AWAN V3  ·  DRAF PRAPRODUKSI' \
+  --title 'Awan 500 ton — usulan naskah dan storyboard V3' \
+  --subject 'Draf terpisah; belum dirender atau disetujui publikasi'
+```
+
 `.venv-research` dan folder `private/` diabaikan oleh Git. Output riset untuk sesi ini disimpan di Drive privat; `private/` dapat mencakup analitik akun yang tidak boleh dipublikasikan. Jangan masukkan kunci, data privat, media, PDF hasil build, atau kredensial ke repo publik.
 
 Verifikasi contoh (tidak menggantikan pemeriksaan visual):

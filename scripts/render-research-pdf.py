@@ -9,6 +9,7 @@ No analytics, credentials, media downloads, or network calls are involved.
 from __future__ import annotations
 
 import argparse
+from functools import partial
 from pathlib import Path
 from xml.sax.saxutils import escape, quoteattr
 
@@ -150,7 +151,7 @@ def render_markdown(text: str):
     return story
 
 
-def paint_page(canvas, doc) -> None:
+def paint_page(canvas, doc, footer: str = "RISET RETENSI  ·  7 NOVEMBER 2026") -> None:
     width, height = A4
     canvas.saveState()
     canvas.setFillColor(colors.HexColor("#102b40"))
@@ -164,7 +165,7 @@ def paint_page(canvas, doc) -> None:
     canvas.line(48, 40, width - 48, 40)
     canvas.setFont("Archivo", 8)
     canvas.setFillColor(colors.HexColor("#627783"))
-    canvas.drawString(48, 27, "RISET RETENSI  ·  7 NOVEMBER 2026")
+    canvas.drawString(48, 27, footer)
     canvas.drawRightString(width - 48, 27, f"{doc.page}")
     canvas.restoreState()
 
@@ -173,6 +174,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path, help="UTF-8 Markdown file")
     parser.add_argument("output", type=Path, help="PDF output path")
+    parser.add_argument("--footer", default="RISET RETENSI  ·  7 NOVEMBER 2026",
+                        help="Text printed in the page footer")
+    parser.add_argument("--title", default="Retensi dan Pertumbuhan Shorts — Knot Theory",
+                        help="PDF document title metadata")
+    parser.add_argument("--subject", default="Riset berbasis sumber dan rencana pengujian retensi",
+                        help="PDF document subject metadata")
     args = parser.parse_args()
     if args.output.suffix.lower() != ".pdf":
         parser.error("output must end in .pdf")
@@ -180,11 +187,12 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     doc = SimpleDocTemplate(str(args.output), pagesize=A4, leftMargin=48, rightMargin=48,
                             topMargin=49, bottomMargin=53,
-                            title="Retensi dan Pertumbuhan Shorts — Knot Theory",
+                            title=args.title,
                             author="Knot Theory — Riset Dunia Kebalik",
-                            subject="Riset berbasis sumber dan rencana pengujian retensi")
+                            subject=args.subject)
     story = render_markdown(args.input.read_text(encoding="utf-8"))
-    doc.build(story, onFirstPage=paint_page, onLaterPages=paint_page)
+    page_painter = partial(paint_page, footer=args.footer)
+    doc.build(story, onFirstPage=page_painter, onLaterPages=page_painter)
     print(f"Wrote {args.output}")
 
 

@@ -8,11 +8,34 @@ import { FilmGrain } from "../components/FilmGrain";
 import { FoundFootageHud } from "../components/FoundFootageHud";
 import { Jumpscare } from "../components/Jumpscare";
 import { OnScreenTextTrack } from "../components/OnScreenText";
+import { SceneTransition, type TransitionKind } from "../components/SceneTransition";
 import { Soundscape } from "../components/Soundscape";
 import { SubtitleTrack } from "../components/SubtitleTrack";
 import { ThumbnailCard } from "../components/ThumbnailCard";
 import { Vignette } from "../components/Vignette";
+import { buildShots } from "../lib/shots";
 import { theme } from "../lib/theme";
+
+/**
+ * Transisi antar scene. Kalau episode tidak menentukan sendiri
+ * (`production.transitions`), pilihannya diturunkan dari kontras terang/gelap:
+ *  - terang → gelap: dip ke hitam, penonton "masuk" ke tempat gelap,
+ *  - gelap → terang: kilat putih, seperti mata menyesuaikan cahaya,
+ *  - dua scene sama gelapnya: whip searah, karena cut keras terasa datar,
+ *  - naik intensitas: zoom punch, dorongan ke dalam cerita.
+ */
+function pickTransition(
+  fromIntensity: number,
+  toIntensity: number,
+  index: number,
+): TransitionKind {
+  const delta = toIntensity - fromIntensity;
+  if (delta < -0.15) return "dip_black";
+  if (delta > 0.15) return "flash_white";
+  if (Math.abs(delta) <= 0.15 && toIntensity > 0.55) return index % 2 === 0 ? "whip_left" : "whip_right";
+  if (delta > 0.05) return "zoom_punch";
+  return index % 2 === 0 ? "whip_down" : "whip_up";
+}
 
 const END_CARD_FRAMES = 30;
 
@@ -85,6 +108,37 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
         </Sequence>
       ))}
 
+      {/* Transisi menimpa PERSAMBUNGAN dua scene: separuh frame di ekor scene
+          keluar, separuh di kepala scene masuk. Gambarnya diambil dari shot
+          nyata terakhir/pertama, jadi gerakannya membawa isi cerita. */}
+      {episode.scenes.slice(1).map((scene, i) => {
+        const index = i + 1;
+        const previous = episode.scenes[index - 1];
+        const kind =
+          (episode.production?.transitions?.[i] as TransitionKind | undefined) ??
+          pickTransition(previous.visual.intensity, scene.visual.intensity, index);
+        const frames = episode.production?.transitionFrames ?? 12;
+        const half = Math.floor(frames / 2);
+        const outShots = buildShots(previous);
+        const inShots = buildShots(scene);
+        return (
+          <Sequence
+            key={`tr-${scene.id}`}
+            from={Math.max(0, offsets[index] - half)}
+            durationInFrames={frames}
+            name={`transisi ${previous.id}→${scene.id} ${kind}`}
+          >
+            <SceneTransition
+              kind={kind}
+              from={outShots[outShots.length - 1]?.image ?? previous.image}
+              to={inShots[0]?.image ?? scene.image}
+              frames={frames}
+              intensity={(previous.visual.intensity + scene.visual.intensity) / 2}
+            />
+          </Sequence>
+        );
+      })}
+
       <Sequence from={0} durationInFrames={ctaFrom} name="subtitle (sebelum CTA)">
         <SubtitleTrack episode={episode} />
       </Sequence>
@@ -95,7 +149,7 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
           dan pemilik kanal sudah melarang HUD itu untuk narasi orang pertama.
           Jadi bukan format yang menentukan, melainkan pernyataan episode:
           production.hud === true (bawaan: tidak ada HUD). */}
-      {(episode as { production?: { hud?: boolean } }).production?.hud === true ? (
+      {episode.production?.hud === true ? (
         <FoundFootageHud />
       ) : null}
       {episode.jumpscares.map((scare, index) => (

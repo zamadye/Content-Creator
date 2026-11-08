@@ -209,6 +209,41 @@ export const PublishingSchema = z.object({
 });
 
 export const EpisodeSchema = z.object({
+  /**
+   * Setelan produksi yang tidak mengubah isi cerita.
+   *
+   * `hud` dulu hanya dibaca lewat cast di renderer, padahal skema ini membuang
+   * kunci tak dikenal — jadi nilainya tidak pernah sampai. Sekarang resmi.
+   * `transitions` menyimpan jenis transisi antar scene berurutan (jumlahnya
+   * scene - 1); kosong berarti renderer memilih sendiri berdasarkan kontras
+   * terang/gelap.
+   */
+  production: z
+    .object({
+      hud: z.boolean().default(false),
+      transitions: z
+        .array(
+          z.enum([
+            "whip_left",
+            "whip_right",
+            "whip_up",
+            "whip_down",
+            "flash_white",
+            "dip_black",
+            "zoom_punch",
+          ]),
+        )
+        .default([]),
+      transitionFrames: z.number().int().min(6).max(24).default(12),
+      // Catatan internal produksi (dipakai build-longform). Bukan kontrak
+      // tayang, tapi harus dideklarasikan supaya tidak dibuang parser.
+      subgenre: z.string().optional(),
+      experiment: z.string().nullable().optional(),
+      structure: z.string().nullable().optional(),
+      slate: z.string().optional(),
+      format: z.string().optional(),
+    })
+    .optional(),
   episodeId: z.string().regex(/^(LS|LL)-\d{4}$/, "episodeId harus berbentuk LS-0001 atau LL-0001"),
   title: z.string().min(1),
   language: z.literal("id-ID"),

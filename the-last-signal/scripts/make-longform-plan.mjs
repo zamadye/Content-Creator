@@ -133,6 +133,11 @@ const segments = peta.segmen.map((seg) => {
   const n = segmenNarasi.get(seg.id);
   if (!n) throw new Error(`segmen ${seg.id} tidak ada di narration.json`);
 
+  // Dua shot berurutan tidak boleh memakai gerak kamera yang sama: penonton
+  // membacanya sebagai gambar yang diulang. Kalau naskah menulis gerak yang
+  // sama, di sini digeser ke gerak berikutnya di tangga VARIASI.
+  const VARIASI = ["pan_left", "pan_right", "tilt_up", "tilt_down", "push_in", "dolly_in", "arc_left"];
+  let kameraSebelumnya = null;
   const shots = seg.shots.map((shot, index) => {
     jumlahShot += 1;
     // Shot yang memuat entitas TIDAK boleh menumpang gambar kolam: kalau ikut,
@@ -145,7 +150,15 @@ const segments = peta.segmen.map((seg) => {
     const step = [1.06, 1.18, 1.1, 1.24][index % 4];
     return {
       image: `images/${ref}.jpg`,
-      camera: kameraDari(shot.kamera),
+      camera: (() => {
+        let kamera = kameraDari(shot.kamera);
+        if (kamera === kameraSebelumnya) {
+          const posisi = VARIASI.indexOf(kamera);
+          kamera = VARIASI[(posisi + 1 + index) % VARIASI.length];
+        }
+        kameraSebelumnya = kamera;
+        return kamera;
+      })(),
       scale: step,
       offsetX: [0, 40, -30, 20][index % 4],
       offsetY: [0, -20, 25, -10][index % 4],
@@ -205,7 +218,14 @@ const plan = {
     pinComment: arg("komentar", "Kalau kamu jadi saya: tulis angka yang diminta, atau angka yang benar?"),
   },
   thumbnail: { headline: "KURANG 12 M²", kicker: "Tanah ini tidak bisa diukur" },
-  cta: { card: "Tulis jawabanmu di komentar", holdFrames: 90 },
+  cta: meta.cta ?? { card: "Tulis jawabanmu di komentar", holdFrames: 90 },
+  // Transisi antar scene: diisi tangan di meta.json (satu per sambungan),
+  // karena yang tahu perpindahan mana yang harus terasa epik adalah naskah,
+  // bukan renderer.
+  production: {
+    transitions: meta.transisi ?? [],
+    transitionFrames: meta.transitionFrames ?? 12,
+  },
   segments,
 };
 

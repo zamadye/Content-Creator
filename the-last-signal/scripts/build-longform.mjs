@@ -179,6 +179,10 @@ const episode = {
     structure: plan.structure ?? null,
     slate: planPath.replace(`${ROOT}/`, ""),
     format: "longform",
+    // Transisi antar scene (jumlahnya scene - 1). Kosong = renderer memilih
+    // sendiri dari kontras terang/gelap.
+    transitions: plan.production?.transitions ?? [],
+    transitionFrames: plan.production?.transitionFrames ?? 12,
   },
 };
 

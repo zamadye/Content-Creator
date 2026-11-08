@@ -1,6 +1,6 @@
 # LS-0017 — "Suara di Kamar Itu Sudah Ada Sebelum Saya Mengetuk"
 
-**Format:** Short vertikal 9:16 · narasi **94 kata** · ±42.7 s pada 2.2 kata/detik (target 40–60 s)
+**Format:** Short vertikal 9:16 · narasi **103 kata** · ±46.8 s pada 2.2 kata/detik (target 40–60 s)
 **Premis:** Di kos sembilan kamar, narator mendengar jawaban dari dalam kamarnya sendiri sebelum ia mengetuk; lampu menyala, padahal ia mematikannya pagi.
 **Hook:** "suara di dalam kamar bilang masuk sebelum saya mengetuk"
 **Twist:** Suara yang menjawab adalah suara narator sendiri, direkam dua tahun lalu di kamar itu — sebelum ia tinggal di sana.
@@ -8,9 +8,11 @@
 
 Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji `scripts/check-copy.mjs`.
 
-## S1 — 9 kata (±4.1 s)
+## S1 — 15 kata (±6.8 s)
 
 > Suara di dalam kamar bilang masuk, sebelum saya mengetuk.
+>
+> Tidak ada siapa pun di sana.
 >
 *Kamera* static · *shot* closeup · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette, light_flicker
 
@@ -74,11 +76,13 @@ Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji
 >
 *Kamera* push_in · *shot* wide · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette
 
-## S10 — 12 kata (±5.5 s)
+## S10 — 15 kata (±6.8 s)
 
 > Saya masih bayar kos itu.
 >
 > Kamu akan mengetuk kalau jawabannya sudah ada?
+>
+> Tulis di komentar.
 >
 *Kamera* static · *shot* closeup · *cahaya* harsh_basement_fluorescent_4300k · *efek* film_grain, vignette, light_flicker
 

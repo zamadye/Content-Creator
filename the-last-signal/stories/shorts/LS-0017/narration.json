@@ -2,17 +2,17 @@
   "episode": "LS-0017",
   "judul": "Suara di Kamar Itu Sudah Ada Sebelum Saya Mengetuk",
   "format": "short_9x16",
-  "total_kata": 94,
-  "estimasi_detik": 42.7,
+  "total_kata": 103,
+  "estimasi_detik": 46.8,
   "segmen": [
     {
       "id": "S1",
       "segmen": 1,
       "judul": "Suara di dalam kamar bilang masuk, sebelum saya mengetuk",
       "paragraf": [
-        "Suara di dalam kamar bilang masuk, sebelum saya mengetuk."
+        "Suara di dalam kamar bilang masuk, sebelum saya mengetuk. Tidak ada siapa pun di sana."
       ],
-      "kata": 9
+      "kata": 15
     },
     {
       "id": "S2",
@@ -91,9 +91,9 @@
       "segmen": 10,
       "judul": "Saya masih bayar kos itu",
       "paragraf": [
-        "Saya masih bayar kos itu. Kamu akan mengetuk kalau jawabannya sudah ada?"
+        "Saya masih bayar kos itu. Kamu akan mengetuk kalau jawabannya sudah ada? Tulis di komentar."
       ],
-      "kata": 12
+      "kata": 15
     }
   ]
 }

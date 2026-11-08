@@ -7,8 +7,8 @@
     1080,
     1920
   ],
-  "total_kata_narasi": 105,
-  "estimasi_durasi_detik": 47.7,
+  "total_kata_narasi": 110,
+  "estimasi_durasi_detik": 50,
   "hook_card": {
     "teks": "NOMOR ITU DIPANGGIL DUA KALI",
     "tampil": "frame 0–60",
@@ -28,7 +28,7 @@
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 12,
+      "kata": 14,
       "kamera": "static",
       "shot": "wide",
       "lighting": "cold_clinic_fluorescent_5000k",
@@ -147,7 +147,7 @@
     },
     {
       "segmen": "S10",
-      "kata": 12,
+      "kata": 15,
       "kamera": "static",
       "shot": "wide",
       "lighting": "cold_clinic_fluorescent_5000k",

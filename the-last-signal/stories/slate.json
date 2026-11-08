@@ -635,7 +635,7 @@
    ],
    "scenes": [
     {
-     "narration": "Nomor empat belas dipanggil dua kali. Yang kedua, dari dalam ruang periksa.",
+     "narration": "Antrean memanggil empat belas dua kali. Yang kedua, dari dalam.",
      "imagePrompt": "cinematic 9:16 vertical film still, a small clinic waiting room seen from a low seat, an LED queue display on the wall showing a two-digit number twice on two lines, blurred digits, empty plastic chairs, cold fluorescent light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "static",
      "shot": "wide",
@@ -745,7 +745,7 @@
      ]
     },
     {
-     "narration": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali?",
+     "narration": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali? Tulis di komentar.",
      "imagePrompt": "cinematic 9:16 vertical film still, the same clinic waiting room as the first frame, now empty and darker, the LED display showing the same two-digit number on two lines, one chair slightly turned, cold light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "static",
      "shot": "wide",
@@ -772,7 +772,7 @@
     "holdFrames": 84
    },
    "youtube": {
-    "title": "Nomor Empat Belas Dipanggil Dua Kali di Klinik Itu",
+    "title": "Itu Bukan Nomor Saya, Itu Nama Saya — Dipanggil Dua Kali",
     "description": "Nomor antrean saya dipanggil dua kali. Panggilan kedua datang dari dalam ruang periksa, padahal saya masih duduk di kursi tunggu.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Waktu saya berdiri dan masuk, kursi yang saya tinggalkan masih hangat. Layar antrean menampilkan angka yang sama, dua baris, dengan jam berbeda.\n\nSaya minta rekaman ruang tunggu, dan petugas bilang kameranya rusak sejak lama. Rekaman suara perawat masih ada. Di sana, panggilan kedua bukan nomor.",
     "tags": [
      "cerita horor",
@@ -781,7 +781,7 @@
      "cerita seram",
      "antrean"
     ],
-    "pinComment": "Ada dua baris angka yang sama di layar itu. Perhatikan jam di bawahnya — selisihnya sebelas menit."
+    "pinComment": "Ada dua baris angka yang sama di layar itu. Berapa selisih jam di bawah angkanya menurutmu?"
    },
    "catatan": "Gerbang A: 14/16. Lapisan: 3 petunjuk, 2 bacaan, 3 loop, 2 reda."
   },
@@ -842,7 +842,7 @@
    ],
    "scenes": [
     {
-     "narration": "Suara di dalam kamar bilang masuk, sebelum saya mengetuk.",
+     "narration": "Kamar nomor enam menjawab sebelum saya mengetuk. Padahal tidak ada siapa pun.",
      "imagePrompt": "cinematic 9:16 vertical film still, a narrow gap under a cheap boarding-house door, warm light spilling out, the unmoving shadow of two feet inside, dim corridor, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
      "camera": "static",
      "shot": "closeup",
@@ -855,7 +855,7 @@
      ]
     },
     {
-     "narration": "Kamar itu kosong. Kuncinya masih di tangan saya.",
+     "narration": "Kuncinya masih di tangan saya.",
      "imagePrompt": "cinematic 9:16 vertical close-up of a hand holding an old room key with a plastic number tag, blurred digits, door frame behind, dim corridor light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
      "camera": "push_in",
      "shot": "closeup",
@@ -951,7 +951,7 @@
      ]
     },
     {
-     "narration": "Saya masih bayar kos itu. Kamu akan mengetuk kalau jawabannya sudah ada?",
+     "narration": "Saya masih bayar kamar itu. Kalau suara itu bilang masuk, kamu mengetuk? Tulis di komentar.",
      "imagePrompt": "cinematic 9:16 vertical film still, the same narrow door gap as the first frame, warm light still leaking out, the shadow inside now gone, dim corridor, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "static",
      "shot": "closeup",
@@ -987,7 +987,7 @@
      "cerita seram",
      "suara"
     ],
-    "pinComment": "Rekaman itu empat detik. Hitung hembusan napasnya — ada dua, padahal saya menahan napas waktu merekam."
+    "pinComment": "Rekaman itu empat detik. Menurutmu ada berapa hembusan napas di dalamnya?"
    },
    "catatan": "Revisi dari 11/16 → 15/16 setelah twist dibalik dan peta petunjuk dilengkapi."
   },
@@ -1048,7 +1048,7 @@
    ],
    "scenes": [
     {
-     "narration": "Ojek itu sudah menunggu di depan pagar sebelum saya memesan.",
+     "narration": "Ojek itu menunggu dua puluh menit. Tidak ada pesanan saya.",
      "imagePrompt": "cinematic 9:16 vertical film still, pre-dawn street, a ride-hailing motorbike parked at a gate with its engine off, rider silhouette facing away, plate number visible but blurred, cold blue light, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
      "camera": "static",
      "shot": "medium",
@@ -1060,7 +1060,7 @@
      ]
     },
     {
-     "narration": "Plat nomornya sama dengan yang muncul lima menit kemudian di aplikasi.",
+     "narration": "Plat nomornya sama dengan yang muncul nanti.",
      "imagePrompt": "cinematic 9:16 vertical close-up of a motorbike rear plate in the dark, condensation and dust, faint streetlight, blurred digits, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "push_in",
      "shot": "closeup",
@@ -1156,7 +1156,7 @@
      ]
     },
     {
-     "narration": "Saya belum memesan untuk besok. Kamu masih akan naik ojek itu?",
+     "narration": "Saya belum memesan untuk besok. Kamu masih akan naik ojek itu? Tulis di komentar.",
      "imagePrompt": "cinematic 9:16 vertical film still, the same pre-dawn street as the first frame, the motorbike now waiting again with its engine off, empty street, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "static",
      "shot": "medium",
@@ -1192,7 +1192,7 @@
      "cerita seram",
      "subuh"
     ],
-    "pinComment": "Hitang berapa kali plat itu muncul sebelum ponselmu menyala. Di rekaman saya, tiga kali."
+    "pinComment": "Hitang berapa kali plat itu muncul sebelum ponselmu menyala. Di rekaman saya, tiga kali. Kamu berapa?"
    },
    "catatan": "Gerbang A: 13/16. Latar transportasi untuk memenuhi aturan pencampuran."
   }

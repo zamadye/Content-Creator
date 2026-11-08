@@ -7,7 +7,7 @@
   "targetFps": 30,
   "width": 1080,
   "height": 1920,
-  "targetDurationSeconds": 59.1,
+  "targetDurationSeconds": 62.3,
   "story": {
     "hook": "nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa",
     "premise": "Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ditinggalkannya masih hangat, dan layar menampilkan angka yang sama dua baris.",
@@ -22,44 +22,44 @@
   "onScreenText": [
     {
       "text": "NOMOR ITU DIPANGGIL DUA KALI",
-      "startFrame": 35,
-      "endFrame": 93
+      "startFrame": 37,
+      "endFrame": 97
     },
     {
       "text": "SIAPA YANG MASUK?",
-      "startFrame": 957,
-      "endFrame": 1014
+      "startFrame": 1009,
+      "endFrame": 1069
     },
     {
       "text": "MASIH MAU MASUK?",
-      "startFrame": 1382,
-      "endFrame": 1440
+      "startFrame": 1457,
+      "endFrame": 1517
     }
   ],
   "scenes": [
     {
       "id": "scene_01",
       "order": 0,
-      "durationFrames": 195,
+      "durationFrames": 179,
       "image": "images/scene-01.jpg",
-      "narration": "Nomor empat belas dipanggil dua kali. Yang kedua, dari dalam ruang periksa.",
+      "narration": "Antrean memanggil empat belas dua kali. Yang kedua, dari dalam.",
       "narrationAudio": "audio/narration/scene-01.mp3",
       "cuts": [
         {
-          "atFrame": 54,
+          "atFrame": 50,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 109,
+          "atFrame": 100,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 160,
+          "atFrame": 147,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -69,13 +69,13 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 96,
-          "text": "Nomor empat belas dipanggil dua kali."
+          "endFrame": 104,
+          "text": "Antrean memanggil empat belas dua kali."
         },
         {
-          "startFrame": 96,
-          "endFrame": 187,
-          "text": "Yang kedua, dari dalam ruang periksa."
+          "startFrame": 104,
+          "endFrame": 171,
+          "text": "Yang kedua, dari dalam."
         }
       ],
       "visual": {
@@ -98,12 +98,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 121,
+            "startFrame": 111,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 160,
+            "startFrame": 147,
             "volume": 0.4
           }
         ]
@@ -112,26 +112,26 @@
     {
       "id": "scene_02",
       "order": 1,
-      "durationFrames": 171,
+      "durationFrames": 192,
       "image": "images/scene-02.jpg",
       "narration": "Saya masih di kursi tunggu. Nomor itu masih di tangan saya.",
       "narrationAudio": "audio/narration/scene-02.mp3",
       "cuts": [
         {
-          "atFrame": 48,
+          "atFrame": 54,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 96,
+          "atFrame": 108,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 140,
+          "atFrame": 157,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -141,12 +141,12 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 76,
+          "endFrame": 86,
           "text": "Saya masih di kursi tunggu."
         },
         {
-          "startFrame": 76,
-          "endFrame": 163,
+          "startFrame": 86,
+          "endFrame": 184,
           "text": "Nomor itu masih di tangan saya."
         }
       ],
@@ -169,12 +169,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 106,
+            "startFrame": 119,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 140,
+            "startFrame": 157,
             "volume": 0.4
           }
         ]
@@ -183,26 +183,26 @@
     {
       "id": "scene_03",
       "order": 2,
-      "durationFrames": 122,
+      "durationFrames": 153,
       "image": "images/scene-03.jpg",
       "narration": "Kalau saya di sini, siapa yang dipanggil masuk?",
       "narrationAudio": "audio/narration/scene-03.mp3",
       "cuts": [
         {
-          "atFrame": 34,
+          "atFrame": 43,
           "camera": "drift",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 69,
+          "atFrame": 86,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 100,
+          "atFrame": 125,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -212,7 +212,7 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 114,
+          "endFrame": 145,
           "text": "Kalau saya di sini, siapa yang dipanggil masuk?"
         }
       ],
@@ -235,12 +235,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 76,
+            "startFrame": 95,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 100,
+            "startFrame": 125,
             "volume": 0.4
           }
         ]
@@ -249,26 +249,26 @@
     {
       "id": "scene_04",
       "order": 3,
-      "durationFrames": 175,
+      "durationFrames": 166,
       "image": "images/scene-04.jpg",
       "narration": "Klinik matanya kecil. Enam kursi, satu perawat, satu dokter.",
       "narrationAudio": "audio/narration/scene-04.mp3",
       "cuts": [
         {
-          "atFrame": 48,
+          "atFrame": 46,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 98,
+          "atFrame": 93,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 143,
+          "atFrame": 136,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -278,12 +278,12 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 58,
+          "endFrame": 55,
           "text": "Klinik matanya kecil."
         },
         {
-          "startFrame": 58,
-          "endFrame": 167,
+          "startFrame": 55,
+          "endFrame": 158,
           "text": "Enam kursi, satu perawat, satu dokter."
         }
       ],
@@ -306,12 +306,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 109,
+            "startFrame": 103,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 143,
+            "startFrame": 136,
             "volume": 0.4
           }
         ]
@@ -320,26 +320,26 @@
     {
       "id": "scene_05",
       "order": 4,
-      "durationFrames": 165,
+      "durationFrames": 153,
       "image": "images/scene-05.jpg",
       "narration": "Perawat memanggil empat belas. Saya berdiri, lalu masuk.",
       "narrationAudio": "audio/narration/scene-05.mp3",
       "cuts": [
         {
-          "atFrame": 46,
+          "atFrame": 43,
           "camera": "handheld",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 93,
+          "atFrame": 86,
           "camera": "pan_left",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 135,
+          "atFrame": 125,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -349,12 +349,12 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 81,
+          "endFrame": 75,
           "text": "Perawat memanggil empat belas."
         },
         {
-          "startFrame": 81,
-          "endFrame": 157,
+          "startFrame": 75,
+          "endFrame": 145,
           "text": "Saya berdiri, lalu masuk."
         }
       ],
@@ -377,12 +377,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 102,
+            "startFrame": 95,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 135,
+            "startFrame": 125,
             "volume": 0.4
           }
         ]
@@ -391,26 +391,26 @@
     {
       "id": "scene_06",
       "order": 5,
-      "durationFrames": 164,
+      "durationFrames": 179,
       "image": "images/scene-06.jpg",
       "narration": "Kursi yang saya tinggalkan masih hangat, padahal saya baru berdiri.",
       "narrationAudio": "audio/narration/scene-06.mp3",
       "cuts": [
         {
-          "atFrame": 46,
+          "atFrame": 50,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 92,
+          "atFrame": 100,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 135,
+          "atFrame": 147,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -420,7 +420,7 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 156,
+          "endFrame": 171,
           "text": "Kursi yang saya tinggalkan masih hangat, padahal saya baru berdiri."
         }
       ],
@@ -443,12 +443,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 102,
+            "startFrame": 111,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 135,
+            "startFrame": 147,
             "volume": 0.4
           }
         ]
@@ -457,26 +457,26 @@
     {
       "id": "scene_07",
       "order": 6,
-      "durationFrames": 201,
+      "durationFrames": 192,
       "image": "images/scene-07.jpg",
       "narration": "Layar antrean menampilkan empat belas dua kali. Dua baris, angka sama.",
       "narrationAudio": "audio/narration/scene-07.mp3",
       "cuts": [
         {
-          "atFrame": 57,
+          "atFrame": 54,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 113,
+          "atFrame": 108,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 164,
+          "atFrame": 157,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -486,12 +486,12 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 124,
+          "endFrame": 119,
           "text": "Layar antrean menampilkan empat belas dua kali."
         },
         {
-          "startFrame": 124,
-          "endFrame": 193,
+          "startFrame": 119,
+          "endFrame": 184,
           "text": "Dua baris, angka sama."
         }
       ],
@@ -515,12 +515,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 125,
+            "startFrame": 119,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 164,
+            "startFrame": 157,
             "volume": 0.4
           }
         ]
@@ -529,26 +529,26 @@
     {
       "id": "scene_08",
       "order": 7,
-      "durationFrames": 190,
+      "durationFrames": 192,
       "image": "images/scene-08.jpg",
       "narration": "Saya minta rekaman ruang tunggu. Petugas bilang kameranya rusak sejak lama.",
       "narrationAudio": "audio/narration/scene-08.mp3",
       "cuts": [
         {
-          "atFrame": 53,
+          "atFrame": 54,
           "camera": "drift",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 107,
+          "atFrame": 108,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 155,
+          "atFrame": 157,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -558,12 +558,12 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 85,
+          "endFrame": 86,
           "text": "Saya minta rekaman ruang tunggu."
         },
         {
-          "startFrame": 85,
-          "endFrame": 182,
+          "startFrame": 86,
+          "endFrame": 184,
           "text": "Petugas bilang kameranya rusak sejak lama."
         }
       ],
@@ -586,12 +586,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 118,
+            "startFrame": 119,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 155,
+            "startFrame": 157,
             "volume": 0.4
           }
         ]
@@ -600,26 +600,26 @@
     {
       "id": "scene_09",
       "order": 8,
-      "durationFrames": 226,
+      "durationFrames": 218,
       "image": "images/scene-09.jpg",
       "narration": "Rekaman suara perawat masih ada. Yang dipanggil bukan nomor. Nama saya, dua kali.",
       "narrationAudio": "audio/narration/scene-09.mp3",
       "cuts": [
         {
-          "atFrame": 63,
+          "atFrame": 61,
           "camera": "push_in",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 126,
+          "atFrame": 122,
           "camera": "handheld",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 186,
+          "atFrame": 179,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -629,17 +629,17 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 86,
+          "endFrame": 83,
           "text": "Rekaman suara perawat masih ada."
         },
         {
-          "startFrame": 86,
-          "endFrame": 152,
+          "startFrame": 83,
+          "endFrame": 146,
           "text": "Yang dipanggil bukan nomor."
         },
         {
-          "startFrame": 152,
-          "endFrame": 218,
+          "startFrame": 146,
+          "endFrame": 210,
           "text": "Nama saya, dua kali."
         }
       ],
@@ -662,12 +662,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 140,
+            "startFrame": 135,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 186,
+            "startFrame": 179,
             "volume": 0.4
           }
         ]
@@ -676,26 +676,26 @@
     {
       "id": "scene_10",
       "order": 9,
-      "durationFrames": 163,
+      "durationFrames": 244,
       "image": "images/scene-10.jpg",
-      "narration": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali?",
+      "narration": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali? Tulis di komentar.",
       "narrationAudio": "audio/narration/scene-10.mp3",
       "cuts": [
         {
-          "atFrame": 45,
+          "atFrame": 68,
           "camera": "static",
           "scale": 1.22,
           "offsetY": -55
         },
         {
-          "atFrame": 91,
+          "atFrame": 137,
           "camera": "push_in",
           "scale": 1.5,
           "offsetX": 30,
           "offsetY": 20
         },
         {
-          "atFrame": 134,
+          "atFrame": 200,
           "camera": "push_in",
           "scale": 1.72,
           "offsetX": -25,
@@ -705,13 +705,18 @@
       "subtitles": [
         {
           "startFrame": 4,
-          "endFrame": 54,
+          "endFrame": 66,
           "text": "Nama itu cuma satu."
         },
         {
-          "startFrame": 54,
-          "endFrame": 155,
+          "startFrame": 66,
+          "endFrame": 190,
           "text": "Kamu tetap akan masuk kalau dipanggil kedua kali?"
+        },
+        {
+          "startFrame": 190,
+          "endFrame": 236,
+          "text": "Tulis di komentar."
         }
       ],
       "visual": {
@@ -734,12 +739,12 @@
         "sfx": [
           {
             "assetId": "audio/sfx/knock.mp3",
-            "startFrame": 101,
+            "startFrame": 151,
             "volume": 0.5
           },
           {
             "assetId": "audio/sfx/heartbeat.mp3",
-            "startFrame": 134,
+            "startFrame": 200,
             "volume": 0.4
           }
         ]
@@ -747,7 +752,7 @@
     }
   ],
   "publishing": {
-    "title": "Nomor Empat Belas Dipanggil Dua Kali di Klinik Itu",
+    "title": "Itu Bukan Nomor Saya, Itu Nama Saya — Dipanggil Dua Kali",
     "description": "Nomor antrean saya dipanggil dua kali. Panggilan kedua datang dari dalam ruang periksa, padahal saya masih duduk di kursi tunggu.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Waktu saya berdiri dan masuk, kursi yang saya tinggalkan masih hangat. Layar antrean menampilkan angka yang sama, dua baris, dengan jam berbeda.\n\nSaya minta rekaman ruang tunggu, dan petugas bilang kameranya rusak sejak lama. Rekaman suara perawat masih ada. Di sana, panggilan kedua bukan nomor.",
     "tags": [
       "cerita horor",
@@ -760,7 +765,7 @@
     "privacyStatus": "public",
     "selfDeclaredMadeForKids": false,
     "syntheticDisclosure": true,
-    "pinComment": "Ada dua baris angka yang sama di layar itu. Perhatikan jam di bawahnya — selisihnya sebelas menit.",
+    "pinComment": "Ada dua baris angka yang sama di layar itu. Berapa selisih jam di bawah angkanya menurutmu?",
     "thumbnail": {
       "headline": "NOMOR 14 DIPANGGIL DUA KALI",
       "kicker": "dari dalam ruang periksa",

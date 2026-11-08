@@ -1,0 +1,765 @@
+{
+  "episodeId": "LS-0019",
+  "title": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 56.9,
+  "story": {
+    "hook": "ojek sudah menunggu di depan pagar sebelum saya memesan",
+    "premise": "Setiap subuh narator memesan ojek ke stasiun, tapi pengemudinya sudah menunggu sebelum pesanan dibuat, dan aplikasi menagih nol rupiah.",
+    "twist": "Riwayat perjalanan memuat perjalanan besok subuh yang sudah lunas atas nama narator, padahal ia belum memesan.",
+    "ending": "Narator menyebut ia belum memesan untuk besok, lalu bertanya apakah penonton masih akan naik."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [],
+  "onScreenText": [
+    {
+      "text": "DIA SUDAH MENUNGGU",
+      "startFrame": 34,
+      "endFrame": 94
+    },
+    {
+      "text": "PLAT YANG SAMA",
+      "startFrame": 922,
+      "endFrame": 982
+    },
+    {
+      "text": "MASIH NAIK?",
+      "startFrame": 1331,
+      "endFrame": 1391
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 179,
+      "image": "images/scene-01.jpg",
+      "narration": "Ojek itu menunggu dua puluh menit. Tidak ada pesanan saya.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 50,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 100,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 147,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 104,
+          "text": "Ojek itu menunggu dua puluh menit."
+        },
+        {
+          "startFrame": 104,
+          "endFrame": 171,
+          "text": "Tidak ada pesanan saya."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, pre-dawn street, a ride-hailing motorbike parked at a gate with its engine off, rider silhouette facing away, plate number visible but blurred, cold blue light, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 111,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 147,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 147,
+      "image": "images/scene-02.jpg",
+      "narration": "Plat nomornya sama dengan yang muncul nanti.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 41,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 82,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 121,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 139,
+          "text": "Plat nomornya sama dengan yang muncul nanti."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical close-up of a motorbike rear plate in the dark, condensation and dust, faint streetlight, blurred digits, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 91,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 121,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 153,
+      "image": "images/scene-03.jpg",
+      "narration": "Jadi dari mana dia tahu saya butuh dijemput?",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 43,
+          "camera": "drift",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 86,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 145,
+          "text": "Jadi dari mana dia tahu saya butuh dijemput?"
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a house gate with a small lamp, empty street, motorbike tail light fading at the far end, pre-dawn, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "drift",
+        "shot": "wide",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 95,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 125,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 153,
+      "image": "images/scene-04.jpg",
+      "narration": "Saya naik ojek tiap subuh, rumah ke stasiun.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 43,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 86,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 145,
+          "text": "Saya naik ojek tiap subuh, rumah ke stasiun."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a commuter holding a bag on a motorbike seat, seen from behind, empty road ahead, pre-dawn blue, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "wide",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 95,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 125,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 147,
+      "image": "images/scene-05.jpg",
+      "narration": "Pengemudinya selalu orang berbeda. Platnya selalu sama.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 41,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 82,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 121,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 81,
+          "text": "Pengemudinya selalu orang berbeda."
+        },
+        {
+          "startFrame": 81,
+          "endFrame": 139,
+          "text": "Platnya selalu sama."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a row of similar helmets on motorbike mirrors, one empty motorbike, dim light, 35mm grain, documentary realism, no readable text, no watermark, no faces, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 91,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 121,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 147,
+      "image": "images/scene-06.jpg",
+      "narration": "Aplikasi menagih nol rupiah untuk setiap perjalanan.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 41,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 82,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 121,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 139,
+          "text": "Aplikasi menagih nol rupiah untuk setiap perjalanan."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical extreme close-up of a phone screen in the dark showing a zeroed fare, blurred digits, thumb hovering, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 91,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 121,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 153,
+      "image": "images/scene-07.jpg",
+      "narration": "Saya minta berhenti dua ratus meter sebelum peron.",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [
+        {
+          "atFrame": 43,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 86,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 125,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 145,
+          "text": "Saya minta berhenti dua ratus meter sebelum peron."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, an empty station forecourt before dawn, concrete pillars, one lamp, distance markings on the ground, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 95,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 125,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_08",
+      "order": 7,
+      "durationFrames": 205,
+      "image": "images/scene-08.jpg",
+      "narration": "Dia berhenti di depan peron. Dia tahu saya duduk di gerbong mana.",
+      "narrationAudio": "audio/narration/scene-08.mp3",
+      "cuts": [
+        {
+          "atFrame": 57,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 115,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 168,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 84,
+          "text": "Dia berhenti di depan peron."
+        },
+        {
+          "startFrame": 84,
+          "endFrame": 197,
+          "text": "Dia tahu saya duduk di gerbong mana."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a train platform edge at dawn, one carriage door open, empty platform, cold light, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "wide",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 127,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 168,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_09",
+      "order": 8,
+      "durationFrames": 192,
+      "image": "images/scene-09.jpg",
+      "narration": "Di riwayat, ada perjalanan besok subuh. Sudah lunas, atas nama saya.",
+      "narrationAudio": "audio/narration/scene-09.mp3",
+      "cuts": [
+        {
+          "atFrame": 54,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 108,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 157,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 102,
+          "text": "Di riwayat, ada perjalanan besok subuh."
+        },
+        {
+          "startFrame": 102,
+          "endFrame": 184,
+          "text": "Sudah lunas, atas nama saya."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical extreme close-up of a phone showing a trip history list with one entry dated ahead, blurred text, dark room, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 119,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 157,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_10",
+      "order": 9,
+      "durationFrames": 231,
+      "image": "images/scene-10.jpg",
+      "narration": "Saya belum memesan untuk besok. Kamu masih akan naik ojek itu? Tulis di komentar.",
+      "narrationAudio": "audio/narration/scene-10.mp3",
+      "cuts": [
+        {
+          "atFrame": 65,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 129,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 189,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 82,
+          "text": "Saya belum memesan untuk besok."
+        },
+        {
+          "startFrame": 82,
+          "endFrame": 176,
+          "text": "Kamu masih akan naik ojek itu?"
+        },
+        {
+          "startFrame": 176,
+          "endFrame": 223,
+          "text": "Tulis di komentar."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, the same pre-dawn street as the first frame, the motorbike now waiting again with its engine off, empty street, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+        "locationId": "ls-0019_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "cold_clinic_fluorescent_5000k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 143,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 189,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
+    "description": "Ojek sudah menunggu di depan pagar sebelum saya memesan. Lima menit kemudian, plat nomor di aplikasi sama dengan plat yang sudah saya lihat di jalan.\n\nSaya naik ojek tiap subuh, rumah ke stasiun. Pengemudinya selalu orang berbeda, tapi platnya selalu sama, dan aplikasi menagih nol rupiah untuk setiap perjalanan.\n\nSaya minta berhenti dua ratus meter sebelum peron. Dia berhenti tepat di depan gerbong tempat saya duduk.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "ojek",
+      "cerita seram",
+      "subuh"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "pinComment": "Hitang berapa kali plat itu muncul sebelum ponselmu menyala. Di rekaman saya, tiga kali. Kamu berapa?",
+    "thumbnail": {
+      "headline": "OJEG ITU SUDAH MENUNGGU SEBELUM SAYA PESAN",
+      "kicker": "platnya sama, tiap subuh",
+      "image": "images/thumb.jpg",
+      "holdFrames": 12
+    },
+    "cta": {
+      "card": "Kamu masih akan naik?",
+      "holdFrames": 84
+    }
+  },
+  "production": {
+    "subgenre": "Institutional horror",
+    "experiment": "Latar transportasi (aturan pencampuran): aplikasi sebagai entitas, bukan hantu.",
+    "hud": false,
+    "structure": "klimaks (ojek menunggu sebelum pesanan) → plat sama → POTONG 'dari mana dia tahu?' → ritual subuh → biaya nol → berhenti tepat di gerbong → twist riwayat besok → CTA",
+    "slate": "stories/slate.json"
+  }
+}

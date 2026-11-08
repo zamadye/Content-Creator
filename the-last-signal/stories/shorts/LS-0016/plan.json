@@ -24,8 +24,8 @@
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 12,
-      "narasi": "Nomor empat belas dipanggil dua kali. Yang kedua, dari dalam ruang periksa."
+      "kata": 14,
+      "narasi": "Antrean itu memanggil nomor empat belas dua kali. Yang kedua, dari dalam ruang periksa."
     },
     {
       "segmen": "S2",
@@ -69,12 +69,12 @@
     },
     {
       "segmen": "S10",
-      "kata": 12,
-      "narasi": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali?"
+      "kata": 15,
+      "narasi": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali? Tulis di komentar."
     }
   ],
   "youtube": {
-    "title": "Nomor Empat Belas Dipanggil Dua Kali di Klinik Itu",
+    "title": "Itu Bukan Nomor Saya, Itu Nama Saya — Dipanggil Dua Kali",
     "description": "Nomor antrean saya dipanggil dua kali. Panggilan kedua datang dari dalam ruang periksa, padahal saya masih duduk di kursi tunggu.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Waktu saya berdiri dan masuk, kursi yang saya tinggalkan masih hangat. Layar antrean menampilkan angka yang sama, dua baris, dengan jam berbeda.\n\nSaya minta rekaman ruang tunggu, dan petugas bilang kameranya rusak sejak lama. Rekaman suara perawat masih ada. Di sana, panggilan kedua bukan nomor.",
     "tags": [
       "cerita horor",
@@ -83,11 +83,11 @@
       "cerita seram",
       "antrean"
     ],
-    "pinComment": "Ada dua baris angka yang sama di layar itu. Perhatikan jam di bawahnya — selisihnya sebelas menit."
+    "pinComment": "Ada dua baris angka yang sama di layar itu. Berapa selisih jam di bawah angkanya menurutmu?"
   },
   "thumb": {
     "headline": "NOMOR 14 DIPANGGIL DUA KALI",
-    "kicker": "yang kedua dari dalam ruang periksa"
+    "kicker": "dari dalam ruang periksa"
   },
   "catatan": "Gerbang A: 14/16. Lapisan: 3 petunjuk, 2 bacaan, 3 loop, 2 reda."
 }

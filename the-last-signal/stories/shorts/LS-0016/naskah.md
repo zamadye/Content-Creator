@@ -1,6 +1,6 @@
 # LS-0016 — "Nomor Empat Belas Dipanggil Dua Kali"
 
-**Format:** Short vertikal 9:16 · narasi **105 kata** · ±47.7 s pada 2.2 kata/detik (target 40–60 s)
+**Format:** Short vertikal 9:16 · narasi **110 kata** · ±50 s pada 2.2 kata/detik (target 40–60 s)
 **Premis:** Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ditinggalkannya masih hangat, dan layar menampilkan angka yang sama dua baris.
 **Hook:** "nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa"
 **Twist:** Panggilan kedua bukan nomor, melainkan nama narator — diucapkan dua kali oleh perawat.
@@ -8,9 +8,9 @@
 
 Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji `scripts/check-copy.mjs`.
 
-## S1 — 12 kata (±5.5 s)
+## S1 — 14 kata (±6.4 s)
 
-> Nomor empat belas dipanggil dua kali.
+> Antrean itu memanggil nomor empat belas dua kali.
 >
 > Yang kedua, dari dalam ruang periksa.
 >
@@ -78,11 +78,13 @@ Setiap baris di bawah sudah ditulis dengan hukum `knowledge/NASKAH.md` dan diuji
 >
 *Kamera* push_in · *shot* closeup · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette
 
-## S10 — 12 kata (±5.5 s)
+## S10 — 15 kata (±6.8 s)
 
 > Nama itu cuma satu.
 >
 > Kamu tetap akan masuk kalau dipanggil kedua kali?
+>
+> Tulis di komentar.
 >
 *Kamera* static · *shot* wide · *cahaya* cold_clinic_fluorescent_5000k · *efek* film_grain, vignette, light_flicker
 

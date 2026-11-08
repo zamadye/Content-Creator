@@ -2,8 +2,8 @@
   "episode": "LS-0019",
   "judul": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
   "format": "short_9x16",
-  "total_kata": 93,
-  "estimasi_detik": 42.3,
+  "total_kata": 96,
+  "estimasi_detik": 43.6,
   "segmen": [
     {
       "id": "S1",
@@ -91,9 +91,9 @@
       "segmen": 10,
       "judul": "Saya belum memesan untuk besok",
       "paragraf": [
-        "Saya belum memesan untuk besok. Kamu masih akan naik ojek itu?"
+        "Saya belum memesan untuk besok. Kamu masih akan naik ojek itu? Tulis di komentar."
       ],
-      "kata": 11
+      "kata": 14
     }
   ]
 }

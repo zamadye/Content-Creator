@@ -24,8 +24,8 @@
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 9,
-      "narasi": "Suara di dalam kamar bilang masuk, sebelum saya mengetuk."
+      "kata": 15,
+      "narasi": "Suara di dalam kamar bilang masuk, sebelum saya mengetuk. Tidak ada siapa pun di sana."
     },
     {
       "segmen": "S2",
@@ -69,8 +69,8 @@
     },
     {
       "segmen": "S10",
-      "kata": 12,
-      "narasi": "Saya masih bayar kos itu. Kamu akan mengetuk kalau jawabannya sudah ada?"
+      "kata": 15,
+      "narasi": "Saya masih bayar kos itu. Kamu akan mengetuk kalau jawabannya sudah ada? Tulis di komentar."
     }
   ],
   "youtube": {
@@ -83,7 +83,7 @@
       "cerita seram",
       "suara"
     ],
-    "pinComment": "Rekaman itu empat detik. Hitung hembusan napasnya — ada dua, padahal saya menahan napas waktu merekam."
+    "pinComment": "Rekaman itu empat detik. Menurutmu ada berapa hembusan napas di dalamnya?"
   },
   "thumb": {
     "headline": "JAWABANNYA DATANG SEBELUM SAYA MENGETUK",

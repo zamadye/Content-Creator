@@ -7,8 +7,8 @@
     1080,
     1920
   ],
-  "total_kata_narasi": 94,
-  "estimasi_durasi_detik": 42.7,
+  "total_kata_narasi": 103,
+  "estimasi_durasi_detik": 46.8,
   "hook_card": {
     "teks": "JAWABAN SEBELUM KETUKAN",
     "tampil": "frame 0–60",
@@ -28,7 +28,7 @@
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 9,
+      "kata": 15,
       "kamera": "static",
       "shot": "closeup",
       "lighting": "harsh_basement_fluorescent_4300k",
@@ -146,7 +146,7 @@
     },
     {
       "segmen": "S10",
-      "kata": 12,
+      "kata": 15,
       "kamera": "static",
       "shot": "closeup",
       "lighting": "harsh_basement_fluorescent_4300k",

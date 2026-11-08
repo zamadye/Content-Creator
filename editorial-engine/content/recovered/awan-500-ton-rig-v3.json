@@ -1,0 +1,69 @@
+{
+  "id": "awan-500-ton-rig-v3",
+  "series": "Dunia Kebalik",
+  "title": "500 Ton Air Melayang?",
+  "status": "DRAF PRIVAT — menunggu QA manusia dan persetujuan publikasi",
+  "derivedFrom": "awan-500-ton-rig-v2",
+  "preserveOriginal": true,
+  "narrator": "voice-05, satu take yang diedit hanya untuk memangkas dua jeda sunyi",
+  "promise": "Awan sebagai entitas utama; cuplikan tetesan dibuka pada frame pertama, dipotong setelah pertanyaan, kembali ke momen yang sama dan menjelaskan gravitasi serta arus udara sebelum perhitungan massa air.",
+  "estimateScope": "500 ton metrik adalah massa tetesan air dalam satu contoh perkiraan USGS: 1 km³ × 0,5 g/m³; bukan setiap awan dan tidak termasuk massa udara.",
+  "retentionClaim": "Hipotesis kreatif, bukan jaminan performa atau diagnosis penyebab penurunan retensi.",
+  "sources": [
+    {"id": "usgs", "url": "https://www.usgs.gov/water-science-school/science/how-much-does-a-cloud-weigh", "supports": "Contoh satu awan kumulus, 1 km³ × 0,5 g/m³ = 500.000 kg air, tanpa menghitung massa udara."},
+    {"id": "cloud-physics", "url": "https://psl.noaa.gov/people/matthew.shupe/publications/Shupeetal.JTECH2008.pdf", "supports": "Tetesan awan cair yang kecil memiliki kecepatan jatuh rendah dibandingkan gerak udara vertikal dan dapat mengikuti gerak udara."},
+    {"id": "noaa", "url": "https://www.noaa.gov/jetstream/atmosphere/precipitation", "supports": "Pada sebagian awan hangat, tetesan bertabrakan dan bergabung; sebagian dapat tumbuh cukup besar untuk jatuh sebagai hujan."}
+  ],
+  "scenes": [
+    {
+      "id": "S01", "beat": "KILAS PUNCAK / HOOK", "narration": "Lima ratus ton air melayang? Kok bisa?",
+      "action": "Frame 0: awan, Host dan kaca pembesar sudah tampak. Tepi awan mulai terlihat sebagai tetesan melalui lensa; indikator angka ditandai sebagai perkiraan satu contoh. Cut setelah pertanyaan, sebelum transformasi selesai.",
+      "objectMap": ["Host", "awan", "kaca pembesar", "tetesan", "indikator massa ilustrasi"], "sourceRefs": ["usgs"], "payoffScene": "S04"
+    },
+    {
+      "id": "S02", "beat": "AWAL CERITA / DUGAAN", "narration": "Coba bayangkan air sebanyak itu terkumpul di dalam tangki raksasa, tepat di atas rumah.",
+      "action": "Kembali ke lingkungan atap rumah. Gelembung pikiran membentuk tangki yang ditandai sebagai bayangan; Host mendorong bayangan itu.",
+      "objectMap": ["Host", "rumah", "gelembung pikiran", "tangki khayalan", "air"], "sourceRefs": []
+    },
+    {
+      "id": "S03", "beat": "BATAS KLAIM", "narration": "Tapi angka ini bukan berat setiap awan. Ini hanya satu contoh yang dihitung USGS.",
+      "action": "Awan dipisahkan dari kartu hitung dan kubus model; Host menunjukkan penanda satu contoh agar angka tidak dianggap berlaku universal.",
+      "objectMap": ["Host", "awan", "kartu satu contoh", "kubus model"], "sourceRefs": ["usgs"]
+    },
+    {
+      "id": "S04", "beat": "KEMBALI KE PUNCAK", "narration": "Lihat lebih dekat. Awan bukan tangki. Airnya tersebar menjadi banyak tetesan yang sangat kecil.",
+      "action": "Kembali ke tata letak awan, kaca pembesar dan tangan dari S01. Transformasi yang tadi terputus diselesaikan menjadi banyak tetes; label perbesaran menandai skema.",
+      "objectMap": ["Host", "awan", "kaca pembesar", "tetesan", "tangki khayalan"], "sourceRefs": ["usgs"]
+    },
+    {
+      "id": "S05", "beat": "MEKANISME / GRAVITASI", "narration": "Gravitasi tetap menarik setiap tetes. Tapi tetes kecil turun pelan di udara tenang.",
+      "action": "Host memegang lensa, mengikuti tetes yang turun perlahan dan menunjuk panah gravitasi.",
+      "objectMap": ["Host", "kaca pembesar", "tetes air", "panah gravitasi"], "sourceRefs": ["cloud-physics"]
+    },
+    {
+      "id": "S06", "beat": "MEKANISME / ARUS NAIK", "narration": "Saat udara bergerak naik, sebagian tetes itu ikut terbawa. Itulah salah satu alasan awan bisa bertahan di langit.",
+      "action": "Host menekan tombol kipas model; panah udara dan sebagian tetes bergerak naik ke awan. Label menyatakan kipas adalah model.",
+      "objectMap": ["Host", "tombol", "kipas model", "panah arus naik", "tetes air", "awan"], "sourceRefs": ["cloud-physics"]
+    },
+    {
+      "id": "S07", "beat": "BUKTI / SKALA", "narration": "Dalam contoh USGS, awannya berukuran satu kilometer kubik. Di tiap meter kubik, ada sekitar setengah gram air.",
+      "action": "Kubus model berputar; satu kotak sampel membesar dengan tetes dan label 0,5 gram per meter kubik.",
+      "objectMap": ["Host", "kubus model", "kotak sampel", "tetes", "label 0,5 gram"], "sourceRefs": ["usgs"]
+    },
+    {
+      "id": "S08", "beat": "BUKTI / HITUNGAN", "narration": "Kalau dijumlahkan, airnya sekitar lima ratus ribu kilogram, atau lima ratus ton. Ini massa airnya saja, belum termasuk udara.",
+      "action": "Kotak sampel menjadi kartu perkalian; Host menggeser penunjuk menuju 500.000 kg dan 500 ton air satu contoh.",
+      "objectMap": ["Host", "kotak sampel", "kartu hitung", "penunjuk", "angka massa air"], "sourceRefs": ["usgs"]
+    },
+    {
+      "id": "S09", "beat": "AKIBAT / HUJAN", "narration": "Di beberapa awan, tetesan bertabrakan dan membesar. Saat cukup besar, sebagian bisa jatuh sebagai hujan.",
+      "action": "Dua tetes bersatu pada skema dan tetes besar jatuh ke genangan; Host membuka payung dan mengikuti gerak tetes.",
+      "objectMap": ["Host", "awan", "dua tetes kecil", "tetes besar", "payung", "genangan"], "sourceRefs": ["noaa"]
+    },
+    {
+      "id": "S10", "beat": "CALLBACK / CTA", "narration": "Jadi bukan tangki terbang, melainkan banyak tetes kecil di udara yang bergerak. Sebelum ini, kamu membayangkan awan seperti apa? Ceritakan di komentar, dan ikuti knot theory.",
+      "action": "Siluet tangki menjadi awan bertetes; Host bertanya ke penonton lalu menunjukkan komentar dan CTA tertulis ‘ikuti knot theory’.",
+      "objectMap": ["Host", "siluet tangki", "awan bertetes", "gelembung komentar", "teks CTA"], "sourceRefs": ["usgs", "cloud-physics"]
+    }
+  ]
+}

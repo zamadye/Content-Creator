@@ -1,0 +1,17 @@
+{
+  "episodeId": "LL-0003",
+  "variants": [
+    {
+      "image": "projects/episodes/LL-0003/images/thumb.jpg",
+      "headline": "SEBELAS BULAN",
+      "kicker": "angkanya sama persis",
+      "mystery": "meteran rumah kosong dan rumah narator menunjukkan angka yang sama"
+    },
+    {
+      "image": "projects/episodes/LL-0003/images/thumb-alt.jpg",
+      "headline": "DUA METERAN SAMA",
+      "kicker": "rumah itu kosong",
+      "mystery": "dua meteran bertemu dalam satu pantulan di balik pagar terkunci"
+    }
+  ]
+}

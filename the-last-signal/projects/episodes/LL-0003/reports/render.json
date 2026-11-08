@@ -1,0 +1,18 @@
+{
+  "episodeId": "LL-0003",
+  "output": "renders/LL-0003-draft-x0.25-f1836-1860.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "durationFrames": 14567,
+  "durationSeconds": 485.56666666666666,
+  "crf": 20,
+  "concurrency": 2,
+  "scale": 0.25,
+  "frameRange": [
+    1836,
+    1860
+  ],
+  "renderSeconds": 23.1,
+  "renderedAt": "2026-11-08T08:28:07.147Z"
+}

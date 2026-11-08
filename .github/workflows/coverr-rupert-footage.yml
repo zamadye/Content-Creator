@@ -1,0 +1,52 @@
+name: Coverr Rupert - private footage search and transfer
+
+# The user explicitly requested this Coverr API run. Push-to-branch is used
+# because workflow_dispatch is not available for this session integration.
+# Triggers require a deliberate commit marker; no cron, publish or scheduler.
+on:
+  push:
+    branches: [arena/54cb36c6-content-creator]
+    paths:
+      - '.github/workflows/coverr-rupert-footage.yml'
+      - 'editorial-engine/pipeline/coverr-rupert/**'
+
+permissions:
+  contents: read
+
+jobs:
+  search:
+    if: ${{ contains(github.event.head_commit.message, '[approved-coverr-rupert-search]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Offline tests
+        run: |
+          python3 editorial-engine/pipeline/coverr-rupert/test-search.py
+          node --test editorial-engine/pipeline/coverr-rupert/test-cipher.mjs
+      - name: Authorized Coverr API search (sanitized metadata only)
+        env:
+          COVERR_SECRET: ${{ secrets.COVERR_API_KEY || secrets.COVERR_VIDEO_API_KEY || secrets.COVERR_KEY }}
+          COVERR_VAR: ${{ vars.COVERR_API_KEY || vars.COVERR_VIDEO_API_KEY || vars.COVERR_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export COVERR_API_KEY="${COVERR_SECRET:-$COVERR_VAR}"
+          if [ -n "$COVERR_API_KEY" ]; then echo "::add-mask::$COVERR_API_KEY"; fi
+          if [ -n "$COVERR_SECRET" ]; then echo 'KEY_SOURCE=SECRET';
+          elif [ -n "$COVERR_VAR" ]; then echo 'KEY_SOURCE=VARIABLE';
+          else echo 'KEY_SOURCE=MISSING'; fi
+          python3 editorial-engine/pipeline/coverr-rupert/search.py
+      - name: Encrypt synthetic transfer test (no stock media)
+        shell: bash
+        run: |
+          printf '%s' 'coverr-rupert-encrypted-transport-check' > "$RUNNER_TEMP/synthetic.txt"
+          node editorial-engine/pipeline/coverr-rupert/cipher.mjs encrypt "$RUNNER_TEMP/synthetic.txt" "$RUNNER_TEMP/synthetic.enc" editorial-engine/pipeline/coverr-rupert/session-public.txt
+          rm -f "$RUNNER_TEMP/synthetic.txt"
+      - name: Upload short-lived encrypted transport test
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverr-rupert-transport-test
+          path: ${{ runner.temp }}/synthetic.enc
+          retention-days: 1
+          if-no-files-found: error

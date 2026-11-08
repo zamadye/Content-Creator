@@ -1,6 +1,6 @@
 {
   "id": "FB-0002",
-  "status": "requested",
+  "status": "scheduled",
   "kind": "carousel",
   "caption": "Dua benda ini tidak seharusnya ada di mobil yang sama.\n\nFoto pertama: karcis parkir di dompet saya, dengan sehelai rambut panjang menyelip di lipatannya. Foto kedua: sandaran kepala kursi kemudi, dengan rambut kedua yang jenisnya sama — padahal saya tidak pernah punya rambut sepanjang itu.\n\nKarcis itu keluar dari mesin pukul enam pagi. Tertulis pukul lima.\n\nSaya sudah memeriksa semuanya: kursi, spion, setelan jok. Semuanya mundur satu posisi, seolah ada orang lain yang duduk lebih dulu setiap hari, lalu merapikan kembali sebelum saya datang.\n\nYang belum saya periksa hanya satu — siapa yang menyetel spion tengah sedikit lebih tinggi dari mata saya.\n\nKalau kamu menemukan rambut orang lain di mobilmu sendiri, kamu akan bertanya ke satpam, atau langsung berhenti parkir di sana?",
   "images": [
@@ -15,5 +15,8 @@
     "slot": "pagi",
     "platform": "facebook"
   },
-  "catatan": "jalur folder diperbaiki 8 Nov (runner mencari relatif ke akar repo)"
+  "catatan": "jalur folder diperbaiki 8 Nov (runner mencari relatif ke akar repo)",
+  "postId": "6aefc8cae366cf450136a519",
+  "url": null,
+  "updatedAt": "2026-11-08T00:56:42.145Z"
 }

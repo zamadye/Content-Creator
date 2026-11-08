@@ -29,9 +29,14 @@
     "firstComment": "Kalau rekaman itu memperlihatkan mobilmu sendiri, kamu masih akan naik?"
   },
   "scheduledTimezone": "Asia/Makassar",
-  "zernioPostId": "6aefc3474f031ae3c5b2a125",
+  "zernioPostId": null,
   "scheduledAt": "2026-11-08T00:12:39.766Z",
   "slot": "pagi",
   "catatan": "Terbit sekarang (slot pagi, 8 Nov). Jadwal 9 Nov 12.05 sudah dihapus dari Zernio.",
-  "publishedAt": "2026-11-08T00:33:11Z"
+  "publishedAt": "2026-11-08T00:33:11Z",
+  "zernioStatus": "published",
+  "scheduledFor": "2026-11-08T00:33:11.194Z",
+  "youtubeUrl": "https://www.youtube.com/watch?v=UEt1Xy_gB-A",
+  "facebookUrl": "https://www.facebook.com/reel/1105613089136385",
+  "reconciledAt": "2026-11-08T00:36:03.489Z"
 }

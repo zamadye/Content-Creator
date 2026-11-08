@@ -1,27 +1,57 @@
 {
   "timezone": "Asia/Makassar",
-  "updatedAt": "2026-11-08T00:12:39.766Z",
+  "updatedAt": "2026-11-08T00:36:03.490Z",
   "items": [
     {
       "episodeId": "LS-0012",
       "ok": true,
       "skipped": true,
       "scheduledFor": "2026-11-08T04:05:00.000Z",
-      "updatedAt": "2026-11-08T00:12:39.766Z"
+      "updatedAt": "2026-11-08T00:36:03.489Z",
+      "zernioPostId": null,
+      "zernioStatus": "scheduled",
+      "youtube": {
+        "status": "pending",
+        "url": null
+      },
+      "facebook": {
+        "status": "pending",
+        "url": null
+      }
     },
     {
       "episodeId": "LS-0013",
       "ok": true,
       "skipped": true,
       "scheduledFor": "2026-11-08T05:05:00.000Z",
-      "updatedAt": "2026-11-08T00:12:39.766Z"
+      "updatedAt": "2026-11-08T00:36:03.490Z",
+      "zernioPostId": null,
+      "zernioStatus": "scheduled",
+      "youtube": {
+        "status": "pending",
+        "url": null
+      },
+      "facebook": {
+        "status": "pending",
+        "url": null
+      }
     },
     {
       "episodeId": "LS-0014",
       "ok": true,
       "skipped": true,
       "scheduledFor": "2026-11-08T07:05:00.000Z",
-      "updatedAt": "2026-11-08T00:12:39.766Z"
+      "updatedAt": "2026-11-08T00:36:03.490Z",
+      "zernioPostId": null,
+      "zernioStatus": "scheduled",
+      "youtube": {
+        "status": "pending",
+        "url": null
+      },
+      "facebook": {
+        "status": "pending",
+        "url": null
+      }
     },
     {
       "episodeId": "LL-0002",
@@ -37,14 +67,24 @@
         "status": "published",
         "url": "https://www.facebook.com/watch/?v=2144087316475744"
       },
-      "updatedAt": "2026-11-07T23:23:57.922Z"
+      "updatedAt": "2026-11-08T00:36:03.489Z"
     },
     {
       "episodeId": "LS-0015",
       "ok": true,
-      "scheduledFor": "2026-11-09T04:05:00.000Z",
+      "scheduledFor": "2026-11-08T00:33:11.194Z",
       "postId": null,
-      "updatedAt": "2026-11-08T00:12:39.766Z"
+      "updatedAt": "2026-11-08T00:36:03.489Z",
+      "zernioPostId": null,
+      "zernioStatus": "published",
+      "youtube": {
+        "status": "published",
+        "url": "https://www.youtube.com/watch?v=UEt1Xy_gB-A"
+      },
+      "facebook": {
+        "status": "published",
+        "url": "https://www.facebook.com/reel/1105613089136385"
+      }
     }
   ]
 }

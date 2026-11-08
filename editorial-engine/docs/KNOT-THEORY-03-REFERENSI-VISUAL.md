@@ -1,5 +1,7 @@
 # KNOT THEORY — Analisis Dua Video Referensi
 
+> **Arsip analisis visual, bukan aturan aktif.** Status dan rekomendasi di bawah berasal dari pemeriksaan sebelumnya, bukan pemeriksaan ulang dalam overhaul cerita panjang. Bagian yang menyebut karakter hanya proyek terpisah, thumbnail harus sama dengan frame 0, atau highlight kata wajib tidak mengalahkan [standar produksi aktif](../../STANDARD-MINIMAL-CONTENT-PRODUCTION.md). Saat ini Host konsisten digunakan, thumbnail dibuat terpisah, frame 0 tetap terbaca tanpa fade, dan subtitle dipotong menurut makna; timing/highlight tidak boleh diklaim akurat tanpa pemeriksaan. Lihat [sistem cerita panjang](SISTEM-CERITA-LONG-FORM.md).
+
 Sumber: folder Drive KNOT THEORY `1jJiDmlvyPTQx1Fm6Io9N0r-gcSmCftz_`.
 Keduanya sudah diunduh & diperiksa dengan ffmpeg (bukan diasumsikan). Status: **VERIFIED (dibaca frame-by-frame)**.
 

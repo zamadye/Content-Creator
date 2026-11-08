@@ -9,9 +9,9 @@ from pathlib import Path
 
 s=importlib.util.spec_from_file_location('coverr_rupert',Path(__file__).parents[1]/'coverr-rupert'/'search.py')
 coverr=importlib.util.module_from_spec(s);s.loader.exec_module(coverr)
-# Fifth pass looks for the actual main subject, rather than only atmosphere:
-# a wind turbine and its blades, including footage-rich and noisy synonyms.
-QUERIES=['wind turbine','wind farm','windmill','turbine blade','strong wind','wind power']
+# Sixth and final bounded metadata pass checks alternate turbine synonyms;
+# IDs from these queries must be deduplicated against the prior pass.
+QUERIES=['wind turbines','turbine','wind energy','renewable energy','windmill blade']
 coverr.QUERIES=QUERIES
 coverr.PAGE_SIZE=20
 

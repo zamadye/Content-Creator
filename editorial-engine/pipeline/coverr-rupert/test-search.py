@@ -9,7 +9,14 @@ class SearchTest(unittest.TestCase):
   self.assertEqual(result['status'],'PASS');self.assertEqual(result['videos'][0]['id'],'A123');self.assertNotIn(key,raw);self.assertNotIn('https://',raw);self.assertNotIn('mp4_download',raw)
  def test_missing_or_invalid_input(self):
   self.assertEqual(m.search('not in list','key')['status'],'INVALID_QUERY')
-  self.assertEqual(m.search('glass rod','')['status'],'MISSING_KEY')
+  self.assertEqual(m.search('glassware','')['status'],'MISSING_KEY')
   self.assertEqual(m.summarize({'hits':[]},'glassblowing','x')['status'],'NO_RESULTS')
  def test_query_budget(self):self.assertLess(len(m.QUERIES),15)
+ def test_annotation_is_valid_bounded_json_and_names_omissions(self):
+  videos=[{'id':str(i),'title':'T'*200,'description':'ü'*200,'is_premium':False,'is_ai_generated':False,'is_vertical':False,'max_width':1920,'max_height':1080} for i in range(20)]
+  value=m.annotation({'query':'glass','status':'PASS','total_hits':99,'videos':videos})
+  result=json.loads(value)
+  self.assertLessEqual(len(value.encode('utf8')),3700)
+  self.assertEqual(len(result['videos'])+result['omitted_from_annotation'],20)
+  self.assertGreater(result['omitted_from_annotation'],0)
 if __name__=='__main__':unittest.main()

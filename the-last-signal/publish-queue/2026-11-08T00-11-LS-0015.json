@@ -1,0 +1,32 @@
+{
+  "episodeId": "LS-0015",
+  "status": "held",
+  "createdAt": "2026-11-08T00:11:24.644Z",
+  "media": "the-last-signal/releases/LS-0015.mp4",
+  "episode": {
+    "title": "Pukul Empat Pagi, Mobil Saya Keluar",
+    "subgenre": "Institutional horror",
+    "structure": "klimaks 04.00 + entitas → pengemudi bukan saya → POTONG: 'jadi siapa?' → karcis → kursi → mesin → bensin & rambut → minta rekaman → satpam sebut nama → rambut saya pendek (loop ke frame 1) + CTA",
+    "durationSeconds": 57.4,
+    "scenes": 10,
+    "jumpscares": 0
+  },
+  "youtube": {
+    "title": "Pukul Empat Pagi, Mobil Saya Keluar Sendiri",
+    "description": "Rekaman kamera basement menunjukkan mobil saya keluar pukul empat pagi. Saya baru sampai jam tujuh.\n\nSebelum itu, karcis parkir saya selalu tercetak satu jam lebih awal. Kursi kemudi selalu mundur, sejauh punggung yang lebih tinggi dari saya. Bensin berkurang tiap Jumat, dan ada rambut panjang di sandaran kepala, padahal rambut saya pendek.\n\nSaya kira mesin karcisnya rusak. Satpam bilang mesinnya baru diganti bulan lalu.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "karcis parkir",
+      "cerita seram",
+      "rekaman cctv"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": false,
+    "notifySubscribers": true,
+    "firstComment": "Kalau rekaman itu memperlihatkan mobilmu sendiri, kamu masih akan naik?"
+  },
+  "scheduledFor": "2026-11-09T12:05:00"
+}

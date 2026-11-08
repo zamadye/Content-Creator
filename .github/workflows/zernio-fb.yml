@@ -1,0 +1,142 @@
+name: Post Facebook (teks / foto)
+
+# ---------------------------------------------------------------------------
+#  Jalur khusus FACEBOOK — terpisah dari jalur video (zernio-publish.yml).
+#
+#  Kenapa terpisah (arahan pemilik kanal, 8 Nov 2026): Facebook dan YouTube
+#  punya mekanisme berbeda. YouTube menuntut video 9:16 yang menahan penonton
+#  di 2 detik pertama; Facebook justru memberi ruang untuk cerita sebagai teks —
+#  satu atau dua foto sudah cukup, dan tidak perlu durasi apa pun. Karena itu
+#  cerita yang sama dilahirkan dua kali: Reel untuk YouTube, post caption untuk
+#  Halaman Facebook.
+#
+#  Antrean = berkas di the-last-signal/fb-posts/*.json
+#    { "id": "FB-0001", "status": "requested", "kind": "photo|carousel|text",
+#      "caption": "...", "images": ["the-last-signal/..."],
+#      "firstComment": "...", "scheduledFor": "2026-11-08T19:05:00",
+#      "timezone": "Asia/Makassar" }
+#
+#  status "held" tidak dijalankan; ubah ke "requested" untuk menerbitkan.
+#  Tanpa scheduledFor = terbit saat itu juga. Dengan scheduledFor = Zernio yang
+#  menayangkan, jadi repo tidak perlu cron.
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    branches:
+      - "arena/479de245-content-creator"
+    paths:
+      - "the-last-signal/fb-posts/*.json"
+  workflow_dispatch:
+    inputs:
+      plan:
+        description: "Berkas rencana (mis. the-last-signal/fb-posts/FB-0001.json)"
+        required: true
+      dry_run:
+        description: "Hanya periksa"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zernio-fb
+  cancel-in-progress: false
+
+jobs:
+  post:
+    name: periksa → unggah foto → terbitkan
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+      ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
+      ZERNIO_FACEBOOK_ACCOUNT_ID: ${{ vars.ZERNIO_FACEBOOK_ACCOUNT_ID }}
+
+    steps:
+      - name: Ambil kode
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Pasang Node 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Sembunyikan nilai rahasia dari log
+        run: |
+          set -euo pipefail
+          [ -n "${ZERNIO_API_KEY:-}" ] && echo "::add-mask::${ZERNIO_API_KEY}"
+          [ -n "${ZERNIO_KEY:-}" ] && echo "::add-mask::${ZERNIO_KEY}"
+          exit 0
+
+      - name: Pasang SDK Zernio
+        working-directory: the-last-signal/tools/publish
+        run: npm install --no-audit --no-fund --loglevel=error
+
+      - name: Tentukan rencana yang dijalankan
+        id: plan
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "args=--plan ${{ inputs.plan }}" >> "$GITHUB_OUTPUT"
+            echo "dry=${{ inputs.dry_run }}" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          BEFORE="${{ github.event.before }}"
+          CHANGED=$(git diff --name-only --diff-filter=AM "$BEFORE" "${{ github.sha }}" -- 'the-last-signal/fb-posts/*.json' 2>/dev/null \
+            || git show --pretty=format: --name-only --diff-filter=AM "${{ github.sha }}" -- 'the-last-signal/fb-posts/*.json')
+          READY=""
+          for f in $CHANGED; do
+            [ -f "$f" ] || continue
+            ST=$(node -e "try{console.log(require('./'+process.argv[1]).status ?? '')}catch(e){console.log('')}" "$f")
+            if [ "$ST" = "requested" ]; then READY="$READY $f"; fi
+          done
+          COUNT=$(echo $READY | wc -w | tr -d ' ')
+          if [ "$COUNT" = "0" ]; then
+            echo "::notice::Tidak ada berkas fb-posts berstatus requested pada push ini."
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "::notice::rencana: $READY"
+          echo "args=--dir the-last-signal/fb-posts" >> "$GITHUB_OUTPUT"
+          echo "dry=false" >> "$GITHUB_OUTPUT"
+
+      - name: Terbitkan
+        if: steps.plan.outputs.skip != '1'
+        working-directory: the-last-signal/tools/publish
+        env:
+          ARGS: ${{ steps.plan.outputs.args }}
+          DRY: ${{ steps.plan.outputs.dry }}
+        run: |
+          set -euo pipefail
+          if [ "$DRY" = "true" ]; then
+            node zernio-fb-post.mjs $ARGS --dry-run
+          else
+            node zernio-fb-post.mjs $ARGS
+          fi
+
+      - name: Catat hasil di repo
+        if: steps.plan.outputs.skip != '1' && always()
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- the-last-signal/fb-posts; then
+            echo "::notice::tidak ada perubahan status yang perlu dicatat"
+            exit 0
+          fi
+          git config user.name "zernio-fb"
+          git config user.email "actions@users.noreply.github.com"
+          git add the-last-signal/fb-posts
+          git commit -m "fb: status post diperbarui otomatis"
+          git push || echo "::warning::push hasil gagal (mungkin bentrok) — status akan menyusul di rekonsiliasi"
+
+      - name: Simpan laporan
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fb-report
+          path: the-last-signal/report/fb-*.json
+          if-no-files-found: warn

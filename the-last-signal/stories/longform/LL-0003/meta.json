@@ -27,7 +27,7 @@
     "kicker": "angkanya sama persis"
   },
   "cta": {
-    "card": "Siapa yang membayar rumah itu sebelum saya?",
+    "card": "Siapa yang membayar rumah itu?",
     "holdFrames": 90
   },
   "transisi": [
@@ -75,5 +75,12 @@
       "intensity": 0.72,
       "ambienceVolume": 0.3
     }
-  }
+  },
+  "cards": [
+    {
+      "text": "KISAH SERUPA · IDENTITAS DIUBAH",
+      "at": 0.31,
+      "holdFrames": 90
+    }
+  ]
 }

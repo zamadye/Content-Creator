@@ -150,7 +150,7 @@ const episode = {
   onScreenText: (plan.cards ?? []).map((card) => ({
     text: card.text,
     startFrame: Math.round(totalFrames * card.at),
-    endFrame: Math.round(totalFrames * card.at) + 90,
+    endFrame: Math.round(totalFrames * card.at) + (card.holdFrames ?? 27),
   })),
   scenes,
   publishing: {

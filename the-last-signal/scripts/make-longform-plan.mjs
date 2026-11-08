@@ -231,7 +231,10 @@ const plan = {
   experiment: meta.experiment ?? "",
   structure: meta.structure ?? "",
   story: meta.story ?? {},
-  cards: [{ text: peta.hook_card?.teks ?? "", at: 0 }],
+  cards: [
+    { text: peta.hook_card?.teks ?? "", at: 0, holdFrames: 27 },
+    ...(meta.cards ?? []),
+  ],
   youtube: {
     title: arg("judul", meta.youtube?.title ?? narasi.judul),
     description: arg("deskripsi", meta.youtube?.description ?? ""),

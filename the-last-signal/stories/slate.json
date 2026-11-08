@@ -1206,6 +1206,23 @@
     "pinComment": "Hitang berapa kali plat itu muncul sebelum ponselmu menyala. Di rekaman saya, tiga kali. Kamu berapa?"
    },
    "catatan": "Gerbang A: 13/16. Latar transportasi untuk memenuhi aturan pencampuran."
+  },
+  {
+   "episodeId": "LL-0003",
+   "judul": "Meteran yang Berputar di Rumah Kosong",
+   "format": "longform_16x9",
+   "status": "produksi",
+   "folder": "stories/longform/LL-0003",
+   "releases": [
+    {
+     "atRatio": 0.35,
+     "seconds": 0.9
+    },
+    {
+     "atRatio": 0.7,
+     "seconds": 0.9
+    }
+   ]
   }
  ],
  "catatan_keputusan": "Short adalah cerita baru yang berdiri sendiri, bukan potongan video panjang (arahan pemilik kanal 7 Nov 2026)."

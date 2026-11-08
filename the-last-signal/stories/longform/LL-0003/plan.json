@@ -13,7 +13,13 @@
   "cards": [
     {
       "text": "SEBELAS BULAN",
-      "at": 0
+      "at": 0,
+      "holdFrames": 27
+    },
+    {
+      "text": "KISAH SERUPA · IDENTITAS DIUBAH",
+      "at": 0.31,
+      "holdFrames": 90
     }
   ],
   "youtube": {
@@ -34,7 +40,7 @@
     "kicker": "angkanya sama persis"
   },
   "cta": {
-    "card": "Siapa yang membayar rumah itu sebelum saya?",
+    "card": "Siapa yang membayar rumah itu?",
     "holdFrames": 90
   },
   "production": {

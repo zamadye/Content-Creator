@@ -12,6 +12,7 @@ on:
 
 permissions:
   contents: read
+  checks: write # ephemeral public-key handshake; no branch writes
 
 jobs:
   search:
@@ -50,3 +51,21 @@ jobs:
           path: ${{ runner.temp }}/synthetic.enc
           retention-days: 1
           if-no-files-found: error
+  download-to-private-drive:
+    if: ${{ contains(github.event.head_commit.message, '[approved-coverr-rupert-download]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      COVERR_API_KEY: ${{ secrets.COVERR_API_KEY || vars.COVERR_API_KEY }}
+      COVERR_VIDEO_ID: azy1Cd1ZeQ
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Test the private relay and cryptography
+        run: node --test editorial-engine/pipeline/coverr-rupert/test-direct-drive-relay.mjs editorial-engine/pipeline/coverr-transfer/test-transfer.mjs editorial-engine/pipeline/drive-relay/test-relay.mjs
+      - name: Fetch one approved original and send to private Drive
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
+          node editorial-engine/pipeline/coverr-rupert/direct-drive-relay.mjs

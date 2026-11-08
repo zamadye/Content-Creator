@@ -25,8 +25,12 @@ function arg(name: string, fallback?: string) {
 }
 
 const episodeId = arg("episode", "LS-0001")!;
-const leadIn = Number(arg("lead-in", "6"));
-const tailPadding = Number(arg("tail", "12"));
+// Padding sunyi di ujung scene. 8 Nov 2026: 6/12 → 4/8, sama dengan
+// build-episode.mjs. Sepuluh scene dengan 18 frame padding menyumbang 6 detik
+// sunyi murni — cukup mendorong episode 55 detik melewati batas 60 detik Shorts,
+// dan sunyi di ujung beat memperlambat irama yang sudah dihitung per kata.
+const leadIn = Number(arg("lead-in", "4"));
+const tailPadding = Number(arg("tail", "8"));
 const dryRun = process.argv.includes("--dry-run");
 
 const episodeDir = join(ROOT, "projects", "episodes", episodeId);

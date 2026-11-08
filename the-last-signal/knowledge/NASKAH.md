@@ -205,3 +205,63 @@ twist  "Satpam menyebut nama saya dengan santai. Katanya, pria itu berambut panj
 CTA    "Rambut saya pendek. Kamu akan naik ke mobil itu? Tulis di komentar."
 ```
 
+
+## Hukum lapisan — evaluasi 8 November 2026 (rewatch)
+
+Hook membuat orang berhenti. Lapisan yang membuat orang **memutar ulang**. Enam
+hukum ini berlaku untuk setiap cerita yang masuk produksi, dan **diperiksa
+mesin** oleh `scripts/check-gate.mjs` sebelum gambar dibuat.
+
+### 1. Peta petunjuk: tiga petunjuk, tiga medium
+
+Setiap episode wajib punya tiga petunjuk, dan ketiganya harus berbeda jenis:
+
+| Jenis | Bentuk | Contoh |
+|---|---|---|
+| visual | sesuatu di frame yang bisa dilihat ulang | rambut di karcis; angka ganda di layar antrean |
+| audio | bisikan / napas / denyut, 0,4–0,8 s, −18 dB di bawah musik | bisikan menyebut nomor kamar |
+| teks | satu kalimat di deskripsi / komentar sematan | "ada dua baris angka yang sama; perhatikan jamnya" |
+
+Masing-masing ditulis dengan **detik muncul** dan **detik dibayar**. Petunjuk yang
+tidak punya detik bayar bukan petunjuk — itu hiasan.
+
+### 2. Uji dua bacaan
+
+Kalimat pertama harus punya dua arti dan keduanya ditulis di lembar naskah:
+
+- **arti A** — yang dipahami penonton sebelum twist;
+- **arti B** — yang dipahami setelah twist.
+
+Kalau penulis tidak bisa menuliskan arti B, twistnya bukan twist; itu cuma
+kejutan, dan kejutan tidak menghasilkan tontonan kedua.
+
+### 3. Tiga loop
+
+- **L1** ditutup di payoff — membuat cerita terasa selesai.
+- **L2** dipindahkan ke pertanyaan CTA — memindahkan rasa penasaran ke komentar.
+- **L3** **dibiarkan terbuka** — bahan teori, alasan menonton ulang.
+
+L1 dan L3 tidak boleh berasal dari benda yang sama.
+
+### 4. Dua reda
+
+Di sekitar 35% dan 70% durasi, musik turun sampai nyaris hilang selama
+**0,6–1,2 detik**, ambience tetap jalan. Ini bukan hening: ini tarikan napas.
+Mengoreksi `ATURAN` 4.1 — yang dilarang adalah **sunyi total**, bukan **reda**.
+
+### 5. Loop mulus
+
+Baca kalimat terakhir lalu kalimat pertama dengan suara keras. Kalau sambungannya
+terasa seperti satu kalimat, loop berhasil. Kalau terasa dipaksakan, penonton
+menyadari video berulang — dan justru berhenti.
+
+### 6. Satu unsur tidak dijawab
+
+Tulis eksplisit apa yang **tidak** dijelaskan cerita (siapa / kenapa / sejak
+kapan). Unsur ini tidak boleh dijelaskan di dalam video, dan boleh ditanyakan di
+CTA.
+
+### Gerbang
+
+`node scripts/check-gate.mjs` — memeriksa hukum 1–6 di atas untuk semua episode
+yang belum tayang. Episode yang gagal **tidak boleh dirender**.

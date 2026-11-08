@@ -4,9 +4,9 @@
     "segmen": "S1",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a small clinic waiting room seen from a low seat, a glowing queue display on the wall showing a doubled row of numbers, six empty plastic chairs, one door slightly ajar with light spilling out, cold fluorescent light, muted green-blue palette, 35mm grain, documentary realism, digits blurred and unreadable, no readable text, no watermark, no faces",
+    "prompt": "cinematic 9:16 vertical film still, a small clinic waiting room seen from a low seat, an LED queue display on the wall showing a two-digit number twice on two lines, blurred digits, empty plastic chairs, cold fluorescent light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
     "pemicu": [
-      "Antrean nomor empat belas dipanggil dua kali."
+      "Nomor empat belas dipanggil dua kali."
     ]
   },
   {
@@ -14,7 +14,7 @@
     "segmen": "S2",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical extreme close-up film still, a paper queue ticket held in a damp hand, the printed number blurred, an empty plastic chair in soft focus behind, cold clinic light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face",
+    "prompt": "cinematic 9:16 vertical close-up, a paper queue ticket held in a fist above a plastic waiting-room chair, empty chair beside it still slightly compressed, cold clinic light, shallow depth of field, muted palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark, no face, full-bleed no borders",
     "pemicu": [
       "Saya masih di kursi tunggu."
     ]
@@ -24,7 +24,7 @@
     "segmen": "S3",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, an empty examination-room door standing ajar at the end of a short clinic corridor, a sliver of warm light on the floor, cold fluorescent corridor, empty chairs on both sides, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "prompt": "cinematic 9:16 vertical film still, a half-open clinic examination room door, cold fluorescent light spilling into a dim corridor, a chair pulled out just enough to see, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
     "pemicu": [
       "Kalau saya di sini, siapa yang dipanggil masuk?"
     ]
@@ -34,9 +34,9 @@
     "segmen": "S4",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a tiny eye clinic interior: six plastic chairs in a row, a nurse counter with a stack of forms, an eye chart frame on the wall with letters blurred, cold light, muted palette, 35mm grain, documentary realism, unreadable text, no watermark, no faces",
+    "prompt": "cinematic 9:16 vertical wide film still, a tiny eye clinic interior, six plastic chairs in a row, one reception desk, one closed door, cold fluorescent tubes, linoleum floor, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
     "pemicu": [
-      "Klinik matanya kecil: enam kursi, satu perawat, satu dokter."
+      "Klinik matanya kecil."
     ]
   },
   {
@@ -44,7 +44,7 @@
     "segmen": "S5",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a nurse's hand pushing open a frosted clinic door from inside, silhouette of a standing patient rising in the foreground out of focus, cold light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible face",
+    "prompt": "cinematic 9:16 vertical film still, a pair of legs standing up from a plastic clinic chair, floor and chair legs in focus, cold light, motion blur on the standing figure, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
     "pemicu": [
       "Perawat memanggil empat belas."
     ]
@@ -54,9 +54,9 @@
     "segmen": "S6",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical extreme close-up film still, an empty plastic waiting chair with a slight depression still in the seat, faint condensation on the plastic, cold clinic light from above, dust in the air, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "prompt": "cinematic 9:16 vertical extreme close-up of an empty plastic chair seat with a faint warm imprint, condensation on the plastic, cold clinic light from above, shallow depth of field, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
     "pemicu": [
-      "Kursi yang saya tinggalkan masih hangat."
+      "Kursi yang saya tinggalkan masih hangat, padahal saya baru berdiri."
     ]
   },
   {
@@ -64,7 +64,7 @@
     "segmen": "S7",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a wall-mounted clinic queue display photographed close and slightly from below, two identical rows of digits glowing, small clock element beside each row, cable running down the wall, cold light, muted palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark",
+    "prompt": "cinematic 9:16 vertical film still, an LED queue display close-up on a clinic wall showing the same two-digit number on two separate lines, digits soft and unreadable, red glow on concrete, cold corridor behind, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
     "pemicu": [
       "Layar antrean menampilkan empat belas dua kali."
     ]
@@ -74,7 +74,7 @@
     "segmen": "S8",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a small dome security camera mounted in the corner of a clinic waiting room, lens dusty, a strand of cobweb on the housing, cold fluorescent light, empty chairs below out of focus, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+    "prompt": "cinematic 9:16 vertical film still, a clinic reception window at night, a small CCTV monitor behind the counter showing grey static, counter bell, cold fluorescent light, muted palette, 35mm grain, documentary realism, screen blurred, no readable text, no watermark, no faces, full-bleed no borders",
     "pemicu": [
       "Saya minta rekaman ruang tunggu."
     ]
@@ -84,7 +84,7 @@
     "segmen": "S9",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, a worn clinic reception desk with a small audio recorder lying beside an open registration book, page edges blurred, cold lamp light, dust, muted palette, 35mm grain, documentary realism, unreadable handwriting, no readable text, no watermark, no people",
+    "prompt": "cinematic 9:16 vertical extreme close-up of a laptop screen playing an audio waveform, dark room, cold screen light on a desk, reflection of a face barely visible and out of focus, muted palette, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
     "pemicu": [
       "Rekaman suara perawat masih ada."
     ]
@@ -94,7 +94,7 @@
     "segmen": "S10",
     "aspek": "9:16",
     "jumlah_shot": 1,
-    "prompt": "cinematic 9:16 vertical film still, the same clinic waiting room now empty and darker, queue display still glowing at the end of the room, one chair pulled slightly forward, door shut, cold light fading, muted palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark, no people",
+    "prompt": "cinematic 9:16 vertical film still, the same clinic waiting room as the first frame, now empty and darker, the LED display showing the same two-digit number on two lines, one chair slightly turned, cold light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
     "pemicu": [
       "Nama itu cuma satu."
     ]

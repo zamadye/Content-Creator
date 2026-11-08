@@ -1,6 +1,6 @@
 {
   "episode": "LS-0017",
-  "judul": "Suara Itu Bilang Masuk Sebelum Saya Mengetuk",
+  "judul": "Suara di Kamar Itu Sudah Ada Sebelum Saya Mengetuk",
   "format": "short_9x16",
   "total_kata": 94,
   "estimasi_detik": 42.7,
@@ -8,92 +8,92 @@
     {
       "id": "S1",
       "segmen": 1,
-      "judul": "Satu pagi, suara dari dalam bilang: masuk",
+      "judul": "Suara di dalam kamar bilang masuk, sebelum saya mengetuk",
       "paragraf": [
-        "Satu pagi, suara dari dalam bilang: masuk. Saya tidak mengetuk."
+        "Suara di dalam kamar bilang masuk, sebelum saya mengetuk."
       ],
-      "kata": 10
+      "kata": 9
     },
     {
       "id": "S2",
       "segmen": 2,
-      "judul": "Kunci itu tidak pernah lepas dari tangan saya",
+      "judul": "Kamar itu kosong",
       "paragraf": [
-        "Kunci itu tidak pernah lepas dari tangan saya."
+        "Kamar itu kosong. Kuncinya masih di tangan saya."
       ],
       "kata": 8
     },
     {
       "id": "S3",
       "segmen": 3,
-      "judul": "Kalau begitu, siapa yang menjawab dari dalam?",
+      "judul": "Jadi siapa yang menjawab, dan sejak kapan dia di situ?",
       "paragraf": [
-        "Kalau begitu, siapa yang menjawab dari dalam?"
+        "Jadi siapa yang menjawab, dan sejak kapan dia di situ?"
       ],
-      "kata": 7
+      "kata": 10
     },
     {
       "id": "S4",
       "segmen": 4,
       "judul": "Kos Jalan Melati, sembilan kamar",
       "paragraf": [
-        "Kos Jalan Melati, sembilan kamar. Saya nomor enam."
+        "Kos Jalan Melati, sembilan kamar. Saya di nomor enam."
       ],
-      "kata": 8
+      "kata": 9
     },
     {
       "id": "S5",
       "segmen": 5,
-      "judul": "Saya pulang larut",
+      "judul": "Saya pulang larut, seperti biasa",
       "paragraf": [
-        "Saya pulang larut. Lampu kamar menyala dari celah pintu."
+        "Saya pulang larut, seperti biasa."
       ],
-      "kata": 9
+      "kata": 5
     },
     {
       "id": "S6",
       "segmen": 6,
-      "judul": "Saya belum pernah menyalakan lampu sebelum keluar",
+      "judul": "Lampu kamar menyala dari celah bawah pintu, padahal saya mem",
       "paragraf": [
-        "Saya belum pernah menyalakan lampu sebelum keluar."
+        "Lampu kamar menyala dari celah bawah pintu, padahal saya mematikannya pagi."
       ],
-      "kata": 7
+      "kata": 11
     },
     {
       "id": "S7",
       "segmen": 7,
-      "judul": "Saya buka pintu",
+      "judul": "Saya rekam suara itu dengan ponsel",
       "paragraf": [
-        "Saya buka pintu. Kasur rapi. Kardus di bawahnya bergeser."
+        "Saya rekam suara itu dengan ponsel. Empat detik. Satu kata."
       ],
-      "kata": 9
+      "kata": 10
     },
     {
       "id": "S8",
       "segmen": 8,
-      "judul": "Di dalam kardus ada perekam kecil",
+      "judul": "Saya dengarkan berulang kali",
       "paragraf": [
-        "Di dalam kardus ada perekam kecil. Tombolnya masih hangat."
+        "Saya dengarkan berulang kali. Nadanya terlalu akrab."
       ],
-      "kata": 9
+      "kata": 7
     },
     {
       "id": "S9",
       "segmen": 9,
-      "judul": "Rekamannya suara saya sendiri: ketuk tiga kali, lalu masuk",
+      "judul": "Itu suara saya",
       "paragraf": [
-        "Rekamannya suara saya sendiri: ketuk tiga kali, lalu masuk. Dua belas kali."
+        "Itu suara saya. Direkam dua tahun lalu, di kamar ini, sebelum saya tinggal."
       ],
-      "kata": 12
+      "kata": 13
     },
     {
       "id": "S10",
       "segmen": 10,
-      "judul": "Saya yang mengetuk duluan tiap malam",
+      "judul": "Saya masih bayar kos itu",
       "paragraf": [
-        "Saya yang mengetuk duluan tiap malam. Kamu mengetuk duluan, atau menunggu suaranya? Tulis di komentar."
+        "Saya masih bayar kos itu. Kamu akan mengetuk kalau jawabannya sudah ada?"
       ],
-      "kata": 15
+      "kata": 12
     }
   ]
 }

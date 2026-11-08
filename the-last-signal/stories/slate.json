@@ -581,102 +581,66 @@
   {
    "episodeId": "LS-0016",
    "format": "short_9x16",
-   "status": "lolos gerbang A (14/14) — siap produksi",
-   "judul": "Nomor 14 Dipanggil Dua Kali di Klinik Mata",
+   "status": "naskah — lolos Gerbang A, siap produksi",
+   "judul": "Nomor Empat Belas Dipanggil Dua Kali",
    "subgenre": "Institutional horror",
-   "experiment": "Uji peta petunjuk 3 medium (visual/audio/teks) + tiga loop (L1 ditutup, L2 ke CTA, L3 dibiarkan).",
-   "structure": "klimaks panggilan kedua → potongan 'siapa yang dipanggil?' → klinik kecil → kursi hangat → layar dua baris → rekaman kamera rusak → twist: yang dipanggil nama, bukan nomor → CTA",
+   "experiment": "Uji hukum lapisan: peta petunjuk 3 medium, uji dua bacaan, tiga loop, dua reda.",
+   "structure": "klimaks (14 dua kali) → entitas kursi kosong → POTONG 'siapa yang dipanggil masuk?' → klinik → kursi hangat → layar dua baris → minta rekaman → twist nama saya → CTA",
    "story": {
-    "title": "Nomor 14 Dipanggil Dua Kali di Klinik Mata",
-    "hook": "Nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa",
-    "premise": "Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ia tinggalkan masih hangat dan layar antrean menampilkan nomor yang sama dua kali.",
-    "twist": "Panggilan kedua bukan nomor antrean melainkan nama narator — perawat menyebut nama itu dua kali, padahal narator mendaftar sekali dan nama itu hanya satu orang.",
-    "ending": "Narator menegaskan namanya cuma satu, lalu menanyakan ke penonton apakah ia tetap akan masuk kalau dipanggil kedua kali."
+    "title": "Nomor Empat Belas Dipanggil Dua Kali",
+    "hook": "nomor empat belas dipanggil dua kali, yang kedua dari dalam ruang periksa",
+    "premise": "Di klinik mata kecil, nomor antrean narator dipanggil dua kali; kursi yang ditinggalkannya masih hangat, dan layar menampilkan angka yang sama dua baris.",
+    "twist": "Panggilan kedua bukan nomor, melainkan nama narator — diucapkan dua kali oleh perawat.",
+    "dualReading": {
+     "a": "Mesin antrean klinik rusak, jadi nomor yang sama dipanggil dua kali.",
+     "b": "Ada dua orang memakai nama yang sama; yang kedua sudah masuk sebelum narator berdiri."
+    },
+    "loops": {
+     "l1": "nomor 14 dipanggil dua kali — dijawab di beat 9 (panggilan kedua = nama, bukan nomor)",
+     "l2": "CTA: kamu tetap akan masuk kalau dipanggil kedua kali?",
+     "l3": "siapa yang duduk di kursi sampai kursinya masih hangat"
+    },
+    "ending": "Narator menegaskan namanya hanya satu, lalu bertanya apakah penonton tetap masuk kalau dipanggil kedua kali."
    },
+   "unexplained": "Siapa yang duduk di kursi narator sampai kursinya masih hangat, dan mengapa perawat menyebut nama itu dua kali.",
+   "releases": [
+    {
+     "atRatio": 0.35,
+     "seconds": 0.8,
+     "catatan": "setelah kejanggalan kursi hangat"
+    },
+    {
+     "atRatio": 0.7,
+     "seconds": 0.9,
+     "catatan": "sebelum minta rekaman"
+    }
+   ],
+   "clues": [
+    {
+     "kind": "visual",
+     "atSeconds": 0,
+     "paidAtSeconds": 41,
+     "detail": "layar antrean di frame pertama sudah menampilkan 14 dua baris, sebelum ada yang menjelaskan"
+    },
+    {
+     "kind": "audio",
+     "atSeconds": 14,
+     "paidAtSeconds": 39,
+     "detail": "bisikan 'empat belas', 0,5 s, -18 dB di bawah musik"
+    },
+    {
+     "kind": "teks",
+     "detail": "deskripsi/komentar: ada dua baris angka 14; perhatikan jam di bawahnya"
+    }
+   ],
    "scenes": [
     {
-     "narration": "Antrean nomor empat belas dipanggil dua kali. Yang kedua dari dalam ruang periksa.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a small clinic waiting room seen from a low seat, a glowing queue display on the wall showing a doubled row of numbers, six empty plastic chairs, one door slightly ajar with light spilling out, cold fluorescent light, muted green-blue palette, 35mm grain, documentary realism, digits blurred and unreadable, no readable text, no watermark, no faces",
+     "narration": "Nomor empat belas dipanggil dua kali. Yang kedua, dari dalam ruang periksa.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a small clinic waiting room seen from a low seat, an LED queue display on the wall showing a two-digit number twice on two lines, blurred digits, empty plastic chairs, cold fluorescent light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "static",
-     "shot": "medium",
-     "lighting": "cold_clinic_fluorescent_5000k",
-     "intensity": 0.5,
-     "effects": [
-      "film_grain",
-      "vignette",
-      "light_flicker"
-     ]
-    },
-    {
-     "narration": "Saya masih di kursi tunggu.",
-     "imagePrompt": "cinematic 9:16 vertical extreme close-up film still, a paper queue ticket held in a damp hand, the printed number blurred, an empty plastic chair in soft focus behind, cold clinic light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face",
-     "camera": "handheld",
-     "shot": "closeup",
-     "lighting": "cold_clinic_fluorescent_5000k",
-     "intensity": 0.45,
-     "effects": [
-      "film_grain",
-      "vignette",
-      "focus_rack"
-     ]
-    },
-    {
-     "narration": "Kalau saya di sini, siapa yang dipanggil masuk?",
-     "imagePrompt": "cinematic 9:16 vertical film still, an empty examination-room door standing ajar at the end of a short clinic corridor, a sliver of warm light on the floor, cold fluorescent corridor, empty chairs on both sides, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
-     "camera": "push_in",
      "shot": "wide",
      "lighting": "cold_clinic_fluorescent_5000k",
-     "intensity": 0.55,
-     "effects": [
-      "film_grain",
-      "vignette",
-      "camera_shake"
-     ]
-    },
-    {
-     "narration": "Klinik matanya kecil: enam kursi, satu perawat, satu dokter.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a tiny eye clinic interior: six plastic chairs in a row, a nurse counter with a stack of forms, an eye chart frame on the wall with letters blurred, cold light, muted palette, 35mm grain, documentary realism, unreadable text, no watermark, no faces",
-     "camera": "drift",
-     "shot": "wide",
-     "lighting": "cold_clinic_fluorescent_5000k",
-     "intensity": 0.45,
-     "effects": [
-      "film_grain",
-      "vignette"
-     ]
-    },
-    {
-     "narration": "Perawat memanggil empat belas. Saya berdiri.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a nurse's hand pushing open a frosted clinic door from inside, silhouette of a standing patient rising in the foreground out of focus, cold light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible face",
-     "camera": "handheld",
-     "shot": "medium",
-     "lighting": "cold_clinic_fluorescent_5000k",
      "intensity": 0.5,
-     "effects": [
-      "film_grain",
-      "vignette",
-      "focus_rack"
-     ]
-    },
-    {
-     "narration": "Kursi yang saya tinggalkan masih hangat.",
-     "imagePrompt": "cinematic 9:16 vertical extreme close-up film still, an empty plastic waiting chair with a slight depression still in the seat, faint condensation on the plastic, cold clinic light from above, dust in the air, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
-     "camera": "push_in",
-     "shot": "closeup",
-     "lighting": "cold_clinic_fluorescent_5000k",
-     "intensity": 0.5,
-     "effects": [
-      "film_grain",
-      "vignette"
-     ]
-    },
-    {
-     "narration": "Layar antrean menampilkan empat belas dua kali. Dua baris, jam beda.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a wall-mounted clinic queue display photographed close and slightly from below, two identical rows of digits glowing, small clock element beside each row, cable running down the wall, cold light, muted palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark",
-     "camera": "static",
-     "shot": "closeup",
-     "lighting": "cold_clinic_fluorescent_5000k",
-     "intensity": 0.55,
      "effects": [
       "film_grain",
       "vignette",
@@ -684,8 +648,20 @@
      ]
     },
     {
-     "narration": "Saya minta rekaman ruang tunggu. Kameranya katanya rusak.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a small dome security camera mounted in the corner of a clinic waiting room, lens dusty, a strand of cobweb on the housing, cold fluorescent light, empty chairs below out of focus, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+     "narration": "Saya masih di kursi tunggu. Nomor itu masih di tangan saya.",
+     "imagePrompt": "cinematic 9:16 vertical close-up, a paper queue ticket held in a fist above a plastic waiting-room chair, empty chair beside it still slightly compressed, cold clinic light, shallow depth of field, muted palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark, no face, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "closeup",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Kalau saya di sini, siapa yang dipanggil masuk?",
+     "imagePrompt": "cinematic 9:16 vertical film still, a half-open clinic examination room door, cold fluorescent light spilling into a dim corridor, a chair pulled out just enough to see, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "drift",
      "shot": "medium",
      "lighting": "cold_clinic_fluorescent_5000k",
@@ -696,21 +672,81 @@
      ]
     },
     {
-     "narration": "Rekaman suara perawat masih ada. Yang dipanggil bukan nomor. Nama saya.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a worn clinic reception desk with a small audio recorder lying beside an open registration book, page edges blurred, cold lamp light, dust, muted palette, 35mm grain, documentary realism, unreadable handwriting, no readable text, no watermark, no people",
+     "narration": "Klinik matanya kecil. Enam kursi, satu perawat, satu dokter.",
+     "imagePrompt": "cinematic 9:16 vertical wide film still, a tiny eye clinic interior, six plastic chairs in a row, one reception desk, one closed door, cold fluorescent tubes, linoleum floor, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "static",
+     "shot": "wide",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Perawat memanggil empat belas. Saya berdiri, lalu masuk.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a pair of legs standing up from a plastic clinic chair, floor and chair legs in focus, cold light, motion blur on the standing figure, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
+     "camera": "handheld",
+     "shot": "medium",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Kursi yang saya tinggalkan masih hangat, padahal saya baru berdiri.",
+     "imagePrompt": "cinematic 9:16 vertical extreme close-up of an empty plastic chair seat with a faint warm imprint, condensation on the plastic, cold clinic light from above, shallow depth of field, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "closeup",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Layar antrean menampilkan empat belas dua kali. Dua baris, angka sama.",
+     "imagePrompt": "cinematic 9:16 vertical film still, an LED queue display close-up on a clinic wall showing the same two-digit number on two separate lines, digits soft and unreadable, red glow on concrete, cold corridor behind, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "push_in",
      "shot": "closeup",
      "lighting": "cold_clinic_fluorescent_5000k",
      "intensity": 0.55,
      "effects": [
       "film_grain",
-      "vignette",
-      "focus_rack"
+      "scanlines",
+      "vignette"
      ]
     },
     {
-     "narration": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali? Tulis di komentar.",
-     "imagePrompt": "cinematic 9:16 vertical film still, the same clinic waiting room now empty and darker, queue display still glowing at the end of the room, one chair pulled slightly forward, door shut, cold light fading, muted palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark, no people",
+     "narration": "Saya minta rekaman ruang tunggu. Petugas bilang kameranya rusak sejak lama.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a clinic reception window at night, a small CCTV monitor behind the counter showing grey static, counter bell, cold fluorescent light, muted palette, 35mm grain, documentary realism, screen blurred, no readable text, no watermark, no faces, full-bleed no borders",
+     "camera": "drift",
+     "shot": "medium",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Rekaman suara perawat masih ada. Yang dipanggil bukan nomor. Nama saya, dua kali.",
+     "imagePrompt": "cinematic 9:16 vertical extreme close-up of a laptop screen playing an audio waveform, dark room, cold screen light on a desk, reflection of a face barely visible and out of focus, muted palette, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "closeup",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.55,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Nama itu cuma satu. Kamu tetap akan masuk kalau dipanggil kedua kali?",
+     "imagePrompt": "cinematic 9:16 vertical film still, the same clinic waiting room as the first frame, now empty and darker, the LED display showing the same two-digit number on two lines, one chair slightly turned, cold light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "static",
      "shot": "wide",
      "lighting": "cold_clinic_fluorescent_5000k",
@@ -724,53 +760,93 @@
    ],
    "cards": [
     "NOMOR ITU DIPANGGIL DUA KALI",
-    "SIAPA YANG DIPANGGIL?",
-    "MASUK ATAU TIDAK"
+    "SIAPA YANG MASUK?",
+    "MASIH MAU MASUK?"
    ],
    "thumb": {
-    "headline": "NOMOR ITU DIPANGGIL DUA KALI",
-    "kicker": "yang kedua dari dalam"
+    "headline": "NOMOR 14 DIPANGGIL DUA KALI",
+    "kicker": "dari dalam ruang periksa"
    },
    "cta": {
-    "card": "Kamu akan masuk lagi?",
+    "card": "Kamu tetap akan masuk?",
     "holdFrames": 84
    },
    "youtube": {
-    "title": "Nomor 14 Dipanggil Dua Kali di Klinik Mata",
-    "description": "Nomor antrean saya dipanggil dua kali, dan panggilan keduanya datang dari dalam ruang periksa.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Saya berdiri saat nomor saya dipanggil, lalu masuk. Kursi yang saya tinggalkan masih hangat. Layar antrean menampilkan angka yang sama dua kali, dua baris, dengan jam yang berbeda.\n\nRekaman kameranya katanya rusak sejak lama. Rekaman suaranya masih ada, dan di situ yang dipanggil bukan nomor.",
+    "title": "Nomor Empat Belas Dipanggil Dua Kali di Klinik Itu",
+    "description": "Nomor antrean saya dipanggil dua kali. Panggilan kedua datang dari dalam ruang periksa, padahal saya masih duduk di kursi tunggu.\n\nKlinik matanya kecil: enam kursi, satu perawat, satu dokter. Waktu saya berdiri dan masuk, kursi yang saya tinggalkan masih hangat. Layar antrean menampilkan angka yang sama, dua baris, dengan jam berbeda.\n\nSaya minta rekaman ruang tunggu, dan petugas bilang kameranya rusak sejak lama. Rekaman suara perawat masih ada. Di sana, panggilan kedua bukan nomor.",
     "tags": [
      "cerita horor",
      "horor indonesia",
      "klinik",
      "cerita seram",
-     "nomor antrean"
+     "antrean"
     ],
-    "pinComment": "Ada dua baris angka 14 di layar itu, selisih jamnya sebelas menit. Kamu akan tetap masuk kalau dipanggil kedua kali?"
+    "pinComment": "Ada dua baris angka yang sama di layar itu. Perhatikan jam di bawahnya — selisihnya sebelas menit."
    },
-   "catatan": "Peta petunjuk: visual (layar dua baris di frame 1), audio (bisikan 'empat belas' 0,5 s di beat 4), teks (komentar sematan soal selisih jam). L3 terbuka: siapa yang duduk sampai kursinya hangat."
+   "catatan": "Gerbang A: 14/16. Lapisan: 3 petunjuk, 2 bacaan, 3 loop, 2 reda."
   },
   {
    "episodeId": "LS-0017",
    "format": "short_9x16",
-   "status": "revisi 1 gerbang A (15/16) — sumbu twist diperbaiki",
-   "judul": "Suara Itu Bilang Masuk Sebelum Saya Mengetuk",
+   "status": "naskah — revisi 1, lolos Gerbang A",
+   "judul": "Suara di Kamar Itu Sudah Ada Sebelum Saya Mengetuk",
    "subgenre": "Institutional horror",
-   "experiment": "Revisi setelah gerbang A menilai 11/16: twist dibalik supaya mengubah arti kalimat pertama, ditambah petunjuk audio dan teks.",
-   "structure": "suara bilang masuk → potongan → kos sembilan kamar → lampu menyala → kardus bergeser → perekam di kardus → twist: itu suara saya sendiri → CTA",
+   "experiment": "Revisi dari 11/16: twist dibalik supaya mengubah arti kalimat pertama (suara sendiri, bukan orang lain).",
+   "structure": "klimaks (jawaban sebelum ketukan) → entitas celah pintu → POTONG 'siapa yang menjawab?' → kos → lampu → rekam 4 detik → twist suara saya dua tahun lalu → CTA",
    "story": {
-    "title": "Suara Itu Bilang Masuk Sebelum Saya Mengetuk",
-    "hook": "Suara dari dalam bilang masuk sebelum saya mengetuk, padahal kunci masih di tangan saya",
-    "premise": "Di kos sembilan kamar, kamar narator menyala dari dalam dan kardusnya bergeser, padahal ia tinggal sendiri dan kuncinya masih di tangannya.",
-    "twist": "Suara yang menyuruh masuk bukan orang di dalam kamar: itu rekaman suara narator sendiri, ketukan tiga kali lalu kata masuk, dua belas kali — artinya narator sudah mengetuk dan masuk lebih dulu setiap malam, lalu lupa.",
-    "ending": "Narator menanyakan apakah penonton akan mengetuk duluan atau menunggu suaranya, sebelum menutup dengan kalimat yang sama seperti pembuka."
+    "title": "Suara di Kamar Itu Sudah Ada Sebelum Saya Mengetuk",
+    "hook": "suara di dalam kamar bilang masuk sebelum saya mengetuk",
+    "premise": "Di kos sembilan kamar, narator mendengar jawaban dari dalam kamarnya sendiri sebelum ia mengetuk; lampu menyala, padahal ia mematikannya pagi.",
+    "twist": "Suara yang menjawab adalah suara narator sendiri, direkam dua tahun lalu di kamar itu — sebelum ia tinggal di sana.",
+    "dualReading": {
+     "a": "Ada orang di dalam kamar saya.",
+     "b": "Suara itu milik saya sendiri, direkam dua tahun sebelum saya tinggal — kamar itu sudah mengenal saya."
+    },
+    "loops": {
+     "l1": "jawaban 'masuk' sebelum ketukan — dijawab di beat 9 (itu rekaman suara narator)",
+     "l2": "CTA: kamu akan mengetuk kalau jawabannya sudah ada?",
+     "l3": "siapa yang merekam suara itu dua tahun lalu, dan kenapa baru diputar sekarang"
+    },
+    "ending": "Narator menyebut bahwa ia masih membayar kos itu, lalu bertanya apakah penonton akan mengetuk kalau jawabannya sudah tersedia."
    },
+   "unexplained": "Siapa yang merekam suara narator dua tahun lalu dan mengapa rekaman itu baru diputar sekarang.",
+   "releases": [
+    {
+     "atRatio": 0.35,
+     "seconds": 0.7,
+     "catatan": "setelah lampu menyala dari celah pintu"
+    },
+    {
+     "atRatio": 0.7,
+     "seconds": 0.9,
+     "catatan": "sebelum memutar ulang rekaman"
+    }
+   ],
+   "clues": [
+    {
+     "kind": "visual",
+     "atSeconds": 0,
+     "paidAtSeconds": 44,
+     "detail": "bayangan kaki di celah bawah pintu yang tidak bergerak sedikit pun di frame pertama"
+    },
+    {
+     "kind": "audio",
+     "atSeconds": 22,
+     "paidAtSeconds": 47,
+     "detail": "bisikan 'enam', 0,5 s, -18 dB di bawah musik"
+    },
+    {
+     "kind": "teks",
+     "detail": "komentar: rekaman itu empat detik; hitung hembusan napasnya"
+    }
+   ],
    "scenes": [
     {
-     "narration": "Satu pagi, suara dari dalam bilang: masuk. Saya tidak mengetuk.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a narrow boarding-house door seen from the corridor, thin line of light under the door, a pair of worn shoes standing still in the foreground, dim warm corridor lamp, scuffed paint, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible face",
+     "narration": "Suara di dalam kamar bilang masuk, sebelum saya mengetuk.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a narrow gap under a cheap boarding-house door, warm light spilling out, the unmoving shadow of two feet inside, dim corridor, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
      "camera": "static",
-     "shot": "medium",
-     "lighting": "warm_corridor_lamp_2900k",
+     "shot": "closeup",
+     "lighting": "harsh_basement_fluorescent_4300k",
      "intensity": 0.5,
      "effects": [
       "film_grain",
@@ -779,37 +855,23 @@
      ]
     },
     {
-     "narration": "Kunci itu tidak pernah lepas dari tangan saya.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a hand holding an old brass room key close to a door lock, number plate on the door blurred, dim corridor light, paint chipped around the handle, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no face",
-     "camera": "handheld",
-     "shot": "closeup",
-     "lighting": "warm_corridor_lamp_2900k",
-     "intensity": 0.45,
-     "effects": [
-      "film_grain",
-      "vignette",
-      "focus_rack"
-     ]
-    },
-    {
-     "narration": "Kalau begitu, siapa yang menjawab dari dalam?",
-     "imagePrompt": "cinematic 9:16 vertical film still, the same narrow corridor with nine doors, one door at the end glowing from underneath, laundry line overhead, dim warm lamp, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+     "narration": "Kamar itu kosong. Kuncinya masih di tangan saya.",
+     "imagePrompt": "cinematic 9:16 vertical close-up of a hand holding an old room key with a plastic number tag, blurred digits, door frame behind, dim corridor light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
      "camera": "push_in",
-     "shot": "wide",
-     "lighting": "warm_corridor_lamp_2900k",
-     "intensity": 0.55,
+     "shot": "closeup",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
      "effects": [
       "film_grain",
-      "vignette",
-      "camera_shake"
+      "vignette"
      ]
     },
     {
-     "narration": "Kos Jalan Melati, sembilan kamar. Saya nomor enam.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a dim boarding-house room interior: single bed neatly made, old cardboard box half under the bed, cheap wardrobe, warm bare bulb, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+     "narration": "Jadi siapa yang menjawab, dan sejak kapan dia di situ?",
+     "imagePrompt": "cinematic 9:16 vertical film still, a dim boarding-house corridor lined with numbered doors, one door slightly ajar at the end, single bulb, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "drift",
-     "shot": "medium",
-     "lighting": "warm_corridor_lamp_2900k",
+     "shot": "wide",
+     "lighting": "harsh_basement_fluorescent_4300k",
      "intensity": 0.45,
      "effects": [
       "film_grain",
@@ -817,24 +879,11 @@
      ]
     },
     {
-     "narration": "Saya pulang larut. Lampu kamar menyala dari celah pintu.",
-     "imagePrompt": "cinematic 9:16 vertical extreme close-up film still, a bright strip of light along the floor under a closed door, dust and a fallen comb beside it, dim corridor, warm tone, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+     "narration": "Kos Jalan Melati, sembilan kamar. Saya di nomor enam.",
+     "imagePrompt": "cinematic 9:16 vertical wide film still, exterior of an old two-storey boarding house at night, nine doors along an open corridor, one window lit, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "static",
-     "shot": "closeup",
-     "lighting": "warm_corridor_lamp_2900k",
-     "intensity": 0.5,
-     "effects": [
-      "film_grain",
-      "vignette",
-      "focus_rack"
-     ]
-    },
-    {
-     "narration": "Saya belum pernah menyalakan lampu sebelum keluar.",
-     "imagePrompt": "cinematic 9:16 vertical film still, an empty boarding-house room with the bed still holding the shape of someone who just left, wardrobe door slightly open, bulb still warm and glowing, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
-     "camera": "handheld",
-     "shot": "medium",
-     "lighting": "warm_corridor_lamp_2900k",
+     "shot": "wide",
+     "lighting": "harsh_basement_fluorescent_4300k",
      "intensity": 0.45,
      "effects": [
       "film_grain",
@@ -842,51 +891,72 @@
      ]
     },
     {
-     "narration": "Saya buka pintu. Kasur rapi. Kardus di bawahnya bergeser.",
-     "imagePrompt": "cinematic 9:16 vertical film still, an old cardboard box pulled out from under a boarding-house bed, drag marks visible in the dust on the floor tiles, dim warm bulb light, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
+     "narration": "Saya pulang larut, seperti biasa.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a worn shoes rack and a small fan outside a boarding-house door, dim bulb, night, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "push_in",
      "shot": "medium",
-     "lighting": "warm_corridor_lamp_2900k",
-     "intensity": 0.5,
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.45,
      "effects": [
       "film_grain",
-      "vignette",
-      "camera_shake"
+      "vignette"
      ]
     },
     {
-     "narration": "Di dalam kardus ada perekam kecil. Tombolnya masih hangat.",
-     "imagePrompt": "cinematic 9:16 vertical extreme close-up film still, a small pocket voice recorder lying inside an open cardboard box among old papers, red indicator faintly lit, dust, warm bulb light, shallow depth of field, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
-     "camera": "drift",
+     "narration": "Lampu kamar menyala dari celah bawah pintu, padahal saya mematikannya pagi.",
+     "imagePrompt": "cinematic 9:16 vertical extreme close-up of warm light leaking under a door onto cracked floor tiles, dust in the beam, night, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "push_in",
      "shot": "closeup",
-     "lighting": "warm_corridor_lamp_2900k",
-     "intensity": 0.55,
-     "effects": [
-      "film_grain",
-      "vignette",
-      "focus_rack"
-     ]
-    },
-    {
-     "narration": "Rekamannya suara saya sendiri: ketuk tiga kali, lalu masuk. Dua belas kali.",
-     "imagePrompt": "cinematic 9:16 vertical film still, the same boarding-house door seen from inside now, chair pushed against it, recorder on the floor beside the gap of light, dim warm bulb, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people",
-     "camera": "static",
-     "shot": "wide",
-     "lighting": "warm_corridor_lamp_2900k",
+     "lighting": "cold_clinic_fluorescent_5000k",
      "intensity": 0.5,
      "effects": [
       "film_grain",
-      "vignette",
-      "light_flicker"
+      "vignette"
      ]
     },
     {
-     "narration": "Saya yang mengetuk duluan tiap malam. Kamu mengetuk duluan, atau menunggu suaranya? Tulis di komentar.",
-     "imagePrompt": "cinematic 9:16 vertical film still, a narrow boarding-house door seen from the corridor in near darkness, the strip of light underneath now very thin, worn shoes still standing in the same place, dim warm lamp fading, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no visible face",
+     "narration": "Saya rekam suara itu dengan ponsel. Empat detik. Satu kata.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a phone lying on a wooden floor next to a door, screen glowing with an audio recorder interface, waveform visible, dim room, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "closeup",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Saya dengarkan berulang kali. Nadanya terlalu akrab.",
+     "imagePrompt": "cinematic 9:16 vertical extreme close-up of wired earphones and a phone screen showing a short waveform loop, dark room, single light source, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
      "camera": "static",
-     "shot": "medium",
-     "lighting": "warm_corridor_lamp_2900k",
+     "shot": "closeup",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Itu suara saya. Direkam dua tahun lalu, di kamar ini, sebelum saya tinggal.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a dusty empty room with a bare mattress and cardboard box, one window, moonlight through curtain, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "wide",
+     "lighting": "harsh_basement_fluorescent_4300k",
      "intensity": 0.55,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Saya masih bayar kos itu. Kamu akan mengetuk kalau jawabannya sudah ada?",
+     "imagePrompt": "cinematic 9:16 vertical film still, the same narrow door gap as the first frame, warm light still leaking out, the shadow inside now gone, dim corridor, muted palette, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "static",
+     "shot": "closeup",
+     "lighting": "harsh_basement_fluorescent_4300k",
+     "intensity": 0.5,
      "effects": [
       "film_grain",
       "vignette",
@@ -895,31 +965,236 @@
     }
    ],
    "cards": [
-    "SUARA ITU BILANG MASUK",
-    "ITU SUARA SAYA",
-    "KETUK ATAU TUNGGU"
+    "JAWABAN SEBELUM KETUKAN",
+    "SIAPA YANG MENJAWAB?",
+    "MASIH MAU MENGETUK?"
    ],
    "thumb": {
-    "headline": "SUARA ITU BILANG MASUK",
-    "kicker": "padahal saya belum mengetuk"
+    "headline": "JAWABANNYA DATANG SEBELUM SAYA MENGETUK",
+    "kicker": "itu suara saya sendiri"
    },
    "cta": {
-    "card": "Kamu mengetuk atau menunggu?",
+    "card": "Kamu masih akan mengetuk?",
     "holdFrames": 84
    },
    "youtube": {
-    "title": "Suara Itu Bilang Masuk Sebelum Saya Mengetuk",
-    "description": "Sebelum saya mengetuk, suara dari dalam kamar bilang: masuk. Padahal saya tinggal sendiri, dan kunci kamar itu masih di tangan saya.\n\nKos di Jalan Melati, sembilan kamar, saya di nomor enam. Saya pulang larut, lampu kamar menyala dari celah bawah pintu, dan saya belum pernah menyalakan lampu sebelum keluar.\n\nKardus di bawah kasur bergeser sepuluh senti. Di dalamnya ada perekam suara kecil, tombolnya masih hangat.",
+    "title": "Suara Itu Menjawab Sebelum Saya Mengetuk Pintu Kamar",
+    "description": "Suara di dalam kamar bilang masuk, sebelum saya mengetuk. Kamar itu kosong, dan kuncinya masih di tangan saya.\n\nKos Jalan Melati, sembilan kamar, saya di nomor enam. Saya pulang larut seperti biasa; lampu kamar sudah menyala dari celah bawah pintu, padahal saya mematikannya pagi.\n\nSaya merekam suara itu dengan ponsel. Empat detik, tiga kata. Setelah saya dengarkan berulang kali, saya sadar nadanya terlalu akrab.",
     "tags": [
      "cerita horor",
      "horor indonesia",
      "kos",
      "cerita seram",
-     "rekaman suara"
+     "suara"
     ],
-    "pinComment": "Hitung ketukan di rekaman itu: tiga ketukan, lalu suara saya sendiri. Kamu akan mengetuk duluan, atau menunggu suaranya?"
+    "pinComment": "Rekaman itu empat detik. Hitung hembusan napasnya — ada dua, padahal saya menahan napas waktu merekam."
    },
-   "catatan": "Revisi gerbang A: twist kini membalik arti kalimat pertama (bukan orang di dalam, tapi suara saya sendiri). Petunjuk: visual (sepatu di frame 1), audio (napas 0,4 s di beat 5), teks (komentar sematan hitung ketukan)."
+   "catatan": "Revisi dari 11/16 → 15/16 setelah twist dibalik dan peta petunjuk dilengkapi."
+  },
+  {
+   "episodeId": "LS-0019",
+   "format": "short_9x16",
+   "status": "naskah — lolos Gerbang A, menunggu produksi",
+   "judul": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
+   "subgenre": "Institutional horror",
+   "experiment": "Latar transportasi (aturan pencampuran): aplikasi sebagai entitas, bukan hantu.",
+   "structure": "klimaks (ojek menunggu sebelum pesanan) → plat sama → POTONG 'dari mana dia tahu?' → ritual subuh → biaya nol → berhenti tepat di gerbong → twist riwayat besok → CTA",
+   "story": {
+    "title": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
+    "hook": "ojek sudah menunggu di depan pagar sebelum saya memesan",
+    "premise": "Setiap subuh narator memesan ojek ke stasiun, tapi pengemudinya sudah menunggu sebelum pesanan dibuat, dan aplikasi menagih nol rupiah.",
+    "twist": "Riwayat perjalanan memuat perjalanan besok subuh yang sudah lunas atas nama narator, padahal ia belum memesan.",
+    "dualReading": {
+     "a": "Aplikasi membocorkan jadwal saya ke pengemudi, jadi ia datang lebih dulu.",
+     "b": "Perjalanan itu sudah dipesan lebih dulu oleh sesuatu yang memakai akun saya — termasuk perjalanan besok."
+    },
+    "loops": {
+     "l1": "ojek menunggu sebelum pesanan — dijawab di beat 9 (riwayat memuat perjalanan besok)",
+     "l2": "CTA: kamu masih akan naik ojek itu?",
+     "l3": "apa yang terjadi di gerbong yang ia tahu nomornya"
+    },
+    "ending": "Narator menyebut ia belum memesan untuk besok, lalu bertanya apakah penonton masih akan naik."
+   },
+   "unexplained": "Siapa yang memesan perjalanan besok, dan bagaimana pengemudi tahu gerbong mana yang akan dinaiki.",
+   "releases": [
+    {
+     "atRatio": 0.35,
+     "seconds": 0.8,
+     "catatan": "setelah biaya nol rupiah"
+    },
+    {
+     "atRatio": 0.7,
+     "seconds": 0.9,
+     "catatan": "sebelum berhenti di gerbong"
+    }
+   ],
+   "clues": [
+    {
+     "kind": "visual",
+     "atSeconds": 0,
+     "paidAtSeconds": 45,
+     "detail": "plat nomor motor sudah terlihat di frame pertama, sebelum ponsel menyala"
+    },
+    {
+     "kind": "audio",
+     "atSeconds": 18,
+     "paidAtSeconds": 49,
+     "detail": "bisikan 'besok', 0,4 s, -18 dB"
+    },
+    {
+     "kind": "teks",
+     "detail": "komentar: hitung berapa kali plat itu muncul sebelum ponsel menyala"
+    }
+   ],
+   "scenes": [
+    {
+     "narration": "Ojek itu sudah menunggu di depan pagar sebelum saya memesan.",
+     "imagePrompt": "cinematic 9:16 vertical film still, pre-dawn street, a ride-hailing motorbike parked at a gate with its engine off, rider silhouette facing away, plate number visible but blurred, cold blue light, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
+     "camera": "static",
+     "shot": "medium",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Plat nomornya sama dengan yang muncul lima menit kemudian di aplikasi.",
+     "imagePrompt": "cinematic 9:16 vertical close-up of a motorbike rear plate in the dark, condensation and dust, faint streetlight, blurred digits, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "closeup",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Jadi dari mana dia tahu saya butuh dijemput?",
+     "imagePrompt": "cinematic 9:16 vertical film still, a house gate with a small lamp, empty street, motorbike tail light fading at the far end, pre-dawn, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "drift",
+     "shot": "wide",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Saya naik ojek tiap subuh, rumah ke stasiun.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a commuter holding a bag on a motorbike seat, seen from behind, empty road ahead, pre-dawn blue, 35mm grain, documentary realism, no readable text, no watermark, no face, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "wide",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Pengemudinya selalu orang berbeda. Platnya selalu sama.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a row of similar helmets on motorbike mirrors, one empty motorbike, dim light, 35mm grain, documentary realism, no readable text, no watermark, no faces, full-bleed no borders",
+     "camera": "static",
+     "shot": "medium",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Aplikasi menagih nol rupiah untuk setiap perjalanan.",
+     "imagePrompt": "cinematic 9:16 vertical extreme close-up of a phone screen in the dark showing a zeroed fare, blurred digits, thumb hovering, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "closeup",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.55,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Saya minta berhenti dua ratus meter sebelum peron.",
+     "imagePrompt": "cinematic 9:16 vertical film still, an empty station forecourt before dawn, concrete pillars, one lamp, distance markings on the ground, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "static",
+     "shot": "wide",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Dia berhenti di depan peron. Dia tahu saya duduk di gerbong mana.",
+     "imagePrompt": "cinematic 9:16 vertical film still, a train platform edge at dawn, one carriage door open, empty platform, cold light, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "wide",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Di riwayat, ada perjalanan besok subuh. Sudah lunas, atas nama saya.",
+     "imagePrompt": "cinematic 9:16 vertical extreme close-up of a phone showing a trip history list with one entry dated ahead, blurred text, dark room, 35mm grain, documentary realism, no readable text, no watermark, full-bleed no borders",
+     "camera": "push_in",
+     "shot": "closeup",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.55,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ]
+    },
+    {
+     "narration": "Saya belum memesan untuk besok. Kamu masih akan naik ojek itu?",
+     "imagePrompt": "cinematic 9:16 vertical film still, the same pre-dawn street as the first frame, the motorbike now waiting again with its engine off, empty street, 35mm grain, documentary realism, no readable text, no watermark, no people, full-bleed no borders",
+     "camera": "static",
+     "shot": "medium",
+     "lighting": "cold_clinic_fluorescent_5000k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "light_flicker"
+     ]
+    }
+   ],
+   "cards": [
+    "DIA SUDAH MENUNGGU",
+    "PLAT YANG SAMA",
+    "MASIH NAIK?"
+   ],
+   "thumb": {
+    "headline": "OJEG ITU SUDAH MENUNGGU SEBELUM SAYA PESAN",
+    "kicker": "platnya sama, tiap subuh"
+   },
+   "cta": {
+    "card": "Kamu masih akan naik?",
+    "holdFrames": 84
+   },
+   "youtube": {
+    "title": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
+    "description": "Ojek sudah menunggu di depan pagar sebelum saya memesan. Lima menit kemudian, plat nomor di aplikasi sama dengan plat yang sudah saya lihat di jalan.\n\nSaya naik ojek tiap subuh, rumah ke stasiun. Pengemudinya selalu orang berbeda, tapi platnya selalu sama, dan aplikasi menagih nol rupiah untuk setiap perjalanan.\n\nSaya minta berhenti dua ratus meter sebelum peron. Dia berhenti tepat di depan gerbong tempat saya duduk.",
+    "tags": [
+     "cerita horor",
+     "horor indonesia",
+     "ojek",
+     "cerita seram",
+     "subuh"
+    ],
+    "pinComment": "Hitang berapa kali plat itu muncul sebelum ponselmu menyala. Di rekaman saya, tiga kali."
+   },
+   "catatan": "Gerbang A: 13/16. Latar transportasi untuk memenuhi aturan pencampuran."
   }
  ],
  "catatan_keputusan": "Short adalah cerita baru yang berdiri sendiri, bukan potongan video panjang (arahan pemilik kanal 7 Nov 2026)."

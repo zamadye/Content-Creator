@@ -237,6 +237,56 @@ for (let i = 0; i < totalSamples; i++) {
   right[i] = clamp(sample * (1 - wide) + lpR * 0.5);
 }
 
+// ---- titik reda (koreksi ATURAN 4.1, 8 Nov 2026)
+// Musik tidak pernah berhenti total — yang dilarang adalah sunyi. Di dua titik
+// (sekitar 35% dan 70% durasi) skor diturunkan ke 8% selama 0,6–1,2 detik,
+// sementara ambience tetap jalan. Efeknya bukan kekosongan, tapi tarikan napas
+// sebelum ketegangan berikutnya: penonton yang tidak diberi jeda akan berhenti
+// menonton, bukan bertahan.
+function applyReleases(left, right, releases, totalSeconds) {
+  if (!Array.isArray(releases) || releases.length === 0) return [];
+  const applied = [];
+  for (const release of releases) {
+    const seconds = Number(release.seconds ?? 0.8);
+    const ratio = Number(release.atRatio);
+    if (!Number.isFinite(ratio) || ratio <= 0 || ratio >= 1) continue;
+    const center = ratio * totalSeconds;
+    const start = Math.max(0, center - seconds / 2);
+    const end = Math.min(totalSeconds, center + seconds / 2);
+    const edge = 0.05; // 50 ms rampa supaya tidak berbunyi seperti tombol dimatikan
+    for (let i = Math.round(start * SR); i < Math.round(end * SR) && i < left.length; i++) {
+      const tSec = i / SR;
+      const inRamp = Math.min(1, (tSec - start) / edge, (end - tSec) / edge);
+      const gain = 1 - 0.92 * Math.max(0, Math.min(1, inRamp));
+      left[i] *= gain;
+      right[i] *= gain;
+    }
+    applied.push({ atSeconds: Number(center.toFixed(2)), seconds });
+  }
+  return applied;
+}
+
+function loadReleases(episodeId) {
+  try {
+    const slate = JSON.parse(readFileSync(join(ROOT, "stories", "slate.json"), "utf8"));
+    const episodes = slate.episodes ?? slate;
+    const entry = episodes.find((e) => e.episodeId === episodeId);
+    return entry?.releases ?? [];
+  } catch {
+    return [];
+  }
+}
+
+const releases = loadReleases(EPISODE_ID);
+const appliedReleases = applyReleases(left, right, releases, left.length / SR);
+if (appliedReleases.length) {
+  console.log(
+    `  reda: ${appliedReleases.map((r) => `${r.atSeconds}s (${r.seconds}s)`).join(" · ")}`,
+  );
+} else {
+  console.log("  reda: - (episode belum punya titik reda di slate.json)");
+}
+
 normalize(left, right, 0.62);
 
 // Penjaga: skor yang senyap tidak boleh lolos diam-diam.

@@ -1,0 +1,93 @@
+{
+  "episodeId": "LS-0019",
+  "title": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
+  "format": "short_9x16",
+  "subgenre": "Institutional horror",
+  "experiment": "Latar transportasi (aturan pencampuran): aplikasi sebagai entitas, bukan hantu.",
+  "structure": "klimaks (ojek menunggu sebelum pesanan) → plat sama → POTONG 'dari mana dia tahu?' → ritual subuh → biaya nol → berhenti tepat di gerbong → twist riwayat besok → CTA",
+  "story": {
+    "title": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
+    "hook": "ojek sudah menunggu di depan pagar sebelum saya memesan",
+    "premise": "Setiap subuh narator memesan ojek ke stasiun, tapi pengemudinya sudah menunggu sebelum pesanan dibuat, dan aplikasi menagih nol rupiah.",
+    "twist": "Riwayat perjalanan memuat perjalanan besok subuh yang sudah lunas atas nama narator, padahal ia belum memesan.",
+    "dualReading": {
+      "a": "Aplikasi membocorkan jadwal saya ke pengemudi, jadi ia datang lebih dulu.",
+      "b": "Perjalanan itu sudah dipesan lebih dulu oleh sesuatu yang memakai akun saya — termasuk perjalanan besok."
+    },
+    "loops": {
+      "l1": "ojek menunggu sebelum pesanan — dijawab di beat 9 (riwayat memuat perjalanan besok)",
+      "l2": "CTA: kamu masih akan naik ojek itu?",
+      "l3": "apa yang terjadi di gerbong yang ia tahu nomornya"
+    },
+    "ending": "Narator menyebut ia belum memesan untuk besok, lalu bertanya apakah penonton masih akan naik."
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 10,
+      "narasi": "Ojek itu sudah menunggu di depan pagar sebelum saya memesan."
+    },
+    {
+      "segmen": "S2",
+      "kata": 11,
+      "narasi": "Plat nomornya sama dengan yang muncul lima menit kemudian di aplikasi."
+    },
+    {
+      "segmen": "S3",
+      "kata": 8,
+      "narasi": "Jadi dari mana dia tahu saya butuh dijemput?"
+    },
+    {
+      "segmen": "S4",
+      "kata": 8,
+      "narasi": "Saya naik ojek tiap subuh, rumah ke stasiun."
+    },
+    {
+      "segmen": "S5",
+      "kata": 7,
+      "narasi": "Pengemudinya selalu orang berbeda. Platnya selalu sama."
+    },
+    {
+      "segmen": "S6",
+      "kata": 7,
+      "narasi": "Aplikasi menagih nol rupiah untuk setiap perjalanan."
+    },
+    {
+      "segmen": "S7",
+      "kata": 8,
+      "narasi": "Saya minta berhenti dua ratus meter sebelum peron."
+    },
+    {
+      "segmen": "S8",
+      "kata": 12,
+      "narasi": "Dia berhenti di depan peron. Dia tahu saya duduk di gerbong mana."
+    },
+    {
+      "segmen": "S9",
+      "kata": 11,
+      "narasi": "Di riwayat, ada perjalanan besok subuh. Sudah lunas, atas nama saya."
+    },
+    {
+      "segmen": "S10",
+      "kata": 11,
+      "narasi": "Saya belum memesan untuk besok. Kamu masih akan naik ojek itu?"
+    }
+  ],
+  "youtube": {
+    "title": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
+    "description": "Ojek sudah menunggu di depan pagar sebelum saya memesan. Lima menit kemudian, plat nomor di aplikasi sama dengan plat yang sudah saya lihat di jalan.\n\nSaya naik ojek tiap subuh, rumah ke stasiun. Pengemudinya selalu orang berbeda, tapi platnya selalu sama, dan aplikasi menagih nol rupiah untuk setiap perjalanan.\n\nSaya minta berhenti dua ratus meter sebelum peron. Dia berhenti tepat di depan gerbong tempat saya duduk.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "ojek",
+      "cerita seram",
+      "subuh"
+    ],
+    "pinComment": "Hitang berapa kali plat itu muncul sebelum ponselmu menyala. Di rekaman saya, tiga kali."
+  },
+  "thumb": {
+    "headline": "OJEG ITU SUDAH MENUNGGU SEBELUM SAYA PESAN",
+    "kicker": "platnya sama, tiap subuh"
+  },
+  "catatan": "Gerbang A: 13/16. Latar transportasi untuk memenuhi aturan pencampuran."
+}

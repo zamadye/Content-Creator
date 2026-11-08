@@ -20,8 +20,13 @@ const FPS = 30;
 /** Tempo TTS Indonesia ±2,3 kata/detik. Hanya estimasi awal; alignment
  *  mengoreksinya dengan durasi audio nyata. */
 const WORDS_PER_SECOND = 2.3;
-const LEAD_IN_FRAMES = 6;
-const TAIL_FRAMES = 12;
+// Padding sunyi di ujung scene. 8 Nov 2026: diturunkan dari 6/12 ke 4/8 frame.
+// Sebabnya terukur: dengan 6/12, sepuluh scene menyumbang 6 detik sunyi murni —
+// cukup untuk mendorong episode 55 detik melewati batas 60 detik Shorts, dan
+// sunyi di ujung beat justru memperlambat irama yang sudah dihitung per kata.
+// Narasi tidak berubah; yang dipotong hanya ruang kosong di ekornya.
+const LEAD_IN_FRAMES = 4;
+const TAIL_FRAMES = 8;
 const CARD_FRAMES = 60;
 
 

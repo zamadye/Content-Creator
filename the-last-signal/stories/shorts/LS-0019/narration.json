@@ -1,0 +1,99 @@
+{
+  "episode": "LS-0019",
+  "judul": "Ojek Itu Sudah Menunggu Sebelum Saya Memesan",
+  "format": "short_9x16",
+  "total_kata": 93,
+  "estimasi_detik": 42.3,
+  "segmen": [
+    {
+      "id": "S1",
+      "segmen": 1,
+      "judul": "Ojek itu sudah menunggu di depan pagar sebelum saya memesan",
+      "paragraf": [
+        "Ojek itu sudah menunggu di depan pagar sebelum saya memesan."
+      ],
+      "kata": 10
+    },
+    {
+      "id": "S2",
+      "segmen": 2,
+      "judul": "Plat nomornya sama dengan yang muncul lima menit kemudian di",
+      "paragraf": [
+        "Plat nomornya sama dengan yang muncul lima menit kemudian di aplikasi."
+      ],
+      "kata": 11
+    },
+    {
+      "id": "S3",
+      "segmen": 3,
+      "judul": "Jadi dari mana dia tahu saya butuh dijemput?",
+      "paragraf": [
+        "Jadi dari mana dia tahu saya butuh dijemput?"
+      ],
+      "kata": 8
+    },
+    {
+      "id": "S4",
+      "segmen": 4,
+      "judul": "Saya naik ojek tiap subuh, rumah ke stasiun",
+      "paragraf": [
+        "Saya naik ojek tiap subuh, rumah ke stasiun."
+      ],
+      "kata": 8
+    },
+    {
+      "id": "S5",
+      "segmen": 5,
+      "judul": "Pengemudinya selalu orang berbeda",
+      "paragraf": [
+        "Pengemudinya selalu orang berbeda. Platnya selalu sama."
+      ],
+      "kata": 7
+    },
+    {
+      "id": "S6",
+      "segmen": 6,
+      "judul": "Aplikasi menagih nol rupiah untuk setiap perjalanan",
+      "paragraf": [
+        "Aplikasi menagih nol rupiah untuk setiap perjalanan."
+      ],
+      "kata": 7
+    },
+    {
+      "id": "S7",
+      "segmen": 7,
+      "judul": "Saya minta berhenti dua ratus meter sebelum peron",
+      "paragraf": [
+        "Saya minta berhenti dua ratus meter sebelum peron."
+      ],
+      "kata": 8
+    },
+    {
+      "id": "S8",
+      "segmen": 8,
+      "judul": "Dia berhenti di depan peron",
+      "paragraf": [
+        "Dia berhenti di depan peron. Dia tahu saya duduk di gerbong mana."
+      ],
+      "kata": 12
+    },
+    {
+      "id": "S9",
+      "segmen": 9,
+      "judul": "Di riwayat, ada perjalanan besok subuh",
+      "paragraf": [
+        "Di riwayat, ada perjalanan besok subuh. Sudah lunas, atas nama saya."
+      ],
+      "kata": 11
+    },
+    {
+      "id": "S10",
+      "segmen": 10,
+      "judul": "Saya belum memesan untuk besok",
+      "paragraf": [
+        "Saya belum memesan untuk besok. Kamu masih akan naik ojek itu?"
+      ],
+      "kata": 11
+    }
+  ]
+}

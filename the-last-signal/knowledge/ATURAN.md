@@ -297,7 +297,7 @@ garis tepi, bukan ukuran huruf.
 
 | # | Aturan | Sumber |
 |---|---|---|
-| 4.1 | Musik latar **satu berkas sepanjang episode**, tanpa jeda. Referensi: 0 celah sunyi dalam 25,29 s. | [ukur] |
+| 4.1 | Musik latar **satu berkas sepanjang episode**, tanpa jeda. Referensi: 0 celah sunyi dalam 25,29 s. **Koreksi 8 Nov:** yang dilarang adalah **sunyi total**, bukan **reda** — wajib 2 titik reda (musik turun ~90%, ambience jalan) di sekitar 35% dan 70% durasi. | [ukur] |
 | 4.2 | Ambience per scene hanya lapisan kedua; turunnya tidak boleh menyisakan keheningan. | [ukur] |
 | 4.3 | Musik **ducking** saat narasi berjalan. | [ukur] |
 | 4.4 | SFX dipilih dari isi cerita (pintu, petir, tawa, napas, langkah) dan ditempel ke kata pemicunya. | [arahan] |

@@ -1,14 +1,14 @@
 {
   "episode": "LS-0016",
-  "judul": "Nomor 14 Dipanggil Dua Kali di Klinik Mata",
+  "judul": "Nomor Empat Belas Dipanggil Dua Kali",
   "format": "short_9x16",
   "fps": 30,
   "resolusi": [
     1080,
     1920
   ],
-  "total_kata_narasi": 92,
-  "estimasi_durasi_detik": 41.8,
+  "total_kata_narasi": 105,
+  "estimasi_durasi_detik": 47.7,
   "hook_card": {
     "teks": "NOMOR ITU DIPANGGIL DUA KALI",
     "tampil": "frame 0–60",
@@ -28,50 +28,48 @@
   "scenes": [
     {
       "segmen": "S1",
-      "kata": 13,
+      "kata": 12,
       "kamera": "static",
-      "shot": "medium",
+      "shot": "wide",
       "lighting": "cold_clinic_fluorescent_5000k",
       "intensitas": 0.5,
       "effects": [
         "film_grain",
         "vignette",
-        "light_flicker"
+        "scanlines"
       ],
       "berkas": "images/scene-01.jpg"
     },
     {
       "segmen": "S2",
-      "kata": 5,
-      "kamera": "handheld",
+      "kata": 11,
+      "kamera": "push_in",
       "shot": "closeup",
       "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.45,
+      "intensitas": 0.5,
       "effects": [
         "film_grain",
-        "vignette",
-        "focus_rack"
+        "vignette"
       ],
       "berkas": "images/scene-02.jpg"
     },
     {
       "segmen": "S3",
       "kata": 8,
-      "kamera": "push_in",
-      "shot": "wide",
+      "kamera": "drift",
+      "shot": "medium",
       "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.55,
+      "intensitas": 0.5,
       "effects": [
         "film_grain",
-        "vignette",
-        "camera_shake"
+        "vignette"
       ],
       "berkas": "images/scene-03.jpg"
     },
     {
       "segmen": "S4",
       "kata": 9,
-      "kamera": "drift",
+      "kamera": "static",
       "shot": "wide",
       "lighting": "cold_clinic_fluorescent_5000k",
       "intensitas": 0.45,
@@ -83,21 +81,20 @@
     },
     {
       "segmen": "S5",
-      "kata": 6,
+      "kata": 8,
       "kamera": "handheld",
       "shot": "medium",
       "lighting": "cold_clinic_fluorescent_5000k",
       "intensitas": 0.5,
       "effects": [
         "film_grain",
-        "vignette",
-        "focus_rack"
+        "vignette"
       ],
       "berkas": "images/scene-05.jpg"
     },
     {
       "segmen": "S6",
-      "kata": 6,
+      "kata": 10,
       "kamera": "push_in",
       "shot": "closeup",
       "lighting": "cold_clinic_fluorescent_5000k",
@@ -111,24 +108,24 @@
     {
       "segmen": "S7",
       "kata": 11,
-      "kamera": "static",
+      "kamera": "push_in",
       "shot": "closeup",
       "lighting": "cold_clinic_fluorescent_5000k",
       "intensitas": 0.55,
       "effects": [
         "film_grain",
-        "vignette",
-        "scanlines"
+        "scanlines",
+        "vignette"
       ],
       "berkas": "images/scene-07.jpg"
     },
     {
       "segmen": "S8",
-      "kata": 8,
+      "kata": 11,
       "kamera": "drift",
       "shot": "medium",
       "lighting": "cold_clinic_fluorescent_5000k",
-      "intensitas": 0.5,
+      "intensitas": 0.45,
       "effects": [
         "film_grain",
         "vignette"
@@ -137,21 +134,20 @@
     },
     {
       "segmen": "S9",
-      "kata": 11,
+      "kata": 13,
       "kamera": "push_in",
       "shot": "closeup",
       "lighting": "cold_clinic_fluorescent_5000k",
       "intensitas": 0.55,
       "effects": [
         "film_grain",
-        "vignette",
-        "focus_rack"
+        "vignette"
       ],
       "berkas": "images/scene-09.jpg"
     },
     {
       "segmen": "S10",
-      "kata": 15,
+      "kata": 12,
       "kamera": "static",
       "shot": "wide",
       "lighting": "cold_clinic_fluorescent_5000k",

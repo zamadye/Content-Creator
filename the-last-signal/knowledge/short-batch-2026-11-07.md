@@ -40,6 +40,18 @@ Ketiganya 1080×1920 native, 30 fps, H.264 + AAC 48 kHz, ±500 kbps.
   gelas yang tinggal separuh dan sepupu yang namanya hilang (LS-0014).
 - **Penutup menyentuh hook** dan berisi ajakan; kartu CTA di ekor tiap video.
 
+## LS-0015 — format baru (klimaks di depan), 8 Nov 2026
+
+Short pertama yang memakai hukum `NASKAH.md` § *koreksi 8 Nov: klimaks di depan*:
+
+- 10 beat, 98 kata, 56,9 s tayang, 1080×1920 @ 30fps, −14,2 LUFS / true peak −2,0 dBTP.
+- Frame pertama = rekaman CCTV dengan **sosok berambut panjang** keluar dari mobil,
+  teks hook besar di atasnya, subtitle 64 px di tengah.
+- Frame terakhir = frame pertama (loop fisik); kalimat terakhir membuka arti frame itu.
+- Suara: `voice-05`.
+- Jadwal Zernio: **9 Nov 2026, 12.05 WITA** (04:05Z), satu video per hari — tidak
+  menumpuk dengan 12.05/13.05/15.05 pada 8 Nov.
+
 ## Berkas pendamping
 
 - Naskah + peta visual: `stories/shorts/<ID>/` (naskah.md, narration.json,

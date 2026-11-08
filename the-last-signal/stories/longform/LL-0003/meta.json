@@ -1,0 +1,79 @@
+{
+  "title": "Meteran yang Berputar di Rumah Kosong",
+  "subgenre": "Long-form narration",
+  "experiment": "Dua meteran, satu rumah. Kejanggalan dibuktikan dengan angka; tidak ada penampakan, dan ceritanya berdiri di atas laporan lapangan yang mirip.",
+  "structure": "temuan → rute → pola → warisan → suara → pembayaran → uji",
+  "story": {
+    "hook": "Sebelas bulan, meteran rumah kosong itu mencatat angka rumah saya.",
+    "premise": "Petugas pencatat meter menemukan rumah kosong sebelas tahun yang angka meterannya selalu persis sama dengan rumahnya sendiri.",
+    "twist": "Bukan salah catat dan bukan hantu: dua meteran itu mengukur satu rumah, dan tagihannya dibayar atas namanya sendiri oleh orang yang tidak pernah ia lihat.",
+    "ending": "Ia memotong listriknya sendiri untuk menguji; meteran rumah kosong justru naik. Sampai akhir ia tidak tahu siapa yang membayar sebelum ia mulai mencatat."
+  },
+  "youtube": {
+    "title": "Setiap Bulan, Meteran Rumah Kosong Itu Mencatat Angka Rumah Saya",
+    "description": "Sebelas bulan, angka meteran rumah kosong di ujung RT empat sama persis dengan meteran rumah saya. Bukan mirip, sama sampai digit terakhir. Saya petugas pencatat meter, dan ini yang terjadi waktu saya memotong listrik rumah saya sendiri. Cerita ini disusun dari kisah lapangan yang beredar di antara petugas catat meter: nama dan tempat diubah, angkanya dibulatkan.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "cerita seram",
+      "kisah nyata",
+      "rumah kosong",
+      "meteran listrik"
+    ],
+    "pinComment": "Seri meteran yang muncul dua kali di video ini: dua dua satu empat. Kalau kamu jadi saya: lapor ke kantor, atau terus mencatat dua meteran itu diam-diam?"
+  },
+  "thumbnail": {
+    "headline": "SEBELAS BULAN",
+    "kicker": "angkanya sama persis"
+  },
+  "cta": {
+    "card": "Siapa yang membayar rumah itu sebelum saya?",
+    "holdFrames": 90
+  },
+  "transisi": [
+    "zoom_punch",
+    "whip_left",
+    "whip_up",
+    "dip_black",
+    "flash_white",
+    "zoom_punch"
+  ],
+  "transitionFrames": 12,
+  "segmen": {
+    "S1": {
+      "lighting": "warm_morning",
+      "intensity": 0.68,
+      "ambienceVolume": 0.3
+    },
+    "S2": {
+      "lighting": "hard_daylight",
+      "intensity": 0.82,
+      "ambienceVolume": 0.32
+    },
+    "S3": {
+      "lighting": "golden_low",
+      "intensity": 0.6,
+      "ambienceVolume": 0.28
+    },
+    "S4": {
+      "lighting": "soft_daylight",
+      "intensity": 0.66,
+      "ambienceVolume": 0.28
+    },
+    "S5": {
+      "lighting": "low_key_practical",
+      "intensity": 0.34,
+      "ambienceVolume": 0.24
+    },
+    "S6": {
+      "lighting": "flat_office_neon",
+      "intensity": 0.58,
+      "ambienceVolume": 0.26
+    },
+    "S7": {
+      "lighting": "clear_morning",
+      "intensity": 0.72,
+      "ambienceVolume": 0.3
+    }
+  }
+}

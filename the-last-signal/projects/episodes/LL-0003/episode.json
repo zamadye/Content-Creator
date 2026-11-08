@@ -1,0 +1,1477 @@
+{
+  "episodeId": "LL-0003",
+  "title": "Meteran yang Berputar di Rumah Kosong",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "longform_narration",
+  "targetFps": 30,
+  "width": 1920,
+  "height": 1080,
+  "targetDurationSeconds": 500.9,
+  "story": {
+    "hook": "Sebelas bulan, meteran rumah kosong itu mencatat angka rumah saya.",
+    "premise": "Petugas pencatat meter menemukan rumah kosong sebelas tahun yang angka meterannya selalu persis sama dengan rumahnya sendiri.",
+    "twist": "Bukan salah catat dan bukan hantu: dua meteran itu mengukur satu rumah, dan tagihannya dibayar atas namanya sendiri oleh orang yang tidak pernah ia lihat.",
+    "ending": "Ia memotong listriknya sendiri untuk menguji; meteran rumah kosong justru naik. Sampai akhir ia tidak tahu siapa yang membayar sebelum ia mulai mencatat."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.75
+  },
+  "jumpscares": [],
+  "onScreenText": [
+    {
+      "text": "SEBELAS BULAN",
+      "startFrame": 0,
+      "endFrame": 90
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 1880,
+      "image": "images/gembok.jpg",
+      "narration": "Sebelas bulan, meteran rumah kosong itu mencatat angka rumah saya.\n\nBukan mirip. Sama, sampai digit terakhir.\n\nRumahnya di ujung RT empat. Pagarnya digembok dari dalam, jendelanya ditutup kardus, dan tidak ada yang tinggal di situ sejak dua ribu empat belas. Tapi meterannya berputar. Setiap bulan, tanpa gagal.\n\nSaya petugas pencatat meter. Tiga ribu tujuh ratus rumah sudah lewat di buku saya, dan tidak satu pun membuat saya berhenti mengangkat kepala seperti itu.\n\nBulan lalu angkanya empat ratus satu. Rumah saya juga empat ratus satu. Angka itu saya tulis dengan tangan saya sendiri. Saya baca ulang di rumah, dengan lampu dapur menyala, dan angkanya tidak berubah.\n\nSelisih nol. Dan nol itu yang membuat saya tidak bisa tidur tiga malam.\n\nKalau rumahnya kosong sebelas tahun, dan pemiliknya tidak pernah kembali, kenapa yang tercatat di meterannya adalah pemakaian rumah saya?",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 313,
+          "image": "images/meteran-kosong.jpg",
+          "camera": "pan_right",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 627,
+          "image": "images/jendela-kardus.jpg",
+          "camera": "static",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        },
+        {
+          "atFrame": 940,
+          "image": "images/buku-c.jpg",
+          "camera": "push_in",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 1253,
+          "image": "images/seri-meteran.jpg",
+          "camera": "static",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "atFrame": 1567,
+          "image": "images/jendela-kardus.jpg",
+          "camera": "push_in",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 135,
+          "text": "Sebelas bulan, meteran rumah kosong itu mencatat angka rumah"
+        },
+        {
+          "startFrame": 135,
+          "endFrame": 146,
+          "text": "saya."
+        },
+        {
+          "startFrame": 146,
+          "endFrame": 172,
+          "text": "Bukan mirip."
+        },
+        {
+          "startFrame": 172,
+          "endFrame": 233,
+          "text": "Sama, sampai digit terakhir."
+        },
+        {
+          "startFrame": 233,
+          "endFrame": 292,
+          "text": "Rumahnya di ujung RT empat."
+        },
+        {
+          "startFrame": 292,
+          "endFrame": 437,
+          "text": "Pagarnya digembok dari dalam, jendelanya ditutup kardus, dan tidak"
+        },
+        {
+          "startFrame": 437,
+          "endFrame": 536,
+          "text": "ada yang tinggal di situ sejak dua ribu empat"
+        },
+        {
+          "startFrame": 536,
+          "endFrame": 549,
+          "text": "belas."
+        },
+        {
+          "startFrame": 549,
+          "endFrame": 604,
+          "text": "Tapi meterannya berputar."
+        },
+        {
+          "startFrame": 604,
+          "endFrame": 661,
+          "text": "Setiap bulan, tanpa gagal."
+        },
+        {
+          "startFrame": 661,
+          "endFrame": 722,
+          "text": "Saya petugas pencatat meter."
+        },
+        {
+          "startFrame": 722,
+          "endFrame": 825,
+          "text": "Tiga ribu tujuh ratus rumah sudah lewat di buku"
+        },
+        {
+          "startFrame": 825,
+          "endFrame": 950,
+          "text": "saya, dan tidak satu pun membuat saya berhenti mengangkat"
+        },
+        {
+          "startFrame": 950,
+          "endFrame": 992,
+          "text": "kepala seperti itu."
+        },
+        {
+          "startFrame": 992,
+          "endFrame": 1073,
+          "text": "Bulan lalu angkanya empat ratus satu."
+        },
+        {
+          "startFrame": 1073,
+          "endFrame": 1145,
+          "text": "Rumah saya juga empat ratus satu."
+        },
+        {
+          "startFrame": 1145,
+          "endFrame": 1250,
+          "text": "Angka itu saya tulis dengan tangan saya sendiri."
+        },
+        {
+          "startFrame": 1250,
+          "endFrame": 1366,
+          "text": "Saya baca ulang di rumah, dengan lampu dapur menyala,"
+        },
+        {
+          "startFrame": 1366,
+          "endFrame": 1425,
+          "text": "dan angkanya tidak berubah."
+        },
+        {
+          "startFrame": 1425,
+          "endFrame": 1451,
+          "text": "Selisih nol."
+        },
+        {
+          "startFrame": 1451,
+          "endFrame": 1552,
+          "text": "Dan nol itu yang membuat saya tidak bisa tidur"
+        },
+        {
+          "startFrame": 1552,
+          "endFrame": 1576,
+          "text": "tiga malam."
+        },
+        {
+          "startFrame": 1576,
+          "endFrame": 1716,
+          "text": "Kalau rumahnya kosong sebelas tahun, dan pemiliknya tidak pernah"
+        },
+        {
+          "startFrame": 1716,
+          "endFrame": 1861,
+          "text": "kembali, kenapa yang tercatat di meterannya adalah pemakaian rumah"
+        },
+        {
+          "startFrame": 1861,
+          "endFrame": 1872,
+          "text": "saya?"
+        }
+      ],
+      "visual": {
+        "prompt": "satu frame gang RT: di kiri tetangga menyapu, di tengah pagar besi bergembok, di kanan rumah ujung yang jendelanya ditutup kardus",
+        "locationId": "ll-0003_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "warm_morning",
+        "intensity": 0.68,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.3,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 2998,
+      "image": "images/rumah.jpg",
+      "narration": "Saya bekerja untuk pihak ketiga yang ditugaskan PLN. Rute saya RT satu sampai RT enam, enam puluh rumah sehari, dari pukul delapan pagi sampai jam tiga.\n\nUpahnya tiga ribu lima ratus rupiah satu rumah. Kalau sehari enam puluh rumah dan tidak ada yang terlewat, sehari dua ratus sepuluh ribu. Kontrakan saya sembilan ratus ribu sebulan, dan saya tidak pernah berani mengambil cuti.\n\nAplikasi di ponsel mencatat setiap rumah yang sudah saya kunjungi. Kalau lewat pukul tiga, rumah yang belum dicatat dihitung terlambat, dan potongannya masuk ke gaji bulan berikutnya.\n\nRumah di ujung RT empat selalu jadi yang terakhir. Bukan karena jauh, tapi karena saya mencatatnya paling lama.\n\nPemiliknya pindah keluar kota tahun dua ribu empat belas. Katanya.\n\nPagarnya digembok dari dalam, dan gemboknya berkarat, tidak pernah basah karena hujan.\n\nMeterannya menempel di dinding samping, setinggi dada, kaca yang sudah keruh. Saya bersihkan dengan lap sendiri, karena kalau kotor angkanya tidak terbaca.\n\nSeri meterannya dua dua satu empat. Saya ingat betul, karena seri meteran di rumah saya juga dua dua satu empat. Sampai sekarang saya belum bisa menjawab satu hal: kalau dua meteran itu memang sekembar itu, siapa yang mengirimkannya ke dua rumah ini?\n\nDi grup petugas, cerita rumah kosong yang meternya tetap jalan muncul lebih dari sekali. Nama dan tempat selalu diganti, karena yang punya cerita tidak mau dikenal.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 428,
+          "image": "images/rumah-kosong.jpg",
+          "camera": "pan_right",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 857,
+          "image": "images/gembok.jpg",
+          "camera": "push_in",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        },
+        {
+          "atFrame": 1285,
+          "image": "images/meteran-kosong.jpg",
+          "camera": "static",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 1713,
+          "image": "images/s2-05.jpg",
+          "camera": "handheld",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "atFrame": 2141,
+          "image": "images/seri-meteran.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 2570,
+          "image": "images/ponsel-foto.jpg",
+          "camera": "arc_left",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 117,
+          "text": "Saya bekerja untuk pihak ketiga yang ditugaskan PLN."
+        },
+        {
+          "startFrame": 117,
+          "endFrame": 213,
+          "text": "Rute saya RT satu sampai RT enam, enam puluh"
+        },
+        {
+          "startFrame": 213,
+          "endFrame": 331,
+          "text": "rumah sehari, dari pukul delapan pagi sampai jam tiga."
+        },
+        {
+          "startFrame": 331,
+          "endFrame": 433,
+          "text": "Upahnya tiga ribu lima ratus rupiah satu rumah."
+        },
+        {
+          "startFrame": 433,
+          "endFrame": 538,
+          "text": "Kalau sehari enam puluh rumah dan tidak ada yang"
+        },
+        {
+          "startFrame": 538,
+          "endFrame": 625,
+          "text": "terlewat, sehari dua ratus sepuluh ribu."
+        },
+        {
+          "startFrame": 625,
+          "endFrame": 751,
+          "text": "Kontrakan saya sembilan ratus ribu sebulan, dan saya tidak"
+        },
+        {
+          "startFrame": 751,
+          "endFrame": 814,
+          "text": "pernah berani mengambil cuti."
+        },
+        {
+          "startFrame": 814,
+          "endFrame": 936,
+          "text": "Aplikasi di ponsel mencatat setiap rumah yang sudah saya"
+        },
+        {
+          "startFrame": 936,
+          "endFrame": 956,
+          "text": "kunjungi."
+        },
+        {
+          "startFrame": 956,
+          "endFrame": 1080,
+          "text": "Kalau lewat pukul tiga, rumah yang belum dicatat dihitung"
+        },
+        {
+          "startFrame": 1080,
+          "endFrame": 1206,
+          "text": "terlambat, dan potongannya masuk ke gaji bulan berikutnya."
+        },
+        {
+          "startFrame": 1206,
+          "endFrame": 1315,
+          "text": "Rumah di ujung RT empat selalu jadi yang terakhir."
+        },
+        {
+          "startFrame": 1315,
+          "endFrame": 1446,
+          "text": "Bukan karena jauh, tapi karena saya mencatatnya paling lama."
+        },
+        {
+          "startFrame": 1446,
+          "endFrame": 1570,
+          "text": "Pemiliknya pindah keluar kota tahun dua ribu empat belas."
+        },
+        {
+          "startFrame": 1570,
+          "endFrame": 1587,
+          "text": "Katanya."
+        },
+        {
+          "startFrame": 1587,
+          "endFrame": 1731,
+          "text": "Pagarnya digembok dari dalam, dan gemboknya berkarat, tidak pernah"
+        },
+        {
+          "startFrame": 1731,
+          "endFrame": 1772,
+          "text": "basah karena hujan."
+        },
+        {
+          "startFrame": 1772,
+          "endFrame": 1911,
+          "text": "Meterannya menempel di dinding samping, setinggi dada, kaca yang"
+        },
+        {
+          "startFrame": 1911,
+          "endFrame": 1937,
+          "text": "sudah keruh."
+        },
+        {
+          "startFrame": 1937,
+          "endFrame": 2072,
+          "text": "Saya bersihkan dengan lap sendiri, karena kalau kotor angkanya"
+        },
+        {
+          "startFrame": 2072,
+          "endFrame": 2103,
+          "text": "tidak terbaca."
+        },
+        {
+          "startFrame": 2103,
+          "endFrame": 2179,
+          "text": "Seri meterannya dua dua satu empat."
+        },
+        {
+          "startFrame": 2179,
+          "endFrame": 2290,
+          "text": "Saya ingat betul, karena seri meteran di rumah saya"
+        },
+        {
+          "startFrame": 2290,
+          "endFrame": 2342,
+          "text": "juga dua dua satu empat."
+        },
+        {
+          "startFrame": 2342,
+          "endFrame": 2464,
+          "text": "Sampai sekarang saya belum bisa menjawab satu hal: kalau"
+        },
+        {
+          "startFrame": 2464,
+          "endFrame": 2599,
+          "text": "dua meteran itu memang sekembar itu, siapa yang mengirimkannya"
+        },
+        {
+          "startFrame": 2599,
+          "endFrame": 2636,
+          "text": "ke dua rumah ini?"
+        },
+        {
+          "startFrame": 2636,
+          "endFrame": 2758,
+          "text": "Di grup petugas, cerita rumah kosong yang meternya tetap"
+        },
+        {
+          "startFrame": 2758,
+          "endFrame": 2826,
+          "text": "jalan muncul lebih dari sekali."
+        },
+        {
+          "startFrame": 2826,
+          "endFrame": 2948,
+          "text": "Nama dan tempat selalu diganti, karena yang punya cerita"
+        },
+        {
+          "startFrame": 2948,
+          "endFrame": 2990,
+          "text": "tidak mau dikenal."
+        }
+      ],
+      "visual": {
+        "prompt": "gang perumahan menyambung: di kiri warung, di tengah motor dinas berhenti, di kanan deretan pagar rumah",
+        "locationId": "ll-0003_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "hard_daylight",
+        "intensity": 0.82,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 2289,
+      "image": "images/buku-c.jpg",
+      "narration": "Bulan pertama saya kira kebetulan. Angka rumah kosong itu tiga ratus delapan puluh, angka rumah saya juga.\n\nBulan kedua saya catat di buku: selisihnya nol. Bulan ketiga nol lagi.\n\nSaya sempat menunjukkan fotonya ke rekan kerja. Dia melihat dua detik, lalu bilang mungkin sistemnya salah, dan kembali ke motornya. Sesudah itu saya berhenti bertanya ke orang.\n\nSaya lanjut memotret sendiri, karena foto tidak bisa membantah.\n\nSetiap bulan dua foto: meteran rumah kosong, lalu meteran rumah saya. Di ponsel saya sekarang ada dua puluh tujuh pasang, dan semuanya sama.\n\nYang paling tidak masuk akal bukan angkanya. Rumah saya cuma memakai dua ratus watt. Menurut catatan lama, rumah kosong itu punya pendingin ruangan dan pemanas. Ada juga pompa air. Kalau alat-alat itu masih hidup, angkanya tidak mungkin serendah ini.\n\nCoba pikirkan sebentar. Rumah yang kosong seharusnya lebih hemat dari rumah yang ditinggali. Di sini kebalikannya, dan yang tercatat justru rumah saya.\n\nMalam itu saya berhenti di depan rumah kosong tanpa alasan yang jelas, dan baru sadar saya menahan napas.",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 327,
+          "image": "images/buku-catat.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 654,
+          "image": "images/ponsel-foto.jpg",
+          "camera": "tilt_up",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        },
+        {
+          "atFrame": 981,
+          "image": "images/ponsel-foto.jpg",
+          "camera": "static",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 1308,
+          "image": "images/meteran-rumah.jpg",
+          "camera": "push_in",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "atFrame": 1635,
+          "image": "images/dokumen.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 1962,
+          "image": "images/narator.jpg",
+          "camera": "arc_left",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 78,
+          "text": "Bulan pertama saya kira kebetulan."
+        },
+        {
+          "startFrame": 78,
+          "endFrame": 196,
+          "text": "Angka rumah kosong itu tiga ratus delapan puluh, angka"
+        },
+        {
+          "startFrame": 196,
+          "endFrame": 231,
+          "text": "rumah saya juga."
+        },
+        {
+          "startFrame": 231,
+          "endFrame": 334,
+          "text": "Bulan kedua saya catat di buku: selisihnya nol."
+        },
+        {
+          "startFrame": 334,
+          "endFrame": 382,
+          "text": "Bulan ketiga nol lagi."
+        },
+        {
+          "startFrame": 382,
+          "endFrame": 485,
+          "text": "Saya sempat menunjukkan fotonya ke rekan kerja."
+        },
+        {
+          "startFrame": 485,
+          "endFrame": 614,
+          "text": "Dia melihat dua detik, lalu bilang mungkin sistemnya salah,"
+        },
+        {
+          "startFrame": 614,
+          "endFrame": 666,
+          "text": "dan kembali ke motornya."
+        },
+        {
+          "startFrame": 666,
+          "endFrame": 762,
+          "text": "Sesudah itu saya berhenti bertanya ke orang."
+        },
+        {
+          "startFrame": 762,
+          "endFrame": 900,
+          "text": "Saya lanjut memotret sendiri, karena foto tidak bisa membantah."
+        },
+        {
+          "startFrame": 900,
+          "endFrame": 1024,
+          "text": "Setiap bulan dua foto: meteran rumah kosong, lalu meteran"
+        },
+        {
+          "startFrame": 1024,
+          "endFrame": 1048,
+          "text": "rumah saya."
+        },
+        {
+          "startFrame": 1048,
+          "endFrame": 1159,
+          "text": "Di ponsel saya sekarang ada dua puluh tujuh pasang,"
+        },
+        {
+          "startFrame": 1159,
+          "endFrame": 1198,
+          "text": "dan semuanya sama."
+        },
+        {
+          "startFrame": 1198,
+          "endFrame": 1294,
+          "text": "Yang paling tidak masuk akal bukan angkanya."
+        },
+        {
+          "startFrame": 1294,
+          "endFrame": 1379,
+          "text": "Rumah saya cuma memakai dua ratus watt."
+        },
+        {
+          "startFrame": 1379,
+          "endFrame": 1514,
+          "text": "Menurut catatan lama, rumah kosong itu punya pendingin ruangan"
+        },
+        {
+          "startFrame": 1514,
+          "endFrame": 1540,
+          "text": "dan pemanas."
+        },
+        {
+          "startFrame": 1540,
+          "endFrame": 1581,
+          "text": "Ada juga pompa air."
+        },
+        {
+          "startFrame": 1581,
+          "endFrame": 1721,
+          "text": "Kalau alat-alat itu masih hidup, angkanya tidak mungkin serendah"
+        },
+        {
+          "startFrame": 1721,
+          "endFrame": 1730,
+          "text": "ini."
+        },
+        {
+          "startFrame": 1730,
+          "endFrame": 1780,
+          "text": "Coba pikirkan sebentar."
+        },
+        {
+          "startFrame": 1780,
+          "endFrame": 1902,
+          "text": "Rumah yang kosong seharusnya lebih hemat dari rumah yang"
+        },
+        {
+          "startFrame": 1902,
+          "endFrame": 1926,
+          "text": "ditinggali."
+        },
+        {
+          "startFrame": 1926,
+          "endFrame": 2053,
+          "text": "Di sini kebalikannya, dan yang tercatat justru rumah saya."
+        },
+        {
+          "startFrame": 2053,
+          "endFrame": 2164,
+          "text": "Malam itu saya berhenti di depan rumah kosong tanpa"
+        },
+        {
+          "startFrame": 2164,
+          "endFrame": 2281,
+          "text": "alasan yang jelas, dan baru sadar saya menahan napas."
+        }
+      ],
+      "visual": {
+        "prompt": "buku catatan dengan dua kolom angka, tinta berbeda, jari menunjuk baris",
+        "locationId": "ll-0003_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "golden_low",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 2085,
+      "image": "images/bu-ratna.jpg",
+      "narration": "Bu Ratna, ketua RT, bilang rumah itu sudah lama tidak ada yang tinggal. Yang punya, katanya, keluarga yang pindah.\n\nSaya tanya siapa namanya. Dia tidak ingat. Dia cuma bilang yang mengurus rumah itu orang suruhan, datang setahun sekali untuk memeriksa pagar.\n\nSaya tanya ke kelurahan. Arsip program penggantian meteran tahun dua ribu sembilan ada, tapi berkas pelanggan untuk rumah itu fotokopinya sudah hilang.\n\nJadi saya lihat sendiri kotak meterannya. Di sampingnya ada stiker lama, sudah pudar, ditempel kelurahan waktu program itu.\n\nDi stiker itu ada nama pelanggan. Namanya sama dengan nama ibu saya sebelum menikah.\n\nSaya pulang, buka akta lahir saya, dan membaca ulang nama itu sampai tiga kali.\n\nIbu saya tidak punya rumah di RT empat. Ibu saya lahir di kota lain, dan menurut semua orang, tidak pernah tinggal di sini.\n\nKalau nama ibu saya ada di rumah yang tidak pernah ia tinggali, siapa yang memakai namanya selama sebelas tahun ini?",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 298,
+          "image": "images/bu-ratna.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 596,
+          "image": "images/meteran-kosong.jpg",
+          "camera": "tilt_up",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        },
+        {
+          "atFrame": 894,
+          "image": "images/stiker-nama.jpg",
+          "camera": "static",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 1191,
+          "image": "images/akta.jpg",
+          "camera": "push_in",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "atFrame": 1489,
+          "image": "images/rumah.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 1787,
+          "image": "images/narator.jpg",
+          "camera": "push_in",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 110,
+          "text": "Bu Ratna, ketua RT, bilang rumah itu sudah lama"
+        },
+        {
+          "startFrame": 110,
+          "endFrame": 162,
+          "text": "tidak ada yang tinggal."
+        },
+        {
+          "startFrame": 162,
+          "endFrame": 257,
+          "text": "Yang punya, katanya, keluarga yang pindah."
+        },
+        {
+          "startFrame": 257,
+          "endFrame": 314,
+          "text": "Saya tanya siapa namanya."
+        },
+        {
+          "startFrame": 314,
+          "endFrame": 350,
+          "text": "Dia tidak ingat."
+        },
+        {
+          "startFrame": 350,
+          "endFrame": 472,
+          "text": "Dia cuma bilang yang mengurus rumah itu orang suruhan,"
+        },
+        {
+          "startFrame": 472,
+          "endFrame": 571,
+          "text": "datang setahun sekali untuk memeriksa pagar."
+        },
+        {
+          "startFrame": 571,
+          "endFrame": 625,
+          "text": "Saya tanya ke kelurahan."
+        },
+        {
+          "startFrame": 625,
+          "endFrame": 765,
+          "text": "Arsip program penggantian meteran tahun dua ribu sembilan ada,"
+        },
+        {
+          "startFrame": 765,
+          "endFrame": 907,
+          "text": "tapi berkas pelanggan untuk rumah itu fotokopinya sudah hilang."
+        },
+        {
+          "startFrame": 907,
+          "endFrame": 1000,
+          "text": "Jadi saya lihat sendiri kotak meterannya."
+        },
+        {
+          "startFrame": 1000,
+          "endFrame": 1140,
+          "text": "Di sampingnya ada stiker lama, sudah pudar, ditempel kelurahan"
+        },
+        {
+          "startFrame": 1140,
+          "endFrame": 1181,
+          "text": "waktu program itu."
+        },
+        {
+          "startFrame": 1181,
+          "endFrame": 1256,
+          "text": "Di stiker itu ada nama pelanggan."
+        },
+        {
+          "startFrame": 1256,
+          "endFrame": 1369,
+          "text": "Namanya sama dengan nama ibu saya sebelum menikah."
+        },
+        {
+          "startFrame": 1369,
+          "endFrame": 1487,
+          "text": "Saya pulang, buka akta lahir saya, dan membaca ulang"
+        },
+        {
+          "startFrame": 1487,
+          "endFrame": 1546,
+          "text": "nama itu sampai tiga kali."
+        },
+        {
+          "startFrame": 1546,
+          "endFrame": 1634,
+          "text": "Ibu saya tidak punya rumah di RT empat."
+        },
+        {
+          "startFrame": 1634,
+          "endFrame": 1738,
+          "text": "Ibu saya lahir di kota lain, dan menurut semua"
+        },
+        {
+          "startFrame": 1738,
+          "endFrame": 1819,
+          "text": "orang, tidak pernah tinggal di sini."
+        },
+        {
+          "startFrame": 1819,
+          "endFrame": 1916,
+          "text": "Kalau nama ibu saya ada di rumah yang tidak"
+        },
+        {
+          "startFrame": 1916,
+          "endFrame": 2054,
+          "text": "pernah ia tinggali, siapa yang memakai namanya selama sebelas"
+        },
+        {
+          "startFrame": 2054,
+          "endFrame": 2077,
+          "text": "tahun ini?"
+        }
+      ],
+      "visual": {
+        "prompt": "perempuan tua di teras, wajah setengah bayangan, tangan memegang gelas",
+        "locationId": "ll-0003_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "soft_daylight",
+        "intensity": 0.66,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "dust_motes"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.28,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 1907,
+      "image": "images/jendela-kardus.jpg",
+      "narration": "Rumah itu saya datangi malam. Bukan untuk masuk. Saya hanya ingin mendengar.\n\nRadio di dalam menyala. Frekuensinya sama dengan radio di dapur saya, yang selalu saya nyalakan pagi sebelum berangkat.\n\nPukul sembilan lewat ada bunyi klik dari dalam. Logam kecil, seperti tombol ketel listrik yang dimatikan sendiri. Ketel di rumah saya berbunyi persis seperti itu.\n\nSaya menghitung sampai lima puluh. Tidak ada suara lain. Tidak ada langkah, tidak ada batuk, tidak ada pintu.\n\nSaya merekam sebelas menit di ponsel. Waktu saya putar ulang di rumah, yang terdengar hanya radio dan satu klik. Sisanya napas saya sendiri, yang makin cepat di menit kesembilan.\n\nSaya pulang. Di dapur, ketel saya sudah dalam posisi mati, padahal pagi tadi saya menyalakannya.\n\nPertanyaannya bukan lagi siapa yang ada di dalam. Pertanyaannya, kenapa semua yang ada di dalam sama dengan yang ada di rumah saya?",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 318,
+          "image": "images/radio.jpg",
+          "camera": "push_in",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 636,
+          "image": "images/ketel.jpg",
+          "camera": "static",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        },
+        {
+          "atFrame": 954,
+          "image": "images/s5-04.jpg",
+          "camera": "tilt_down",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 1271,
+          "image": "images/jendela-kardus.jpg",
+          "camera": "static",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "atFrame": 1589,
+          "image": "images/ketel.jpg",
+          "camera": "dolly_in",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 68,
+          "text": "Rumah itu saya datangi malam."
+        },
+        {
+          "startFrame": 68,
+          "endFrame": 108,
+          "text": "Bukan untuk masuk."
+        },
+        {
+          "startFrame": 108,
+          "endFrame": 168,
+          "text": "Saya hanya ingin mendengar."
+        },
+        {
+          "startFrame": 168,
+          "endFrame": 219,
+          "text": "Radio di dalam menyala."
+        },
+        {
+          "startFrame": 219,
+          "endFrame": 345,
+          "text": "Frekuensinya sama dengan radio di dapur saya, yang selalu"
+        },
+        {
+          "startFrame": 345,
+          "endFrame": 427,
+          "text": "saya nyalakan pagi sebelum berangkat."
+        },
+        {
+          "startFrame": 427,
+          "endFrame": 531,
+          "text": "Pukul sembilan lewat ada bunyi klik dari dalam."
+        },
+        {
+          "startFrame": 531,
+          "endFrame": 675,
+          "text": "Logam kecil, seperti tombol ketel listrik yang dimatikan sendiri."
+        },
+        {
+          "startFrame": 675,
+          "endFrame": 781,
+          "text": "Ketel di rumah saya berbunyi persis seperti itu."
+        },
+        {
+          "startFrame": 781,
+          "endFrame": 856,
+          "text": "Saya menghitung sampai lima puluh."
+        },
+        {
+          "startFrame": 856,
+          "endFrame": 903,
+          "text": "Tidak ada suara lain."
+        },
+        {
+          "startFrame": 903,
+          "endFrame": 1018,
+          "text": "Tidak ada langkah, tidak ada batuk, tidak ada pintu."
+        },
+        {
+          "startFrame": 1018,
+          "endFrame": 1100,
+          "text": "Saya merekam sebelas menit di ponsel."
+        },
+        {
+          "startFrame": 1100,
+          "endFrame": 1217,
+          "text": "Waktu saya putar ulang di rumah, yang terdengar hanya"
+        },
+        {
+          "startFrame": 1217,
+          "endFrame": 1261,
+          "text": "radio dan satu klik."
+        },
+        {
+          "startFrame": 1261,
+          "endFrame": 1378,
+          "text": "Sisanya napas saya sendiri, yang makin cepat di menit"
+        },
+        {
+          "startFrame": 1378,
+          "endFrame": 1402,
+          "text": "kesembilan."
+        },
+        {
+          "startFrame": 1402,
+          "endFrame": 1429,
+          "text": "Saya pulang."
+        },
+        {
+          "startFrame": 1429,
+          "endFrame": 1546,
+          "text": "Di dapur, ketel saya sudah dalam posisi mati, padahal"
+        },
+        {
+          "startFrame": 1546,
+          "endFrame": 1610,
+          "text": "pagi tadi saya menyalakannya."
+        },
+        {
+          "startFrame": 1610,
+          "endFrame": 1719,
+          "text": "Pertanyaannya bukan lagi siapa yang ada di dalam."
+        },
+        {
+          "startFrame": 1719,
+          "endFrame": 1845,
+          "text": "Pertanyaannya, kenapa semua yang ada di dalam sama dengan"
+        },
+        {
+          "startFrame": 1845,
+          "endFrame": 1899,
+          "text": "yang ada di rumah saya?"
+        }
+      ],
+      "visual": {
+        "prompt": "dari jalan gelap naik ke pagar, jendela berkardus, atap, langit malam",
+        "locationId": "ll-0003_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "wide",
+        "lighting": "low_key_practical",
+        "intensity": 0.34,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.24,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 1962,
+      "image": "images/dokumen.jpg",
+      "narration": "Tagihan listrik rumah itu tidak pernah nunggak. Sebelas tahun, tanpa satu bulan kosong.\n\nSaya minta rekap ke kantor. Semua dibayar tunai, di loket yang sama, tanggal yang sama setiap bulan.\n\nLoket itu tidak menyimpan salinan. Yang tersisa hanya kolom tanda tangan penerima setoran.\n\nNamanya Bu Yati. Dia bilang setoran rumah itu selalu datang paling pagi, sebelum loket dibuka, ditaruh di bawah pintu bersama amplop lain. Dia tidak pernah melihat orangnya, dan yang dia ingat hanya satu hal: amplop itu ditulis tangan, bukan dicetak.\n\nDia mengirim tiga potong kertas hasil pindai.\n\nTanda tangannya miring ke kanan, dengan garis penutup yang ditarik cepat ke bawah.\n\nSaya punya tanda tangan yang persis begitu: di KTP, di buku tabungan, dan di slip gaji. Padahal sejak mulai mencatat rumah itu, saya belum pernah sekali pun ke loket itu.\n\nKalau bukan saya yang membayar, kenapa tanda tangannya tangan saya?",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 280,
+          "image": "images/loket.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 561,
+          "image": "images/dokumen.jpg",
+          "camera": "tilt_up",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        },
+        {
+          "atFrame": 841,
+          "image": "images/dokumen.jpg",
+          "camera": "static",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 1121,
+          "image": "images/dokumen.jpg",
+          "camera": "push_in",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "atFrame": 1401,
+          "image": "images/dokumen.jpg",
+          "camera": "tilt_down",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 1682,
+          "image": "images/dokumen.jpg",
+          "camera": "static",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 109,
+          "text": "Tagihan listrik rumah itu tidak pernah nunggak."
+        },
+        {
+          "startFrame": 109,
+          "endFrame": 196,
+          "text": "Sebelas tahun, tanpa satu bulan kosong."
+        },
+        {
+          "startFrame": 196,
+          "endFrame": 256,
+          "text": "Saya minta rekap ke kantor."
+        },
+        {
+          "startFrame": 256,
+          "endFrame": 374,
+          "text": "Semua dibayar tunai, di loket yang sama, tanggal yang"
+        },
+        {
+          "startFrame": 374,
+          "endFrame": 414,
+          "text": "sama setiap bulan."
+        },
+        {
+          "startFrame": 414,
+          "endFrame": 490,
+          "text": "Loket itu tidak menyimpan salinan."
+        },
+        {
+          "startFrame": 490,
+          "endFrame": 612,
+          "text": "Yang tersisa hanya kolom tanda tangan penerima setoran."
+        },
+        {
+          "startFrame": 612,
+          "endFrame": 648,
+          "text": "Namanya Bu Yati."
+        },
+        {
+          "startFrame": 648,
+          "endFrame": 770,
+          "text": "Dia bilang setoran rumah itu selalu datang paling pagi,"
+        },
+        {
+          "startFrame": 770,
+          "endFrame": 901,
+          "text": "sebelum loket dibuka, ditaruh di bawah pintu bersama amplop"
+        },
+        {
+          "startFrame": 901,
+          "endFrame": 912,
+          "text": "lain."
+        },
+        {
+          "startFrame": 912,
+          "endFrame": 1030,
+          "text": "Dia tidak pernah melihat orangnya, dan yang dia ingat"
+        },
+        {
+          "startFrame": 1030,
+          "endFrame": 1157,
+          "text": "hanya satu hal: amplop itu ditulis tangan, bukan dicetak."
+        },
+        {
+          "startFrame": 1157,
+          "endFrame": 1257,
+          "text": "Dia mengirim tiga potong kertas hasil pindai."
+        },
+        {
+          "startFrame": 1257,
+          "endFrame": 1386,
+          "text": "Tanda tangannya miring ke kanan, dengan garis penutup yang"
+        },
+        {
+          "startFrame": 1386,
+          "endFrame": 1437,
+          "text": "ditarik cepat ke bawah."
+        },
+        {
+          "startFrame": 1437,
+          "endFrame": 1550,
+          "text": "Saya punya tanda tangan yang persis begitu: di KTP,"
+        },
+        {
+          "startFrame": 1550,
+          "endFrame": 1628,
+          "text": "di buku tabungan, dan di slip gaji."
+        },
+        {
+          "startFrame": 1628,
+          "endFrame": 1755,
+          "text": "Padahal sejak mulai mencatat rumah itu, saya belum pernah"
+        },
+        {
+          "startFrame": 1755,
+          "endFrame": 1808,
+          "text": "sekali pun ke loket itu."
+        },
+        {
+          "startFrame": 1808,
+          "endFrame": 1944,
+          "text": "Kalau bukan saya yang membayar, kenapa tanda tangannya tangan"
+        },
+        {
+          "startFrame": 1944,
+          "endFrame": 1954,
+          "text": "saya?"
+        }
+      ],
+      "visual": {
+        "prompt": "rekap tagihan tercetak, kolom tanggal dan angka, meja kantor",
+        "locationId": "ll-0003_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "medium",
+        "lighting": "flat_office_neon",
+        "intensity": 0.58,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.26,
+        "sfx": []
+      }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 1907,
+      "image": "images/saklar.jpg",
+      "narration": "Juli lalu saya memotong listrik rumah saya sendiri. Saklar utama saya turunkan, dan saya menginap di rumah kakak dua hari.\n\nKalau angka rumah kosong itu benar-benar mengikuti rumah saya, meterannya harus berhenti juga.\n\nHari ketiga saya kembali. Meteran rumah saya: nol.\n\nMeteran rumah kosong: naik empat kilowatt jam.\n\nPersis pemakaian harian rumah saya, dikali dua hari, tanpa satu watt lebih.\n\nSaya tidak melapor ke kantor. Saya tidak memotong listrik lagi. Sekarang saya mencatat dua meteran sekaligus, karena keduanya menunjuk ke satu rumah yang sama.\n\nDi kotak surat kakak ada amplop tanpa perangko. Di dalamnya selembar kertas bergaris, tulisan miring ke kanan, sama seperti tanda tangan itu: bulan depan jangan dipotong lagi.\n\nSaya tidak tahu siapa yang membayar rumah itu sebelum saya mulai mencatatnya. Saya juga tidak tahu, kalau nanti rumah kamu kosong, siapa yang akan mencatat angka rumah kamu.",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [
+        {
+          "atFrame": 272,
+          "image": "images/rumah-kosong.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 545,
+          "image": "images/meteran-rumah.jpg",
+          "camera": "tilt_up",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        },
+        {
+          "atFrame": 817,
+          "image": "images/meteran-kosong.jpg",
+          "camera": "static",
+          "scale": 1.24,
+          "offsetX": 20,
+          "offsetY": -10
+        },
+        {
+          "atFrame": 1090,
+          "image": "images/surat.jpg",
+          "camera": "push_in",
+          "scale": 1.06,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "atFrame": 1362,
+          "image": "images/surat.jpg",
+          "camera": "static",
+          "scale": 1.18,
+          "offsetX": 40,
+          "offsetY": -20
+        },
+        {
+          "atFrame": 1635,
+          "image": "images/rumah-kosong.jpg",
+          "camera": "arc_left",
+          "scale": 1.1,
+          "offsetX": -30,
+          "offsetY": 25
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 4,
+          "endFrame": 114,
+          "text": "Juli lalu saya memotong listrik rumah saya sendiri."
+        },
+        {
+          "startFrame": 114,
+          "endFrame": 230,
+          "text": "Saklar utama saya turunkan, dan saya menginap di rumah"
+        },
+        {
+          "startFrame": 230,
+          "endFrame": 262,
+          "text": "kakak dua hari."
+        },
+        {
+          "startFrame": 262,
+          "endFrame": 396,
+          "text": "Kalau angka rumah kosong itu benar-benar mengikuti rumah saya,"
+        },
+        {
+          "startFrame": 396,
+          "endFrame": 463,
+          "text": "meterannya harus berhenti juga."
+        },
+        {
+          "startFrame": 463,
+          "endFrame": 517,
+          "text": "Hari ketiga saya kembali."
+        },
+        {
+          "startFrame": 517,
+          "endFrame": 569,
+          "text": "Meteran rumah saya: nol."
+        },
+        {
+          "startFrame": 569,
+          "endFrame": 668,
+          "text": "Meteran rumah kosong: naik empat kilowatt jam."
+        },
+        {
+          "startFrame": 668,
+          "endFrame": 793,
+          "text": "Persis pemakaian harian rumah saya, dikali dua hari, tanpa"
+        },
+        {
+          "startFrame": 793,
+          "endFrame": 827,
+          "text": "satu watt lebih."
+        },
+        {
+          "startFrame": 827,
+          "endFrame": 889,
+          "text": "Saya tidak melapor ke kantor."
+        },
+        {
+          "startFrame": 889,
+          "endFrame": 960,
+          "text": "Saya tidak memotong listrik lagi."
+        },
+        {
+          "startFrame": 960,
+          "endFrame": 1111,
+          "text": "Sekarang saya mencatat dua meteran sekaligus, karena keduanya menunjuk"
+        },
+        {
+          "startFrame": 1111,
+          "endFrame": 1163,
+          "text": "ke satu rumah yang sama."
+        },
+        {
+          "startFrame": 1163,
+          "endFrame": 1264,
+          "text": "Di kotak surat kakak ada amplop tanpa perangko."
+        },
+        {
+          "startFrame": 1264,
+          "endFrame": 1398,
+          "text": "Di dalamnya selembar kertas bergaris, tulisan miring ke kanan,"
+        },
+        {
+          "startFrame": 1398,
+          "endFrame": 1523,
+          "text": "sama seperti tanda tangan itu: bulan depan jangan dipotong"
+        },
+        {
+          "startFrame": 1523,
+          "endFrame": 1534,
+          "text": "lagi."
+        },
+        {
+          "startFrame": 1534,
+          "endFrame": 1648,
+          "text": "Saya tidak tahu siapa yang membayar rumah itu sebelum"
+        },
+        {
+          "startFrame": 1648,
+          "endFrame": 1698,
+          "text": "saya mulai mencatatnya."
+        },
+        {
+          "startFrame": 1698,
+          "endFrame": 1810,
+          "text": "Saya juga tidak tahu, kalau nanti rumah kamu kosong,"
+        },
+        {
+          "startFrame": 1810,
+          "endFrame": 1899,
+          "text": "siapa yang akan mencatat angka rumah kamu."
+        }
+      ],
+      "visual": {
+        "prompt": "kotak saklar rumah, tangan menurunkan tuas sampai bunyi klik",
+        "locationId": "ll-0003_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "clear_morning",
+        "intensity": 0.72,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "static_burst"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.3,
+        "sfx": []
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Setiap Bulan, Meteran Rumah Kosong Itu Mencatat Angka Rumah Saya",
+    "description": "Sebelas bulan, angka meteran rumah kosong di ujung RT empat sama persis dengan meteran rumah saya. Bukan mirip, sama sampai digit terakhir. Saya petugas pencatat meter, dan ini yang terjadi waktu saya memotong listrik rumah saya sendiri. Cerita ini disusun dari kisah lapangan yang beredar di antara petugas catat meter: nama dan tempat diubah, angkanya dibulatkan.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "cerita seram",
+      "kisah nyata",
+      "rumah kosong",
+      "meteran listrik"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "pinComment": "Seri meteran yang muncul dua kali di video ini: dua dua satu empat. Kalau kamu jadi saya: lapor ke kantor, atau terus mencatat dua meteran itu diam-diam?",
+    "thumbnail": {
+      "headline": "SEBELAS BULAN",
+      "kicker": "angkanya sama persis",
+      "image": "images/thumb.jpg",
+      "holdFrames": 20
+    },
+    "cta": {
+      "card": "Siapa yang membayar rumah itu sebelum saya?",
+      "holdFrames": 90
+    }
+  },
+  "production": {
+    "subgenre": "Long-form narration",
+    "experiment": "Dua meteran, satu rumah. Kejanggalan dibuktikan dengan angka; tidak ada penampakan, dan ceritanya berdiri di atas laporan lapangan yang mirip.",
+    "structure": "temuan → rute → pola → warisan → suara → pembayaran → uji",
+    "slate": "stories/longform/LL-0003/plan.json",
+    "format": "longform",
+    "transitions": [
+      "zoom_punch",
+      "whip_left",
+      "whip_up",
+      "dip_black",
+      "flash_white",
+      "zoom_punch"
+    ],
+    "transitionFrames": 12
+  }
+}

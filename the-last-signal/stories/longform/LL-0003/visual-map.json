@@ -1,0 +1,702 @@
+{
+  "episode": "LL-0003",
+  "judul": "Meteran yang Berputar di Rumah Kosong",
+  "format": "longform_16x9",
+  "fps": 30,
+  "resolusi": [
+    1920,
+    1080
+  ],
+  "total_kata_narasi": 1096,
+  "estimasi_durasi_detik": 498,
+  "hook_card": {
+    "teks": "SEBELAS BULAN",
+    "tampil": "frame 0-27",
+    "catatan": "maksimal 3 kata; muncul bersamaan dengan kalimat pertama"
+  },
+  "aturan_sinkron": {
+    "dasar": "knowledge/ATURAN.md bagian III.3 — visual tidak boleh mendahului kata",
+    "offset_masuk_frame": [
+      2,
+      4
+    ],
+    "artinya": "shot baru dipotong 2-4 frame SETELAH onset kata pemicu"
+  },
+  "irama": {
+    "target_rata_rata_detik": 11,
+    "larangan": "tidak ada dua shot berturut-turut dengan ukuran dan arah yang sama",
+    "reda": [
+      "S3",
+      "S5"
+    ]
+  },
+  "komposisi": {
+    "dasar": "gambar 16:9 harus memuat elemen yang menyambung: kiri → tengah → kanan, atau bawah → atas",
+    "alasan": "satu gambar yang punya jalur mata membuat gerakan kamera punya arah cerita, bukan sekadar zoom",
+    "contoh": "gang di kiri, pagar bergembok di tengah, rumah berjendela kardus di kanan"
+  },
+  "karakter_tetap": {
+    "protagonis": "pria Indonesia akhir 20-an, kemeja dinas biru pudar, celana gelap, topi proyek, wajah tidak pernah terlihat penuh",
+    "entitas": "tidak ada entitas berwujud — kejanggalan datang dari benda, angka, dan suara"
+  },
+  "petunjuk": [
+    {
+      "jenis": "visual",
+      "di": "S2-06",
+      "dibayar": "S7",
+      "isi": "seri meteran 2214 sama dengan meteran rumah narator"
+    },
+    {
+      "jenis": "visual",
+      "di": "S4-04",
+      "dibayar": "S7",
+      "isi": "nama pelanggan di stiker = nama ibu sebelum menikah"
+    },
+    {
+      "jenis": "audio",
+      "di": "S5-02",
+      "dibayar": "S7",
+      "isi": "frekuensi radio sama dengan radio dapur"
+    },
+    {
+      "jenis": "audio",
+      "di": "S5-03",
+      "dibayar": "S7",
+      "isi": "klik ketel pada jam yang sama setiap malam"
+    },
+    {
+      "jenis": "teks",
+      "di": "deskripsi + komentar sematan",
+      "dibayar": "-",
+      "isi": "menyebut seri meteran yang muncul dua kali"
+    }
+  ],
+  "qc_khusus_episode": {
+    "wajib_terang": [
+      "S1",
+      "S2",
+      "S7"
+    ],
+    "reda": [
+      "S3 akhir",
+      "S5 akhir"
+    ],
+    "larangan": [
+      "HUD kamera pengawas",
+      "entitas berwujud",
+      "teks terbaca di dokumen hasil generate"
+    ]
+  },
+  "segmen": [
+    {
+      "id": "S1",
+      "judul": "Temuan",
+      "mulai_detik": null,
+      "atmosfer": {
+        "waktu": "pagi, matahari baru naik",
+        "palet": [
+          "#c8bfa8",
+          "#6f7a6a",
+          "#2b2b28",
+          "#e9e4d6"
+        ],
+        "cahaya": "matahari rendah dari kiri, kontras tinggi, debu di udara",
+        "catatan": "terang, hari kerja biasa — kejanggalan datang dari angka, bukan dari gelap"
+      },
+      "shots": [
+        {
+          "id": "S1-01",
+          "pemicu": "Sebelas bulan",
+          "offset_frame": 2,
+          "ukuran": "full",
+          "kamera": "pan_left",
+          "isi": "satu frame gang RT: di kiri tetangga menyapu, di tengah pagar besi bergembok, di kanan rumah ujung yang jendelanya ditutup kardus",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S1-02",
+          "pemicu": "Sama, sampai digit terakhir",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "dolly_in",
+          "isi": "kotak meteran berdebu di dinding semen, kaca keruh, debu bergerak di cahaya pagi",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S1-03",
+          "pemicu": "Rumahnya di ujung RT empat",
+          "offset_frame": 3,
+          "ukuran": "wide",
+          "kamera": "tilt_down",
+          "isi": "dari atap seng dan pohon mangga turun ke pagar, kardus penutup jendela, dan genangan kecil di tanah",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S1-04",
+          "pemicu": "Saya petugas pencatat meter",
+          "offset_frame": 4,
+          "ukuran": "medium",
+          "kamera": "push_in",
+          "isi": "buku catatan di pangkuan, tangan memegang pulpen, latar gang perumahan samar",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S1-05",
+          "pemicu": "Bulan lalu angkanya empat ratus satu",
+          "offset_frame": 3,
+          "ukuran": "insert",
+          "kamera": "pan_right",
+          "isi": "deret angka meteran dari kiri ke kanan, pelat logam berdebu",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S1-06",
+          "pemicu": "kenapa yang tercatat di meterannya",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "push_in",
+          "isi": "kaca meteran dengan pantulan jendela rumah di belakangnya",
+          "entitas": null,
+          "sfx": null
+        }
+      ],
+      "reda": false,
+      "catatan": "Klimaks di depan: temuan mustahil, dua angka identik, lalu potong di pertanyaan."
+    },
+    {
+      "id": "S2",
+      "judul": "Rute dan rumah terakhir",
+      "mulai_detik": null,
+      "atmosfer": {
+        "waktu": "pagi sampai siang",
+        "palet": [
+          "#d6c49a",
+          "#7d8464",
+          "#38352b",
+          "#f1ece0"
+        ],
+        "cahaya": "terik penuh, bayangan pendek",
+        "catatan": "paling terang, kontras untuk malam nanti"
+      },
+      "shots": [
+        {
+          "id": "S2-01",
+          "pemicu": "Rute saya RT satu sampai RT enam",
+          "offset_frame": 3,
+          "ukuran": "wide",
+          "kamera": "pan_right",
+          "isi": "gang perumahan menyambung: di kiri warung, di tengah motor dinas berhenti, di kanan deretan pagar rumah",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S2-02",
+          "pemicu": "Rumah di ujung RT empat",
+          "offset_frame": 4,
+          "ukuran": "full",
+          "kamera": "static",
+          "isi": "rumah kosong dari kejauhan, pohon, langit putih panas",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S2-03",
+          "pemicu": "Pagarnya digembok dari dalam",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "push_in",
+          "isi": "gembok karat pada pagar besi, dilihat dari sisi dalam halaman",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S2-04",
+          "pemicu": "Meterannya menempel di dinding samping",
+          "offset_frame": 4,
+          "ukuran": "medium",
+          "kamera": "tilt_up",
+          "isi": "dari kotak meteran setinggi dada naik ke kabel dan atap seng",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S2-05",
+          "pemicu": "Saya bersihkan dengan lap sendiri",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "handheld",
+          "isi": "tangan mengelap kaca meteran, debu terbang di berkas cahaya",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S2-06",
+          "pemicu": "Seri meterannya dua dua satu empat",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "dolly_in",
+          "isi": "pelat logam bernomor seri, sangat dekat, goresan halus",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S2-07",
+          "pemicu": "Di grup petugas",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "pan_left",
+          "isi": "layar ponsel dengan percakapan grup, dari kanan ke kiri, teks tidak terbaca",
+          "entitas": null,
+          "sfx": null
+        }
+      ],
+      "reda": false,
+      "catatan": "Kerja, uang, tempat; petunjuk visual #1 (seri meteran). Frame \"bukan 100% fiksi\" ditanam di akhir segmen."
+    },
+    {
+      "id": "S3",
+      "judul": "Pola",
+      "mulai_detik": null,
+      "atmosfer": {
+        "waktu": "sore",
+        "palet": [
+          "#c9a476",
+          "#7a6a52",
+          "#332e26",
+          "#efe6d4"
+        ],
+        "cahaya": "keemasan rendah, bayangan memanjang",
+        "catatan": "hangat, satu sudut frame selalu lebih gelap"
+      },
+      "shots": [
+        {
+          "id": "S3-01",
+          "pemicu": "Bulan pertama saya kira kebetulan",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "push_in",
+          "isi": "buku catatan dengan dua kolom angka, tinta berbeda, jari menunjuk baris",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S3-02",
+          "pemicu": "Bulan kedua saya catat di buku",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "tilt_down",
+          "isi": "dari judul halaman turun ke baris angka yang makin rapat",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S3-03",
+          "pemicu": "Saya sempat menunjukkan fotonya",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "pan_right",
+          "isi": "ponsel di tangan, galeri foto dua meteran berdampingan",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S3-04",
+          "pemicu": "dua puluh tujuh pasang",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "pan_left",
+          "isi": "layar ponsel penuh foto meteran, jempol menggulir dari kanan ke kiri",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S3-05",
+          "pemicu": "Rumah saya cuma memakai dua ratus watt",
+          "offset_frame": 4,
+          "ukuran": "wide",
+          "kamera": "tilt_down",
+          "isi": "dari langit sore turun ke rumah narator, teras, meteran kecil di dinding",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S3-06",
+          "pemicu": "pendingin ruangan dan pemanas",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "dolly_in",
+          "isi": "kertas pudar berisi daftar alat listrik, tulisan tangan tidak terbaca",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S3-07",
+          "pemicu": "Malam itu saya berhenti",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "drift",
+          "isi": "punggung narator dari belakang, berhenti di depan pagar, sore berubah gelap",
+          "entitas": null,
+          "sfx": null
+        }
+      ],
+      "reda": true,
+      "catatan": "Membuktikan pola; pertanyaan diturunkan ke penonton. Ditutup reda #1."
+    },
+    {
+      "id": "S4",
+      "judul": "Nama di kotak",
+      "mulai_detik": null,
+      "atmosfer": {
+        "waktu": "siang menjelang sore",
+        "palet": [
+          "#cbb894",
+          "#77806a",
+          "#35322a",
+          "#ece5d5"
+        ],
+        "cahaya": "terik lembut, langit pucat",
+        "catatan": "wajah Bu Ratna setengah bayangan"
+      },
+      "shots": [
+        {
+          "id": "S4-01",
+          "pemicu": "Bu Ratna, ketua RT",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "push_in",
+          "isi": "perempuan tua di teras, wajah setengah bayangan, tangan memegang gelas",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S4-02",
+          "pemicu": "Saya tanya siapa namanya",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "static",
+          "isi": "wajah Bu Ratna setengah frame, mata melihat ke samping",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S4-03",
+          "pemicu": "Jadi saya lihat sendiri kotak meterannya",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "tilt_down",
+          "isi": "dari stiker pudar di dinding turun ke kotak meteran di bawahnya",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S4-04",
+          "pemicu": "Di stiker itu ada nama pelanggan",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "dolly_in",
+          "isi": "stiker pudar dengan nama pelanggan, sangat dekat, huruf mulai hilang",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S4-05",
+          "pemicu": "buka akta lahir saya",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "pan_right",
+          "isi": "akta lahir di meja kayu, dari nama ibu ke kolom tanggal",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S4-06",
+          "pemicu": "Ibu saya lahir di kota lain",
+          "offset_frame": 4,
+          "ukuran": "wide",
+          "kamera": "pan_right",
+          "isi": "ruang tamu narator: di kiri foto keluarga, di tengah meja, di kanan pintu ke dapur",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S4-07",
+          "pemicu": "siapa yang memakai namanya",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "push_in",
+          "isi": "mata narator tidak terlihat penuh, hanya sebagian wajah di cermin",
+          "entitas": null,
+          "sfx": null
+        }
+      ],
+      "reda": false,
+      "catatan": "Petunjuk visual #2 (nama di stiker); cerita bergeser dari salah catat ke warisan."
+    },
+    {
+      "id": "S5",
+      "judul": "Di jendela",
+      "mulai_detik": null,
+      "atmosfer": {
+        "waktu": "malam",
+        "palet": [
+          "#3a4a48",
+          "#1f2a2c",
+          "#0d1214",
+          "#c3ccc4"
+        ],
+        "cahaya": "satu lampu jalan jauh, sisanya gelap",
+        "catatan": "paling gelap; radio satu-satunya sumber suara"
+      },
+      "shots": [
+        {
+          "id": "S5-01",
+          "pemicu": "Rumah itu saya datangi malam",
+          "offset_frame": 3,
+          "ukuran": "wide",
+          "kamera": "tilt_up",
+          "isi": "dari jalan gelap naik ke pagar, jendela berkardus, atap, langit malam",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S5-02",
+          "pemicu": "Radio di dalam menyala",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "push_in",
+          "isi": "celah jendela berkardus dengan cahaya radio menembus, gelap pekat",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S5-03",
+          "pemicu": "bunyi klik dari dalam",
+          "offset_frame": 3,
+          "ukuran": "insert",
+          "kamera": "dolly_in",
+          "isi": "ketel listrik di dapur gelap, tombol sudah turun, uap tipis",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S5-04",
+          "pemicu": "Saya menghitung sampai lima puluh",
+          "offset_frame": 4,
+          "ukuran": "medium",
+          "kamera": "pan_left",
+          "isi": "dinding rumah kosong dari kiri ke kanan, retak halus, gelap",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S5-05",
+          "pemicu": "pada jam yang sama setiap malam",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "static",
+          "isi": "jam dinding terlihat lewat celah jendela, jarum tidak jelas",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S5-06",
+          "pemicu": "ketel saya sudah dalam posisi mati",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "tilt_down",
+          "isi": "dari tombol ketel turun ke dasar ketel, uap tipis di dapur terang",
+          "entitas": null,
+          "sfx": null
+        }
+      ],
+      "reda": true,
+      "catatan": "Dua petunjuk audio: radio dan klik ketel. Ditutup reda #2."
+    },
+    {
+      "id": "S6",
+      "judul": "Yang membayar",
+      "mulai_detik": null,
+      "atmosfer": {
+        "waktu": "siang, dalam ruangan",
+        "palet": [
+          "#d9d3c2",
+          "#8d9a92",
+          "#3b4340",
+          "#f4f0e6"
+        ],
+        "cahaya": "neon putih kantor, rata",
+        "catatan": "datar dan administratif — justru itu yang mencekam"
+      },
+      "shots": [
+        {
+          "id": "S6-01",
+          "pemicu": "Tagihan listrik rumah itu tidak pernah nunggak",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "push_in",
+          "isi": "rekap tagihan tercetak, kolom tanggal dan angka, meja kantor",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S6-02",
+          "pemicu": "Saya minta rekap ke kantor",
+          "offset_frame": 4,
+          "ukuran": "wide",
+          "kamera": "pan_right",
+          "isi": "ruang loket: di kiri antrean kosong, di tengah loket, di kanan pintu keluar",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S6-03",
+          "pemicu": "Semua dibayar tunai",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "tilt_down",
+          "isi": "dari tumpukan amplop turun ke kertas setoran",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S6-04",
+          "pemicu": "kolom tanda tangan penerima setoran",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "dolly_in",
+          "isi": "tanda tangan miring dengan garis penutup cepat, sangat dekat",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S6-05",
+          "pemicu": "Dia mengirim tiga potong kertas",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "pan_left",
+          "isi": "tiga lembar hasil pindai di layar, dari kanan ke kiri",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S6-06",
+          "pemicu": "Saya punya tanda tangan yang persis begitu",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "push_in",
+          "isi": "KTP dan buku tabungan di meja, tanda tangan di keduanya",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S6-07",
+          "pemicu": "Kalau bukan saya yang membayar",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "static",
+          "isi": "tangan narator di atas kertas setoran, bayangan lampu kantor",
+          "entitas": null,
+          "sfx": null
+        }
+      ],
+      "reda": false,
+      "catatan": "Pertanyaan bergeser ke siapa yang membayar, dan kenapa atas nama narator."
+    },
+    {
+      "id": "S7",
+      "judul": "Uji",
+      "mulai_detik": null,
+      "atmosfer": {
+        "waktu": "pagi",
+        "palet": [
+          "#cfc7ae",
+          "#7c8570",
+          "#2e302a",
+          "#efeade"
+        ],
+        "cahaya": "pagi cerah, sedikit kabut",
+        "catatan": "kembali terang: dunia terlihat normal, padahal tidak"
+      },
+      "shots": [
+        {
+          "id": "S7-01",
+          "pemicu": "Saklar utama saya turunkan",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "push_in",
+          "isi": "kotak saklar rumah, tangan menurunkan tuas sampai bunyi klik",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S7-02",
+          "pemicu": "menginap di rumah kakak dua hari",
+          "offset_frame": 4,
+          "ukuran": "wide",
+          "kamera": "pan_left",
+          "isi": "halaman rumah kakak pagi hari: sepeda di kiri, jemuran di tengah, pintu di kanan",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S7-03",
+          "pemicu": "Hari ketiga saya kembali",
+          "offset_frame": 3,
+          "ukuran": "medium",
+          "kamera": "tilt_up",
+          "isi": "dari meteran rumah narator naik ke dinding dan atap, angka nol terlihat",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S7-04",
+          "pemicu": "naik empat kilowatt jam",
+          "offset_frame": 4,
+          "ukuran": "close",
+          "kamera": "dolly_in",
+          "isi": "meteran rumah kosong, angka bertambah, kaca berembun pagi",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S7-05",
+          "pemicu": "amplop tanpa perangko",
+          "offset_frame": 3,
+          "ukuran": "close",
+          "kamera": "push_in",
+          "isi": "kotak surat, amplop putih di dalamnya, tanpa perangko",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S7-06",
+          "pemicu": "bulan depan jangan dipotong lagi",
+          "offset_frame": 4,
+          "ukuran": "insert",
+          "kamera": "dolly_in",
+          "isi": "kertas bergaris dengan tulisan tangan miring, sangat dekat",
+          "entitas": null,
+          "sfx": null
+        },
+        {
+          "id": "S7-07",
+          "pemicu": "siapa yang akan mencatat angka rumah kamu",
+          "offset_frame": 3,
+          "ukuran": "wide",
+          "kamera": "pan_right",
+          "isi": "jalan perumahan pagi: di kiri rumah narator, di tengah jalan kosong, di kanan rumah ujung yang pagarnya tertutup",
+          "entitas": null,
+          "sfx": null
+        }
+      ],
+      "reda": false,
+      "catatan": "Payoff: dua meteran mengukur satu rumah. Loop ketiga dibiarkan terbuka."
+    }
+  ]
+}

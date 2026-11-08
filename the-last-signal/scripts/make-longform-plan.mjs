@@ -40,6 +40,14 @@ const narasi = JSON.parse(readFileSync(join(storyDir, "narration.json"), "utf8")
 const peta = JSON.parse(readFileSync(join(storyDir, "visual-map.json"), "utf8"));
 const episodeId = peta.episode;
 
+// Metadata per episode. Dulu judul, deskripsi, dan thumbnail tertulis untuk
+// LL-0002 saja, sehingga episode panjang berikutnya mewarisi judul
+// "Dua Belas Meter yang Hilang". Sekarang tiap episode punya meta.json;
+// nilai di bawah hanya cadangan.
+const metaPath = join(storyDir, "meta.json");
+const meta = existsSync(metaPath) ? JSON.parse(readFileSync(metaPath, "utf8")) : {};
+const visual = meta.segmen ?? {};
+
 /**
  * Kolam gambar: pola pada `isi` → satu berkas. Urutan penting, yang paling
  * spesifik di atas. Kalau tidak ada yang cocok, shot itu dapat berkas sendiri.
@@ -56,6 +64,28 @@ const KOLAM = [
   [["nisan", "makam"], "makam"],
   [["pos kamling", "kamling"], "kamling"],
   [["tripod", "kotak alat", "pita ukur", "alat ukur", "statif"], "peralatan-ukur"],
+  // LL-0003 — kolam gambar meteran: shot yang menunjuk benda sama memakai satu
+  // berkas, lalu dibedakan lewat skala, offset, dan gerak kamera.
+  [["kotak meteran", "meteran berdebu", "meteran rumah kosong", "meteran di dinding samping"], "meteran-kosong"],
+  [["seri meteran", "pelat logam", "angka meteran naik", "deret angka meteran"], "seri-meteran"],
+  [["meteran rumah narator", "meteran rumah saya", "meteran kecil di dinding"], "meteran-rumah"],
+  [["gembok", "pagar gembok", "pagar besi"], "gembok"],
+  [["satu frame gang rt", "fasad rumah kosong", "rumah kosong dari kejauhan", "jalan perumahan pagi", "halaman rumah kakak"], "rumah-kosong"],
+  [["buku catatan", "halaman buku", "kolom angka", "judul halaman"], "buku-catat"],
+  [["ponsel", "layar ponsel", "galeri foto"], "ponsel-foto"],
+  [["bu ratna", "perempuan tua", "wajah bu ratna"], "bu-ratna"],
+  [["stiker", "nama pelanggan"], "stiker-nama"],
+  [["akta lahir"], "akta"],
+  [["radio"], "radio"],
+  [["ketel"], "ketel"],
+  [["celah jendela", "jendela berkardus", "jendela"], "jendela-kardus"],
+  [["tanda tangan", "kertas hasil pindai", "rekap tagihan", "kertas setoran", "kertas pudar", "tiga lembar hasil pindai", "tumpukan amplop"], "dokumen"],
+  [["loket", "ruang loket"], "loket"],
+  [["kotak saklar"], "saklar"],
+  [["kotak surat", "amplop", "kertas bergaris", "tulisan tangan miring"], "surat"],
+  [["gang perumahan", "warung", "rumah narator", "ruang tamu", "dapur"], "rumah"],
+  [["jam dinding"], "jam-dinding"],
+  [["mata narator", "punggung narator", "tangan narator"], "narator"],
   // orang yang berulang (wajah tetap tidak boleh terlihat penuh)
   [["mang karta", "pria tua bertopi", "wajah pria tua", "mulut pria tua", "kepala pria tua"], "mang-karta"],
   [["pak hadi", "pria tua berpeci", "punggung pak hadi"], "pak-hadi"],
@@ -183,10 +213,12 @@ const segments = peta.segmen.map((seg) => {
     id: seg.id,
     narration: n.paragraf.join("\n\n"),
     imagePrompt: seg.shots[0]?.isi ?? n.judul,
-    lighting: CAHAYA[seg.id] ?? "low_key_practical",
-    intensity: seg.id === "S2" || seg.id === "S8" ? 0.82 : seg.id === "S7" ? 0.35 : 0.6,
-    effects: EFEK[seg.id] ?? EFEK.default,
-    ambienceVolume: seg.id === "S7" ? 0.22 : 0.3,
+    lighting: visual[seg.id]?.lighting ?? CAHAYA[seg.id] ?? "low_key_practical",
+    intensity:
+      visual[seg.id]?.intensity ??
+      (seg.id === "S2" || seg.id === "S8" ? 0.82 : seg.id === "S7" ? 0.35 : 0.6),
+    effects: visual[seg.id]?.effects ?? EFEK[seg.id] ?? EFEK.default,
+    ambienceVolume: visual[seg.id]?.ambienceVolume ?? (seg.id === "S7" ? 0.22 : 0.3),
     sfx: [],
     shots,
   };
@@ -194,30 +226,19 @@ const segments = peta.segmen.map((seg) => {
 
 const plan = {
   episodeId,
-  title: narasi.judul,
+  title: meta.title ?? narasi.judul,
   subgenre: "Long-form narration",
-  experiment:
-    "Satu bidang tanah, satu selisih dua belas meter persegi. Horornya dari dokumen, bukan dari kegelapan.",
-  structure: "pekerjaan → tawaran → kejanggalan → arsip → sebab manusia → tindakan",
-  story: {
-    hook: "Kurang dua belas meter.",
-    premise:
-      "Juru ukur tanah mengukur satu bidang dan hasilnya selalu kurang dua belas meter persegi — persis seluas makam yang namanya dihapus dari Buku C desa.",
-    twist: "Selisihnya bukan perbuatan makhluk; ayahnya sudah mencatat angka yang sama dua puluh satu tahun lalu.",
-    ending:
-      "Ia menanam patok di tepi makam, mengecualikan dua belas meter di berita acara, dan mengembalikan uang muka. Sehari kemudian ada patok kecil di atas nisan yang bukan miliknya.",
-  },
+  experiment: meta.experiment ?? "",
+  structure: meta.structure ?? "",
+  story: meta.story ?? {},
   cards: [{ text: peta.hook_card?.teks ?? "", at: 0 }],
   youtube: {
-    title: arg("judul", "Dua Belas Meter yang Hilang"),
-    description: arg(
-      "deskripsi",
-      "Tanah yang saya ukur kurang dua belas meter persegi. Tiga juru ukur sebelum saya mendapat angka yang sama.",
-    ),
-    tags: ["cerita horor", "horor indonesia", "juru ukur tanah", "cerita seram", "kisah nyata"],
-    pinComment: arg("komentar", "Kalau kamu jadi saya: tulis angka yang diminta, atau angka yang benar?"),
+    title: arg("judul", meta.youtube?.title ?? narasi.judul),
+    description: arg("deskripsi", meta.youtube?.description ?? ""),
+    tags: meta.youtube?.tags ?? ["cerita horor", "horor indonesia", "cerita seram", "kisah nyata"],
+    pinComment: arg("komentar", meta.youtube?.pinComment ?? ""),
   },
-  thumbnail: { headline: "KURANG 12 M²", kicker: "Tanah ini tidak bisa diukur" },
+  thumbnail: meta.thumbnail ?? { headline: "", kicker: "" },
   cta: meta.cta ?? { card: "Tulis jawabanmu di komentar", holdFrames: 90 },
   // Transisi antar scene: diisi tangan di meta.json (satu per sambungan),
   // karena yang tahu perpindahan mana yang harus terasa epik adalah naskah,

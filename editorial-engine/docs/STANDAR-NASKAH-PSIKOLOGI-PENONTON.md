@@ -1,6 +1,6 @@
 # Standar naskah: psikologi penonton pada setiap kalimat
 
-Arahan pengguna untuk **naskah baru dan revisi berikutnya**. Standar ini melengkapi [standar produksi](../../STANDARD-MINIMAL-CONTENT-PRODUCTION.md) dan [opening klimaks](STANDAR-OPENING-KLIMAKS-DI-AWAL.md); tidak mengubah konten yang sudah terbit atau terjadwal. Teknik berikut adalah metode kerja kreatif, bukan bukti ilmiah bahwa penonton pasti merespons dengan cara tertentu atau bahwa sebuah video akan ramai.
+Arahan pengguna untuk **naskah baru dan revisi berikutnya**. Standar ini melengkapi [standar produksi](../../STANDARD-MINIMAL-CONTENT-PRODUCTION.md), [opening klimaks](STANDAR-OPENING-KLIMAKS-DI-AWAL.md), dan [baseline perilaku audiens](STANDAR-BASELINE-PERILAKU-AUDIENS.md); tidak mengubah konten yang sudah terbit atau terjadwal. Teknik berikut adalah metode kerja kreatif, bukan bukti ilmiah bahwa penonton pasti merespons dengan cara tertentu atau bahwa sebuah video akan ramai.
 
 ## Janji untuk penonton
 

@@ -1,0 +1,26 @@
+name: Chicago - bounded Commons originals to private Drive
+
+# This is a single fixed source batch, only after an explicit marker commit.
+# Never posts, schedules, changes Drive permissions or downloads Coverr media.
+on:
+  push:
+    branches: [arena/54cb36c6-content-creator]
+    paths:
+      - '.github/workflows/chicago-commons-private.yml'
+      - 'editorial-engine/pipeline/chicago-banjir-bawah-1992/commons-relay/**'
+permissions:
+  contents: read
+  checks: write
+jobs:
+  relay:
+    if: ${{ contains(github.event.head_commit.message, '[chicago-commons-private-relay]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Offline security tests
+        run: node --test editorial-engine/pipeline/chicago-banjir-bawah-1992/commons-relay/test-relay.mjs editorial-engine/pipeline/coverr-rupert/test-direct-drive-relay.mjs
+      - name: Verify and transfer the fixed Commons batch
+        run: node editorial-engine/pipeline/chicago-banjir-bawah-1992/commons-relay/relay.mjs

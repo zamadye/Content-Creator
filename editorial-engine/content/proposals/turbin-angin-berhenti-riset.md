@@ -31,6 +31,23 @@ Kueri `wind turbine` mengembalikan 7 hasil, tetapi satu bertema pemandangan jend
 
 **NEEDS REVIEW:** enam kandidat bukan bukti bahwa footage yang siap digunakan melimpah. Unduhan/pemutaran, durasi, gerak, variasi, kecocokan framing 9:16, hak penggunaan/atribusi API dan mekanisme tracking belum diperiksa untuk klip ini. Metadata landscape 4K tidak menjamin crop vertikal tetap memperlihatkan seluruh turbin. Pada eksperimen sebelumnya, PATCH tracking mengembalikan 404; jangan menganggap masalah tersebut sudah selesai. Jangan mengunduh tanpa persetujuan yang diperlukan.
 
+### Kandidat tambahan di luar Coverr
+
+Penelusuran web menemukan halaman video Pexels berikut; ini metadata halaman hasil indeks, **bukan** hasil API Coverr dan belum ada unduhan atau pemeriksaan visual. Belum diketahui apakah ada materi duplikat lintas penyedia.
+
+| Halaman video | Metadata yang ditemukan |
+|---|---|
+| [Drone Footage of Wind Turbines](https://www.pexels.com/video/drone-footage-of-wind-turbines-10514722/) | 3840×2160, 37 detik |
+| [Video of Wind Turbines](https://www.pexels.com/video/video-of-a-wind-turbines-9789833/) | 3840×2160, 14 detik |
+| [Wind Turbines Spinning in Clear Blue Sky](https://www.pexels.com/video/wind-turbines-spinning-in-clear-blue-sky-37225620/) | 3840×2160, 25 detik |
+| [Wind Turbines on Rural Fields](https://www.pexels.com/video/wind-turbines-on-rural-fields-11218993/) | 3840×2160, 47 detik |
+| [Wind Turbines at a Desert](https://www.pexels.com/video/wind-turbines-at-a-desert-9320548/) | 3840×2160, 49 detik |
+| [Wind Turbines Spinning on a Breezy Day](https://www.pexels.com/video/wind-turbines-spinning-on-a-breezy-day-33677336/) | 2160×3840 vertikal, 6 detik |
+| [Aerial View of Wind Turbine](https://www.pexels.com/video/aerial-view-of-wind-turbine-11208878/) | 3840×2160, 33 detik |
+| [Video of a Windmill](https://www.pexels.com/video/video-of-a-windmill-9136350/) | 3840×2160, 28 detik; deskripsi menyebut turbin angin |
+
+[Pexels License](https://www.pexels.com/license/) secara umum mengizinkan penggunaan dan modifikasi gratis, termasuk komersial, serta membatasi redistribusi dan dukungan tersirat. **NEEDS REVIEW:** periksa lisensi dan hak pihak ketiga per aset serta framing, gerak, dan kesesuaiannya sebelum digunakan. Ini alternatif tambahan, bukan pengganti bukti dan alur Coverr yang sudah terhubung.
+
 ## Kebaruan dan alternatif
 
 Penelusuran awal berbahasa Indonesia menemukan [artikel penjelasan turbin](https://explorehall.com/id/how/wind-turbine/) yang sudah membahas penghentian; jadi fenomena ini bukan penemuan baru. Hasil awal lebih banyak berisi artikel/penjelasan teknis dibanding video pendek berbahasa Indonesia tentang pertanyaan yang sama, tetapi penelusuran bukan survei popularitas platform dan tidak membuktikan topik ini belum ramai. POV dan eksekusi tetap perlu dibedakan.

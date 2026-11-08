@@ -12,7 +12,7 @@ Video yang siap dijadwalkan dikirim **sekarang** ke Buffer dengan `customSchedul
 
 ## Data privat dan gerbang
 
-1. Siapkan video dan paket di Drive privat, lakukan QA fakta, hak, teknis serta pemeriksaan manusia penuh. `PASS` harus berasal dari review nyata, bukan dibuat otomatis. Bila ada `FAIL`, `NEEDS REVIEW` atau `NOT TESTED`, jangan kirim.
+1. Siapkan video dan paket di Drive privat, lakukan QA fakta, hak, teknis serta pemeriksaan manusia penuh. Untuk naskah baru/revisi, QA manusia mencakup [audit per kalimat dan psikologi penonton](../../docs/STANDAR-NASKAH-PSIKOLOGI-PENONTON.md); `PASS` harus berasal dari review nyata, bukan dibuat otomatis. Bila ada `FAIL`, `NEEDS REVIEW` atau pemeriksaan wajib `NOT TESTED`, jangan kirim. Respons audiens aktual dicatat terpisah dan tidak diasumsikan; pemeriksaan mekanis tidak membuktikannya.
 2. Pastikan tanggal/jam WIB dan kanal yang dimaksud jelas, jarak semua posting minimal dua jam, sumber media adalah salinan berizin yang stabil, dan aturan label AI telah ditinjau per platform. Workflow ini mendukung Facebook Reel dan YouTube; TikTok/Instagram memerlukan pengembangan dan tes tersendiri. Tidak ada pengecualian waktu otomatis: bila pengguna menyetujui pengecualian baru, implementasi harus disesuaikan dan dites dahulu.
 3. Buat JSON **hanya dalam** `editorial-engine/deliverables/buffer-batch/private/` (diabaikan Git), misalnya dengan bentuk berikut. Nilai contoh dalam kurung adalah deskripsi, bukan ID, URL atau jadwal nyata. `prepare.mjs` membuat nonce; tidak perlu menaruh nonce sendiri.
 

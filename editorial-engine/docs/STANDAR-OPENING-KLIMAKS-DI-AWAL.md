@@ -13,7 +13,7 @@
 5. **Baru mulai cerita.** Setelah cut, kembali ke titik awal yang paling relevan: orientasi seperlunya, tindakan, petunjuk dan sebab-akibat. Setiap bagian menambah informasi. Gunakan satu kilas puncak singkat dan satu alur utama yang jelas, bukan dua linimasa yang saling bersaing; bila cuplikan hanyalah ilustrasi, jangan mengesankannya sebagai rekaman kejadian nyata.
 6. **Bayar janji pembuka.** Cerita mencapai atau merujuk kembali ke momen puncak, lalu menjawab pertanyaan yang dibuka dengan penjelasan dan batas fakta. Tutup dengan perubahan pemahaman yang mudah diingat dan CTA yang alami; teks akhir dan narasi tetap **`ikuti knot theory`**, dibaca sebagai kata-kata.
 
-Durasi tiap bagian ditentukan oleh kebutuhan cerita dan hasil uji baca; tidak ada kewajiban jumlah adegan atau kata. Jaga keselarasan headline, tagline/thumbnail, entitas visual dan kalimat pertama. Setiap kalimat tetap memiliki padanan visual konkret; setiap scene memiliki minimal dua objek dalam `objectMap` sesuai standar produksi.
+Durasi tiap bagian ditentukan oleh kebutuhan cerita dan hasil uji baca; tidak ada kewajiban jumlah adegan atau kata. Jaga keselarasan headline, tagline/thumbnail, entitas visual dan kalimat pertama. Setiap kalimat tetap memiliki padanan visual konkret; setiap scene memiliki minimal dua objek dalam `objectMap` sesuai standar produksi. Selain hook, audit setiap kalimat untuk fungsi, kemungkinan pertanyaan penonton, rasa dekat, bukti, transisi dan pilihan kata sesuai [standar naskah psikologi penonton](STANDAR-NASKAH-PSIKOLOGI-PENONTON.md); jawaban tetap harus membayar janji pembuka.
 
 ## Contoh sketsa — bukan video baru atau izin publikasi
 

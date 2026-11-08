@@ -9,6 +9,7 @@ Mulai dengan entitas utama yang terlihat sejak frame 0 dan cuplikan momen puncak
 ## Suara dan visual
 
 - Ceritakan dengan Bahasa Indonesia percakapan yang enak didengar satu kali. Gunakan satu narasi `voice-05` perempuan; dengarkan hasil dan pelafalan, bukan sekadar memeriksa input teks.
+- Setiap kalimat harus punya fungsi dan kemungkinan pertanyaan/dugaan penonton yang relevan. Kaitkan cerita dengan pengalaman atau pengamatan yang masuk akal, pertimbangkan pilihan kata dan jawab janji cerita; jangan memaksa setiap kalimat menjadi pertanyaan atau menganggap semua orang punya pengalaman yang sama. Audit dan review manusia mengikuti [standar naskah](editorial-engine/docs/STANDAR-NASKAH-PSIKOLOGI-PENONTON.md).
 - Host animasi konsisten dengan referensi yang disetujui, aktif menunjuk, memegang, bereaksi dan berinteraksi dengan objek nyata dalam lingkungan yang relevan. Setiap adegan memetakan minimal dua objek; tiap kalimat narasi punya padanan visual konkret. Gerak harus membawa informasi.
 - Variasikan topik, warna, komposisi, tempo dan cara mewujudkan struktur pembuka wajib. Jangan membuat ulang lima scene generik yang pernah ditolak, atau menganggap templat apa pun sebagai bukti mutu. Danau di Dalam Laut adalah referensi mendetail; Antartika v2 adalah contoh revisi yang disetujui, bukan jaminan semua episode baru otomatis diterima.
 - Akhiri dengan teks persis **`ikuti knot theory`** dalam huruf kecil; narasi mengucapkan namanya sebagai kata-kata. CTA dapat didahului ajakan komentar yang relevan tanpa mengorbankan kesimpulan.

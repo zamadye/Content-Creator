@@ -9,6 +9,7 @@ Panduan dan source nonrahasia untuk Shorts Indonesia yang mengejutkan, dapat dit
 - [Fondasi editorial](EDITORIAL-FONDATION.md)
 - [Standar minimum produksi dan QA](STANDARD-MINIMAL-CONTENT-PRODUCTION.md)
 - [Struktur wajib: entitas, klimaks awal dan cut](editorial-engine/docs/STANDAR-OPENING-KLIMAKS-DI-AWAL.md)
+- [Audit setiap kalimat: rasa dekat, psikologi penonton dan pilihan kata](editorial-engine/docs/STANDAR-NASKAH-PSIKOLOGI-PENONTON.md) · [cek mekanis cakupan naskah](editorial-engine/pipeline/script-review/README.md)
 - [Gaya narasi Indonesia](NATURAL-INDONESIAN-WRITING-HUMAN-VOICE.md)
 - [Cadangan, privasi, dan checkpoint](KEBIJAKAN-CADANGAN-ANTI-RESET.md)
 - Contoh source/pipeline yang dipertahankan: `editorial-engine/pipeline/hiu-sebelum-hutan-2026/` dan `editorial-engine/pipeline/interactive-antartika-v2/`. Keduanya butuh input privat; baca README setempat sebelum menjalankan. Uji ulang setelah perubahan dan jangan anggap output baru telah disetujui.

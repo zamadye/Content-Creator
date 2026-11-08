@@ -8,7 +8,7 @@ from urllib.error import HTTPError,URLError
 from urllib.parse import urlencode
 from urllib.request import Request,build_opener
 spec=importlib.util.spec_from_file_location('coverr_safe',Path(__file__).parents[1]/'coverr-search-test.py');safe=importlib.util.module_from_spec(spec);spec.loader.exec_module(safe)
-QUERIES=['prince rupert','glassblowing','molten glass','glass factory','glass hammer','shattering glass','broken glass','science laboratory','glass production']
+QUERIES=['glass blowing','glass artist','glass maker','glass melting','glass fire','test tube','furnace','molten','glass breaking','laboratory glass','chemist','scientist laboratory','glass workshop']
 PAGE_SIZE=8
 
 def summarize(data,query,key):

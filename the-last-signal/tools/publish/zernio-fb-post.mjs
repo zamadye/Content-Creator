@@ -54,10 +54,24 @@ function loadPlan(path) {
   return { path, raw };
 }
 
+/**
+ * Jalur boleh ditulis relatif terhadap direktori kerja (cara workflow memanggil
+ * skrip, yaitu dari tools/publish) atau terhadap akar repo (cara berkas rencana
+ * menulis asetnya: `the-last-signal/...`). Dua kandidat dicoba berurutan — dulu
+ * hanya cwd, sehingga `--dir the-last-signal/fb-posts` mencari folder yang tidak
+ * pernah ada di dalam tools/publish.
+ */
+function resolvePath(value) {
+  if (isAbsolute(value)) return value;
+  const fromRepo = resolve(REPO_ROOT, value);
+  if (existsSync(fromRepo)) return fromRepo;
+  return resolve(process.cwd(), value);
+}
+
 function collectPlans() {
   const dir = arg("dir");
   if (dir) {
-    const abs = isAbsolute(dir) ? dir : resolve(process.cwd(), dir);
+    const abs = resolvePath(dir);
     if (!existsSync(abs)) fail(`folder rencana tidak ada: ${abs}`);
     return readdirSync(abs)
       .filter((f) => f.endsWith(".json"))
@@ -66,14 +80,14 @@ function collectPlans() {
   }
   const plan = arg("plan");
   if (!plan) fail("Pakai: --plan <berkas.json> atau --dir <folder>");
-  const abs = isAbsolute(plan) ? plan : resolve(process.cwd(), plan);
+  const abs = resolvePath(plan);
   if (!existsSync(abs)) fail(`berkas rencana tidak ada: ${abs}`);
   return [loadPlan(abs)];
 }
 
 /** Jalur aset di dalam rencana relatif terhadap akar repo. */
 function resolveAsset(rel) {
-  const abs = isAbsolute(rel) ? rel : resolve(REPO_ROOT, rel);
+  const abs = resolvePath(rel);
   if (!existsSync(abs)) fail(`aset tidak ada: ${rel}`);
   return abs;
 }

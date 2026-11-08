@@ -10,5 +10,10 @@
   "firstComment": "Spion tengah itu yang paling tidak masuk akal buat saya. Tidak ada yang menyetelnya kecuali orang yang duduk di kursi saya.",
   "scheduledFor": "2026-11-09T07:35:00",
   "timezone": "Asia/Makassar",
-  "metadata": { "episodeId": "LS-0015", "slot": "pagi", "platform": "facebook" }
+  "metadata": {
+    "episodeId": "LS-0015",
+    "slot": "pagi",
+    "platform": "facebook"
+  },
+  "catatan": "jalur folder diperbaiki 8 Nov (runner mencari relatif ke akar repo)"
 }

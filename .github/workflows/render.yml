@@ -275,4 +275,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f "the-last-signal/releases/$EPISODE.mp4"
           git commit -m "rilis: $EPISODE ($(du -h "the-last-signal/releases/$EPISODE.mp4" | cut -f1))" || echo "tidak ada perubahan"
-          git push
+          # Render berjalan belasan menit; selama itu cabang sering sudah bergerak
+          # (status antrean, catatan, gerbang). Push tanpa rebase gagal dengan
+          # non-fast-forward dan rilisnya hilang padahal QC sudah hijau — itu yang
+          # terjadi pada LS-0016. Rebase dulu, baru push.
+          git pull --rebase --autostash origin "${{ github.ref_name }}" || echo "::warning::rebase gagal"
+          git push || echo "::error::push rilis gagal — jalankan mode=encode untuk menyalin ulang dari master"

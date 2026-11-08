@@ -136,6 +136,8 @@ async function main(){
  let dir,checkId,success=false;
  try{
   if(id!=='azy1Cd1ZeQ'||!key||!token||process.env.GITHUB_REPOSITORY!==REPO||!/^[0-9]+$/.test(run_id))throw new RelayError('MISSING_OR_UNAPPROVED_INPUT');
+  // Fail before consuming API requests if the runner toolchain is unavailable.
+  if(spawnSync('ffprobe',['-version'],{stdio:'ignore',timeout:10000}).status!==0)throw new RelayError('FFPROBE_MISSING');
   dir=fs.mkdtempSync(path.join(os.tmpdir(),'coverr-private-'));fs.chmodSync(dir,0o700);const source=path.join(dir,'source.mp4');
   const original=await coverrApi(id,key),candidate=checkCandidate(original,id,key),tracking=await track(id,key);
   const bytes=await download(candidate.mediaUrl,source),video=probe(source);

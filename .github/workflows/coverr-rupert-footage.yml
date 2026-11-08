@@ -63,6 +63,14 @@ jobs:
       - uses: actions/checkout@v5
       - name: Test the private relay and cryptography
         run: node --test editorial-engine/pipeline/coverr-rupert/test-direct-drive-relay.mjs editorial-engine/pipeline/coverr-transfer/test-transfer.mjs editorial-engine/pipeline/drive-relay/test-relay.mjs
+      - name: Install isolated FFprobe for source inspection
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix "$RUNNER_TEMP/coverr-toolchain" --ignore-scripts --no-audit --no-fund --no-package-lock ffprobe-static@3.1.0
+          FFPROBE_BIN="$RUNNER_TEMP/coverr-toolchain/node_modules/ffprobe-static/bin/linux/x64"
+          "$FFPROBE_BIN/ffprobe" -version >/dev/null
+          echo "$FFPROBE_BIN" >> "$GITHUB_PATH"
       - name: Fetch one approved original and send to private Drive
         shell: bash
         run: |

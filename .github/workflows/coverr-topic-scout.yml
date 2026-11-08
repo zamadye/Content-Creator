@@ -1,0 +1,32 @@
+name: Coverr topic footage scout (read only)
+# Authorized by the current request to find topics with plentiful footage.
+# Push marker required: no schedule, download, publish, or Buffer calls.
+on:
+  push:
+    branches: [arena/54cb36c6-content-creator]
+    paths:
+      - '.github/workflows/coverr-topic-scout.yml'
+      - 'editorial-engine/pipeline/coverr-topic-scout/**'
+permissions:
+  contents: read
+jobs:
+  scout:
+    if: ${{ contains(github.event.head_commit.message, '[approved-coverr-topic-search]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Offline safety and search tests
+        run: |
+          python3 editorial-engine/pipeline/coverr-rupert/test-search.py
+          python3 editorial-engine/pipeline/coverr-topic-scout/test-scout.py
+      - name: Search sanitized stock metadata
+        env:
+          COVERR_SECRET: ${{ secrets.COVERR_API_KEY || secrets.COVERR_VIDEO_API_KEY || secrets.COVERR_KEY }}
+          COVERR_VAR: ${{ vars.COVERR_API_KEY || vars.COVERR_VIDEO_API_KEY || vars.COVERR_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export COVERR_API_KEY="${COVERR_SECRET:-$COVERR_VAR}"
+          if [ -n "$COVERR_API_KEY" ]; then echo "::add-mask::$COVERR_API_KEY"; fi
+          python3 editorial-engine/pipeline/coverr-topic-scout/scout.py

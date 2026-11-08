@@ -1,0 +1,84 @@
+{
+  "episodeId": "LS-0015",
+  "title": "Pukul Empat Pagi, Mobil Saya Keluar",
+  "format": "short_9x16",
+  "subgenre": "Institutional horror",
+  "experiment": "Uji format 8 Nov: klimaks dibuka di 2 detik pertama (verbal + entitas visual di frame pertama), potong di titik pertanyaan (detik ~10), baru cerita berjalan dari awal; frame terakhir = frame pertama (loop).",
+  "structure": "klimaks 04.00 + entitas → pengemudi bukan saya → POTONG: 'jadi siapa?' → karcis → kursi → mesin → bensin & rambut → minta rekaman → satpam sebut nama → rambut saya pendek (loop ke frame 1) + CTA",
+  "story": {
+    "title": "Pukul Empat Pagi, Mobil Saya Keluar",
+    "hook": "Pukul empat pagi mobil saya keluar dari basement, dan tidak ada saya di dalamnya",
+    "premise": "Rekaman kamera basement memperlihatkan mobil narator keluar pukul empat pagi dengan pengemudi berambut panjang; sepanjang sebulan sebelumnya karcis parkirnya tercetak satu jam lebih awal, kursi kemudi mundur, dan bensin berkurang.",
+    "twist": "Mobil itu dipakai orang lain setiap pagi memakai identitas narator — satpam mengenali narator sebagai pria berambut panjang, padahal rambut narator pendek.",
+    "ending": "Narator menyebut rambutnya pendek, lalu menanyakan ke penonton apakah ia akan naik ke mobil itu pada pagi berikutnya."
+  },
+  "scenes": [
+    {
+      "segmen": "S1",
+      "kata": 13,
+      "narasi": "Pukul empat pagi, mobil saya keluar dari basement. Tidak ada saya di dalamnya."
+    },
+    {
+      "segmen": "S2",
+      "kata": 5,
+      "narasi": "Pengemudinya bukan saya. Rambutnya panjang."
+    },
+    {
+      "segmen": "S3",
+      "kata": 11,
+      "narasi": "Saya baru sampai jam tujuh. Jadi siapa yang masuk jam empat?"
+    },
+    {
+      "segmen": "S4",
+      "kata": 9,
+      "narasi": "Karcis parkir saya selalu tercetak satu jam lebih awal."
+    },
+    {
+      "segmen": "S5",
+      "kata": 9,
+      "narasi": "Kursi kemudi selalu mundur. Punggungnya lebih tinggi dari saya."
+    },
+    {
+      "segmen": "S6",
+      "kata": 11,
+      "narasi": "Saya kira mesinnya rusak. Satpam bilang mesinnya baru diganti bulan lalu."
+    },
+    {
+      "segmen": "S7",
+      "kata": 9,
+      "narasi": "Bensin berkurang tiap Jumat. Ada rambut di sandaran kepala."
+    },
+    {
+      "segmen": "S8",
+      "kata": 8,
+      "narasi": "Saya minta rekaman basement. Petugasnya butuh dua hari."
+    },
+    {
+      "segmen": "S9",
+      "kata": 11,
+      "narasi": "Satpam menyebut nama saya dengan santai. Katanya, pria itu berambut panjang."
+    },
+    {
+      "segmen": "S10",
+      "kata": 12,
+      "narasi": "Rambut saya pendek. Kamu akan naik ke mobil itu? Tulis di komentar."
+    }
+  ],
+  "youtube": {
+    "title": "Pukul Empat Pagi, Mobil Saya Keluar Sendiri",
+    "description": "Rekaman kamera basement menunjukkan mobil saya keluar pukul empat pagi. Saya baru sampai jam tujuh.\n\nSebelum itu, karcis parkir saya selalu tercetak satu jam lebih awal. Kursi kemudi selalu mundur, sejauh punggung yang lebih tinggi dari saya. Bensin berkurang tiap Jumat, dan ada rambut panjang di sandaran kepala, padahal rambut saya pendek.\n\nSaya kira mesin karcisnya rusak. Satpam bilang mesinnya baru diganti bulan lalu.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "karcis parkir",
+      "cerita seram",
+      "rekaman cctv"
+    ],
+    "pinComment": "Kalau rekaman itu memperlihatkan mobilmu sendiri, kamu masih akan naik?"
+  },
+  "thumb": {
+    "headline": "MOBIL SAYA JALAN PUKUL EMPAT PAGI",
+    "kicker": "pengemudinya bukan saya"
+  },
+  "catatan": "Format 8 Nov: klimaks (rekaman 04.00) di depan sebagai entitas visual frame pertama, potong di titik pertanyaan detik ~10, lalu cerita dari awal; penutup mengulang arti frame pertama."
+}

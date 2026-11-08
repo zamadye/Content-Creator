@@ -1,0 +1,102 @@
+[
+  {
+    "berkas": "images/scene-01.jpg",
+    "segmen": "S1",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, grainy black-and-white parking garage security camera footage, a person with long dark hair in a heavy jacket stepping out of an old hatchback, seen from behind and three-quarters, face turned away from camera, the figure fills the left two thirds of frame beside the open car door, harsh ceiling light blowing out highlights, concrete pillar and empty basement bays behind, heavy grain, high contrast, documentary CCTV realism, no timestamp, no numbers, no letters, no burned-in text anywhere, no watermark",
+    "pemicu": [
+      "Pukul empat pagi, mobil saya keluar dari basement."
+    ]
+  },
+  {
+    "berkas": "images/scene-02.jpg",
+    "segmen": "S2",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, grainy black-and-white security camera view of a dim basement ramp, a single old hatchback descending with headlights cutting through dust, empty parking bays on both sides, heavy grain, high contrast, documentary CCTV realism, no timestamp, no numbers, no burned-in text, no watermark, no visible face",
+    "pemicu": [
+      "Pengemudinya bukan saya."
+    ]
+  },
+  {
+    "berkas": "images/scene-03.jpg",
+    "segmen": "S3",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, extreme close-up of a hand holding a printed parking ticket inside a dim concrete basement, ticket damp and slightly crumpled, a single long strand of hair caught on its edge, harsh fluorescent light from above, faded parking lines and a concrete pillar behind, muted greenish palette, 35mm grain, documentary realism, printed digits blurred and unreadable, no readable text, no watermark, no face",
+    "pemicu": [
+      "Saya baru sampai jam tujuh."
+    ]
+  },
+  {
+    "berkas": "images/scene-04.jpg",
+    "segmen": "S4",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a worn leather wallet open on a car dashboard holding a damp parking ticket, a long dark strand of hair lying across the paper, dim basement light through the windshield, shallow depth of field, muted greenish palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark, no people",
+    "pemicu": [
+      "Karcis parkir saya selalu tercetak satu jam lebih awal."
+    ]
+  },
+  {
+    "berkas": "images/scene-05.jpg",
+    "segmen": "S5",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, interior of an old Indonesian hatchback seen from the open driver door, driver seat pushed far back, worn seat cover, steering wheel with a beaded cover, dim basement light through the windshield, dust in the air, muted palette, 35mm grain, documentary realism, no faces, no text, no watermark",
+    "pemicu": [
+      "Kursi kemudi selalu mundur."
+    ]
+  },
+  {
+    "berkas": "images/scene-06.jpg",
+    "segmen": "S6",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, an old parking ticket machine mounted on a concrete wall in a basement, freshly installed metal casing, faint receipt sticking out, dim fluorescent light, puddle reflection on the floor, muted palette, 35mm grain, documentary realism, screen and digits blurred, no readable text, no watermark, no people",
+    "pemicu": [
+      "Saya kira mesinnya rusak."
+    ]
+  },
+  {
+    "berkas": "images/scene-07.jpg",
+    "segmen": "S7",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical extreme close-up film still, a long dark strand of hair caught on the fabric of a car headrest, shallow depth of field, dust and worn upholstery, dim basement light from the side, muted greenish palette, 35mm grain, documentary realism, no text, no watermark, no people",
+    "pemicu": [
+      "Bensin berkurang tiap Jumat."
+    ]
+  },
+  {
+    "berkas": "images/scene-08.jpg",
+    "segmen": "S8",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, a security post window at night seen from outside, a small CRT monitor glowing inside with grey static, desk cluttered with logbooks, warm desk lamp against cold corridor light, muted palette, 35mm grain, documentary realism, screen blurred, no readable text, no watermark, faces not visible",
+    "pemicu": [
+      "Saya minta rekaman basement."
+    ]
+  },
+  {
+    "berkas": "images/scene-09.jpg",
+    "segmen": "S9",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, an old security guard's hands holding a clipboard with a worn RFID parking card clipped to it, dim post window light, uniform sleeve, shallow depth of field, muted palette, 35mm grain, documentary realism, card photo and text blurred, no readable text, no watermark, no visible face",
+    "pemicu": [
+      "Satpam menyebut nama saya dengan santai."
+    ]
+  },
+  {
+    "berkas": "images/scene-10.jpg",
+    "segmen": "S10",
+    "aspek": "9:16",
+    "jumlah_shot": 1,
+    "prompt": "cinematic 9:16 vertical film still, grainy black-and-white parking garage security camera footage, a person with long dark hair in a heavy jacket stepping out of an old hatchback, seen from behind and three-quarters, face turned away from camera, the figure fills the left two thirds of frame beside the open car door, harsh ceiling light blowing out highlights, concrete pillar and empty basement bays behind, heavy grain, high contrast, documentary CCTV realism, no timestamp, no numbers, no letters, no burned-in text anywhere, no watermark",
+    "pemicu": [
+      "Rambut saya pendek."
+    ]
+  }
+]

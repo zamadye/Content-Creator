@@ -1,0 +1,99 @@
+{
+  "episode": "LS-0015",
+  "judul": "Pukul Empat Pagi, Mobil Saya Keluar",
+  "format": "short_9x16",
+  "total_kata": 98,
+  "estimasi_detik": 44.5,
+  "segmen": [
+    {
+      "id": "S1",
+      "segmen": 1,
+      "judul": "Pukul empat pagi, mobil saya keluar dari basement",
+      "paragraf": [
+        "Pukul empat pagi, mobil saya keluar dari basement. Tidak ada saya di dalamnya."
+      ],
+      "kata": 13
+    },
+    {
+      "id": "S2",
+      "segmen": 2,
+      "judul": "Pengemudinya bukan saya",
+      "paragraf": [
+        "Pengemudinya bukan saya. Rambutnya panjang."
+      ],
+      "kata": 5
+    },
+    {
+      "id": "S3",
+      "segmen": 3,
+      "judul": "Saya baru sampai jam tujuh",
+      "paragraf": [
+        "Saya baru sampai jam tujuh. Jadi siapa yang masuk jam empat?"
+      ],
+      "kata": 11
+    },
+    {
+      "id": "S4",
+      "segmen": 4,
+      "judul": "Karcis parkir saya selalu tercetak satu jam lebih awal",
+      "paragraf": [
+        "Karcis parkir saya selalu tercetak satu jam lebih awal."
+      ],
+      "kata": 9
+    },
+    {
+      "id": "S5",
+      "segmen": 5,
+      "judul": "Kursi kemudi selalu mundur",
+      "paragraf": [
+        "Kursi kemudi selalu mundur. Punggungnya lebih tinggi dari saya."
+      ],
+      "kata": 9
+    },
+    {
+      "id": "S6",
+      "segmen": 6,
+      "judul": "Saya kira mesinnya rusak",
+      "paragraf": [
+        "Saya kira mesinnya rusak. Satpam bilang mesinnya baru diganti bulan lalu."
+      ],
+      "kata": 11
+    },
+    {
+      "id": "S7",
+      "segmen": 7,
+      "judul": "Bensin berkurang tiap Jumat",
+      "paragraf": [
+        "Bensin berkurang tiap Jumat. Ada rambut di sandaran kepala."
+      ],
+      "kata": 9
+    },
+    {
+      "id": "S8",
+      "segmen": 8,
+      "judul": "Saya minta rekaman basement",
+      "paragraf": [
+        "Saya minta rekaman basement. Petugasnya butuh dua hari."
+      ],
+      "kata": 8
+    },
+    {
+      "id": "S9",
+      "segmen": 9,
+      "judul": "Satpam menyebut nama saya dengan santai",
+      "paragraf": [
+        "Satpam menyebut nama saya dengan santai. Katanya, pria itu berambut panjang."
+      ],
+      "kata": 11
+    },
+    {
+      "id": "S10",
+      "segmen": 10,
+      "judul": "Rambut saya pendek",
+      "paragraf": [
+        "Rambut saya pendek. Kamu akan naik ke mobil itu? Tulis di komentar."
+      ],
+      "kata": 12
+    }
+  ]
+}

@@ -4,13 +4,13 @@
 
 ## Janji kepada penonton
 
-Beri penonton satu gambar atau peristiwa yang nyata, pertanyaan yang bermakna, petunjuk yang berkembang, lalu penjelasan yang mengubah cara melihatnya. Kejutannya harus didukung sumber dan batas yang jelas; rasa ingin tahu tidak boleh dibeli dengan pernyataan palsu, rahasia palsu atau penjelasan yang sengaja ditunda tanpa nilai.
+Mulai dengan entitas utama yang terlihat sejak frame 0 dan cuplikan momen puncak. Kalimat pertama langsung berupa pertanyaan, fakta terverifikasi atau situasi konkret yang memunculkan rasa ingin tahu. Cut pada titik yang membuat penonton bertanya, lalu mulai cerita, kembangkan petunjuk dan sebab-akibat, kembali ke puncak, dan jawab pertanyaan dengan penjelasan yang mengubah cara melihatnya. Ini satu alur utama dengan cuplikan pembuka singkat, bukan dua linimasa yang bersaing. Kejutan harus didukung sumber dan batas yang jelas; jangan membuat pernyataan palsu atau menunda penjelasan tanpa memberi nilai. Lihat [standar opening](editorial-engine/docs/STANDAR-OPENING-KLIMAKS-DI-AWAL.md).
 
 ## Suara dan visual
 
 - Ceritakan dengan Bahasa Indonesia percakapan yang enak didengar satu kali. Gunakan satu narasi `voice-05` perempuan; dengarkan hasil dan pelafalan, bukan sekadar memeriksa input teks.
 - Host animasi konsisten dengan referensi yang disetujui, aktif menunjuk, memegang, bereaksi dan berinteraksi dengan objek nyata dalam lingkungan yang relevan. Setiap adegan memetakan minimal dua objek; tiap kalimat narasi punya padanan visual konkret. Gerak harus membawa informasi.
-- Variasikan topik, warna, komposisi, tempo dan bentuk cerita. Jangan membuat ulang lima scene generik yang pernah ditolak, atau menganggap templat apa pun sebagai bukti mutu. Danau di Dalam Laut adalah referensi mendetail; Antartika v2 adalah contoh revisi yang disetujui, bukan jaminan semua episode baru otomatis diterima.
+- Variasikan topik, warna, komposisi, tempo dan cara mewujudkan struktur pembuka wajib. Jangan membuat ulang lima scene generik yang pernah ditolak, atau menganggap templat apa pun sebagai bukti mutu. Danau di Dalam Laut adalah referensi mendetail; Antartika v2 adalah contoh revisi yang disetujui, bukan jaminan semua episode baru otomatis diterima.
 - Akhiri dengan teks persis **`ikuti knot theory`** dalam huruf kecil; narasi mengucapkan namanya sebagai kata-kata. CTA dapat didahului ajakan komentar yang relevan tanpa mengorbankan kesimpulan.
 
 ## Janji produksi

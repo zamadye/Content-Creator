@@ -4,10 +4,11 @@ Panduan dan source nonrahasia untuk Shorts Indonesia yang mengejutkan, dapat dit
 
 ## Mulai di sini
 
-- [Riset storytelling + contoh naskah](RISET-STORYTELLING-DUNIA-KEBALIK.md)
+- [Riset storytelling + contoh naskah](RISET-STORYTELLING-DUNIA-KEBALIK.md) — contoh lama tetap referensi; utamakan standar opening terbaru.
 - [Riset retensi, referensi video dan rencana eksperimen](RISET-RETENSI-DAN-PERTUMBUHAN-KNOT-THEORY.md) · [cara membuat PDF](scripts/README-research-pdf.md)
 - [Fondasi editorial](EDITORIAL-FONDATION.md)
 - [Standar minimum produksi dan QA](STANDARD-MINIMAL-CONTENT-PRODUCTION.md)
+- [Struktur wajib: entitas, klimaks awal dan cut](editorial-engine/docs/STANDAR-OPENING-KLIMAKS-DI-AWAL.md)
 - [Gaya narasi Indonesia](NATURAL-INDONESIAN-WRITING-HUMAN-VOICE.md)
 - [Cadangan, privasi, dan checkpoint](KEBIJAKAN-CADANGAN-ANTI-RESET.md)
 - Contoh source/pipeline yang dipertahankan: `editorial-engine/pipeline/hiu-sebelum-hutan-2026/` dan `editorial-engine/pipeline/interactive-antartika-v2/`. Keduanya butuh input privat; baca README setempat sebelum menjalankan. Uji ulang setelah perubahan dan jangan anggap output baru telah disetujui.

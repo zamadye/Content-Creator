@@ -1,0 +1,41 @@
+name: Coverr turbine - approved private review footage
+
+# No cron, posting or scheduling. This fixed batch is explicitly marker-gated;
+# committing the encrypted response later does not start another API request.
+on:
+  push:
+    branches: [arena/54cb36c6-content-creator]
+    paths:
+      - '.github/workflows/coverr-turbine-private.yml'
+      - 'editorial-engine/pipeline/coverr-turbine/**'
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  transfer:
+    if: ${{ contains(github.event.head_commit.message, '[approved-coverr-turbine-download]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      COVERR_API_KEY: ${{ secrets.COVERR_API_KEY || secrets.COVERR_VIDEO_API_KEY || secrets.COVERR_KEY || vars.COVERR_API_KEY || vars.COVERR_VIDEO_API_KEY || vars.COVERR_KEY }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Test security and session binding offline
+        run: node --test editorial-engine/pipeline/coverr-turbine/test-private-relay.mjs editorial-engine/pipeline/coverr-rupert/test-direct-drive-relay.mjs editorial-engine/pipeline/coverr-transfer/test-transfer.mjs editorial-engine/pipeline/drive-relay/test-relay.mjs
+      - name: Install isolated FFprobe
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix "$RUNNER_TEMP/coverr-toolchain" --ignore-scripts --no-audit --no-fund --no-package-lock ffprobe-static@3.1.0
+          FFPROBE_BIN="$RUNNER_TEMP/coverr-toolchain/node_modules/ffprobe-static/bin/linux/x64"
+          "$FFPROBE_BIN/ffprobe" -version >/dev/null
+          echo "$FFPROBE_BIN" >> "$GITHUB_PATH"
+      - name: Relay approved originals to private Drive
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${COVERR_API_KEY:-}" ]; then echo "::add-mask::${COVERR_API_KEY}"; fi
+          node editorial-engine/pipeline/coverr-turbine/private-relay.mjs

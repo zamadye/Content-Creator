@@ -1,6 +1,8 @@
 
 # Berkas yang ditarik lewat konektor Google Drive (bukan bagian repo).
 google_drive/
+# Temporary local toolchains, encrypted handshakes and capability files.
+.scratch/
 # Hasil diagnostik kanal dan kunci sementara tidak boleh masuk repo publik.
 editorial-engine/deliverables/retensi-research/private/
 editorial-engine/deliverables/buffer-batch/private/

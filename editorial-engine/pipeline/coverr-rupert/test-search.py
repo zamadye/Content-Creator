@@ -19,4 +19,6 @@ class SearchTest(unittest.TestCase):
   self.assertLessEqual(len(value.encode('utf8')),3700)
   self.assertEqual(len(result['videos'])+result['omitted_from_annotation'],20)
   self.assertGreater(result['omitted_from_annotation'],0)
+  self.assertIn('ü',value)
+  self.assertNotIn('\\\\u00fc',value)
 if __name__=='__main__':unittest.main()

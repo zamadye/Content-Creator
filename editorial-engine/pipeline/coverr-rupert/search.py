@@ -47,9 +47,11 @@ def annotation(obj):
   fields=('id','title','description','max_width','max_height','is_premium','is_ai_generated','is_vertical')
   result['videos']=[{k:(v[:90] if k in ('title','description') and isinstance(v,str) else v) for k,v in item.items() if k in fields} for item in obj['videos']]
   result['omitted_from_annotation']=0
-  while len(json.dumps(result,ensure_ascii=True,separators=(',',':')).encode('utf8'))>3700 and result['videos']:
+  while len(json.dumps(result,ensure_ascii=False,separators=(',',':')).encode('utf8'))>3700 and result['videos']:
    result['videos'].pop();result['omitted_from_annotation']+=1
- return json.dumps(result,ensure_ascii=True,separators=(',',':'))
+ # Some runner versions transform literal JSON \\u escapes when displaying
+ # annotations. Emit UTF-8 directly to keep international titles valid JSON.
+ return json.dumps(result,ensure_ascii=False,separators=(',',':'))
 
 def emit(obj):
  s=json.dumps(obj,ensure_ascii=True,separators=(',',':'));print('COVERR_RUPERT_SEARCH='+s)

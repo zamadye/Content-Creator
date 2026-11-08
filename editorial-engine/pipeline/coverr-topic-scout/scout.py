@@ -9,9 +9,9 @@ from pathlib import Path
 
 s=importlib.util.spec_from_file_location('coverr_rupert',Path(__file__).parents[1]/'coverr-rupert'/'search.py')
 coverr=importlib.util.module_from_spec(s);s.loader.exec_module(coverr)
-# Third pass evaluates a different idea: solid-Earth tides from the POV of
-# city, ground and Moon, including direct checks for misleading generic hits.
-QUERIES=['city skyline','city aerial','moon','full moon','rock ground','ocean tide','earth satellite','moon rise']
+# Fourth pass tests a grounded everyday engineering story: continuously
+# welded railway track, counterposed with traditional jointed rail.
+QUERIES=['railway track','train tracks','train','train rail','rail welding','railway worker','railroad','track maintenance']
 coverr.QUERIES=QUERIES
 coverr.PAGE_SIZE=20
 

@@ -41,6 +41,7 @@ def inputs()->dict[str,Path]:
  project=[
   'editorial-engine/content/proposals/turbin-angin-draf-v1.json',
   'editorial-engine/content/proposals/turbin-angin-audit-kalimat-v1.json',
+  'editorial-engine/content/proposals/turbin-angin-berhenti-riset.md',
   'editorial-engine/content/proposals/turbin-angin-caption-draf.txt',
   'editorial-engine/docs/STANDAR-NASKAH-PSIKOLOGI-PENONTON.md',
   'editorial-engine/pipeline/script-review/audit.py','editorial-engine/pipeline/script-review/README.md',

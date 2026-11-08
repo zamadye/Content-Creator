@@ -1,0 +1,186 @@
+{
+  "scriptId": "turbin-angin-berhenti-draf-v2",
+  "status": "DRAF KREATOR — REVIEW MANUSIA BELUM DILAKUKAN",
+  "audienceAnchor": {
+    "situation": "Membayangkan memegang payung ketika angin bertambah kuat, atau melihat benda lebih sulit dikendalikan saat tertiup.",
+    "scope": "Analogi hanya untuk beban dan kendali; payung tidak identik dengan aerodinamika bilah dan tidak mengasumsikan semua penonton pernah memegang payung saat berangin."
+  },
+  "items": [
+    {
+      "sceneId": "S01",
+      "text": "Angin makin kencang, kok turbin justru bisa berhenti?",
+      "purpose": "Menggabungkan paradoks dan pertanyaan pembuka dalam satu kalimat sebelum cut.",
+      "viewerQuestion": "Mengapa sumber tenaga yang lebih kuat bisa berkaitan dengan turbin berhenti?",
+      "connection": "Bertolak dari dugaan bahwa mesin bertenaga angin membutuhkan angin, tanpa mengasumsikan semua penonton pernah melihat turbin.",
+      "visualAction": "Model turbin utuh dan headline terlihat sejak frame 0; angin ilustrasi menguat dan rotor melambat sebelum cut.",
+      "evidence": "DOE2024 mendukung penghentian sebagian turbin pada batas angin modelnya; ilustrasi bukan bukti kondisi footage.",
+      "nextOrPayoff": "S02 mulai dari dugaan daya bertambah; S06 menjawab batas operasi dan S07 mengilustrasikan perubahan pitch.",
+      "wordChoice": "“Bisa” membatasi klaim, “justru” menandai pertentangan, dan “kok” mengundang pertanyaan tanpa menyatakan semua turbin pasti berhenti."
+    },
+    {
+      "sceneId": "S02",
+      "text": "Sekilas, makin kencang anginnya, harusnya makin banyak listrik, kan?",
+      "purpose": "Mengangkat dugaan wajar sebagai jembatan ke batas daya.",
+      "viewerQuestion": "Sampai kapan bertambahnya angin meningkatkan keluaran listrik?",
+      "connection": "Berhubungan dengan pertanyaan awal dan intuisi bahwa sumber energi lebih kuat menghasilkan lebih banyak energi.",
+      "visualAction": "Footage turbin berputar dalam jendela; panah angin dan meter daya ilustratif naik, dengan Host menunjuk keduanya.",
+      "evidence": "DOE2024 menyajikan daya naik dalam sebagian rentang sebelum mencapai daya nominal; kalimat ini ditandai sebagai dugaan, bukan hukum tanpa batas.",
+      "nextOrPayoff": "S03 memperkenalkan beban; S04 menunjukkan bahwa daya diatur di rentang lebih tinggi.",
+      "wordChoice": "‘Sekilas’ dan ‘harusnya’ menandai intuisi sementara, bukan menjanjikan kenaikan tanpa akhir."
+    },
+    {
+      "sceneId": "S03",
+      "text": "Tapi angin yang terlalu kuat bisa memberi beban besar pada turbin.",
+      "purpose": "Menghadirkan konsekuensi fisik di balik konflik pembuka.",
+      "viewerQuestion": "Beban seperti apa yang membuat mesin perlu mengubah perilakunya?",
+      "connection": "Menguji dugaan daya S02 dengan batas fisik dan mempersiapkan analogi yang dapat dibayangkan.",
+      "visualAction": "Panah angin menekan model bilah; indikator beban naik sebagai ilustrasi, bukan pembacaan instrumen nyata.",
+      "evidence": "DOE2024 menyebut shutdown mengurangi strain rotor; DOE2015 menyebut menghindari beban berlebih pada komponen.",
+      "nextOrPayoff": "Kalimat selanjutnya menghubungkan beban dengan payung, lalu S04 memberi cara kendali.",
+      "wordChoice": "‘Bisa’ dan ‘terlalu kuat’ menjaga klaim bersyarat; tidak menyiratkan setiap embusan menyebabkan kerusakan."
+    },
+    {
+      "sceneId": "S03",
+      "text": "Bayangkan payung yang makin sulit ditahan saat angin menerpanya.",
+      "purpose": "Memberi jangkar imajinatif tentang beban yang meningkat.",
+      "viewerQuestion": "Kalau begitu, apa yang bisa disesuaikan agar turbin tidak terus dipaksa?",
+      "connection": "Payung adalah benda sehari-hari yang dapat dibayangkan, bukan pengalaman yang diwajibkan bagi semua penonton.",
+      "visualAction": "Host menahan payung ilustrasi yang terdorong; panah yang sama mengarah ke bilah dengan label ANALOGI BEBAN.",
+      "evidence": "Ini analogi sederhana tentang beban, bukan klaim bahwa payung dan bilah menghasilkan gaya dengan cara identik.",
+      "nextOrPayoff": "S04 berpindah dari analogi ke pengaturan sudut bilah yang sebenarnya.",
+      "wordChoice": "‘Bayangkan’ mengundang tanpa berasumsi semua orang pernah mengalaminya; tidak memakai kata ‘sama persis’."
+    },
+    {
+      "sceneId": "S04",
+      "text": "Pada banyak turbin besar, sudut bilah diatur saat angin melewati kecepatan tertentu agar daya tetap terkendali.",
+      "purpose": "Memberi petunjuk mekanis pertama dan membedakan pengaturan daya dari penghentian.",
+      "viewerQuestion": "Apakah bilah yang disesuaikan itu berarti turbin langsung berhenti?",
+      "connection": "Menjawab pertanyaan setelah analogi tentang cara mengendalikan beban pada turbin.",
+      "visualAction": "Penampang bilah berputar pada sumbu panjang, meter daya mendatar, dan rotor tetap bergerak; label ilustrasi terlihat.",
+      "evidence": "DOE2015 dan NREL2008 menjelaskan kontrol pitch untuk membatasi daya di atas kecepatan nominal pada turbin besar yang dibahas.",
+      "nextOrPayoff": "Kalimat berikut menyatakan rotor masih bisa berputar; S06 baru menjelaskan batas shutdown.",
+      "wordChoice": "‘Banyak’ bukan ‘semua’; ‘kecepatan tertentu’ menghindari angka universal; ‘daya terkendali’ tidak mengatakan energi berhenti."
+    },
+    {
+      "sceneId": "S05",
+      "text": "Pada tahap itu, turbin masih bisa berputar dan menghasilkan listrik.",
+      "purpose": "Menjelaskan bahwa pengaturan pitch pada tahap daya nominal berbeda dari penghentian produksi.",
+      "viewerQuestion": "Kalau masih menghasilkan listrik, kapan turbin perlu berhenti?",
+      "connection": "Tahap itu merujuk pada pengaturan daya di kalimat S04; kali ini penonton memperoleh konsekuensi operasionalnya.",
+      "visualAction": "Rotor ilustrasi masih berputar, indikator daya stabil dan ikon listrik menyala.",
+      "evidence": "DOE2015 menunjukkan pitch control pada operasi rated dan shutdown di atas batas desain sebagai kondisi berbeda.",
+      "nextOrPayoff": "S06 membayar pertanyaan dengan batas operasi spesifik model yang memicu penghentian.",
+      "wordChoice": "Masih bisa menjaga kalimat bersyarat; menghasilkan listrik menegaskan perbedaannya dari shutdown, tanpa mengatakan berlaku untuk setiap situasi."
+    },
+    {
+      "sceneId": "S06",
+      "text": "Kalau angin melewati batas operasi desain, sebagian turbin menjalankan prosedur berhenti.",
+      "purpose": "Membayar pertanyaan awal dengan sebab dan kondisi yang dapat diverifikasi.",
+      "viewerQuestion": "Apakah semua turbin memiliki angka batas yang sama dan bagaimana cara berhentinya?",
+      "connection": "Ini jawaban untuk mesin yang diam pada S01, setelah penonton melihat perbedaan kontrol dan shutdown.",
+      "visualAction": "Komposisi S01 kembali: indikator melewati batas ilustratif, rotor melambat hingga berhenti; label ILUSTRASI tetap ada.",
+      "evidence": "DOE2024 menjelaskan cut-out sebagai batas yang berbeda-beda; DOE2015 menyatakan controller menghentikan turbin saat melebihi design limits.",
+      "nextOrPayoff": "Kalimat berikut memberi variasi model; S07 memperlihatkan pitch menuju feather dan alasannya.",
+      "wordChoice": "‘Sebagian’ dan ‘prosedur’ menghindari klaim semua turbin berhenti dengan urutan atau ambang identik."
+    },
+    {
+      "sceneId": "S06",
+      "text": "Batasnya bergantung pada modelnya.",
+      "purpose": "Mencegah satu ambang dianggap berlaku universal.",
+      "viewerQuestion": "Apa yang berubah pada turbin untuk melindungi dirinya?",
+      "connection": "‘Batasnya’ langsung merujuk batas operasi desain pada kalimat sebelumnya.",
+      "visualAction": "Indikator dengan tanda batas abstrak bergeser di dua model skematis, tanpa menciptakan angka.",
+      "evidence": "DOE2024 secara eksplisit menyebut cut-out speed bervariasi menurut turbin.",
+      "nextOrPayoff": "S07 beralih ke posisi bilah, bukan mencari satu nilai universal.",
+      "wordChoice": "‘Bergantung’ tidak menyatakan setiap model pasti punya angka berbeda dan menghindari angka yang tidak relevan."
+    },
+    {
+      "sceneId": "S07",
+      "text": "Salah satu caranya, bilah diputar pada sumbu panjangnya, sehingga lebih sejajar dengan arah angin.",
+      "purpose": "Menunjukkan cara pitch atau feather bekerja secara spasial.",
+      "viewerQuestion": "Mengapa mengubah arah bilah membantu rotor melambat?",
+      "connection": "Menjawab bagaimana prosedur berhenti pada S06 dapat mengurangi tangkapan angin; skema spesifik model pitch.",
+      "visualAction": "Penampang bilah berputar di sekitar sumbu panjang; panah angin dan posisi sebelum-sesudah terlihat, diberi label ilustrasi.",
+      "evidence": "DOE2024 menjelaskan bilah diarahkan ke angin untuk mengurangi luas efektif; NREL2008 menjelaskan pitch menuju full feather saat shutdown pada contoh turbin besar.",
+      "nextOrPayoff": "Kalimat berikut menjelaskan konsekuensi pada gaya putar dan perlindungan mesin.",
+      "wordChoice": "‘Salah satu caranya’ membatasi mekanisme ke desain dengan pitch; ‘sumbu panjangnya’ mencegah keliru mengira seluruh rotor diputar, dan ‘lebih sejajar’ tidak menjanjikan sudut tunggal."
+    },
+    {
+      "sceneId": "S07",
+      "text": "Gaya yang memutar rotor pun berkurang, membantu melindungi mesin.",
+      "purpose": "Mengikat perubahan posisi bilah dengan payoff keselamatan pada jawaban pembuka.",
+      "viewerQuestion": "Apakah turbin harus diam selamanya setelah angin kencang?",
+      "connection": "Akibat dari posisi bilah yang baru pada kalimat sebelumnya; bukan efek yang dibuktikan footage.",
+      "visualAction": "Panah gaya putar ilustrasi mengecil saat rotor yang sama melambat, dengan nacelle dan bilah tetap terlihat.",
+      "evidence": "DOE2024 menyatakan feathering mengurangi area terhadap angin dan shutdown mengurangi strain; NREL2008 membahas torsi aerodinamis dan pitch.",
+      "nextOrPayoff": "S08 menunjukkan kemungkinan beroperasi lagi ketika kondisi mengizinkan.",
+      "wordChoice": "‘Membantu’ tidak menjamin tidak akan terjadi kerusakan dan ‘gaya yang memutar rotor’ tidak mengklaim semua beban hilang."
+    },
+    {
+      "sceneId": "S08",
+      "text": "Saat angin kembali dalam rentang aman, turbin bisa beroperasi lagi.",
+      "purpose": "Menunjukkan bahwa diam untuk perlindungan dapat bersifat sementara.",
+      "viewerQuestion": "Kalau melihat turbin diam, apakah selalu karena anginnya terlalu kencang?",
+      "connection": "Menuntaskan konsekuensi shutdown pada S06–S07 dengan perubahan kondisi angin.",
+      "visualAction": "Indikator angin ilustrasi turun, rotor mulai bergerak dan ikon listrik kembali menyala.",
+      "evidence": "DOE2024 menjelaskan contoh operasi yang dilanjutkan ketika kondisi angin kembali sesuai; prosedur spesifik berbeda.",
+      "nextOrPayoff": "S09 mencegah penonton mendiagnosis semua turbin diam sebagai high-wind shutdown.",
+      "wordChoice": "‘Bisa’ dan ‘rentang aman’ tidak menjanjikan restart seketika, otomatis, atau berlaku bagi setiap model."
+    },
+    {
+      "sceneId": "S09",
+      "text": "Tapi turbin yang diam belum tentu sedang menghadapi angin kencang.",
+      "purpose": "Membalik kesimpulan yang terlalu luas dan memberi batas untuk interpretasi visual.",
+      "viewerQuestion": "Penyebab lain apa yang mungkin membuat turbin diam?",
+      "connection": "Mengoreksi kemungkinan penyederhanaan setelah contoh high-wind shutdown S06–S08.",
+      "visualAction": "Model rotor diam; pembacaan angin diganti tanda tanya dan Host menahan kesimpulan.",
+      "evidence": "DOE2024 membahas cut-in dan cut-out; DOE MAINTENANCE menunjukkan rotor dihentikan untuk pemeliharaan.",
+      "nextOrPayoff": "S10 memberi dua contoh alternatif tanpa mengklaim daftar lengkap.",
+      "wordChoice": "‘Belum tentu’ menyatakan ketidakpastian; tidak menyebut semua turbin yang diam rusak atau aman."
+    },
+    {
+      "sceneId": "S10",
+      "text": "Bisa juga karena anginnya terlalu pelan, atau sedang dirawat.",
+      "purpose": "Memberi alternatif konkret yang menjelaskan mengapa video tidak cukup untuk diagnosis.",
+      "viewerQuestion": "Bagaimana tahu penyebabnya dari gambar saja?",
+      "connection": "Menjawab pertanyaan yang muncul pada S09 dengan sebab yang dapat dibayangkan.",
+      "visualAction": "Dua kartu bergambar aliran angin lemah dan alat perawatan muncul di samping turbin yang sama.",
+      "evidence": "DOE2024 membahas cut-in rendah; MAINTENANCE dari DOE menjelaskan rotor dihentikan dan ditahan untuk perawatan.",
+      "nextOrPayoff": "S11 menyimpulkan bahwa perlu informasi tambahan, bukan memilih salah satu tanpa bukti.",
+      "wordChoice": "‘Bisa juga’ menandai contoh, bukan daftar lengkap atau diagnosis pada footage yang digunakan."
+    },
+    {
+      "sceneId": "S11",
+      "text": "Jadi, dari video saja kita nggak bisa memastikan penyebabnya.",
+      "purpose": "Meninggalkan prinsip yang dapat dipakai ketika melihat gambar turbin.",
+      "viewerQuestion": "Tanpa data tambahan, tebakan apa yang paling masuk akal dan apa yang masih belum diketahui?",
+      "connection": "Menyatukan beberapa kemungkinan S09–S10 dan menghormati keterbatasan gambar stok.",
+      "visualAction": "Bingkai footage turbin dan indikator dengan tanda tanya; tidak menampilkan stok sebagai bukti shutdown.",
+      "evidence": "Inferensi editorial dari adanya beberapa penyebab yang mungkin; DOE2024 dan MAINTENANCE mendukung alternatif-alternatifnya.",
+      "nextOrPayoff": "S12 mengundang dugaan terbuka tanpa menyatakannya sebagai diagnosis.",
+      "wordChoice": "‘Memastikan’ lebih tepat daripada ‘tidak tahu apa-apa’; ‘video saja’ membatasi jenis bukti yang dimaksud."
+    },
+    {
+      "sceneId": "S12",
+      "text": "Turbin diam: kamu tebak angin pelan, sedang dirawat, atau sebab lain?",
+      "purpose": "Mengundang dugaan yang lebih mudah dijawab setelah batas diagnosis dijelaskan.",
+      "viewerQuestion": "Dari beberapa kemungkinan, apa dugaan pertamaku dan apa lagi yang mungkin?",
+      "connection": "Pilihan merujuk pada S09–S11 dan tetap hipotetis; tidak mengasumsikan penonton pernah mengunjungi turbin.",
+      "visualAction": "Model turbin tetap terlihat; kartu “ANGIN PELAN?” dan “PERAWATAN? / LAINNYA?” memberi petunjuk tanpa menutupi subjek.",
+      "evidence": "Pertanyaan tentang kemungkinan, bukan diagnosis footage; angin terlalu pelan dan perawatan telah dibahas dan sebab lain tetap terbuka.",
+      "nextOrPayoff": "Kalimat berikut mengundang jawaban; S11 sudah menjelaskan bahwa gambar saja tidak memastikan penyebab.",
+      "wordChoice": "“Tebak” menandai dugaan; “atau sebab lain” menghindari pilihan palsu dan mencakup kemungkinan termasuk angin kencang."
+    },
+    {
+      "sceneId": "S12",
+      "text": "Tulis di komentar, dan ikuti knot theory.",
+      "purpose": "Memberi satu aksi diskusi utama dan ajakan mengikuti kanal yang konsisten.",
+      "viewerQuestion": "Di mana aku dapat menyampaikan dugaanku?",
+      "connection": "Langsung melanjutkan pertanyaan hipotetis sebelumnya; tidak meminta like, share, dan replay sekaligus.",
+      "visualAction": "Host menunjuk ruang komentar dan CTA “ikuti knot theory” huruf kecil terlihat tanpa menutupi wajah.",
+      "evidence": "Ajakan editorial, bukan klaim faktual atau janji hasil bagi penonton.",
+      "nextOrPayoff": "Penutup memberi ruang beragam kemungkinan setelah jawaban utama dan batas pengetahuan dibayar.",
+      "wordChoice": "Nama kanal ditulis dan direncanakan dibaca sebagai kata-kata, bukan dieja; tidak mengklaim penonton pasti berkomentar."
+    }
+  ]
+}

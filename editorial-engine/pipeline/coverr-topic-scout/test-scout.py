@@ -7,7 +7,7 @@ class ScoutTests(unittest.TestCase):
   self.assertLessEqual(len(m.QUERIES),10)
   self.assertEqual(len(set(m.QUERIES)),len(m.QUERIES))
   self.assertEqual(m.coverr.search('not allowed','test-key')['status'],'INVALID_QUERY')
-  self.assertEqual(m.coverr.search('railway track','')['status'],'MISSING_KEY')
+  self.assertEqual(m.coverr.search('wind turbine','')['status'],'MISSING_KEY')
  def test_only_safe_metadata_and_bounded_notice(self):
   key='TEST_KEY';hits=[]
   for i in range(20):

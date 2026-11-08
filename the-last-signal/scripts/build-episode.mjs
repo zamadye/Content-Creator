@@ -216,7 +216,11 @@ const episode = {
       headline: (entry.thumb?.headline ?? entry.story.title).toUpperCase().slice(0, 42),
       kicker: entry.thumb?.kicker,
       image: "images/thumb.jpg",
-      holdFrames: 12,
+      // 0,9 detik, bukan 0,4: kartu hook adalah satu-satunya teks besar yang
+      // dibaca penonton yang menonton tanpa suara, dan 12 frame terlalu cepat
+      // untuk terbaca di layar ponsel (LS-0016: kartu hilang sebelum mata
+      // sempat mendarat).
+      holdFrames: 27,
     },
     // Ajakan bertindak wajib: kartu ini muncul di ekor scene terakhir.
     cta: {

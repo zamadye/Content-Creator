@@ -1,6 +1,6 @@
 {
   "episodeId": "LS-0015",
-  "status": "requested",
+  "status": "published",
   "createdAt": "2026-11-08T00:11:24.644Z",
   "media": "the-last-signal/releases/LS-0015.mp4",
   "episode": {
@@ -29,8 +29,9 @@
     "firstComment": "Kalau rekaman itu memperlihatkan mobilmu sendiri, kamu masih akan naik?"
   },
   "scheduledTimezone": "Asia/Makassar",
-  "zernioPostId": null,
+  "zernioPostId": "6aefc3474f031ae3c5b2a125",
   "scheduledAt": "2026-11-08T00:12:39.766Z",
   "slot": "pagi",
-  "catatan": "Terbit sekarang (slot pagi, 8 Nov). Jadwal 9 Nov 12.05 sudah dihapus dari Zernio."
+  "catatan": "Terbit sekarang (slot pagi, 8 Nov). Jadwal 9 Nov 12.05 sudah dihapus dari Zernio.",
+  "publishedAt": "2026-11-08T00:33:11Z"
 }

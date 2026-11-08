@@ -9,9 +9,9 @@ from pathlib import Path
 
 s=importlib.util.spec_from_file_location('coverr_rupert',Path(__file__).parents[1]/'coverr-rupert'/'search.py')
 coverr=importlib.util.module_from_spec(s);s.loader.exec_module(coverr)
-# Second, targeted pass: one actual historic bridge, and the supporting
-# underwater/construction scenes needed to evaluate the caisson story.
-QUERIES=['brooklyn bridge','bridge construction','construction worker','underwater bubbles','air bubbles','river city','bridge pier','underwater construction']
+# Third pass evaluates a different idea: solid-Earth tides from the POV of
+# city, ground and Moon, including direct checks for misleading generic hits.
+QUERIES=['city skyline','city aerial','moon','full moon','rock ground','ocean tide','earth satellite','moon rise']
 coverr.QUERIES=QUERIES
 coverr.PAGE_SIZE=20
 

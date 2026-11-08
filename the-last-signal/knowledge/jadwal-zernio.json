@@ -1,57 +1,27 @@
 {
   "timezone": "Asia/Makassar",
-  "updatedAt": "2026-11-07T23:23:57.923Z",
+  "updatedAt": "2026-11-08T00:12:39.766Z",
   "items": [
     {
       "episodeId": "LS-0012",
       "ok": true,
+      "skipped": true,
       "scheduledFor": "2026-11-08T04:05:00.000Z",
-      "dryRun": true,
-      "updatedAt": "2026-11-07T23:23:57.922Z",
-      "zernioPostId": null,
-      "zernioStatus": "scheduled",
-      "youtube": {
-        "status": "pending",
-        "url": null
-      },
-      "facebook": {
-        "status": "pending",
-        "url": null
-      }
+      "updatedAt": "2026-11-08T00:12:39.766Z"
     },
     {
       "episodeId": "LS-0013",
       "ok": true,
+      "skipped": true,
       "scheduledFor": "2026-11-08T05:05:00.000Z",
-      "dryRun": true,
-      "updatedAt": "2026-11-07T23:23:57.922Z",
-      "zernioPostId": null,
-      "zernioStatus": "scheduled",
-      "youtube": {
-        "status": "pending",
-        "url": null
-      },
-      "facebook": {
-        "status": "pending",
-        "url": null
-      }
+      "updatedAt": "2026-11-08T00:12:39.766Z"
     },
     {
       "episodeId": "LS-0014",
       "ok": true,
+      "skipped": true,
       "scheduledFor": "2026-11-08T07:05:00.000Z",
-      "dryRun": true,
-      "updatedAt": "2026-11-07T23:23:57.923Z",
-      "zernioPostId": null,
-      "zernioStatus": "scheduled",
-      "youtube": {
-        "status": "pending",
-        "url": null
-      },
-      "facebook": {
-        "status": "pending",
-        "url": null
-      }
+      "updatedAt": "2026-11-08T00:12:39.766Z"
     },
     {
       "episodeId": "LL-0002",
@@ -68,6 +38,13 @@
         "url": "https://www.facebook.com/watch/?v=2144087316475744"
       },
       "updatedAt": "2026-11-07T23:23:57.922Z"
+    },
+    {
+      "episodeId": "LS-0015",
+      "ok": true,
+      "scheduledFor": "2026-11-09T04:05:00.000Z",
+      "postId": null,
+      "updatedAt": "2026-11-08T00:12:39.766Z"
     }
   ]
 }

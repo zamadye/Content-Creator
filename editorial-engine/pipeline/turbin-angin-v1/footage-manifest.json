@@ -1,0 +1,107 @@
+{
+  "status": "PRIVATE REVIEW ONLY",
+  "source": "Coverr official API mp4_download",
+  "discrepancy": "Search metadata advertised 3840x2160; the downloaded originals probe as 1920x1080.",
+  "rights": "NEEDS REVIEW",
+  "attribution": "NEEDS REVIEW; API creator field was empty",
+  "humanPlayback": "NOT TESTED",
+  "visualInspection": "Five sampled frames and a center-crop sheet per clip; not continuous playback.",
+  "items": [
+    {
+      "id": "9Y8kk5xCuY",
+      "title": "Close-up of a wind turbine",
+      "creator": null,
+      "size": 7266255,
+      "sha256": "cd1c9ec06ade2d8b37f9eb35a6a3397ed9329632f98af5bff3d8b10f27c4d0a1",
+      "md5": "53b4e2bae3e796ba8bc06d13a0f7deed",
+      "probe": {
+        "width": 1920,
+        "height": 1080,
+        "duration_seconds": 12.972,
+        "codec": "h264",
+        "fps": "1592320/66413"
+      },
+      "tracking": {
+        "status": "NEEDS_REVIEW",
+        "http_statuses": [
+          404,
+          404
+        ]
+      },
+      "sampleObservation": "Close-up; turbine fills frame and a center 9:16 crop often cuts blades.",
+      "localFilename": "Coverr-9Y8kk5xCuY-original.mp4"
+    },
+    {
+      "id": "WuuebDPmKg",
+      "title": "Wind turbines in Madeira Island",
+      "creator": null,
+      "size": 11073481,
+      "sha256": "a87bf8b588d2b77fd6b33f54ab6f70b88cc93b31a1ce948ca4dc74b2f9b1661c",
+      "md5": "612e567f9461425125cf58aef7881b96",
+      "probe": {
+        "width": 1920,
+        "height": 1080,
+        "duration_seconds": 19.792,
+        "codec": "h264",
+        "fps": "24/1"
+      },
+      "tracking": {
+        "status": "NEEDS_REVIEW",
+        "http_statuses": [
+          404,
+          404
+        ]
+      },
+      "sampleObservation": "Coastal landscape with turbines; individual machines are relatively small.",
+      "localFilename": "Coverr-WuuebDPmKg-original.mp4"
+    },
+    {
+      "id": "oaw1EMLhFi",
+      "title": "Wind turbines in the field",
+      "creator": null,
+      "size": 6627658,
+      "sha256": "2115b664c41357e3b8c96c9794e99e998510229483200ff2316b0f70cce906a8",
+      "md5": "b4557af6a4197fd558e86f8ee55d4396",
+      "probe": {
+        "width": 1920,
+        "height": 1080,
+        "duration_seconds": 11.679,
+        "codec": "h264",
+        "fps": "215040/8969"
+      },
+      "tracking": {
+        "status": "NEEDS_REVIEW",
+        "http_statuses": [
+          404,
+          404
+        ]
+      },
+      "sampleObservation": "Field turbine; clearest main subject in the sampled frames.",
+      "localFilename": "Coverr-oaw1EMLhFi-original.mp4"
+    },
+    {
+      "id": "k6GEFHq7u4",
+      "title": "Several wind turbines",
+      "creator": null,
+      "size": 10390997,
+      "sha256": "b98f68ec7a39d727e8a344781960c75d2805c646b665a41cc782d50381dc0c40",
+      "md5": "9042eac590750c091c14b30a4ff5f41d",
+      "probe": {
+        "width": 1920,
+        "height": 1080,
+        "duration_seconds": 18.227,
+        "codec": "h264",
+        "fps": "55936/2333"
+      },
+      "tracking": {
+        "status": "NEEDS_REVIEW",
+        "http_statuses": [
+          404,
+          404
+        ]
+      },
+      "sampleObservation": "Distant field turbines; use only as environmental context.",
+      "localFilename": "Coverr-k6GEFHq7u4-original.mp4"
+    }
+  ]
+}

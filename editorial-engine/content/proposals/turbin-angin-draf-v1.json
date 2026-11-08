@@ -1,0 +1,241 @@
+{
+  "id": "turbin-angin-berhenti-draf-v1",
+  "title": "Angin Terlalu Kencang, Turbin Justru Berhenti?",
+  "series": "Dunia Kebalik / knot theory",
+  "status": "DRAF UNTUK REVIEW MANUSIA — BELUM BOLEH DIBERI SUARA ATAU DIRENDER FINAL",
+  "narratorPlan": "Satu narasi voice-05, suara perempuan berbahasa Indonesia, setelah naskah ditinjau dan disetujui manusia.",
+  "opening": {
+    "entityAtFrame0": "Model turbin yang jelas dan utuh dalam cuplikan ilustrasi, langsung terlihat; teks tidak menutupi rotor.",
+    "headline": "ANGIN KENCANG / TURBIN DIAM?",
+    "thumbnailTagline": "KOK MALAH BERHENTI?",
+    "peak": "Skema turbin dengan aliran angin dan rotor melambat menuju berhenti, diberi label ILUSTRASI; komposisi dan rotor yang sama kembali di S06–S07.",
+    "cut": "Setelah pertanyaan S01, potong sebelum alasan berhenti dijelaskan; mulai dari dugaan penonton pada S02.",
+    "payoff": "S06 menjawab bahwa sebagian turbin dihentikan pada batas operasi modelnya. S07 memperlihatkan perubahan sudut bilah sebagai mekanisme perlindungan; S09–S11 menegaskan bahwa gambar turbin diam saja tidak menunjukkan penyebabnya."
+  },
+  "visualMethod": "Footage turbin nyata hanya sebagai konteks dan contoh bentuk, tidak sebagai bukti kecepatan angin, penghentian, lokasi atau penyebab. Model turbin, penampang bilah dan perubahan sudut adalah ilustrasi berlabel, bukan rekaman kejadian nyata. S01 mengutip momen yang sama yang diselesaikan pada S06–S07; tidak ada dua timeline bersaing. Rencana durasi dan waktu cue menyusul hasil satu take voice-05 yang disetujui, bukan dikarang sebelumnya.",
+  "audienceAnchor": "Membayangkan payung lebih susah ditahan saat diterpa angin kuat. Ini analogi beban dan pengendalian saja; payung tidak menjelaskan cara aerodinamis bilah turbin atau mewakili pengalaman semua orang.",
+  "accuracy": "Daya pada banyak turbin besar diatur dengan blade pitch saat kecepatan angin melewati kecepatan nominal; fase ini berbeda dari shutdown pada cut-out. Batas dan prosedur bergantung model. Skema menunjukkan putaran pitch pada sumbu panjang bilah; tidak menggambarkan semua fitur mekanis atau semua desain. Penyebab turbin diam tidak bisa disimpulkan dari footage stok.",
+  "sources": [
+    {
+      "id": "DOE2024",
+      "url": "https://www.energy.gov/cmei/wind/articles/how-do-wind-turbines-survive-severe-weather-and-storms",
+      "supports": "Kurva operasi, pitch/feather, cut-out berbeda antar turbin, mengurangi beban dan kembali beroperasi pada kondisi sesuai."
+    },
+    {
+      "id": "DOE2015",
+      "url": "https://www.energy.gov/sites/prod/files/2015/03/f20/wv_chapter2_wind_power_in_the_united_states.pdf",
+      "supports": "Pada turbin utility-scale yang dijelaskan, kontrol pitch membatasi daya di atas rated speed; batas desain operasi memicu shutdown."
+    },
+    {
+      "id": "NREL2008",
+      "url": "https://docs.nrel.gov/docs/fy08osti/42437.pdf",
+      "supports": "Pada contoh kontrol turbin besar, blade pitch mengatur daya dan pada shutdown bergerak menuju feather; bukan semua desain identik."
+    },
+    {
+      "id": "DOEWORKS",
+      "url": "https://www.energy.gov/cmei/wind/how-do-wind-turbines-work",
+      "supports": "Pengantar rotor, bilah dan komponen, bukan bukti kondisi turbin pada footage tertentu."
+    },
+    {
+      "id": "DOELOWWIND",
+      "url": "https://www.energy.gov/cmei/wind/articles/how-do-wind-turbines-survive-severe-weather-and-storms",
+      "supports": "Kecepatan cut-in menunjukkan bahwa terlalu sedikit angin membatasi operasi/generasi."
+    },
+    {
+      "id": "MAINTENANCE",
+      "url": "https://www.energy.gov/eere/wind/how-wind-turbine-works-text-version",
+      "supports": "Contoh DOE: rotor dihentikan dan ditahan tidak bergerak untuk pemeliharaan; bukan diagnosis pada footage."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "beat": "CUPLIKAN PUNCAK / PERTANYAAN / CUT",
+      "narration": "Saat angin terlalu kencang, turbin angin justru bisa berhenti. Kok mesin yang butuh angin malah diam?",
+      "objectMap": [
+        "model turbin utuh",
+        "rotor tiga bilah",
+        "aliran angin beranimasi",
+        "indikator angin",
+        "label ilustrasi"
+      ],
+      "action": "Frame 0 menampilkan model turbin dan headline terbaca tanpa fade. Angin ilustrasi menguat dan rotor yang sama seperti S06 mulai melambat. Potong setelah pertanyaan sebelum penyebab dijelaskan; jangan tampilkan stock sebagai rekaman shutdown.",
+      "sourceRefs": [
+        "DOE2024"
+      ],
+      "payoffScene": "S06–S07"
+    },
+    {
+      "id": "S02",
+      "beat": "DUGAAN AWAL",
+      "narration": "Sekilas, makin kencang anginnya, harusnya makin banyak listrik, kan?",
+      "objectMap": [
+        "footage turbin berputar",
+        "Host",
+        "indikator angin",
+        "indikator listrik"
+      ],
+      "action": "Turbin nyata berputar dalam jendela 16:9 yang tidak kehilangan resolusi karena crop; Host menunjuk indikator angin dan listrik yang naik sebagai dugaan, bukan data clip.",
+      "sourceRefs": [
+        "DOE2024"
+      ]
+    },
+    {
+      "id": "S03",
+      "beat": "BATAS / ANALOGI",
+      "narration": "Tapi angin yang terlalu kuat bisa memberi beban besar pada turbin. Bayangkan payung yang makin sulit ditahan saat angin menerpanya.",
+      "objectMap": [
+        "Host",
+        "payung ilustrasi",
+        "panah angin",
+        "bilah turbin",
+        "label analogi"
+      ],
+      "action": "Panah angin menekan payung yang ditekuk Host; bentuk panah berlanjut ke bilah. Caption kecil menyebut analogi beban, bukan mekanisme payung identik dengan turbin.",
+      "sourceRefs": [
+        "DOE2024"
+      ]
+    },
+    {
+      "id": "S04",
+      "beat": "PENGATURAN DAYA",
+      "narration": "Pada banyak turbin besar, sudut bilah diatur saat angin melewati kecepatan tertentu agar daya tetap terkendali.",
+      "objectMap": [
+        "model rotor",
+        "bilah dengan sumbu pitch",
+        "indikator daya",
+        "Host"
+      ],
+      "action": "Diagram memperlihatkan penampang bilah berputar pada sumbu panjang, bukan memutar baling-baling di bidang rotor. Indikator daya mendatar sementara rotor tetap berputar; skema diberi label ILUSTRASI.",
+      "sourceRefs": [
+        "DOE2015",
+        "NREL2008"
+      ]
+    },
+    {
+      "id": "S05",
+      "beat": "BEDAKAN FASE",
+      "narration": "Pada tahap itu, turbin masih bisa berputar dan menghasilkan listrik.",
+      "objectMap": [
+        "rotor ilustrasi bergerak",
+        "indikator sudut bilah",
+        "panel masih berputar",
+        "Host"
+      ],
+      "action": "Rotor yang sama tetap berputar saat bilah berubah sudut; label MENGATUR DAYA muncul, tidak diganti label BERHENTI.",
+      "sourceRefs": [
+        "DOE2015"
+      ]
+    },
+    {
+      "id": "S06",
+      "beat": "KEMBALI KE PUNCAK / JAWABAN",
+      "narration": "Kalau angin melewati batas operasi desain, sebagian turbin menjalankan prosedur berhenti. Batasnya bergantung pada modelnya.",
+      "objectMap": [
+        "model turbin S01",
+        "indikator angin",
+        "penanda batas desain",
+        "rotor",
+        "label ilustrasi"
+      ],
+      "action": "Kembali ke komposisi S01, lanjutkan gerakan aliran dan rotor; indikator menyentuh batas lalu rotor melambat menuju diam. Tidak menyebut nilai ambang universal.",
+      "sourceRefs": [
+        "DOE2024",
+        "DOE2015"
+      ]
+    },
+    {
+      "id": "S07",
+      "beat": "MEKANISME PERLINDUNGAN",
+      "narration": "Salah satu caranya, bilah diputar pada sumbu panjangnya, sehingga lebih sejajar dengan arah angin. Gaya yang memutar rotor pun berkurang, membantu melindungi mesin.",
+      "objectMap": [
+        "potongan bilah ilustrasi",
+        "sumbu panjang bilah",
+        "panah angin",
+        "rotor dan nacelle",
+        "Host"
+      ],
+      "action": "Zoom ke penampang bilah dan sumbunya; putar penampang menuju posisi feather, dengan panah aliran sejajar. Sambungkan kembali ke rotor yang melambat; hindari mengklaim panah sebagai data nyata.",
+      "sourceRefs": [
+        "DOE2024",
+        "NREL2008"
+      ]
+    },
+    {
+      "id": "S08",
+      "beat": "KEMBALI BEROPERASI",
+      "narration": "Saat angin kembali dalam rentang aman, turbin bisa beroperasi lagi.",
+      "objectMap": [
+        "model turbin",
+        "indikator angin",
+        "rotor",
+        "ikon listrik"
+      ],
+      "action": "Indikator angin turun ke rentang operasi; rotor ilustrasi mulai berputar dan ikon listrik kembali menyala. Tidak menyatakan semua model langsung otomatis restart.",
+      "sourceRefs": [
+        "DOE2024"
+      ]
+    },
+    {
+      "id": "S09",
+      "beat": "BATAS KESIMPULAN",
+      "narration": "Tapi turbin yang diam belum tentu sedang menghadapi angin kencang.",
+      "objectMap": [
+        "model turbin diam",
+        "indikator angin bertanda tanya",
+        "Host"
+      ],
+      "action": "Model diam di tengah; indikator angin berubah menjadi tanda tanya. Tidak memakai freeze frame footage tanpa label sebagai bukti peristiwa.",
+      "sourceRefs": [
+        "DOE2024",
+        "MAINTENANCE"
+      ]
+    },
+    {
+      "id": "S10",
+      "beat": "KEMUNGKINAN LAIN",
+      "narration": "Bisa juga karena anginnya terlalu pelan, atau sedang dirawat.",
+      "objectMap": [
+        "model turbin",
+        "panah angin pelan",
+        "ikon alat perawatan",
+        "Host"
+      ],
+      "action": "Dua kartu kemungkinan muncul bergantian di samping model yang sama; kartu bersifat contoh, bukan daftar penyebab lengkap.",
+      "sourceRefs": [
+        "DOELOWWIND",
+        "MAINTENANCE"
+      ]
+    },
+    {
+      "id": "S11",
+      "beat": "PEMAHAMAN BERUBAH",
+      "narration": "Jadi, dari video saja kita nggak bisa memastikan penyebabnya.",
+      "objectMap": [
+        "footage turbin sebagai konteks",
+        "bingkai video",
+        "tanda tanya",
+        "Host"
+      ],
+      "action": "Footage berputar tampil di bingkai; Host menutup indikator yang tidak diketahui dengan tanda tanya. Tidak menyatakan turbin stok itu diam atau mendiagnosisnya.",
+      "sourceRefs": [
+        "DOE2024",
+        "MAINTENANCE"
+      ]
+    },
+    {
+      "id": "S12",
+      "beat": "REFLEKSI / CTA",
+      "narration": "Kalau cuma melihat turbin yang diam, tebakanmu apa? Tulis di komentar, dan ikuti knot theory untuk melihat hal biasa dari sisi lain.",
+      "objectMap": [
+        "Host",
+        "model turbin",
+        "pilihan angin pelan atau kencang",
+        "ikon perawatan",
+        "CTA ikuti knot theory"
+      ],
+      "action": "Model turbin dan beberapa kemungkinan tetap terlihat, tanpa memaksakan dua pilihan; Host menunjuk ruang komentar. CTA lowercase terlihat dan tidak menutupi wajah; opsi suka dapat tampil kecil tanpa mengganggu narasi.",
+      "sourceRefs": []
+    }
+  ]
+}

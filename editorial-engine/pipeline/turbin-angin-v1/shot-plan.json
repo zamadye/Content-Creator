@@ -1,0 +1,22 @@
+{
+  "status": "RANCANGAN, BUKAN VIDEO YANG SUDAH DIRENDER",
+  "aspectRatio": "9:16",
+  "target": "1080x1920, 30 fps; output target belum diuji",
+  "mediaPolicy": "Footage konteks, tidak pernah dijadikan bukti angin atau alasan shutdown. Semua perubahan pitch, angka meter, penguatan angin dan penghentian diilustrasikan dan diberi label. Penggunaan publik bergantung pada rights review.",
+  "footageFraming": "Pertahankan 16:9 penuh di dalam komposisi vertikal untuk menghindari crop ekstrem; setiap shot diuji ulang pada ponsel. Fullscreen crop, bila dipilih kemudian, hanya 608x1080 efektif dari sumber 1080p dan butuh upscale sekitar 1,78 kali.",
+  "motion": "S01 dan S06 menggunakan model, pose dan keadaan puncak yang sama di batas cut; S06 meneruskan gerak, bukan mengulang peristiwa lain. Mesin gerak diuji sebagai model matematis, belum sebagai video.",
+  "shots": [
+    {"sceneId":"S01", "footage":null, "purpose":"Puncak ilustrasi dan turbin sejak frame 0", "host":"tidak menutup rotor", "continuity":"peak preview; cut pada progress 0,42"},
+    {"sceneId":"S02", "footage":"oaw1EMLhFi", "purpose":"Menunjukkan bentuk turbin nyata di ladang, bukan kondisi angin", "host":"menunjuk indikator dugaan", "continuity":"cerita dimulai sesudah cut"},
+    {"sceneId":"S03", "footage":"WuuebDPmKg", "purpose":"Latar turbin nyata di belakang analogi payung ilustrasi", "host":"menahan payung", "continuity":"panah angin diteruskan dari payung ke model"},
+    {"sceneId":"S04", "footage":"9Y8kk5xCuY", "purpose":"Konteks bilah nyata dengan inset penampang pitch ilustrasi yang terpisah", "host":"menunjuk sumbu bilah", "continuity":"pitch tidak ditafsirkan dari rekaman"},
+    {"sceneId":"S05", "footage":"oaw1EMLhFi", "purpose":"Bilah nyata berputar sebagai ilustrasi operasi, tanpa klaim kondisi angin", "host":"menunjuk ikon listrik skematis", "continuity":"bedakan kontrol daya dan stop"},
+    {"sceneId":"S06", "footage":null, "purpose":"Menyelesaikan momen puncak ilustratif S01", "host":"menjaga fokus rotor", "continuity":"kembali tepat ke progress 0,42 lalu mencapai 1"},
+    {"sceneId":"S07", "footage":"9Y8kk5xCuY", "purpose":"Memisahkan konteks footage dan penampang feather ilustrasi", "host":"menunjuk sumbu panjang", "continuity":"model dari S06 dan panah gaya mengecil"},
+    {"sceneId":"S08", "footage":"WuuebDPmKg", "purpose":"Konteks turbin; restart tetap divisualkan sebagai model", "host":"menunjuk indikator kembali aman", "continuity":"tidak mengklaim footage adalah restart"},
+    {"sceneId":"S09", "footage":null, "purpose":"Model diam dengan tanda tanya", "host":"ekspresi bertanya", "continuity":"kondisi turbin spesifik tidak diketahui"},
+    {"sceneId":"S10", "footage":"k6GEFHq7u4", "purpose":"Konteks ladang turbin dengan kartu beberapa kemungkinan", "host":"bergantian menunjuk kartu", "continuity":"kartu tidak mendiagnosis turbin dalam footage"},
+    {"sceneId":"S11", "footage":"oaw1EMLhFi", "purpose":"Frame video nyata sebagai contoh keterbatasan pengamatan", "host":"menutup meter tidak diketahui dengan tanda tanya", "continuity":"footage bergerak, tidak dipalsukan menjadi shutdown"},
+    {"sceneId":"S12", "footage":null, "purpose":"Pertanyaan terbuka, beberapa kemungkinan, CTA lowercase", "host":"menunjuk komentar tanpa menutupi entitas", "continuity":"akhir pada pemahaman, bukan diagnosis"}
+  ]
+}

@@ -1,6 +1,6 @@
 # Standar storytelling: baseline perilaku audiens
 
-Arahan kreatif pengguna untuk produksi baru dan revisi berikutnya. Standar ini melengkapi [audit setiap kalimat](STANDAR-NASKAH-PSIKOLOGI-PENONTON.md), [opening klimaks](STANDAR-OPENING-KLIMAKS-DI-AWAL.md), dan [standar minimum produksi](../../STANDARD-MINIMAL-CONTENT-PRODUCTION.md). Jangan otomatis mengubah materi yang sudah terbit atau terjadwal.
+Arahan kreatif pengguna untuk produksi baru dan revisi berikutnya. Utamakan [sistem cerita panjang](SISTEM-CERITA-LONG-FORM.md): master panjang dulu, lalu potongan dari momen penentu. Standar ini melengkapi [audit setiap kalimat](STANDAR-NASKAH-PSIKOLOGI-PENONTON.md), [opening klimaks](STANDAR-OPENING-KLIMAKS-DI-AWAL.md), dan [standar minimum produksi](../../STANDARD-MINIMAL-CONTENT-PRODUCTION.md). Jangan otomatis mengubah materi yang sudah terbit atau terjadwal.
 
 **Dasar kerja, bukan hasil pengukuran:** orang membuka feed dengan tujuan dan perhatian yang berbeda-beda. Gunakan gambaran *scrolling* pasif, hambatan berkomentar, dan alasan sosial untuk berbagi sebagai hipotesis desain; jangan mengklaim semua penonton bersikap demikian, suatu emosi pasti terjadi, atau teknik tertentu menjamin retensi, komentar, berbagi, dan viralitas. Penilaian niat kreatif bukan hasil uji audiens.
 
@@ -23,13 +23,16 @@ Tidak semua video perlu memakai semua emosi. Tentukan satu emosi utama dan, bila
 
 Cerita faktual tentang turbin, misalnya, dapat memilih **penasaran + keheranan**; tidak perlu dipaksa menjadi horor atau kemarahan. Perasaan takut, shock, atau frustrasi boleh digunakan pada topik lain bila tepat dan dibangun dengan jujur.
 
-## 3. Pilih satu aksi utama setelah jawaban
+## 3. Rancang alasan interaksi di dalam cerita
 
-Beri penonton pemahaman atau payoff terlebih dahulu. Pilih satu undangan yang relevan, jelas, dan mudah dilakukan; ajakan mengikuti kanal tetap alami dan ditulis/dinarasikan **`ikuti knot theory`**. Jangan menumpuk like, komentar, bagikan, dan ulangi sekaligus hanya demi angka.
+Sebelum CTA, tunjukkan peristiwa, pilihan, peringatan, konsekuensi, atau petunjuk yang sungguh memberi orang sesuatu untuk dibahas. Catat beat dan setidaknya dua pandangan yang masuk akal tanpa menyamakan pendapat dengan fakta yang telah terbukti. Undangan singkat boleh muncul setelah payoff bila alami, tetapi tidak menyelamatkan cerita yang tidak punya taruhan. Jangan menumpuk permintaan interaksi.
 
-- **Ruang / berbagi:** kaitkan tempat atau pengalaman yang dekat dengan alasan orang ingin mengirim cerita. Untuk fiksi horor, misalnya: “Kalau ketukan itu datang dari kamar sebelah, kamu akan buka pintu? Bagikan cerita fiksi ini ke teman yang suka horor.” Jangan menyamarkan ancaman fiksi sebagai peringatan nyata atau menakut-nakuti demi share.
-- **Perdebatan persepsi / komentar:** ajukan beberapa tafsir yang masuk akal dan sediakan kemungkinan lain. Contoh faktual: “Kalau melihat turbin diam, dugaan pertamamu apa: angin pelan, perawatan, atau sebab lain?” Tegaskan sebelumnya bahwa gambar saja belum memastikan penyebab. Jangan berkata “banyak yang bilang” tanpa bukti atau meminta orang memilih antara dua jawaban palsu.
-- **Ego detektif / tonton ulang:** arahkan ke detail yang **benar-benar ada** dan relevan dengan penjelasan, misalnya perubahan sudut pada ilustrasi penampang bilah. Jelaskan lokasinya secukupnya agar orang bisa memeriksanya. Jangan mengarang bayangan/suara/detail atau merendahkan orang dengan klaim “hanya orang teliti yang sadar”. Bila detail belum jelas saat playback, perbaiki atau jangan pakai pemicu itu.
+- **Komentar/perdebatan:** beri bahan keputusan atau tanggung jawab, bukan kuis teknis generik. Misalnya setelah kisah faktual tentang kebocoran yang dilaporkan dan konsekuensinya, tanyakan siapa perlu berwenang meminta pemeriksaan independen dan mengapa—tanpa menyimpulkan risiko yang tidak terbukti.
+- **Replay/detektif:** tanam detail yang benar-benar ada, dapat diakses, dan dibayar maknanya. Pemahaman utama tidak boleh membutuhkan detail tersembunyi; jangan mengarang petunjuk.
+- **Berbagi:** tetapkan siapa mungkin peduli dan nilai ceritanya untuk mereka, bukan hanya “bagikan ya”.
+- **Mengikuti:** janjikan jenis pengalaman cerita yang bisa diulang secara jujur. Teks dan narasi akhir tetap **`ikuti knot theory`**, sesudah payoff; jangan menjanjikan episode yang belum direncanakan.
+
+Ini rencana kreatif, bukan jaminan bahwa orang akan berkomentar, berbagi, atau mengikuti. Masukan pemilik tentang draf turbin menunjukkan pertanyaan tebakan teknis di akhir belum cukup baginya; jangan gunakan itu sebagai contoh yang terbukti berhasil.
 
 ## 4. Peta perilaku per episode
 
@@ -43,8 +46,11 @@ Emosi utama + pendukung jika ada; alasan keduanya cocok:
 Pertanyaan/dugaan penonton yang mungkin muncul:
 Petunjuk konkret berikutnya + lokasi jawaban/payoff:
 Jangkar pengalaman/observasi dan batas fakta/analogi:
-Aksi utama: komentar / bagikan / tonton ulang; prompt persis:
-Mengapa prompt mudah dijawab dan apa nilai bagi penonton/penerima:
+Beat dan kejadian isi yang layak dibahas bahkan tanpa CTA:
+Dua pandangan relevan + batas agar tidak menyesatkan:
+Nilai spesifik bagi orang yang mungkin menerima share:
+Janji serial yang bisa ditepati + alasan kembali:
+Undangan alami jika ada; prompt persis dan mengapa mudah dijawab:
 Detail atau klaim yang harus benar-benar ada / diverifikasi:
 Cara review manusia + hasil nyata / NOT TESTED:
 ```
@@ -62,4 +68,4 @@ Untuk uji privat, bila ada orang yang belum tahu topik, putar draf dengan suara 
 
 Jika kelak ada izin terbit, amati metrik yang benar-benar tersedia: viewed vs swiped, retensi per bagian, rata-rata durasi/persentase ditonton, serta komentar atau share relatif terhadap jumlah view. Rewatch hanya dinilai bila datanya tersedia; lonjakan retensi saja bisa punya beberapa penyebab. Bandingkan jendela dan konteks yang sebanding, tanpa menyimpulkan satu penyebab dari satu video. Evaluasi ini tidak memberi izin menjadwalkan atau menerbitkan.
 
-Contoh penerapan dan usulan yang belum disetujui: [review draf turbin angin](../content/proposals/turbin-angin-review-perilaku-audiens-v1.md).
+Review turbin terdahulu adalah [arsip penilaian awal](../content/proposals/turbin-angin-review-perilaku-audiens-v1.md), bukan bukti cerita efektif. Masukan pemilik dan diagnosis terkini dijelaskan pada [riset storytelling](../../RISET-STORYTELLING-DUNIA-KEBALIK.md).

@@ -27,6 +27,10 @@ class ResearchPdfTest(unittest.TestCase):
         text = Token("text", "", 0)
         text.content = "A → B & C"
         self.assertEqual(renderer.inline([text]), "A › B &amp; C")
+        code = Token("code_inline", "code", 0)
+        code.content = "A → B & C"
+        self.assertIn("A › B &amp; C", renderer.inline([code]))
+        self.assertNotIn("→", renderer.inline([code]))
         link = Token("link_open", "a", 1)
         link.attrSet("href", "javascript:alert(1)")
         with self.assertRaises(ValueError):

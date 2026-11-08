@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "format": "long-master",
+  "storyId": "contoh-boston-bukan-produksi",
+  "scriptId": "",
+  "truthMode": "fact",
+  "premise": "Ketika tangki molase yang sudah dikeluhkan warga runtuh di North End, penyelidikan menggeser tuduhan sabotase ke kelemahan struktur dan kelalaian pemilik; warga menanggung akibat nyata.",
+  "dramaticQuestion": "Apa yang terjadi setelah warga melihat tangki bocor, dan siapa yang kemudian dinyatakan bertanggung jawab?",
+  "entity": "Tangki molase dan warga/pekerja North End sebagai tokoh kolektif.",
+  "goal": "Warga melaporkan kebocoran yang mereka lihat; kebutuhan lingkungan yang aman adalah konteks manusia, bukan dialog atau motif individu yang direka.",
+  "stakes": "Keselamatan orang yang tinggal dan bekerja di sekitar serta tanggung jawab atas akibat nyata.",
+  "audienceAnchor": "Melihat masalah kecil di dekat rumah atau tempat kerja dan bertanya kepada siapa tanda itu harus dilaporkan; tidak menganggap pengalaman semua penonton sama.",
+  "sources": [
+    {
+      "id": "ARSIP_BOSTON",
+      "url": "https://www.boston.gov/news/100-years-ago-today-molasses-crashes-through-bostons-north-end",
+      "supports": "Uraian arsip kota: tangki 1915, kebocoran dan keluhan warga, cat, banjir, korban, tuduhan awal dan temuan auditor 1925.",
+      "limits": "Uraian retrospektif, bukan laporan sidang asli yang telah dibaca; jangan mengarang pikiran, percakapan, sebab fisik tunggal, atau hak penggunaan foto."
+    },
+    {
+      "id": "ASCE",
+      "url": "https://www.asce.org/publications-and-news/civil-engineering-source/article/2026/03/01/seeing-the-whole-picture-practicing-factor-of-safety-with-attitude",
+      "supports": "Artikel profesi membahas kebocoran, struktur, pengelolaan dan lingkungan North End.",
+      "limits": "Analisis profesi; hipotesis pemicu langsung tidak dibuktikan sebagai sebab tunggal."
+    }
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "kind": "context",
+      "before": "Lingkungan North End sudah menjadi tempat warga dan pekerja beraktivitas.",
+      "event": "Tangki molase yang dibangun 1915 berdiri dekat jalan dan rel.",
+      "after": "Penonton dapat membayangkan orang-orang di dekat tangki.",
+      "causeToNext": "Kedekatan membuat kebocoran berikutnya relevan bagi warga.",
+      "emotionHypothesis": "Dari ingin tahu menuju kedekatan terhadap lingkungan.",
+      "sourceIds": [
+        "ARSIP_BOSTON"
+      ]
+    },
+    {
+      "id": "B2",
+      "kind": "disruption",
+      "before": "Tangki menyimpan molase di dekat lingkungan.",
+      "event": "Warga melihat kebocoran dari sambungan dan mengeluh.",
+      "after": "Tanda masalah dan respons warga tercatat; risiko pasti belum diketahui.",
+      "causeToNext": "Keluhan membawa cerita ke respons perusahaan.",
+      "emotionHypothesis": "Penasaran: apakah keluhan membawa perubahan?",
+      "sourceIds": [
+        "ARSIP_BOSTON"
+      ]
+    },
+    {
+      "id": "B3",
+      "kind": "escalation",
+      "before": "Bocor terlihat di dinding tangki.",
+      "event": "Menurut arsip kota, perusahaan mengecat tangki cokelat untuk menyamarkan tetesan.",
+      "after": "Penampakan berubah, bukan bukti bahwa struktur diperbaiki.",
+      "causeToNext": "Keputusan ini menghubungkan tanda awal dengan masalah yang berlanjut.",
+      "emotionHypothesis": "Frustrasi mungkin timbul dari beda antara menutupi tanda dan memperbaiki sebab.",
+      "sourceIds": [
+        "ARSIP_BOSTON"
+      ]
+    },
+    {
+      "id": "B4",
+      "kind": "escalation",
+      "before": "Tanda kebocoran sudah terlihat beberapa waktu.",
+      "event": "Tangki tetap dipakai di lingkungan tersebut hingga 1919.",
+      "after": "Masalah hadir berdampingan dengan aktivitas sehari-hari selama bertahun-tahun.",
+      "causeToNext": "Tangki yang tetap digunakan menjadi konteks sebelum kondisi menjelang runtuh.",
+      "emotionHypothesis": "Gelisah karena orang hidup dekat masalah yang belum terselesaikan.",
+      "sourceIds": [
+        "ARSIP_BOSTON",
+        "ASCE"
+      ]
+    },
+    {
+      "id": "B5",
+      "kind": "crisis",
+      "before": "Tangki berada dekat jalan dan lingkungan kerja.",
+      "event": "Tangki telah menerima kiriman besar sebelum runtuh pada 15 Januari 1919.",
+      "after": "Massa molase tersimpan di dalam struktur dengan kelemahan yang kelak diungkap.",
+      "causeToNext": "Kondisi ini mendahului runtuhnya tangki tanpa mengklaim pemicu fisik tunggal.",
+      "emotionHypothesis": "Kekhawatiran terhadap orang-orang di sekitar.",
+      "sourceIds": [
+        "ARSIP_BOSTON"
+      ]
+    },
+    {
+      "id": "B6",
+      "kind": "climax",
+      "before": "Molase berada dalam tangki.",
+      "event": "Tangki pecah; gelombang melanda lingkungan dan menewaskan 21 orang serta melukai sekitar 150.",
+      "after": "Keanehan yang dibuka berubah menjadi kerugian nyata.",
+      "causeToNext": "Sesudah bencana muncul tuduhan dan penyelidikan mengenai tanggung jawab.",
+      "emotionHypothesis": "Terkejut lalu empati terhadap korban, tanpa komedi atau eksploitasi.",
+      "sourceIds": [
+        "ARSIP_BOSTON"
+      ]
+    },
+    {
+      "id": "B7",
+      "kind": "turning_point",
+      "before": "Penyebab dan tanggung jawab menjadi pertanyaan setelah bencana.",
+      "event": "Pemilik mula-mula menuduh sabotase; penyelidikan dan gugatan menyorot ketidakstabilan struktur.",
+      "after": "Dugaan serangan luar bergeser ke pertanyaan tentang struktur dan pengelolaan.",
+      "causeToNext": "Bukti tersebut berlanjut pada kesimpulan auditor yang ditunjuk pengadilan.",
+      "emotionHypothesis": "Kaget atau frustrasi karena tanda lama mendapat makna baru.",
+      "sourceIds": [
+        "ARSIP_BOSTON"
+      ]
+    },
+    {
+      "id": "B8",
+      "kind": "consequence",
+      "before": "Warga mengalami kehilangan dan tanggung jawab diperselisihkan.",
+      "event": "Pada 1925 auditor menyimpulkan kelalaian pemilik menyebabkan runtuhnya tangki.",
+      "after": "Ada temuan tanggung jawab bertahun-tahun setelah bencana.",
+      "causeToNext": "Hasil membawa kita kembali pada tetesan dan cat dalam pembuka.",
+      "emotionHypothesis": "Reflektif: akibat berlangsung jauh lebih lama daripada kejadian.",
+      "sourceIds": [
+        "ARSIP_BOSTON"
+      ]
+    },
+    {
+      "id": "B9",
+      "kind": "payoff",
+      "before": "Kebocoran dan cat semula tampak sekadar detail.",
+      "event": "Rangkai kembali tanda awal, bencana dan temuan auditor; cat bukan perbaikan.",
+      "after": "Pertanyaan yang dibuka terjawab: tanda terlihat sebelum keruntuhan dan penyelidikan menemukan kelalaian.",
+      "causeToNext": "Penutup mengundang diskusi tentang jalur pemeriksaan tanpa mengaburkan putusan.",
+      "emotionHypothesis": "Refleksi dan dorongan mungkin untuk membicarakan kewenangan menghadapi peringatan.",
+      "sourceIds": [
+        "ARSIP_BOSTON"
+      ]
+    }
+  ],
+  "hook": {
+    "entityAtFrame0": "Tangki molase yang pecah di dekat jalan; label rekonstruksi.",
+    "peakVisual": "Cuplikan nyata dari rencana beat B6: tangki pecah dan cairan bergerak menuju lingkungan.",
+    "openingLine": "Tangki ini pecah. Warga sudah melihatnya bocor.",
+    "cutQuestion": "Mengapa tanda yang terlihat itu tidak mencegah bencana?",
+    "climaxBeatId": "B6",
+    "answerBeatId": "B9",
+    "visualCutSeconds": null,
+    "spokenOpeningSeconds": null
+  },
+  "turn": {
+    "clueBeatId": "B2",
+    "revealBeatId": "B7",
+    "oldMeaning": "Tetesan dan cat tampak sebagai keanehan di sekitar tangki.",
+    "newMeaning": "Kebocoran awal dan struktur menjadi petunjuk dalam pertanyaan tanggung jawab, berlawanan dengan tuduhan awal pemilik.",
+    "changedStake": "Perhatian berpindah dari dugaan sabotase ke keselamatan warga dan tanggung jawab pengelolaan.",
+    "evidenceBoundary": "Tuduhan pemilik bukan bukti sabotase; arsip retrospektif tidak memastikan setiap sebab fisik atau motif individual."
+  },
+  "interactions": {
+    "comment": {
+      "beatId": "B8",
+      "storyMoment": "Warga telah melihat/mengeluhkan kebocoran dan auditor belakangan menilai kelalaian pemilik.",
+      "question": "Siapa yang seharusnya bisa meminta pemeriksaan independen saat warga melapor: pemilik, regulator, keduanya, atau pihak lain?",
+      "whyDiscuss": "Ada persoalan kewenangan dan pencegahan yang relevan dengan tanda yang terlihat; pilihan menyentuh tanggung jawab bersama.",
+      "viewpoints": [
+        "Pemilik wajib meminta dan membiayai pemeriksaan.",
+        "Regulator perlu bisa memeriksa secara independen, bersama tanggung jawab pemilik."
+      ],
+      "avoidFalseBalance": "Jangan menyatakan korban salah atau kelalaian pemilik tidak terbukti; hukum spesifik saat itu perlu riset tersendiri."
+    },
+    "share": {
+      "beatId": "B8",
+      "recipient": "Teman atau keluarga yang ingin membahas laporan bahaya di lingkungan.",
+      "value": "Contoh konkret perbedaan menyamarkan tanda dan menindaklanjuti laporan."
+    },
+    "follow": {
+      "seriesPromise": "Kisah nyata ketika detail yang tampak biasa mengubah nasib orang.",
+      "whyReturn": "Setiap cerita utuh menunjukkan orang yang terdampak, perubahan dan akibat, tanpa menjanjikan judul episode yang belum disiapkan."
+    }
+  },
+  "shortPlan": {
+    "sourceBeatId": "B6",
+    "context": "Boston 1919, tangki molase dan lingkungan di dekatnya; rekonstruksi diberi label.",
+    "miniConflict": "Tangki yang bocor pecah dan pemilik mula-mula menuduh sabotase.",
+    "standalonePayoff": "Korban disebut dengan hormat dan temuan struktur serta kelalaian auditor pada 1925 disampaikan.",
+    "distortionRisk": "Jangan membuat sabotase tampak terbukti, menghapus tahun putusan, atau menyatakan foto/video rekonstruksi sebagai rekaman asli."
+  },
+  "scenePlan": [],
+  "status": "CONTOH OUTLINE SAJA — MUTU CERITA, RESPON AUDIENS, HAK, DURASI, TIMECODE, SCRIPT DAN IZIN PRODUKSI NOT TESTED"
+}

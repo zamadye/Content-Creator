@@ -1,0 +1,40 @@
+# Audit aturan dan penerapan — KNOT THEORY
+
+**Tujuan:** membedakan apa yang tertulis, apa yang benar-benar dilakukan pada bahan yang diperiksa, dan apa yang belum terbukti. Audit ini tidak mengubah video, approval, jadwal, snapshot, atau arsip lama. Dokumen aktif: [sistem cerita panjang](SISTEM-CERITA-LONG-FORM.md) dan [standar minimum](../../STANDARD-MINIMAL-CONTENT-PRODUCTION.md).
+
+## 1. Kesimpulan nyata dari draf turbin
+
+**TESTED secara kualitatif:** pemilik menonton draf revisi sampai selesai dan mengatakan ia tidak merasakan dampak emosional atau alasan untuk berdiskusi. Ini satu reaksi nyata; tidak mewakili seluruh audiens dan tidak menjelaskan algoritma atau hasil tayangan. Pendapat ini tidak dapat dibatalkan oleh jumlah checklist yang lulus.
+
+**VERIFIED pada naskah:** pembuka mengajukan kontradiksi turbin; bagian tengah menjelaskan pengaturan bilah dan shutdown; penutup meminta tebakan penyebab turbin diam. **Diagnosis editorial:** cerita belum membangun pihak yang terdampak, perjuangan, taruhan dan konsekuensi yang berkembang; undangan tebakan teknis menambah CTA, bukan konflik yang layak diperdebatkan. Ini interpretasi naskah dan masukan pemilik, bukan pengukuran sebab-akibat terhadap semua penonton.
+
+**TESTED:** audit mekanis naskah `turbin-angin-draf-v2.json` terhadap `turbin-angin-audit-kalimat-v2.json` dijalankan lagi dan mengembalikan `mechanical: PASS` untuk kecocokan teks dan kolom. Output yang sama menyatakan segmentasi kalimat, mutu manusia, respons audiens dan fakta/hak `NOT TESTED`. Kesimpulannya: audit lama bisa diterapkan secara mekanis **dan tetap gagal memenuhi kebutuhan emosional pemilik**.
+
+QA sebelumnya mencatat cut visual 2,0 detik, awal S02 pada 3,60 detik dan akhir cue pertanyaan diperkirakan 3,46 detik. Ini estimasi cue, bukan hasil forced alignment; pembuka lisan lengkap perlu review. Sepuluh cek teknis lulus pada cakupannya, bukan mutu cerita. Hak/atribusi footage sebelumnya `NEEDS REVIEW`. Pemilik telah menonton video, tetapi review khusus hak, sinkronisasi per kata, keterbacaan di berbagai ponsel, dan tanggapan audiens yang lebih luas tetap belum dibuktikan. Perbedaan tanggal pada bukti review lama dipertahankan untuk ditinjau; riwayat tidak diubah.
+
+## 2. Inventaris aturan yang diperiksa
+
+- **Fondasi editorial dan standar minimum lama — KONFLIK.** Masih mengarahkan Shorts vertikal dan tiga konten sehari sebagai prioritas. Sekarang keduanya diganti menjadi master cerita panjang, potongan pendek dari master, dan tidak menetapkan kuota baru. Aturan jarak, Buffer, izin dan disclosure tetap berlaku sesuai konteks.
+- **Riset storytelling dan PDF storytelling terdahulu — SEBAGIAN DITERAPKAN, TIDAK CUKUP.** Materi merinci objek konkret, kejutan dan sebab-akibat; draf turbin memakai pertanyaan serta penjelasan. Namun contoh, tujuan dan evaluasi lama lebih dekat ke penjelasan pendek daripada konflik/akibat emosional. Riset aktif ditulis ulang dengan contoh cerita panjang; naskah riset lama disimpan di `docs/archive` dan PDF Drive tetap arsip.
+- **Riset retensi dan PDF terdahulu — ARSIP SUMBER, ARAH LAMA.** Definisi metrik dan batas eksperimennya masih berguna dengan verifikasi ulang, tetapi kerangka utamanya Shorts. Edisi baru memisahkan long-form, Short, komentar, share, follow dan penonton kembali. Laporan lama dan lampiran analitik privat tidak dihapus atau diganti dengan angka baru.
+- **Opening — ADA DAN SEBAGIAN DIUKUR.** Entitas, kilas puncak dan cut tercatat pada naskah/QA turbin; cut visual 2 detik tidak membuktikan seluruh pembuka lisan 1–3 detik atau penonton tertarik. Aturan dipertahankan dan waktu visual/lisan dipisahkan; cerita panjang tetap membutuhkan konflik/akibat setelahnya.
+- **Audit setiap kalimat — DITERAPKAN SECARA MEKANIS PADA V2.** Text/kolom cocok saat diuji ulang; pemeriksa tidak memahami mutu kalimat atau respons. Sistem baru menambahkan review yang mengikat brief, naskah dan audit ke hash, namun kualitas tetap penilaian manusia.
+- **Baseline perilaku — TERTULIS, EFEKTIVITAS BELUM TERBUKTI.** Peta pattern interrupt, emosi, tebakan dan opsi komentar ada pada review lama. Pengguna justru menyatakan tidak ada dampak baginya. Aturan kini meminta emosi yang timbul dari peristiwa/akibat dan alasan diskusi dalam cerita, bukan hanya prompt.
+- **Storyboard dan visual sebab-akibat — TERTULIS DAN ADA DALAM PIPELINE KHUSUS.** Shot plan dan objek turbin tercatat; pemeriksaan teknis yang dilakukan tidak membuktikan semua visual dibaca benar atau orang peduli. Dua objek per scene, kontinuitas dan fakta tetap diperlukan, tetapi bukan pengganti plot.
+- **Story gate baru — TESTED SECARA MEKANIS.** Unit test memakai data sintetis; outline contoh Boston juga lolos cek bentuk, sementara kualitas cerita, reaksi audiens, waktu, fakta/hak, dan izin tetap `NOT TESTED` oleh tool. Pemeriksa mencakup beat, dua eskalasi, sumber/ID, hubungan clue dan reveal, isi interaksi, rencana Short, scene/dua objek, audit kalimat serta hash receipt sebelum voice. Ia tidak dapat menilai kualitas atau memverifikasi reviewer/sumber. Pipeline master long-form yang menggunakannya secara otomatis belum dibuat/diuji; pipeline lama tidak otomatis memenuhi standar baru.
+- **Review penonton dingin — WAJIB SEBELUM SIAP FINAL, BELUM ADA UNTUK SISTEM BARU.** Minimal satu orang bukan penulis mengikuti draf lengkap; pertanyaan terbuka dan jawaban asli dicatat. Draf/animatic privat boleh dibuat untuk uji, tetapi hasil tidak boleh dianggap PASS sebelum penilaian nyata. Satu penonton tidak menggantikan pengujian audiens lebih luas.
+- **Riset dan sinyal platform — DIKOREKSI.** YouTube dan Meta secara resmi menyebut aktivitas termasuk komentar dalam pemahaman minat/personalization; bobot dan ambang viral tidak diketahui. Rincian ada di [riset distribusi](../../RISET-RETENSI-DAN-PERTUMBUHAN-KNOT-THEORY.md). Ajakan kosong/engagement bait bukan pengganti alasan diskusi.
+
+## 3. Cakupan Drive dan batas audit
+
+PDF storytelling dan PDF riset retensi yang telah ada diperiksa melalui ekstraksi teks dan dibandingkan dengan tujuan serta source terkait; hasil konektor yang panjang terpotong, sehingga audit ini tidak mengklaim perbandingan karakter seluruh halaman atau QA visual kedua PDF lama. Addendum analitik Titik Buta yang dapat diakses diperiksa sebagai snapshot historis, bukan angka terkini. PDF evaluasi lain yang pernah diblokir Drive **tidak diambil ulang atau dilewati pembatasannya**. Dokumen evaluasi struktur dari proyek The Last Signal adalah konteks kanal berbeda; klaimnya tentang angka, ketentuan horor, atau kelulusan mesin tidak otomatis menjadi fakta/aturan KNOT THEORY.
+
+Versi baru disimpan terpisah agar yang lama tetap sebagai bukti sejarah. Metadata arsip yang ditandai “bukan aturan aktif” tidak mengubah isi historis. Tidak satu pun video atau posting terbit/terjadwal diubah.
+
+## 4. Keputusan yang dapat ditindaklanjuti
+
+1. Gunakan satu sumber aturan aktif: cerita panjang dengan tokoh, konflik, dua eskalasi, perubahan makna yang jujur, klimaks, akibat, payoff, dan momen yang memang pantas didiskusikan.
+2. Isi brief baru dan jalankan alat outline; sebelum suara final, cocokkan naskah/audit/scene dan receipt human review yang terikat hash. Jangan membuat catatan approval palsu. Alat ini tidak otomatis tersambung ke renderer lama.
+3. Buat animatic/draf privat untuk penonton dingin; jika tidak merasa peduli atau ingin membahas, revisi struktur dan sebab-akibat, bukan hanya CTA. Catat `NOT TESTED` bila review belum terjadi.
+4. Pilih satu atau lebih momen penentu dari master bila layak, lalu periksa konteks dan payoff masing-masing Short. Tidak ada jumlah wajib atau penerbitan otomatis.
+5. Catat metrik sesuai platform hanya setelah ada izin dan data; tidak mengubah konten lama atau menganggap korelasi sebagai sebab.

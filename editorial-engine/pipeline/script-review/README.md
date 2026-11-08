@@ -1,6 +1,6 @@
 # Pemeriksaan mekanis audit naskah
 
-Alat lokal/offline untuk membantu memastikan audit mencakup teks narasi pada seluruh scene. **Ini bukan penilai psikologi penonton, fakta, izin, kualitas, keterbacaan, atau approval manusia.** Standar substantif dan contoh ada di [standar naskah](../../docs/STANDAR-NASKAH-PSIKOLOGI-PENONTON.md). Tool ini tidak dihubungkan otomatis ke renderer atau Buffer; menjalankannya tidak membuat atau menjadwalkan video.
+Alat lokal/offline untuk membantu memastikan audit mencakup teks narasi pada seluruh scene. **Ini bukan penilai psikologi penonton, fakta, izin, kualitas, keterbacaan, atau approval manusia.** Standar substantif dan contoh ada di [standar naskah](../../docs/STANDAR-NASKAH-PSIKOLOGI-PENONTON.md). Tool ini tidak dihubungkan otomatis ke renderer atau Buffer; menjalankannya tidak membuat atau menjadwalkan video. [Story gate baru](../story-engine/README.md) memanggil fungsi audit ini pada tahap prevoice, tetapi pipeline episode lama belum memanggil story gate secara otomatis.
 
 ## Input
 

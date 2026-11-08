@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "format": "long-master",
+  "storyId": "",
+  "scriptId": "",
+  "truthMode": "fact",
+  "fictionDisclosure": "",
+  "premise": "",
+  "dramaticQuestion": "",
+  "entity": "",
+  "goal": "",
+  "stakes": "",
+  "audienceAnchor": "",
+  "sources": [
+    {
+      "id": "S1",
+      "url": "",
+      "supports": "",
+      "limits": ""
+    }
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "kind": "context",
+      "before": "",
+      "event": "",
+      "after": "",
+      "causeToNext": "",
+      "emotionHypothesis": "",
+      "sourceIds": [
+        "S1"
+      ]
+    },
+    {
+      "id": "B2",
+      "kind": "disruption",
+      "before": "",
+      "event": "",
+      "after": "",
+      "causeToNext": "",
+      "emotionHypothesis": "",
+      "sourceIds": [
+        "S1"
+      ]
+    },
+    {
+      "id": "B3",
+      "kind": "escalation",
+      "before": "",
+      "event": "",
+      "after": "",
+      "causeToNext": "",
+      "emotionHypothesis": "",
+      "sourceIds": [
+        "S1"
+      ]
+    },
+    {
+      "id": "B4",
+      "kind": "escalation",
+      "before": "",
+      "event": "",
+      "after": "",
+      "causeToNext": "",
+      "emotionHypothesis": "",
+      "sourceIds": [
+        "S1"
+      ]
+    },
+    {
+      "id": "B5",
+      "kind": "crisis",
+      "before": "",
+      "event": "",
+      "after": "",
+      "causeToNext": "",
+      "emotionHypothesis": "",
+      "sourceIds": [
+        "S1"
+      ]
+    },
+    {
+      "id": "B6",
+      "kind": "climax",
+      "before": "",
+      "event": "",
+      "after": "",
+      "causeToNext": "",
+      "emotionHypothesis": "",
+      "sourceIds": [
+        "S1"
+      ]
+    },
+    {
+      "id": "B7",
+      "kind": "turning_point",
+      "before": "",
+      "event": "",
+      "after": "",
+      "causeToNext": "",
+      "emotionHypothesis": "",
+      "sourceIds": [
+        "S1"
+      ]
+    },
+    {
+      "id": "B8",
+      "kind": "consequence",
+      "before": "",
+      "event": "",
+      "after": "",
+      "causeToNext": "",
+      "emotionHypothesis": "",
+      "sourceIds": [
+        "S1"
+      ]
+    },
+    {
+      "id": "B9",
+      "kind": "payoff",
+      "before": "",
+      "event": "",
+      "after": "",
+      "causeToNext": "",
+      "emotionHypothesis": "",
+      "sourceIds": [
+        "S1"
+      ]
+    }
+  ],
+  "hook": {
+    "entityAtFrame0": "",
+    "peakVisual": "",
+    "openingLine": "",
+    "cutQuestion": "",
+    "climaxBeatId": "B6",
+    "answerBeatId": "B8",
+    "visualCutSeconds": null,
+    "spokenOpeningSeconds": null
+  },
+  "turn": {
+    "clueBeatId": "B3",
+    "revealBeatId": "B7",
+    "oldMeaning": "",
+    "newMeaning": "",
+    "changedStake": "",
+    "evidenceBoundary": ""
+  },
+  "interactions": {
+    "comment": {
+      "beatId": "B7",
+      "storyMoment": "",
+      "question": "",
+      "whyDiscuss": "",
+      "viewpoints": [
+        "",
+        ""
+      ],
+      "avoidFalseBalance": ""
+    },
+    "share": {
+      "beatId": "B8",
+      "recipient": "",
+      "value": ""
+    },
+    "follow": {
+      "seriesPromise": "",
+      "whyReturn": ""
+    }
+  },
+  "shortPlan": {
+    "sourceBeatId": "B6",
+    "context": "",
+    "miniConflict": "",
+    "standalonePayoff": "",
+    "distortionRisk": ""
+  },
+  "scenePlan": [
+    {
+      "sceneId": "",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "",
+          "action": ""
+        },
+        {
+          "object": "",
+          "action": ""
+        }
+      ]
+    }
+  ]
+}

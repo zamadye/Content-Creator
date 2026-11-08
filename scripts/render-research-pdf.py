@@ -62,7 +62,10 @@ def inline(children) -> str:
         elif typ == "em_close":
             parts.append("</i>")
         elif typ == "code_inline":
-            parts.append('<font name="ArchivoMedium" color="#17647a">' + escape(token.content) + "</font>")
+            # Apply the same arrow fallback inside inline code as plain text;
+            # the supplied Latin font has no U+2192 glyph.
+            parts.append('<font name="ArchivoMedium" color="#17647a">' +
+                         escape(token.content.replace("→", "›")) + "</font>")
         elif typ == "link_open":
             target = token.attrGet("href") or ""
             if not target.startswith(("https://", "http://", "mailto:")):

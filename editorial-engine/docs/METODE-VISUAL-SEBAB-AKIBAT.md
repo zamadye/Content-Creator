@@ -1,6 +1,6 @@
 # Metode visual sebab-akibat — Dunia Kebalik
 
-Panduan untuk konten berikutnya setelah evaluasi Awan V3. Ini standar desain
+Panduan pendukung [sistem cerita panjang](SISTEM-CERITA-LONG-FORM.md); Awan V3 adalah contoh historis, bukan master long-form aktif. Ini standar desain
 dan pengujian, bukan bukti bahwa penonton akan bertahan lebih lama.
 
 ## Dari daftar objek menjadi rangkaian tindakan

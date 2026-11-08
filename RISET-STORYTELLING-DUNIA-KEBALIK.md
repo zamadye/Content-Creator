@@ -1,172 +1,71 @@
-# Dunia Kebalik: riset dan panduan storytelling
+# Riset storytelling dan contoh kerja — cerita panjang dulu
 
-**KNOT THEORY · 7 November 2026**  
-**Tujuan:** membuat video pendek yang menarik karena idenya jelas dan mengejutkan, bukan karena menahan jawaban atau menyusun kalimat dramatis secara otomatis. Dokumen ini adalah panduan editorial, bukan klaim bahwa suatu format pasti viral. Contoh di bawah adalah latihan naskah, bukan video baru atau persetujuan publikasi.
+**Edisi aktif untuk KNOT THEORY.** Kami memperbarui riset ini setelah pemilik menonton draf turbin sampai selesai dan menyatakan tidak merasakan dampak emosional atau alasan untuk berdiskusi. Itu satu tanggapan kualitatif yang nyata dan penting; bukan statistik audiens. Edisi Shorts-first lama dan PDF lama tetap tersimpan sebagai arsip, bukan aturan aktif. Ini bahan penulisan dan contoh, bukan video baru atau persetujuan publikasi.
 
-## 1. Kesimpulan yang bisa dipakai
+## 1. Kesimpulan untuk dipakai
 
-1. **Mulai dari sesuatu yang bisa dibayangkan.** Tunjukkan objek atau peristiwa spesifik dan kontradiksi yang benar: “Ada kolam di dasar laut” lebih mudah diikuti daripada “Tahukah kamu fakta yang mengejutkan?” Judul, gambar pembuka dan narasi harus menjanjikan hal yang sama.
-2. **Jangan membuat penonton menunggu tanpa memperoleh apa-apa.** Setelah pembuka, berikan lokasi, bukti atau tindakan nyata; setiap bagian menambah informasi atau mengubah pemahaman. Pertanyaan yang bagus membuat orang ingin tahu *mengapa*, bukan sekadar menebak jawaban yang sengaja disembunyikan.
-3. **Twist harus menjelaskan ulang, bukan sekadar membantah.** Tanam petunjuk, hadirkan fakta yang mengubah dugaan, lalu jelaskan mekanismenya. Jangan menyebut sesuatu “tidak mungkin” bila sebenarnya hanya tidak biasa.
-4. **Tulis untuk didengar sekali.** Gunakan Bahasa Indonesia percakapan yang jelas, rujukan kata yang tidak membingungkan, variasi ritme, dan jeda yang mengikuti makna. Baca keras-keras, rekam dan dengarkan ulang; teks yang tampak alami belum tentu terdengar alami.
-5. **Beri ruang pada momen penting.** Tempo tidak sama dengan terburu-buru. Potong pengulangan, bukan konteks atau jeda yang diperlukan agar perubahan makna bisa dipahami.
-6. **Nilai kualitas dengan manusia dan data, bukan nama rumus.** Lakukan tinjauan fakta, suara, visual dan keterbacaan; setelah terbit, amati perilaku penonton dan komentar tanpa menganggap satu metrik sebagai bukti sebab-akibat.
+1. **Kisah, bukan hanya fakta mengejutkan.** Cari tokoh/kelompok/entitas, tujuan, hambatan, taruhan, perkembangan dan akibat. Fakta memberi pijakan, tetapi hubungan sebab-akibat dan nasib yang berubah memberi cerita bobot.
+2. **Emosi harus punya penyebab.** Bahaya, kehilangan, pilihan, kepedulian atau ketidakadilan hanya dipakai bila memang ada pada materi. Kontras antara harapan dan akibat dapat mengundang keheranan, empati, marah atau sedih; tidak ada emosi yang wajib untuk semua cerita.
+3. **Petunjuk membuat perubahan makna terasa adil.** Tanam tanda yang relevan; fakta atau kejadian berikutnya mengubah tafsir; klimaks dan akibat membayar pertanyaan awal. Jangan mengarang dialog, niat, kronologi, atau aturan baru demi twist.
+4. **Alasan interaksi ada di adegan.** Sebelum CTA, harus ada sesuatu yang layak diperdebatkan, dibagikan, ditafsirkan atau diingat. CTA generik tidak membuat fakta yang datar menjadi kisah emosional.
+5. **Potongan pendek berasal dari cerita panjang.** Pilih momen yang benar-benar menentukan dan buat cerita mini dengan orientasi dan payoff. Jangan berikan iklan terpotong yang menyembunyikan jawaban penting.
+6. **Uji, jangan mengaku tahu.** Riset menyediakan dasar dan batas. Niat penulis, penilaian manusia terhadap karya dan hasil audiens adalah tiga hal berbeda. Pembaca/penonton dingin boleh merasa tidak tersentuh; catat itu dan revisi.
 
-## 2. Apa yang didukung riset—dan batasnya
+## 2. Apa yang didukung sumber, dan batasnya
 
-| Dasar | Yang benar-benar didukung | Penerapan di sini | Batas |
-|---|---|---|---|
-| [YouTube: memahami performa konten](https://support.google.com/youtube/answer/16559650?hl=en) | YouTube menyarankan pembuka ringkas yang segera menepati janji judul/thumbnail, nilai sepanjang video, eksperimen, dan pemeriksaan retensi. | Selaraskan tiga unsur awal; lihat bagian yang ditinggalkan atau ditonton ulang. | Panduan platform, bukan eksperimen kausal tentang kalimat tertentu; tidak memberi batas detik universal. |
-| [Kidd & Hayden, 2015, *Neuron*](https://pmc.ncbi.nlm.nih.gov/articles/PMC4635443/) | Tinjauan membahas rasa ingin tahu dan perilaku mencari informasi, termasuk gagasan kesenjangan informasi. | Beri cukup konteks agar pertanyaan punya arti, lalu beri informasi yang memuaskan. | Tinjauan psikologi, bukan uji retensi Shorts Indonesia. Tidak membuktikan satu pola hook selalu berhasil. |
-| [Hoeken & van Vliet, 2000, *Poetics*](https://www.sciencedirect.com/science/article/abs/pii/S0304422X99000212) | Abstrak eksperimen cerita tertulis melaporkan peristiwa mengejutkan diapresiasi; ketegangan masih mungkin walau akhir diketahui. | Penonton boleh tahu topik sejak awal; mekanisme atau maknanya tetap bisa membangun rasa ingin tahu. | Yang diakses abstraknya; bahan cerita tertulis, bukan video pendek. Tidak mengukur retensi kanal ini. |
-| [CDC: Audio Script Writing Guide](https://tools.cdc.gov/medialibrary/docs/AudioScriptWritingGuide.pdf) | Menyarankan menulis untuk telinga, urutan jelas, irama bervariasi, dan membaca naskah keras-keras. | Uji sekali dengar dan perbaiki bagian yang tersandung. | Panduan berbahasa Inggris untuk audio, bukan aturan jumlah kata Bahasa Indonesia. |
-| [BBC Subtitle Guidelines](https://www.bbc.co.uk/accessibility/forproducts/guides/subtitles/) | Pedoman penyajian dan pengaturan waktu subtitle demi aksesibilitas. | Potong berdasarkan satuan makna dan periksa waktu tayang serta kontras pada perangkat. | Pedoman utamanya untuk subtitle tertutup BBC; adaptasi ke teks terbakar Shorts tetap perlu uji manusia. |
-| [YouTube: metrik konten](https://support.google.com/youtube/answer/12220281?hl=en&co=GENIE.Platform%3DAndroid) | “How viewers engaged” mengukur proporsi penonton yang tetap menonton melewati detik awal Shorts. Halaman yang dibaca menyatakan sejak 24 Agustus 2026 view dihitung ketika video mulai diputar. | Catat definisi dan tanggal saat membandingkan; lihat stayed to watch, durasi tonton dan retensi bila tersedia. | Perubahan definisi membuat angka view lama dan baru tidak otomatis sebanding. Tidak ada ambang sukses universal yang dibuktikan sumber ini. |
-| [YouTube: judul dan thumbnail](https://support.google.com/youtube/answer/141805?hl=en) | Judul dan thumbnail yang menarik harus mewakili isi secara akurat; hindari yang menyesatkan. | Uji janji pembuka terhadap isi sebelum render. | Sebuah video dapat berkualitas tetapi tetap tidak menjangkau banyak orang; sistem distribusi melibatkan banyak faktor. |
+- **Struktur awal–tengah–akhir:** [LibreTexts, Three-Act Structure](https://human.libretexts.org/Bookshelves/Theater_Film_and_Storytelling/Video_Production_Handbook/03%3A_Scripting_and_Formats/3.04%3A_Three-Act_Structure) menjelaskan setup, konflik, komplikasi, klimaks dan resolusi sebagai perangkat struktur, termasuk pada dokumenter. Ini panduan praktik, bukan percobaan yang membuktikan persentase waktu atau susunan tersebut pasti berhasil. Gunakan fungsi beat, bukan angka babak.
+- **Tenggelam dalam cerita:** abstrak [Green & Brock, 2000](https://researchconnect.buffalo.edu/en/publications/the-role-of-transportation-in-the-persuasiveness-of-public-narrat/) mendefinisikan *narrative transportation* sebagai keterlibatan perhatian, imajinasi dan afek, serta meneliti kaitannya dengan keyakinan/evaluasi pada narasi. Penelitian ini bukan uji retensi, komentar, atau video kanal Indonesia. Penerapan: buat keadaan dan konsekuensi bisa dibayangkan; jangan menganggap checklist membuktikan penonton tenggelam.
+- **Rasa ingin tahu:** [Kidd & Hayden, 2015](https://pmc.ncbi.nlm.nih.gov/articles/PMC4635443/) meninjau teori rasa ingin tahu, termasuk kesenjangan antara yang diketahui dan ingin diketahui. Ini bukan lisensi menyembunyikan konteks atau jaminan penonton terus menonton. Penerapan: beri petunjuk yang cukup untuk mengerti apa yang dipertaruhkan, lalu beri perkembangan dan jawaban.
+- **Emosi dan berbagi:** abstrak [Berger & Milkman, 2012](https://journals.sagepub.com/doi/10.1509/jmr.10.0353) melaporkan analisis artikel New York Times selama tiga bulan dan eksperimen tentang emosi/penyebaran; emosi beraktivasi tinggi seperti kagum, marah, dan cemas berkaitan dengan penyebaran dalam konteks mereka. Hasil ini tidak menetapkan bahwa marah paling efektif, menjamin komentar, atau otomatis berlaku pada setiap video. Jangan mengobarkan amarah palsu.
+- **Sinyal rekomendasi:** [YouTube](https://support.google.com/youtube/answer/16533387?hl=en) menyebut konten yang ditonton serta di-like, dibagikan dan dikomentari sebagai bagian dari riwayat/interaksi yang membantu personalisasi. [Meta, Oktober 2026](https://about.fb.com/news/2026/10/introducing-your-algorithm-facebook/) menyatakan Feed dan Reels mempelajari minat dari banyak sinyal, termasuk posting yang disukai/dikomentari dan tontonan. Ini **mengkoreksi pernyataan lama bahwa komentar tidak memengaruhi rekomendasi**. Keduanya tidak memberi bobot jumlah komentar pada satu video atau ambang agar viral. Detail platform dan risiko *engagement bait* ada pada riset pengukuran.
+- **Mengukur pembuka dan tengah:** [YouTube, audience retention](https://support.google.com/youtube/answer/9314415?hl=en) menyebut bagian dip atau spike dapat memperlihatkan bagian yang dilewati/ditonton ulang; spike juga dapat berarti penonton mengulang karena bingung. Itu petunjuk untuk penyelidikan, bukan bukti alasan emosi atau penyebab.
 
-**Status bukti:** sumber-sumber di atas diperiksa sebagai dasar prinsip. Efektivitas penerapannya pada audiens KNOT THEORY masih **UNKNOWN** sampai diuji. Tidak ada angka “harus hook tiga detik”, persentase retensi minimum, atau rumus viral yang ditetapkan sebagai fakta.
+**VERIFIED:** isi sumber di atas diperiksa sebatas halaman atau abstrak yang dirujuk. **ASSUMPTION:** penerapannya akan membuat cerita KNOT THEORY lebih terasa. **NOT TESTED:** reaksi audiens terhadap sistem baru; tidak ada ambang retensi atau angka komentar universal yang ditetapkan.
 
-## 3. Metode kerja editorial: dari fakta ke cerita
+## 3. Bedah singkat draf turbin
 
-### Langkah A — Temukan satu perubahan cara pandang
+Naskah revisi benar-benar mengajukan pertanyaan “angin makin kencang, kok turbin berhenti?”, menjelaskan beban, pengaturan bilah dan shutdown, lalu mengajak menebak penyebab turbin diam. Pemeriksaan cakupan kalimat dan beberapa pemeriksaan teknis pernah lulus untuk ruang lingkupnya. Itu bukan bukti emosi, mutu cerita, hak footage, atau respons audiens.
 
-Isi kartu ini sebelum menulis naskah:
+Masukan pemilik setelah menonton penuh adalah bahwa ia tidak merasakan nilai emosional atau dorongan berdiskusi. Pemeriksaan naskah memberi dugaan yang masuk akal: bagian tengah terutama menerangkan mekanisme, tanpa orang/kelompok dan taruhan personal yang berkembang; tidak ada rangkaian usaha, konsekuensi dan pilihan yang dibangun; pertanyaan terakhir meminta tebakan teknis sesudah jawabannya, bukan mempertemukan sudut pandang yang sungguh dipertaruhkan. Ini **diagnosis editorial**, bukan bukti bahwa semua penonton akan bereaksi sama atau penyebab performa tayangan.
 
-- **Objek/kejadian yang nyata:** apa yang benar-benar ditemukan atau diamati?
-- **Dugaan awal yang masuk akal:** apa yang mungkin disimpulkan penonton dari penampilannya? Ini bukan klaim bahwa semua orang berpikir demikian.
-- **Temuan dan batasnya:** apa yang sumber primer katakan, kapan, di mana, pada sampel atau kondisi apa? Apa yang *tidak* dapat disimpulkan?
-- **Perubahan pemahaman:** “Kelihatannya A; sebenarnya B, karena C.” Bukan “A ternyata bukan A” tanpa penjelasan.
-- **Mengapa layak dibawa pulang:** apa yang membuat dunia terasa lebih mudah dipahami atau lebih menarik sesudahnya?
+Perbaikannya bukan mengganti CTA menjadi lebih ramai. Mulai dari peristiwa dan pihak yang betul-betul terdampak, cari konflik dan akibat yang dapat diverifikasi, susun eskalasi dan perubahan makna, lalu uji respons orang baru. Jika riset hanya menemukan mekanisme turbin tanpa kisah yang cukup, jangan memaksanya menjadi video panjang. Draf/unggahan yang sudah ada tidak diubah di sini.
 
-Contoh perbedaan: “Hiu lebih tua dari pohon” dapat dipakai sebagai pintu masuk, tetapi naskah harus membandingkan **bukti fosil** dengan batas dan perkiraan waktunya, bukan menyatakan umur seekor hiu atau waktu kemunculan pertama yang pasti.
+## 4. Contoh nyata: tangki yang bocor sebelum banjir
 
-### Langkah B — Audit sumber sebelum membuat kejutan
+**Bahan latihan, belum siap produksi.** Tokoh kolektifnya adalah warga dan pekerja North End, Boston; entitas visualnya tangki molase. Mereka hidup dan bekerja di dekat tangki, dan sebagian warga mengeluhkan kebocoran. Kebutuhan konkret: lingkungan tempat tinggal dan kerja yang aman. Konflik: sebuah tangki industri yang bocor tetap berada di dekat lingkungan padat; ketika runtuh, warga dan pekerja menanggung akibat. Kita tidak mengarang percakapan, pikiran, keberanian, atau keputusan orang tertentu.
 
-1. Cari sumber primer atau lembaga yang menyajikan data asli. Catat judul, penerbit, tanggal/masa data, URL, klaim yang tepat, unit dan konteks. Gunakan sumber kedua untuk mengecek istilah atau batas jika diperlukan.
-2. Bedakan **yang terlihat**, **penjelasan peneliti**, dan **analogi visual kita**. Ilustrasi bukan foto bukti; rekonstruksi harus ditandai bila bisa membuat orang keliru.
-3. Tulis satu kalimat “jangan diklaim”: misalnya “kedua air tidak pernah bercampur” bila sumber tidak mendukungnya. Kalau bukti tidak cukup, persempit klaim atau hentikan topik.
-4. Cari informasi yang bisa merusak premis: pengecualian, hasil yang lebih baru, definisi berbeda, atau kondisi eksperimen. Lakukan ini sebelum membuat headline, bukan setelah render.
+**Dasar klaim:** [Arsip Kota Boston](https://www.boston.gov/news/100-years-ago-today-molasses-crashes-through-bostons-north-end) adalah uraian retrospektif lembaga arsip yang merujuk foto dan karya sejarah: tangki dibangun 1915; warga melihat dan mengeluhkan bocor; perusahaan mengecatnya cokelat untuk menyamarkan tetesan; tangki pecah 15 Januari 1919; 21 orang tewas dan sekitar 150 terluka; pemilik mula-mula menuduh sabotase; auditor yang ditunjuk pengadilan pada 1925 menyalahkan kelalaian pemilik. [ASCE, 2026](https://www.asce.org/publications-and-news/civil-engineering-source/article/2026/03/01/seeing-the-whole-picture-practicing-factor-of-safety-with-attitude) juga membahas kebocoran, lingkungan dan masalah struktur sebagai analisis profesi, bukan dokumen sidang asli. [Lehigh Special Collections](https://archivesspace.lib.lehigh.edu/repositories/3/resources/260) mengindeks dokumen teknik untuk pihak pembela; daftar arsip bukan berarti isi laporan aslinya sudah kami baca. Sebelum produksi, telusuri laporan/persidangan asli jika klaim rincinya diperlukan dan periksa hak arsip.
 
-### Langkah C — Bangun sebab-akibat, bukan isi tujuh kotak
+**Batas:** jumlah dan kecepatan gelombang pada laporan berbeda-beda; kecepatan adalah perkiraan, sehingga tidak dipakai sebagai angka pasti dalam contoh. Penyebab fisik rinci, momen retak pertama, motif individual dan asal setiap keputusan tidak boleh dipastikan tanpa bukti lebih kuat. Jangan menyimpulkan semua orang tahu bencana akan terjadi, semua kebocoran pasti runtuh, atau satu bencana sendirian menciptakan seluruh regulasi modern. Visual tangki/gelombang yang dibuat ulang harus diberi label rekonstruksi; foto arsip perlu pemeriksaan hak sendiri.
 
-Gunakan fungsi berikut secara luwes; urutan, panjang dan jumlah adegan boleh berubah sesuai topik:
+### Beat sheet — satu alur utama
 
-- **Janji konkret:** objek dan pertanyaan atau kontradiksi yang benar. Hindari intro merek panjang.
-- **Orientasi:** di mana, kapan atau dalam kondisi apa; apa yang terlihat? Penonton bisa membayangkan ruang dan objeknya.
-- **Perkembangan:** tunjukkan petunjuk/tindakan, bukan hanya mengulang “aneh”. Tanyakan: apa yang baru saja berubah?
-- **Belokan yang diperoleh:** fakta yang mengubah dugaan. Petunjuk sebelumnya membuat belokan terasa masuk akal saat ditinjau kembali.
-- **Penjelasan dan batas:** jelaskan “bagaimana” dengan benda atau hubungan sebab-akibat. Hindari detail yang tidak perlu, tetapi jangan buang syarat yang menentukan kebenaran.
-- **Makna dan penutup:** hubungkan lagi ke citra pembuka, beri satu kesimpulan yang tidak melebihi sumber, lalu CTA yang relevan dan tidak memaksa.
+1. **Kilas puncak:** tangki terlihat pecah dan cairan mengarah ke jalan; kalimat pertama: “Tangki ini pecah. Warga sudah melihatnya bocor.” Cut sebelum alasan dan akibat lengkap. Harapan emosi: ingin tahu, bukan klaim reaksi terukur.
+2. **Orientasi:** kembali ke North End dan tangki 1915. Kereta, jalan dan bangunan di sekitar memperlihatkan kedekatan tempat kerja/tinggal dengan benda itu. Pemahaman berubah dari “benda aneh” menjadi “ada orang hidup di sekitarnya”.
+3. **Gangguan:** tetesan keluar dari sambungan dan warga mengeluh. Bukan ramalan pasti bencana, tetapi tanda yang nyata. Penonton mulai bertanya apa yang dilakukan setelah tanda itu muncul.
+4. **Eskalasi pertama:** menurut arsip kota, perusahaan mengecat tangki cokelat agar tetesan kurang terlihat. Perubahan dari masalah yang tampak menjadi masalah yang lebih sulit terlihat mengundang frustrasi; jangan menambah dialog atau motif lain.
+5. **Eskalasi kedua:** tangki tetap menjadi bagian dari lingkungan sampai pecah pada 1919. Tekanan cerita kini bukan “cairan apa ini?” melainkan “apa akibat bila peringatan tidak menyelesaikan masalah?” Tidak mengklaim semua kejadian di antaranya diketahui.
+6. **Klimaks fisik:** kembali ke cuplikan pembuka. Gelombang menerjang lingkungan; sampaikan 21 orang tewas dan sekitar 150 terluka tanpa membuat penderitaan mereka menjadi tontonan lucu. Inilah jawaban tentang apa yang terjadi.
+7. **Belokan bukti/tanggung jawab:** pemilik mula-mula menyalahkan dugaan sabotase. Penyelidikan dan gugatan menyorot ketidakstabilan struktur; pada 1925 auditor menyimpulkan kelalaian pemilik. Tuduhan awal adalah klaim pihak pemilik, bukan fakta bahwa sabotase terjadi. Detail bocor/penyamaran dari awal kini berubah dari keanehan menjadi petunjuk tanggung jawab.
+8. **Akibat dan payoff:** lingkungan kehilangan orang dan mengalami kerusakan; putusan datang bertahun-tahun kemudian. Jawab pertanyaan awal: cat tidak memperbaiki tangki; bukti yang diuraikan arsip kota mengarah ke kelalaian struktural, bukan sekadar “syrup berbahaya”. Gema: “Tanda yang paling mudah diabaikan kadang justru yang sudah terlihat setiap hari.” Ini refleksi, bukan hukum ilmiah.
+9. **Percakapan dan janji serial:** dari bukti kebocoran dan kelalaian, pertanyaan yang mungkin muncul: “Siapa seharusnya bisa meminta pemeriksaan independen saat warga melapor—pemilik, regulator, atau keduanya? Apa tanda yang cukup untuk memulainya?” Ada lebih dari satu usulan tanggung jawab, tanpa mendebat apakah korban patut dilindungi. Alasan berbagi: membicarakan tanda bahaya yang terlihat biasa. Janji kembali: kisah nyata lain ketika detail sehari-hari mengubah nasib orang. Semua ini niat editorial, belum diuji.
 
-**Uji logika:** tutup tiap kalimat dengan “jadi...” atau “tetapi...” secara mental. Jika satu bagian hanya bisa dihubungkan dengan “dan lalu...”, mungkin ia tidak mengembangkan cerita. Tes ini alat penyuntingan, bukan aturan bahasa yang wajib terdengar di naskah.
+### Contoh suara untuk beberapa beat, bukan naskah panjang final
 
-### Langkah D — Tiga uji twist
+“Tangki ini pecah. Warga sudah melihatnya bocor."
 
-1. **Benar:** apakah klaim dan kondisi belokannya dapat ditelusuri ke sumber?
-2. **Disiapkan:** bila bagian tengah dihapus, apakah akhir terasa muncul begitu saja? Sisipkan petunjuk yang membantu, bukan membocorkan semua detail.
-3. **Mengubah arti:** setelah penjelasan, apakah gambar awal dipahami dengan cara yang berbeda? Kalau hanya ada angka besar atau kata “ternyata”, lanjutkan riset.
+“Di North End, Boston, tangki molase itu berdiri dekat jalan, rel, dan tempat orang bekerja. Warga melihat cairan merembes dari sambungannya dan mengeluh. Menurut arsip kota, perusahaan mengecat tangki itu cokelat supaya tetesannya tidak terlalu terlihat. Cat bisa menyamarkan jejaknya. Tapi cat tidak memperbaiki tangkinya."
 
-Beritahukan inti lebih awal bila itu lebih jelas. Menyimpan jawaban bukan kewajiban: penonton masih dapat penasaran pada sebab, skala atau konsekuensi yang benar.
+“Pada 15 Januari 1919, tangki itu pecah. Molase menerjang lingkungan di sekitarnya; dua puluh satu orang tewas dan sekitar seratus lima puluh terluka. Setelah banjir itu, pemilik tangki mula-mula menyalahkan dugaan sabotase. Namun penyelidikan dan gugatan mengungkap masalah struktur tangki. Pada 1925, auditor yang ditunjuk pengadilan menyimpulkan bahwa kelalaian pemilik menyebabkan runtuhnya tangki."
 
-## 4. Menulis suara Indonesia yang alami
+“Warga sudah melihat kebocoran sebelum bencana. Pertanyaannya sekarang bukan lagi apakah cairan itu tampak aneh, melainkan siapa yang harus bisa meminta pemeriksaan ketika tanda seperti itu muncul. Untuk kisah lain tentang detail sehari-hari yang mengubah nasib orang, ikuti knot theory."
 
-- Bayangkan satu orang berbicara kepada teman yang cerdas tetapi belum tahu topik. Hindari pembuka seperti “Di dunia yang penuh misteri...” jika tidak menambah informasi.
-- Sebut benda sebelum menggantinya dengan “ini”, “itu”, atau “mereka”. Kalau ada dua kemungkinan rujukan, ulangi nama bendanya.
-- Campur kalimat pendek dan sedang; satu kalimat boleh panjang bila tetap mudah diucapkan dan dimengerti. Hindari daftar angka berturut-turut dan frasa birokratis yang bisa dibuat konkret.
-- Gunakan bahasa santai seperlunya, bukan slang di setiap baris. Tidak perlu memaksakan “kamu tahu nggak”, “ternyata”, dan “bayangkan” pada setiap episode.
-- Tulis angka dan singkatan agar suara dapat membacanya benar. Penutup visual harus **`ikuti knot theory`**, huruf kecil; input narasi menyebut **“ikuti knot theory”** sebagai kata-kata, bukan mengeja K.N.O.T. Pelafalan aktual harus didengarkan.
-- Saat uji baca, tandai napas, kata yang tersandung, bagian ambigu, nada yang terlalu dramatis dan bagian yang terasa seperti kuliah. Dengarkan dengan suara `voice-05` perempuan, satu narasi per video; jangan anggap teks atau durasi file sebagai bukti suaranya baik.
-- Minta orang lain yang belum membaca sumber menjelaskan kembali objek, kejutan dan sebabnya. Jika ia bingung, revisi naskah; jika orang kedua belum tersedia, tulis **NOT TESTED**, bukan mengarang hasil.
+Kalimat terakhir adalah refleksi dan ajakan, bukan bukti perasaan korban atau peraturan yang berlaku. Ini cuplikan bentuk suara; perlu pengembangan menjadi naskah panjang, audit per kalimat, sumber lengkap, uji baca, visual dan review manusia. Tidak ada durasi master, playback, atau persetujuan topik yang telah dibuktikan.
 
-## 5. Contoh kerja: kolam di dasar laut
+### Contoh calon Short dari beat 6–8
 
-**Fakta dan pagar:** ekspedisi NOAA tahun 2014 menemukan kolam air sangat asin di Teluk Meksiko pada kedalaman sekitar 1.260 meter; air asin yang lebih pekat lebih padat dan dapat mengalir serta terkumpul di dasar. Hewan tercatat di sekitar tepian. Sumber: [NOAA, Brine Pool](https://oceanexplorer.noaa.gov/multimedia/daily-image-media-20200917/). [Catatan misi NOAA 2018](https://archive.oceanexplorer.noaa.gov/okeanos/explorations/ex1803/logs/apr27/welcome.html) menjelaskan proses geologi dan contoh lain; jangan mencampur detail temuan 2018 dengan lokasi 2014. Kita tidak menyimpulkan airnya “tidak pernah bercampur”.
+Ambil dari momen pecah lalu rangkaian bukti dan akibat pada master yang kelak disetujui. Teks konteks boleh ditambahkan tanpa mengubah makna: “Boston, 1919 · rekonstruksi”. Potongan suara yang direncanakan adalah paragraf ketiga di atas: tangki pecah → 21 korban dan sekitar 150 terluka → tuduhan sabotase → masalah struktur → temuan auditor 1925. Dengan visual tangki pada frame 0 dan payoff temuan, potongan ini tetap menjawab kisahnya sendiri; CTA/tautan ke master hanya menyusul jawaban. Timecode, durasi, hasil uji, hak, dan master final **NOT TESTED / belum ada**. Ini bukan footage arsip atau izin membuat video.
 
-**Kartu ide:**
-- Penampakan: kolam dengan tepian di dasar laut.
-- Dugaan yang mungkin: ada danau air tawar terpisah oleh semacam dinding.
-- Petunjuk: lokasi masih di dalam laut; kolam terlihat memiliki tepian.
-- Belokan: bukan air tawar atau dinding, melainkan air jauh lebih asin dan lebih padat.
-- Makna: perbedaan sifat air dapat menghasilkan bentang alam yang mirip tepian danau.
-- Batas: gambar animasi adalah ilustrasi, bukan rekaman ekspedisi; jangan klaim semua kolam sama atau kedua air mustahil bercampur.
+## 5. Dari contoh menjadi episode
 
-**Contoh naskah utuh — perlu uji baca dan durasi; bukan versi siap terbit:**
-
-> Kalau melihat garis ini, kamu mungkin mengira kita sedang sampai di tepi danau. Padahal, kita masih di laut, lebih dari satu kilometer di bawah permukaan.
->
-> Pada 2014, ekspedisi NOAA menemukan kolam seperti ini di Teluk Meksiko, pada kedalaman sekitar seribu dua ratus enam puluh meter. Di sekitar tepinya ada anemon, ikan, dan hewan laut lain. Sepintas, kolam itu seperti punya pantai sendiri.
->
-> Tapi tunggu. Kalau sekelilingnya juga air, apa yang membuat air di sana berkumpul seperti kolam?
->
-> Jawabannya bukan dinding kaca. Air di kolam ini mengandung jauh lebih banyak garam daripada air laut di sekitarnya. Karena lebih padat, air yang sangat asin itu turun dan mengalir di dasar laut, lalu terkumpul menjadi kolam.
->
-> Jadi, ini bukan danau air tawar yang tersembunyi di laut. Ini kolam air sangat asin di dalam laut. Garis di antara keduanya tidak berarti kedua air sama sekali tak bisa bercampur.
->
-> Aneh, ya? Di tempat yang seluruhnya air pun, perbedaan kadar garam bisa menghasilkan pemandangan seperti tepian danau. Kalau kamu melihatnya tanpa penjelasan, kamu bakal mengiranya apa?
->
-> ikuti knot theory
-
-**Peta aksi visual contoh** — setiap baris punya Host dan sekurangnya dua objek nyata; gerak harus mengungkap informasi, bukan dekorasi semata.
-
-| Fungsi | Objek dan tindakan | Yang dipahami penonton |
-|---|---|---|
-| Pembuka | Host mengangkat senter; cahaya menyapu **tepi kolam** dan **dasar laut**. | Ada tepian mirip danau di tempat yang tidak diduga. |
-| Orientasi | Host menunjuk **peta Teluk Meksiko** dan **penunjuk kedalaman**; keduanya menyusut ke adegan bawah laut. | Lokasi dan skala temuan 2014. |
-| Petunjuk | Host mengikuti **anemon** dan **ikan** di dekat **tepian**. | Tepian punya lingkungan nyata, bukan sekadar garis grafis. |
-| Pertanyaan | Host mendekatkan **dua wadah air** dan mengamati **batas cairan** pada skema. | Pertanyaan “kenapa terkumpul?” menjadi konkret. |
-| Belokan | Host menuang **garam** ke **wadah**, lalu menunjukkan **penanda kepadatan**. | Garam/kepadatan memberi penjelasan; skema disajikan sebagai analogi, bukan eksperimen asli. |
-| Mekanisme | Host mengikuti **panah aliran** di atas **bentuk dasar laut** menuju **kolam**. | Air pekat turun dan berkumpul; jangan visualkan penghalang sempurna. |
-| Makna/CTA | Host membandingkan **tepian kolam** dengan **dua label kadar garam** lalu menoleh; teks “ikuti knot theory” terbaca jelas. | Penonton kembali ke gambar awal dengan pemahaman baru. |
-
-Ini peta konsep, **bukan** bukti bahwa animasi, akurasi setiap ilustrasi, tempo, audio, subtitle atau CTA sudah lulus. Gambar dan ujaran harus disusun bersama naskah serta diperiksa setelah dirender. Tujuh baris bukan kewajiban jumlah scene.
-
-## 6. Tinjauan sebelum, selama, dan sesudah produksi
-
-### Sebelum render
-
-- **Janji:** judul, thumbnail, frame pertama dan kalimat pertama membahas peristiwa yang sama; tidak ada klaim yang lebih ekstrem dari sumber.
-- **Cerita:** tiap bagian menambah fakta, petunjuk, konsekuensi, atau perubahan pemahaman; twist disiapkan dan menjawab pertanyaan. Pilih durasi setelah pembacaan, bukan menghapus sebab hanya demi angka.
-- **Storyboard:** host konsisten dengan referensi; setiap kalimat punya objek konkret dan setiap adegan minimal dua objek dalam `objectMap`. Ada aksi tangan, ekspresi dan interaksi yang bermakna. Lingkungan, warna dan contoh bervariasi, tidak hanya mengganti judul di template sama.
-- **Fakta:** setiap klaim diberi sumber dan batas; kutipan dan logo resmi tidak dibuat-buat. Tandai ilustrasi jika rawan disalahartikan sebagai dokumentasi.
-
-### Setelah render, sebelum meminta izin publikasi
-
-| Pemeriksaan | Cara | Lulus hanya jika |
-|---|---|---|
-| Fakta & janji | Cocokkan narasi, judul, thumbnail, caption dan adegan ke daftar klaim/sumber. | Tidak ada generalisasi atau visual yang membuat klaim lebih kuat dari bukti. |
-| Cerita & rasa bahasa | Baca keras-keras; dengarkan narasi lengkap dan minta orang yang belum tahu topik menceritakan kembali bila tersedia. | Pertanyaan, petunjuk, sebab dan makna dapat diikuti; tidak tersandung atau terasa tergesa. |
-| Suara & musik | Dengarkan seluruh video, termasuk CTA, dengan perangkat yang memadai; tinjau suara di speaker ponsel bila tersedia. | Narasi jelas, musik mendukung tanpa menutup suara; “ikuti knot theory” terdengar sebagai kata-kata. |
-| Visual & subtitle | Tonton seluruh video, termasuk frame 0 dan penutup, pada ponsel; periksa teks, safe area, kontras, jeda dan sinkronisasi terhadap audio. | Terbaca dan sinkron, tidak menutupi wajah, objek atau kontrol platform. Subtitle berbasis perkiraan bukan forced alignment. |
-| Teknis & hak | Cek codec, resolusi, durasi, decode, ukuran, loudness/peak sesuai tujuan, sumber dan lisensi. Periksa setiap platform saat akan dipakai. | Uji teknis benar-benar lulus dan hak media/suara jelas. Batas Facebook Reels melalui Buffer yang diperiksa: 3–90 detik; cek ulang sebelum memakai. |
-| Cadangan & izin | Simpan MP4, PNG thumbnail mandiri, caption empat platform, source dan QA ke tempat yang sesuai; cocokkan checksum dan izin. | Cadangan dan akses yang diperlukan terbukti; publikasi tetap menunggu persetujuan eksplisit. |
-
-Gunakan **PASS / FAIL / NEEDS REVIEW / NOT TESTED** dengan bukti **VERIFIED / TESTED / LIKELY / ASSUMPTION / UNKNOWN**. Pemeriksaan mekanis tidak membuktikan pemahaman, kualitas cerita, pelafalan, lisensi atau pengalaman ponsel. Jika tidak ada pendengar kedua/perangkat, gate itu **NOT TESTED**.
-
-### Sesudah terbit: belajar, bukan memaksakan rumus
-
-1. Catat topik, durasi aktual, versi naskah, jadwal, sumber traffic, platform, definisi metrik dan tanggal pengambilan data. Video yang **scheduled** belum tentu **sent**.
-2. Di YouTube, lihat *stayed to watch*, durasi tonton dan grafik retensi jika tersedia; catat komentar yang menunjukkan paham/bingung. Bandingkan dengan video sejenis sambil mempertimbangkan topik, sumber penonton, panjang, waktu, sampel dan perubahan definisi metrik.
-3. Bentuk hipotesis kecil: misalnya “petunjuk visual lebih awal mungkin membuat orientasi lebih jelas”. Perubahan satu unsur per iterasi mempermudah pembelajaran, tetapi video yang berbeda tetap bukan eksperimen terkontrol; jangan klaim sebab dari satu unggahan.
-4. Jangan mengorbankan fakta demi view. Catat ukuran sampel dan ketidakpastian; tanpa data yang cukup, simpulkan **belum tahu**. Jadwal tiga konten/hari adalah target kerja pengguna, bukan alasan mengirim karya yang belum lolos gate.
-
-## 7. Template keputusan satu episode
-
-```text
-Topik / objek:
-Sumber primer + tanggal + URL:
-Klaim persis / kondisi / batas / klaim yang dilarang:
-Dugaan awal yang mungkin:
-Fakta yang membalik dugaan + mengapa:
-Judul → thumbnail/tagline → frame pertama → kalimat pertama:
-Petunjuk 1 → petunjuk 2 → penjelasan → makna:
-Narasi untuk sekali dengar (satu suara):
-Storyboard per adegan: lokasi, Host melakukan apa, >=2 objek, objectMap, fungsi adegan:
-CTA akhir visual & suara: ikuti knot theory
-Durasi dibaca / direkam: [belum diuji atau hasil]
-QA fakta / cerita / audio / subtitle / ponsel / teknis / hak:
-Caption FB / TikTok / YouTube / Instagram:
-Cadangan Drive & checksum / izin / persetujuan publikasi:
-Pelajaran setelah terbit dan batas data:
-```
-
-Standar operasional dan cadangan ada di `STANDARD-MINIMAL-CONTENT-PRODUCTION.md` dan `KEBIJAKAN-CADANGAN-ANTI-RESET.md`. Jika terjadi pertentangan, utamakan instruksi pengguna terbaru, keselamatan/fakta, privasi, dan spesifikasi platform yang diperiksa ulang.
+Outline contoh yang dapat diperiksa ada di [brief Boston](editorial-engine/content/proposals/contoh-brief-panjang-tangki-boston.json). Ia hanya lolos cek bentuk `outline`; mutu cerita, reaksi audiens, waktu, fakta/hak, naskah final dan izin tetap belum diuji. Isi brief dan jalankan [story gate](editorial-engine/pipeline/story-engine/README.md); cocokkan tiap scene dan kalimat; lakukan review orang yang belum tahu kisah tanpa menuntun jawaban. Jika komentar yang diharapkan tidak muncul atau orang tidak peduli, revisi sebab-akibat, taruhan atau pilihan, bukan hanya menambahkan ajakan. Alur dan tugas masing-masing gate berada pada [sistem cerita panjang](editorial-engine/docs/SISTEM-CERITA-LONG-FORM.md). Jaga video yang telah terbit/terjadwal tetap utuh.

@@ -1,19 +1,15 @@
 # KNOT THEORY — Dunia Kebalik
 
-Panduan dan source nonrahasia untuk Shorts Indonesia yang mengejutkan, dapat ditelusuri ke sumber, dan bercerita dengan jelas. Media serta cadangan tetap di Google Drive privat; repo ini publik.
+Kanal **cerita panjang lebih dulu**, bukan Shorts-first. Cerita harus memiliki tokoh/entitas, konflik, taruhan, perubahan dan akibat yang membuat orang peduli atau ingin membahasnya. Shorts/Reels diturunkan dari momen menentukan master setelah struktur dan konteksnya siap. Media dan cadangan tetap di Google Drive privat; repo ini publik.
 
 ## Mulai di sini
 
-- [Riset storytelling + contoh naskah](RISET-STORYTELLING-DUNIA-KEBALIK.md) — contoh lama tetap referensi; utamakan standar opening terbaru.
-- [Riset retensi, referensi video dan rencana eksperimen](RISET-RETENSI-DAN-PERTUMBUHAN-KNOT-THEORY.md) · [cara membuat PDF](scripts/README-research-pdf.md)
-- [Fondasi editorial](EDITORIAL-FONDATION.md)
-- [Standar minimum produksi dan QA](STANDARD-MINIMAL-CONTENT-PRODUCTION.md)
-- [Struktur wajib: entitas, klimaks awal dan cut](editorial-engine/docs/STANDAR-OPENING-KLIMAKS-DI-AWAL.md)
-- [Audit setiap kalimat: rasa dekat, psikologi penonton dan pilihan kata](editorial-engine/docs/STANDAR-NASKAH-PSIKOLOGI-PENONTON.md) · [cek mekanis cakupan naskah](editorial-engine/pipeline/script-review/README.md)
-- [Gaya narasi Indonesia](NATURAL-INDONESIAN-WRITING-HUMAN-VOICE.md)
-- [Cadangan, privasi, dan checkpoint](KEBIJAKAN-CADANGAN-ANTI-RESET.md)
-- Contoh source/pipeline yang dipertahankan: `editorial-engine/pipeline/hiu-sebelum-hutan-2026/` dan `editorial-engine/pipeline/interactive-antartika-v2/`. Keduanya butuh input privat; baca README setempat sebelum menjalankan. Uji ulang setelah perubahan dan jangan anggap output baru telah disetujui.
+1. [Fondasi editorial](EDITORIAL-FONDATION.md) dan [sistem cerita panjang](editorial-engine/docs/SISTEM-CERITA-LONG-FORM.md) — aturan aktif, rumus kerja, emosi, percakapan, review dan turunan pendek.
+2. [Riset dan contoh kerja](RISET-STORYTELLING-DUNIA-KEBALIK.md) · [distribusi dan pengukuran](RISET-RETENSI-DAN-PERTUMBUHAN-KNOT-THEORY.md) — sumber dan batasnya, bukan rumus viral.
+3. [Audit aturan dan penerapan](editorial-engine/docs/AUDIT-ATURAN-DAN-PENERAPAN.md) · [story gate mekanis](editorial-engine/pipeline/story-engine/README.md) — apa yang benar-benar dicek dan apa yang tetap membutuhkan manusia.
+4. [Standar minimum produksi dan QA](STANDARD-MINIMAL-CONTENT-PRODUCTION.md) · [opening klimaks](editorial-engine/docs/STANDAR-OPENING-KLIMAKS-DI-AWAL.md) · [audit setiap kalimat](editorial-engine/docs/STANDAR-NASKAH-PSIKOLOGI-PENONTON.md) · [baseline perilaku](editorial-engine/docs/STANDAR-BASELINE-PERILAKU-AUDIENS.md) · [visual sebab-akibat](editorial-engine/docs/METODE-VISUAL-SEBAB-AKIBAT.md).
+5. [Gaya narasi Indonesia](NATURAL-INDONESIAN-WRITING-HUMAN-VOICE.md) · [membuat PDF](scripts/README-research-pdf.md) · [cadangan dan privasi](KEBIJAKAN-CADANGAN-ANTI-RESET.md).
 
-Source lama dan media lama yang dipilih untuk dibersihkan dihapus dari tree branch ini, termasuk template lima-scene yang ditolak dan renderer lama yang tergantung padanya. Primitif ilustrasi generik, font, video referensi privat, dan dua pipeline yang disetujui dipertahankan. Contact sheet referensi turunan juga telah dicadangkan di folder referensi privat; ukuran, MD5, dan izin pemilik telah diperiksa. Hak distribusi tetap perlu ditinjau. Penghapusan tidak menghapus riwayat Git publik atau mengubah `main`. Workflow publikasi lama yang bergantung pada media Git dihentikan; workflow status/penjadwalan yang masih dibutuhkan tidak diubah.
+Pipeline episode lama adalah **arsip reproduksi**, bukan pipeline long-form aktif atau bukti lulus standar baru. Mereka tidak memanggil story gate baru secara otomatis. Jangan menggunakan pipeline episode lama untuk karya baru tanpa integrasi gate dan pengujian ulang; jangan mengubah unggahan yang telah terbit/terjadwal.
 
-Tidak ada perintah di atas yang memberi izin untuk membuat atau menjadwalkan posting baru. Persetujuan rutin push hanya untuk source/dokumen nonrahasia ke branch sesi, bukan PR, merge atau publikasi.
+Source lama yang dipilih untuk dibersihkan telah dihapus dari tree branch; riwayat Git publik tetap ada. Panduan ini tidak memberi izin menjadwalkan atau menerbitkan konten. Push rutin hanya untuk source/dokumen nonrahasia ke branch sesi, bukan PR, merge, atau publikasi.

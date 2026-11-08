@@ -1,6 +1,6 @@
 # Standar naskah: psikologi penonton pada setiap kalimat
 
-Arahan pengguna untuk **naskah baru dan revisi berikutnya**. Standar ini melengkapi [standar produksi](../../STANDARD-MINIMAL-CONTENT-PRODUCTION.md), [opening klimaks](STANDAR-OPENING-KLIMAKS-DI-AWAL.md), dan [baseline perilaku audiens](STANDAR-BASELINE-PERILAKU-AUDIENS.md); tidak mengubah konten yang sudah terbit atau terjadwal. Teknik berikut adalah metode kerja kreatif, bukan bukti ilmiah bahwa penonton pasti merespons dengan cara tertentu atau bahwa sebuah video akan ramai.
+Arahan pengguna untuk **naskah baru dan revisi berikutnya**. Master cerita panjang mengikuti [sistem cerita aktif](SISTEM-CERITA-LONG-FORM.md); Short adalah turunannya. Standar ini melengkapi [standar produksi](../../STANDARD-MINIMAL-CONTENT-PRODUCTION.md), [opening klimaks](STANDAR-OPENING-KLIMAKS-DI-AWAL.md), dan [baseline perilaku audiens](STANDAR-BASELINE-PERILAKU-AUDIENS.md); tidak mengubah konten yang sudah terbit atau terjadwal. Teknik berikut adalah metode kerja kreatif, bukan bukti ilmiah bahwa penonton pasti merespons dengan cara tertentu atau bahwa sebuah video akan ramai.
 
 ## Janji untuk penonton
 
@@ -31,7 +31,7 @@ Topik turbin angin yang diusulkan sebelumnya. Situasi yang bisa dibayangkan: pay
 | “Kalau lihat turbin diam, penyebab lain apa yang terpikir?” | “Mungkin anginnya lemah atau sedang dirawat?” | Undangan diskusi yang relevan; tidak mengklaim semua penonton pernah melihat turbin. |
 | “ikuti knot theory.” | “Apa hal lain yang bisa kulihat dengan cara berbeda?” | CTA konsisten; tidak menggantikan jawaban. |
 
-Contoh ini perlu ditinjau manusia dan disesuaikan sebelum menjadi naskah produksi. Tidak menunjukkan bahwa penonton nyata memikirkan atau merasakan hal tersebut.
+Ini contoh historis audit kalimat, **bukan contoh cerita yang telah berhasil**. Pemilik menyatakan draf turbin tidak memberinya emosi atau alasan berdiskusi. Mikro-audit tidak menggantikan tokoh, konflik, eskalasi, akibat dan momen percakapan di dalam isi; lihat [diagnosis](../../RISET-STORYTELLING-DUNIA-KEBALIK.md).
 
 ## Gate audit sebelum suara dan render
 
@@ -48,11 +48,11 @@ Petunjuk berikut / letak jawaban / refleksi yang jujur:
 Pilihan kata penting dan alasannya; kata mubazir yang direvisi:
 ```
 
-Catat juga satu jangkar pengalaman/observasi yang dekat untuk cerita secara keseluruhan dan batas analoginya. Gunakan format [audit naskah](../pipeline/script-review/README.md) bila memakai pemeriksaan mekanis. Pemeriksaan itu hanya membandingkan teks dengan isian dan mengecek kolom: **tidak dapat mengukur rasa ingin tahu, pengalaman penonton, kebenaran klaim, atau mutu kalimat**. Segmentasi kalimat dan kewajaran jawaban tetap ditinjau manusia.
+Catat juga satu jangkar pengalaman/observasi yang dekat untuk cerita secara keseluruhan dan batas analoginya. Gunakan [audit naskah](../pipeline/script-review/README.md) dan jalankan [story gate](../pipeline/story-engine/README.md) pada tahap yang sesuai; pipeline baru wajib mengintegrasikannya, pipeline lama belum. Pemeriksaan itu hanya membandingkan teks dengan isian dan mengecek kolom: **tidak dapat mengukur rasa ingin tahu, pengalaman penonton, kebenaran klaim, atau mutu kalimat**. Segmentasi kalimat dan kewajaran jawaban tetap ditinjau manusia.
 
 - **FAIL:** ada kalimat hilang/berubah dari audit, klaim yang terbukti keliru, pertanyaan utama tak dibayar, atau kalimat terbukti tidak memiliki fungsi/hubungan. Revisi sebelum lanjut.
 - **NEEDS REVIEW:** audit belum dinilai memadai, ada analogi/sumber/visual yang meragukan, atau hubungan dengan penonton belum jelas. Jangan mengaku lulus.
-- **NOT TESTED:** belum ada pembaca/penyimak yang relevan atau pemeriksaan yang diperlukan belum dilakukan. Bila memungkinkan, minta seseorang yang belum tahu topik menjelaskan apa pertanyaan awal, apa yang dipahami dan bagian mana yang membuatnya penasaran; jangan mengarang responsnya.
+- **NOT TESTED:** belum ada pembaca/penyimak yang relevan atau pemeriksaan yang diperlukan belum dilakukan. Sebelum menyebut karya siap produksi final/tayang, minta setidaknya satu orang bukan penulis yang belum tahu cerita melihat/mendengar keseluruhan dan menjelaskan konflik, taruhan, bagian yang terasa/datar dan alasan ingin berdiskusi atau kembali jika ada; jangan mengarang responsnya.
 - **PASS:** hanya setelah audit lengkap, fakta serta kesesuaian visual diperiksa, dan reviewer manusia benar-benar menilai alur, ketepatan kata serta kealamian. Catat peran reviewer, cara, tanggal, bukti dan keterbatasannya; simpan rincian pribadi secara privat. Respons audiens dan performa nyata tetap **NOT TESTED** sampai diukur; PASS editorial bukan jaminan performa.
 
 Audit naskah merupakan tambahan pada gate sumber, storyboard, playback manusia, hak, teknis, backup dan persetujuan yang sudah ada—bukan penggantinya. Pipeline lama tidak otomatis membuktikan kepatuhan pada standar baru; tinjau ulang saat materi lama direvisi, tanpa mengubah unggahan terbit atau terjadwal.

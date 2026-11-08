@@ -5,7 +5,7 @@ from pathlib import Path
 R=Path(__file__).resolve().parents[2];D=R/'deliverables/awan-rig-v3';OUT=D/'cadangan-privat-awan-rig-v3.zip'
 try:commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True,stderr=subprocess.DEVNULL).strip()
 except (subprocess.CalledProcessError,FileNotFoundError):commit='UNKNOWN'
-outputs=['awan-500-ton-rig-v3.mp4','awan-rig-v3-thumbnail.png','awan-rig-v3-poster-4x5.png','caption-empat-platform.txt','storyboard-rig-v3.md','subtitle-perkiraan.srt','musik-original.wav','QA-DAN-SUMBER.md','SHA256SUMS.txt','qa-sample-00.png']
+outputs=['awan-500-ton-rig-v3.mp4','awan-rig-v3-thumbnail.png','awan-rig-v3-poster-4x5.png','caption-empat-platform.txt','storyboard-rig-v3.md','subtitle-perkiraan.srt','musik-original.wav','QA-DAN-SUMBER.md','PEMERIKSAAN-VISUAL-SAMPEL.md','SHA256SUMS.txt','qa-sample-00.png']
 files={f'hasil/{n}':D/n for n in outputs};files['input/01-INPUT-PRIVAT-RIG-V3.zip']=D/'01-INPUT-PRIVAT-RIG-V3.zip'
 for p in sorted((R/'pipeline/awan-rig-v3').iterdir()):
  if p.is_file():files[f'source/editorial-engine/pipeline/awan-rig-v3/{p.name}']=p

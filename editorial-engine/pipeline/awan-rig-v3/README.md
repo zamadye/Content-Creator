@@ -56,7 +56,11 @@ python3 pipeline/awan-rig-v3/test-restore.py
 
 Unit test memeriksa struktur, urutan, batas waktu estimasi, rig dan keamanan
 restore, bukan kualitas penceritaan atau respons penonton. Lihat
-`QA-DAN-SUMBER.md` yang dihasilkan untuk hasil spesifik render.
+`QA-DAN-SUMBER.md` yang dihasilkan untuk hasil spesifik render. Catatan
+`PEMERIKSAAN-VISUAL-SAMPEL.md` adalah hasil inspeksi manual pada render
+tertentu: jangan menyalin hasilnya sebagai bukti untuk render lain. Untuk
+membuat backup baru dengan `pack.py`, lakukan inspeksi dan tulis catatan baru
+tersebut terlebih dahulu.
 
 ## Masalah umum
 

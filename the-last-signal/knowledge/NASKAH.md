@@ -310,3 +310,74 @@ mata sempat mendarat — terukur di LS-0016.
 `THE LAST SIGNAL / 03 Struktur & Gerbang (Nov 2026)`. Ringkasnya:
 Gerbang A (12 butir naskah) → produksi; Gerbang B (10 butir hasil jadi) → tayang;
 skor 8 sumbu: ≥13 LAYAK, 9–12 REVISI sekali, ≤8 KUBUR.
+
+---
+
+## Hukum tambahan — lapisan ketiga: cerita yang mengundang diskusi, dan gambar yang bergerak
+
+Arahan pemilik kanal (paling baru, berlaku surut ke semua produksi berikutnya).
+Empat hal ini yang membedakan kanal dari "cerita horor AI" biasa.
+
+### 1. Setiap kalimat harus mengundang pertanyaan
+
+Naskah bukan kumpulan kalimat yang menjelaskan; ia kumpulan kalimat yang membuat
+penonton menyusun teori. Uji per kalimat: **apa yang penonton ingin tanyakan
+setelah kalimat ini?** Kalau jawabannya "tidak ada", kalimat itu lemah.
+
+Yang dipakai:
+- angka yang tidak masuk akal sebelum dijelaskan (`empat ratus satu` di dua rumah),
+- pertanyaan yang tidak dijawab saat itu juga (dijawab 2–3 segmen kemudian),
+- satu pertanyaan langsung ke penonton **di akhir setiap segmen** — ini yang
+  memancing komentar, dan komentar adalah distribusi.
+
+Yang dilarang: kalimat yang merangkum perasaannya sendiri
+("saya sangat ketakutan"), dan pertanyaan retoris yang sudah dijawab di kalimat
+berikutnya.
+
+### 2. Kanal ini tidak 100% fiksi
+
+Cerita disusun dari **kisah lapangan yang mirip**: hal yang katanya pernah
+terjadi pada orang lain, lalu dinaikkan tensinya. Karena itu:
+- setiap episode panjang **wajib** punya satu kalimat jangkar yang menyebut
+  asalnya (contoh LL-0003: "Di grup petugas, cerita rumah kosong yang meternya
+  tetap jalan muncul lebih dari sekali. Nama dan tempat selalu diganti."),
+- deskripsi video menyebut "disusun dari kisah lapangan, nama dan tempat diubah",
+- yang gaib **boleh** ada, tapi tidak boleh jadi satu-satunya sebab: harus ada
+  sebab manusia yang bisa diperiksa (dokumen, angka, kebiasaan),
+- nama, tempat, dan angka nyata tetap diubah. Jangan mengarang nama instansi
+  yang bisa diklaim sebagai tuduhan.
+
+### 3. Komposisi gambar: satu frame, beberapa elemen yang menyambung
+
+Foto 16:9 tidak boleh berisi satu benda di tengah. Gambar harus punya **jalur
+mata**: kiri → tengah → kanan, atau bawah → atas, dengan 2–3 elemen berbeda di
+dalam satu frame. Contoh yang dipakai di LL-0003: tetangga menyapu (kiri), pagar
+bergembok (tengah), rumah berjendela kardus (kanan).
+
+Alasannya bukan estetika: kamera hanya bisa bergerak kalau ada yang dilewati.
+Gambar satu benda hanya bisa di-zoom, dan zoom berulang membuat video terasa
+seperti slideshow.
+
+Prompt gambar wajib menyebut arah jalurnya ("dari kiri … di tengah … di kanan").
+Teks di dokumen hasil generate tetap tidak boleh terbaca.
+
+### 4. Transisi antar scene harus terasa epik
+
+Cut keras hanya untuk patahan di dalam satu segmen. **Perpindahan segmen**
+memakai transisi yang membawa gambar: `zoom_punch`, `whip_left`, `whip_right`,
+`whip_up`, `whip_down`, `flash_white`, `dip_black` (12 frame; lihat
+`apps/renderer/src/components/SceneTransition.tsx`).
+
+Pilih berdasarkan kontras: gelap → terang `flash_white`, terang → gelap
+`dip_black`, dua segmen sama gelapnya `whip` searah jalan cerita, masuk ke
+tempat baru `zoom_punch`. Ditulis di `meta.json` → `transisi` (satu per
+sambungan), lalu `make-longform-plan.mjs` meneruskannya ke `episode.json`.
+
+### 5. Kamera: tidak ada dua shot berurutan dengan gerak sama
+
+Tangga gerak: `push_in`, `dolly_in`, `pan_left`, `pan_right`, `tilt_up`,
+`tilt_down`, `arc_left/right`, `drift`, `handheld`, `static`.
+`make-longform-plan.mjs` menggeser otomatis kalau naskah menulis gerak yang sama
+dua kali berturut-turut. Zoom ke dalam dipakai untuk **detail yang baru
+disebut**; geser kiri-kanan untuk **ruang yang lebih luas dari bingkai**;
+atas-bawah untuk **bangunan dan tubuh**.

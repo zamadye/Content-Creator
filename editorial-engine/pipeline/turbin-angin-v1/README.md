@@ -37,6 +37,7 @@ python3 editorial-engine/pipeline/turbin-angin-v1/test-qa.py
 python3 editorial-engine/pipeline/turbin-angin-v1/test-glyphs.py
 python3 editorial-engine/pipeline/turbin-angin-v1/check-glyphs.py
 python3 editorial-engine/pipeline/turbin-angin-v1/test-pack-final.py
+python3 editorial-engine/pipeline/turbin-angin-v1/test-progress.py
 bash editorial-engine/pipeline/turbin-angin-v1/build-private.sh
 ```
 
@@ -59,6 +60,15 @@ Per scene, renderer memeriksa 1080×1920/H.264/30 fps dan jumlah frame melalui f
 - `QA-draf-privat.md`, `QA-teknis-draf.json`, `qa-frame0-final.png`, `QA-contact-360.png` (12 frame pada ukuran simulasi), `QA-potongan-pembuka.png` (frame sebelum/sesudah cut), file adegan dan receipt untuk pemeriksaan.
 
 ## Backup dan pemulihan
+
+Bila render panjang perlu checkpoint sebelum selesai, simpan hanya scene berurutan yang sudah mempunyai receipt (contoh 6 scene pertama):
+
+```sh
+python3 editorial-engine/pipeline/turbin-angin-v1/test-progress.py
+python3 editorial-engine/pipeline/turbin-angin-v1/pack-progress.py --through 6
+```
+
+ZIP **belum lengkap** ini mengandung input privat, audio persiapan dan scene+receipt yang telah diperiksa hash/fingerprint. Simpan dan verifikasi di Drive privat. Untuk melanjutkan setelah reset, pulihkan `private-runtime/` ke `.scratch/turbine/`, pulihkan footage asli, install dependensi yang sama dan jalankan `--all`; renderer hanya memakai kembali scene jika fingerprint toolchain/sumber/timing cocok. Ini tidak menggantikan backup final.
 
 Setelah render dan QA selesai, pastikan caption sudah disalin, lalu:
 

@@ -54,7 +54,7 @@ def inputs()->dict[str,Path]:
  pipeline=['README.md','footage-manifest.json','shot-plan.json','motion.mjs','motion.d.mts',
   'review-gate.mjs','review-gate.d.mts','preflight.mjs','test-preflight.mjs','prepare.py','render.tsx',
   'check-glyphs.py','test-glyphs.py','qa.py','test-qa.py','build-private.sh','pack-checkpoint.py','test-pack.py','pack-private-final.py',
-  'test-pack-final.py','storyboard-preview.tsx']
+  'test-pack-final.py','pack-progress.py','test-progress.py','storyboard-preview.tsx']
  result={p:ROOT/p for p in project}
  for p in pipeline:
   file=PIPE/p;result[file.relative_to(ROOT).as_posix()]=file

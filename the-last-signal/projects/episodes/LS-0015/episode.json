@@ -1,0 +1,794 @@
+{
+  "episodeId": "LS-0015",
+  "title": "Pukul Empat Pagi, Mobil Saya Keluar",
+  "language": "id-ID",
+  "category": "fictional_horror",
+  "format": "found_footage",
+  "targetFps": 30,
+  "width": 1080,
+  "height": 1920,
+  "targetDurationSeconds": 57.4,
+  "story": {
+    "hook": "Pukul empat pagi mobil saya keluar dari basement, dan tidak ada saya di dalamnya",
+    "premise": "Rekaman kamera basement memperlihatkan mobil narator keluar pukul empat pagi dengan pengemudi berambut panjang; sepanjang sebulan sebelumnya karcis parkirnya tercetak satu jam lebih awal, kursi kemudi mundur, dan bensin berkurang.",
+    "twist": "Mobil itu dipakai orang lain setiap pagi memakai identitas narator — satpam mengenali narator sebagai pria berambut panjang, padahal rambut narator pendek.",
+    "ending": "Narator menyebut rambutnya pendek, lalu menanyakan ke penonton apakah ia akan naik ke mobil itu pada pagi berikutnya."
+  },
+  "score": {
+    "assetId": "audio/score.wav",
+    "volume": 0.9
+  },
+  "jumpscares": [],
+  "onScreenText": [
+    {
+      "text": "EMPAT PAGI, BUKAN SAYA",
+      "startFrame": 34,
+      "endFrame": 90
+    },
+    {
+      "text": "JADI SIAPA YANG MASUK?",
+      "startFrame": 931,
+      "endFrame": 986
+    },
+    {
+      "text": "NAIK ATAU TIDAK",
+      "startFrame": 1344,
+      "endFrame": 1399
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_01",
+      "order": 0,
+      "durationFrames": 195,
+      "image": "images/scene-01.jpg",
+      "narration": "Pukul empat pagi, mobil saya keluar dari basement. Tidak ada saya di dalamnya.",
+      "narrationAudio": "audio/narration/scene-01.mp3",
+      "cuts": [
+        {
+          "atFrame": 55,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 109,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 160,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 115,
+          "text": "Pukul empat pagi, mobil saya keluar dari basement."
+        },
+        {
+          "startFrame": 115,
+          "endFrame": 183,
+          "text": "Tidak ada saya di dalamnya."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, grainy black-and-white parking garage security camera footage, a person with long dark hair in a heavy jacket stepping out of an old hatchback, seen from behind and three-quarters, face turned away from camera, the figure fills the left two thirds of frame beside the open car door, harsh ceiling light blowing out highlights, concrete pillar and empty basement bays behind, heavy grain, high contrast, documentary CCTV realism, no timestamp, no numbers, no letters, no burned-in text anywhere, no watermark",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "monochrome_cctv_6700k",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "scanlines",
+          "vignette",
+          "camera_shake"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 121,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 160,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_02",
+      "order": 1,
+      "durationFrames": 131,
+      "image": "images/scene-02.jpg",
+      "narration": "Pengemudinya bukan saya. Rambutnya panjang.",
+      "narrationAudio": "audio/narration/scene-02.mp3",
+      "cuts": [
+        {
+          "atFrame": 37,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 74,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 107,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 74,
+          "text": "Pengemudinya bukan saya."
+        },
+        {
+          "startFrame": 74,
+          "endFrame": 119,
+          "text": "Rambutnya panjang."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, grainy black-and-white security camera view of a dim basement ramp, a single old hatchback descending with headlights cutting through dust, empty parking bays on both sides, heavy grain, high contrast, documentary CCTV realism, no timestamp, no numbers, no burned-in text, no watermark, no visible face",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "wide",
+        "lighting": "monochrome_cctv_6700k",
+        "intensity": 0.55,
+        "effects": [
+          "film_grain",
+          "scanlines",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 81,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 107,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_03",
+      "order": 2,
+      "durationFrames": 165,
+      "image": "images/scene-03.jpg",
+      "narration": "Saya baru sampai jam tujuh. Jadi siapa yang masuk jam empat?",
+      "narrationAudio": "audio/narration/scene-03.mp3",
+      "cuts": [
+        {
+          "atFrame": 46,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 93,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 135,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 73,
+          "text": "Saya baru sampai jam tujuh."
+        },
+        {
+          "startFrame": 73,
+          "endFrame": 153,
+          "text": "Jadi siapa yang masuk jam empat?"
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, extreme close-up of a hand holding a printed parking ticket inside a dim concrete basement, ticket damp and slightly crumpled, a single long strand of hair caught on its edge, harsh fluorescent light from above, faded parking lines and a concrete pillar behind, muted greenish palette, 35mm grain, documentary realism, printed digits blurred and unreadable, no readable text, no watermark, no face",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "closeup",
+        "lighting": "harsh_basement_fluorescent_4300k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "focus_rack"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 103,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 135,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_04",
+      "order": 3,
+      "durationFrames": 151,
+      "image": "images/scene-04.jpg",
+      "narration": "Karcis parkir saya selalu tercetak satu jam lebih awal.",
+      "narrationAudio": "audio/narration/scene-04.mp3",
+      "cuts": [
+        {
+          "atFrame": 42,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 84,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 124,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 139,
+          "text": "Karcis parkir saya selalu tercetak satu jam lebih awal."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a worn leather wallet open on a car dashboard holding a damp parking ticket, a long dark strand of hair lying across the paper, dim basement light through the windshield, shallow depth of field, muted greenish palette, 35mm grain, documentary realism, digits blurred, no readable text, no watermark, no people",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "harsh_basement_fluorescent_4300k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "focus_rack"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 94,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 124,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_05",
+      "order": 4,
+      "durationFrames": 163,
+      "image": "images/scene-05.jpg",
+      "narration": "Kursi kemudi selalu mundur. Punggungnya lebih tinggi dari saya.",
+      "narrationAudio": "audio/narration/scene-05.mp3",
+      "cuts": [
+        {
+          "atFrame": 45,
+          "camera": "handheld",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 91,
+          "camera": "pan_left",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 134,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 70,
+          "text": "Kursi kemudi selalu mundur."
+        },
+        {
+          "startFrame": 70,
+          "endFrame": 151,
+          "text": "Punggungnya lebih tinggi dari saya."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, interior of an old Indonesian hatchback seen from the open driver door, driver seat pushed far back, worn seat cover, steering wheel with a beaded cover, dim basement light through the windshield, dust in the air, muted palette, 35mm grain, documentary realism, no faces, no text, no watermark",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "handheld",
+        "shot": "medium",
+        "lighting": "harsh_basement_fluorescent_4300k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 101,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 134,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_06",
+      "order": 5,
+      "durationFrames": 194,
+      "image": "images/scene-06.jpg",
+      "narration": "Saya kira mesinnya rusak. Satpam bilang mesinnya baru diganti bulan lalu.",
+      "narrationAudio": "audio/narration/scene-06.mp3",
+      "cuts": [
+        {
+          "atFrame": 54,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 109,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 159,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 70,
+          "text": "Saya kira mesinnya rusak."
+        },
+        {
+          "startFrame": 70,
+          "endFrame": 182,
+          "text": "Satpam bilang mesinnya baru diganti bulan lalu."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, an old parking ticket machine mounted on a concrete wall in a basement, freshly installed metal casing, faint receipt sticking out, dim fluorescent light, puddle reflection on the floor, muted palette, 35mm grain, documentary realism, screen and digits blurred, no readable text, no watermark, no people",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "harsh_basement_fluorescent_4300k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "camera_shake"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 121,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 159,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_07",
+      "order": 6,
+      "durationFrames": 177,
+      "image": "images/scene-07.jpg",
+      "narration": "Bensin berkurang tiap Jumat. Ada rambut di sandaran kepala.",
+      "narrationAudio": "audio/narration/scene-07.mp3",
+      "cuts": [
+        {
+          "atFrame": 49,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 99,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 145,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 77,
+          "text": "Bensin berkurang tiap Jumat."
+        },
+        {
+          "startFrame": 77,
+          "endFrame": 165,
+          "text": "Ada rambut di sandaran kepala."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical extreme close-up film still, a long dark strand of hair caught on the fabric of a car headrest, shallow depth of field, dust and worn upholstery, dim basement light from the side, muted greenish palette, 35mm grain, documentary realism, no text, no watermark, no people",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "harsh_basement_fluorescent_4300k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "focus_rack"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 110,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 145,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_08",
+      "order": 7,
+      "durationFrames": 164,
+      "image": "images/scene-08.jpg",
+      "narration": "Saya minta rekaman basement. Petugasnya butuh dua hari.",
+      "narrationAudio": "audio/narration/scene-08.mp3",
+      "cuts": [
+        {
+          "atFrame": 46,
+          "camera": "drift",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 92,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 134,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 79,
+          "text": "Saya minta rekaman basement."
+        },
+        {
+          "startFrame": 79,
+          "endFrame": 152,
+          "text": "Petugasnya butuh dua hari."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, a security post window at night seen from outside, a small CRT monitor glowing inside with grey static, desk cluttered with logbooks, warm desk lamp against cold corridor light, muted palette, 35mm grain, documentary realism, screen blurred, no readable text, no watermark, faces not visible",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "drift",
+        "shot": "medium",
+        "lighting": "warm_post_lamp_3000k",
+        "intensity": 0.45,
+        "effects": [
+          "film_grain",
+          "vignette",
+          "scanlines"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 102,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 134,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_09",
+      "order": 8,
+      "durationFrames": 185,
+      "image": "images/scene-09.jpg",
+      "narration": "Satpam menyebut nama saya dengan santai. Katanya, pria itu berambut panjang.",
+      "narrationAudio": "audio/narration/scene-09.mp3",
+      "cuts": [
+        {
+          "atFrame": 51,
+          "camera": "push_in",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 104,
+          "camera": "handheld",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 151,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 97,
+          "text": "Satpam menyebut nama saya dengan santai."
+        },
+        {
+          "startFrame": 97,
+          "endFrame": 173,
+          "text": "Katanya, pria itu berambut panjang."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, an old security guard's hands holding a clipboard with a worn RFID parking card clipped to it, dim post window light, uniform sleeve, shallow depth of field, muted palette, 35mm grain, documentary realism, card photo and text blurred, no readable text, no watermark, no visible face",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "push_in",
+        "shot": "closeup",
+        "lighting": "warm_post_lamp_3000k",
+        "intensity": 0.5,
+        "effects": [
+          "film_grain",
+          "vignette"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 115,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 151,
+            "volume": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "scene_10",
+      "order": 9,
+      "durationFrames": 198,
+      "image": "images/scene-10.jpg",
+      "narration": "Rambut saya pendek. Kamu akan naik ke mobil itu? Tulis di komentar.",
+      "narrationAudio": "audio/narration/scene-10.mp3",
+      "cuts": [
+        {
+          "atFrame": 55,
+          "camera": "static",
+          "scale": 1.22,
+          "offsetY": -55
+        },
+        {
+          "atFrame": 111,
+          "camera": "push_in",
+          "scale": 1.5,
+          "offsetX": 30,
+          "offsetY": 20
+        },
+        {
+          "atFrame": 162,
+          "camera": "push_in",
+          "scale": 1.72,
+          "offsetX": -25,
+          "offsetY": 70
+        }
+      ],
+      "subtitles": [
+        {
+          "startFrame": 6,
+          "endFrame": 51,
+          "text": "Rambut saya pendek."
+        },
+        {
+          "startFrame": 51,
+          "endFrame": 141,
+          "text": "Kamu akan naik ke mobil itu?"
+        },
+        {
+          "startFrame": 141,
+          "endFrame": 186,
+          "text": "Tulis di komentar."
+        }
+      ],
+      "visual": {
+        "prompt": "cinematic 9:16 vertical film still, grainy black-and-white parking garage security camera footage, a person with long dark hair in a heavy jacket stepping out of an old hatchback, seen from behind and three-quarters, face turned away from camera, the figure fills the left two thirds of frame beside the open car door, harsh ceiling light blowing out highlights, concrete pillar and empty basement bays behind, heavy grain, high contrast, documentary CCTV realism, no timestamp, no numbers, no letters, no burned-in text anywhere, no watermark",
+        "locationId": "ls-0015_main",
+        "characterIds": [],
+        "camera": "static",
+        "shot": "medium",
+        "lighting": "monochrome_cctv_6700k",
+        "intensity": 0.6,
+        "effects": [
+          "film_grain",
+          "scanlines",
+          "vignette",
+          "light_flicker"
+        ]
+      },
+      "audio": {
+        "ambienceId": "audio/ambience_drone.wav",
+        "ambienceVolume": 0.32,
+        "sfx": [
+          {
+            "assetId": "audio/sfx/knock.mp3",
+            "startFrame": 123,
+            "volume": 0.5
+          },
+          {
+            "assetId": "audio/sfx/heartbeat.mp3",
+            "startFrame": 162,
+            "volume": 0.4
+          }
+        ]
+      }
+    }
+  ],
+  "publishing": {
+    "title": "Pukul Empat Pagi, Mobil Saya Keluar Sendiri",
+    "description": "Rekaman kamera basement menunjukkan mobil saya keluar pukul empat pagi. Saya baru sampai jam tujuh.\n\nSebelum itu, karcis parkir saya selalu tercetak satu jam lebih awal. Kursi kemudi selalu mundur, sejauh punggung yang lebih tinggi dari saya. Bensin berkurang tiap Jumat, dan ada rambut panjang di sandaran kepala, padahal rambut saya pendek.\n\nSaya kira mesin karcisnya rusak. Satpam bilang mesinnya baru diganti bulan lalu.",
+    "tags": [
+      "cerita horor",
+      "horor indonesia",
+      "karcis parkir",
+      "cerita seram",
+      "rekaman cctv"
+    ],
+    "categoryId": "24",
+    "privacyStatus": "public",
+    "selfDeclaredMadeForKids": false,
+    "syntheticDisclosure": true,
+    "pinComment": "Kalau rekaman itu memperlihatkan mobilmu sendiri, kamu masih akan naik?",
+    "thumbnail": {
+      "headline": "MOBIL SAYA JALAN PUKUL EMPAT PAGI",
+      "kicker": "pengemudinya bukan saya",
+      "image": "images/thumb.jpg",
+      "holdFrames": 12
+    },
+    "cta": {
+      "card": "Kamu akan naik ke mobil itu?",
+      "holdFrames": 84
+    }
+  },
+  "production": {
+    "subgenre": "Institutional horror",
+    "experiment": "Uji format 8 Nov: klimaks dibuka di 2 detik pertama (verbal + entitas visual di frame pertama), potong di titik pertanyaan (detik ~10), baru cerita berjalan dari awal; frame terakhir = frame pertama (loop).",
+    "hud": false,
+    "structure": "klimaks 04.00 + entitas → pengemudi bukan saya → POTONG: 'jadi siapa?' → karcis → kursi → mesin → bensin & rambut → minta rekaman → satpam sebut nama → rambut saya pendek (loop ke frame 1) + CTA",
+    "slate": "stories/slate.json"
+  }
+}

@@ -127,3 +127,81 @@ memundurkan kalimat; kalau satu kalimat perlu dibaca dua kali, ia hilang.
 - Scene (tujuan–hambatan–malapetaka) dan sequel (reaksi–dilema–keputusan): <https://en.wikipedia.org/wiki/Scene_and_sequel>, <https://www.iwrity.com/writing-scene-sequel-guide>
 - Twist: tulis mundur dari twist, adil, 2–3 petunjuk, petunjuk bekerja ganda, salah satu scene berubah arti: <https://hilltreepress.com/manuscript/how-to-write-plot-twists/>, <https://dnschmidt.com/writing-advice/writing-twist-endings/>, <https://www.outastory.com/blog/post/twist-ending-schreiben>
 - Menulis untuk telinga: ≤20 kata per kalimat, satu gagasan, aktif, variasi panjang, baca keras: <https://www.gregeschmeyervoice.com/how-to-write-voice-over-script-naturally/>, <https://journalism.university/print-media/crafting-compelling-audio-stories/>, <https://www.ukjournohub.com/broadcast/writing-for-radio>
+
+## Hukum tambahan — hasil riset 8 November 2026 (Short)
+
+Riset platform 2026 mempersempit tiga hal yang sebelumnya samar. Semuanya
+menyasar satu angka: **penonton memutuskan dalam 2 detik**, dan **replay adalah
+jam tonton gratis**.
+
+### 1. Jendela swipe hanya 2 detik, bukan 3
+
+YouTube Shorts mengukur persentase orang yang menggeser di 2 detik pertama;
+kalau angkanya jelek, distribusi berhenti sebelum cerita sempat berjalan.
+Konsekuensinya:
+
+- Kata pertama harus **sudah berbunyi** sebelum 0,3 detik (di build kita 6 frame).
+- Hook harus **verbal + visual sekaligus**: kartu teks besar di frame pertama
+  mengulang janji hook, supaya penonton yang menonton tanpa suara tetap kena.
+- Frame pertama tidak boleh berupa establishing shot. Mulai dari **benda yang
+  salah** — karcis, layar, plat nomor — bukan pemandangan.
+
+### 2. Loop dirancang, bukan kebetulan
+
+Short diputar berulang. Kalau kalimat terakhir menyambung ke kalimat pertama,
+tonton-ulang terasa seperti lanjutan, bukan pengulangan. Aturannya:
+
+- Kalimat terakhir **memakai kata kunci hook** (sudah diuji mesin).
+- Lebih kuat lagi: kalimat terakhir memberi **arti baru** pada frame pertama.
+  Setelah twist, penonton menonton ulang untuk mencari tanda yang tadi lolos.
+- Tanam satu **easter egg visual di frame pertama** yang baru masuk akal di
+  akhir (contoh: sehelai rambut di karcis, padahal rambut narator pendek).
+
+### 3. Beat tiap 2–4 detik, lalu berhenti saat payoff mendarat
+
+- Satu scene = 8–12 kata. Lebih dari itu, penonton Short mulai menggeser.
+- Setiap scene harus menaikkan taruhan atau menambah satu fakta baru; scene yang
+  hanya mengulang tidak punya alasan untuk ada.
+- **Berhenti tepat setelah payoff.** Jangan menambahkan penjelasan sesudah
+  twist — kalimat terakhir sudah CTA, tidak perlu ringkasan.
+
+### 4. Klaim spesifik mengalahkan suasana
+
+Pembuka terbaik untuk kanal ini adalah **klaim yang bisa diperiksa** ("karcis
+parkir saya selalu tercetak satu jam lebih awal"), bukan perasaan ("malam itu
+sangat mencekam"). Penonton bertahan untuk menguji klaim, bukan untuk suasana.
+
+## Hukum tambahan — koreksi pemilik kanal, 8 November 2026: **klimaks di depan**
+
+Ini mengoreksi urutan lama (buka pelan → naik → twist di 85%). Format yang
+dipakai sekarang adalah format yang sudah jadi standar pemilik kanal:
+
+1. **Klimaks ditaruh di awal**, di 2 detik pertama — bukan ditunda sampai akhir.
+2. **Frame pertama wajib berisi entitas**: satu sosok/benda yang jelas hadir di
+   gambar (orang, punggung, tangan, wajah setengah). Pemandangan kosong tidak
+   boleh jadi frame pertama, walau sudah "benda yang salah".
+3. **Kalimat pertama** harus salah satu dari dua: **pertanyaan** atau **fakta
+   yang menahan** ("Pukul empat pagi, mobil saya keluar dari basement.").
+   Bukan suasana, bukan perkenalan.
+4. **Potong tepat di titik pertanyaan.** Setelah klimaks diperlihatkan, scene
+   berikutnya harus membuat penonton bertanya "apa yang terjadi / bagaimana
+   bisa / kok bisa" — dan cerita **baru dimulai** sesudah potongan itu.
+5. Urutan baku: `klimaks → entitas → POTONG (pertanyaan) → cerita dari awal →
+   kembali ke klimaks dengan satu detail baru (twist) → CTA`.
+6. Cerita dari awal tetap wajib punya kejanggalan tiap beat (hukum lama §1–§4
+   masih berlaku) supaya penonton tidak bosan menunggu climaks kedua.
+7. **Frame terakhir memakai frame pertama** (loop fisik), dan kalimat terakhir
+   memberi arti baru pada frame itu.
+
+Contoh yang dipakai di LS-0015:
+
+```
+04.00  "Pukul empat pagi, mobil saya keluar dari basement." (CCTV + sosok)
+       "Tidak ada saya di dalamnya."
+       "Pengemudinya bukan saya. Rambutnya panjang."
+POTONG "Saya baru sampai jam tujuh. Jadi siapa yang masuk jam empat?"
+cerita "Karcis parkir saya selalu tercetak satu jam lebih awal." …
+twist  "Satpam menyebut nama saya dengan santai. Katanya, pria itu berambut panjang."
+CTA    "Rambut saya pendek. Kamu akan naik ke mobil itu? Tulis di komentar."
+```
+

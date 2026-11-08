@@ -127,11 +127,18 @@ async function main() {
   // Kartu teks ikut diskalakan ke timeline baru.
   const totalOld = episode.scenes.reduce((sum, scene) => sum + scene.durationFrames, 0);
   const totalNew = cursor;
-  const onScreenText = episode.onScreenText.map((item) => ({
-    text: item.text,
-    startFrame: Math.round((item.startFrame / totalOld) * totalNew),
-    endFrame: Math.round((item.endFrame / totalOld) * totalNew),
-  }));
+  const onScreenText = episode.onScreenText.map((item) => {
+    const startFrame = Math.round((item.startFrame / totalOld) * totalNew);
+    // Posisinya mengikuti timeline baru, tetapi durasi kartu tetap persis seperti
+    // yang ditulis planner: hook 27 frame (0,9 dtk), bukan ikut menyusut saat
+    // durasi audio aktual sedikit berbeda dari estimasi.
+    const holdFrames = item.endFrame - item.startFrame;
+    return {
+      text: item.text,
+      startFrame,
+      endFrame: Math.min(totalNew, startFrame + holdFrames),
+    };
+  });
 
   // Jumpscare ikut diskalakan: posisi scene yang dipilih tetap, panjang efek
   // dibuat proporsional terhadap scene tempat ia berada. Tanpa ini, setelah

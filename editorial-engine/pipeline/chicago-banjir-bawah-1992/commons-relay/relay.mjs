@@ -130,7 +130,7 @@ async function waitForSessions(token,key,ready){
  }
  throw new RelayError('POINTER_TIMEOUT');
 }
-function emit(o){console.log('CHICAGO_COMMONS_RELAY='+JSON.stringify(o))}
+function emit(o){const line=JSON.stringify(o);console.log('CHICAGO_COMMONS_RELAY='+line);if(process.env.GITHUB_ACTIONS==='true')console.log('::notice title=Chicago private relay::'+line.replace(/%/g,'%25').replace(/\r/g,'%0D').replace(/\n/g,'%0A'));}
 async function main(){
  let temp,completed=0,checkId,success=false;const token=process.env.GITHUB_TOKEN||'',run_id=process.env.GITHUB_RUN_ID||'';
  try{

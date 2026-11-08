@@ -22,5 +22,13 @@ jobs:
       - uses: actions/checkout@v5
       - name: Offline security tests
         run: node --test editorial-engine/pipeline/chicago-banjir-bawah-1992/commons-relay/test-relay.mjs editorial-engine/pipeline/coverr-rupert/test-direct-drive-relay.mjs
+      - name: Install isolated FFprobe
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix "$RUNNER_TEMP/chicago-toolchain" --ignore-scripts --no-audit --no-fund --no-package-lock ffprobe-static@3.1.0
+          FFPROBE_BIN="$RUNNER_TEMP/chicago-toolchain/node_modules/ffprobe-static/bin/linux/x64"
+          "$FFPROBE_BIN/ffprobe" -version >/dev/null
+          echo "$FFPROBE_BIN" >> "$GITHUB_PATH"
       - name: Verify and transfer the fixed Commons batch
         run: node editorial-engine/pipeline/chicago-banjir-bawah-1992/commons-relay/relay.mjs

@@ -381,7 +381,14 @@ Cara pakai:
 
 Aturan isi jadwal:
 
-- Jendela tayang 12.00–18.00 WITA; jeda minimal 1 jam antar-video.
+- **Tiga slot per hari: pagi, siang, malam** (arahan pemilik kanal, 8 Nov 2026,
+  mengoreksi jendela tunggal 12.00–18.00). Acuan WITA:
+  **pagi 07.00–09.00 · siang 12.00–14.00 · malam 19.00–21.00**.
+  Setiap video tayang di **semua platform** (YouTube Shorts + Facebook Reel),
+  bukan satu platform per slot.
+- Satu slot = satu video. Kalau slot pagi kosong, video berikutnya tayang pagi
+  hari itu — tidak perlu menunggu siang.
+- Jeda minimal 1 jam antar-video, dan jangan menaruh dua video di slot yang sama.
 - Satu berkas rencana boleh memuat puluhan video — tidak perlu satu action per
   video.
 - Jangan menyebut tanggal tetap di judul/deskripsi.

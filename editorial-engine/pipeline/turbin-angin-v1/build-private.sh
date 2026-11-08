@@ -10,6 +10,8 @@ if [[ ! -x "$ENGINE/node_modules/.bin/tsx" || ! -x "$ENGINE/node_modules/@ffmpeg
 fi
 # The review record must be a real human decision. Never fabricate it.
 node --test "$HERE/test-preflight.mjs"
+python3 "$HERE/test-glyphs.py"
+python3 "$HERE/check-glyphs.py"
 python3 "$HERE/test-qa.py"
 node "$HERE/preflight.mjs" --stage voice --review "$ROOT/.scratch/turbine/human-review.json"
 python3 "$HERE/prepare.py"

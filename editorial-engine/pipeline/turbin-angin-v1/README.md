@@ -34,11 +34,13 @@ Dari root repo, setelah prasyarat di atas dipenuhi:
 node --test editorial-engine/pipeline/turbin-angin-v1/test-preflight.mjs
 python3 editorial-engine/pipeline/turbin-angin-v1/test-pack.py
 python3 editorial-engine/pipeline/turbin-angin-v1/test-qa.py
+python3 editorial-engine/pipeline/turbin-angin-v1/test-glyphs.py
+python3 editorial-engine/pipeline/turbin-angin-v1/check-glyphs.py
 python3 editorial-engine/pipeline/turbin-angin-v1/test-pack-final.py
 bash editorial-engine/pipeline/turbin-angin-v1/build-private.sh
 ```
 
-Build menjalankan preflight suara, menyiapkan audio/timing, preflight render, TypeScript, pengecekan continuity, sampel dan renderer lengkap, lalu QA teknis. Tidak ada jaringan, unggahan, atau Buffer dalam script build. Render memerlukan beberapa menit pada CPU; durasi bergantung pada mesin. Untuk uji satu komponen secara terpisah:
+Build menjalankan preflight suara, pengecekan glyph font, menyiapkan audio/timing, preflight render, TypeScript, pengecekan continuity, sampel dan renderer lengkap, lalu QA teknis. Pengecekan glyph membaca Unicode cmap font untuk teks literal dan narasi; ini tidak membuktikan tata letak atau keterbacaan ponsel. Tidak ada jaringan, unggahan, atau Buffer dalam script build. Render memerlukan beberapa menit pada CPU; durasi bergantung pada mesin. Untuk uji satu komponen secara terpisah:
 
 ```sh
 node editorial-engine/pipeline/turbin-angin-v1/preflight.mjs --stage render --review .scratch/turbine/human-review.json

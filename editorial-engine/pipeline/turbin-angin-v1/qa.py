@@ -152,7 +152,7 @@ def main():
   'video_codec_and_size':'Format video dan resolusi','frame_rate':'Frame rate',
   'decoded_frame_count':'Jumlah frame yang terdekode','audio_codec_and_rate':'Format dan sample rate audio',
   'container_duration':'Durasi kontainer','audio_video_duration_difference':'Selisih durasi audio/video',
-  'srt_matches_burned_cue_text_and_estimates':'SRT sesuai teks dan waktu subtitle terbakar',
+  'srt_matches_burned_cue_text_and_estimates':'SRT sesuai data cue untuk burn-in (bukan pembacaan video)',
   'visual_change_at_planned_cut':'Perubahan visual pada cut pembuka','full_video_and_audio_decode':'Decode penuh video dan audio',
   'sample_peak_below_zero':'Sample peak di bawah 0 dBFS',
  }

@@ -32,6 +32,7 @@ const rendererFiles=[
  path.join(engine,'pipeline/turbin-angin-v1/review-gate.mjs'),
  path.join(engine,'pipeline/turbin-angin-v1/preflight.mjs'),
  path.join(engine,'pipeline/turbin-angin-v1/prepare.py'),
+ path.join(engine,'pipeline/turbin-angin-v1/check-glyphs.py'),
  path.join(engine,'pipeline/script-review/audit.py'),
  path.join(engine,'pipeline/turbin-angin-v1/footage-manifest.json'),
  path.join(engine,'pipeline/awan-rig-v2/rig.tsx'),
@@ -70,6 +71,8 @@ function authorization(){
  // is invoked directly, not only through build-private.sh.
  const pre=spawnSync('node',[path.join(engine,'pipeline/turbin-angin-v1/preflight.mjs'),'--stage','render','--review',reviewPath],{cwd:root,encoding:'utf8',timeout:30000});
  if(pre.status!==0)throw new Error(`Private render preflight failed: ${String(pre.stdout||pre.stderr).slice(-3000)}`);
+ const glyph=spawnSync('python3',[path.join(engine,'pipeline/turbin-angin-v1/check-glyphs.py')],{cwd:root,encoding:'utf8',timeout:30000});
+ if(glyph.status!==0)throw new Error(`Rendered font glyph check failed: ${String(glyph.stdout||glyph.stderr).slice(-1500)}`);
  const sb=fs.readFileSync(scriptPath),ab=fs.readFileSync(auditPath),pb=fs.readFileSync(planPath),rb=fs.readFileSync(reviewPath);
  const r=checkHumanReview(JSON.parse(rb.toString('utf8')),sb,ab,pb);
  if(!r.allowed)throw new Error(`Human review gate: ${r.issues.join('; ')}`);
@@ -144,7 +147,7 @@ function Scene({i,t,frame,time}:{i:number;t:number;frame:number;time:number}){
  if(i===3)return <><Bg footage/><Title a="SUDUT BILAH" b="MULAI DIATUR" tag="DAYA TERKENDALI · ILUSTRASI"/><FootageFrame/>
   <g opacity={step(t,.8,1.8)}><rect x="60" y="500" width="960" height="540" rx="26" fill="url(#cardT)" stroke="#bddcd0" strokeWidth="7"/><Txt x={540} y={570} size={33} fill={C.ink} anchor="middle">PENAMPANG BILAH / SKEMA</Txt><Arrow x={145} y={755} dx={790} dy={0} color="#71afa0"/><Airfoil x={540} y={765} angle={-45+20*b} s={1.16}/><Txt x={540} y={985} size={34} fill="#315b53" anchor="middle">TITIK = SUMBU PANJANG</Txt></g>
   <HostAt i={i} t={t} frame={frame} talk={talk}/><Card x={500} y={1110} w={470} h={290}><Txt x={735} y={1175} size={29} fill={C.ink} anchor="middle">DAYA DIATUR</Txt><Turbine x={635} y={1250} scale={.17} angle={80*a}/><Arrow x={690} y={1255} dx={70} dy={0} color={C.rust}/><Light x={840} y={1255} on={a}/></Card></>;
- if(i===4)return <><Bg footage/><Title a="MASIH BERPUTAR" b="MASIH BEKERJA" tag="KONTROL DAYA ≠ BERHENTI"/><FootageFrame/><HostAt i={i} t={t} frame={frame} talk={talk}/><Card><Txt x={730} y={1145} size={28} fill={C.ink} anchor="middle">DAYA DIATUR</Txt><path d="M550 1330 H910 M550 1330 V1200" fill="none" stroke="#52746b" strokeWidth="6"/><path d="M575 1300 Q640 1212 720 1210 H890" fill="none" stroke={C.rust} strokeWidth="12" strokeLinecap="round"/><circle cx={575+290*a} cy={1300-90*Math.min(1,a*2)} r="12" fill={C.gold} stroke={C.ink} strokeWidth="5"/></Card><Tag text="KURVA SKEMATIS" x={548} y={1460}/></>;
+ if(i===4)return <><Bg footage/><Title a="MASIH BERPUTAR" b="MASIH BEKERJA" tag="KONTROL DAYA BUKAN BERHENTI"/><FootageFrame/><HostAt i={i} t={t} frame={frame} talk={talk}/><Card><Txt x={730} y={1145} size={28} fill={C.ink} anchor="middle">DAYA DIATUR</Txt><path d="M550 1330 H910 M550 1330 V1200" fill="none" stroke="#52746b" strokeWidth="6"/><path d="M575 1300 Q640 1212 720 1210 H890" fill="none" stroke={C.rust} strokeWidth="12" strokeLinecap="round"/><circle cx={575+290*a} cy={1300-90*Math.min(1,a*2)} r="12" fill={C.gold} stroke={C.ink} strokeWidth="5"/></Card><Tag text="KURVA SKEMATIS" x={548} y={1460}/></>;
  if(i===6)return <><Bg footage/><Title a="BILAH DIPUTAR" b="PADA SUMBUNYA" tag="SKEMA PITCH · BUKAN REKAMAN"/><FootageFrame/>
   <g opacity={step(t,.8,1.8)}><rect x="60" y="500" width="960" height="540" rx="26" fill="url(#cardT)" stroke="#bddcd0" strokeWidth="7"/><Txt x={540} y={570} size={33} fill={C.ink} anchor="middle">LEBIH SEJAJAR ANGIN</Txt><Arrow x={150} y={720} dx={780} dy={0} color="#70ac9f"/><Arrow x={150} y={825} dx={780} dy={0} color="#70ac9f"/><Airfoil x={540} y={770} angle={-45+45*b} s={1.16}/><Txt x={540} y={985} size={34} fill="#315b53" anchor="middle">TITIK = SUMBU PANJANG</Txt></g>
   <HostAt i={i} t={t} frame={frame} talk={talk}/><Card x={500} y={1110} w={470} h={290}><Txt x={735} y={1175} size={29} fill={C.ink} anchor="middle">GAYA PUTAR</Txt><Arrow x={555} y={1260} dx={320-180*b} dy={0} color={C.rust}/><Txt x={735} y={1362} size={30} fill="#315b53" anchor="middle">BERKURANG</Txt></Card></>;

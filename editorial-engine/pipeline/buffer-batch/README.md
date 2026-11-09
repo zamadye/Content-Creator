@@ -57,12 +57,19 @@ Untuk operator/agen; jangan jalankan perintah ini bila belum ada input nyata yan
 
 Setelah waktu tayang, lakukan pemeriksaan Buffer read-only yang baru dan lengkap, lalu siapkan file privat dengan `retrievedAt`, `allDependenciesKnown: true`, `expectedPostIds` untuk **semua** post yang memakai salinan, dan `observedPosts` berisi masing-masing `id`, `status`, serta `externalLink`. Jalankan `node editorial-engine/pipeline/buffer-batch/check-release.mjs <file-privat.json>`. Guard menolak data lebih dari 15 menit, daftar tidak lengkap, status selain `sent`, atau tautan kosong. `PASS` hanyalah izin untuk mempertimbangkan pencabutan; periksa juga keterkaitan seluruh post dan izin Drive. Guard tidak menghapus file atau mencegah orang lain menghapusnya di luar alur.
 
+## Snapshot kanal dan antrean hanya-baca
+
+`snapshot-readonly.mjs` menggunakan `BufferAdapter.listChannels()` dan `listPosts()` saja pada organisasi yang dipilih oleh `BUFFER_ORGANIZATION_ID` (atau satu-satunya organisasi yang terlihat). Ia **tidak** memanggil create, update, delete, publish ataupun dry-run. Hasil meliputi kanal dan status koneksinya, hitungan semua status, serta maksimal 200 post aktif/baru terkirim; `relevantTruncated: true` berarti ringkasan tidak lengkap. Caption tidak disertakan. Ini **bukan** pemeriksaan penuh semua organisasi, pengesahan video, pemeriksaan duplikasi, atau preflight saat penjadwalan; daftar antrean perlu dibaca ulang secara lengkap sebelum menulis.
+
+Untuk menjalankannya secara privat di repo publik, buat pasangan RSA sementara: simpan kunci privat hanya di direktori `editorial-engine/deliverables/buffer-batch/private/` yang diabaikan Git, lalu tulis public key base64, nonce acak, `operation: buffer-channels-readonly` dan `readOnly: true` ke `.github/analytics-readonly-request.json`. Commit hanya permintaan nonrahasia itu dengan penanda `[buffer-channels-readonly]` dan push branch sesi. Job `channels-snapshot` pada `buffer-performance-readonly.yml` mengenkripsi hasil sebelum anotasi Actions; jangan pernah mencetak output mentah, ID kanal atau waktu antrean pada log publik. Dekripsi memakai `decrypt-report.mjs` di direktori privat. Bila job gagal atau tidak ada laporan yang terbaca, status akun adalah `UNKNOWN`, bukan bukti kanal tidak tersambung. Laporan `PASS` berarti pembacaan berhasil saja; dapat menjadi kedaluwarsa segera setelah kanal/antrean berubah.
+
 ## Tes lokal
 
 ```bash
 node --test editorial-engine/pipeline/tests/buffer-batch.test.mjs \
             editorial-engine/pipeline/tests/buffer-batch-relay.test.mjs \
-            editorial-engine/pipeline/tests/buffer-batch-probe.test.mjs
+            editorial-engine/pipeline/tests/buffer-batch-probe.test.mjs \
+            editorial-engine/pipeline/tests/buffer-snapshot-readonly.test.mjs
 ```
 
 Tes menggunakan input/gateway sintetis: tidak menghubungi Buffer, tidak memverifikasi hak, kualitas kreatif atau masa berlaku URL, dan tidak membuktikan jadwal sungguhan sudah masuk. Catat tiap post hanya sebagai `scheduled`/`sent` jika benar-benar dibaca kembali dari layanan.

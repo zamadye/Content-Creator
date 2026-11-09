@@ -15,7 +15,7 @@ Tidak semua kalimat harus berbentuk pertanyaan atau meminta komentar. Pertanyaan
 3. **Uji setiap kalimat.** Untuk tiap kalimat lisan, termasuk pertanyaan pendek dan CTA, tulis fungsi, pertanyaan/dugaan penonton, hubungan dengan pengalaman/observasi atau cerita sebelumnya, objek dan aksi visual, bukti faktual atau alasan `N/A`, serta bagaimana kalimat berikutnya/puncak menjawab atau mengembangkan pikiran itu. Jika tidak punya fungsi atau hubungan yang jelas, revisi atau hapus.
 4. **Pertimbangkan setiap kata.** Baca keras dalam konteks kalimat sebelumnya dan sesudahnya. Hapus kata yang tidak menambah makna, ritme, kehangatan, atau kejelasan. Periksa rujukan “ini/itu”, pilihan “bisa” vs “pasti”, waktu, sebab, ukuran, dan batas klaim. Variasikan panjang kalimat secara alami; singkat bukan berarti dangkal atau terburu-buru.
 5. **Hubungkan fakta dengan akibat yang bisa divisualkan.** Gunakan objek, aksi, perubahan, dan reaksi Host yang benar-benar membantu penjelasan. Setiap kalimat punya padanan visual konkret; tiap scene tetap memiliki minimal dua objek dalam `objectMap`. Bedakan rekonstruksi atau skema dari kejadian asli. Jangan membesar-besarkan bahaya demi hook.
-6. **Tutup lingkaran, lalu berdiskusi dengan wajar.** Jawab pertanyaan utama dan akhiri dengan pemahaman yang bisa diingat. Jika mengajak komentar, tanyakan hal yang benar-benar berkaitan, memberi ruang jawaban berbeda dan tidak memaksa pengalaman pribadi. Penutup visual tetap **`ikuti knot theory`**, dan nama dinarasikan sebagai kata-kata.
+6. **Tutup lingkaran, lalu berdiskusi dengan wajar.** Jawab pertanyaan utama dan akhiri dengan pemahaman yang bisa diingat. Untuk arah baru, sediakan ruang berpikir di dalam cerita, bukan permintaan komentar generik. Penutup brand lama **`ikuti knot theory`** belum diputuskan untuk arah ini; konfirmasi sebelum final. Bila pemilik menyetujui dipakai, tulis huruf kecil dan baca nama sebagai kata-kata. Lihat [arahan terbaru](PANDUAN-ARAH-OBROLAN-EVALUASI.md).
 
 ## Contoh mikro — ilustrasi penulisan, bukan naskah final
 
@@ -29,7 +29,7 @@ Topik turbin angin yang diusulkan sebelumnya. Situasi yang bisa dibayangkan: pay
 | “Pada sebagian turbin, sudut bilah diubah agar tangkapan angin berkurang.” | “Kalau anginnya masih bertambah kencang, lalu apa?” | Petunjuk mekanisme; **sebagian** membatasi klaim. Perubahan sudut bilah diberi label ilustrasi. |
 | “Jika batas aman terlewati, turbin bisa dihentikan sampai kondisinya aman.” | “Jadi turbin yang diam belum tentu rusak?” | Membayar pertanyaan awal; jangan menyimpulkan penyebab turbin tertentu dari footage stok. |
 | “Kalau lihat turbin diam, penyebab lain apa yang terpikir?” | “Mungkin anginnya lemah atau sedang dirawat?” | Undangan diskusi yang relevan; tidak mengklaim semua penonton pernah melihat turbin. |
-| “ikuti knot theory.” | “Apa hal lain yang bisa kulihat dengan cara berbeda?” | CTA konsisten; tidak menggantikan jawaban. |
+| “ikuti knot theory.” | “Apa hal lain yang bisa kulihat dengan cara berbeda?” | Contoh penutup lama, bukan kewajiban CTA diskusi; penggunaannya pada arah baru perlu dikonfirmasi. |
 
 Ini contoh historis audit kalimat, **bukan contoh cerita yang telah berhasil**. Pemilik menyatakan draf turbin tidak memberinya emosi atau alasan berdiskusi. Mikro-audit tidak menggantikan tokoh, konflik, eskalasi, akibat dan momen percakapan di dalam isi; lihat [diagnosis](../../RISET-STORYTELLING-DUNIA-KEBALIK.md).
 

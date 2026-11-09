@@ -1,0 +1,746 @@
+{
+  "schemaVersion": 1,
+  "format": "long-master",
+  "storyId": "tangga-masih-licin",
+  "scriptId": "tangga-masih-licin-master-v1",
+  "truthMode": "fiction",
+  "fictionDisclosure": "Nara, Bima, penghuni, rumah petak, pesan, tunggakan, pemeriksaan dan seluruh adegan adalah ilustrasi fiktif, bukan kejadian atau data nyata.",
+  "premise": "Penghuni mengusulkan memeriksa tangga basah tetapi usul ditolak karena ia menunggak; lalu ia harus menilai orang yang tadi menyerangnya.",
+  "dramaticQuestion": "Bagaimana membahas tangga dan tunggakan tanpa satu persoalan menelan yang lain?",
+  "entity": "Tangga bersama yang basah, pesan grup penghuni, dan dua persoalan yang tidak saling menghapus.",
+  "goal": "Memeriksa persoalan yang relevan sambil mengakui tanggung jawab dan konteks orang yang terlibat.",
+  "stakes": "Penghuni perlu melewati tangga; uang bersama dan rasa percaya di antara tetangga dipertaruhkan.",
+  "audienceAnchor": "Orang yang pernah mengajukan masalah di grup keluarga, tetangga atau kerja lalu percakapannya beralih kepada dirinya.",
+  "sources": [
+    {
+      "id": "R1",
+      "url": "https://iep.utm.edu/fallacy/#AdHominem",
+      "supports": "Serangan yang tidak relevan kepada pengusul tidak dengan sendirinya membantah argumen; relevansi karakter bergantung pada isu.",
+      "limits": "Uraian konseptual, bukan data frekuensi atau bukti perilaku penonton; klasifikasi contoh perlu konteks."
+    },
+    {
+      "id": "R2",
+      "url": "https://writingcenter.unc.edu/tips-and-tools/fallacies/",
+      "supports": "Fallacy adalah kelemahan penalaran; klaim harus diperiksa berdasarkan alasan dan bukti yang relevan.",
+      "limits": "Panduan pendidikan; tidak menguji adegan rumah petak fiktif atau membuktikan orang yang diserang selalu benar."
+    }
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "kind": "context",
+      "before": "Tokoh dan tempat adalah fiksi.",
+      "event": "Hujan membasahi tangga bersama dan seorang tetangga hampir terpeleset.",
+      "after": "Nara melihat alasan untuk melapor.",
+      "causeToNext": "Ia menulis usul pemeriksaan di grup.",
+      "emotionHypothesis": "Penonton mungkin mengenali kekhawatiran pada fasilitas bersama.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B2",
+      "kind": "disruption",
+      "before": "Nara mengirim usul agar tangga diperiksa.",
+      "event": "Bima menjadikan tunggakan iuran alasan tidak membahas usul.",
+      "after": "Ada konflik antara pembahasan orang dan persoalan fisik.",
+      "causeToNext": "Penghuni lain masuk ke percakapan.",
+      "emotionHypothesis": "Kaget karena jawaban membahas pengirim.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B3",
+      "kind": "escalation",
+      "before": "Bima menyebut dua bulan tunggakan.",
+      "event": "Pesan usul ditutupi balasan soal iuran.",
+      "after": "Tekanan pada Nara bertambah.",
+      "causeToNext": "Grup membicarakan tunggakan dan bukan tangga.",
+      "emotionHypothesis": "Rasa malu dan kesal mungkin muncul.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B4",
+      "kind": "escalation",
+      "before": "Orang lain menanyakan tunggakan.",
+      "event": "Percakapan ramai tentang Nara sementara pertanyaan tangga tertinggal.",
+      "after": "Bahaya dalam cerita belum diperiksa.",
+      "causeToNext": "Nara hampir membalas panjang.",
+      "emotionHypothesis": "Penonton mempertimbangkan respons spontan.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B5",
+      "kind": "crisis",
+      "before": "Nara ingin membela diri.",
+      "event": "Catatan menunjukkan tunggakan itu benar; biaya bersama juga penting.",
+      "after": "Dua masalah sama-sama perlu dihadapi.",
+      "causeToNext": "Rasa malu tidak menentukan kondisi pijakan.",
+      "emotionHypothesis": "Dilema karena tidak ada pihak yang sepenuhnya tanpa kesalahan.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B6",
+      "kind": "climax",
+      "before": "Ketika percakapan soal Nara memanas, tangga tetap basah.",
+      "event": "Kita bertanya apakah tunggakan membuktikan tangga aman dan menolak kesimpulan otomatis.",
+      "after": "Isi usul kembali bisa diperiksa tanpa menyatakan Nara pasti benar.",
+      "causeToNext": "Kita membalik posisi ketika Bima menawarkan diri mengurus uang.",
+      "emotionHypothesis": "Perubahan pemahaman dari menyerang orang ke menimbang relevansi.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B7",
+      "kind": "turning_point",
+      "before": "Nara kesal pada Bima yang ingin mengurus uang.",
+      "event": "Pengalaman dan transparansi dapat relevan untuk memilih pengelola, tetapi rasa kesal bukan bukti kesalahan.",
+      "after": "Penonton melihat bahwa tidak semua pertanyaan tentang orang itu pengalihan.",
+      "causeToNext": "Nara mengakui iuran sekaligus meminta pemeriksaan.",
+      "emotionHypothesis": "Penonton menilai dirinya sendiri dan batas penerapan prinsip.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B8",
+      "kind": "consequence",
+      "before": "Dua persoalan dibahas tanpa saling meniadakan.",
+      "event": "Pemilik meminta pemeriksaan; dalam cerita tangga memang licin ketika basah.",
+      "after": "Permintaan tangga mendapat jawaban dan iuran tetap menjadi urusan.",
+      "causeToNext": "Dua catatan diletakkan berdampingan.",
+      "emotionHypothesis": "Lega karena pertanyaan awal akhirnya diperiksa.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B9",
+      "kind": "payoff",
+      "before": "Tunggakan dan masalah tangga sama-sama ada.",
+      "event": "Penonton memilih mana yang perlu dijawab lebih dulu sambil mempertahankan keduanya.",
+      "after": "Dilema membawa percakapan keluar dari video tanpa CTA.",
+      "causeToNext": "Serial lain dapat menguji pertanyaan sehari-hari yang berbeda.",
+      "emotionHypothesis": "Refleksi yang terbuka, bukan paksaan berkomentar.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    }
+  ],
+  "hook": {
+    "entityAtFrame0": "Anak tangga basah dan sandal tertahan; label CERITA FIKTIF tampil sejak frame 0.",
+    "peakVisual": "Sandal berhenti saat pesan pengaduan tidak dijawab; gerak dipotong sebelum alasan pengalihan.",
+    "openingLine": "Tangga itu masih licin.",
+    "cutQuestion": "Mengapa tangga belum dibahas meski Nara sudah melapor?",
+    "climaxBeatId": "B6",
+    "answerBeatId": "B6",
+    "visualCutSeconds": null,
+    "spokenOpeningSeconds": null
+  },
+  "turn": {
+    "clueBeatId": "B5",
+    "revealBeatId": "B7",
+    "oldMeaning": "Tunggakan Nara terasa seperti alasan untuk menolak semua usulnya.",
+    "newMeaning": "Tunggakan tidak menentukan kondisi tangga; pengalaman pengelolaan uang bisa relevan pada keputusan berbeda.",
+    "changedStake": "Penonton perlu memisahkan isi, bukti, tanggung jawab, dan relevansi orang dalam keputusan yang sedang dibuat.",
+    "evidenceBoundary": "Seluruh kejadian adalah fiksi; R1/R2 tidak membuktikan respons audiens atau bahwa serangan berarti usul benar."
+  },
+  "interactions": {
+    "comment": {
+      "beatId": "B7",
+      "storyMoment": "Bima yang menyindir ingin memegang uang; Nara merasa kesal.",
+      "question": "Apakah rasa kesal cukup untuk menolak, dan informasi apa yang relevan untuk memilih pengelola?",
+      "whyDiscuss": "Penonton menghadapi kasus yang sama dari dua posisi dan perlu memilih alasan, bukan menunjuk orang jahat.",
+      "viewpoints": [
+        "Mulai dari keselamatan tangga sambil mengakui iuran harus diselesaikan.",
+        "Mulai dari pertanggungjawaban iuran dan biaya sambil tetap meminta kondisi tangga diperiksa."
+      ],
+      "avoidFalseBalance": "Jangan menganggap usul valid tanpa pemeriksaan atau membiarkan risiko segera hanya demi memenangkan debat."
+    },
+    "share": {
+      "beatId": "B9",
+      "recipient": "Orang yang pernah berdebat di grup penghuni atau kerja.",
+      "value": "Dilema yang dapat dibawa ke percakapan tanpa meminta penonton membagikan video."
+    },
+    "follow": {
+      "seriesPromise": "Cerita pendek tentang momen sehari-hari ketika cara kita menilai orang dan masalah bisa tertukar.",
+      "whyReturn": "Setiap episode menyajikan situasi baru dan membalik sudut pandang tanpa janji manipulasi atau CTA paksa."
+    }
+  },
+  "shortPlan": {
+    "sourceBeatId": "B6",
+    "context": "Nara melapor tangga licin dan disebut menunggak iuran; semua tokoh fiktif.",
+    "miniConflict": "Tunggakan bisa benar tetapi tidak membuktikan kondisi tangga, lalu Bima menawarkan mengelola uang.",
+    "standalonePayoff": "Kondisi tangga dan kecocokan pengelola perlu alasan yang relevan bagi masing-masing.",
+    "distortionRisk": "Tetap akui tunggakan, jangan samakan serangan dengan bukti usul benar, dan jangan menyatakan semua kritik pribadi keliru."
+  },
+  "scenePlan": [
+    {
+      "sceneId": "S01",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "anak tangga basah",
+          "action": "kilap air melintas saat kaki mendekat"
+        },
+        {
+          "object": "sandal",
+          "action": "berhenti tepat sebelum pijakan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S02",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "telepon",
+          "action": "menampilkan usul pemeriksaan yang tenggelam"
+        },
+        {
+          "object": "jari Nara",
+          "action": "berhenti di atas layar"
+        }
+      ]
+    },
+    {
+      "sceneId": "S03",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "kartu nama Nara",
+          "action": "masuk di samping tokoh"
+        },
+        {
+          "object": "telepon",
+          "action": "menunjukkan grup penghuni rekaan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S04",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "talang",
+          "action": "mengalirkan air hujan"
+        },
+        {
+          "object": "pintu rumah petak",
+          "action": "terbuka ke tangga bersama"
+        }
+      ]
+    },
+    {
+      "sceneId": "S05",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "pegangan tangga",
+          "action": "menahan tangan tetangga saat turun"
+        },
+        {
+          "object": "sandal tetangga",
+          "action": "bergerak hati-hati di anak tangga"
+        }
+      ]
+    },
+    {
+      "sceneId": "S06",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "sandal tetangga",
+          "action": "bergeser sedikit di pijakan basah"
+        },
+        {
+          "object": "pegangan tangga",
+          "action": "tetap digenggam tetangga"
+        }
+      ]
+    },
+    {
+      "sceneId": "S07",
+      "beatId": "B2",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan usul memeriksa dan mencari perbaikan"
+        },
+        {
+          "object": "anak tangga",
+          "action": "terlihat di belakang Nara melalui pintu"
+        }
+      ]
+    },
+    {
+      "sceneId": "S08",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "telepon Bima",
+          "action": "menampilkan tuduhan soal iuran"
+        },
+        {
+          "object": "cangkir Bima",
+          "action": "bergetar pelan saat ia meletakkannya"
+        }
+      ]
+    },
+    {
+      "sceneId": "S09",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "telepon Bima",
+          "action": "menampilkan penolakan yang menindih usul"
+        },
+        {
+          "object": "catatan iuran",
+          "action": "terlihat di samping telepon"
+        }
+      ]
+    },
+    {
+      "sceneId": "S10",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan bertambahnya balasan penghuni"
+        },
+        {
+          "object": "catatan iuran",
+          "action": "berpindah ke tengah layar sebagai ilustrasi"
+        }
+      ]
+    },
+    {
+      "sceneId": "S11",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan gelembung iuran menumpuk"
+        },
+        {
+          "object": "anak tangga",
+          "action": "masih terlihat di balik pintu"
+        }
+      ]
+    },
+    {
+      "sceneId": "S12",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan pesan tangga yang belum dijawab"
+        },
+        {
+          "object": "anak tangga",
+          "action": "masih basah di luar pintu"
+        }
+      ]
+    },
+    {
+      "sceneId": "S13",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "memantulkan balasan iuran di dekat wajahnya"
+        },
+        {
+          "object": "amplop iuran",
+          "action": "tergeletak tertutup di meja"
+        }
+      ]
+    },
+    {
+      "sceneId": "S14",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan draf yang berhenti dan belum dikirim"
+        },
+        {
+          "object": "pulpen",
+          "action": "diletakkan di samping telepon"
+        }
+      ]
+    },
+    {
+      "sceneId": "S15",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "catatan iuran",
+          "action": "menunjukkan dua bulan tertunda"
+        },
+        {
+          "object": "pensil",
+          "action": "menandai kolom yang belum selesai"
+        }
+      ]
+    },
+    {
+      "sceneId": "S16",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "catatan iuran",
+          "action": "menunjukkan dua bulan tertunda"
+        },
+        {
+          "object": "pensil",
+          "action": "berhenti di samping kolom bulan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S17",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "amplop iuran",
+          "action": "diletakkan di meja"
+        },
+        {
+          "object": "catatan pembayaran",
+          "action": "dibuka untuk mencari penyelesaian"
+        }
+      ]
+    },
+    {
+      "sceneId": "S18",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "kotak dana bersama",
+          "action": "terlihat dengan penutup terbuka"
+        },
+        {
+          "object": "lembar perkiraan biaya",
+          "action": "muncul di sebelahnya"
+        }
+      ]
+    },
+    {
+      "sceneId": "S19",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "anak tangga",
+          "action": "memantulkan air dari sudut berbeda"
+        },
+        {
+          "object": "sandal Nara",
+          "action": "berhenti di lantai kering dekat tangga"
+        }
+      ]
+    },
+    {
+      "sceneId": "S20",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "catatan iuran",
+          "action": "berhenti di sisi kiri"
+        },
+        {
+          "object": "pijakan basah",
+          "action": "muncul di sisi kanan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S21",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "kaca pembesar",
+          "action": "mendekati pijakan"
+        },
+        {
+          "object": "anak tangga",
+          "action": "berada di sisi lain garis putus ilustratif"
+        }
+      ]
+    },
+    {
+      "sceneId": "S22",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "kertas usul",
+          "action": "terlihat dengan satu tanda tanya"
+        },
+        {
+          "object": "pensil",
+          "action": "tetap tergeletak tanpa memberi tanda kemenangan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S23",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "sepatu",
+          "action": "terlihat di lantai kering, tanpa orang menguji secara berbahaya"
+        },
+        {
+          "object": "lembar pilihan",
+          "action": "memuat beberapa cara penanganan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S24",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "lembar pemeriksaan",
+          "action": "dipegang petugas"
+        },
+        {
+          "object": "kotak peralatan",
+          "action": "tetap tertutup di sisi tangga"
+        }
+      ]
+    },
+    {
+      "sceneId": "S25",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "cermin",
+          "action": "memantulkan Nara dan Bima bertukar sisi layar"
+        },
+        {
+          "object": "dua kursi",
+          "action": "mengubah arah hadap"
+        }
+      ]
+    },
+    {
+      "sceneId": "S26",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "kotak dana bersama",
+          "action": "didorong Bima ke tengah meja"
+        },
+        {
+          "object": "buku kas",
+          "action": "berada di sisi kotak sebagai perlengkapan pengelola"
+        }
+      ]
+    },
+    {
+      "sceneId": "S27",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "kotak dana",
+          "action": "belum diserahkan di depan Nara"
+        },
+        {
+          "object": "catatan pengelola",
+          "action": "terbuka di atas meja"
+        }
+      ]
+    },
+    {
+      "sceneId": "S28",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "buku laporan",
+          "action": "masih kosong sebelum diperiksa"
+        },
+        {
+          "object": "amplop dana",
+          "action": "tetap tertutup di meja"
+        }
+      ]
+    },
+    {
+      "sceneId": "S29",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "lembar keputusan",
+          "action": "memuat kotak yang belum dicentang"
+        },
+        {
+          "object": "pensil",
+          "action": "tertahan di atas lembar"
+        }
+      ]
+    },
+    {
+      "sceneId": "S30",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "contoh laporan",
+          "action": "ditunjukkan kepada penghuni"
+        },
+        {
+          "object": "buku kas lama",
+          "action": "ditunjukkan dengan izin sebagai contoh pengalaman yang relevan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S31",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "daftar peran",
+          "action": "membedakan memeriksa tangga dan mengurus dana"
+        },
+        {
+          "object": "kotak dana",
+          "action": "berada di samping daftar ketika warga menunjuk tugas"
+        }
+      ]
+    },
+    {
+      "sceneId": "S32",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan draf yang dihapus"
+        },
+        {
+          "object": "pulpen",
+          "action": "terletak di samping tangan Nara"
+        }
+      ]
+    },
+    {
+      "sceneId": "S33",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan komitmen mencari jalan keluar"
+        },
+        {
+          "object": "catatan tunggakan",
+          "action": "tetap terlihat di pinggir meja"
+        }
+      ]
+    },
+    {
+      "sceneId": "S34",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan permintaan pemeriksaan"
+        },
+        {
+          "object": "anak tangga",
+          "action": "kembali terlihat di balik pintu"
+        }
+      ]
+    },
+    {
+      "sceneId": "S35",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "papan pengumuman",
+          "action": "memuat rencana pemeriksaan dan pembahasan biaya"
+        },
+        {
+          "object": "pegangan tangga",
+          "action": "diperhatikan oleh petugas yang datang"
+        }
+      ]
+    },
+    {
+      "sceneId": "S36",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "lembar hasil",
+          "action": "menunjukkan tangga licin saat basah"
+        },
+        {
+          "object": "pijakan",
+          "action": "terlihat dengan titik air"
+        }
+      ]
+    },
+    {
+      "sceneId": "S37",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "amplop iuran",
+          "action": "tetap menunggu penyelesaian di meja"
+        },
+        {
+          "object": "anak tangga",
+          "action": "tetap membutuhkan penanganan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S38",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "kartu iuran",
+          "action": "tetap berdiri di satu sisi meja"
+        },
+        {
+          "object": "kartu tangga",
+          "action": "tetap berdiri di sisi lain meja"
+        },
+        {
+          "object": "amplop",
+          "action": "berada di samping kartu"
+        }
+      ]
+    },
+    {
+      "sceneId": "S39",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "kursi kosong",
+          "action": "menghadap meja seolah untuk penonton"
+        },
+        {
+          "object": "dua catatan",
+          "action": "menunggu dibaca"
+        }
+      ]
+    }
+  ]
+}

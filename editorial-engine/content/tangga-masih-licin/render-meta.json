@@ -1,0 +1,935 @@
+{
+  "master": [
+    {
+      "id": "S01",
+      "beat": "B6",
+      "shot": "Makro rendah, kilas akhir; terang tulisan sejak frame 0.",
+      "focal": "anak tangga",
+      "objectMap": [
+        {
+          "object": "anak tangga basah",
+          "action": "kilap air melintas saat kaki mendekat"
+        },
+        {
+          "object": "sandal",
+          "action": "berhenti tepat sebelum pijakan"
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "beat": "B6",
+      "shot": "Detail tangan dan layar; cut dari sandal ke pesan belum terjawab.",
+      "focal": "layar pesan",
+      "objectMap": [
+        {
+          "object": "telepon",
+          "action": "menampilkan usul pemeriksaan yang tenggelam"
+        },
+        {
+          "object": "jari Nara",
+          "action": "berhenti di atas layar"
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "beat": "B1",
+      "shot": "Kartu nama menyatu dengan wajah tokoh, label fiksi tetap terbaca.",
+      "focal": "nama Nara",
+      "objectMap": [
+        {
+          "object": "kartu nama Nara",
+          "action": "masuk di samping tokoh"
+        },
+        {
+          "object": "telepon",
+          "action": "menunjukkan grup penghuni rekaan"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "beat": "B1",
+      "shot": "Wide eksterior rumah petak; hujan dan talang bergerak.",
+      "focal": "talang",
+      "objectMap": [
+        {
+          "object": "talang",
+          "action": "mengalirkan air hujan"
+        },
+        {
+          "object": "pintu rumah petak",
+          "action": "terbuka ke tangga bersama"
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "beat": "B1",
+      "shot": "Medium dari samping; tetangga turun memegang pegangan.",
+      "focal": "pegangan tangga",
+      "objectMap": [
+        {
+          "object": "pegangan tangga",
+          "action": "menahan tangan tetangga saat turun"
+        },
+        {
+          "object": "sandal tetangga",
+          "action": "bergerak hati-hati di anak tangga"
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "beat": "B1",
+      "shot": "Close-up kaki dan pegangan; gerak hampir tergelincir lalu tertahan.",
+      "focal": "sandal tetangga",
+      "objectMap": [
+        {
+          "object": "sandal tetangga",
+          "action": "bergeser sedikit di pijakan basah"
+        },
+        {
+          "object": "pegangan tangga",
+          "action": "tetap digenggam tetangga"
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "beat": "B2",
+      "shot": "Over-shoulder telepon; gelembung pesan muncul per bagian, tanpa merek aplikasi.",
+      "focal": "usul di grup",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan usul memeriksa dan mencari perbaikan"
+        },
+        {
+          "object": "anak tangga",
+          "action": "terlihat di belakang Nara melalui pintu"
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "beat": "B3",
+      "shot": "Split-screen Bima dan gelembung balasan pertama.",
+      "focal": "balasan Bima",
+      "objectMap": [
+        {
+          "object": "telepon Bima",
+          "action": "menampilkan tuduhan soal iuran"
+        },
+        {
+          "object": "cangkir Bima",
+          "action": "bergetar pelan saat ia meletakkannya"
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "beat": "B3",
+      "shot": "Gelembung balasan menutupi sebagian usul; wajah tetap terlihat.",
+      "focal": "pesan penolakan",
+      "objectMap": [
+        {
+          "object": "telepon Bima",
+          "action": "menampilkan penolakan yang menindih usul"
+        },
+        {
+          "object": "catatan iuran",
+          "action": "terlihat di samping telepon"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "beat": "B3",
+      "shot": "Tiga avatar abstrak berbicara di sekitar catatan iuran.",
+      "focal": "avatar tetangga",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan bertambahnya balasan penghuni"
+        },
+        {
+          "object": "catatan iuran",
+          "action": "berpindah ke tengah layar sebagai ilustrasi"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "beat": "B4",
+      "shot": "Burung mata di atas percakapan; gelembung iuran bergerak, usul turun.",
+      "focal": "gelembung iuran",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan gelembung iuran menumpuk"
+        },
+        {
+          "object": "anak tangga",
+          "action": "masih terlihat di balik pintu"
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "beat": "B4",
+      "shot": "Dua ruang: chat ramai dan tangga kosong dengan genangan kecil.",
+      "focal": "pesan belum dijawab",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan pesan tangga yang belum dijawab"
+        },
+        {
+          "object": "anak tangga",
+          "action": "masih basah di luar pintu"
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "beat": "B4",
+      "shot": "Medium Nara dengan layar grup memantul di matanya.",
+      "focal": "ekspresi Nara",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "memantulkan balasan iuran di dekat wajahnya"
+        },
+        {
+          "object": "amplop iuran",
+          "action": "tergeletak tertutup di meja"
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "beat": "B5",
+      "shot": "Makro keyboard; teks panjang muncul lalu kursor berhenti.",
+      "focal": "draf balasan",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan draf yang berhenti dan belum dikirim"
+        },
+        {
+          "object": "pulpen",
+          "action": "diletakkan di samping telepon"
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "beat": "B5",
+      "shot": "Catatan iuran dengan dua kolom bulan; tidak ada angka rekening.",
+      "focal": "catatan iuran",
+      "objectMap": [
+        {
+          "object": "catatan iuran",
+          "action": "menunjukkan dua bulan tertunda"
+        },
+        {
+          "object": "pensil",
+          "action": "menandai kolom yang belum selesai"
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "beat": "B5",
+      "shot": "Kertas diberi tanda; tidak ada perubahan latar/karakter mendadak.",
+      "focal": "tanda catatan",
+      "objectMap": [
+        {
+          "object": "catatan iuran",
+          "action": "menunjukkan dua bulan tertunda"
+        },
+        {
+          "object": "pensil",
+          "action": "berhenti di samping kolom bulan"
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "beat": "B5",
+      "shot": "Amplop dan catatan pembayaran; Nara mempertimbangkan jalan keluar.",
+      "focal": "amplop iuran",
+      "objectMap": [
+        {
+          "object": "amplop iuran",
+          "action": "diletakkan di meja"
+        },
+        {
+          "object": "catatan pembayaran",
+          "action": "dibuka untuk mencari penyelesaian"
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "beat": "B5",
+      "shot": "Kotak dana bersama dan lembar perkiraan biaya muncul berdampingan.",
+      "focal": "kotak dana",
+      "objectMap": [
+        {
+          "object": "kotak dana bersama",
+          "action": "terlihat dengan penutup terbuka"
+        },
+        {
+          "object": "lembar perkiraan biaya",
+          "action": "muncul di sebelahnya"
+        }
+      ]
+    },
+    {
+      "id": "S19",
+      "beat": "B5",
+      "shot": "Kembali ke tangga dari sudut berbeda; Nara berdiri jauh di belakang.",
+      "focal": "pantulan air",
+      "objectMap": [
+        {
+          "object": "anak tangga",
+          "action": "memantulkan air dari sudut berbeda"
+        },
+        {
+          "object": "sandal Nara",
+          "action": "berhenti di lantai kering dekat tangga"
+        }
+      ]
+    },
+    {
+      "id": "S20",
+      "beat": "B6",
+      "shot": "Diagram sederhana: catatan iuran di satu sisi, pijakan basah di sisi lain.",
+      "focal": "dua pertanyaan",
+      "objectMap": [
+        {
+          "object": "catatan iuran",
+          "action": "berhenti di sisi kiri"
+        },
+        {
+          "object": "pijakan basah",
+          "action": "muncul di sisi kanan"
+        }
+      ]
+    },
+    {
+      "id": "S21",
+      "beat": "B6",
+      "shot": "Garis dari catatan ke pijakan putus, lalu kaca pembesar mendekat.",
+      "focal": "kaca pembesar",
+      "objectMap": [
+        {
+          "object": "kaca pembesar",
+          "action": "mendekati pijakan"
+        },
+        {
+          "object": "anak tangga",
+          "action": "berada di sisi lain garis putus ilustratif"
+        }
+      ]
+    },
+    {
+      "id": "S22",
+      "beat": "B6",
+      "shot": "Panel usul Nara dan tanda tanya; bukan tanda centang kemenangan.",
+      "focal": "tanda tanya",
+      "objectMap": [
+        {
+          "object": "kertas usul",
+          "action": "terlihat dengan satu tanda tanya"
+        },
+        {
+          "object": "pensil",
+          "action": "tetap tergeletak tanpa memberi tanda kemenangan"
+        }
+      ]
+    },
+    {
+      "id": "S23",
+      "beat": "B6",
+      "shot": "Dua alternatif visual: tapak sepatu dan lembar pilihan perbaikan.",
+      "focal": "pilihan pemeriksaan",
+      "objectMap": [
+        {
+          "object": "sepatu",
+          "action": "terlihat di lantai kering, tanpa orang menguji secara berbahaya"
+        },
+        {
+          "object": "lembar pilihan",
+          "action": "memuat beberapa cara penanganan"
+        }
+      ]
+    },
+    {
+      "id": "S24",
+      "beat": "B6",
+      "shot": "Dalam gelembung kemungkinan, petugas fiktif mengamati dari dekat; belum ada hasil pemeriksaan.",
+      "focal": "lembar pemeriksaan",
+      "objectMap": [
+        {
+          "object": "lembar pemeriksaan",
+          "action": "dipegang petugas"
+        },
+        {
+          "object": "kotak peralatan",
+          "action": "tetap tertutup di sisi tangga"
+        }
+      ]
+    },
+    {
+      "id": "S25",
+      "beat": "B7",
+      "shot": "Transisi cermin; posisi dua tokoh bertukar tanpa mengganti identitas.",
+      "focal": "cermin",
+      "objectMap": [
+        {
+          "object": "cermin",
+          "action": "memantulkan Nara dan Bima bertukar sisi layar"
+        },
+        {
+          "object": "dua kursi",
+          "action": "mengubah arah hadap"
+        }
+      ]
+    },
+    {
+      "id": "S26",
+      "beat": "B7",
+      "shot": "Kotak dana dan Bima berdiri di dekat meja.",
+      "focal": "usul pengelola",
+      "objectMap": [
+        {
+          "object": "kotak dana bersama",
+          "action": "didorong Bima ke tengah meja"
+        },
+        {
+          "object": "buku kas",
+          "action": "berada di sisi kotak sebagai perlengkapan pengelola"
+        }
+      ]
+    },
+    {
+      "id": "S27",
+      "beat": "B7",
+      "shot": "Wajah Nara, tangan menahan kotak; tidak ada stempel jahat.",
+      "focal": "reaksi Nara",
+      "objectMap": [
+        {
+          "object": "kotak dana",
+          "action": "belum diserahkan di depan Nara"
+        },
+        {
+          "object": "catatan pengelola",
+          "action": "terbuka di atas meja"
+        }
+      ]
+    },
+    {
+      "id": "S28",
+      "beat": "B7",
+      "shot": "Bima di satu sisi, catatan terbuka di sisi lain.",
+      "focal": "buku laporan",
+      "objectMap": [
+        {
+          "object": "buku laporan",
+          "action": "masih kosong sebelum diperiksa"
+        },
+        {
+          "object": "amplop dana",
+          "action": "tetap tertutup di meja"
+        }
+      ]
+    },
+    {
+      "id": "S29",
+      "beat": "B7",
+      "shot": "Pensil berhenti di atas kotak kosong; diam sejenak.",
+      "focal": "kotak keputusan",
+      "objectMap": [
+        {
+          "object": "lembar keputusan",
+          "action": "memuat kotak yang belum dicentang"
+        },
+        {
+          "object": "pensil",
+          "action": "tertahan di atas lembar"
+        }
+      ]
+    },
+    {
+      "id": "S30",
+      "beat": "B7",
+      "shot": "Catatan pengalaman dan contoh laporan terbuka.",
+      "focal": "contoh laporan",
+      "objectMap": [
+        {
+          "object": "contoh laporan",
+          "action": "ditunjukkan kepada penghuni"
+        },
+        {
+          "object": "buku kas lama",
+          "action": "ditunjukkan dengan izin sebagai contoh pengalaman yang relevan"
+        }
+      ]
+    },
+    {
+      "id": "S31",
+      "beat": "B7",
+      "shot": "Close-up daftar peran dan kotak dana; tangan warga menunjuk daftar.",
+      "focal": "daftar peran",
+      "objectMap": [
+        {
+          "object": "daftar peran",
+          "action": "membedakan memeriksa tangga dan mengurus dana"
+        },
+        {
+          "object": "kotak dana",
+          "action": "berada di samping daftar ketika warga menunjuk tugas"
+        }
+      ]
+    },
+    {
+      "id": "S32",
+      "beat": "B8",
+      "shot": "Jari Nara menghapus draf dan menyiapkan balasan singkat.",
+      "focal": "tombol hapus",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan draf yang dihapus"
+        },
+        {
+          "object": "pulpen",
+          "action": "terletak di samping tangan Nara"
+        }
+      ]
+    },
+    {
+      "id": "S33",
+      "beat": "B8",
+      "shot": "Gelembung pesan pertama muncul, lalu ruang kosong di sebelahnya.",
+      "focal": "pesan iuran",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan komitmen mencari jalan keluar"
+        },
+        {
+          "object": "catatan tunggakan",
+          "action": "tetap terlihat di pinggir meja"
+        }
+      ]
+    },
+    {
+      "id": "S34",
+      "beat": "B8",
+      "shot": "Gelembung kedua membuka kembali foto tangga.",
+      "focal": "pesan pemeriksaan",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan permintaan pemeriksaan"
+        },
+        {
+          "object": "anak tangga",
+          "action": "kembali terlihat di balik pintu"
+        }
+      ]
+    },
+    {
+      "id": "S35",
+      "beat": "B8",
+      "shot": "Pemilik dan petugas dengan papan pengumuman; penghuni di latar.",
+      "focal": "papan pengumuman",
+      "objectMap": [
+        {
+          "object": "papan pengumuman",
+          "action": "memuat rencana pemeriksaan dan pembahasan biaya"
+        },
+        {
+          "object": "pegangan tangga",
+          "action": "diperhatikan oleh petugas yang datang"
+        }
+      ]
+    },
+    {
+      "id": "S36",
+      "beat": "B8",
+      "shot": "Lembar hasil dan tekstur pijakan ditampilkan, tidak ada klaim angka.",
+      "focal": "hasil pemeriksaan",
+      "objectMap": [
+        {
+          "object": "lembar hasil",
+          "action": "menunjukkan tangga licin saat basah"
+        },
+        {
+          "object": "pijakan",
+          "action": "terlihat dengan titik air"
+        }
+      ]
+    },
+    {
+      "id": "S37",
+      "beat": "B9",
+      "shot": "Split-screen: amplop iuran di meja dan tangga di luar pintu.",
+      "focal": "dua catatan",
+      "objectMap": [
+        {
+          "object": "amplop iuran",
+          "action": "tetap menunggu penyelesaian di meja"
+        },
+        {
+          "object": "anak tangga",
+          "action": "tetap membutuhkan penanganan"
+        }
+      ]
+    },
+    {
+      "id": "S38",
+      "beat": "B9",
+      "shot": "Dua kartu berdiri sejajar di atas meja; nama kanal kecil tanpa CTA.",
+      "focal": "dua kartu",
+      "objectMap": [
+        {
+          "object": "kartu iuran",
+          "action": "tetap berdiri di satu sisi meja"
+        },
+        {
+          "object": "kartu tangga",
+          "action": "tetap berdiri di sisi lain meja"
+        },
+        {
+          "object": "amplop",
+          "action": "berada di samping kartu"
+        }
+      ]
+    },
+    {
+      "id": "S39",
+      "beat": "B9",
+      "shot": "Tatap penonton lewat posisi kursi kosong; dua catatan ada di meja.",
+      "focal": "kursi kosong",
+      "objectMap": [
+        {
+          "object": "kursi kosong",
+          "action": "menghadap meja seolah untuk penonton"
+        },
+        {
+          "object": "dua catatan",
+          "action": "menunggu dibaca"
+        }
+      ]
+    }
+  ],
+  "short": [
+    {
+      "id": "T01",
+      "beat": "B6",
+      "shot": "Makro sandal mendekati pijakan basah; disclosure frame nol.",
+      "focal": "pijakan basah",
+      "objectMap": [
+        {
+          "object": "pijakan basah",
+          "action": "memantulkan air"
+        },
+        {
+          "object": "sandal",
+          "action": "tertahan di tepi"
+        }
+      ],
+      "sourceSceneIds": [
+        "S01"
+      ]
+    },
+    {
+      "id": "T02",
+      "beat": "B1",
+      "shot": "Tokoh Nara dan kartu kecil fiksi.",
+      "focal": "nama Nara",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "dipegang Nara ketika menatap penonton"
+        },
+        {
+          "object": "kartu nama Nara",
+          "action": "menandai tokoh sebagai ilustrasi fiktif"
+        }
+      ],
+      "sourceSceneIds": [
+        "S03"
+      ]
+    },
+    {
+      "id": "T03",
+      "beat": "B2",
+      "shot": "Kilas kaki tetangga nyaris tergelincir lalu pesan muncul di telepon.",
+      "focal": "pesan tangga",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan usul pemeriksaan"
+        },
+        {
+          "object": "anak tangga",
+          "action": "terlihat basah di balik pintu"
+        },
+        {
+          "object": "sandal tetangga",
+          "action": "nyaris tergelincir lalu tertahan di pegangan"
+        }
+      ],
+      "sourceSceneIds": [
+        "S04",
+        "S06",
+        "S07"
+      ]
+    },
+    {
+      "id": "T04",
+      "beat": "B3",
+      "shot": "Balasan Bima masuk sambil menutupi sebagian pesan.",
+      "focal": "balasan Bima",
+      "objectMap": [
+        {
+          "object": "telepon Bima",
+          "action": "menampilkan penolakan usul karena tunggakan"
+        },
+        {
+          "object": "catatan iuran",
+          "action": "berada di samping telepon"
+        }
+      ],
+      "sourceSceneIds": [
+        "S08",
+        "S09"
+      ]
+    },
+    {
+      "id": "T05",
+      "beat": "B5",
+      "shot": "Catatan iuran dan amplop di meja.",
+      "focal": "catatan iuran",
+      "objectMap": [
+        {
+          "object": "catatan iuran",
+          "action": "menunjukkan tunggakan"
+        },
+        {
+          "object": "amplop",
+          "action": "diletakkan di samping catatan"
+        }
+      ],
+      "sourceSceneIds": [
+        "S15",
+        "S16",
+        "S17"
+      ]
+    },
+    {
+      "id": "T06",
+      "beat": "B5",
+      "shot": "Kotak dana dan lembar perkiraan biaya.",
+      "focal": "kotak dana",
+      "objectMap": [
+        {
+          "object": "kotak dana",
+          "action": "menunjukkan uang bersama"
+        },
+        {
+          "object": "lembar biaya",
+          "action": "muncul di dekatnya"
+        }
+      ],
+      "sourceSceneIds": [
+        "S17",
+        "S18"
+      ]
+    },
+    {
+      "id": "T07",
+      "beat": "B6",
+      "shot": "Catatan iuran dan pijakan berada di dua sisi layar.",
+      "focal": "dua persoalan",
+      "objectMap": [
+        {
+          "object": "catatan iuran",
+          "action": "berada di kiri"
+        },
+        {
+          "object": "pijakan tangga",
+          "action": "berada di kanan"
+        }
+      ],
+      "sourceSceneIds": [
+        "S20"
+      ]
+    },
+    {
+      "id": "T08",
+      "beat": "B6",
+      "shot": "Kaca pembesar mendekati anak tangga.",
+      "focal": "kaca pembesar",
+      "objectMap": [
+        {
+          "object": "kaca pembesar",
+          "action": "mendekati permukaan"
+        },
+        {
+          "object": "pijakan basah",
+          "action": "tetap terlihat"
+        }
+      ],
+      "sourceSceneIds": [
+        "S21"
+      ]
+    },
+    {
+      "id": "T09",
+      "beat": "B6",
+      "shot": "Usul diberi tanda tanya, bukan centang otomatis.",
+      "focal": "tanda tanya",
+      "objectMap": [
+        {
+          "object": "lembar usul",
+          "action": "tetap terbuka dengan tanda tanya"
+        },
+        {
+          "object": "pensil",
+          "action": "tidak memberi tanda centang"
+        }
+      ],
+      "sourceSceneIds": [
+        "S22"
+      ]
+    },
+    {
+      "id": "T10",
+      "beat": "B7",
+      "shot": "Cermin bergeser, Bima mengusulkan diri di dekat kotak.",
+      "focal": "cermin",
+      "objectMap": [
+        {
+          "object": "cermin",
+          "action": "menggeser posisi Nara dan Bima"
+        },
+        {
+          "object": "kotak dana",
+          "action": "didekatkan kepada Bima"
+        }
+      ],
+      "sourceSceneIds": [
+        "S25",
+        "S26"
+      ]
+    },
+    {
+      "id": "T11",
+      "beat": "B7",
+      "shot": "Nara menahan tangan; buku dana masih tertutup.",
+      "focal": "tangan Nara",
+      "objectMap": [
+        {
+          "object": "buku dana",
+          "action": "belum dibuka di depan Nara"
+        },
+        {
+          "object": "kotak dana",
+          "action": "belum diserahkan kepada Bima"
+        }
+      ],
+      "sourceSceneIds": [
+        "S27",
+        "S28"
+      ]
+    },
+    {
+      "id": "T12",
+      "beat": "B7",
+      "shot": "Contoh laporan dan catatan pengalaman ditampilkan.",
+      "focal": "laporan dana",
+      "objectMap": [
+        {
+          "object": "contoh laporan",
+          "action": "dibuka bersama"
+        },
+        {
+          "object": "buku kas lama",
+          "action": "dibaca untuk menilai pengalaman yang relevan"
+        }
+      ],
+      "sourceSceneIds": [
+        "S29",
+        "S30",
+        "S31"
+      ]
+    },
+    {
+      "id": "T13",
+      "beat": "B8",
+      "shot": "Dua gelembung: tunggakan dan pemeriksaan tangga.",
+      "focal": "dua pesan",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan pesan tentang iuran dan pemeriksaan"
+        },
+        {
+          "object": "anak tangga",
+          "action": "terlihat lewat pintu di belakangnya"
+        }
+      ],
+      "sourceSceneIds": [
+        "S33",
+        "S34"
+      ]
+    },
+    {
+      "id": "T14",
+      "beat": "B8",
+      "shot": "Lembar hasil dan pijakan basah, jelas sebagai hasil di cerita fiksi.",
+      "focal": "hasil pemeriksaan",
+      "objectMap": [
+        {
+          "object": "lembar hasil",
+          "action": "menunjukkan permukaan licin saat basah"
+        },
+        {
+          "object": "anak tangga",
+          "action": "terlihat dari atas dengan titik air"
+        }
+      ],
+      "sourceSceneIds": [
+        "S35",
+        "S36"
+      ]
+    },
+    {
+      "id": "T15",
+      "beat": "B9",
+      "shot": "Kursi kosong di depan dua catatan; nama kanal kecil tanpa ajakan.",
+      "focal": "kursi kosong",
+      "objectMap": [
+        {
+          "object": "kursi kosong",
+          "action": "menempatkan penonton di meja"
+        },
+        {
+          "object": "dua catatan",
+          "action": "menunjukkan pilihan yang terbuka"
+        }
+      ],
+      "sourceSceneIds": [
+        "S39"
+      ]
+    }
+  ]
+}

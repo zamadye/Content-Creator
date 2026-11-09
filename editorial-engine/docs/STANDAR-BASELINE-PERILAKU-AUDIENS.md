@@ -30,7 +30,7 @@ Sebelum CTA, tunjukkan peristiwa, pilihan, peringatan, konsekuensi, atau petunju
 - **Komentar/perdebatan:** beri bahan keputusan atau tanggung jawab, bukan kuis teknis generik. Misalnya setelah kisah faktual tentang kebocoran yang dilaporkan dan konsekuensinya, tanyakan siapa perlu berwenang meminta pemeriksaan independen dan mengapa—tanpa menyimpulkan risiko yang tidak terbukti.
 - **Replay/detektif:** tanam detail yang benar-benar ada, dapat diakses, dan dibayar maknanya. Pemahaman utama tidak boleh membutuhkan detail tersembunyi; jangan mengarang petunjuk.
 - **Berbagi:** tetapkan siapa mungkin peduli dan nilai ceritanya untuk mereka, bukan hanya “bagikan ya”.
-- **Mengikuti:** janjikan jenis pengalaman cerita yang bisa diulang secara jujur. Teks dan narasi akhir tetap **`ikuti knot theory`**, sesudah payoff; jangan menjanjikan episode yang belum direncanakan.
+- **Alasan kembali:** rancang pengalaman cerita yang bisa diulang secara jujur, tanpa wajib mengucapkan ajakan. Penutup brand lama **`ikuti knot theory`** perlu dikonfirmasi untuk arah baru; bila dipakai, eja huruf kecil dan baca nama sebagai kata-kata. Jangan menjanjikan episode yang belum direncanakan. Lihat [arahan terbaru](PANDUAN-ARAH-OBROLAN-EVALUASI.md).
 
 Ini rencana kreatif, bukan jaminan bahwa orang akan berkomentar, berbagi, atau mengikuti. Masukan pemilik tentang draf turbin menunjukkan pertanyaan tebakan teknis di akhir belum cukup baginya; jangan gunakan itu sebagai contoh yang terbukti berhasil.
 

@@ -40,7 +40,7 @@ Rancang **momen isi** yang punya alasan untuk dipikirkan bahkan bila semua ajaka
 
 Contoh **kurang:** setelah penjelasan mesin, “Tulis tebakanmu di komentar.” Contoh **lebih substantif, masih hipotesis:** setelah kisah peringatan yang nyata diabaikan, “Kalau warga sudah melaporkan kebocoran, siapa yang semestinya berwenang meminta pemeriksaan independen—pemilik, regulator, atau keduanya?” Pertanyaan itu mengundang alasan dan alternatif; ia tidak membenarkan kebocoran atau menggantikan kesimpulan faktual.
 
-Pilih undangan yang alami, pendek dan tidak menumpuk permintaan. Ajakan komentar boleh diabaikan jika momen cerita sudah kuat; penutup tetap menampilkan dan mengucapkan **`ikuti knot theory`** setelah payoff. Tidak ada klaim bahwa komentar pasti menaikkan distribusi.
+Untuk arah baru, percakapan harus tumbuh dari pilihan dan pertanyaan di dalam cerita, bukan CTA. Draf evaluasi tidak menyisipkan CTA paksa. Arahan penutup brand lama **`ikuti knot theory`** perlu dikonfirmasi sebelum final; jika dipakai, tulis huruf kecil dan ucapkan nama sebagai kata-kata. Lihat [arahan terbaru](PANDUAN-ARAH-OBROLAN-EVALUASI.md). Tidak ada klaim bahwa komentar pasti menaikkan distribusi.
 
 ## 5. Cara menurunkan Short dari master
 
@@ -57,7 +57,7 @@ Pilih undangan yang alami, pendek dan tidak menumpuk permintaan. Ajakan komentar
 
 **C — Uji orang yang belum tahu ceritanya.** Animatic/draf privat boleh dibuat untuk diuji, bukan dianggap siap tayang. Sebelum menyebut siap produksi final/tayang, minta setidaknya satu orang yang bukan penulis melihat/mendengar keseluruhan tanpa diberi jawaban. Tanyakan terbuka: “Ceritakan kembali apa yang terjadi dan apa taruhannya”; “Bagian mana yang paling terasa atau tidak terasa?”; “Ada hal yang ingin kamu bicarakan/ceritakan ke orang lain?”; “Kalau tidak, mengapa?”; “Bagian mana yang membuatmu ingin berhenti?”; “Apa alasan, jika ada, untuk menonton kisah lain?” Catat tanggapan apa adanya, perangkat, versi dan keterbatasan; orang boleh menjawab tidak ada. Jangan mengarahkan atau menganggap sampel kecil mewakili audiens. Tanpa review ini status `NOT TESTED`, bukan `PASS`.
 
-**D — Rough cut dan siap tayang.** Tonton dan dengarkan lengkap tanpa naskah, termasuk frame 0, kembali ke puncak, akibat, CTA dan subtitle. Tinjau di ponsel; periksa seluruh kalimat, objek, konteks, hak dan disclosure. Pisahkan mutu cerita, fakta/hak, suara, visual, teknis, backup dan izin. Gate teknis `PASS` tidak menaikkan gate cerita yang gagal.
+**D — Rough cut dan siap tayang.** Tonton dan dengarkan lengkap tanpa naskah, termasuk frame 0, kembali ke puncak, akibat, penutup jika ada dan subtitle. Tinjau di ponsel; periksa seluruh kalimat, objek, konteks, hak dan disclosure. Pisahkan mutu cerita, fakta/hak, suara, visual, teknis, backup dan izin. Gate teknis `PASS` tidak menaikkan gate cerita yang gagal.
 
 **E — Belajar setelah publikasi yang disetujui.** Catat retensi per bagian, durasi, distribusi, komentar substantif, share dan penonton kembali bila tersedia, dengan penyebut, usia video, platform dan sumber traffic yang sama. Tulis hipotesis, alternatif dan satu perubahan untuk cerita selanjutnya. Metrik dan studi menunjukkan kemungkinan, bukan penyebab pasti dari satu unggahan. Jangan mengubah unggahan lama sebagai bagian dari sistem ini.
 

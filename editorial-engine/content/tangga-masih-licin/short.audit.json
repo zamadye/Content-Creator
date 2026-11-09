@@ -1,0 +1,174 @@
+{
+  "scriptId": "tangga-masih-licin-short-v1",
+  "audienceAnchor": {
+    "situation": "Di grup bersama, sebuah usul bergeser menjadi pembahasan orang yang mengirimkannya.",
+    "scope": "Seluruh tokoh dan kejadian fiktif. Tidak semua informasi tentang seseorang tidak relevan; tidak ada diagnosis psikologis."
+  },
+  "items": [
+    {
+      "sceneId": "T01",
+      "text": "Tangga itu masih licin.",
+      "purpose": "Membuka dari akibat dalam master.",
+      "viewerQuestion": "Kenapa belum ditangani?",
+      "connection": "Bahaya fiktif menjadi pusat cerita.",
+      "visualAction": "Makro sandal mendekati pijakan basah; disclosure frame nol. pijakan basah → memantulkan air; sandal → tertahan di tepi",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T02 menunjukkan pengaduan.",
+      "wordChoice": "Masih menyiratkan masalah berlanjut."
+    },
+    {
+      "sceneId": "T02",
+      "text": "Bayangin kamu jadi Nara; ini cerita fiksi.",
+      "purpose": "Menetapkan POV dan batas fiksi secara mandiri.",
+      "viewerQuestion": "Apa yang terjadi di grup?",
+      "connection": "Penonton meminjam sudut pandang, bukan berita.",
+      "visualAction": "Tokoh Nara dan kartu kecil fiksi. telepon Nara → dipegang Nara ketika menatap penonton; kartu nama Nara → menandai tokoh sebagai ilustrasi fiktif",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T03 menyatakan usul.",
+      "wordChoice": "Bayangin menjaga gaya percakapan."
+    },
+    {
+      "sceneId": "T03",
+      "text": "Setelah tetanggamu hampir terpeleset, kamu bilang di grup bahwa tangganya licin kalau hujan dan perlu dicek.",
+      "purpose": "Memberi konteks usul tanpa kehilangan inti.",
+      "viewerQuestion": "Bagaimana tanggapan penghuni?",
+      "connection": "Masalah dikemukakan sebagai klaim yang dapat diperiksa.",
+      "visualAction": "Kilas kaki tetangga nyaris tergelincir lalu pesan muncul di telepon. telepon Nara → menampilkan usul pemeriksaan; anak tangga → terlihat basah di balik pintu; sandal tetangga → nyaris tergelincir lalu tertahan di pegangan",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T04 mengalihkan topik.",
+      "wordChoice": "Perlu dicek tidak menjanjikan solusi."
+    },
+    {
+      "sceneId": "T04",
+      "text": "Bima membalas: “Iuranmu belum lunas, jadi usulmu nggak usah dibahas.”",
+      "purpose": "Memperlihatkan alasan penolakan yang mengalihkan pokok bahasan.",
+      "viewerQuestion": "Bagaimana jika tuduhannya memang benar?",
+      "connection": "Reaksi Bima adalah dialog fiktif.",
+      "visualAction": "Balasan Bima masuk sambil menutupi sebagian pesan. telepon Bima → menampilkan penolakan usul karena tunggakan; catatan iuran → berada di samping telepon",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T05 mengakui fakta tunggakan.",
+      "wordChoice": "Jadi menghubungkan penolakan dengan tunggakan."
+    },
+    {
+      "sceneId": "T05",
+      "text": "Dan iya, dalam cerita ini kamu memang menunggak.",
+      "purpose": "Mencegah pembacaan bahwa tuduhan otomatis bohong.",
+      "viewerQuestion": "Apa kewajiban tokoh?",
+      "connection": "Kesalahan tokoh tidak menghilangkan pertanyaan tangga.",
+      "visualAction": "Catatan iuran dan amplop di meja. catatan iuran → menunjukkan tunggakan; amplop → diletakkan di samping catatan",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T06 mengakui tanggung jawab.",
+      "wordChoice": "Dalam cerita ini membatasi status fakta."
+    },
+    {
+      "sceneId": "T06",
+      "text": "Itu perlu dicari jalan keluarnya, apalagi kalau perbaikan memakai uang bersama.",
+      "purpose": "Mengakui kepentingan warga tanpa memaksa penyelesaian yang tak mampu dilakukan.",
+      "viewerQuestion": "Apakah tunggakan menjawab kondisi tangga?",
+      "connection": "Keuangan dan kondisi fisik bisa sama-sama penting.",
+      "visualAction": "Kotak dana dan lembar perkiraan biaya. kotak dana → menunjukkan uang bersama; lembar biaya → muncul di dekatnya",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T07 menguji hubungan keduanya.",
+      "wordChoice": "Dicari jalan keluar tidak menjanjikan pembayaran seketika."
+    },
+    {
+      "sceneId": "T07",
+      "text": "Tapi, apakah tunggakanmu membuktikan tangganya aman?",
+      "purpose": "Meminta penonton menguji hubungan dua klaim.",
+      "viewerQuestion": "Apa pemeriksaan yang relevan?",
+      "connection": "Konteks biaya tidak dengan sendirinya mengukur permukaan.",
+      "visualAction": "Catatan iuran dan pijakan berada di dua sisi layar. catatan iuran → berada di kiri; pijakan tangga → berada di kanan",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T08 menjawab dan menjaga ketidakpastian.",
+      "wordChoice": "Membuktikan menekankan bukti."
+    },
+    {
+      "sceneId": "T08",
+      "text": "Nggak; tangga tetap perlu diperiksa.",
+      "purpose": "Menjawab pertanyaan tanpa mengabaikan iuran.",
+      "viewerQuestion": "Apakah Nara pasti benar karena diserang?",
+      "connection": "Pemisahan persoalan mengikuti relevansi konteks.",
+      "visualAction": "Kaca pembesar mendekati anak tangga. kaca pembesar → mendekati permukaan; pijakan basah → tetap terlihat",
+      "evidence": "R1/R2: alasan pribadi tidak otomatis membuktikan kondisi fisik atau benar-salah usul.",
+      "nextOrPayoff": "T09 menolak simpulan terbalik.",
+      "wordChoice": "Diperiksa berarti hasil belum diketahui."
+    },
+    {
+      "sceneId": "T09",
+      "text": "Diserang juga bukan bukti bahwa usulmu pasti benar.",
+      "purpose": "Mencegah kesalahan menyimpulkan lawan serangan otomatis benar.",
+      "viewerQuestion": "Bagaimana kalau posisimu dibalik?",
+      "connection": "Kurangnya bukti penolakan bukan bukti usul benar.",
+      "visualAction": "Usul diberi tanda tanya, bukan centang otomatis. lembar usul → tetap terbuka dengan tanda tanya; pensil → tidak memberi tanda centang",
+      "evidence": "R1/R2: argumen lemah tidak membuktikan kesimpulan kebalikannya.",
+      "nextOrPayoff": "T10 memutar perspektif.",
+      "wordChoice": "Pasti menjaga bahwa klaim perlu diuji."
+    },
+    {
+      "sceneId": "T10",
+      "text": "Sekarang balik: Bima menawarkan diri memegang uang perbaikan.",
+      "purpose": "Menggeser penonton menjadi pihak yang menilai orang lain.",
+      "viewerQuestion": "Apakah sindiran tadi membuktikan ia buruk mengelola uang?",
+      "connection": "Tokoh yang sama dapat dinilai menurut tugas berbeda.",
+      "visualAction": "Cermin bergeser, Bima mengusulkan diri di dekat kotak. cermin → menggeser posisi Nara dan Bima; kotak dana → didekatkan kepada Bima",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T11 menanyakan refleks yang mungkin muncul.",
+      "wordChoice": "Menawarkan tidak berarti dipilih."
+    },
+    {
+      "sceneId": "T11",
+      "text": "Kalau kamu menolak cuma karena kesal, apa itu bukti dia akan salah mengurus uang?",
+      "purpose": "Mengajak penonton memeriksa sikapnya sendiri.",
+      "viewerQuestion": "Informasi apa yang benar-benar relevan?",
+      "connection": "Rasa kesal adalah perasaan yang sah, bukan bukti tunggal hasil kerja.",
+      "visualAction": "Nara menahan tangan; buku dana masih tertutup. buku dana → belum dibuka di depan Nara; kotak dana → belum diserahkan kepada Bima",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T12 membedakan data relevan.",
+      "wordChoice": "Cuma karena menguji alasan, bukan melarang berkata tidak."
+    },
+    {
+      "sceneId": "T12",
+      "text": "Belum tentu; pengalaman dan cara melaporkan uang bisa relevan saat memilih pengelola.",
+      "purpose": "Memperlihatkan batas bahwa informasi tentang orang kadang relevan.",
+      "viewerQuestion": "Apa yang akan kamu jawab kepada grup?",
+      "connection": "Menilai calon pengelola berbeda dari mengukur kondisi tangga.",
+      "visualAction": "Contoh laporan dan catatan pengalaman ditampilkan. contoh laporan → dibuka bersama; buku kas lama → dibaca untuk menilai pengalaman yang relevan",
+      "evidence": "R1/R2: relevansi informasi tentang seseorang tergantung pada isu yang dinilai.",
+      "nextOrPayoff": "T13 mengembalikan dua masalah.",
+      "wordChoice": "Bisa relevan bukan vonis orang itu kompeten."
+    },
+    {
+      "sceneId": "T13",
+      "text": "Tunggakan perlu dibahas, dan tangganya juga bisa diminta untuk diperiksa.",
+      "purpose": "Memberi respons konkret yang mengakui dua hal.",
+      "viewerQuestion": "Mana yang akan dijawab lebih dulu?",
+      "connection": "Keduanya tidak perlu saling menghapus.",
+      "visualAction": "Dua gelembung: tunggakan dan pemeriksaan tangga. telepon Nara → menampilkan pesan tentang iuran dan pemeriksaan; anak tangga → terlihat lewat pintu di belakangnya",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T14 menyisakan keputusan penonton.",
+      "wordChoice": "Bisa menunjukkan satu pilihan, bukan resep pasti."
+    },
+    {
+      "sceneId": "T14",
+      "text": "Di cerita ini, pemeriksaan menunjukkan tangganya memang licin saat basah.",
+      "purpose": "Membayar pertanyaan awal dan memberi jawaban dalam dunia fiksi.",
+      "viewerQuestion": "Apa yang dilakukan dengan dua persoalan yang sama-sama nyata?",
+      "connection": "Hasil contoh tidak membuktikan kondisi tangga di dunia nyata.",
+      "visualAction": "Lembar hasil dan pijakan basah, jelas sebagai hasil di cerita fiksi. lembar hasil → menunjukkan permukaan licin saat basah; anak tangga → terlihat dari atas dengan titik air",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T15 meminta penonton menimbang prioritas.",
+      "wordChoice": "Di cerita ini membatasi status hasil."
+    },
+    {
+      "sceneId": "T15",
+      "text": "Kalau jadi kamu, apa yang kamu jawab dulu?",
+      "purpose": "Mengakhiri di dalam dilema, tanpa instruksi berkomentar.",
+      "viewerQuestion": "Apa alasan mendahulukan salah satu sambil tetap menangani keduanya?",
+      "connection": "Jawaban dapat berbeda menurut urgensi dan situasi.",
+      "visualAction": "Kursi kosong di depan dua catatan; nama kanal kecil tanpa ajakan. kursi kosong → menempatkan penonton di meja; dua catatan → menunjukkan pilihan yang terbuka",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "Penonton dapat berpikir atau berdiskusi tanpa CTA.",
+      "wordChoice": "Kamu memberi ruang pada keputusan penonton."
+    }
+  ]
+}

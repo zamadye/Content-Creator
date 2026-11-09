@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 1,
+  "format": "long-master",
+  "storyId": "pesan-dua-jam",
+  "scriptId": "pesan-dua-jam-master-v1",
+  "truthMode": "fact",
+  "fictionDisclosure": "Rani, Dimas, email dan adegan makan adalah ilustrasi fiktif, bukan peserta atau data individu dari penelitian; seluruh dialog dalam contoh adalah rekaan.",
+  "premise": "Satu email kerja yang sama membuat penerimanya mengubah rencana makan malam sementara pengirim ilustratif tidak meminta jawaban segera; penelitian membandingkan dua harapan itu dan batasnya.",
+  "dramaticQuestion": "Mengapa satu pesan yang tidak menyebut tenggat bisa terasa seperti harus dijawab malam itu, dan apakah dua pihak benar-benar mengharapkan hal yang sama?",
+  "entity": "Satu email kerja tanpa tenggat; Rani sebagai penerima dan Dimas sebagai pengirim fiktif.",
+  "goal": "Memahami informasi yang tidak ikut terkirim dan mencari cara memperjelas tenggat tanpa meniadakan kuasa atau keadaan darurat.",
+  "stakes": "Waktu makan dan istirahat Rani di cerita; rasa aman, waktu, dan kepercayaan dalam komunikasi kerja yang sesungguhnya bervariasi.",
+  "audienceAnchor": "Pesan kerja tanpa tenggat dan kebiasaan menafsirkan waktu balas; tidak mengasumsikan semua penonton bekerja di kantor atau memiliki kebebasan menunda.",
+  "sources": [
+    {
+      "id": "R1",
+      "url": "https://doi.org/10.1016/j.obhdp.2021.08.002",
+      "supports": "Giurge & Bohns (2021), enam studi utama dan dua tambahan preregistrasi (N = 4.004), ekspektasi email kerja nonmendesak, recall/skenario dan manipulasi catatan pada Study 6.",
+      "limits": "Penilaian rata-rata kelompok, recall/skenario dan sampel spesifik, bukan setiap orang atau inbox; chat pribadi dan kuasa belum teruji dalam rangkaian ini; Study 6 bukan bukti universal penurunan stres."
+    }
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "kind": "context",
+      "before": "Rani duduk makan setelah jam kerja.",
+      "event": "Rani dan Dimas diperkenalkan sebagai ilustrasi; email kerja tiba.",
+      "after": "Sebuah benda biasa mengganggu momen pribadi.",
+      "causeToNext": "Email berisi permintaan tanpa waktu balas.",
+      "emotionHypothesis": "Pengenalan situasi yang mungkin akrab, bukan klaim pengalaman universal.",
+      "sourceIds": [
+        "R1"
+      ]
+    },
+    {
+      "id": "B2",
+      "kind": "disruption",
+      "before": "Rani melihat email.",
+      "event": "Draf jadwal diminta tanpa tenggat tertulis.",
+      "after": "Maksud pengirim mengenai waktu tidak terlihat.",
+      "causeToNext": "Rani harus menafsirkan harapannya.",
+      "emotionHypothesis": "Rasa ganjil karena kata yang tidak ada justru penting.",
+      "sourceIds": [
+        "R1"
+      ]
+    },
+    {
+      "id": "B3",
+      "kind": "escalation",
+      "before": "Tenggat email ilustratif tidak jelas.",
+      "event": "Rani mempertimbangkan kesan tidak peduli jika menunggu; penelitian nanti mengajukan dua perspektif.",
+      "after": "Penerima merasa terjepit di antara makan dan membalas.",
+      "causeToNext": "Ia membuka lampiran dan pertanyaan berpindah ke cara riset dilakukan.",
+      "emotionHypothesis": "Ketegangan ringan karena konflik pilihan sehari-hari.",
+      "sourceIds": [
+        "R1"
+      ]
+    },
+    {
+      "id": "B4",
+      "kind": "escalation",
+      "before": "Rani mengira balasan malam mungkin diharapkan.",
+      "event": "Ia membuka lampiran; studi membatasi konteks pada email kerja dan menanyakan ingatan atau skenario.",
+      "after": "Biaya perhatian dalam cerita terlihat; bukti memiliki metode tertentu.",
+      "causeToNext": "Penonton menunggu apakah sisi pengirim sungguh sama.",
+      "emotionHypothesis": "Tertarik sekaligus mempertanyakan bukti.",
+      "sourceIds": [
+        "R1"
+      ]
+    },
+    {
+      "id": "B5",
+      "kind": "crisis",
+      "before": "Rani membuka lampiran; perspektif pengirim belum terlihat.",
+      "event": "Dimas selesai mengirim; formulir penelitian memisahkan harapan dan perkiraan.",
+      "after": "Pertanyaan siapa mengharapkan apa menjadi eksplisit.",
+      "causeToNext": "Sisi pengirim dan perbandingan rata-rata dapat diungkap.",
+      "emotionHypothesis": "Antisipasi sebelum dua jawaban dibandingkan.",
+      "sourceIds": [
+        "R1"
+      ]
+    },
+    {
+      "id": "B6",
+      "kind": "climax",
+      "before": "Rani bertindak atas perkiraannya.",
+      "event": "Dalam ilustrasi Dimas tidak mengharapkan jawaban malam; studi menemukan perkiraan penerima rata-rata lebih cepat daripada harapan yang dilaporkan kelompok pengirim.",
+      "after": "Satu pesan tampak berbeda dari dua posisi.",
+      "causeToNext": "Makna bergeser dari karakter lambat atau cepat ke ekspektasi yang tak tertulis.",
+      "emotionHypothesis": "Kejutan yang lembut, bukan kepastian bahwa semua pengirim sama.",
+      "sourceIds": [
+        "R1"
+      ]
+    },
+    {
+      "id": "B7",
+      "kind": "turning_point",
+      "before": "Masalah terlihat seperti keputusan Rani untuk cepat membalas.",
+      "event": "Dua perspektif dan nama email urgency bias menunjukkan perbedaan harapan.",
+      "after": "Penonton diajak mempertanyakan informasi yang hilang di layar.",
+      "causeToNext": "Riset, batas serta uji catatan memberi konteks dan konsekuensi.",
+      "emotionHypothesis": "Rasa dikenali yang bisa berubah menjadi empati pada kedua sisi.",
+      "sourceIds": [
+        "R1"
+      ]
+    },
+    {
+      "id": "B8",
+      "kind": "consequence",
+      "before": "Rata-rata kelompok diketahui, tetapi pesan nyata dan budaya kerja bervariasi.",
+      "event": "Riset skenario menguji catatan tidak mendesak; batas chat, stres dan kuasa dijelaskan.",
+      "after": "Teks tambahan mungkin memperjelas tanpa menjadi jaminan rasa aman.",
+      "causeToNext": "Pengirim dan penerima dapat membahas siapa memperjelas batas secara jujur.",
+      "emotionHypothesis": "Lega namun tetap kritis terhadap kuasa dan situasi darurat.",
+      "sourceIds": [
+        "R1"
+      ]
+    },
+    {
+      "id": "B9",
+      "kind": "payoff",
+      "before": "Perbedaan dua perspektif dan batas bukti sudah terlihat.",
+      "event": "Pengirim dapat menyatakan kebutuhan waktu atau menjadwalkan email bila sesuai; penonton mempertimbangkan tanggung jawab bersama.",
+      "after": "Pertanyaan pembuka dibayar dengan pemahaman dan pilihan, bukan resep universal.",
+      "causeToNext": "Kesepakatan tim dan cerita keseharian lain menawarkan alasan berbagi dan kembali.",
+      "emotionHypothesis": "Refleksi dan kemungkinan dialog, bukan respons audiens yang sudah terbukti.",
+      "sourceIds": [
+        "R1"
+      ]
+    }
+  ],
+  "hook": {
+    "entityAtFrame0": "Ponsel dengan email kerja di depan piring makan Rani; label ILUSTRASI.",
+    "peakVisual": "Sendok berhenti saat email muncul sebelum sudut pandang Dimas terungkap.",
+    "openingLine": "Pesan ini menghentikan makan malam Rani.",
+    "cutQuestion": "Apa yang Dimas minta sehingga Rani menghentikan makan?",
+    "climaxBeatId": "B6",
+    "answerBeatId": "B6",
+    "visualCutSeconds": null,
+    "spokenOpeningSeconds": null
+  },
+  "turn": {
+    "clueBeatId": "B3",
+    "revealBeatId": "B7",
+    "oldMeaning": "Membalas segera terasa seperti satu-satunya cara menunjukkan tanggung jawab.",
+    "newMeaning": "Dalam ilustrasi dan rata-rata penelitian tertentu, pihak pengirim dan penerima dapat membayangkan tenggat yang berbeda.",
+    "changedStake": "Tanggung jawab tidak hanya pada penerima menebak; pengirim juga dapat menyatakan ekspektasi yang benar.",
+    "evidenceBoundary": "R1 memakai penilaian kelompok pada recall dan skenario email; bukan data semua chat, semua tempat kerja atau isi pikiran pengirim tertentu."
+  },
+  "interactions": {
+    "comment": {
+      "beatId": "B9",
+      "storyMoment": "Pesan kerja malam tanpa tenggat menimbulkan dua harapan dan kemudian muncul pertanyaan tentang kuasa.",
+      "question": "Siapa yang sebaiknya memperjelas: pengirim, penerima, atau keduanya?",
+      "whyDiscuss": "Mengundang pengalaman dari kedua sisi dan perbedaan aturan kerja, tanpa meminta nama atau tangkapan layar.",
+      "viewpoints": [
+        "Pengirim mengetahui tenggat yang dimaksud sehingga sebaiknya mengungkapkannya.",
+        "Penerima dan pengirim dapat bersama menyepakati aturan, terutama bila kewenangan memungkinkan."
+      ],
+      "avoidFalseBalance": "Tidak menyatakan pesan darurat bisa ditunda; tidak memaksa penerima dengan kuasa rendah mengambil risiko."
+    },
+    "share": {
+      "beatId": "B9",
+      "recipient": "Rekan atau anggota tim yang dipercaya.",
+      "value": "Pemantik untuk menyepakati kapan suatu pesan benar-benar memerlukan balasan, tanpa berbagi isi email pribadi."
+    },
+    "follow": {
+      "seriesPromise": "Cerita berbasis bukti tentang hal sehari-hari yang mengubah cara kita memahami orang.",
+      "whyReturn": "Setiap episode membawa satu benda dan perubahan sudut pandang hingga pertanyaannya dibayar, bukan hanya mendaftar tips."
+    }
+  },
+  "shortPlan": {
+    "sourceBeatId": "B6",
+    "context": "Ilustrasi Rani dan Dimas mendapat email kerja tak mendesak tanpa tenggat pada malam hari.",
+    "miniConflict": "Rani merasa harus membalas; Dimas dalam contoh tidak mengharapkan balasan malam itu.",
+    "standalonePayoff": "Temuan rata-rata R1 dan skenario catatan ditampilkan bersama batas chat, pekerjaan, dan urgensi.",
+    "distortionRisk": "Jangan mengubah fiksi menjadi peserta nyata, menyamakan email dengan chat, atau menjanjikan semua atasan bisa ditunggu."
+  },
+  "scenePlan": [
+    {
+      "sceneId": "S01",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "ponsel",
+          "action": "menyala dengan email kerja"
+        },
+        {
+          "object": "sendok",
+          "action": "berhenti di atas piring"
+        }
+      ]
+    },
+    {
+      "sceneId": "S02",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "jam meja",
+          "action": "mundur menuju pukul sembilan"
+        },
+        {
+          "object": "kartu nama tokoh",
+          "action": "menandai Rani dan Dimas sebagai ilustrasi"
+        }
+      ]
+    },
+    {
+      "sceneId": "S03",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "piring makan",
+          "action": "menunggu di meja"
+        },
+        {
+          "object": "ponsel Rani",
+          "action": "menerima email kerja"
+        }
+      ]
+    },
+    {
+      "sceneId": "S04",
+      "beatId": "B2",
+      "objectMap": [
+        {
+          "object": "isi email",
+          "action": "menampilkan pertanyaan tentang draf jadwal"
+        },
+        {
+          "object": "ruang tenggat",
+          "action": "tetap kosong"
+        }
+      ]
+    },
+    {
+      "sceneId": "S05",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "tombol balas",
+          "action": "terlihat di bawah email"
+        },
+        {
+          "object": "jam meja",
+          "action": "menunjukkan malam sudah berjalan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S06",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "lampiran jadwal",
+          "action": "terbuka pada layar"
+        },
+        {
+          "object": "piring",
+          "action": "menunggu di bawah sendok"
+        }
+      ]
+    },
+    {
+      "sceneId": "S07",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "laptop Dimas",
+          "action": "ditutup setelah email terkirim"
+        },
+        {
+          "object": "tombol kirim",
+          "action": "hilang dari layar"
+        }
+      ]
+    },
+    {
+      "sceneId": "S08",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "ponsel Rani",
+          "action": "menampilkan email tanpa tenggat"
+        },
+        {
+          "object": "laptop Dimas",
+          "action": "tetap tertutup"
+        }
+      ]
+    },
+    {
+      "sceneId": "S09",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "email kerja",
+          "action": "muncul di kedua sisi layar"
+        },
+        {
+          "object": "dua jam ilustratif",
+          "action": "bergerak dengan tempo berbeda sebagai metafora"
+        }
+      ]
+    },
+    {
+      "sceneId": "S10",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "kertas pengirim",
+          "action": "bertanya kapan ia mengharapkan jawaban"
+        },
+        {
+          "object": "kertas penerima",
+          "action": "bertanya kapan ia mengira jawaban diharapkan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S11",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "kartu nama peneliti",
+          "action": "menampilkan Giurge dan Bohns"
+        },
+        {
+          "object": "kartu tahun",
+          "action": "menampilkan 2021"
+        }
+      ]
+    },
+    {
+      "sceneId": "S12",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "kalender kerja",
+          "action": "menandai waktu di luar jam kerja"
+        },
+        {
+          "object": "amplop email",
+          "action": "menampilkan label tidak mendesak"
+        }
+      ]
+    },
+    {
+      "sceneId": "S13",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "kartu ingatan",
+          "action": "menampilkan email yang pernah diingat"
+        },
+        {
+          "object": "kartu skenario",
+          "action": "menampilkan situasi email yang dibayangkan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S14",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "formulir pengirim",
+          "action": "mencatat harapan waktu balas"
+        },
+        {
+          "object": "formulir penerima",
+          "action": "mencatat perkiraan harapan pengirim"
+        }
+      ]
+    },
+    {
+      "sceneId": "S15",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "kartu rata-rata penerima",
+          "action": "bergeser ke arah lebih cepat"
+        },
+        {
+          "object": "kartu rata-rata pengirim",
+          "action": "tetap di posisi harapan yang dilaporkan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S16",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "label istilah",
+          "action": "menampilkan email urgency bias"
+        },
+        {
+          "object": "formulir peran",
+          "action": "mempertahankan dua sisi perbandingan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S17",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "delapan kartu studi",
+          "action": "menumpuk menjadi satu rangkaian"
+        },
+        {
+          "object": "tanda tanya",
+          "action": "muncul pada email individu"
+        }
+      ]
+    },
+    {
+      "sceneId": "S18",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "amplop email",
+          "action": "ditandai sebagai konteks penelitian"
+        },
+        {
+          "object": "gelembung chat",
+          "action": "tetap berada di luar bingkai studi"
+        }
+      ]
+    },
+    {
+      "sceneId": "S19",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "kuesioner pekerja",
+          "action": "menampilkan ekspektasi waktu balas"
+        },
+        {
+          "object": "kartu stres",
+          "action": "menampilkan penilaian yang dilaporkan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S20",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "draf email",
+          "action": "menampilkan pertanyaan kerja yang tidak mendesak"
+        },
+        {
+          "object": "catatan tenggat",
+          "action": "ditambahkan oleh pengirim dalam skenario"
+        }
+      ]
+    },
+    {
+      "sceneId": "S21",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "catatan tidak mendesak",
+          "action": "muncul pada email skenario"
+        },
+        {
+          "object": "dua penanda penilaian",
+          "action": "bergerak lebih berdekatan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S22",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "email Dimas",
+          "action": "membuka kembali kalimat pertanyaan semula"
+        },
+        {
+          "object": "baris tambahan",
+          "action": "menyebut tidak perlu membalas malam ini"
+        }
+      ]
+    },
+    {
+      "sceneId": "S23",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "baris tenggat",
+          "action": "terlihat di layar ponsel"
+        },
+        {
+          "object": "sendok",
+          "action": "tetap berada di samping piring"
+        }
+      ]
+    },
+    {
+      "sceneId": "S24",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "catatan tenggat",
+          "action": "berbunyi tidak mendesak"
+        },
+        {
+          "object": "riwayat teguran ilustratif",
+          "action": "muncul di samping pesan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S25",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "jam jaga",
+          "action": "menandai jadwal yang berlaku"
+        },
+        {
+          "object": "pesan mendesak",
+          "action": "ditandai sebagai situasi berbeda dari studi utama"
+        }
+      ]
+    },
+    {
+      "sceneId": "S26",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "draf email",
+          "action": "memuat batas balas yang benar-benar dimaksud"
+        },
+        {
+          "object": "tombol jadwalkan",
+          "action": "mengatur pengiriman pada jam kerja"
+        }
+      ]
+    },
+    {
+      "sceneId": "S27",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "dua jam ilustratif",
+          "action": "berhenti berdampingan"
+        },
+        {
+          "object": "email kerja",
+          "action": "kini menampilkan tenggat yang dimaksud"
+        }
+      ]
+    },
+    {
+      "sceneId": "S28",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "ponsel",
+          "action": "menampilkan email malam tanpa batas waktu"
+        },
+        {
+          "object": "kartu pilihan",
+          "action": "membuka opsi pengirim menjelaskan atau penerima bertanya"
+        }
+      ]
+    },
+    {
+      "sceneId": "S29",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "kartu kesepakatan tim",
+          "action": "menyebut waktu balas yang disepakati"
+        },
+        {
+          "object": "nama kanal",
+          "action": "muncul sebagai janji cerita berikut"
+        }
+      ]
+    }
+  ]
+}

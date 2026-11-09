@@ -1,0 +1,152 @@
+{
+  "scriptId": "pesan-dua-jam-short-v1",
+  "audienceAnchor": {
+    "situation": "Email kerja malam hari tanpa tenggat yang jelas.",
+    "scope": "Tokoh dan dialog ilustrasi; hasil studi tentang email kerja nonmendesak bukan kepastian tiap individu atau chat pribadi."
+  },
+  "items": [
+    {
+      "sceneId": "T01",
+      "text": "Pesan ini menghentikan makan malam Rani.",
+      "purpose": "Memulai dari klimaks master.",
+      "viewerQuestion": "Apa isi pesan itu?",
+      "visualAction": "Notifikasi email dan sendok tertahan.",
+      "evidence": "N/A — ilustrasi fiktif.",
+      "nextOrPayoff": "T02 memberi konteks cerita.",
+      "wordChoice": "Kalimat sama dengan S01; bukan klaim umum.",
+      "connection": "Mengambil persis kilas puncak master."
+    },
+    {
+      "sceneId": "T02",
+      "text": "Rani dan Dimas adalah tokoh ilustrasi, bukan peserta penelitian.",
+      "purpose": "Memberi disclosure mandiri.",
+      "viewerQuestion": "Apa yang terjadi pada dua tokoh ini?",
+      "visualAction": "Jam dan email muncul bersama label ilustrasi.",
+      "evidence": "N/A — tokoh dan pesan rekaan.",
+      "nextOrPayoff": "T03 menunjukkan waktu dan isi pesan.",
+      "wordChoice": "Bukan peserta penelitian disebut di narasi, bukan hanya catatan tersembunyi.",
+      "connection": "Penonton Short tidak perlu menonton master untuk tahu status cerita."
+    },
+    {
+      "sceneId": "T03",
+      "text": "Malam hari, Rani menerima email kerja Dimas: “Bisa cek draf jadwal ini?”",
+      "purpose": "Menyatakan waktu, relasi dan permintaan fiktif.",
+      "viewerQuestion": "Kapan Dimas membutuhkan jawabannya?",
+      "visualAction": "Pertanyaan email muncul tanpa tanggal.",
+      "evidence": "N/A — isi pesan fiktif, bukan kutipan peneliti.",
+      "nextOrPayoff": "Kalimat berikut menyatakan celahnya.",
+      "wordChoice": "Email kerja menjaga kesesuaian dengan medium penelitian.",
+      "connection": "Ambiguitas dan kekhawatiran dibuat terlihat."
+    },
+    {
+      "sceneId": "T03",
+      "text": "Tak ada tenggat; Rani khawatir menunggu sampai besok dianggap tidak peduli.",
+      "purpose": "Membuat taruhan emosional tokoh konkret.",
+      "viewerQuestion": "Apakah kekhawatirannya benar dalam cerita ini?",
+      "visualAction": "Jempol berhenti di atas tombol balas.",
+      "evidence": "N/A — pikiran tokoh rekaan.",
+      "nextOrPayoff": "T04 membayar pertanyaan.",
+      "wordChoice": "Khawatir bukan diagnosis.",
+      "connection": "Ambiguitas dan kekhawatiran dibuat terlihat."
+    },
+    {
+      "sceneId": "T04",
+      "text": "Dalam ilustrasi ini, Dimas tak butuh jawaban malam itu, tapi lupa bilang.",
+      "purpose": "Membayar paradoks satu pesan dan dua harapan.",
+      "viewerQuestion": "Apakah orang lain juga bisa salah menebak waktu balas?",
+      "visualAction": "Laptop tertutup sementara layar Rani menyala.",
+      "evidence": "N/A — niat tokoh fiktif, bukan niat semua pengirim.",
+      "nextOrPayoff": "T05 memberi bukti dan konteks riset.",
+      "wordChoice": "Dalam ilustrasi ini membatasi jawaban hanya pada tokoh rekaan.",
+      "connection": "Pergeseran sisi menghasilkan payoff yang setia pada master."
+    },
+    {
+      "sceneId": "T05",
+      "text": "Pada 2021, Giurge dan Bohns meneliti email kerja tidak mendesak di luar jam kerja.",
+      "purpose": "Memperkenalkan peneliti dan konteks tanpa membawa semua detail dalam satu napas.",
+      "viewerQuestion": "Apa yang mereka temukan pada pengirim dan penerima?",
+      "visualAction": "Kartu peneliti muncul di samping amplop.",
+      "evidence": "R1 — judul, penulis, tahun dan konteks.",
+      "nextOrPayoff": "Kalimat berikut menyampaikan perbandingan.",
+      "wordChoice": "Tidak mendesak dan di luar jam kerja membatasi konteks temuan.",
+      "connection": "Hasil kelompok tidak ditukar menjadi kepastian satu pesan."
+    },
+    {
+      "sceneId": "T05",
+      "text": "Rata-rata, penerima mengira pengirim berharap jawaban lebih cepat daripada yang dinyatakan kelompok pengirim.",
+      "purpose": "Memberi hasil perbandingan kelompok secara ringkas.",
+      "viewerQuestion": "Apakah itu data semua pesan di ponsel?",
+      "visualAction": "Dua kartu penilaian terpisah tanpa grafik fiktif.",
+      "evidence": "R1 — temuan utama dan perbandingan kelompok.",
+      "nextOrPayoff": "T06 menjelaskan cara studi dan batas chat.",
+      "wordChoice": "Rata-rata dan kelompok mencegah klaim semua pasangan.",
+      "connection": "Hasil kelompok tidak ditukar menjadi kepastian satu pesan."
+    },
+    {
+      "sceneId": "T06",
+      "text": "Peserta mengingat atau membayangkan situasi email; studi ini tidak menguji chat pribadi.",
+      "purpose": "Mencegah hasil terkesan studi semua percakapan nyata.",
+      "viewerQuestion": "Apa yang dicoba peneliti dalam skenario email?",
+      "visualAction": "Kartu ingatan dan skenario terpisah dari ikon chat.",
+      "evidence": "R1 — Study 1 dan 2–6; batas medium.",
+      "nextOrPayoff": "T07 memperlihatkan penyesuaian.",
+      "wordChoice": "Studi ini membatasi klaim ke R1, bukan seluruh riset chat.",
+      "connection": "Versi pendek harus mempertahankan metode serta batas medium."
+    },
+    {
+      "sceneId": "T07",
+      "text": "Dalam satu skenario, catatan “tidak mendesak” membuat perkiraan penerima mendekati harapan pengirim.",
+      "purpose": "Membawa hasil tindakan dari master ke versi mandiri.",
+      "viewerQuestion": "Apakah ini berarti setiap pesan aman ditunda?",
+      "visualAction": "Dua penanda bergerak mendekat setelah catatan muncul.",
+      "evidence": "R1 — Study 6, kondisi di luar jam kerja; kata Indonesia merangkum catatan yang diuji.",
+      "nextOrPayoff": "T08 mempertahankan pengecualian penting.",
+      "wordChoice": "Mendekati tidak mengklaim nol perbedaan bagi tiap orang.",
+      "connection": "Penyesuaian yang diuji menunjukkan kesempatan memperjelas, bukan jaminan."
+    },
+    {
+      "sceneId": "T08",
+      "text": "Tentu ada pesan yang benar-benar mendesak, dan ada tempat kerja yang memang menuntut respons cepat.",
+      "purpose": "Menolak saran berisiko untuk mengabaikan semua pesan.",
+      "viewerQuestion": "Apa aturan yang adil saat pesan tidak menjelaskan waktunya?",
+      "visualAction": "Jam jaga muncul di samping label mendesak.",
+      "evidence": "N/A — pengecualian editorial; R1 tidak menentukan tiap tempat kerja.",
+      "nextOrPayoff": "T09 mengundang solusi lebih dari satu sisi.",
+      "wordChoice": "Ada mempertahankan variasi situasi.",
+      "connection": "Batas keselamatan dan kuasa tetap ada meski durasi pendek."
+    },
+    {
+      "sceneId": "T09",
+      "text": "Kalau tak ada tenggat, siapa yang sebaiknya memperjelas: pengirim, penerima, atau keduanya?",
+      "purpose": "Mengundang posisi yang sah dan relevan.",
+      "viewerQuestion": "Pengalaman apa yang membuat satu pilihan terasa lebih adil?",
+      "visualAction": "Tiga pilihan muncul di atas email ilustratif.",
+      "evidence": "N/A — pertanyaan normatif.",
+      "nextOrPayoff": "Penutup memberi alasan membagikan tanpa menahan payoff.",
+      "wordChoice": "Keduanya membuka solusi bersama dan pilihan lain.",
+      "connection": "Undangan diskusi berangkat dari persoalan sesungguhnya, bukan CTA kosong."
+    },
+    {
+      "sceneId": "T09",
+      "text": "Kalau terasa dekat, boleh suka dan bagikan ke rekan untuk menyepakati waktu balas.",
+      "purpose": "Memberi ajakan suka yang opsional dan nilai berbagi yang spesifik.",
+      "viewerQuestion": "Kesepakatan waktu apa yang cocok bagi tim itu?",
+      "visualAction": "Kartu kesepakatan muncul di samping email tanpa data kontak.",
+      "evidence": "N/A — ajakan bersyarat, bukan hasil penelitian.",
+      "nextOrPayoff": "Penutup menjanjikan cerita sejenis.",
+      "wordChoice": "Kalau dan boleh menghindari kewajiban atau permintaan isi pesan pribadi.",
+      "connection": "Undangan diskusi berangkat dari persoalan sesungguhnya, bukan CTA kosong."
+    },
+    {
+      "sceneId": "T09",
+      "text": "ikuti knot theory untuk cerita lain yang mengubah cara kita memahami orang.",
+      "purpose": "Memberikan alasan kembali yang relevan.",
+      "viewerQuestion": "Kisah benda sehari-hari apa lagi yang akan membuka perspektif?",
+      "visualAction": "Nama kanal ditampilkan lowercase di sisi aman.",
+      "evidence": "N/A — janji editorial.",
+      "nextOrPayoff": "Short selesai dan tidak memerlukan master untuk memahami risetnya.",
+      "wordChoice": "Nama kanal dibaca sebagai dua kata.",
+      "connection": "Undangan diskusi berangkat dari persoalan sesungguhnya, bukan CTA kosong."
+    }
+  ]
+}

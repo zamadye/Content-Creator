@@ -1,0 +1,576 @@
+{
+  "master": [
+    {
+      "id": "S01",
+      "beat": "B6",
+      "framing": "Kilas puncak: ponsel dengan email berada di depan piring; sendok berhenti sebelum penonton tahu sebabnya. Label kecil: ILUSTRASI.",
+      "objectMap": [
+        {
+          "object": "ponsel",
+          "action": "menyala dengan email kerja"
+        },
+        {
+          "object": "sendok",
+          "action": "berhenti di atas piring"
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "beat": "B1",
+      "framing": "Waktu mundur ke meja makan; nama dua tokoh muncul sebagai ilustrasi.",
+      "objectMap": [
+        {
+          "object": "jam meja",
+          "action": "mundur menuju pukul sembilan"
+        },
+        {
+          "object": "kartu nama tokoh",
+          "action": "menandai Rani dan Dimas sebagai ilustrasi"
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "beat": "B1",
+      "framing": "Meja makan hangat; tangan Rani baru memegang sendok saat ponsel bergetar.",
+      "objectMap": [
+        {
+          "object": "piring makan",
+          "action": "menunggu di meja"
+        },
+        {
+          "object": "ponsel Rani",
+          "action": "menerima email kerja"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "beat": "B2",
+      "framing": "Close-up layar email bersih tanpa logo; pertanyaan dan ruang kosong tenggat menjadi dua objek visual.",
+      "objectMap": [
+        {
+          "object": "isi email",
+          "action": "menampilkan pertanyaan tentang draf jadwal"
+        },
+        {
+          "object": "ruang tenggat",
+          "action": "tetap kosong"
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "beat": "B3",
+      "framing": "Tangan Rani berpindah dari sendok ke tombol balas; jam dan piring tetap berada di tempat.",
+      "objectMap": [
+        {
+          "object": "tombol balas",
+          "action": "terlihat di bawah email"
+        },
+        {
+          "object": "jam meja",
+          "action": "menunjukkan malam sudah berjalan"
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "beat": "B4",
+      "framing": "Rani membuka lampiran; makanan mulai dingin sementara sorotan layar mengarah ke tangan.",
+      "objectMap": [
+        {
+          "object": "lampiran jadwal",
+          "action": "terbuka pada layar"
+        },
+        {
+          "object": "piring",
+          "action": "menunggu di bawah sendok"
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "beat": "B5",
+      "framing": "Potong ke meja lain: kursor Dimas baru meninggalkan tombol kirim; laptopnya tertutup.",
+      "objectMap": [
+        {
+          "object": "laptop Dimas",
+          "action": "ditutup setelah email terkirim"
+        },
+        {
+          "object": "tombol kirim",
+          "action": "hilang dari layar"
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "beat": "B6",
+      "framing": "Kilas puncak diperluas: bingkai ganda layar ponsel dan laptop tertutup.",
+      "objectMap": [
+        {
+          "object": "ponsel Rani",
+          "action": "menampilkan email tanpa tenggat"
+        },
+        {
+          "object": "laptop Dimas",
+          "action": "tetap tertutup"
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "beat": "B7",
+      "framing": "Split screen satu email yang sama, piring di kiri dan laptop di kanan; dua jam visual tidak menampilkan angka studi.",
+      "objectMap": [
+        {
+          "object": "email kerja",
+          "action": "muncul di kedua sisi layar"
+        },
+        {
+          "object": "dua jam ilustratif",
+          "action": "bergerak dengan tempo berbeda sebagai metafora"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "beat": "B7",
+      "framing": "Dua kertas perkiraan berdampingan di atas meja, tanpa grafik buatan.",
+      "objectMap": [
+        {
+          "object": "kertas pengirim",
+          "action": "bertanya kapan ia mengharapkan jawaban"
+        },
+        {
+          "object": "kertas penerima",
+          "action": "bertanya kapan ia mengira jawaban diharapkan"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "beat": "B3",
+      "framing": "Sampul bibliografis buatan sendiri: nama dua penulis, tahun, dan judul topik; tidak memakai logo universitas.",
+      "objectMap": [
+        {
+          "object": "kartu nama peneliti",
+          "action": "menampilkan Giurge dan Bohns"
+        },
+        {
+          "object": "kartu tahun",
+          "action": "menampilkan 2021"
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "beat": "B4",
+      "framing": "Kalender berakhir pada malam; amplop email diberi cap tidak mendesak.",
+      "objectMap": [
+        {
+          "object": "kalender kerja",
+          "action": "menandai waktu di luar jam kerja"
+        },
+        {
+          "object": "amplop email",
+          "action": "menampilkan label tidak mendesak"
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "beat": "B4",
+      "framing": "Kertas ingatan dan kartu skenario bergantian di samping dua jenis formulir.",
+      "objectMap": [
+        {
+          "object": "kartu ingatan",
+          "action": "menampilkan email yang pernah diingat"
+        },
+        {
+          "object": "kartu skenario",
+          "action": "menampilkan situasi email yang dibayangkan"
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "beat": "B5",
+      "framing": "Dua formulir dengan label peran, diisi terpisah; bukan pasangan bernama Rani dan Dimas.",
+      "objectMap": [
+        {
+          "object": "formulir pengirim",
+          "action": "mencatat harapan waktu balas"
+        },
+        {
+          "object": "formulir penerima",
+          "action": "mencatat perkiraan harapan pengirim"
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "beat": "B6",
+      "framing": "Kedua formulir terlihat berdampingan dengan label rata-rata; tanpa grafik angka yang tidak dibahas.",
+      "objectMap": [
+        {
+          "object": "kartu rata-rata penerima",
+          "action": "bergeser ke arah lebih cepat"
+        },
+        {
+          "object": "kartu rata-rata pengirim",
+          "action": "tetap di posisi harapan yang dilaporkan"
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "beat": "B7",
+      "framing": "Label istilah ditempel di bawah kedua formulir; pertanyaan awal tetap terlihat.",
+      "objectMap": [
+        {
+          "object": "label istilah",
+          "action": "menampilkan email urgency bias"
+        },
+        {
+          "object": "formulir peran",
+          "action": "mempertahankan dua sisi perbandingan"
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "beat": "B7",
+      "framing": "Kumpulan delapan kartu studi; satu ponsel tetap berisi tanda tanya.",
+      "objectMap": [
+        {
+          "object": "delapan kartu studi",
+          "action": "menumpuk menjadi satu rangkaian"
+        },
+        {
+          "object": "tanda tanya",
+          "action": "muncul pada email individu"
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "beat": "B8",
+      "framing": "Kartu email bergeser dari gelembung chat; label CHAT BELUM DIUJI muncul.",
+      "objectMap": [
+        {
+          "object": "amplop email",
+          "action": "ditandai sebagai konteks penelitian"
+        },
+        {
+          "object": "gelembung chat",
+          "action": "tetap berada di luar bingkai studi"
+        }
+      ]
+    },
+    {
+      "id": "S19",
+      "beat": "B8",
+      "framing": "Kartu survei pekerja dan tanda stres yang tidak berupa diagnosa atau efek animasi berlebihan.",
+      "objectMap": [
+        {
+          "object": "kuesioner pekerja",
+          "action": "menampilkan ekspektasi waktu balas"
+        },
+        {
+          "object": "kartu stres",
+          "action": "menampilkan penilaian yang dilaporkan"
+        }
+      ]
+    },
+    {
+      "id": "S20",
+      "beat": "B8",
+      "framing": "Skenario email setelah jam kerja muncul kembali; satu baris catatan ditambahkan.",
+      "objectMap": [
+        {
+          "object": "draf email",
+          "action": "menampilkan pertanyaan kerja yang tidak mendesak"
+        },
+        {
+          "object": "catatan tenggat",
+          "action": "ditambahkan oleh pengirim dalam skenario"
+        }
+      ]
+    },
+    {
+      "id": "S21",
+      "beat": "B8",
+      "framing": "Dua penanda penilaian mendekat di bawah catatan; tidak memakai skala atau klaim nol persen.",
+      "objectMap": [
+        {
+          "object": "catatan tidak mendesak",
+          "action": "muncul pada email skenario"
+        },
+        {
+          "object": "dua penanda penilaian",
+          "action": "bergerak lebih berdekatan"
+        }
+      ]
+    },
+    {
+      "id": "S22",
+      "beat": "B8",
+      "framing": "Kembali ke email Dimas yang sama, dengan pilihan teks tambahan sebagai adegan alternatif.",
+      "objectMap": [
+        {
+          "object": "email Dimas",
+          "action": "membuka kembali kalimat pertanyaan semula"
+        },
+        {
+          "object": "baris tambahan",
+          "action": "menyebut tidak perlu membalas malam ini"
+        }
+      ]
+    },
+    {
+      "id": "S23",
+      "beat": "B8",
+      "framing": "Piring dan ponsel tetap berada dalam komposisi; Rani belum perlu mengangkat laptop.",
+      "objectMap": [
+        {
+          "object": "baris tenggat",
+          "action": "terlihat di layar ponsel"
+        },
+        {
+          "object": "sendok",
+          "action": "tetap berada di samping piring"
+        }
+      ]
+    },
+    {
+      "id": "S24",
+      "beat": "B8",
+      "framing": "Kartu atasan dan catatan tenggat disandingkan; riwayat tenggat divisualkan tanpa menuduh individu nyata.",
+      "objectMap": [
+        {
+          "object": "catatan tenggat",
+          "action": "berbunyi tidak mendesak"
+        },
+        {
+          "object": "riwayat teguran ilustratif",
+          "action": "muncul di samping pesan"
+        }
+      ]
+    },
+    {
+      "id": "S25",
+      "beat": "B8",
+      "framing": "Pesan darurat yang berbeda dan jam jaga ditampilkan, tidak ditandai sebagai email dalam studi.",
+      "objectMap": [
+        {
+          "object": "jam jaga",
+          "action": "menandai jadwal yang berlaku"
+        },
+        {
+          "object": "pesan mendesak",
+          "action": "ditandai sebagai situasi berbeda dari studi utama"
+        }
+      ]
+    },
+    {
+      "id": "S26",
+      "beat": "B9",
+      "framing": "Pengirim menambahkan waktu yang jujur atau menjadwalkan email, hanya untuk pesan tidak mendesak.",
+      "objectMap": [
+        {
+          "object": "draf email",
+          "action": "memuat batas balas yang benar-benar dimaksud"
+        },
+        {
+          "object": "tombol jadwalkan",
+          "action": "mengatur pengiriman pada jam kerja"
+        }
+      ]
+    },
+    {
+      "id": "S27",
+      "beat": "B9",
+      "framing": "Dua jam visual kembali sejajar pada satu email, dengan kata-kata harapan ditulis di layar.",
+      "objectMap": [
+        {
+          "object": "dua jam ilustratif",
+          "action": "berhenti berdampingan"
+        },
+        {
+          "object": "email kerja",
+          "action": "kini menampilkan tenggat yang dimaksud"
+        }
+      ]
+    },
+    {
+      "id": "S28",
+      "beat": "B9",
+      "framing": "Ponsel dan dua kartu opsi; tidak menyiratkan hanya ada dua solusi.",
+      "objectMap": [
+        {
+          "object": "ponsel",
+          "action": "menampilkan email malam tanpa batas waktu"
+        },
+        {
+          "object": "kartu pilihan",
+          "action": "membuka opsi pengirim menjelaskan atau penerima bertanya"
+        }
+      ]
+    },
+    {
+      "id": "S29",
+      "beat": "B9",
+      "framing": "Ponsel dibagikan ke rekan yang dipercaya; kunci penutup dan nama kanal tetap terbaca.",
+      "objectMap": [
+        {
+          "object": "kartu kesepakatan tim",
+          "action": "menyebut waktu balas yang disepakati"
+        },
+        {
+          "object": "nama kanal",
+          "action": "muncul sebagai janji cerita berikut"
+        }
+      ]
+    }
+  ],
+  "short": [
+    {
+      "id": "T01",
+      "beat": "B6",
+      "framing": "Kilas puncak dengan ponsel, piring dan sendok; ILUSTRASI sejak frame pertama.",
+      "objectMap": [
+        {
+          "object": "ponsel",
+          "action": "menerima email kerja"
+        },
+        {
+          "object": "sendok",
+          "action": "tertahan di atas piring"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "beat": "B1",
+      "framing": "Jam malam di meja makan; label tokoh rekaan jelas.",
+      "objectMap": [
+        {
+          "object": "jam",
+          "action": "menunjukkan malam"
+        },
+        {
+          "object": "email kerja",
+          "action": "muncul pada ponsel"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "beat": "B3",
+      "framing": "Isi email dan ruang tenggat kosong; jempol mendekati balas.",
+      "objectMap": [
+        {
+          "object": "email",
+          "action": "meminta pengecekan draf"
+        },
+        {
+          "object": "kolom tenggat",
+          "action": "kosong"
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "beat": "B6",
+      "framing": "Laptop Dimas menutup di sisi berlawanan dari ponsel.",
+      "objectMap": [
+        {
+          "object": "laptop Dimas",
+          "action": "menutup setelah mengirim"
+        },
+        {
+          "object": "ponsel Rani",
+          "action": "tetap menyala"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "beat": "B6",
+      "framing": "Dua formulir peran berlabel email kerja tak mendesak, di luar jam kerja.",
+      "objectMap": [
+        {
+          "object": "formulir penerima",
+          "action": "menunjukkan perkiraan harapan"
+        },
+        {
+          "object": "formulir pengirim",
+          "action": "menunjukkan harapan yang dinyatakan"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "beat": "B8",
+      "framing": "Kartu ingatan, kartu skenario dan gelembung chat dipisahkan.",
+      "objectMap": [
+        {
+          "object": "kartu skenario",
+          "action": "menjelaskan sebagian peserta membayangkan email"
+        },
+        {
+          "object": "gelembung chat",
+          "action": "berada di luar bingkai penelitian"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "beat": "B8",
+      "framing": "Catatan tidak mendesak dan dua penanda penilaian yang mendekat.",
+      "objectMap": [
+        {
+          "object": "catatan email",
+          "action": "menyatakan tidak mendesak"
+        },
+        {
+          "object": "penanda perkiraan",
+          "action": "mendekati harapan pengirim"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "beat": "B8",
+      "framing": "Jam jaga, email dan catatan atasan ditempatkan bersama tanpa wajah.",
+      "objectMap": [
+        {
+          "object": "jam jaga",
+          "action": "menandai kondisi kerja tertentu"
+        },
+        {
+          "object": "email mendesak",
+          "action": "ditandai berbeda dari kasus utama"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "beat": "B9",
+      "framing": "Kembali ke layar email dan tiga pilihan; nama kanal tampil tanpa menghalangi teks.",
+      "objectMap": [
+        {
+          "object": "email",
+          "action": "menampilkan pertanyaan tanpa tenggat"
+        },
+        {
+          "object": "kartu pilihan",
+          "action": "menampilkan pengirim, penerima, atau keduanya"
+        }
+      ]
+    }
+  ]
+}

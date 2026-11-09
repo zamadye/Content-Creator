@@ -1,0 +1,42 @@
+{
+  "id": "pesan-dua-jam-short-v1",
+  "status": "DRAFT PRIVAT — belum ditinjau manusia atau disetujui tayang",
+  "scenes": [
+    {
+      "id": "T01",
+      "narration": "Pesan ini menghentikan makan malam Rani."
+    },
+    {
+      "id": "T02",
+      "narration": "Rani dan Dimas adalah tokoh ilustrasi, bukan peserta penelitian."
+    },
+    {
+      "id": "T03",
+      "narration": "Malam hari, Rani menerima email kerja Dimas: “Bisa cek draf jadwal ini?” Tak ada tenggat; Rani khawatir menunggu sampai besok dianggap tidak peduli."
+    },
+    {
+      "id": "T04",
+      "narration": "Dalam ilustrasi ini, Dimas tak butuh jawaban malam itu, tapi lupa bilang."
+    },
+    {
+      "id": "T05",
+      "narration": "Pada 2021, Giurge dan Bohns meneliti email kerja tidak mendesak di luar jam kerja. Rata-rata, penerima mengira pengirim berharap jawaban lebih cepat daripada yang dinyatakan kelompok pengirim."
+    },
+    {
+      "id": "T06",
+      "narration": "Peserta mengingat atau membayangkan situasi email; studi ini tidak menguji chat pribadi."
+    },
+    {
+      "id": "T07",
+      "narration": "Dalam satu skenario, catatan “tidak mendesak” membuat perkiraan penerima mendekati harapan pengirim."
+    },
+    {
+      "id": "T08",
+      "narration": "Tentu ada pesan yang benar-benar mendesak, dan ada tempat kerja yang memang menuntut respons cepat."
+    },
+    {
+      "id": "T09",
+      "narration": "Kalau tak ada tenggat, siapa yang sebaiknya memperjelas: pengirim, penerima, atau keduanya? Kalau terasa dekat, boleh suka dan bagikan ke rekan untuk menyepakati waktu balas. ikuti knot theory untuk cerita lain yang mengubah cara kita memahami orang."
+    }
+  ]
+}

@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   inspect:
-    if: ${{ !contains(github.event.head_commit.message, '[buffer-adapter-probe]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[buffer-adapter-probe]') && !contains(github.event.head_commit.message, '[buffer-channels-readonly]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -65,3 +65,43 @@ jobs:
           if [ -n "${BUFFER_ORGANIZATION_ID:-}" ]; then echo "::add-mask::${BUFFER_ORGANIZATION_ID}"; fi
           node editorial-engine/pipeline/buffer-batch/probe-readonly.mjs | \
             node editorial-engine/pipeline/encrypt-diagnostic.mjs editorial-engine/pipeline/diagnostic-public.pem
+
+  channels-snapshot:
+    # Encrypted, read-only list of channels and the relevant queue. No Buffer
+    # mutations, no private account/queue details in the public Actions log.
+    if: ${{ contains(github.event.head_commit.message, '[buffer-channels-readonly]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: buffer-publish
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Test read-only snapshot
+        run: node --test editorial-engine/pipeline/tests/buffer-snapshot-readonly.test.mjs
+      - name: Install Buffer CLI
+        run: npm install --global @bufferapp/cli@2.2.0 --no-audit --no-fund
+      - name: Inspect channel availability and queue, then encrypt
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_ORGANIZATION_ID: ${{ secrets.BUFFER_ORGANIZATION_ID }}
+          NO_COLOR: '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${BUFFER_API_KEY:-}" ]; then echo "::add-mask::${BUFFER_API_KEY}"; fi
+          if [ -n "${BUFFER_ORGANIZATION_ID:-}" ]; then echo "::add-mask::${BUFFER_ORGANIZATION_ID}"; fi
+          node -e '
+            const fs = require("node:fs"), crypto = require("node:crypto");
+            const req = require("./.github/analytics-readonly-request.json");
+            if (req.operation !== "buffer-channels-readonly" || req.readOnly !== true) throw Error("BAD_REQUEST");
+            const pem = Buffer.from(req.publicKeyBase64 || "", "base64");
+            const key = crypto.createPublicKey(pem);
+            if (key.asymmetricKeyType !== "rsa" || key.asymmetricKeyDetails.modulusLength < 2048) throw Error("BAD_PUBLIC_KEY");
+            fs.writeFileSync("/tmp/buffer-snapshot-public.pem", pem);
+          '
+          node editorial-engine/pipeline/buffer-batch/snapshot-readonly.mjs | \
+            node editorial-engine/pipeline/encrypt-diagnostic.mjs /tmp/buffer-snapshot-public.pem

@@ -1,8 +1,6 @@
 {
-  "operation": "buffer-adapter-readonly-probe",
-  "scope": "channels, complete queue, and one sample post by ID; read-only",
-  "publication": "not requested; no mutation or dry-run commands",
-  "requestedDate": "2026-11-08",
-  "revision": 6,
-  "privacy": "encrypted response annotations"
+  "operation": "buffer-channels-readonly",
+  "readOnly": true,
+  "nonce": "089012f90cdab7fabbd08e0cb03c9b90",
+  "publicKeyBase64": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQm9qQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FZOEFNSUlCaWdLQ0FZRUF5TzdGVnpublRVdHZQTTlHMUdwYwpPTDgvNnp3Y3pkaXdoazFMbDNWbEs4YzR6N2FPbEd4N3kvcTV3dlQ2aGxyRXUvRTJvYjNDV0V4ZDFtMnJEUDlNCkUwdCtlRjhFaC9aMDJISnJrQ0MwbXhaSjl4VXBXdW0zRWtsdVhNT2c0TUpsb3lBek1DMy96RUt2UStocFJlQ1YKSWY1dUZUdHRwTUhCei9iQTArV2t2S1ByM1hWMzBFQ25QZVA5K29iQlBmM3JYcDZPYmtobXMyU0Fzb0grZUg0ZQppRW8vUDB5cUJJa1BNTXlVdkpRNGlXVklXZUZEM1dPMUxKZzZubUpsUE9rVDg0MGZjMkRKVVVDa1ZkalFuNzMyCmljdG5wdUx4N1ozcDJoU0dXU01qY25taFZpYTk3bDNMQkp0SS9tMURxOGpnY0prM21kUFVka1B6WkdNNVNza3UKeGYzY2Y4d2FIYnJlMDlUampxWlpFdmVTT2puamdiUkt4aFNwVHU0TzdkNVkzdXRzd1prdzdEN1BwSXgvK0lldApKb0FZTFd4bW1RdEhjK0FQeUJyejNjYjJNNkVwSDl6cUx0SHJiejd5UDREcFVMZjIzR05qUnN5TDNRb0xsQ0tTCmRPZnJQQkxBZ2hQeGxya09UOENsRGJUcUI4YjIvU3VCMDM3NlE3Q08zYTBmQWdNQkFBRT0KLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg=="
 }

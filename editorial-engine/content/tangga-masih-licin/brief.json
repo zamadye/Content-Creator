@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "format": "long-master",
   "storyId": "tangga-masih-licin",
-  "scriptId": "tangga-masih-licin-master-v1",
+  "scriptId": "tangga-masih-licin-master-v2",
   "truthMode": "fiction",
   "fictionDisclosure": "Nara, Bima, penghuni, rumah petak, pesan, tunggakan, pemeriksaan dan seluruh adegan adalah ilustrasi fiktif, bukan kejadian atau data nyata.",
-  "premise": "Penghuni mengusulkan memeriksa tangga basah tetapi usul ditolak karena ia menunggak; lalu ia harus menilai orang yang tadi menyerangnya.",
+  "premise": "Penghuni berniat mencegah kecelakaan tetapi usulnya ditolak karena ia menunggak; cara itu diberi nama ad hominem, dampaknya ditimbang, lalu ia menilai orang yang menyerangnya.",
   "dramaticQuestion": "Bagaimana membahas tangga dan tunggakan tanpa satu persoalan menelan yang lain?",
   "entity": "Tangga bersama yang basah, pesan grup penghuni, dan dua persoalan yang tidak saling menghapus.",
-  "goal": "Memeriksa persoalan yang relevan sambil mengakui tanggung jawab dan konteks orang yang terlibat.",
+  "goal": "Memahami ad hominem, dampak cara merendahkan dan beda niat baik dengan respons yang diterima, sambil memeriksa bukti dan tanggung jawab.",
   "stakes": "Penghuni perlu melewati tangga; uang bersama dan rasa percaya di antara tetangga dipertaruhkan.",
   "audienceAnchor": "Orang yang pernah mengajukan masalah di grup keluarga, tetangga atau kerja lalu percakapannya beralih kepada dirinya.",
   "sources": [
@@ -23,6 +23,24 @@
       "url": "https://writingcenter.unc.edu/tips-and-tools/fallacies/",
       "supports": "Fallacy adalah kelemahan penalaran; klaim harus diperiksa berdasarkan alasan dan bukti yang relevan.",
       "limits": "Panduan pendidikan; tidak menguji adegan rumah petak fiktif atau membuktikan orang yang diserang selalu benar."
+    },
+    {
+      "id": "R4",
+      "url": "https://www.apa.org/pubs/reports/work-in-america/2024/psychological-safety",
+      "supports": "Rasa aman untuk mengungkapkan masalah tanpa takut dipermalukan atau dibalas menjadi bagian dari konsep psychological safety di tempat kerja.",
+      "limits": "Survei pekerja AS melaporkan hubungan, bukan bukti bahwa satu balasan menyebabkan seluruh orang diam atau berlaku sama di rumah petak."
+    },
+    {
+      "id": "R5",
+      "url": "https://www.psychologytoday.com/us/blog/un-numb/202408/how-to-identify-the-subtle-traits-of-toxic-relationships",
+      "supports": "Toxic adalah istilah sehari-hari, bukan diagnosis klinis; perilaku dan dampak perlu konteks.",
+      "limits": "Artikel populer; jangan mengadopsi spekulasi penyebab atau menilai kesehatan mental orang dari satu kejadian."
+    },
+    {
+      "id": "R6",
+      "url": "https://www.health.harvard.edu/mind-and-mood/fostering-healthy-relationships",
+      "supports": "Menilai hubungan dapat mempertimbangkan pola interaksi dari waktu ke waktu dan dampaknya.",
+      "limits": "Sumber pendidikan, bukan alat untuk memberi cap atau meniadakan kerugian satu kejadian serius."
     }
   ],
   "beats": [
@@ -70,9 +88,9 @@
       "kind": "escalation",
       "before": "Orang lain menanyakan tunggakan.",
       "event": "Percakapan ramai tentang Nara sementara pertanyaan tangga tertinggal.",
-      "after": "Bahaya dalam cerita belum diperiksa.",
-      "causeToNext": "Nara hampir membalas panjang.",
-      "emotionHypothesis": "Penonton mempertimbangkan respons spontan.",
+      "after": "Bahaya belum diperiksa; niat membantu justru dibalas dengan rasa malu.",
+      "causeToNext": "Nara mungkin ragu mengingatkan lagi dan hampir membalas panjang.",
+      "emotionHypothesis": "Penonton mempertimbangkan dampak perlakuan dan respons spontan.",
       "sourceIds": [
         "R1",
         "R2"
@@ -95,10 +113,10 @@
       "id": "B6",
       "kind": "climax",
       "before": "Ketika percakapan soal Nara memanas, tangga tetap basah.",
-      "event": "Kita bertanya apakah tunggakan membuktikan tangga aman dan menolak kesimpulan otomatis.",
-      "after": "Isi usul kembali bisa diperiksa tanpa menyatakan Nara pasti benar.",
+      "event": "Kita bertanya apakah tunggakan membuktikan tangga aman, lalu mengenali ad hominem serta pola merendahkan yang dapat disebut toxic.",
+      "after": "Isi usul bisa diperiksa tanpa menghapus dampak perilaku atau menyatakan Nara pasti benar.",
       "causeToNext": "Kita membalik posisi ketika Bima menawarkan diri mengurus uang.",
-      "emotionHypothesis": "Perubahan pemahaman dari menyerang orang ke menimbang relevansi.",
+      "emotionHypothesis": "Perubahan pemahaman dari niat baik yang dibalas buruk ke menilai relevansi dan dampak.",
       "sourceIds": [
         "R1",
         "R2"
@@ -134,8 +152,8 @@
       "id": "B9",
       "kind": "payoff",
       "before": "Tunggakan dan masalah tangga sama-sama ada.",
-      "event": "Penonton memilih mana yang perlu dijawab lebih dulu sambil mempertahankan keduanya.",
-      "after": "Dilema membawa percakapan keluar dari video tanpa CTA.",
+      "event": "Niat baik tidak otomatis mendapat respons baik; penonton memilih mana yang perlu dijawab lebih dulu.",
+      "after": "Dilema dan akibat emosional membawa percakapan keluar dari video tanpa CTA.",
       "causeToNext": "Serial lain dapat menguji pertanyaan sehari-hari yang berbeda.",
       "emotionHypothesis": "Refleksi yang terbuka, bukan paksaan berkomentar.",
       "sourceIds": [
@@ -159,7 +177,7 @@
     "revealBeatId": "B7",
     "oldMeaning": "Tunggakan Nara terasa seperti alasan untuk menolak semua usulnya.",
     "newMeaning": "Tunggakan tidak menentukan kondisi tangga; pengalaman pengelolaan uang bisa relevan pada keputusan berbeda.",
-    "changedStake": "Penonton perlu memisahkan isi, bukti, tanggung jawab, dan relevansi orang dalam keputusan yang sedang dibuat.",
+    "changedStake": "Penonton dapat menamai ad hominem, mengenali dampak cara merendahkan, dan memisahkan isi, bukti serta relevansi dalam setiap keputusan.",
     "evidenceBoundary": "Seluruh kejadian adalah fiksi; R1/R2 tidak membuktikan respons audiens atau bahwa serangan berarti usul benar."
   },
   "interactions": {
@@ -188,7 +206,7 @@
     "sourceBeatId": "B6",
     "context": "Nara melapor tangga licin dan disebut menunggak iuran; semua tokoh fiktif.",
     "miniConflict": "Tunggakan bisa benar tetapi tidak membuktikan kondisi tangga, lalu Bima menawarkan mengelola uang.",
-    "standalonePayoff": "Kondisi tangga dan kecocokan pengelola perlu alasan yang relevan bagi masing-masing.",
+    "standalonePayoff": "Penonton mengenali ad hominem dan kemungkinan dampak perilaku toxic; tangga dan kecocokan pengelola perlu alasan yang relevan.",
     "distortionRisk": "Tetap akui tunggakan, jangan samakan serangan dengan bukti usul benar, dan jangan menyatakan semua kritik pribadi keliru."
   },
   "scenePlan": [
@@ -361,6 +379,62 @@
       ]
     },
     {
+      "sceneId": "S12a",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "sandal tetangga",
+          "action": "kembali terlihat saat hampir tergelincir"
+        },
+        {
+          "object": "pegangan tangga",
+          "action": "tetap menahan tangan tetangga"
+        }
+      ]
+    },
+    {
+      "sceneId": "S12b",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "kursi Nara",
+          "action": "tergeser saat Nara duduk perlahan"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan balasan grup tanpa menutupi wajah"
+        }
+      ]
+    },
+    {
+      "sceneId": "S12c",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menggulir kembali pesan lama"
+        },
+        {
+          "object": "kalender",
+          "action": "menandai minggu sebelumnya sebagai konteks"
+        }
+      ]
+    },
+    {
+      "sceneId": "S12d",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "lampu lorong",
+          "action": "tidak menyala meski saklar ditekan"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan balasan Bima terhadap laporan lama"
+        }
+      ]
+    },
+    {
       "sceneId": "S13",
       "beatId": "B4",
       "objectMap": [
@@ -371,6 +445,20 @@
         {
           "object": "amplop iuran",
           "action": "tergeletak tertutup di meja"
+        }
+      ]
+    },
+    {
+      "sceneId": "S13a",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "catatan peringatan",
+          "action": "belum dikirim sebagai gambaran kemungkinan"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "berada di dekat tangan yang ragu"
         }
       ]
     },
@@ -483,6 +571,62 @@
         {
           "object": "anak tangga",
           "action": "berada di sisi lain garis putus ilustratif"
+        }
+      ]
+    },
+    {
+      "sceneId": "S21a",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "telepon Bima",
+          "action": "memperlihatkan usul yang ditolak karena pengirim"
+        },
+        {
+          "object": "kartu istilah",
+          "action": "menampilkan AD HOMINEM secara terbaca"
+        }
+      ]
+    },
+    {
+      "sceneId": "S21b",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "koin iuran",
+          "action": "berada di dekat kotak dana sebagai lambang biaya"
+        },
+        {
+          "object": "anak tangga",
+          "action": "tetap perlu diperiksa di sisi lain layar"
+        }
+      ]
+    },
+    {
+      "sceneId": "S21c",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "kalender",
+          "action": "berganti halaman sebagai ilustrasi hipotesis"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan pola pesan merendahkan sebagai kemungkinan, bukan fakta masa lalu"
+        }
+      ]
+    },
+    {
+      "sceneId": "S21d",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "kursi Nara",
+          "action": "berhadapan dengan kursi Bima"
+        },
+        {
+          "object": "buku catatan",
+          "action": "tetap terbuka tanpa label watak"
         }
       ]
     },
@@ -725,6 +869,20 @@
         {
           "object": "amplop",
           "action": "berada di samping kartu"
+        }
+      ]
+    },
+    {
+      "sceneId": "S38a",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "buku catatan",
+          "action": "ditutup perlahan oleh Nara"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "memperlihatkan dua persoalan tetap terbuka"
         }
       ]
     },

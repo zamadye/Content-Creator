@@ -1,6 +1,6 @@
 {
-  "id": "tangga-masih-licin-short-v1",
-  "status": "DRAF EVALUASI PRIVAT — bukan persetujuan editorial, prevoice atau tayang",
+  "id": "tangga-masih-licin-short-v2",
+  "status": "DRAF REVISI PRIVAT — arah mendapat tanggapan positif dengan koreksi; naskah, prevoice dan tayang belum disetujui",
   "scenes": [
     {
       "id": "T01",
@@ -12,19 +12,27 @@
     },
     {
       "id": "T03",
-      "narration": "Setelah tetanggamu hampir terpeleset, kamu bilang di grup bahwa tangganya licin kalau hujan dan perlu dicek."
+      "narration": "Tetanggamu nyaris terpeleset, lalu kamu minta tangga diperiksa di grup."
     },
     {
       "id": "T04",
       "narration": "Bima membalas: “Iuranmu belum lunas, jadi usulmu nggak usah dibahas.”"
     },
     {
+      "id": "T04a",
+      "narration": "Niatmu cuma mencegah tetangga jatuh."
+    },
+    {
+      "id": "T04b",
+      "narration": "Minggu lalu, laporan lampu mati pun disindir Bima."
+    },
+    {
       "id": "T05",
-      "narration": "Dan iya, dalam cerita ini kamu memang menunggak."
+      "narration": "Dan iya, iuranmu memang menunggak."
     },
     {
       "id": "T06",
-      "narration": "Itu perlu dicari jalan keluarnya, apalagi kalau perbaikan memakai uang bersama."
+      "narration": "Itu perlu diurus, apalagi kalau perbaikan memakai uang bersama."
     },
     {
       "id": "T07",
@@ -35,32 +43,48 @@
       "narration": "Nggak; tangga tetap perlu diperiksa."
     },
     {
+      "id": "T08a",
+      "narration": "Menolak usul dengan menyerang orangnya seperti ini disebut ad hominem."
+    },
+    {
+      "id": "T08b",
+      "narration": "Kalau jadi kebiasaan, perilaku merendahkan ini sering disebut toxic."
+    },
+    {
+      "id": "T08c",
+      "narration": "Tapi kita belum tahu seluruh sifat Bima."
+    },
+    {
+      "id": "T08d",
+      "narration": "Niat baik pun bisa dibalas sampai kamu ragu bicara lagi."
+    },
+    {
       "id": "T09",
       "narration": "Diserang juga bukan bukti bahwa usulmu pasti benar."
     },
     {
       "id": "T10",
-      "narration": "Sekarang balik: Bima menawarkan diri memegang uang perbaikan."
+      "narration": "Sekarang Bima ingin mengurus dana perbaikan."
     },
     {
       "id": "T11",
-      "narration": "Kalau kamu menolak cuma karena kesal, apa itu bukti dia akan salah mengurus uang?"
+      "narration": "Karena kamu kesal, apakah dia pasti buruk mengurus uang?"
     },
     {
       "id": "T12",
-      "narration": "Belum tentu; pengalaman dan cara melaporkan uang bisa relevan saat memilih pengelola."
+      "narration": "Belum tentu; pengalaman dan keterbukaan laporannya bisa relevan."
     },
     {
       "id": "T13",
-      "narration": "Tunggakan perlu dibahas, dan tangganya juga bisa diminta untuk diperiksa."
+      "narration": "Iuran dan tangga tetap perlu dibahas."
     },
     {
       "id": "T14",
-      "narration": "Di cerita ini, pemeriksaan menunjukkan tangganya memang licin saat basah."
+      "narration": "Dalam cerita, pemeriksaan membuktikan tangganya licin saat basah."
     },
     {
       "id": "T15",
-      "narration": "Kalau jadi kamu, apa yang kamu jawab dulu?"
+      "narration": "Kalau kamu di grup itu, apa yang kamu jawab dulu?"
     }
   ]
 }

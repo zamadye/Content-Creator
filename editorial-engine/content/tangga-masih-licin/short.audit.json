@@ -1,5 +1,5 @@
 {
-  "scriptId": "tangga-masih-licin-short-v1",
+  "scriptId": "tangga-masih-licin-short-v2",
   "audienceAnchor": {
     "situation": "Di grup bersama, sebuah usul bergeser menjadi pembahasan orang yang mengirimkannya.",
     "scope": "Seluruh tokoh dan kejadian fiktif. Tidak semua informasi tentang seseorang tidak relevan; tidak ada diagnosis psikologis."
@@ -29,7 +29,7 @@
     },
     {
       "sceneId": "T03",
-      "text": "Setelah tetanggamu hampir terpeleset, kamu bilang di grup bahwa tangganya licin kalau hujan dan perlu dicek.",
+      "text": "Tetanggamu nyaris terpeleset, lalu kamu minta tangga diperiksa di grup.",
       "purpose": "Memberi konteks usul tanpa kehilangan inti.",
       "viewerQuestion": "Bagaimana tanggapan penghuni?",
       "connection": "Masalah dikemukakan sebagai klaim yang dapat diperiksa.",
@@ -50,8 +50,30 @@
       "wordChoice": "Jadi menghubungkan penolakan dengan tunggakan."
     },
     {
+      "sceneId": "T04a",
+      "text": "Niatmu cuma mencegah tetangga jatuh.",
+      "purpose": "Memperjelas jarak antara niat baik dan balasan menyakitkan.",
+      "viewerQuestion": "Mengapa usulnya malah ditolak?",
+      "connection": "Kejadian dan niat merupakan unsur cerita fiksi.",
+      "visualAction": "Kilas ingatan sandal dan pegangan muncul di belakang Nara. sandal tetangga → hampir tergelincir dalam ingatan; pegangan tangga → tetap digenggam tetangga",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T05 mengakui tunggakannya.",
+      "wordChoice": "Padahal menekankan kontras tanpa menjamin usul benar."
+    },
+    {
+      "sceneId": "T04b",
+      "text": "Minggu lalu, laporan lampu mati pun disindir Bima.",
+      "purpose": "Memberi contoh kedua sehingga penonton melihat bukan hanya dugaan pola.",
+      "viewerQuestion": "Apa akibatnya saat usul keselamatan diserang lagi?",
+      "connection": "Dua peristiwa adalah unsur rekaan, bukan dasar menilai seluruh sifat tokoh.",
+      "visualAction": "Kilas satu pesan lama di samping lampu lorong; label MINGGU LALU. lampu lorong → mati pada kilas yang diberi label minggu lalu; telepon Nara → menampilkan sindiran Bima tentang laporan lampu",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T05 mengakui bahwa tunggakan tetap benar.",
+      "wordChoice": "Juga menyatakan ada kejadian sebelumnya dalam cerita fiksi."
+    },
+    {
       "sceneId": "T05",
-      "text": "Dan iya, dalam cerita ini kamu memang menunggak.",
+      "text": "Dan iya, iuranmu memang menunggak.",
       "purpose": "Mencegah pembacaan bahwa tuduhan otomatis bohong.",
       "viewerQuestion": "Apa kewajiban tokoh?",
       "connection": "Kesalahan tokoh tidak menghilangkan pertanyaan tangga.",
@@ -62,7 +84,7 @@
     },
     {
       "sceneId": "T06",
-      "text": "Itu perlu dicari jalan keluarnya, apalagi kalau perbaikan memakai uang bersama.",
+      "text": "Itu perlu diurus, apalagi kalau perbaikan memakai uang bersama.",
       "purpose": "Mengakui kepentingan warga tanpa memaksa penyelesaian yang tak mampu dilakukan.",
       "viewerQuestion": "Apakah tunggakan menjawab kondisi tangga?",
       "connection": "Keuangan dan kondisi fisik bisa sama-sama penting.",
@@ -94,6 +116,50 @@
       "wordChoice": "Diperiksa berarti hasil belum diketahui."
     },
     {
+      "sceneId": "T08a",
+      "text": "Menolak usul dengan menyerang orangnya seperti ini disebut ad hominem.",
+      "purpose": "Menyebut nama kekeliruan setelah penonton melihat contohnya.",
+      "viewerQuestion": "Apakah segala kritik tentang orang berarti ad hominem?",
+      "connection": "Istilah menjelaskan cara menolak usul dengan alasan pribadi yang tidak relevan.",
+      "visualAction": "Pesan usul tergeser balasan; kartu AD HOMINEM muncul. telepon Bima → menampilkan penolakan karena pengirim; kartu istilah → menampilkan AD HOMINEM setelah contoh",
+      "evidence": "R1/R2: serangan pribadi yang tidak relevan tidak membantah argumen.",
+      "nextOrPayoff": "T08b membahas kemungkinan kebiasaan merendahkan tanpa diagnosis.",
+      "wordChoice": "Seperti ini membatasi penjelasan pada konteks."
+    },
+    {
+      "sceneId": "T08b",
+      "text": "Kalau jadi kebiasaan, perilaku merendahkan ini sering disebut toxic.",
+      "purpose": "Memberi istilah sehari-hari tentang pola perilaku yang dapat merugikan.",
+      "viewerQuestion": "Apakah pola Bima sudah diketahui?",
+      "connection": "Ada dua adegan rekaan; kebiasaan tidak diketahui pasti dan toxic bukan diagnosis.",
+      "visualAction": "Kalender bergeser bertanda JIKA BERULANG; telepon di sampingnya. kalender → bergeser sebagai gambaran pola yang mungkin; telepon Nara → menunjukkan contoh respons merendahkan sebagai kemungkinan",
+      "evidence": "R5/R6: istilah sehari-hari; perilaku dan pola harus dinilai dalam konteks.",
+      "nextOrPayoff": "T08c menegaskan batas cerita.",
+      "wordChoice": "Kalau dan perilaku menjaga ketepatan."
+    },
+    {
+      "sceneId": "T08c",
+      "text": "Tapi kita belum tahu seluruh sifat Bima.",
+      "purpose": "Membedakan tindakan menyakitkan dalam cerita dari penilaian sifat permanen.",
+      "viewerQuestion": "Bagaimana rasanya jika niat baik dibalas dengan cara ini?",
+      "connection": "Dua kejadian diketahui dalam fiksi, tetapi keseluruhan sifat dan motivasinya tidak diketahui.",
+      "visualAction": "Dua kursi, satu catatan di meja; kedua tokoh tanpa stempel. kursi Nara → berhadapan dengan kursi Bima; catatan bersama → menunggu dibaca di meja",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "T08d menunjukkan kemungkinan dampak.",
+      "wordChoice": "Belum tahu menjaga dari vonis seseorang."
+    },
+    {
+      "sceneId": "T08d",
+      "text": "Niat baik pun bisa dibalas sampai kamu ragu bicara lagi.",
+      "purpose": "Menunjukkan risiko emosional yang mungkin timbul.",
+      "viewerQuestion": "Apakah usul Nara menjadi pasti benar?",
+      "connection": "Bisa tidak mengklaim semua orang bereaksi sama atau mewajibkan korban berdebat.",
+      "visualAction": "Nara menahan jari; telepon dan catatan peringatan ada di meja. telepon Nara → belum mengirim pesan berikutnya; catatan peringatan → ditarik kembali oleh Nara",
+      "evidence": "R4: keamanan saat menyampaikan masalah diteliti dalam konteks kerja, bukan pembuktian untuk semua hubungan.",
+      "nextOrPayoff": "T09 mencegah kesimpulan otomatis.",
+      "wordChoice": "Bisa menjaga ketidakpastian."
+    },
+    {
       "sceneId": "T09",
       "text": "Diserang juga bukan bukti bahwa usulmu pasti benar.",
       "purpose": "Mencegah kesalahan menyimpulkan lawan serangan otomatis benar.",
@@ -106,7 +172,7 @@
     },
     {
       "sceneId": "T10",
-      "text": "Sekarang balik: Bima menawarkan diri memegang uang perbaikan.",
+      "text": "Sekarang Bima ingin mengurus dana perbaikan.",
       "purpose": "Menggeser penonton menjadi pihak yang menilai orang lain.",
       "viewerQuestion": "Apakah sindiran tadi membuktikan ia buruk mengelola uang?",
       "connection": "Tokoh yang sama dapat dinilai menurut tugas berbeda.",
@@ -117,7 +183,7 @@
     },
     {
       "sceneId": "T11",
-      "text": "Kalau kamu menolak cuma karena kesal, apa itu bukti dia akan salah mengurus uang?",
+      "text": "Karena kamu kesal, apakah dia pasti buruk mengurus uang?",
       "purpose": "Mengajak penonton memeriksa sikapnya sendiri.",
       "viewerQuestion": "Informasi apa yang benar-benar relevan?",
       "connection": "Rasa kesal adalah perasaan yang sah, bukan bukti tunggal hasil kerja.",
@@ -128,7 +194,7 @@
     },
     {
       "sceneId": "T12",
-      "text": "Belum tentu; pengalaman dan cara melaporkan uang bisa relevan saat memilih pengelola.",
+      "text": "Belum tentu; pengalaman dan keterbukaan laporannya bisa relevan.",
       "purpose": "Memperlihatkan batas bahwa informasi tentang orang kadang relevan.",
       "viewerQuestion": "Apa yang akan kamu jawab kepada grup?",
       "connection": "Menilai calon pengelola berbeda dari mengukur kondisi tangga.",
@@ -139,7 +205,7 @@
     },
     {
       "sceneId": "T13",
-      "text": "Tunggakan perlu dibahas, dan tangganya juga bisa diminta untuk diperiksa.",
+      "text": "Iuran dan tangga tetap perlu dibahas.",
       "purpose": "Memberi respons konkret yang mengakui dua hal.",
       "viewerQuestion": "Mana yang akan dijawab lebih dulu?",
       "connection": "Keduanya tidak perlu saling menghapus.",
@@ -150,7 +216,7 @@
     },
     {
       "sceneId": "T14",
-      "text": "Di cerita ini, pemeriksaan menunjukkan tangganya memang licin saat basah.",
+      "text": "Dalam cerita, pemeriksaan membuktikan tangganya licin saat basah.",
       "purpose": "Membayar pertanyaan awal dan memberi jawaban dalam dunia fiksi.",
       "viewerQuestion": "Apa yang dilakukan dengan dua persoalan yang sama-sama nyata?",
       "connection": "Hasil contoh tidak membuktikan kondisi tangga di dunia nyata.",
@@ -161,7 +227,7 @@
     },
     {
       "sceneId": "T15",
-      "text": "Kalau jadi kamu, apa yang kamu jawab dulu?",
+      "text": "Kalau kamu di grup itu, apa yang kamu jawab dulu?",
       "purpose": "Mengakhiri di dalam dilema, tanpa instruksi berkomentar.",
       "viewerQuestion": "Apa alasan mendahulukan salah satu sambil tetap menangani keduanya?",
       "connection": "Jawaban dapat berbeda menurut urgensi dan situasi.",

@@ -1,5 +1,5 @@
 {
-  "scriptId": "tangga-masih-licin-master-v1",
+  "scriptId": "tangga-masih-licin-master-v2",
   "audienceAnchor": {
     "situation": "Di grup bersama, sebuah usul bergeser menjadi pembahasan orang yang mengirimkannya.",
     "scope": "Seluruh tokoh dan kejadian fiktif. Tidak semua informasi tentang seseorang tidak relevan; tidak ada diagnosis psikologis."
@@ -138,6 +138,50 @@
       "wordChoice": "Belum ada hanya menyatakan isi cerita saat itu."
     },
     {
+      "sceneId": "S12a",
+      "text": "Padahal kamu cuma ingin tetanggamu selamat.",
+      "purpose": "Menunjukkan niat baik Nara dengan mengingat sebab ia melapor.",
+      "viewerQuestion": "Mengapa niat itu tidak membuat usulnya didengarkan?",
+      "connection": "Ingatan merujuk kejadian fiksi S06, bukan bukti penonton selalu berniat serupa.",
+      "visualAction": "Kilas ingatan berbingkai lembut; sandal tetangga tertahan di pegangan. sandal tetangga → kembali terlihat saat hampir tergelincir; pegangan tangga → tetap menahan tangan tetangga",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "S12b memperlihatkan respons yang menyakitkan.",
+      "wordChoice": "Cuma dan selamat menyampaikan niat tokoh tanpa menilai seluruh karakternya."
+    },
+    {
+      "sceneId": "S12b",
+      "text": "Tapi sekarang kamu malah dipermalukan.",
+      "purpose": "Menunjukkan bahwa niat baik tidak menjamin respons yang baik.",
+      "viewerQuestion": "Apa akibatnya pada keinginan Nara untuk bicara?",
+      "connection": "Perilaku yang tampak adalah membahas kekurangannya untuk menutup usul.",
+      "visualAction": "Medium sisi ruangan; Nara menarik kursi dan menunduk saat layar tetap menyala. kursi Nara → tergeser saat Nara duduk perlahan; telepon Nara → menampilkan balasan grup tanpa menutupi wajah",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "S12c–S12d menampilkan contoh sebelumnya, lalu S13–S13a memberi respons yang mungkin.",
+      "wordChoice": "Dipermalukan menggambarkan kejadian dalam fiksi, bukan diagnosis Bima."
+    },
+    {
+      "sceneId": "S12c",
+      "text": "Dan ini bukan pertama kalinya.",
+      "purpose": "Memperlihatkan bahwa respons sekarang punya pendahulu dalam cerita.",
+      "viewerQuestion": "Apa yang terjadi sebelumnya?",
+      "connection": "Ada kejadian pendahulu dalam fiksi, tetapi tidak semua interaksi dengan Bima diketahui.",
+      "visualAction": "Gulir riwayat grup satu minggu ke atas; kalender terlihat di samping telepon. telepon Nara → menggulir kembali pesan lama; kalender → menandai minggu sebelumnya sebagai konteks",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "S12d menampilkan contoh sebelumnya yang spesifik.",
+      "wordChoice": "Bukan pertama kalinya disertai kejadian yang dapat dilihat, bukan tuduhan kosong."
+    },
+    {
+      "sceneId": "S12d",
+      "text": "Minggu lalu, saat kamu melaporkan lampu lorong mati, Bima menyuruhmu urus hidup sendiri.",
+      "purpose": "Memberi contoh kedua dari respons yang mengecilkan usul.",
+      "viewerQuestion": "Apa yang dirasakan Nara ketika hal serupa terulang?",
+      "connection": "Ini kejadian sebelumnya dalam cerita fiksi, bukan rekam jejak orang nyata.",
+      "visualAction": "Kilas singkat yang diberi label MINGGU LALU: lampu lorong mati dan pesan Bima. lampu lorong → tidak menyala meski saklar ditekan; telepon Nara → menampilkan balasan Bima terhadap laporan lama",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "S13–S13a mengajak memikirkan dampaknya.",
+      "wordChoice": "Menyuruhmu menggambarkan ucapan, bukan menebak motif atau diagnosis."
+    },
+    {
       "sceneId": "S13",
       "text": "Kalau jadi Nara, mungkin kamu juga ingin langsung membela diri.",
       "purpose": "Mengakui reaksi yang masuk akal tanpa menyatakan semua penonton sama.",
@@ -147,6 +191,17 @@
       "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
       "nextOrPayoff": "S14 menunjukkan refleksnya.",
       "wordChoice": "Mungkin membatasi tebakan emosi."
+    },
+    {
+      "sceneId": "S13a",
+      "text": "Atau mungkin kamu malah takut melapor lagi ketika melihat bahaya lain.",
+      "purpose": "Menggambarkan satu kemungkinan dampak, bukan reaksi wajib semua orang.",
+      "viewerQuestion": "Apa yang hilang jika orang jadi ragu mengingatkan?",
+      "connection": "Skenario lanjutan hanya kemungkinan; Nara tidak wajib menghadapi Bima.",
+      "visualAction": "Overhead; catatan peringatan lain ditarik mendekat, jari Nara berhenti. catatan peringatan → belum dikirim sebagai gambaran kemungkinan; telepon Nara → berada di dekat tangan yang ragu",
+      "evidence": "R4: rasa aman saat mengungkapkan masalah dikaji dalam konteks kerja; ini ilustrasi fiksi, bukan akibat yang selalu terjadi.",
+      "nextOrPayoff": "S14 menunjukkan keputusan sesaat dalam cerita.",
+      "wordChoice": "Mungkin menjaga reaksi manusia tidak digeneralisasi."
     },
     {
       "sceneId": "S14",
@@ -237,8 +292,52 @@
       "wordChoice": "Perlu dicek menjaga hasil belum ditentukan."
     },
     {
+      "sceneId": "S21a",
+      "text": "Menolak usul dengan menyerang orangnya seperti ini disebut ad hominem.",
+      "purpose": "Menyebut nama cara penalaran tepat setelah contohnya terlihat.",
+      "viewerQuestion": "Bagian mana yang membuat alasan itu tidak menjawab usul?",
+      "connection": "Istilah menunjuk cara berargumen yang tidak relevan, bukan sifat tetap atau diagnosis orang.",
+      "visualAction": "Pesan di layar bergeser dari isi usul ke serangan; kartu istilah baru muncul kecil. telepon Bima → memperlihatkan usul yang ditolak karena pengirim; kartu istilah → menampilkan AD HOMINEM secara terbaca",
+      "evidence": "R1/R2: ad hominem adalah serangan personal tidak relevan yang digunakan untuk melemahkan usul atau argumen.",
+      "nextOrPayoff": "S21b membedakan tunggakan dari kondisi tangga.",
+      "wordChoice": "Seperti ini mengikat istilah pada konteks, bukan setiap kritik pribadi."
+    },
+    {
+      "sceneId": "S21b",
+      "text": "Yang keliru bukan membahas iuran, tapi memakai tunggakan untuk menolak usul tanpa menjawab kondisi tangga.",
+      "purpose": "Menjelaskan batas istilah dengan contoh, bukan mengajarkan bahwa semua kritik personal salah.",
+      "viewerQuestion": "Kapan informasi tentang orang justru relevan?",
+      "connection": "Iuran relevan pada dana bersama, tetapi tidak sendiri membuktikan kondisi pijakan.",
+      "visualAction": "Split close-up: koin iuran di satu sisi, pijakan di sisi lain. koin iuran → berada di dekat kotak dana sebagai lambang biaya; anak tangga → tetap perlu diperiksa di sisi lain layar",
+      "evidence": "R1/R2: relevansi serangan atau informasi pribadi bergantung pada apa yang sedang dinilai.",
+      "nextOrPayoff": "S21c menghubungkan cara merendahkan yang berulang dengan istilah sehari-hari.",
+      "wordChoice": "Yang keliru menunjuk penggunaan alasan, bukan keberadaan utang."
+    },
+    {
+      "sceneId": "S21c",
+      "text": "Kalau cara merendahkan seperti ini jadi kebiasaan, orang sering menyebutnya perilaku toxic.",
+      "purpose": "Memberi istilah sehari-hari bagi pola perlakuan yang berulang tanpa melabeli orang.",
+      "viewerQuestion": "Apakah dua peristiwa sudah menjelaskan seluruh sifat Bima?",
+      "connection": "Toxic adalah istilah nonklinis; frekuensi dan dampak perlu konteks.",
+      "visualAction": "Kalender bergeser sebagai kemungkinan; label JIKA BERULANG terlihat. kalender → berganti halaman sebagai ilustrasi hipotesis; telepon Nara → menampilkan pola pesan merendahkan sebagai kemungkinan, bukan fakta masa lalu",
+      "evidence": "R5/R6: amati pola dan perilaku; toxic adalah istilah sehari-hari, bukan diagnosis klinis.",
+      "nextOrPayoff": "S21d mengakui bahwa pola Bima belum diketahui.",
+      "wordChoice": "Kalau menandai kemungkinan, bukan klaim bahwa tokoh pasti punya sifat tetap."
+    },
+    {
+      "sceneId": "S21d",
+      "text": "Kita belum tahu seluruh sifat Bima, tapi ucapannya tetap bisa menyakiti.",
+      "purpose": "Mencegah vonis seluruh kepribadian orang tanpa menghapus dampak perilakunya.",
+      "viewerQuestion": "Bagaimana menilai usul dan memilih pengelola dengan adil?",
+      "connection": "Dua contoh dalam cerita menggambarkan perlakuan yang menyakitkan, tetapi tidak mengungkap seluruh sifat tokoh.",
+      "visualAction": "Dua kursi di meja, satu buku terbuka; kedua tokoh tidak diberi stempel. kursi Nara → berhadapan dengan kursi Bima; buku catatan → tetap terbuka tanpa label watak",
+      "evidence": "R5/R6: mempertimbangkan pola dan dampak berbeda dari menegakkan diagnosis pada seseorang.",
+      "nextOrPayoff": "S22 menegaskan bahwa Nara juga tidak otomatis benar.",
+      "wordChoice": "Belum tahu menjaga batas informasi dan menghindari diagnosis."
+    },
+    {
       "sceneId": "S22",
-      "text": "Sebaliknya, diserang bukan berarti usulmu pasti benar.",
+      "text": "Tapi ingat, diserang juga bukan berarti usulmu pasti benar.",
       "purpose": "Mencegah penonton menyimpulkan korban serangan selalu benar.",
       "viewerQuestion": "Informasi apa yang masih dibutuhkan?",
       "connection": "Baik sumber yang disukai maupun yang dibenci bisa benar atau salah.",
@@ -422,6 +521,17 @@
       "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
       "nextOrPayoff": "S39 menempatkan penonton pada keputusan.",
       "wordChoice": "Menghapus memakai metafora pesan yang terhapus sebelumnya."
+    },
+    {
+      "sceneId": "S38a",
+      "text": "Niat baik tidak otomatis membuat orang lain mendengarkan.",
+      "purpose": "Membayar sisi emosional: maksud baik tidak menjamin respons baik.",
+      "viewerQuestion": "Apa cara menjawab yang tidak mengulang serangan tadi?",
+      "connection": "Pengamatan berlaku sebagai batas kemungkinan, bukan kepastian semua orang akan merendahkan.",
+      "visualAction": "Medium Nara menutup buku, telepon diletakkan di meja dengan layar tetap menyala. buku catatan → ditutup perlahan oleh Nara; telepon Nara → memperlihatkan dua persoalan tetap terbuka",
+      "evidence": "Fiksi — adegan dan dialog rekaan; bukan data atau kutipan kejadian nyata.",
+      "nextOrPayoff": "S39 meninggalkan keputusan pada penonton.",
+      "wordChoice": "Tidak otomatis membuka kemungkinan respons lain, bukan tuduhan semua orang toxic."
     },
     {
       "sceneId": "S39",

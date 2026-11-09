@@ -1,6 +1,6 @@
 {
-  "id": "tangga-masih-licin-master-v1",
-  "status": "DRAF EVALUASI PRIVAT — bukan persetujuan editorial, prevoice atau tayang",
+  "id": "tangga-masih-licin-master-v2",
+  "status": "DRAF REVISI PRIVAT — arah mendapat tanggapan positif dengan koreksi; naskah, prevoice dan tayang belum disetujui",
   "scenes": [
     {
       "id": "S01",
@@ -51,8 +51,28 @@
       "narration": "Tapi soal tangganya, belum ada yang menjawab."
     },
     {
+      "id": "S12a",
+      "narration": "Padahal kamu cuma ingin tetanggamu selamat."
+    },
+    {
+      "id": "S12b",
+      "narration": "Tapi sekarang kamu malah dipermalukan."
+    },
+    {
+      "id": "S12c",
+      "narration": "Dan ini bukan pertama kalinya."
+    },
+    {
+      "id": "S12d",
+      "narration": "Minggu lalu, saat kamu melaporkan lampu lorong mati, Bima menyuruhmu urus hidup sendiri."
+    },
+    {
       "id": "S13",
       "narration": "Kalau jadi Nara, mungkin kamu juga ingin langsung membela diri."
+    },
+    {
+      "id": "S13a",
+      "narration": "Atau mungkin kamu malah takut melapor lagi ketika melihat bahaya lain."
     },
     {
       "id": "S14",
@@ -87,8 +107,24 @@
       "narration": "Nggak juga; kondisi tangga perlu dicek terpisah."
     },
     {
+      "id": "S21a",
+      "narration": "Menolak usul dengan menyerang orangnya seperti ini disebut ad hominem."
+    },
+    {
+      "id": "S21b",
+      "narration": "Yang keliru bukan membahas iuran, tapi memakai tunggakan untuk menolak usul tanpa menjawab kondisi tangga."
+    },
+    {
+      "id": "S21c",
+      "narration": "Kalau cara merendahkan seperti ini jadi kebiasaan, orang sering menyebutnya perilaku toxic."
+    },
+    {
+      "id": "S21d",
+      "narration": "Kita belum tahu seluruh sifat Bima, tapi ucapannya tetap bisa menyakiti."
+    },
+    {
       "id": "S22",
-      "narration": "Sebaliknya, diserang bukan berarti usulmu pasti benar."
+      "narration": "Tapi ingat, diserang juga bukan berarti usulmu pasti benar."
     },
     {
       "id": "S23",
@@ -153,6 +189,10 @@
     {
       "id": "S38",
       "narration": "Yang satu tidak menghapus yang lain."
+    },
+    {
+      "id": "S38a",
+      "narration": "Niat baik tidak otomatis membuat orang lain mendengarkan."
     },
     {
       "id": "S39",

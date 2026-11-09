@@ -16,7 +16,9 @@
 | Pembuka | Makro pijakan basah + sandal, lalu detail telepon. Masalah langsung tampak dari frame 0 dan cut sebelum alasan pengalihan. | Janji awal: kenapa tangganya masih belum dibahas? |
 | Penyebab | Wide rumah/hujan, medium tetangga memegang pegangan, close-up sandal yang tergelincir sedikit dan tertahan. | Penonton melihat alasan melapor; tidak menggambarkan orang jatuh atau terluka. |
 | Konflik | Over-shoulder telepon, Bima dan cangkir, lalu ruang tangga di luar pintu; pesan bergerak dan menyingkirkan usul. | Perpindahan dari objek yang perlu dicek ke orang yang diserang. |
+| Kilas pola | Lampu lorong mati dan saklar, riwayat pesan berlabel MINGGU LALU; kembali ke Nara yang ragu. | Memperlihatkan contoh kedua dalam fiksi tanpa menyatakan seluruh sifat Bima. |
 | Pengakuan | Catatan iuran, pensil, amplop, lalu kotak dana dan perkiraan biaya. | Memberi bobot pada iuran tanpa mengulang telepon terus-menerus. |
+| Nama konsep | Kartu “AD HOMINEM” setelah adegan, koin iuran dan pijakan; kalender sebagai kemungkinan kebiasaan. | Nama dan penjelasan dihubungkan ke contoh; perilaku toxic tidak diperlakukan sebagai diagnosis. |
 | Pemeriksaan ide | Pijakan, catatan dan kaca pembesar; pensil tidak memberi centang otomatis. | Dua persoalan dipisahkan; usul tetap butuh bukti. |
 | Tukar posisi | Cermin dan kursi sebagai transisi; kotak dana, buku kas, serta reaksi Nara. | Penonton menilai orang yang sebelumnya menyerang Nara. |
 | Akibat/payoff | Balasan singkat, papan bersama, petugas, lembar hasil lalu kursi yang menghadap dua catatan. | Pemeriksaan dalam fiksi menjawab pertanyaan awal; keputusan penonton tetap terbuka. |
@@ -32,4 +34,4 @@
 
 ## Proses bila pemilik menyetujui arah
 
-Uji naskah dan animatic privat sebelum produksi final, jangan otomatis memakai draf tas atau memoles objek berulang tanpa mengubah fungsinya. Gunakan satu narasi voice-05 per video (potongan boleh disatukan), subtitle yang dipenggal bermakna, dan musik dramatis yang tidak menutupi suara. Master dibuat lebih dulu; Short disusun dari momen penentunya dengan peta `short-sumber-master.json` dan konteks serta jawaban mandiri. Rekaman, hak suara/font/musik, sinkron, playback manusia, ponsel dan label platform tetap memerlukan review; jangan menjadwalkan tanpa izin.
+Produksi dimulai sebagai animatic privat; uji naskah dan animatic sebelum produksi final, jangan otomatis memakai draf tas atau memoles objek berulang tanpa mengubah fungsinya. Gunakan satu narasi voice-05 per video (potongan boleh disatukan), subtitle yang dipenggal bermakna, dan musik dramatis yang tidak menutupi suara. Master dibuat lebih dulu; Short disusun dari momen penentunya dengan peta `short-sumber-master.json` dan konteks serta jawaban mandiri. Rekaman, hak suara/font/musik, sinkron, playback manusia, ponsel dan label platform tetap memerlukan review; jangan menjadwalkan tanpa izin.

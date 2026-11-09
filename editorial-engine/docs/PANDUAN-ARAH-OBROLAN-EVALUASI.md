@@ -11,7 +11,7 @@ Dokumen ini menerapkan umpan balik pemilik untuk karya baru dan melengkapi, buka
 ## Bicara dengan penonton dari dalam cerita
 
 1. Letakkan penonton pada pilihan nyata yang bisa dibayangkan. Sisipkan pertanyaan sebagai bagian keputusan, ungkap informasi baru, lalu bayar pertanyaan. Jangan mengganti isi dengan “tulis pendapatmu” atau menjejalkan istilah.
-2. Gunakan bahasa Indonesia alami dan konkret. Analogi boleh dipakai jika menjernihkan serta batasnya dijelaskan; jangan memaksakan metafora ke semua kalimat. Jika istilah teknis tidak perlu, simpan di dokumentasi sumber.
+2. Gunakan bahasa Indonesia alami dan konkret. Analogi boleh dipakai jika menjernihkan serta batasnya dijelaskan; jangan memaksakan metafora ke semua kalimat. Bila nama konsep merupakan bagian dari pembelajaran, sebutkan secara benar setelah contoh konkret lalu jelaskan dengan bahasa sederhana; jangan menyembunyikannya atau menjadikan nama tersebut diagnosis orang.
 3. Berikan sudut pandang yang masuk akal dan bukti yang dapat diperiksa; hindari tokoh bodoh yang diciptakan hanya supaya dipermalukan. Pertanyaan terbuka bukan alasan untuk menyamakan klaim yang salah dengan fakta yang didukung bukti.
 4. Nama konsep bukan vonis manusia. Serangan personal yang tidak relevan tidak membantah suatu klaim, namun kredibilitas atau kemampuan seseorang kadang memang relevan pada tugas yang sedang dinilai. Argumen lemah tidak membuktikan kebalikannya benar.
 5. Respons terhadap rasa terkekang tidak identik dengan taktik *reverse psychology* yang sengaja menyatakan keinginan sebaliknya. Jangan janjikan orang akan bertindak berlawanan, menebak diagnosis, atau menawarkan cara memanipulasi hubungan.

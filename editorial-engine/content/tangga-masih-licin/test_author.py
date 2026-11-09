@@ -88,6 +88,59 @@ class EvaluationDraftTests(unittest.TestCase):
         # Prior brand ending remains an explicit review decision, not a silently deleted rule.
         self.assertIn('konfirmasi',(ROOT/'evaluasi-arah.md').read_text(encoding='utf-8').lower())
 
+    def test_named_concepts_follow_concrete_examples(self):
+        for edition in ('master','short'):
+            scenes=load(f'{edition}.script.json')['scenes']
+            text=' '.join(s['narration'] for s in scenes).lower()
+            with self.subTest(edition=edition):
+                self.assertLess(text.index('bima membalas'),text.index('ad hominem'))
+                self.assertIn('menyerang orangnya',text)
+                self.assertIn('toxic',text)
+                self.assertIn('sifat bima',text)
+                self.assertIn('perilaku',text)
+                self.assertNotIn('bima adalah orang toxic',text)
+                self.assertNotIn('diagnosis',text)
+
+    def test_intention_repeated_example_and_possible_hesitation(self):
+        for edition in ('master','short'):
+            text=' '.join(s['narration'] for s in load(f'{edition}.script.json')['scenes']).lower()
+            with self.subTest(edition=edition):
+                self.assertIn('tetangga',text)
+                self.assertIn('minggu lalu',text)
+                self.assertIn('lampu',text)
+                self.assertTrue('ragu bicara' in text or 'takut melapor lagi' in text)
+
+    def test_relevance_and_limits_are_preserved(self):
+        for edition in ('master','short'):
+            text=' '.join(s['narration'] for s in load(f'{edition}.script.json')['scenes']).lower()
+            with self.subTest(edition=edition):
+                self.assertIn('menunggak',text)
+                self.assertIn('pengalaman',text)
+                self.assertIn('belum tentu',text)
+                self.assertIn('pasti benar',text)
+                self.assertIn('pemeriksaan',text)
+
+    def test_short_revision_maps_educational_beats_to_master(self):
+        required={'T04a':'S12a','T04b':'S12d','T08a':'S21a','T08b':'S21c',
+                  'T08c':'S21d','T08d':'S13a','T14':'S36'}
+        for short,master in required.items():
+            with self.subTest(short=short):self.assertIn(master,self.sources[short])
+
+    def test_pdf_groups_validate_full_order_and_reject_omission(self):
+        # The PDF builder depends on reportlab; install its documented dependency
+        # to run this check. It validates actual inclusive ID ranges, not integer slices.
+        try: import reportlab  # noqa: F401
+        except ImportError: self.skipTest('reportlab not installed')
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('review_pdf',ROOT/'build_review.py')
+        pdf=importlib.util.module_from_spec(spec);spec.loader.exec_module(pdf)
+        for edition,groups in [('master',pdf.MASTER_GROUPS),('short',pdf.SHORT_GROUPS)]:
+            scenes=load(f'{edition}.script.json')['scenes']
+            planned=pdf.grouped_scenes(scenes,groups)
+            self.assertEqual([x['id'] for g in planned for x in g[4]],[x['id'] for x in scenes])
+            with self.assertRaises(ValueError):pdf.grouped_scenes(scenes,groups[:-1])
+            with self.assertRaises(ValueError):pdf.grouped_scenes(scenes,groups+groups[-1:])
+
     def test_audits_cover_every_script_line(self):
         for version in ('master','short'):
             script=load(f'{version}.script.json'); audit=load(f'{version}.audit.json')

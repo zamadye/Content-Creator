@@ -193,6 +193,70 @@
       ]
     },
     {
+      "id": "S12a",
+      "beat": "B4",
+      "shot": "Kilas ingatan berbingkai lembut; sandal tetangga tertahan di pegangan.",
+      "focal": "ingatan tangga",
+      "objectMap": [
+        {
+          "object": "sandal tetangga",
+          "action": "kembali terlihat saat hampir tergelincir"
+        },
+        {
+          "object": "pegangan tangga",
+          "action": "tetap menahan tangan tetangga"
+        }
+      ]
+    },
+    {
+      "id": "S12b",
+      "beat": "B4",
+      "shot": "Medium sisi ruangan; Nara menarik kursi dan menunduk saat layar tetap menyala.",
+      "focal": "kursi Nara",
+      "objectMap": [
+        {
+          "object": "kursi Nara",
+          "action": "tergeser saat Nara duduk perlahan"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan balasan grup tanpa menutupi wajah"
+        }
+      ]
+    },
+    {
+      "id": "S12c",
+      "beat": "B4",
+      "shot": "Gulir riwayat grup satu minggu ke atas; kalender terlihat di samping telepon.",
+      "focal": "kalender grup",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "menggulir kembali pesan lama"
+        },
+        {
+          "object": "kalender",
+          "action": "menandai minggu sebelumnya sebagai konteks"
+        }
+      ]
+    },
+    {
+      "id": "S12d",
+      "beat": "B4",
+      "shot": "Kilas singkat yang diberi label MINGGU LALU: lampu lorong mati dan pesan Bima.",
+      "focal": "lampu lorong",
+      "objectMap": [
+        {
+          "object": "lampu lorong",
+          "action": "tidak menyala meski saklar ditekan"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan balasan Bima terhadap laporan lama"
+        }
+      ]
+    },
+    {
       "id": "S13",
       "beat": "B4",
       "shot": "Medium Nara dengan layar grup memantul di matanya.",
@@ -205,6 +269,22 @@
         {
           "object": "amplop iuran",
           "action": "tergeletak tertutup di meja"
+        }
+      ]
+    },
+    {
+      "id": "S13a",
+      "beat": "B4",
+      "shot": "Overhead; catatan peringatan lain ditarik mendekat, jari Nara berhenti.",
+      "focal": "catatan peringatan",
+      "objectMap": [
+        {
+          "object": "catatan peringatan",
+          "action": "belum dikirim sebagai gambaran kemungkinan"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "berada di dekat tangan yang ragu"
         }
       ]
     },
@@ -333,6 +413,70 @@
         {
           "object": "anak tangga",
           "action": "berada di sisi lain garis putus ilustratif"
+        }
+      ]
+    },
+    {
+      "id": "S21a",
+      "beat": "B6",
+      "shot": "Pesan di layar bergeser dari isi usul ke serangan; kartu istilah baru muncul kecil.",
+      "focal": "kartu ad hominem",
+      "objectMap": [
+        {
+          "object": "telepon Bima",
+          "action": "memperlihatkan usul yang ditolak karena pengirim"
+        },
+        {
+          "object": "kartu istilah",
+          "action": "menampilkan AD HOMINEM secara terbaca"
+        }
+      ]
+    },
+    {
+      "id": "S21b",
+      "beat": "B6",
+      "shot": "Split close-up: koin iuran di satu sisi, pijakan di sisi lain.",
+      "focal": "koin dan pijakan",
+      "objectMap": [
+        {
+          "object": "koin iuran",
+          "action": "berada di dekat kotak dana sebagai lambang biaya"
+        },
+        {
+          "object": "anak tangga",
+          "action": "tetap perlu diperiksa di sisi lain layar"
+        }
+      ]
+    },
+    {
+      "id": "S21c",
+      "beat": "B6",
+      "shot": "Kalender bergeser sebagai kemungkinan; label JIKA BERULANG terlihat.",
+      "focal": "kalender kemungkinan",
+      "objectMap": [
+        {
+          "object": "kalender",
+          "action": "berganti halaman sebagai ilustrasi hipotesis"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan pola pesan merendahkan sebagai kemungkinan, bukan fakta masa lalu"
+        }
+      ]
+    },
+    {
+      "id": "S21d",
+      "beat": "B6",
+      "shot": "Dua kursi di meja, satu buku terbuka; kedua tokoh tidak diberi stempel.",
+      "focal": "dua kursi",
+      "objectMap": [
+        {
+          "object": "kursi Nara",
+          "action": "berhadapan dengan kursi Bima"
+        },
+        {
+          "object": "buku catatan",
+          "action": "tetap terbuka tanpa label watak"
         }
       ]
     },
@@ -613,6 +757,22 @@
       ]
     },
     {
+      "id": "S38a",
+      "beat": "B9",
+      "shot": "Medium Nara menutup buku, telepon diletakkan di meja dengan layar tetap menyala.",
+      "focal": "buku Nara",
+      "objectMap": [
+        {
+          "object": "buku catatan",
+          "action": "ditutup perlahan oleh Nara"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "memperlihatkan dua persoalan tetap terbuka"
+        }
+      ]
+    },
+    {
       "id": "S39",
       "beat": "B9",
       "shot": "Tatap penonton lewat posisi kursi kosong; dua catatan ada di meja.",
@@ -714,6 +874,46 @@
       ]
     },
     {
+      "id": "T04a",
+      "beat": "B4",
+      "shot": "Kilas ingatan sandal dan pegangan muncul di belakang Nara.",
+      "focal": "ingatan tetangga",
+      "objectMap": [
+        {
+          "object": "sandal tetangga",
+          "action": "hampir tergelincir dalam ingatan"
+        },
+        {
+          "object": "pegangan tangga",
+          "action": "tetap digenggam tetangga"
+        }
+      ],
+      "sourceSceneIds": [
+        "S12a",
+        "S12b"
+      ]
+    },
+    {
+      "id": "T04b",
+      "beat": "B4",
+      "shot": "Kilas satu pesan lama di samping lampu lorong; label MINGGU LALU.",
+      "focal": "lampu lorong",
+      "objectMap": [
+        {
+          "object": "lampu lorong",
+          "action": "mati pada kilas yang diberi label minggu lalu"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "menampilkan sindiran Bima tentang laporan lampu"
+        }
+      ],
+      "sourceSceneIds": [
+        "S12c",
+        "S12d"
+      ]
+    },
+    {
       "id": "T05",
       "beat": "B5",
       "shot": "Catatan iuran dan amplop di meja.",
@@ -790,6 +990,84 @@
       ],
       "sourceSceneIds": [
         "S21"
+      ]
+    },
+    {
+      "id": "T08a",
+      "beat": "B6",
+      "shot": "Pesan usul tergeser balasan; kartu AD HOMINEM muncul.",
+      "focal": "kartu ad hominem",
+      "objectMap": [
+        {
+          "object": "telepon Bima",
+          "action": "menampilkan penolakan karena pengirim"
+        },
+        {
+          "object": "kartu istilah",
+          "action": "menampilkan AD HOMINEM setelah contoh"
+        }
+      ],
+      "sourceSceneIds": [
+        "S21a",
+        "S21b"
+      ]
+    },
+    {
+      "id": "T08b",
+      "beat": "B6",
+      "shot": "Kalender bergeser bertanda JIKA BERULANG; telepon di sampingnya.",
+      "focal": "kalender kemungkinan",
+      "objectMap": [
+        {
+          "object": "kalender",
+          "action": "bergeser sebagai gambaran pola yang mungkin"
+        },
+        {
+          "object": "telepon Nara",
+          "action": "menunjukkan contoh respons merendahkan sebagai kemungkinan"
+        }
+      ],
+      "sourceSceneIds": [
+        "S21c"
+      ]
+    },
+    {
+      "id": "T08c",
+      "beat": "B6",
+      "shot": "Dua kursi, satu catatan di meja; kedua tokoh tanpa stempel.",
+      "focal": "dua kursi",
+      "objectMap": [
+        {
+          "object": "kursi Nara",
+          "action": "berhadapan dengan kursi Bima"
+        },
+        {
+          "object": "catatan bersama",
+          "action": "menunggu dibaca di meja"
+        }
+      ],
+      "sourceSceneIds": [
+        "S21d"
+      ]
+    },
+    {
+      "id": "T08d",
+      "beat": "B6",
+      "shot": "Nara menahan jari; telepon dan catatan peringatan ada di meja.",
+      "focal": "catatan peringatan",
+      "objectMap": [
+        {
+          "object": "telepon Nara",
+          "action": "belum mengirim pesan berikutnya"
+        },
+        {
+          "object": "catatan peringatan",
+          "action": "ditarik kembali oleh Nara"
+        }
+      ],
+      "sourceSceneIds": [
+        "S13a",
+        "S38a"
       ]
     },
     {

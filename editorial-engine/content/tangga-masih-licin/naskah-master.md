@@ -1,6 +1,6 @@
 # Naskah Master — Tangga Itu Masih Licin
 
-DRAF EVALUASI PRIVAT. Nara, Bima, tempat dan kejadian adalah fiksi.
+DRAF REVISI PRIVAT. Nara, Bima, tempat dan kejadian adalah fiksi.
 
 
 ## S01
@@ -39,8 +39,23 @@ Dalam beberapa menit, grup ramai membahas kamu.
 ## S12
 Tapi soal tangganya, belum ada yang menjawab.
 
+## S12a
+Padahal kamu cuma ingin tetanggamu selamat.
+
+## S12b
+Tapi sekarang kamu malah dipermalukan.
+
+## S12c
+Dan ini bukan pertama kalinya.
+
+## S12d
+Minggu lalu, saat kamu melaporkan lampu lorong mati, Bima menyuruhmu urus hidup sendiri.
+
 ## S13
 Kalau jadi Nara, mungkin kamu juga ingin langsung membela diri.
+
+## S13a
+Atau mungkin kamu malah takut melapor lagi ketika melihat bahaya lain.
 
 ## S14
 Kamu mengetik penjelasan panjang, lalu berhenti sebelum mengirimnya.
@@ -66,8 +81,20 @@ Keterlambatanmu membuktikan tangganya aman?
 ## S21
 Nggak juga; kondisi tangga perlu dicek terpisah.
 
+## S21a
+Menolak usul dengan menyerang orangnya seperti ini disebut ad hominem.
+
+## S21b
+Yang keliru bukan membahas iuran, tapi memakai tunggakan untuk menolak usul tanpa menjawab kondisi tangga.
+
+## S21c
+Kalau cara merendahkan seperti ini jadi kebiasaan, orang sering menyebutnya perilaku toxic.
+
+## S21d
+Kita belum tahu seluruh sifat Bima, tapi ucapannya tetap bisa menyakiti.
+
 ## S22
-Sebaliknya, diserang bukan berarti usulmu pasti benar.
+Tapi ingat, diserang juga bukan berarti usulmu pasti benar.
 
 ## S23
 Bisa saja kamu keliru soal seberapa licin, atau ada cara perbaikan lain.
@@ -116,6 +143,9 @@ Tunggakanmu tetap ada, dan tangganya juga perlu ditangani.
 
 ## S38
 Yang satu tidak menghapus yang lain.
+
+## S38a
+Niat baik tidak otomatis membuat orang lain mendengarkan.
 
 ## S39
 Kalau kamu ada di grup itu, hal mana yang akan kamu jawab dulu?

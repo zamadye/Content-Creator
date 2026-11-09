@@ -1,6 +1,6 @@
 # Evaluasi arah konten: berbicara bersama penonton
 
-**Status: usulan untuk ditinjau, bukan topik yang sudah disetujui.** Referensi animasi dipakai sebagai acuan pendekatan visual dan gerak, bukan kewajiban membahas bisnis, menyalin cerita, karakter, aset, teks, atau alur referensi. Umpan balik pemilik: animasi sebelumnya cukup baik, sebagian objek terasa berulang, dan isi edukasinya belum cukup menarik. Ini penilaian pemilik terhadap draf terdahulu, bukan hasil survei penonton.
+**Status: arah mendapat tanggapan positif dengan koreksi; pemilik meminta revisi lalu produksi. Preview tetap privat dan naskah revisi belum disetujui untuk tayang.** Referensi animasi dipakai sebagai acuan pendekatan visual dan gerak, bukan kewajiban membahas bisnis, menyalin cerita, karakter, aset, teks, atau alur referensi. Umpan balik pemilik: animasi sebelumnya cukup baik, sebagian objek terasa berulang, dan isi edukasinya belum cukup menarik. Ini penilaian pemilik terhadap draf terdahulu, bukan hasil survei penonton.
 
 ## Kandidat yang dibandingkan
 
@@ -17,6 +17,8 @@ Urutan ini keputusan editorial berdasarkan potensi alur, objek, dan batas klaim,
 ## Usulan pilot: “Tangga Itu Masih Licin”
 
 Nara melapor bahwa tangga bersama licin setelah seorang tetangga hampir terpeleset. Bima menjawab bahwa Nara sendiri menunggak dua bulan, sehingga usulnya tidak perlu dibahas. Ia benar soal tunggakan; uang bersama bisa relevan pada biaya. Tetapi itu sendiri tidak menentukan kondisi pijakan.
+
+Dalam revisi, Nara juga mengingat laporan lampu mati minggu sebelumnya yang disindir Bima. Niatnya membantu tidak otomatis dibalas baik dan ia mungkin ragu bicara lagi. Cara menolak usul dengan menyerang orangnya dikenalkan sebagai **ad hominem**; kebiasaan merendahkan dijelaskan sebagai perilaku yang dalam bahasa sehari-hari sering disebut **toxic**, bukan diagnosis atau vonis keseluruhan sifat Bima.
 
 Cerita lalu membalik posisi: Bima menawarkan mengurus dana, dan Nara kesal kepadanya. Apakah rasa kesal cukup untuk membuktikan Bima akan salah mengelola uang? Belum tentu. Namun pengalaman dan cara membuat laporan bisa relevan ketika memilih pengelola. Akhirnya dua masalah dibicarakan, dan **dalam cerita fiksi ini** hasil pemeriksaan menyatakan tangga licin saat basah. Tunggakan tetap perlu dicari jalan keluarnya.
 
@@ -37,10 +39,10 @@ Kekuatan di atas adalah **hipotesis editorial**, bukan bukti penonton akan meras
 - **Tukar posisi:** “Rasa kesal cukup untuk membuktikan Bima akan salah mengurus uang?” Tidak otomatis; pengalaman dan pelaporan bisa relevan terhadap tugas tersebut.
 - **Penutup isi:** “Kalau kamu ada di grup itu, hal mana yang akan kamu jawab dulu?” Ini keputusan dalam cerita, bukan perintah “tulis di komentar”; masih ada lebih dari dua cara menjawab.
 
-Pertanyaan tidak perlu dibacakan bertubi-tubi. Ritme dan jeda harus diuji pada animatic dan dengan penyimak manusia. Naskah tidak memakai istilah ad hominem di narasi; nama konsep tercatat hanya untuk riset.
+Pertanyaan tidak perlu dibacakan bertubi-tubi. Ritme dan jeda harus diuji pada animatic dan dengan penyimak manusia. Setelah contoh, naskah menyebut **ad hominem** dan menjelaskan kaitannya dengan tangga; istilah **perilaku toxic** dijelaskan sebagai kebiasaan merendahkan, bukan sifat pasti seseorang. Niat baik tidak menjamin respons baik, tetapi diserang juga tidak otomatis membuat usul benar.
 
 ## Keputusan yang belum dibuat
 
-- Persetujuan pemilik atas topik, isi, dan bentuk pembalikan: **NEEDS REVIEW**.
+- Pemilik menanggapi arah awal secara positif, meminta tambahan penjelasan dan meminta produksi. Naskah hasil revisi dan preview masih **NEEDS REVIEW** sebelum rilis.
 - Arahan terbaru meminta diskusi lahir dari konten, bukan CTA; karena aturan penutup lama meminta **`ikuti knot theory`**, draf ini sengaja tidak menyisipkan CTA. Sebelum final, konfirmasi apakah penutup brand lama tetap diinginkan sebagai tambahan terpisah, tanpa menjadikannya pemicu diskusi. Jika disetujui, gunakan huruf kecil dan narasikan nama sebagai kata-kata.
-- Tidak ada video, suara, gambar final, jadwal, atau publikasi pada tahap ini. Outline mekanis bukan persetujuan editorial; hak, disclosure, playback dan respons audiens tetap perlu diperiksa.
+- Preview produksi dikerjakan secara privat, bukan video siap tayang. Outline mekanis bukan persetujuan editorial; hak, disclosure, playback, respons audiens dan penjadwalan tetap perlu diperiksa.

@@ -98,13 +98,44 @@ def review_table(rows,widths):
        ('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7),('LINEBELOW',(0,0),(-1,0),0,WHITE)]))
     return t
 
-def script_group(scenes,label,start,end,hook=False):
-    text=' '.join(s['narration'] for s in scenes[start-1:end])
-    return [section(f'{label}  /  S{start:02}–S{end:02}'),P(markup(text),'script_hook' if hook else 'script')]
+# Explicit IDs include the letter-suffixed revisions; grouping validates coverage
+# so a future insertion cannot disappear silently from the review PDF.
+MASTER_GROUPS = [
+    ('Pembuka','S01','S02',True), ('Melihat masalah','S03','S07',False),
+    ('Percakapan bergeser','S08','S12d',False), ('Mau membela diri','S13','S18',False),
+    ('Periksa persoalannya','S19','S24',False), ('Balik posisinya','S25','S31',False),
+    ('Apa yang dikirim?','S32','S34',False), ('Akibat dan penutup','S35','S39',False),
+]
+SHORT_GROUPS = [
+    ('Pembuka & konteks','T01','T04b',False), ('Dua persoalan','T05','T09',False),
+    ('Tukar posisi & akibat','T10','T15',False),
+]
+
+def grouped_scenes(scenes, groups):
+    indices={s['id']:i for i,s in enumerate(scenes)}
+    if len(indices)!=len(scenes):
+        raise ValueError('Duplicate scene IDs in PDF input')
+    result=[]; flattened=[]
+    for label,first,last,hook in groups:
+        if first not in indices or last not in indices or indices[first]>indices[last]:
+            raise ValueError(f'Invalid inclusive range {first}–{last}')
+        subset=scenes[indices[first]:indices[last]+1]
+        flattened.extend(s['id'] for s in subset)
+        result.append((label, first, last, hook, subset))
+    if flattened != [s['id'] for s in scenes]:
+        raise ValueError('PDF groups must include each scene exactly once and in order')
+    return result
+
+def script_group(group):
+    label,first,last,hook,scenes=group
+    text=' '.join(s['narration'] for s in scenes)
+    return [section(f'{label}  /  {first}–{last}'),P(markup(text),'script_hook' if hook else 'script')]
 
 def build(output):
     master=json.loads((HERE/'master.script.json').read_text(encoding='utf-8'))['scenes']
     short=json.loads((HERE/'short.script.json').read_text(encoding='utf-8'))['scenes']
+    master_groups=grouped_scenes(master,MASTER_GROUPS)
+    short_groups=grouped_scenes(short,SHORT_GROUPS)
     pagew,pageh=A4
     doc=BaseDocTemplate(str(output),pagesize=A4,leftMargin=20*mm,rightMargin=20*mm,
                         topMargin=18*mm,bottomMargin=22*mm,title='Evaluasi Arah dan Naskah — Tangga Itu Masih Licin',
@@ -120,7 +151,7 @@ def build(output):
               P('Nara melaporkan tangga bersama yang licin. Bima justru menolak usulnya karena Nara menunggak iuran. Tunggakan itu benar, tetapi apakah itu membuktikan tangganya aman?','body'),
               box([P('REFERENSI = PENDEKATAN VISUAL', 'label'),
                    P('Bukan topik bisnisnya, bukan plotnya, bukan desain atau asetnya. Cerita ini baru dan fiktif.', 'box')]),Spacer(1,4*mm),
-              P('Tahap ini berisi evaluasi, naskah dan storyboard tertulis. Belum ada video atau persetujuan produksi/tayang.','small'),PageBreak()]
+              P('Pemilik meminta revisi dan produksi privat. Naskah dan preview tetap perlu review; belum ada persetujuan tayang.','small'),PageBreak()]
     story += [P('01  /  PILIHAN ARAH','eyebrow'),P('Mengapa mulai dari sini?','title'),
               P('Empat arah berikut punya potensi cerita. Penilaian ini hipotesis editorial, bukan hasil uji penonton.','body')]
     rows=[('Arah','Situasi & pertanyaan','Batas utama'),
@@ -130,21 +161,21 @@ def build(output):
           ('Reverse psychology','Seseorang menyatakan kebalikan dari keinginannya. Bagaimana jika dipercaya?','Bukan sinonim reaksi terhadap larangan; hasil tak dijamin.')]
     story += [review_table(rows,[38*mm,72*mm,60*mm]),Spacer(1,6*mm),
               P('Pilihan pertama: orang vs usul','heading'),
-              P('Bendanya jelas, konfliknya dekat dengan percakapan sehari-hari, dan penonton bisa berada di dua posisi: orang yang diserang dan orang yang kemudian menilai orang lain. Naskah tidak perlu mengucapkan istilah teknisnya.','body'),
+              P('Bendanya jelas, konfliknya dekat dengan percakapan sehari-hari, dan penonton bisa berada di dua posisi: orang yang diserang dan orang yang kemudian menilai orang lain. Naskah menyebut ad hominem setelah contoh dan menjelaskan maknanya; istilah toxic merujuk pada perilaku, bukan diagnosis.','body'),
               P('Dua hal yang tidak saling menghapus','heading'),
               P('Dalam cerita ini Nara memang menunggak. Itu perlu dicari jalan keluarnya, apalagi jika perbaikan memakai uang bersama. Namun kondisi tangga harus diperiksa terpisah. Diserang juga tidak membuat usul Nara otomatis benar.','body'),
-              P('Memilih orang yang mengurus uang adalah pertanyaan berbeda: pengalaman dan cara membuat laporan bisa relevan. Satu sindiran bukan bukti bahwa Bima akan salah mengurus uang.','body'),PageBreak()]
+              P('Memilih orang yang mengurus uang adalah pertanyaan berbeda: pengalaman dan cara membuat laporan bisa relevan. Dua kejadian merendahkan bukan bukti bahwa Bima akan salah mengurus uang.','body'),PageBreak()]
     story += [P('02  /  NASKAH MASTER','eyebrow'),P('Tangga Itu Masih Licin','title'),
               P('Bagian 1 dari 2  •  Semua nama, tempat, dialog, dan kejadian adalah fiksi.','small')]
-    for args in [('Pembuka',1,2,True),('Melihat masalah',3,7,False),('Percakapan bergeser',8,12,False),('Mau membela diri',13,18,False)]:
-        story += script_group(master,*args)
-    story += [PageBreak(),P('02  /  NASKAH MASTER','eyebrow'),P('Dua masalah, dua pertanyaan','title'),P('Bagian 2 dari 2  •  Jeda dan durasi masih rancangan, belum direkam atau diukur.','small')]
-    for args in [('Periksa persoalannya',19,24,False),('Balik posisinya',25,31,False),('Apa yang dikirim?',32,34,False),('Akibat dan penutup',35,39,False)]:
-        story += script_group(master,*args)
+    for group in master_groups[:4]:
+        story += script_group(group)
+    story += [PageBreak(),P('02  /  NASKAH MASTER','eyebrow'),P('Dua masalah, dua pertanyaan','title'),P('Bagian 2 dari 2  •  Waktu dan subtitle perlu diperiksa pada preview yang sebenarnya.','small')]
+    for group in master_groups[4:]:
+        story += script_group(group)
     story += [PageBreak(),P('03  /  SHORT TURUNAN','eyebrow'),P('Momen yang dibawa dari master','title'),
               P('Versi ringkas, bukan cerita baru: usul ditolak, tunggakan diakui, lalu posisi penonton dibalik. Hasil pemeriksaan tetap dibayar di dalam cerita fiksi.','body')]
-    for label,a,b in [('Pembuka & konteks',1,4),('Dua persoalan',5,9),('Tukar posisi & akibat',10,15)]:
-        text=' '.join(s['narration'] for s in short[a-1:b]);story += [section(f'{label}  /  T{a:02}–T{b:02}'),P(markup(text),'script')]
+    for group in short_groups:
+        story += script_group(group)
     story += [Spacer(1,4*mm),box([P('PETA SHORT KE MASTER', 'label'),P('Setiap adegan Short ditautkan ke adegan master dalam berkas short-sumber-master.json. Durasi dan keterbacaan belum diuji pada video.','box')],bg='#F0E3CD'),PageBreak()]
     story += [P('04  /  RENCANA VISUAL','eyebrow'),P('Benda bergerak karena cerita','title'),
               P('Lebih bervariasi bukan berarti mengganti benda secara acak. Setiap perubahan sudut atau prop harus menambah sebab, akibat, atau sudut pandang.','body')]
@@ -152,6 +183,8 @@ def build(output):
             ('Pembuka','Makro pijakan basah + sandal; detail telepon.','Masalah dan pertanyaan muncul segera.'),
             ('Awal','Wide hujan & rumah; medium pegangan; close-up sandal.','Tetangga nyaris terpeleset, lalu Nara melapor.'),
             ('Konflik','Telepon, cangkir Bima, pintu dan tangga.','Pesan tentang tangga tenggelam oleh soal iuran.'),
+            ('Kilas pola','Lampu mati, saklar dan pesan minggu lalu.','Ada contoh kedua, tanpa mengklaim seluruh sifat Bima.'),
+            ('Konsep','Koin, pijakan, kartu ad hominem; kalender.','Alasan tak relevan dan kebiasaan merendahkan diberi nama.'),
             ('Pengakuan','Catatan, pensil, amplop, kotak dana.','Tunggakan benar dan biaya bersama diperhitungkan.'),
             ('Balik posisi','Cermin, kursi, kotak dana dan buku kas.','Nara kini menilai Bima sebagai calon pengelola.'),
             ('Payoff','Papan bersama, lembar hasil, dua catatan.','Tangga diperiksa; kedua masalah tetap ada.')]
@@ -160,13 +193,15 @@ def build(output):
               P('Setiap scene punya minimal dua objek bernama di storyboard. Fokus utama tidak direncanakan berulang lebih dari dua scene berturut-turut, kecuali ada alasan kontinuitas. Hitungan label bukan bukti gerak atau gambar sudah bervariasi: keduanya perlu diuji pada animatic.','body'),
               P('Hak, disclosure, subtitle, playback penuh, durasi, suara, musik, pembacaan manusia dan respons penonton: BELUM DIUJI. Tidak ada penjadwalan.','small'),PageBreak()]
     story += [P('05  /  BATAS & KEPUTUSAN','eyebrow'),P('Sebelum dilanjutkan','title'),
-              P('<b>1. Pilih arah cerita.</b> “Tangga Itu Masih Licin” adalah usulan; topik dan penyampaiannya masih perlu persetujuan pemilik.','body'),
+              P('<b>1. Tinjau revisi.</b> Pemilik menyukai arahnya, meminta konsep dijelaskan, dan meminta produksi. Naskah revisi dan preview belum otomatis disetujui untuk tayang.','body'),
               P('<b>2. Putuskan penutup brand.</b> Arahan baru meminta diskusi dari isi, bukan CTA. Draf ini tidak memakai CTA. Aturan lama meminta “ikuti knot theory”; konfirmasi apakah penutup itu masih ingin dipakai sebagai tambahan terpisah.','body'),
               P('<b>3. Uji naskah dan animatic.</b> Minta reviewer yang belum mengenal cerita menjelaskan konflik, dua masalah, pembalikan dan bagian yang terasa datar. Uji visual, audio, subtitle, fakta, hak dan disclosure sebelum final.','body'),
-              P('<b>4. Tetap privat sampai ada izin.</b> Tidak ada suara atau video yang dihasilkan pada tahap evaluasi ini, dan tidak ada publikasi atau jadwal baru.','body'),
+              P('<b>4. Tetap privat sampai ada izin.</b> Draf suara atau video untuk review tidak menggantikan gate final; tidak ada publikasi atau jadwal baru.','body'),
               Spacer(1,4*mm),P('Dasar yang ditinjau','heading'),
               P('Internet Encyclopedia of Philosophy — Fallacies, Ad Hominem<br/><link href="https://iep.utm.edu/fallacy/#AdHominem" color="#277478">iep.utm.edu/fallacy/#AdHominem</link>','small'),
               P('UNC Writing Center — Fallacies<br/><link href="https://writingcenter.unc.edu/tips-and-tools/fallacies/" color="#277478">writingcenter.unc.edu/tips-and-tools/fallacies/</link>','small'),
+              P('APA 2024, psychological safety: konteks tempat kerja, bukan bukti akibat pasti dalam cerita fiksi.<br/><link href="https://www.apa.org/pubs/reports/work-in-america/2024/psychological-safety" color="#277478">apa.org — psychological safety</link>','small'),
+              P('Harvard Health dan Psychology Today: pertimbangkan pola dan dampak; toxic bukan diagnosis klinis.<br/><link href="https://www.psychologytoday.com/us/blog/un-numb/202408/how-to-identify-the-subtle-traits-of-toxic-relationships" color="#277478">psychologytoday.com — toxic relationships</link>','small'),
               P('Reynolds-Tylus (2019), ulasan reactance dalam komunikasi kesehatan<br/><link href="https://doi.org/10.3389/fcomm.2019.00056" color="#277478">doi.org/10.3389/fcomm.2019.00056</link>','small'),
               P('MacDonald, Nail &amp; Harper (2011), reverse psychology: self-report, bukan jaminan efektivitas. Hanya abstrak/cuplikan pencarian yang terbaca; teks penuh belum diverifikasi melalui fetch.<br/><link href="https://doi.org/10.1080/15534510.2010.517282" color="#277478">doi.org/10.1080/15534510.2010.517282</link>','small'),
               Spacer(1,3*mm),box([P('STATUS YANG JUJUR','label'),P('Struktur dan cakupan audit dapat diuji secara mekanis. Kualitas cerita, respons audiens, ritme dan kelayakan tayang tetap membutuhkan manusia.', 'box')])]

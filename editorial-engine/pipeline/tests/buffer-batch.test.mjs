@@ -34,7 +34,8 @@ function fakeAdapter({queue=[], failCreate=false, badReadback=false}={}) {
     async getPost(id){
       events.push(`read:${id}`); const p=payloadById.get(id);
       return {id,status:badReadback?'draft':'scheduled',channelId:p.channelId,text:p.text,dueAt:p.dueAt,
-        metadata:{title:p.metadata.youtube?.title},assets:[{type:'video',source:'https://remote.example/video'}]};
+        schedulingType:'automatic',shareMode:'customScheduled',isCustomScheduled:true,
+        metadata:{title:p.metadata.youtube?.title,isAiGenerated:false},assets:[{type:'video',source:'https://remote.example/video'}]};
     },
   };
 }

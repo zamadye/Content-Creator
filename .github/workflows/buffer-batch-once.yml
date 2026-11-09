@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: '20'
       - name: Test safety gates without Buffer calls
-        run: node --test editorial-engine/pipeline/tests/buffer-batch.test.mjs editorial-engine/pipeline/tests/buffer-batch-relay.test.mjs
+        run: node --test editorial-engine/pipeline/tests/buffer-batch.test.mjs editorial-engine/pipeline/tests/buffer-batch-relay.test.mjs editorial-engine/pipeline/tests/buffer-three-platforms.test.mjs
       - name: Install Buffer CLI for a real batch
         shell: bash
         run: |

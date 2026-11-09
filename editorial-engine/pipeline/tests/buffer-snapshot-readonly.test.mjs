@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {snapshotReadOnly} from '../buffer-batch/snapshot-readonly.mjs';
+import {probeReadbackFields} from '../buffer-batch/probe-readback-readonly.mjs';
 
 const NOW = Date.parse('2026-11-09T12:00:00Z');
 
@@ -50,4 +51,26 @@ test('snapshot fails closed without leaking arbitrary errors', async () => {
   assert.equal(report.stage, 'QUEUE');
   assert.equal(report.error, 'UNEXPECTED_ERROR');
   assert.equal(JSON.stringify(report).includes('SECRET'), false);
+});
+
+test('readback probe checks only query shape and reports absent channels separately', async () => {
+  const calls=[];
+  const io={
+    async listChannels(){calls.push('channels');return [{id:'fb',service:'facebook'},{id:'yt',service:'youtube'}];},
+    async listPosts(){calls.push('queue');return [{id:'f',channelId:'fb'},{id:'y',channelId:'yt'}];},
+    async getPost(id){calls.push('get');return {id,schedulingType:'automatic',shareMode:'customScheduled',isCustomScheduled:true,
+      metadata:{isAiGenerated:false},text:'PRIVATE CAPTION',assets:[{source:'PRIVATE URL'}]};},
+    async createPost(){throw Error('WRITE_FORBIDDEN');},
+  };
+  const report=await probeReadbackFields(io);
+  assert.equal(report.status,'PASS');assert.equal(report.services.facebook.status,'PASS');
+  assert.equal(report.services.youtube.status,'PASS');assert.equal(report.services.tiktok.status,'SKIP_NO_CHANNEL');
+  assert.equal(JSON.stringify(report).includes('PRIVATE'),false);
+  assert.deepEqual(calls,['channels','queue','get','get']);
+});
+
+test('readback probe fails safely if a required field is missing',async()=>{
+  const io={async listChannels(){return [{id:'yt',service:'youtube'}];},async listPosts(){return [{id:'p',channelId:'yt'}];},
+    async getPost(){return {id:'p',schedulingType:'automatic',shareMode:'customScheduled',isCustomScheduled:true,metadata:{}};}};
+  const report=await probeReadbackFields(io);assert.equal(report.status,'FAIL');assert.equal(report.error,'READBACK_PROBE_FIELDS_MISSING');
 });

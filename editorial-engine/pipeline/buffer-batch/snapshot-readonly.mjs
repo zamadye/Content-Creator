@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /*
- * Read-only snapshot of the configured Buffer organization. This program only
- * invokes listChannels/listPosts. Its output contains private channel IDs and
+ * Read-only snapshot of the configured Buffer organization. The CLI invokes
+ * listChannels/listPosts and a post get for schema checks. Its output contains private channel IDs and
  * queue times and MUST be encrypted before leaving the runner. Never pipe its
  * plaintext into Actions logs or commit it. Creation, update and deletion are
  * intentionally absent.
@@ -9,6 +9,7 @@
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {BufferAdapter} from './buffer-adapter.mjs';
+import {probeReadbackFields} from './probe-readback-readonly.mjs';
 import {BatchError} from './core.mjs';
 
 const MAX_RELEVANT_POSTS = 200;
@@ -76,7 +77,10 @@ export async function snapshotReadOnly(io, now = Date.now()) {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const report = await snapshotReadOnly(new BufferAdapter());
+  const io = new BufferAdapter();
+  const report = await snapshotReadOnly(io);
+  // Separate outcome: a channel or an old post may not exist yet.
+  report.readbackProbe = report.status === 'PASS' ? await probeReadbackFields(io) : {status:'SKIP'};
   process.stdout.write(JSON.stringify(report));
-  if (report.status !== 'PASS') process.exitCode = 1;
+  if (report.status !== 'PASS' || report.readbackProbe.status !== 'PASS') process.exitCode = 1;
 }

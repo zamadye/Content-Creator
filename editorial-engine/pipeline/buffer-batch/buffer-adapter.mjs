@@ -43,6 +43,7 @@ export function validateProbe(value, platforms) {
   ensure(width >= 1080 && height >= 1920 && Math.abs(width / height - 9 / 16) <= 0.02, 'BAD_VERTICAL_VIDEO_SIZE');
   if (platforms.includes('facebook')) ensure(duration <= 90, 'FACEBOOK_REEL_TOO_LONG');
   if (platforms.includes('youtube')) ensure(duration <= 180, 'YOUTUBE_SHORT_TOO_LONG');
+  if (platforms.includes('tiktok')) ensure(duration <= 600, 'TIKTOK_VIDEO_TOO_LONG');
   return {duration, width, height};
 }
 function probe(filename, platforms) {
@@ -142,7 +143,7 @@ export class BufferAdapter {
     return findPost(value)?.id ?? null;
   }
   async getPost(id) {
-    const fields = 'id,text,status,dueAt,sentAt,externalLink,channelId,channelService,metadata.title,assets.source,assets.type';
+    const fields = 'id,text,status,dueAt,sentAt,externalLink,channelId,channelService,schedulingType,shareMode,isCustomScheduled,metadata.title,metadata.isAiGenerated,assets.source,assets.type';
     const post = findPost(cli(['posts', 'get', '--id', String(id), '--fields', fields]));
     ensure(post, 'BUFFER_POST_NOT_FOUND'); return post;
   }

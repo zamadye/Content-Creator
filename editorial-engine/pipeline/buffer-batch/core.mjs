@@ -13,6 +13,9 @@ const MINUTE = 60_000;
 export const MIN_GAP_MS = 120 * MINUTE;
 export const MAX_POSTS = 100;
 export const MAX_MEDIA_BYTES = 100_000_000;
+// A caption disclosure is deliberately explicit; the native TikTok toggle is
+// a separate setting and TikTok may apply an automatic label regardless.
+export const TIKTOK_AI_CAPTION_NOTICE = 'Narasi video ini menggunakan suara sintetis AI.';
 
 // Only user-approved public copies on supported hosts are accepted. Never
 // fetch arbitrary hosts, private addresses, signed user-info, or plain HTTP.
@@ -46,7 +49,7 @@ export function validateBatch(batch, now = Date.now()) {
   requireSafe(batch.authorization?.scheduleApproved === true, 'SCHEDULING_NOT_AUTHORIZED');
   requireSafe(Array.isArray(batch.videos) && batch.videos.length > 0 && batch.videos.length <= MAX_POSTS, 'BAD_VIDEOS');
   requireSafe(Array.isArray(batch.posts) && batch.posts.length > 0 && batch.posts.length <= MAX_POSTS, 'BAD_POSTS');
-  requireSafe(batch.exceptions === undefined || (Array.isArray(batch.exceptions) && batch.exceptions.length === 0), 'TIMING_EXCEPTION_NOT_IMPLEMENTED');
+  requireSafe(batch.exceptions === undefined || Array.isArray(batch.exceptions), 'BAD_TIMING_EXCEPTIONS');
   const videos = new Map();
   for (const video of batch.videos) {
     requireSafe(ID.test(video?.id ?? '') && !videos.has(video.id), 'DUPLICATE_OR_BAD_VIDEO_ID');
@@ -65,26 +68,61 @@ export function validateBatch(batch, now = Date.now()) {
     ids.add(post.id);
     const video = videos.get(post.videoId);
     requireSafe(video, 'UNKNOWN_VIDEO'); usedVideos.add(post.videoId);
-    requireSafe(['facebook', 'youtube'].includes(post.platform) && ID.test(post.channelId ?? ''), 'BAD_CHANNEL');
-    requireSafe(video.disclosure?.[post.platform] === 'optional', 'DISCLOSURE_REQUIRES_REVIEW');
+    requireSafe(['facebook', 'youtube', 'tiktok'].includes(post.platform) && ID.test(post.channelId ?? ''), 'BAD_CHANNEL');
     const when = wibTime(post.dueAt);
     requireSafe(Number.isFinite(when) && when >= now + 5 * MINUTE, 'BAD_OR_PAST_WIB_TIME');
-    requireSafe(typeof post.text === 'string' && post.text.trim().length > 0 && post.text.length <= 5000
+    const textLimit = post.platform === 'tiktok' ? 2200 : 5000; // Buffer counts UTF-16 code units.
+    requireSafe(typeof post.text === 'string' && post.text.trim().length > 0 && post.text.length <= textLimit
       && !/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(post.text), 'BAD_CAPTION');
+    if (post.platform === 'tiktok') {
+      const tags = post.text.match(/#[\p{L}\p{N}_]+/gu) ?? [];
+      requireSafe(tags.length <= 5, 'TIKTOK_TOO_MANY_HASHTAGS');
+      if (video.aiAssisted) {
+        // Only a separately approved caption disclosure is implemented for AI
+        // TikTok video. It cannot be silently replaced by an off switch.
+        requireSafe(batch.authorization?.tiktokCaptionDisclosureApproved === true
+          && video.disclosure?.tiktok === 'caption'
+          && post.text.includes(TIKTOK_AI_CAPTION_NOTICE), 'TIKTOK_DISCLOSURE_NOT_APPROVED');
+      } else requireSafe(video.disclosure?.tiktok === 'optional', 'DISCLOSURE_REQUIRES_REVIEW');
+    } else requireSafe(video.disclosure?.[post.platform] === 'optional', 'DISCLOSURE_REQUIRES_REVIEW');
     if (post.platform === 'youtube') {
       requireSafe(typeof post.title === 'string' && post.title.trim().length > 0 && post.title.length <= 100
         && !/[<>]/.test(post.title + post.text), 'BAD_YOUTUBE_TEXT');
     }
   }
   requireSafe(usedVideos.size === videos.size, 'UNUSED_VIDEO');
+  const simultaneous = validateSingleStoryException(batch, videos);
   for (let i = 0; i < batch.posts.length; i++) {
     for (let j = i + 1; j < batch.posts.length; j++) {
       const a = batch.posts[i], b = batch.posts[j];
-      requireSafe(Math.abs(wibTime(a.dueAt) - wibTime(b.dueAt)) >= MIN_GAP_MS, 'BATCH_GAP_CONFLICT');
+      const sameApprovedGroup = simultaneous && simultaneous.has(a.id) && simultaneous.has(b.id);
+      requireSafe(sameApprovedGroup || Math.abs(wibTime(a.dueAt) - wibTime(b.dueAt)) >= MIN_GAP_MS, 'BATCH_GAP_CONFLICT');
       requireSafe(!(a.channelId === b.channelId && a.text.trim() === b.text.trim()), 'DUPLICATE_BATCH_CAPTION');
     }
   }
   return videos;
+}
+
+/** A timing exception is valid only for exactly three explicitly approved
+ * posts, one each on Facebook, YouTube and TikTok, for one named story at the
+ * exact same instant. The complete existing queue is checked independently and
+ * never receives this exception. Omit exceptions for the normal two-hour rule. */
+export function validateSingleStoryException(batch, videos) {
+  const exceptions = batch.exceptions ?? [];
+  if (exceptions.length === 0) return null;
+  requireSafe(exceptions.length === 1 && batch.authorization?.simultaneousStoryApproved === true, 'TIMING_EXCEPTION_NOT_AUTHORIZED');
+  const exception = exceptions[0];
+  requireSafe(exception?.type === 'simultaneous-single-story' && ID.test(exception.storyId ?? ''), 'BAD_TIMING_EXCEPTION');
+  requireSafe(Array.isArray(exception.postIds) && exception.postIds.length === 3
+    && new Set(exception.postIds).size === 3 && exception.postIds.every(id => ID.test(id)), 'BAD_EXCEPTION_POSTS');
+  const ids = new Set(exception.postIds);
+  requireSafe(batch.posts.length === 3 && batch.posts.every(p => ids.has(p.id)), 'EXCEPTION_SCOPE_MISMATCH');
+  requireSafe(new Set(batch.posts.map(p => p.channelId)).size === 3, 'EXCEPTION_CHANNELS_NOT_UNIQUE');
+  const platforms = new Set(batch.posts.map(p => p.platform));
+  requireSafe(platforms.size === 3 && ['facebook', 'youtube', 'tiktok'].every(x => platforms.has(x)), 'EXCEPTION_PLATFORM_MISMATCH');
+  requireSafe(new Set(batch.posts.map(p => wibTime(p.dueAt))).size === 1, 'EXCEPTION_TIME_MISMATCH');
+  requireSafe(batch.posts.every(p => videos.get(p.videoId)?.storyId === exception.storyId), 'EXCEPTION_STORY_MISMATCH');
+  return ids;
 }
 
 export function validateChannels(posts, channels) {
@@ -126,18 +164,23 @@ export function buildPayload(post, video) {
     aiAssisted: video.aiAssisted, assets: [{video: {url: video.url}}],
   };
   if (post.platform === 'facebook') payload.metadata = {facebook: {type: 'reel'}};
-  else payload.metadata = {youtube: {title: post.title, categoryId: '27', privacy: 'public', madeForKids: false, isAiGenerated: false}};
+  else if (post.platform === 'youtube') payload.metadata = {youtube: {title: post.title, categoryId: '27', privacy: 'public', madeForKids: false, isAiGenerated: false}};
+  else if (post.platform === 'tiktok') payload.metadata = {tiktok: {isAiGenerated: false}};
+  else throw new BatchError('BAD_CHANNEL');
   return payload;
 }
 
 export function checkReadback(post, actual, createdId) {
   requireSafe(actual && String(actual.id ?? '') === String(createdId), 'READBACK_ID_MISMATCH');
   requireSafe(String(actual.status ?? '').toLowerCase() === 'scheduled', 'READBACK_NOT_SCHEDULED');
+  requireSafe(String(actual.schedulingType ?? '').toLowerCase() === 'automatic', 'READBACK_NOT_AUTOMATIC');
+  requireSafe(String(actual.shareMode ?? '') === 'customScheduled' && actual.isCustomScheduled === true, 'READBACK_NOT_CUSTOM_SCHEDULED');
   requireSafe(String(actual.channelId ?? actual.channel?.id ?? '') === post.channelId, 'READBACK_CHANNEL_MISMATCH');
   requireSafe(Date.parse(actual.dueAt) === wibTime(post.dueAt), 'READBACK_TIME_MISMATCH');
   requireSafe(String(actual.text ?? '').trim() === post.text.trim(), 'READBACK_CAPTION_MISMATCH');
   requireSafe(Array.isArray(actual.assets) && actual.assets.some(a => String(a.type ?? '').toLowerCase() === 'video' && typeof a.source === 'string' && a.source), 'READBACK_VIDEO_MISSING');
   if (post.platform === 'youtube') requireSafe(actual.metadata?.title === post.title, 'READBACK_TITLE_MISMATCH');
+  if (['youtube', 'tiktok'].includes(post.platform)) requireSafe(actual.metadata?.isAiGenerated === false, 'READBACK_AI_TOGGLE_MISMATCH');
   return true;
 }
 

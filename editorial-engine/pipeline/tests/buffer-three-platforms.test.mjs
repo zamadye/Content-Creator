@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
 import {BatchError, TIKTOK_AI_CAPTION_NOTICE, buildPayload, checkReadback, runBatch,
   validateBatch, validateQueue} from '../buffer-batch/core.mjs';
-import {validateProbe} from '../buffer-batch/buffer-adapter.mjs';
+import {validateProbe, verifyMedia} from '../buffer-batch/buffer-adapter.mjs';
 
 const NOW = Date.parse('2026-11-09T12:00:00Z');
 const DUE = '2026-11-10T07:30:00+07:00';
@@ -128,4 +129,27 @@ test('TikTok media duration bound and existing full-HD safety gate',()=>{
   assert.equal(validateProbe(info,['tiktok']).duration,600);
   assert.throws(()=>validateProbe({...info,format:{duration:'600.1'}},['tiktok']),/TIKTOK_VIDEO_TOO_LONG/);
   assert.throws(()=>validateProbe({...info,streams:[{codec_type:'video',width:720,height:1280},{codec_type:'audio'}]},['tiktok']),/BAD_VERTICAL_VIDEO_SIZE/);
+});
+
+test('approved-edition floor needs sane bounds and the exact approved size',()=>{
+  const info={streams:[{codec_type:'video',width:720,height:1280},{codec_type:'audio'}],format:{duration:'80.8'}};
+  assert.throws(()=>validateProbe(info,['facebook']),/BAD_VERTICAL_VIDEO_SIZE/);
+  assert.equal(validateProbe(info,['facebook'],{width:720,height:1280}).width,720);
+  assert.throws(()=>validateProbe(info,['facebook'],{width:720,height:1281}),/BAD_VERTICAL_VIDEO_SIZE/);
+  assert.throws(()=>validateProbe(info,['facebook'],{width:100,height:100}),/BAD_MEDIA_FINGERPRINT/);
+});
+
+test('verifyMedia applies the approved floor only after bytes match the approved hash',async()=>{
+  const bytes=Buffer.from('0'.repeat(20000));
+  const sha=crypto.createHash('sha256').update(bytes).digest('hex');
+  const video={id:'m',url:'https://res.cloudinary.com/demo/video.mp4',sha256:sha,sizeBytes:bytes.length,
+    approvedEdition:{sha256:sha,minWidth:720,minHeight:1280,reason:'user-selected draft edition'}};
+  const seen=[];
+  const fetch=async()=>new Response(bytes,{headers:{'content-type':'video/mp4'}});
+  await verifyMedia(video,['facebook'],fetch,(file,platforms,floor)=>{seen.push(floor);return {duration:80.8};});
+  await verifyMedia({...video,approvedEdition:{...video.approvedEdition,sha256:'a'.repeat(64)}},['facebook'],fetch,
+    (file,platforms,floor)=>{seen.push(floor);return {duration:80.8};});
+  await verifyMedia({...video,approvedEdition:{...video.approvedEdition,minWidth:480}},['facebook'],fetch,
+    (file,platforms,floor)=>{seen.push(floor);return {duration:80.8};});
+  assert.deepEqual(seen,[{width:720,height:1280},undefined,undefined]);
 });

@@ -35,25 +35,47 @@ function cli(args) {
   try { return JSON.parse((result.stdout ?? '').trim()); }
   catch { throw new BatchError('BUFFER_RESPONSE_INVALID'); }
 }
-export function validateProbe(value, platforms) {
+export function validateProbe(value, platforms, floor = {width: 1080, height: 1920}) {
   const video = value?.streams?.find(s => s.codec_type === 'video');
   const audio = value?.streams?.find(s => s.codec_type === 'audio');
   const duration = Number(value?.format?.duration), width = Number(video?.width), height = Number(video?.height);
+  // The default floor is an internal quality bar stricter than every platform
+  // minimum. A caller may lower it only via a verified user-approved edition
+  // (see verifyMedia): the relief is bound to one exact file hash, never to a
+  // batch, a channel, or a promise.
+  ensure(Number.isSafeInteger(floor.width) && floor.width >= 540
+    && Number.isSafeInteger(floor.height) && floor.height >= 960, 'BAD_MEDIA_FINGERPRINT');
   ensure(video && audio && Number.isFinite(duration) && duration >= 3, 'BAD_MEDIA_STREAMS');
-  ensure(width >= 1080 && height >= 1920 && Math.abs(width / height - 9 / 16) <= 0.02, 'BAD_VERTICAL_VIDEO_SIZE');
+  ensure(width >= floor.width && height >= floor.height && Math.abs(width / height - 9 / 16) <= 0.02, 'BAD_VERTICAL_VIDEO_SIZE');
   if (platforms.includes('facebook')) ensure(duration <= 90, 'FACEBOOK_REEL_TOO_LONG');
   if (platforms.includes('youtube')) ensure(duration <= 180, 'YOUTUBE_SHORT_TOO_LONG');
   if (platforms.includes('tiktok')) ensure(duration <= 600, 'TIKTOK_VIDEO_TOO_LONG');
   return {duration, width, height};
 }
-function probe(filename, platforms) {
+function probe(filename, platforms, floor) {
   const run = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration:stream=codec_type,width,height', '-of', 'json', filename], {
     encoding: 'utf8', timeout: 45_000, maxBuffer: 1024 * 1024,
   });
   ensure(run.status === 0, 'FFPROBE_FAILED_OR_MISSING');
   let value;
   try { value = JSON.parse(run.stdout); } catch { throw new BatchError('FFPROBE_BAD_RESPONSE'); }
-  return validateProbe(value, platforms);
+  return validateProbe(value, platforms, floor);
+}
+
+/* The strict 1080×1920 floor is an internal bar, not a platform rule. The user
+ * may approve one exact draft edition for one episode; the relief is honored
+ * only when the approved hash equals the video hash — and verifyMedia has
+ * already proven the downloaded bytes match that hash before probing. Any
+ * absent, malformed, or mismatched approvedEdition keeps the strict floor. */
+function approvedEditionFloor(video) {
+  const edition = video?.approvedEdition;
+  const hex = typeof edition?.sha256 === 'string' ? edition.sha256 : '';
+  if (hex.length === 64 && /^[0-9a-f]{64}$/.test(hex) && hex === video.sha256
+    && Number.isSafeInteger(edition.minWidth) && Number.isSafeInteger(edition.minHeight)
+    && edition.minWidth >= 540 && edition.minHeight >= 960) {
+    return {width: edition.minWidth, height: edition.minHeight};
+  }
+  return undefined;
 }
 
 /** Verify the anonymous media bytes at scheduling time. This cannot guarantee
@@ -90,7 +112,7 @@ export async function verifyMedia(video, platforms, fetcher = fetch, probeFile =
   try {
     await pipeline(Readable.fromWeb(response.body), limiter, fs.createWriteStream(file, {flags: 'wx', mode: 0o600}));
     ensure(bytes === video.sizeBytes && hash.digest('hex') === video.sha256, 'MEDIA_HASH_MISMATCH');
-    return probeFile(file, platforms);
+    return probeFile(file, platforms, approvedEditionFloor(video));
   } catch (err) {
     if (err instanceof BatchError) throw err;
     throw new BatchError('MEDIA_DOWNLOAD_FAILED');

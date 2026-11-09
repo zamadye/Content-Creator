@@ -1,0 +1,174 @@
+{
+  "scriptId": "tas-yang-kukembalikan-short-v1",
+  "audienceAnchor": {
+    "situation": "Calon pembeli mencoba sampel usaha kecil dalam rutinitas sehari-hari.",
+    "scope": "Seluruh tokoh, peristiwa dan transaksi adalah fiksi; masukan kecil bukan bukti seluruh pasar."
+  },
+  "items": [
+    {
+      "sceneId": "T01",
+      "text": "Aku mengembalikan tas ini.",
+      "purpose": "Membuka dari akibat.",
+      "viewerQuestion": "Mengapa tas itu dikembalikan?",
+      "visualAction": "Tas mendekati kamera.",
+      "evidence": "Fiksi — adegan rekaan.",
+      "nextOrPayoff": "T02 memperjelas tokoh.",
+      "wordChoice": "Aku adalah sudut pelanggan.",
+      "connection": "Pembuka singkat mempertahankan teka-teki benda."
+    },
+    {
+      "sceneId": "T02",
+      "text": "Aku Maya; aku dan Nisa dalam cerita ini adalah tokoh ilustrasi.",
+      "purpose": "Membedakan fiksi dari kisah nyata.",
+      "viewerQuestion": "Apa usaha Nisa?",
+      "visualAction": "Kartu nama kedua tokoh bergerak masuk.",
+      "evidence": "Fiksi — tokoh bukan peserta studi.",
+      "nextOrPayoff": "T03 memberi modal dan tujuan.",
+      "wordChoice": "Ilustrasi jelas diucapkan.",
+      "connection": "Disclosure mandiri untuk video pendek."
+    },
+    {
+      "sceneId": "T03",
+      "text": "Nisa ingin menjual tas, tetapi uangnya hanya cukup untuk beberapa sampel.",
+      "purpose": "Menunjukkan taruhan usaha kecil.",
+      "viewerQuestion": "Apa yang Maya alami saat menggunakan sampel?",
+      "visualAction": "Kain dan tas terpisah dari amplop modal.",
+      "evidence": "Fiksi — modal dan usaha adalah rekaan.",
+      "nextOrPayoff": "T04 membawa sampel ke halte.",
+      "wordChoice": "Beberapa sampel membatasi sumber daya contoh.",
+      "connection": "Tujuan usaha dan modal kecil disampaikan dalam satu beat."
+    },
+    {
+      "sceneId": "T03",
+      "text": "Ia meminjamkan satu sampel kepadaku tanpa biaya.",
+      "purpose": "Menjelaskan mengapa Maya menerima tas sebelum penjualan.",
+      "viewerQuestion": "Apa yang terjadi di halte?",
+      "visualAction": "Tas berpindah ke tangan Maya.",
+      "evidence": "Fiksi — peminjaman sukarela.",
+      "nextOrPayoff": "T04 menunjukkan masalahnya.",
+      "wordChoice": "Tanpa biaya bukan resep usaha universal.",
+      "connection": "Tujuan usaha dan modal kecil disampaikan dalam satu beat."
+    },
+    {
+      "sceneId": "T04",
+      "text": "Di halte, aku kesulitan mengambil kartu sambil memegang payung.",
+      "purpose": "Membawa konflik ke pengalaman pelanggan.",
+      "viewerQuestion": "Saran apa yang ia berikan?",
+      "visualAction": "Maya menurunkan tas sambil memegang payung.",
+      "evidence": "Fiksi — pengalaman satu tokoh.",
+      "nextOrPayoff": "T05 menyatakan saran awal.",
+      "wordChoice": "Kesulitan tidak berlaku untuk semua pengguna.",
+      "connection": "Masalah di dunia pelanggan menggantikan penjelasan generik."
+    },
+    {
+      "sceneId": "T05",
+      "text": "Saat mengembalikannya, aku menyarankan lebih banyak kantong.",
+      "purpose": "Membayar pengembalian dan menyatakan tafsir awal.",
+      "viewerQuestion": "Apakah itu yang ia butuhkan?",
+      "visualAction": "Catatan berada di atas tas.",
+      "evidence": "Fiksi — saran rekaan.",
+      "nextOrPayoff": "T06 memperlihatkan observasi.",
+      "wordChoice": "Menyarankan bukan perintah yang harus langsung dituruti.",
+      "connection": "Solusi yang terdengar jelas mungkin tidak menjawab masalah."
+    },
+    {
+      "sceneId": "T06",
+      "text": "Nisa memintaku memperagakan caraku mengambil kartu.",
+      "purpose": "Membangun perubahan perspektif.",
+      "viewerQuestion": "Apa yang berbeda dari permintaan awal?",
+      "visualAction": "Maya memperagakan langkahnya.",
+      "evidence": "Fiksi — satu demonstrasi.",
+      "nextOrPayoff": "T07 mengungkap masalah.",
+      "wordChoice": "Memintaku menunjukkan ada persetujuan dalam cerita.",
+      "connection": "Melihat tindakan memberi konteks yang tidak ada dalam catatan."
+    },
+    {
+      "sceneId": "T07",
+      "text": "Ternyata aku mungkin hanya butuh satu kantong yang mudah kuraih.",
+      "purpose": "Membayar pembuka dan mengubah definisi masalah.",
+      "viewerQuestion": "Bagaimana Nisa menguji dugaan itu?",
+      "visualAction": "Satu kantong muncul di dekat tangan.",
+      "evidence": "Fiksi — kebutuhan Maya bukan seluruh pasar.",
+      "nextOrPayoff": "T08 memberi perubahan dan hasil parsial.",
+      "wordChoice": "Mungkin menjaga ketidakpastian satu pengguna.",
+      "connection": "Kebutuhan tersembunyi adalah akses, bukan jumlah."
+    },
+    {
+      "sceneId": "T08",
+      "text": "Nisa mengubah satu sampel; kartunya lebih mudah diambil, tapi tarikan ritsletingnya terlalu kecil.",
+      "purpose": "Menunjukkan perubahan dan masalah baru.",
+      "viewerQuestion": "Apakah satu percobaan menjamin produk siap?",
+      "visualAction": "Kartu muncul dan jari berhenti pada ritsleting.",
+      "evidence": "Fiksi — hasil penggunaan Maya.",
+      "nextOrPayoff": "T09 memberi batas sampel.",
+      "wordChoice": "Tapi menjaga hasil tidak terdengar sempurna.",
+      "connection": "Pengujian dapat memberi hasil campuran dan memicu revisi."
+    },
+    {
+      "sceneId": "T08",
+      "text": "Ia memperbaikinya dan meminta orang lain mencoba juga.",
+      "purpose": "Menunjukkan perbaikan dan sudut lain.",
+      "viewerQuestion": "Apakah pasar bisa disimpulkan dari beberapa orang?",
+      "visualAction": "Tarikan diganti dan sampel berpindah.",
+      "evidence": "Fiksi — penggunaan lain rekaan.",
+      "nextOrPayoff": "T09 menjelaskan batas.",
+      "wordChoice": "Orang lain tidak berarti sampel representatif.",
+      "connection": "Pengujian dapat memberi hasil campuran dan memicu revisi."
+    },
+    {
+      "sceneId": "T09",
+      "text": "Dua minggu kemudian, aku membeli satu tas, bukan bukti usahanya pasti sukses.",
+      "purpose": "Memberikan hasil tokoh dengan pembatasan.",
+      "viewerQuestion": "Apa peran perencanaan sesudah itu?",
+      "visualAction": "Nota satu pembelian diletakkan di meja.",
+      "evidence": "Fiksi — satu transaksi; R1 bukan garansi individu.",
+      "nextOrPayoff": "T10 merangkum pelajaran.",
+      "wordChoice": "Satu pembelian bukan angka penjualan usaha nyata.",
+      "connection": "Payoff satu pelanggan bukan garansi usaha."
+    },
+    {
+      "sceneId": "T10",
+      "text": "Rencana dan uji kecil yang terjangkau bisa saling melengkapi.",
+      "purpose": "Menghindari pilihan palsu antara berpikir dan bertindak.",
+      "viewerQuestion": "Kapan ide siap dicoba orang lain?",
+      "visualAction": "Sketsa dan tas sama-sama terlihat.",
+      "evidence": "R1/R2 memberi konteks pengujian, bukan jaminan hasil.",
+      "nextOrPayoff": "T11 mengundang pilihan.",
+      "wordChoice": "Bisa dan terjangkau mempertahankan batas risiko.",
+      "connection": "Perencanaan dan percobaan adalah pelengkap."
+    },
+    {
+      "sceneId": "T11",
+      "text": "Menurutmu, kapan ide sudah cukup siap untuk dicoba?",
+      "purpose": "Mengundang pertimbangan yang berbeda.",
+      "viewerQuestion": "Apa syarat keamanan dan biaya yang penting?",
+      "visualAction": "Kartu tanya muncul di samping tas.",
+      "evidence": "N/A — pertanyaan normatif.",
+      "nextOrPayoff": "Penutup memberi nilai berbagi.",
+      "wordChoice": "Cukup siap bukan ajakan menjual produk berbahaya.",
+      "connection": "Pertanyaan spesifik memberi alasan diskusi dan berbagi."
+    },
+    {
+      "sceneId": "T11",
+      "text": "Kalau dekat, boleh suka dan bagikan ke teman yang sedang membangun sesuatu.",
+      "purpose": "Menyediakan nilai berbagi yang spesifik.",
+      "viewerQuestion": "Pertanyaan apa yang ingin temanmu uji?",
+      "visualAction": "Tas bergerak ke arah kartu teman.",
+      "evidence": "N/A — ajakan bersyarat.",
+      "nextOrPayoff": "Nama seri memberi alasan kembali.",
+      "wordChoice": "Kalau membuat ajakan opsional.",
+      "connection": "Pertanyaan spesifik memberi alasan diskusi dan berbagi."
+    },
+    {
+      "sceneId": "T11",
+      "text": "ikuti knot theory untuk cerita tentang ide yang berubah saat bertemu kenyataan.",
+      "purpose": "Memberi alasan kembali.",
+      "viewerQuestion": "Kisah ide apa berikutnya?",
+      "visualAction": "Nama kanal tampil lowercase.",
+      "evidence": "N/A — janji editorial.",
+      "nextOrPayoff": "Short selesai mandiri.",
+      "wordChoice": "Nama kanal dibaca sebagai dua kata.",
+      "connection": "Pertanyaan spesifik memberi alasan diskusi dan berbagi."
+    }
+  ]
+}

@@ -1,0 +1,621 @@
+{
+  "master": [
+    {
+      "id": "S01",
+      "beat": "B6",
+      "framing": "Kilas maju: Maya menyerahkan tas ke arah kamera; label ILUSTRASI terlihat sejak frame 0.",
+      "objectMap": [
+        {
+          "object": "tas sampel",
+          "action": "diserahkan kembali oleh Maya"
+        },
+        {
+          "object": "tangan Maya",
+          "action": "melepaskan pegangan tas"
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "beat": "B1",
+      "framing": "Maya memperkenalkan diri; kartu nama Nisa dan penanda ILUSTRASI muncul.",
+      "objectMap": [
+        {
+          "object": "kartu Maya",
+          "action": "muncul di samping narator"
+        },
+        {
+          "object": "kartu Nisa",
+          "action": "muncul di samping pembuat tas"
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "beat": "B1",
+      "framing": "Nisa menempel sketsa tas di meja kerja, dengan gambar halte di belakang.",
+      "objectMap": [
+        {
+          "object": "sketsa tas",
+          "action": "diletakkan di meja Nisa"
+        },
+        {
+          "object": "kartu halte",
+          "action": "menunjukkan konteks pengguna"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "beat": "B1",
+      "framing": "Amplop tabungan, kain gulung, dan label sampel di atas meja.",
+      "objectMap": [
+        {
+          "object": "amplop tabungan",
+          "action": "dibuka untuk menghitung modal"
+        },
+        {
+          "object": "gulungan kain",
+          "action": "diukur untuk sampel"
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "beat": "B2",
+      "framing": "Sketsa bentuk dan swatch warna semakin memenuhi meja.",
+      "objectMap": [
+        {
+          "object": "sketsa tas",
+          "action": "bertambah di meja"
+        },
+        {
+          "object": "contoh warna",
+          "action": "berpindah di atas kain"
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "beat": "B2",
+      "framing": "Gunting berhenti di atas kain saat Nisa menatap rancangan.",
+      "objectMap": [
+        {
+          "object": "gunting",
+          "action": "berhenti sebelum memotong kain"
+        },
+        {
+          "object": "kain",
+          "action": "tetap utuh di bawah gunting"
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "beat": "B3",
+      "framing": "Nisa menjahit satu tas dan meminjamkannya kepada Maya.",
+      "objectMap": [
+        {
+          "object": "mesin jahit",
+          "action": "menjahit satu sampel"
+        },
+        {
+          "object": "tas sampel",
+          "action": "berpindah dari Nisa kepada Maya"
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "beat": "B3",
+      "framing": "Maya memegang tas dan berjalan menuju halte.",
+      "objectMap": [
+        {
+          "object": "tas sampel",
+          "action": "dipakai di bahu Maya"
+        },
+        {
+          "object": "tanda halte",
+          "action": "muncul di ujung jalan"
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "beat": "B3",
+      "framing": "Maya memegang payung di halte; kartu perjalanan tersimpan di dalam tas.",
+      "objectMap": [
+        {
+          "object": "payung",
+          "action": "dipegang tangan kiri Maya"
+        },
+        {
+          "object": "kartu perjalanan",
+          "action": "tersimpan di kantong dalam tas"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "beat": "B4",
+      "framing": "Maya menurunkan tas untuk meraih ritsleting saat antre.",
+      "objectMap": [
+        {
+          "object": "tas",
+          "action": "diturunkan dari bahu"
+        },
+        {
+          "object": "ritsleting",
+          "action": "dibuka dengan kedua tangan"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "beat": "B4",
+      "framing": "Maya mengembalikan tas bersama secarik catatan.",
+      "objectMap": [
+        {
+          "object": "tas sampel",
+          "action": "dikembalikan kepada Nisa"
+        },
+        {
+          "object": "catatan Maya",
+          "action": "berisi usul lebih banyak kantong"
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "beat": "B4",
+      "framing": "Nisa menggambar beberapa kantong pada sketsa tas.",
+      "objectMap": [
+        {
+          "object": "sketsa tas",
+          "action": "menerima gambar kantong tambahan"
+        },
+        {
+          "object": "pensil Nisa",
+          "action": "bergerak menuju sketsa"
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "beat": "B4",
+      "framing": "Catatan peminjam lain meminta ruang lebih lega.",
+      "objectMap": [
+        {
+          "object": "catatan peminjam lain",
+          "action": "meminta ruang yang lebih lega"
+        },
+        {
+          "object": "tas terbuka",
+          "action": "menunjukkan ruang bagian dalam"
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "beat": "B5",
+      "framing": "Sketsa dengan banyak kantong berhadapan dengan tas terbuka.",
+      "objectMap": [
+        {
+          "object": "sketsa banyak kantong",
+          "action": "ditandai dengan tanda tanya"
+        },
+        {
+          "object": "sampel tas",
+          "action": "tetap tersedia untuk dibandingkan"
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "beat": "B5",
+      "framing": "Dua catatan kecil terlihat di depan siluet pelanggan yang beragam.",
+      "objectMap": [
+        {
+          "object": "dua catatan",
+          "action": "dikelompokkan sebagai masukan awal"
+        },
+        {
+          "object": "siluet calon pembeli",
+          "action": "menunjukkan keragaman kebutuhan"
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "beat": "B5",
+      "framing": "Nisa menunjuk catatan dan meminta Maya memperagakan masalah.",
+      "objectMap": [
+        {
+          "object": "catatan Maya",
+          "action": "ditunjuk Nisa"
+        },
+        {
+          "object": "tas sampel",
+          "action": "disiapkan untuk dicoba"
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "beat": "B5",
+      "framing": "Kursi mewakili halte di samping meja jahit; Maya memegang payung.",
+      "objectMap": [
+        {
+          "object": "kursi",
+          "action": "menjadi pengganti halte"
+        },
+        {
+          "object": "payung",
+          "action": "dipegang Maya saat mencoba"
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "beat": "B5",
+      "framing": "Maya menurunkan tas dan menjepit payung untuk membuka ritsleting.",
+      "objectMap": [
+        {
+          "object": "payung",
+          "action": "dijepit agar kedua tangan bebas"
+        },
+        {
+          "object": "ritsleting tas",
+          "action": "dibuka setelah tas diturunkan"
+        }
+      ]
+    },
+    {
+      "id": "S19",
+      "beat": "B6",
+      "framing": "Kamera mendekat pada kartu di dalam tas; Nisa melihat gerakan tangan Maya.",
+      "objectMap": [
+        {
+          "object": "kartu perjalanan",
+          "action": "sulit dijangkau dari tas"
+        },
+        {
+          "object": "mata Nisa",
+          "action": "mengikuti gerakan tangan Maya"
+        }
+      ]
+    },
+    {
+      "id": "S20",
+      "beat": "B6",
+      "framing": "Kartu berpindah dari dalam tas ke bayangan kantong luar.",
+      "objectMap": [
+        {
+          "object": "kartu perjalanan",
+          "action": "mendekati kantong luar"
+        },
+        {
+          "object": "kantong luar",
+          "action": "muncul sebagai dugaan solusi"
+        }
+      ]
+    },
+    {
+      "id": "S21",
+      "beat": "B7",
+      "framing": "Nisa menulis dugaan lalu menjahit kantong luar pada satu sampel.",
+      "objectMap": [
+        {
+          "object": "kartu dugaan",
+          "action": "mencatat kantong luar untuk akses kartu"
+        },
+        {
+          "object": "kantong luar",
+          "action": "dijahit pada satu sampel"
+        }
+      ]
+    },
+    {
+      "id": "S22",
+      "beat": "B7",
+      "framing": "Maya meraih kartu, tetapi kesulitan memegang tarikan ritsleting kecil.",
+      "objectMap": [
+        {
+          "object": "kartu perjalanan",
+          "action": "dapat diraih dari kantong luar"
+        },
+        {
+          "object": "tarikan ritsleting",
+          "action": "terlihat terlalu kecil bagi tangan Maya"
+        }
+      ]
+    },
+    {
+      "id": "S23",
+      "beat": "B7",
+      "framing": "Nisa memasang tarikan ritsleting lebih besar dan Maya mencoba ulang.",
+      "objectMap": [
+        {
+          "object": "tarikan ritsleting",
+          "action": "diganti dengan versi lebih besar"
+        },
+        {
+          "object": "tangan Maya",
+          "action": "mencoba ritsleting lagi"
+        }
+      ]
+    },
+    {
+      "id": "S24",
+      "beat": "B7",
+      "framing": "Satu peminjam lain memegang tas; Maya berdiri dekat meja.",
+      "objectMap": [
+        {
+          "object": "sampel tas",
+          "action": "dicoba peminjam lain"
+        },
+        {
+          "object": "daftar pertanyaan",
+          "action": "digunakan untuk mencatat kesulitan"
+        }
+      ]
+    },
+    {
+      "id": "S25",
+      "beat": "B8",
+      "framing": "Nisa menghitung biaya; daftar pertanyaan tetap terbuka.",
+      "objectMap": [
+        {
+          "object": "kalkulator",
+          "action": "menghitung ongkos produksi"
+        },
+        {
+          "object": "daftar masukan",
+          "action": "diberi tanda untuk riset lanjutan"
+        }
+      ]
+    },
+    {
+      "id": "S26",
+      "beat": "B8",
+      "framing": "Maya membeli satu tas dengan nota kecil; Nisa tetap memegang catatan.",
+      "objectMap": [
+        {
+          "object": "nota pembelian",
+          "action": "menunjukkan satu tas"
+        },
+        {
+          "object": "tas versi baru",
+          "action": "berpindah ke Maya"
+        }
+      ]
+    },
+    {
+      "id": "S27",
+      "beat": "B8",
+      "framing": "Catatan lebih banyak kantong berubah menjadi gambar kartu dan payung.",
+      "objectMap": [
+        {
+          "object": "catatan awal",
+          "action": "menyebut banyak kantong"
+        },
+        {
+          "object": "kartu dan payung",
+          "action": "menunjukkan tugas yang ingin dilakukan"
+        }
+      ]
+    },
+    {
+      "id": "S28",
+      "beat": "B9",
+      "framing": "Sketsa dan satu sampel di meja yang sama.",
+      "objectMap": [
+        {
+          "object": "sketsa dan kalkulator",
+          "action": "menunjukkan perencanaan dan biaya"
+        },
+        {
+          "object": "sampel tas",
+          "action": "menunjukkan dugaan yang diuji"
+        }
+      ]
+    },
+    {
+      "id": "S29",
+      "beat": "B9",
+      "framing": "Maya dan Nisa melihat sampel serta tiga kartu pilihan di meja.",
+      "objectMap": [
+        {
+          "object": "tas sampel",
+          "action": "terletak di antara dua tokoh"
+        },
+        {
+          "object": "kartu pilihan",
+          "action": "menampilkan kapan mencoba dan memeriksa kualitas"
+        }
+      ]
+    },
+    {
+      "id": "S30",
+      "beat": "B9",
+      "framing": "Tas yang sudah berubah menutup cerita; nama kanal tampil lowercase.",
+      "objectMap": [
+        {
+          "object": "tas versi baru",
+          "action": "kembali ke tangan Maya"
+        },
+        {
+          "object": "nama kanal",
+          "action": "muncul lowercase di area aman"
+        }
+      ]
+    }
+  ],
+  "short": [
+    {
+      "id": "T01",
+      "beat": "B6",
+      "framing": "Maya mengembalikan tas ke arah kamera, label ILUSTRASI.",
+      "objectMap": [
+        {
+          "object": "tas sampel",
+          "action": "diserahkan kembali"
+        },
+        {
+          "object": "tangan Maya",
+          "action": "melepaskan tas"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "beat": "B1",
+      "framing": "Nama Maya dan Nisa muncul dengan label ilustrasi.",
+      "objectMap": [
+        {
+          "object": "kartu Maya",
+          "action": "memperkenalkan pengguna"
+        },
+        {
+          "object": "kartu Nisa",
+          "action": "memperkenalkan pembuat tas"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "beat": "B1",
+      "framing": "Kain dan tas sampel di atas meja Nisa.",
+      "objectMap": [
+        {
+          "object": "kain",
+          "action": "diukur untuk sampel"
+        },
+        {
+          "object": "tas sampel",
+          "action": "dipinjamkan kepada Maya"
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "beat": "B4",
+      "framing": "Payung, tas, dan kartu di halte.",
+      "objectMap": [
+        {
+          "object": "payung",
+          "action": "menyibukkan satu tangan"
+        },
+        {
+          "object": "kartu perjalanan",
+          "action": "sulit dijangkau dari dalam tas"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "beat": "B4",
+      "framing": "Catatan lebih banyak kantong dan sampel terbuka.",
+      "objectMap": [
+        {
+          "object": "catatan Maya",
+          "action": "mengusulkan lebih banyak kantong"
+        },
+        {
+          "object": "tas terbuka",
+          "action": "memperlihatkan ruangnya"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "beat": "B5",
+      "framing": "Nisa mengamati Maya memperagakan tas dan payung.",
+      "objectMap": [
+        {
+          "object": "tas",
+          "action": "diturunkan Maya"
+        },
+        {
+          "object": "payung",
+          "action": "dijepit untuk membebaskan tangan"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "beat": "B6",
+      "framing": "Satu kantong luar disorot di dekat tangan Maya.",
+      "objectMap": [
+        {
+          "object": "kartu perjalanan",
+          "action": "berpindah ke kantong luar"
+        },
+        {
+          "object": "kantong luar",
+          "action": "muncul sebagai dugaan"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "beat": "B7",
+      "framing": "Kantong luar dan tarikan ritsleting baru.",
+      "objectMap": [
+        {
+          "object": "kantong luar",
+          "action": "dipasang pada satu sampel"
+        },
+        {
+          "object": "tarikan ritsleting",
+          "action": "diganti setelah percobaan"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "beat": "B8",
+      "framing": "Maya membeli satu tas di samping kalkulator Nisa.",
+      "objectMap": [
+        {
+          "object": "nota pembelian",
+          "action": "mencatat satu tas"
+        },
+        {
+          "object": "kalkulator",
+          "action": "mewakili ongkos usaha"
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "beat": "B9",
+      "framing": "Sketsa dan satu tas berdampingan.",
+      "objectMap": [
+        {
+          "object": "sketsa",
+          "action": "mewakili rencana"
+        },
+        {
+          "object": "sampel tas",
+          "action": "mewakili pengujian kecil"
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "beat": "B9",
+      "framing": "Maya dan Nisa melihat tas, nama kanal muncul lowercase.",
+      "objectMap": [
+        {
+          "object": "tas",
+          "action": "menjadi pusat pertanyaan"
+        },
+        {
+          "object": "nama kanal",
+          "action": "muncul lowercase di sisi aman"
+        }
+      ]
+    }
+  ]
+}

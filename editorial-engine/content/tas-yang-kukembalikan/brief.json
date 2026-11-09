@@ -1,0 +1,616 @@
+{
+  "schemaVersion": 1,
+  "format": "long-master",
+  "storyId": "tas-yang-kukembalikan",
+  "scriptId": "tas-yang-kukembalikan-master-v1",
+  "truthMode": "fiction",
+  "fictionDisclosure": "Maya, Nisa, peminjam lain, usaha tas, transaksi dan seluruh dialog adalah tokoh serta adegan ilustrasi rekaan, bukan peserta penelitian atau kisah bisnis nyata.",
+  "premise": "Seorang calon pembeli mengembalikan sampel tas; dari tindakannya pembuat menemukan kebutuhan akses yang berbeda dari usul jumlah kantong.",
+  "dramaticQuestion": "Mengapa tas yang disukai Maya dikembalikan, dan apa yang dapat dipelajari Nisa sebelum menghabiskan modal?",
+  "entity": "Satu tas sampel rekaan yang berpindah antara Maya si calon pembeli dan Nisa si pembuat.",
+  "goal": "Memahami kendala pelanggan dan menguji satu perubahan dengan skala terjangkau.",
+  "stakes": "Modal Nisa terbatas; waktu dan kenyamanan Maya saat mengambil kartu juga penting.",
+  "audienceAnchor": "Orang yang mencoba membangun usaha atau pernah menggunakan produk yang tampak bagus tetapi menyulitkan satu aktivitas kecil.",
+  "sources": [
+    {
+      "id": "R1",
+      "url": "https://doi.org/10.1287/mnsc.2018.3249",
+      "supports": "Camuffo et al. (2020) menguji pelatihan pendekatan ilmiah pada 116 startup Italia; formulasi dan uji dugaan adalah bagian perlakuan.",
+      "limits": "Konteks startup Italia dan pelatihan kelompok; tidak menguji tas atau menjamin usaha individu."
+    },
+    {
+      "id": "R2",
+      "url": "https://doi.org/10.1002/smj.3580",
+      "supports": "Camuffo et al. (2024), empat RCT mencakup 759 perusahaan, membahas pelatihan pendekatan ilmiah untuk keputusan dan penyesuaian usaha.",
+      "limits": "Konteks Italia dan London; tidak menunjukkan bahwa mencoba lebih sering selalu sukses atau sampel dua orang mewakili pasar."
+    }
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "kind": "context",
+      "before": "Maya dan Nisa adalah tokoh rekaan.",
+      "event": "Nisa punya modal terbatas dan gagasan tas untuk pengguna angkutan.",
+      "after": "Ada tujuan dan biaya sebelum usaha dimulai.",
+      "causeToNext": "Rancangan terus bertambah di meja.",
+      "emotionHypothesis": "Penonton mungkin mengenali rasa ragu dengan modal terbatas.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B2",
+      "kind": "disruption",
+      "before": "Sketsa dan modal berada di meja.",
+      "event": "Nisa berulang kali menunda menggunting kain.",
+      "after": "Keputusan kecil belum bergerak.",
+      "causeToNext": "Ia akhirnya membuat satu sampel untuk dipinjam Maya.",
+      "emotionHypothesis": "Penonton bertanya apakah penundaan membantu atau menghalangi.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B3",
+      "kind": "escalation",
+      "before": "Sampel pertama dibuat dan dipinjamkan tanpa biaya.",
+      "event": "Maya suka tampilannya dan menggunakannya di halte.",
+      "after": "Warna yang disukai tidak menjawab semua kebutuhan.",
+      "causeToNext": "Tangan sibuk dan kartu tersembunyi menciptakan masalah.",
+      "emotionHypothesis": "Rasa akrab pada kesulitan kecil saat bepergian.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B4",
+      "kind": "escalation",
+      "before": "Maya mencoba mengambil kartu saat satu tangan memegang payung.",
+      "event": "Ia mengembalikan sampel dan menyarankan kantong lebih banyak; pengguna lain ingin ruang lebih lega.",
+      "after": "Masukan menjadi dua dugaan yang berbeda.",
+      "causeToNext": "Nisa perlu memilih pertanyaan yang akan diuji.",
+      "emotionHypothesis": "Konflik harapan yang tidak perlu menjadikan salah satu pihak jahat.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B5",
+      "kind": "crisis",
+      "before": "Nisa tidak bisa menyimpulkan pasar dari dua orang.",
+      "event": "Ia meminta Maya memperagakan aktivitas memakai payung dan mengambil kartu.",
+      "after": "Saran tertulis dapat dibandingkan dengan tindakan.",
+      "causeToNext": "Pengamatan membuka kebutuhan yang belum terucap.",
+      "emotionHypothesis": "Antisipasi menemukan detail yang terlewat.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B6",
+      "kind": "climax",
+      "before": "Pembuka memperlihatkan pengembalian tas; tubuh cerita membawa Maya ke demonstrasi.",
+      "event": "Nisa melihat bahwa akses ke satu kantong mungkin lebih penting daripada jumlah kantong.",
+      "after": "Teka-teki pengembalian mendapat konteks dan makna baru.",
+      "causeToNext": "Satu dugaan diuji melalui sampel baru.",
+      "emotionHypothesis": "Kejutan memahami masalah dari sisi pemakai.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B7",
+      "kind": "turning_point",
+      "before": "Masalah awal disangka kurang banyak kantong.",
+      "event": "Nisa mengubah satu sampel, menerima temuan baru dan meminta orang lain mencoba.",
+      "after": "Perencanaan dan pengamatan saling melengkapi.",
+      "causeToNext": "Biaya dan batas hasil awal tetap perlu diperhatikan.",
+      "emotionHypothesis": "Kepuasan atas perbaikan tanpa kepastian palsu.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B8",
+      "kind": "consequence",
+      "before": "Satu sampel sudah berubah tetapi usaha belum pasti.",
+      "event": "Nisa menghitung biaya; Maya membeli satu tas.",
+      "after": "Satu pelanggan mendapat manfaat tanpa menjadi bukti semua orang membeli.",
+      "causeToNext": "Pelajaran mengarah pada uji terjangkau dan kualitas.",
+      "emotionHypothesis": "Harapan bersahaja disertai ketidakpastian.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B9",
+      "kind": "payoff",
+      "before": "Kebutuhan dan keterbatasan contoh sudah jelas.",
+      "event": "Perencanaan serta uji kecil sama-sama penting; audiens mempertimbangkan kapan mencoba.",
+      "after": "Pertanyaan awal dibayar tanpa menyimpulkan sukses pasti.",
+      "causeToNext": "Penonton dapat berdiskusi dan berbagi dengan orang yang sedang mengembangkan ide.",
+      "emotionHypothesis": "Penasaran pada pilihan nyata bukan paksaan komentar.",
+      "sourceIds": [
+        "R1",
+        "R2"
+      ]
+    }
+  ],
+  "hook": {
+    "entityAtFrame0": "Tas sampel yang dikembalikan; label ILUSTRASI dari frame nol.",
+    "peakVisual": "Tangan Maya melepas tas ke arah pembuat sebelum alasan diketahui.",
+    "openingLine": "Aku mengembalikan tas ini.",
+    "cutQuestion": "Mengapa Maya mengembalikan tas yang disukainya?",
+    "climaxBeatId": "B6",
+    "answerBeatId": "B6",
+    "visualCutSeconds": null,
+    "spokenOpeningSeconds": null
+  },
+  "turn": {
+    "clueBeatId": "B4",
+    "revealBeatId": "B7",
+    "oldMeaning": "Maya menyangka tas membutuhkan lebih banyak kantong.",
+    "newMeaning": "Nisa menduga Maya membutuhkan akses yang lebih mudah pada satu kantong.",
+    "changedStake": "Tidak setiap saran perlu dituruti secara literal; masalah dan biaya perlu ditanyakan sebelum produksi.",
+    "evidenceBoundary": "Tokoh dan hasil adalah fiksi; R1/R2 tidak menguji cerita tas atau menjamin keberhasilan bisnis."
+  },
+  "interactions": {
+    "comment": {
+      "beatId": "B9",
+      "storyMoment": "Nisa punya modal terbatas dan menerima saran berbeda dari pengguna.",
+      "question": "Kapan sebuah ide sudah cukup siap untuk dicoba orang lain?",
+      "whyDiscuss": "Mengundang pertimbangan kesiapan, biaya, keamanan dan kebutuhan pengguna yang berbeda.",
+      "viewpoints": [
+        "Mulai dengan sampel kecil yang aman agar mendapat sinyal awal.",
+        "Lengkapi dulu perhitungan dan uji kualitas untuk menghindari kerugian."
+      ],
+      "avoidFalseBalance": "Jangan menyarankan produk berisiko dicoba publik tanpa standar keselamatan dan persetujuan."
+    },
+    "share": {
+      "beatId": "B9",
+      "recipient": "Teman yang sedang mengembangkan usaha atau proyek.",
+      "value": "Pemantik membahas pertanyaan apa yang perlu diuji sebelum belanja besar."
+    },
+    "follow": {
+      "seriesPromise": "Cerita fiktif tentang ide sehari-hari yang berubah ketika dilihat dari sisi orang lain.",
+      "whyReturn": "Setiap cerita dimulai dari benda dan membayar pertanyaan melalui perubahan perspektif."
+    }
+  },
+  "shortPlan": {
+    "sourceBeatId": "B6",
+    "context": "Maya meminjam sampel tas Nisa dan kesulitan mengambil kartu ketika membawa payung.",
+    "miniConflict": "Maya menyarankan lebih banyak kantong, sementara Nisa mengamati cara ia memakai tas.",
+    "standalonePayoff": "Satu kantong yang mudah dijangkau diuji dan Maya membeli satu, tanpa janji sukses bisnis.",
+    "distortionRisk": "Jangan menyiratkan cerita nyata atau satu pelanggan dapat mewakili pasar."
+  },
+  "scenePlan": [
+    {
+      "sceneId": "S01",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "tas sampel",
+          "action": "diserahkan kembali oleh Maya"
+        },
+        {
+          "object": "tangan Maya",
+          "action": "melepaskan pegangan tas"
+        }
+      ]
+    },
+    {
+      "sceneId": "S02",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "kartu Maya",
+          "action": "muncul di samping narator"
+        },
+        {
+          "object": "kartu Nisa",
+          "action": "muncul di samping pembuat tas"
+        }
+      ]
+    },
+    {
+      "sceneId": "S03",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "sketsa tas",
+          "action": "diletakkan di meja Nisa"
+        },
+        {
+          "object": "kartu halte",
+          "action": "menunjukkan konteks pengguna"
+        }
+      ]
+    },
+    {
+      "sceneId": "S04",
+      "beatId": "B1",
+      "objectMap": [
+        {
+          "object": "amplop tabungan",
+          "action": "dibuka untuk menghitung modal"
+        },
+        {
+          "object": "gulungan kain",
+          "action": "diukur untuk sampel"
+        }
+      ]
+    },
+    {
+      "sceneId": "S05",
+      "beatId": "B2",
+      "objectMap": [
+        {
+          "object": "sketsa tas",
+          "action": "bertambah di meja"
+        },
+        {
+          "object": "contoh warna",
+          "action": "berpindah di atas kain"
+        }
+      ]
+    },
+    {
+      "sceneId": "S06",
+      "beatId": "B2",
+      "objectMap": [
+        {
+          "object": "gunting",
+          "action": "berhenti sebelum memotong kain"
+        },
+        {
+          "object": "kain",
+          "action": "tetap utuh di bawah gunting"
+        }
+      ]
+    },
+    {
+      "sceneId": "S07",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "mesin jahit",
+          "action": "menjahit satu sampel"
+        },
+        {
+          "object": "tas sampel",
+          "action": "berpindah dari Nisa kepada Maya"
+        }
+      ]
+    },
+    {
+      "sceneId": "S08",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "tas sampel",
+          "action": "dipakai di bahu Maya"
+        },
+        {
+          "object": "tanda halte",
+          "action": "muncul di ujung jalan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S09",
+      "beatId": "B3",
+      "objectMap": [
+        {
+          "object": "payung",
+          "action": "dipegang tangan kiri Maya"
+        },
+        {
+          "object": "kartu perjalanan",
+          "action": "tersimpan di kantong dalam tas"
+        }
+      ]
+    },
+    {
+      "sceneId": "S10",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "tas",
+          "action": "diturunkan dari bahu"
+        },
+        {
+          "object": "ritsleting",
+          "action": "dibuka dengan kedua tangan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S11",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "tas sampel",
+          "action": "dikembalikan kepada Nisa"
+        },
+        {
+          "object": "catatan Maya",
+          "action": "berisi usul lebih banyak kantong"
+        }
+      ]
+    },
+    {
+      "sceneId": "S12",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "sketsa tas",
+          "action": "menerima gambar kantong tambahan"
+        },
+        {
+          "object": "pensil Nisa",
+          "action": "bergerak menuju sketsa"
+        }
+      ]
+    },
+    {
+      "sceneId": "S13",
+      "beatId": "B4",
+      "objectMap": [
+        {
+          "object": "catatan peminjam lain",
+          "action": "meminta ruang yang lebih lega"
+        },
+        {
+          "object": "tas terbuka",
+          "action": "menunjukkan ruang bagian dalam"
+        }
+      ]
+    },
+    {
+      "sceneId": "S14",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "sketsa banyak kantong",
+          "action": "ditandai dengan tanda tanya"
+        },
+        {
+          "object": "sampel tas",
+          "action": "tetap tersedia untuk dibandingkan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S15",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "dua catatan",
+          "action": "dikelompokkan sebagai masukan awal"
+        },
+        {
+          "object": "siluet calon pembeli",
+          "action": "menunjukkan keragaman kebutuhan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S16",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "catatan Maya",
+          "action": "ditunjuk Nisa"
+        },
+        {
+          "object": "tas sampel",
+          "action": "disiapkan untuk dicoba"
+        }
+      ]
+    },
+    {
+      "sceneId": "S17",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "kursi",
+          "action": "menjadi pengganti halte"
+        },
+        {
+          "object": "payung",
+          "action": "dipegang Maya saat mencoba"
+        }
+      ]
+    },
+    {
+      "sceneId": "S18",
+      "beatId": "B5",
+      "objectMap": [
+        {
+          "object": "payung",
+          "action": "dijepit agar kedua tangan bebas"
+        },
+        {
+          "object": "ritsleting tas",
+          "action": "dibuka setelah tas diturunkan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S19",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "kartu perjalanan",
+          "action": "sulit dijangkau dari tas"
+        },
+        {
+          "object": "mata Nisa",
+          "action": "mengikuti gerakan tangan Maya"
+        }
+      ]
+    },
+    {
+      "sceneId": "S20",
+      "beatId": "B6",
+      "objectMap": [
+        {
+          "object": "kartu perjalanan",
+          "action": "mendekati kantong luar"
+        },
+        {
+          "object": "kantong luar",
+          "action": "muncul sebagai dugaan solusi"
+        }
+      ]
+    },
+    {
+      "sceneId": "S21",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "kartu dugaan",
+          "action": "mencatat kantong luar untuk akses kartu"
+        },
+        {
+          "object": "kantong luar",
+          "action": "dijahit pada satu sampel"
+        }
+      ]
+    },
+    {
+      "sceneId": "S22",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "kartu perjalanan",
+          "action": "dapat diraih dari kantong luar"
+        },
+        {
+          "object": "tarikan ritsleting",
+          "action": "terlihat terlalu kecil bagi tangan Maya"
+        }
+      ]
+    },
+    {
+      "sceneId": "S23",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "tarikan ritsleting",
+          "action": "diganti dengan versi lebih besar"
+        },
+        {
+          "object": "tangan Maya",
+          "action": "mencoba ritsleting lagi"
+        }
+      ]
+    },
+    {
+      "sceneId": "S24",
+      "beatId": "B7",
+      "objectMap": [
+        {
+          "object": "sampel tas",
+          "action": "dicoba peminjam lain"
+        },
+        {
+          "object": "daftar pertanyaan",
+          "action": "digunakan untuk mencatat kesulitan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S25",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "kalkulator",
+          "action": "menghitung ongkos produksi"
+        },
+        {
+          "object": "daftar masukan",
+          "action": "diberi tanda untuk riset lanjutan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S26",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "nota pembelian",
+          "action": "menunjukkan satu tas"
+        },
+        {
+          "object": "tas versi baru",
+          "action": "berpindah ke Maya"
+        }
+      ]
+    },
+    {
+      "sceneId": "S27",
+      "beatId": "B8",
+      "objectMap": [
+        {
+          "object": "catatan awal",
+          "action": "menyebut banyak kantong"
+        },
+        {
+          "object": "kartu dan payung",
+          "action": "menunjukkan tugas yang ingin dilakukan"
+        }
+      ]
+    },
+    {
+      "sceneId": "S28",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "sketsa dan kalkulator",
+          "action": "menunjukkan perencanaan dan biaya"
+        },
+        {
+          "object": "sampel tas",
+          "action": "menunjukkan dugaan yang diuji"
+        }
+      ]
+    },
+    {
+      "sceneId": "S29",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "tas sampel",
+          "action": "terletak di antara dua tokoh"
+        },
+        {
+          "object": "kartu pilihan",
+          "action": "menampilkan kapan mencoba dan memeriksa kualitas"
+        }
+      ]
+    },
+    {
+      "sceneId": "S30",
+      "beatId": "B9",
+      "objectMap": [
+        {
+          "object": "tas versi baru",
+          "action": "kembali ke tangan Maya"
+        },
+        {
+          "object": "nama kanal",
+          "action": "muncul lowercase di area aman"
+        }
+      ]
+    }
+  ]
+}

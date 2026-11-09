@@ -1,0 +1,543 @@
+{
+  "version": 1,
+  "note": "Private illustrative rough. Source offsets in seconds; within-scene weights only. No clip depicts the 1992 flood.",
+  "shots": {
+    "master": {
+      "S01": [
+        {
+          "source": "hybrid",
+          "in": 1.0,
+          "weight": 1,
+          "asset": "01-basement.jpg"
+        }
+      ],
+      "S02": [
+        {
+          "source": "chicago1974",
+          "in": 20,
+          "weight": 0.46
+        },
+        {
+          "source": "hybrid",
+          "in": 7.0,
+          "weight": 0.54,
+          "asset": "01-basement.jpg"
+        }
+      ],
+      "S03": [
+        {
+          "source": "chicago1974",
+          "in": 224,
+          "weight": 0.45
+        },
+        {
+          "source": "still",
+          "weight": 0.55,
+          "asset": "02-fish.jpg"
+        }
+      ],
+      "S04": [
+        {
+          "source": "river2014",
+          "in": 2,
+          "weight": 0.4
+        },
+        {
+          "source": "still",
+          "weight": 0.6,
+          "asset": "08-vortex.jpg"
+        }
+      ],
+      "S05": [
+        {
+          "source": "hybrid",
+          "in": 13,
+          "weight": 1,
+          "asset": "08-vortex.jpg"
+        }
+      ],
+      "S06": [
+        {
+          "source": "chicago1974",
+          "in": 40,
+          "weight": 0.3
+        },
+        {
+          "source": "still",
+          "weight": 0.7,
+          "asset": "03-old-tunnel.jpg"
+        }
+      ],
+      "S07": [
+        {
+          "source": "still",
+          "weight": 0.57,
+          "asset": "03-old-tunnel.jpg"
+        },
+        {
+          "source": "metrospain2017",
+          "in": 0.2,
+          "weight": 0.43
+        }
+      ],
+      "S08": [
+        {
+          "source": "river2014",
+          "in": 8,
+          "weight": 0.35
+        },
+        {
+          "source": "still",
+          "weight": 0.65
+        }
+      ],
+      "S09": [
+        {
+          "source": "river2014",
+          "in": 3,
+          "weight": 0.35
+        },
+        {
+          "source": "still",
+          "weight": 0.65,
+          "asset": "04-river-piling.jpg"
+        }
+      ],
+      "S10": [
+        {
+          "source": "still",
+          "weight": 0.25,
+          "asset": "05-leak.jpg"
+        },
+        {
+          "source": "hybrid",
+          "in": 16,
+          "weight": 0.47,
+          "asset": "05-leak.jpg"
+        },
+        {
+          "source": "metrospain2017",
+          "in": 1,
+          "weight": 0.28
+        }
+      ],
+      "S11": [
+        {
+          "source": "still",
+          "weight": 0.65
+        },
+        {
+          "source": "chicago1974",
+          "in": 245,
+          "weight": 0.35
+        }
+      ],
+      "S12": [
+        {
+          "source": "still",
+          "weight": 0.52
+        },
+        {
+          "source": "chicago1974",
+          "in": 360,
+          "weight": 0.48
+        }
+      ],
+      "S13": [
+        {
+          "source": "still",
+          "weight": 0.36,
+          "asset": "05-leak.jpg"
+        },
+        {
+          "source": "still",
+          "weight": 0.39
+        },
+        {
+          "source": "river2014",
+          "in": 5,
+          "weight": 0.25
+        }
+      ],
+      "S14": [
+        {
+          "source": "still",
+          "weight": 0.55,
+          "asset": "07-memo.jpg"
+        },
+        {
+          "source": "chicago1974",
+          "in": 365,
+          "weight": 0.45
+        }
+      ],
+      "S15": [
+        {
+          "source": "still",
+          "weight": 0.65
+        },
+        {
+          "source": "river2014",
+          "in": 6,
+          "weight": 0.35
+        }
+      ],
+      "S16": [
+        {
+          "source": "still",
+          "weight": 0.62,
+          "asset": "07-memo.jpg"
+        },
+        {
+          "source": "chicago1974",
+          "in": 230,
+          "weight": 0.38
+        }
+      ],
+      "S17": [
+        {
+          "source": "still",
+          "weight": 0.59,
+          "asset": "07-memo.jpg"
+        },
+        {
+          "source": "chicago1974",
+          "in": 30,
+          "weight": 0.41
+        }
+      ],
+      "S18": [
+        {
+          "source": "river2014",
+          "in": 10,
+          "weight": 0.52
+        },
+        {
+          "source": "still",
+          "weight": 0.48,
+          "asset": "07-memo.jpg"
+        }
+      ],
+      "S19": [
+        {
+          "source": "hybrid",
+          "in": 19,
+          "weight": 0.45,
+          "asset": "01-basement.jpg"
+        },
+        {
+          "source": "still",
+          "weight": 0.55
+        }
+      ],
+      "S20": [
+        {
+          "source": "hybrid",
+          "in": 6,
+          "weight": 0.53,
+          "asset": "01-basement.jpg"
+        },
+        {
+          "source": "chicago1974",
+          "in": 25,
+          "weight": 0.47
+        }
+      ],
+      "S21": [
+        {
+          "source": "hybrid",
+          "in": 23,
+          "weight": 0.48,
+          "asset": "08-vortex.jpg"
+        },
+        {
+          "source": "still",
+          "weight": 0.34,
+          "asset": "02-fish.jpg"
+        },
+        {
+          "source": "river2014",
+          "in": 12,
+          "weight": 0.18
+        }
+      ],
+      "S22": [
+        {
+          "source": "still",
+          "weight": 0.4,
+          "asset": "09-evacuate.jpg"
+        },
+        {
+          "source": "chicago1974",
+          "in": 442,
+          "weight": 0.3
+        },
+        {
+          "source": "chicago1974",
+          "in": 400,
+          "weight": 0.3
+        }
+      ],
+      "S23": [
+        {
+          "source": "still",
+          "weight": 0.47,
+          "asset": "10-repair.jpg"
+        },
+        {
+          "source": "water2011",
+          "in": 4,
+          "weight": 0.28
+        },
+        {
+          "source": "river2014",
+          "in": 7,
+          "weight": 0.25
+        }
+      ],
+      "S24": [
+        {
+          "source": "still",
+          "weight": 0.7
+        },
+        {
+          "source": "water2011",
+          "in": 18,
+          "weight": 0.3
+        }
+      ],
+      "S25": [
+        {
+          "source": "still",
+          "weight": 0.45,
+          "asset": "09-evacuate.jpg"
+        },
+        {
+          "source": "chicago1974",
+          "in": 395,
+          "weight": 0.55
+        }
+      ],
+      "S26": [
+        {
+          "source": "still",
+          "weight": 0.5,
+          "asset": "07-memo.jpg"
+        },
+        {
+          "source": "chicago1974",
+          "in": 465,
+          "weight": 0.5
+        }
+      ],
+      "S27": [
+        {
+          "source": "still",
+          "weight": 0.65
+        },
+        {
+          "source": "chicago1974",
+          "in": 360,
+          "weight": 0.35
+        }
+      ],
+      "S28": [
+        {
+          "source": "still",
+          "weight": 0.4,
+          "diagram": "legal-first"
+        },
+        {
+          "source": "chicago1974",
+          "in": 225,
+          "weight": 0.25
+        },
+        {
+          "source": "still",
+          "weight": 0.35
+        }
+      ],
+      "S29": [
+        {
+          "source": "chicago1974",
+          "in": 480,
+          "weight": 0.35
+        },
+        {
+          "source": "still",
+          "weight": 0.65,
+          "asset": "10-repair.jpg"
+        }
+      ],
+      "S30": [
+        {
+          "source": "still",
+          "weight": 0.65
+        },
+        {
+          "source": "water2011",
+          "in": 24,
+          "weight": 0.35
+        }
+      ],
+      "S31": [
+        {
+          "source": "chicago1974",
+          "in": 400,
+          "weight": 0.57
+        },
+        {
+          "source": "still",
+          "weight": 0.43,
+          "asset": "07-memo.jpg"
+        }
+      ],
+      "S32": [
+        {
+          "source": "chicago1974",
+          "in": 465,
+          "weight": 0.37
+        },
+        {
+          "source": "metra1992",
+          "in": 182,
+          "weight": 0.28
+        },
+        {
+          "source": "still",
+          "weight": 0.35,
+          "asset": "01-basement.jpg"
+        }
+      ]
+    },
+    "short": {
+      "T01": [
+        {
+          "source": "hybrid",
+          "in": 1,
+          "weight": 1,
+          "asset": "01-basement.jpg"
+        }
+      ],
+      "T02": [
+        {
+          "source": "river2014",
+          "in": 2,
+          "weight": 0.3
+        },
+        {
+          "source": "metrospain2017",
+          "in": 0.2,
+          "weight": 0.22
+        },
+        {
+          "source": "still",
+          "weight": 0.33
+        },
+        {
+          "source": "hybrid",
+          "in": 8,
+          "weight": 0.15,
+          "asset": "01-basement.jpg"
+        }
+      ],
+      "T03": [
+        {
+          "source": "still",
+          "weight": 0.62,
+          "asset": "05-leak.jpg"
+        },
+        {
+          "source": "metrospain2017",
+          "in": 1,
+          "weight": 0.38
+        }
+      ],
+      "T04": [
+        {
+          "source": "still",
+          "weight": 0.55
+        },
+        {
+          "source": "chicago1974",
+          "in": 25,
+          "weight": 0.45
+        }
+      ],
+      "T05": [
+        {
+          "source": "still",
+          "weight": 0.35,
+          "asset": "07-memo.jpg"
+        },
+        {
+          "source": "river2014",
+          "in": 10,
+          "weight": 0.25
+        },
+        {
+          "source": "hybrid",
+          "in": 19,
+          "weight": 0.4,
+          "asset": "01-basement.jpg"
+        }
+      ],
+      "T06": [
+        {
+          "source": "still",
+          "weight": 0.5,
+          "asset": "07-memo.jpg"
+        },
+        {
+          "source": "chicago1974",
+          "in": 245,
+          "weight": 0.5
+        }
+      ],
+      "T07": [
+        {
+          "source": "still",
+          "weight": 0.43,
+          "diagram": "legal-first"
+        },
+        {
+          "source": "chicago1974",
+          "in": 225,
+          "weight": 0.2
+        },
+        {
+          "source": "still",
+          "weight": 0.37
+        }
+      ],
+      "T08": [
+        {
+          "source": "still",
+          "weight": 0.62
+        },
+        {
+          "source": "water2011",
+          "in": 24,
+          "weight": 0.38
+        }
+      ],
+      "T09": [
+        {
+          "source": "chicago1974",
+          "in": 400,
+          "weight": 0.33
+        },
+        {
+          "source": "metra1992",
+          "in": 182,
+          "weight": 0.22
+        },
+        {
+          "source": "still",
+          "weight": 0.45,
+          "asset": "07-memo.jpg"
+        }
+      ]
+    }
+  }
+}

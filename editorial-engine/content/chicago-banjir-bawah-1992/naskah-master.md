@@ -63,7 +63,7 @@ Sebelas hari setelah memo itu, dinding terowongan jebol. Air Sungai Chicago masu
 Air lalu naik ke ruang bawah tanah di banyak gedung. Jalan di atasnya tetap tampak biasa, sementara orang-orang di dalam gedung harus meninggalkan pekerjaan mereka.
 
 ## S21
-Di jembatan, pusaran yang dilihat Langford memberi petunjuk ke mana air sungai pergi. Ikan di basement tadi bukan teka-teki yang berdiri sendiri; keduanya bagian dari banjir yang sama.
+Pusaran yang dilihat Langford memberi petunjuk ke mana air sungai pergi. Ikan di basement tadi bukan teka-teki yang berdiri sendiri; keduanya bagian dari banjir yang sama.
 
 ## S22
 Listrik di sebagian pusat kota dimatikan untuk mengurangi risiko. Orang-orang dievakuasi, dan layanan kereta bawah tanah di kawasan itu terganggu.

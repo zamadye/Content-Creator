@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "note": "Sumber untuk uji privat; tidak ada yang merekam banjir Chicago April 1992. Verifikasi hak independen sebelum publikasi.",
+  "sources": {
+    "chicago1974": {
+      "file": "chicago1974.webm",
+      "title": "Chicago Scenes (ca. 1974)",
+      "author": "United States Information Agency / US National Archives, 102035808",
+      "place_date": "Chicago, sekitar 1974",
+      "license": "Public domain in the United States: US federal government work",
+      "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Chicago_Scenes_(ca._1974).webm",
+      "sha256": "44fd1216a452e73070fd545043dd3caa51b630458a1b311c151bcb8ef21dcb4f",
+      "duration": 665.792,
+      "crop_1974_bars": true,
+      "label": ["CHICAGO  •  SEKITAR 1974", "ARSIP SEBELUM BANJIR 1992"]
+    },
+    "metra1992": {
+      "file": "metra1992.webm",
+      "title": "Chicago Metra Action 1992!",
+      "author": "Walt Loevy",
+      "place_date": "Metra, wilayah Chicago/Illinois, September 1992",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Chicago_Metra_Action_1992!.webm",
+      "sha256": "6092d3cd500a578c95537dd2558ab9922b3ddbe598aed77a3c3561a96d64808f",
+      "duration": 696.253,
+      "label": ["METRA, ILLINOIS  •  SEP 1992", "SETELAH BANJIR  •  BUKAN EVAKUASI"]
+    },
+    "river2014": {
+      "file": "river2014.webm",
+      "title": "Chicago River time lapse",
+      "author": "Michael Pilat",
+      "place_date": "Chicago River, 23 September 2014",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Chicago_River_time_lapse.webm",
+      "sha256": "1623ae140532d9611d66fd04b60001b6350f8e1f1a7b7e68585976c937045c85",
+      "duration": 22.085,
+      "label": ["SUNGAI CHICAGO  •  2014", "ILUSTRASI  •  BUKAN BANJIR 1992"]
+    },
+    "metrospain2017": {
+      "file": "metrospain2017.webm",
+      "title": "Spain Metro tunnel",
+      "author": "tiburi",
+      "place_date": "Spanyol, 2017",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Spain_Metro_tunnel.webm",
+      "sha256": "980311f23dc60cea76c3d6da792b1496f4ed9f2e305cd4902f5fa4470a37d128",
+      "duration": 6.233,
+      "label": ["METRO SPANYOL  •  2017", "ILUSTRASI  •  BUKAN CHICAGO"]
+    },
+    "water2011": {
+      "file": "water2011.webm",
+      "title": "Water Surface 3 --FREE FOOTAGE--",
+      "author": "VFX FOOTAGE",
+      "place_date": "Lokasi tidak diketahui, 2011; tekstur video, bukan dokumentasi banjir",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Water_Surface_3_--FREE_FOOTAGE--.webm",
+      "sha256": "e0c52e81378fe9237cd8f13f36770e5759dedf17c9778685412530ef52bc7a3d",
+      "duration": 36.08,
+      "label": ["TEKSTUR AIR  •  2011", "LOKASI TAK DIKETAHUI  •  ILUSTRASI"]
+    }
+  },
+  "hybrid_label": ["REKONSTRUKSI AI + TEKSTUR AIR", "STOK 2011  •  LOKASI TAK DIKETAHUI"],
+  "still_label": ["REKONSTRUKSI AI", "BUKAN REKAMAN BANJIR 1992"],
+  "diagram_label": ["SKEMA ILUSTRATIF", "BUKAN REKAMAN ATAU PETA AKURAT"],
+  "edits": "Cuplikan dipotong, diskalakan dan di-crop, sebagian diberi gradasi, overlay teks, atau dikomposit; audio sumber dibuang. Tidak ada pemberi lisensi yang mendukung konten ini."
+}

@@ -41,3 +41,41 @@ python3 editorial-engine/pipeline/script-review/test-audit.py
 ```
 
 Tes sintetis memeriksa penolakan final/path, pengikatan hash/teks/urutan, media yang berubah, alokasi waktu terurut, cakupan subtitle dan pencegahan loop input gambar overlay tanpa batas. Versi awal sempat kehabisan memori saat render S12; perbaikan memakai satu frame pada overlay statis. Uji scene S12, S27, S32 dan T09 di lingkungan ini mencatat peak proses anak maksimum sekitar 292 MiB; bukan jaminan batas memori pada sistem lain. Mereka tidak membuktikan teks suara, sinkron, cerita, hak atau respons audiens. Exit `1` berarti dependency, input/hash, mechanical preflight atau FFmpeg gagal; jangan memaksa bypass. Saat input diubah, perbarui audit dan lakukan review lagi; jika naskah berubah, generate ulang voice sesuai keputusan reviewer dan buat manifest baru, bukan mengganti hash tanpa menyamakan audionya.
+
+## Eksperimen footage bergerak — tetap draf privat
+
+`render_footage.py` membangun ulang dari **satu clock** narasi/scene yang sama, lalu memakai bobot shot relatif di `footage-plan.json`; ia tidak membuat timeline cerita kedua. `footage-sources.json` mengikat SHA-256, asal/tahun, sumber, creator, lisensi dan teks asal pada setiap shot. Program berhenti jika naskah/voice/aset/hash sumber tidak cocok, scene tidak lengkap, rentang klip melewati durasi, atau label/kredit tidak lengkap. Audio sumber dibuang; draf memakai narasi dan musik sintetis. Aslinya dan semua hasil tetap privat, tidak dimasukkan ke Git.
+
+**Tidak satu pun klip adalah rekaman banjir 13 April 1992.** Pusat Chicago sekitar 1974, Sungai Chicago 2014, kereta Metra September 1992 (setelah banjir) dan metro Spanyol 2017 ialah footage konteks yang diberi tanggal/lokasi dan peringatan pada layar. Tekstur video air (2011, lokasi tidak diketahui) kadang dikomposit ke rekonstruksi AI, dan ini juga ditandai; jangan menyebut tekstur itu dokumentasi kejadian atau memastikan teksturnya direkam dari air nyata. Rekonstruksi AI dan skema tetap dipakai saat tidak ada arsip kejadian yang haknya diperiksa. Cuplikan kota/kereta yang menyertai bahasan evakuasi dinyatakan bukan rekaman evakuasi/gangguan. `KREDIT_FOOTAGE_DRAF.txt` dan `caption-footage-draf.txt` mencantumkan attribution, URL sumber/lisensi dan perubahan; klaim lisensi Commons bukan pengganti pemeriksaan hak independen, termasuk hak pihak ketiga dan yurisdiksi.
+
+```bash
+# Sumber dan voice dipulihkan dari Drive privat yang sah, bukan dari repositori.
+# Gunakan manifest footage-input-manifest.json yang cocok dengan S21 revisi.
+PYTHONPATH=.scratch/py python3 editorial-engine/pipeline/chicago-banjir-bawah-1992/render_footage.py \
+  --private-rough --asset-dir .scratch/chicago/assets --voice-dir .scratch/chicago/voice \
+  --footage-dir .scratch/chicago/footage/originals \
+  --manifest .scratch/chicago/voice/footage-input-manifest.json \
+  --out .scratch/chicago/footage/output --only both
+
+PYTHONPATH=.scratch/py python3 editorial-engine/pipeline/chicago-banjir-bawah-1992/test_render_footage.py
+PYTHONPATH=.scratch/py python3 editorial-engine/pipeline/chicago-banjir-bawah-1992/test_pack_footage_private.py
+
+# ffprobe untuk contoh Linux x64 berikut disimpan di .scratch; pada sistem lain
+# gunakan binary ffprobe yang sesuai. Sesuaikan --out dengan output privat aktual.
+npm install --prefix .scratch/chicago/tools @ffprobe-installer/linux-x64@5.2.0
+# Pemeriksaan ini tidak menggantikan review pemutaran/pendengaran oleh manusia.
+PYTHONPATH=.scratch/py python3 editorial-engine/pipeline/chicago-banjir-bawah-1992/qa_footage.py \
+  --out .scratch/chicago/footage/output \
+  --ffprobe .scratch/chicago/tools/node_modules/@ffprobe-installer/linux-x64/ffprobe
+PYTHONPATH=.scratch/py python3 editorial-engine/pipeline/chicago-banjir-bawah-1992/write_footage_storyboard.py \
+  --timeline .scratch/chicago/footage/output/TIMELINE_FOOTAGE_PERKIRAAN.json \
+  --out .scratch/chicago/footage/output/STORYBOARD_FOOTAGE_DRAF.md
+
+# Catatan pemulihan privat harus memuat lokasi sumber dan hasil yang disimpan terpisah.
+PYTHONPATH=.scratch/py python3 editorial-engine/pipeline/chicago-banjir-bawah-1992/pack_footage_private.py \
+  --manifest .scratch/chicago/voice/footage-input-manifest.json \
+  --restore-note .scratch/chicago/footage/RESTORE-PRIVAT.txt \
+  --out .scratch/chicago/footage/CHECKPOINT_INPUT_FOOTAGE_PRIVAT.zip
+```
+
+`--include-companions --output-dir <direktori-privat>` menambahkan file pendamping yang telah selesai termasuk storyboard, laporan dan QA, tetapi **tidak** menambahkan MP4 hasil atau tujuh sumber video: simpan dan verifikasi terpisah di Drive privat. Pemeriksa QA melakukan decode, perhitungan frame, konsistensi urutan scene/shot/SRT, perbandingan durasi, pengukuran loudness dan dimensi gambar; kesuksesan mekanis bukan PASS untuk pemutaran atau review manusia. Subtitle portrait diletakkan di atas 18% terbawah sebagai target ruang untuk overlay aplikasi, bukan jaminan aman di semua platform/perangkat. Tidak ada overwrite backup animatic lama. Output tetap ber-watermark draf, tidak ada Buffer/pengaturan berbagi, dan Short masih belum punya gate prevoice kompatibel. Subtitle/scene timing hasil estimasi, komposisi vertikal, kecocokan gambar terhadap kalimat, respons penonton, kemampuan karakter, hak/disclosure, pemutaran/pendengaran penuh dan persetujuan rilis masih harus ditinjau manusia. Tests memakai klip sintetis untuk memastikan jumlah frame dan audio sumber tidak ikut, tetapi tidak dapat membuktikan keterbacaan di ponsel atau kualitas emosional.

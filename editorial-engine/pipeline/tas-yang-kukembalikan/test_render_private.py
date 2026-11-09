@@ -104,7 +104,7 @@ class RoughTests(unittest.TestCase):
 
     def test_rig_and_story_props_move_over_time(self):
         # Smoke-test pixel differences, not a claim of convincing animation.
-        for sid in ('S01','S10','S18','S21','S26','T08'):
+        for sid in ('S01','S07','S10','S18','S21','S26','T03','T08'):
             a=r.stage_frame(r.RECIPES[sid][0],sid,0.05,6)
             b=r.stage_frame(r.RECIPES[sid][0],sid,3.5,6)
             with self.subTest(scene=sid):self.assertIsNotNone(ImageChops.difference(a,b).getbbox())

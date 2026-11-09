@@ -6,7 +6,7 @@ Renderer offline untuk mengevaluasi cerita/gerak, **bukan renderer rilis**. Tida
 
 - Tiga output: master horizontal 1280×720, master alternatif vertikal 720×1280, Short turunan 720×1280; 24 fps, H.264/AAC. Dua rasio master memakai narasi yang sama. Short adalah edit ulang cerita dari titik masalah/penemuan, bukan video penuh yang dipotong sembarang.
 - Satu track narasi voice-05 per video, setelah menyatukan potongan master berurutan; musik nada orisinal yang disintesis, bukan rekaman referensi. Master kira-kira 2:54; Short kira-kira 1:03. Dengarkan campuran penuh untuk memastikan pelafalan, level dan kenyamanan—belum terbukti.
-- Maya, Nisa, dan tester digambar sebagai rig vektor sederhana dengan tangan, ekspresi, mulut, objek dan aksi. Tas, kartu, payung, mesin jahit, catatan, kalkulator dan tempat adalah ilustrasi original dengan kontinuitas yang dirancang. Ini animatic vektor, **bukan** footage nyata atau animasi karakter kompleks: daya hidup, kontinuitas tangan dan emosi harus direview manusia.
+- Maya, Nisa, dan tester digambar sebagai rig vektor sederhana dengan tangan, ekspresi, mulut, objek dan aksi. Pada revisi animatic, tangan diarahkan ke tas/payung, sampel berpindah, tas diturunkan dan kartu bergerak dari kantong; pergerakan masih disederhanakan. Tas, kartu, payung, mesin jahit, catatan, kalkulator dan tempat adalah ilustrasi original dengan kontinuitas yang dirancang. Ini animatic vektor, **bukan** footage nyata atau animasi karakter kompleks: daya hidup, kontinuitas tangan dan emosi harus direview manusia.
 - `CERITA FIKTIF` dan `DRAF PRIVAT` tampil dari frame 0. Thumbnail/poster adalah komposisi terpisah dari video. Subtitle 2 baris dengan pemenggalan berbasis klausa; batas kalimat dan scene **perkiraan berbasis jeda**, bukan forced alignment. Seluruh subtitle dan kesesuaian aksi/audio harus diperiksa dengan mendengarkan.
 
 ## Input dan konfigurasi
@@ -40,3 +40,18 @@ PYTHONPATH=.scratch/tas-deps python3 -u editorial-engine/pipeline/tas-yang-kukem
 - `test_render_private.py` memakai input sintetik untuk validasi, paginasi, geometri dan perbedaan pixel gerak. Ia tidak membuktikan kualitas ilustrasi, emosi, lip-sync, mobile legibility atau respons audiens. QA aktual harus memeriksa durasi/codec, full decode, frame awal, gerak, kesesuaian audio/subtitle, hak/font/voice, klaim, keterbacaan dan batas platform.
 - Gerbang `prevoice` final belum lulus: butuh receipt reviewer manusia yang nyata dan mengikat hash brief/naskah/audit. Rough privat ini tidak mengisi/mengganti receipt. Fakta/hak/disclosure, respons penonton, full listening, QA manusia dan persetujuan rilis masih **NOT TESTED** sampai dilakukan.
 - Facebook Page via Buffer adalah Reels (3–90 detik menurut dokumentasi yang ditelusuri sebelumnya): master sekitar 174 detik tidak cocok sebagai Reels tersebut. Short sekitar 63 detik adalah kandidat durasi, tetap perlu konfirmasi format/persyaratan platform pada saat publikasi. Tidak ada output yang otomatis diunggah atau dijadwalkan.
+
+## QA dan report privat
+
+Setelah render, dengan binary ffprobe lokal yang tepercaya tersedia, jalankan:
+
+```bash
+PYTHONPATH=.scratch/tas-deps python3 editorial-engine/pipeline/tas-yang-kukembalikan/qa_outputs.py \
+  --out-dir .scratch/tas-animation/out --work-dir .scratch/tas-animation/work \
+  --ffprobe /path/to/ffprobe
+# Opsional report PDF: install reportlab==4.4.4 dalam direktori scratch yang sama.
+PYTHONPATH=.scratch/tas-deps python3 editorial-engine/pipeline/tas-yang-kukembalikan/build_report.py \
+  --out-dir .scratch/tas-animation/out
+```
+
+QA memeriksa codec, ukuran, frame rate, durasi, satu stream audio, full decode dan perbedaan dua sampel frame. Ia menghasilkan `technical-qa.json`, frame awal dan contact sheet hasil decode. Memeriksa perbedaan frame tidak membuktikan gerak meyakinkan. Report membacanya sebagai status teknis; review editorial, dengar penuh, akurasi/rights/disclosure dan rilis tetap terpisah.

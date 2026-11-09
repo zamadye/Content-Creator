@@ -257,7 +257,7 @@ def draw_chair(d,x,y,s=1):
     d.line((x+60*s,y,x+70*s,y+126*s),fill=INK,width=max(3,int(7*s)))
 
 
-def draw_person(d, who, x, ground, scale=1, phase=0, gesture='idle', emotion='neutral'):
+def draw_person(d, who, x, ground, scale=1, phase=0, gesture='idle', emotion='neutral', target_l=None, target_r=None):
     """Same colored rig in every scene; animated arms, eyes and mouth."""
     s=scale; p=phase
     skin = {'maya': SKIN_MAYA, 'nisa': SKIN_NISA, 'tester': '#a6775f'}[who]
@@ -286,6 +286,15 @@ def draw_person(d, who, x, ground, scale=1, phase=0, gesture='idle', emotion='ne
     else:
         a1=(x-62*s,ground-245*s); b1=(x-91*s,ground-184*s+wob); c1=(x-91*s,ground-136*s+wob)
         a2=(x+62*s,ground-245*s); b2=(x+91*s,ground-184*s-wob); c2=(x+91*s,ground-136*s-wob)
+    # Optional targets aim the hands at props; cap the reach to keep limbs proportionate.
+    def limited(point,shoulder):
+        dx=point[0]-shoulder[0];dy=point[1]-shoulder[1];distance=math.hypot(dx,dy)
+        factor=min(1.0,150*s/max(distance,.001))
+        return (shoulder[0]+dx*factor,shoulder[1]+dy*factor)
+    if target_l is not None:
+        c1=limited(target_l,a1); b1=((a1[0]+c1[0])/2-12*s,(a1[1]+c1[1])/2+10*s)
+    if target_r is not None:
+        c2=limited(target_r,a2); b2=((a2[0]+c2[0])/2+12*s,(a2[1]+c2[1])/2+10*s)
     for a,b,c in ((a1,b1,c1),(a2,b2,c2)):
         d.line([a,b,c],fill=INK,width=max(3,int(26*s)),joint='curve')
         d.line([a,b,c],fill=shirt,width=max(3,int(20*s)),joint='curve')
@@ -405,25 +414,42 @@ def stage_frame(mode: str, scene_id: str, scene_elapsed: float, scene_duration: 
             d.line((836,500,908,500),fill='#b59373',width=4)
             draw_bag(d,598,550,.50,pocket=(scene_id=='S28'))
     elif mode in ('sew','pocket'):
-        shadow(d,258,710,120,14);draw_person(d,'nisa',258,709,.98,phase,'write')
-        desk(d);draw_machine(d,580,485,.92,phase*2)
-        draw_bag(d,825,525,.63,pocket=(mode=='pocket' and (scene_id!='S21' or t>min(1.2,scene_duration*.35))))
-        if mode=='pocket':
-            draw_sheet(d,418,485,.5,'check');d.line((720,517,755,517),fill=CORAL,width=6)
-        else: draw_sheet(d,431,491,.49,'sketch')
+        # Sewing turns into an actual sample handover in the same narrated scene.
+        handover_scene=scene_id in ('S07','T03')
+        threshold=.55 if scene_id=='T03' else .47
+        lending=handover_scene and t>scene_duration*threshold
+        if lending:
+            k=smooth((t-scene_duration*threshold)/max(.6,scene_duration*(1-threshold)*.8))
+            bx=lerp(520,460,k)
+            shadow(d,280,710,100,14);shadow(d,710,710,100,14)
+            draw_person(d,'nisa',280,709,.87,phase,'hold',target_r=(bx-62,478))
+            # Maya steps closer and reaches for the tote.
+            mx=lerp(740,700,k)
+            draw_person(d,'maya',mx,709,.87,phase+.7,'hold',target_l=(bx+62,478))
+            desk(d);draw_machine(d,780,510,.52,phase*2)
+            draw_bag(d,bx,511,.59)
+        else:
+            shadow(d,258,710,120,14)
+            draw_person(d,'nisa',258,709,.98,phase,'write',target_r=(447,475+8*math.sin(phase*2)))
+            desk(d);draw_machine(d,580,485,.92,phase*2)
+            draw_bag(d,825,525,.63,pocket=(mode=='pocket' and (scene_id!='S21' or t>min(1.2,scene_duration*.35))))
+            if mode=='pocket':
+                draw_sheet(d,418,485,.5,'check');d.line((720,517,755,517),fill=CORAL,width=6)
+            else:
+                draw_sheet(d,431,491,.49,'sketch')
+                if scene_id=='T03':draw_calculator(d,740,490,.40)
     elif mode == 'transit':
-        shadow(d,327,707,135,18);draw_person(d,'maya',325,701,1.04,phase,'hold','concern')
-        # Maya's raised forearm physically meets the umbrella handle.
-        d.line((261,451,219,396,200,329),fill=INK,width=24,joint='curve')
-        d.line((261,451,219,396,200,329),fill=CORAL,width=17,joint='curve')
-        d.ellipse((189,318,211,340),fill=SKIN_MAYA,outline=INK,width=2)
-        draw_umbrella(d,200,112,1.08,phase*.8)
-        # In S10 the sample is visibly lowered; card remains at its top opening.
+        # In S10 the sample visibly lowers; Maya's two arms connect to props.
         drop=70*smooth((t-.25)/max(1.0,scene_duration*.60)) if scene_id=='S10' else 0
-        by=535+drop
-        draw_bag(d,571+5*math.sin(phase*.7),by,1.02,open_bag=(scene_id=='S10'))
-        draw_card(d,616,by-85,.52)
-        d.line((590,by-79,550,by-46),fill='#f2cf81',width=5)
+        by=535+drop;bx=571+5*math.sin(phase*.7)
+        shadow(d,327,707,135,18)
+        draw_person(d,'maya',325,701,1.04,phase,'hold','concern',target_l=(200,329),target_r=(bx-104,by-82))
+        draw_umbrella(d,200,112,1.08,phase*.8)
+        # Strap attaches to the shoulder; hand follows the zipper as the bag drops.
+        d.line((382,430,bx-72,by-85),fill=INK,width=8)
+        draw_bag(d,bx,by,1.02,open_bag=(scene_id=='S10'))
+        d.ellipse((bx-114,by-93,bx-92,by-71),fill=SKIN_MAYA,outline=INK,width=2)
+        draw_card(d,bx+45,by-85,.52)
     elif mode in ('note','many'):
         shadow(d,215,710,105,14);draw_person(d,'nisa',220,708,.9,phase,'point','concern')
         desk(d)
@@ -439,15 +465,21 @@ def stage_frame(mode: str, scene_id: str, scene_elapsed: float, scene_duration: 
                 d.ellipse((685,291,737,343),fill=SKIN_NISA,outline=INK,width=3)
                 ft=font(BOLD,32); d.text((650,275),'≠',font=ft,fill=CORAL)
     elif mode == 'observe':
-        shadow(d,225,720,105,15);shadow(d,785,720,105,15)
-        draw_person(d,'maya',235,710,.88,phase,'hold','concern')
-        draw_person(d,'nisa',785,710,.88,phase+1,'point')
+        shadow(d,330,720,105,15);shadow(d,710,720,105,15)
+        # First show umbrella in hand, then bring that hand toward the bag as
+        # Maya tucks the handle alongside her elbow to free both hands.
+        demo=scene_id=='S18'
+        k=smooth((t-.25)/max(1.0,scene_duration*.65)) if demo else 0
+        drop=55*k;bx=490;by=536+drop
+        umbrella_x=lerp(245,235,k)
+        left=(lerp(umbrella_x, bx-75,k),lerp(330,by-65,k))
+        draw_person(d,'maya',330,710,.88,phase,'hold','concern',target_l=left,target_r=(bx-75,by-85))
+        draw_person(d,'nisa',710,710,.88,phase+1,'point',target_l=(bx+80,by-60))
         draw_chair(d,515,594,.73)
-        draw_umbrella(d,485,175,.78,phase*.6)
-        # Recreate the bag-lowering action for Nisa to observe.
-        drop=55*smooth((t-.25)/max(1.0,scene_duration*.65)) if scene_id=='S18' else 0
-        draw_bag(d,532,536+drop,.72,open_bag=(scene_id=='S18'))
-        draw_card(d,618+10*math.sin(phase),461+drop,.45)
+        draw_umbrella(d,umbrella_x,175,.78,phase*.6)
+        draw_bag(d,bx,by,.72,open_bag=demo)
+        d.ellipse((bx-84,by-94,bx-65,by-75),fill=SKIN_MAYA,outline=INK,width=2)
+        draw_card(d,bx+86+10*math.sin(phase),461+drop,.45)
     elif mode == 'insight':
         shadow(d,210,710,100,14);draw_person(d,'nisa',210,705,.89,phase,'point')
         desk(d)
@@ -459,23 +491,27 @@ def stage_frame(mode: str, scene_id: str, scene_elapsed: float, scene_duration: 
         if scene_id == 'S27':draw_umbrella(d,899,196,.49,phase)
     elif mode == 'test':
         shadow(d,250,713,105,15);shadow(d,785,713,105,15)
-        draw_person(d,'maya',218,705,.84,phase,'hold')
-        draw_person(d,'nisa',809,705,.84,phase+1,'point')
         other_tester=scene_id=='S24' or (scene_id=='T08' and t>scene_duration*.58)
-        if other_tester:
-            # A distinct third tester appears, with an unobstructed face.
-            draw_person(d,'tester',405,665,.95,phase+.3,'hold')
         closeup=1.26 if scene_id in ('S22','T08') else 1.05
         bx=585 if other_tester else 520
+        maya_x=220 if other_tester else 245
+        maya_target=(330,465) if other_tester else (bx-110,448)
+        draw_person(d,'maya',maya_x,705,.84,phase,'hold',target_r=maya_target)
+        draw_person(d,'nisa',790,705,.84,phase+1,'point',target_l=(bx+105,463))
+        if other_tester:
+            # A distinct third tester appears, with an unobstructed face.
+            draw_person(d,'tester',405,665,.95,phase+.3,'hold',target_r=(bx-107,485))
         draw_bag(d,bx,525,closeup,pocket=True,tiny_zip=(scene_id in ('S22','T08') and t<scene_duration*.55))
-        draw_card(d,bx+10+14*math.sin(phase),370,.62)
+        # The card moves vertically out of the added exterior pocket.
+        reach=smooth((t-.2)/max(1.0,scene_duration*.60))
+        draw_card(d,bx+10,lerp(455,367,reach),.62)
         if scene_id=='S24':draw_sheet(d,695,515,.5,'check')
     elif mode == 'purchase':
-        shadow(d,270,716,110,14);shadow(d,780,716,110,14)
-        draw_person(d,'maya',265,706,.94,phase,'hold')
-        draw_person(d,'nisa',780,706,.94,phase+.8,'point')
-        handover=smooth((t-.1)/max(1.0,scene_duration*.68))
-        draw_bag(d,lerp(585,440,handover),520,.97,pocket=True)
+        shadow(d,300,716,110,14);shadow(d,700,716,110,14)
+        handover=smooth((t-.1)/max(1.0,scene_duration*.68));bx=lerp(540,450,handover)
+        draw_person(d,'maya',300,706,.94,phase,'hold',target_r=(bx-98,452))
+        draw_person(d,'nisa',700,706,.94,phase+.8,'point',target_l=(bx+98,452))
+        draw_bag(d,bx,520,.97,pocket=True)
         draw_sheet(d,711,525,.55,'lines','1 TAS')
     elif mode in ('question','end'):
         shadow(d,500,700,225,24)

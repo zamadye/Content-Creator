@@ -6,13 +6,13 @@
  "chunks": [
   {
    "file": "vo-c1-cold-open.mp3",
-   "sha256": "5cbd4f4c87e0de3cd074079412612caa6a212e8ab867813d47700e43f40a18f8",
-   "bytes": 218253
+   "sha256": "1acba735a68901e97040f370ba49aaafd25cfd8b17fb25455f5df027c63d86ec",
+   "bytes": 388749
   },
   {
    "file": "vo-c2-korban.mp3",
-   "sha256": "1cacae4a1d5718fe9fa2fc2bec6d328aec382962d881344971eb4be08f3f4912",
-   "bytes": 212589
+   "sha256": "c2072055843b86e3c55ba1fe73274b5c9fd027c7ca2bcc398b63789a15c43945",
+   "bytes": 235533
   },
   {
    "file": "vo-c3-dampak.mp3",
@@ -41,8 +41,13 @@
   },
   {
    "file": "vo-c8-closing.mp3",
-   "sha256": "726e44dddd60914cd02c84652b4cd8be57732963277a6b74d446d9bb734a1b3e",
-   "bytes": 183981
+   "sha256": "a1c808e3dafa7234b0d941524432e521e8a49d8a6cb0e19788ca97308d540172",
+   "bytes": 196461
+  },
+  {
+   "file": "vo-c3b-pemimpin.mp3",
+   "sha256": "045278ca447ba62d02b5191e19c0f995a82d71f7a324b033acc988be38ab830d",
+   "bytes": 213261
   }
  ],
  "combined": "kamu-masih-muda-full-voice05.mp3",

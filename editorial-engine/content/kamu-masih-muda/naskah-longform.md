@@ -17,19 +17,35 @@ CTA komentar (loop episode berikutnya).
 
 ## TEKS NARASI v3 (chunk = unit render; C3, C4, C5, C6, C7 dipakai ulang dari v2)
 
-### C1 — Cold open baru + janji (RENDER ULANG)
+### C1 — Cold open + dramatisasi dialog (RENDER ULANG v4 — koreksi review 2)
 "Kamu ini masih kecil. Sok-sok-an menasihati saya. Tau apa kamu tentang hidup?"
 Kalimat ini mungkin terdengar familiar. Bukan di film — tapi di meja makan, di
 ruang rapat, di grup keluarga. Perhatikan: tidak ada satu pun yang membahas
 gagasannya. Yang dibahas: usiamu, harga dirimu, hakmu bicara.
-Contohnya sederhana. Seorang karyawan meneliti cara meningkatkan penjualan.
-Gagasannya dia bawa ke atasan: data, usulan, rencana. Yang dibalas bukan
-gagasannya — tapi, "kamu masih junior. Jangan mengajariku." Gagasan tentang
-penjualan mati... tanpa satu pun angka yang dibahas.
+Contohnya sederhana. Seorang karyawan membawa gagasan peningkatan penjualan ke
+atasannya. Dengan tenang, hampir seperti konsultan, dia bilang: "Pak, saya ingin
+memastikan kita sudah memperhitungkan satu hal: di poin ini, asumsinya kurang
+pas dengan kondisi lapangan. Menurut saya, lebih baik kita buka datanya
+bersama... sebelum mengambil keputusan."
+Yang dibalas bukan datanya. "Kamu masih baru. Jangan... mengajari saya... yang
+sudah lama, dan lebih tahu soal lapangan."
+Perhatikan kontrasnya. Bahasa paling dewasa sudah dipakai — yang dibalas tetap
+bahasa kekuasaan. Gagasan tentang penjualan mati... tanpa satu pun angka yang
+dibahas.
 Pernah nggak kamu mengalami ini — kamu bawa gagasan, yang dibalas fisik, usia,
 atau masa lalumu? Itu bukan debat. Itu ad hominem. Hari ini kita bedah: kenapa
 orang menyerang pribadi, siapa korbannya, apa dampaknya — sampai satu twist di
 ujung, soal kedewasaan dan usia.
+
+Catatan produksi C1:
+- Bawahan: sangat tenang, ritme rata, seperti konsultan (adaptasi frasa
+  "I want to make sure we're factoring in..." — riset: bahasa mitra-berpikir
+  menaikkan rasa hormat atasan; TIDAK dikutip sebagai sitasi di video).
+- Atasan: "mengajari saya" ditekan pelan (ellipses "..." = jeda), lalu hening.
+- Teks layar (scene serangan): "Yang diminta: buka data.
+  Yang diterima: ceramah usia kerja."
+- Kontras intensional: bawahan sudah pakai bahasa paling dewasa; atasan tetap
+  bahasa kekuasaan.
 
 ### C2 — Bedah: objektif vs subjektif + 3 korban (RENDER ULANG)
 Kita bedah pelan-pelan. Setiap percakapan punya dua wilayah. Wilayah objektif:

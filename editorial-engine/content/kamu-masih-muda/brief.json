@@ -11,9 +11,9 @@
  },
  "format": "long video 5-15 menit (target narasi 7-8 menit), 720x1280, voice-05, musik dramatis pipeline",
  "status": {
-  "naskah": "v3 (koreksi review draf 1: opening kontekstual+serangan langsung, objektif/subjektif, scene edukasi pemimpin, CTA santai)",
-  "audio": "9 chunk voice-05, total narasi 9:02 (c1,c2,c3b,c8 dirender ulang)",
-  "visual": "DRAF 2 (v3) dirender ber-watermark — menunggu review user"
+  "naskah": "v4 (review 2: dramatisasi dialog konsultan→atasan, teks layar 'yang diminta/yang diterima')",
+  "audio": "9 chunk voice-05 (c1/c2/c3b/c8 versi terbaru), total narasi 9:22",
+  "visual": "DRAF 3 (v4) dirender ber-watermark — menunggu review user"
  },
  "permintaanUser": [
   "Tema psikologi: logical fallacies dan turunannya, ad hominem sebagai pintu masuk",
@@ -102,5 +102,12 @@
   "audioDesign": "musik bed penuh + SFX thud/damp/whoosh/chime di adegan krusial",
   "driveId": "1i4OWxz7_9V7FJ6qz4IyNeEjmFe152jsd",
   "fileName": "kamu-masih-muda DRAF PRIVAT (review 2).mp4"
+ },
+ "draft3": {
+  "sha256": "1729979d6f66c3c6030b47bbaca908e9adf45a0fb897577809658ff5ab21433f",
+  "durasi": "00:09:21.92",
+  "scenes": 31,
+  "cues": 156,
+  "perubahan": "C1 dramatisasi: bawahan tenang seperti konsultan ('Pak, saya ingin memastikan kita sudah memperhitungkan satu hal... buka datanya bersama') dijawab atasan ('Kamu masih baru. Jangan... mengajari saya... yang sudah lama dan lebih tahu soal lapangan.'); teks layar YANG DIMINTA: BUKA DATA / YANG DITERIMA: CERAMAH USIA KERJA; stamp MASIH BARU; kartu ide mati; SFX thud+damp di fase serangan"
  }
 }

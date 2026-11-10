@@ -54,9 +54,15 @@ CUES = {
   "di ruang rapat, di grup keluarga.",
   "Perhatikan: tidak ada satu pun yang membahas gagasannya.",
   "Yang dibahas: usiamu, harga dirimu, hakmu bicara.", "Contohnya sederhana.",
-  "Seorang karyawan meneliti cara meningkatkan penjualan.",
-  "Gagasannya dia bawa ke atasan: data, usulan, rencana.",
-  "Yang dibalas bukan gagasannya — tapi,", "kamu masih junior. Jangan mengajariku.",
+  "Seorang karyawan membawa gagasan peningkatan penjualan ke atasannya.",
+  "Dengan tenang, hampir seperti konsultan, dia bilang:",
+  "\"Pak, saya ingin memastikan kita sudah memperhitungkan satu hal:",
+  "di poin ini, asumsinya kurang pas dengan kondisi lapangan.",
+  "Menurut saya, lebih baik kita buka datanya bersama... sebelum mengambil keputusan.\"",
+  "Yang dibalas bukan datanya.", "\"Kamu masih baru.", "Jangan... mengajari saya...",
+  "yang sudah lama, dan lebih tahu soal lapangan.\"",
+  "Perhatikan kontrasnya.", "Bahasa paling dewasa sudah dipakai —",
+  "yang dibalas tetap bahasa kekuasaan.",
   "Gagasan tentang penjualan mati... tanpa satu pun angka yang dibahas.",
   "Pernah nggak kamu mengalami ini —", "kamu bawa gagasan, yang dibalas fisik, usia, atau masa lalumu?",
   "Itu bukan debat. Itu ad hominem.",
@@ -322,34 +328,50 @@ def S1(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#d7e1d7')
     table(d)
     rise = min(1, ts / 2.5)
-    d.line([(320, 470)] + [(320 + i * 70, 470 - i * 55 * rise) for i in range(1, 5)], fill=TEAL, width=8)
-    paste_card(d._base, d, 560, 520, 200, 105, 'IDE PENJUALAN', tilt=-3)
-    box(d, (250, 455, 300, 545), 5, '#8a7a66', INK, 3); d.text((258, 462), 'data', font=fnt(15), fill=INK)
-    actor(d, 'bima', 170, 690, .92, ts * 1.2, 'neutral', target=(560, 530))
-    actor(d, 'owner', 830, 690, .95, ts * 1.1, 'neutral')
-    d.text((500, 130), 'seorang karyawan membawa gagasan ke atasannya', font=fnt(24), fill='#56655f', anchor='mm')
+    d.line([(320, 500)] + [(320 + i * 70, 500 - i * 55 * rise) for i in range(1, 5)], fill=TEAL, width=8)
+    paste_card(d._base, d, 560, 550, 200, 105, 'IDE PENJUALAN', tilt=-3)
+    box(d, (250, 485, 300, 575), 5, '#8a7a66', INK, 3); d.text((258, 492), 'data', font=fnt(15), fill=INK)
+    actor(d, 'bima', 170, 720, .92, ts * 1.2, 'neutral', target=(560, 560))
+    actor(d, 'owner', 830, 720, .95, ts * 1.1, 'neutral')
+    for i, (q, th) in enumerate((('"Kamu ini masih kecil."', .2),
+                                 ('"Sok-sok-an menasihati saya."', .9),
+                                 ('"Tau apa kamu tentang hidup?"', 1.6))):
+        if ts > th: d.text((500, 140 + i * 64), q, font=pm(34), fill=INK if i < 2 else CORAL, anchor='mm')
+    d.text((500, 360), 'detik pertama: yang diserang BUKAN gagasannya', font=fnt(22), fill='#56655f', anchor='mm')
 
 def S2(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#d7e1d7')
     table(d)
-    paste_card(d._base, d, 560, 520, 200, 105, 'IDE PENJUALAN', tilt=3)
-    actor(d, 'bima', 170, 690, .92, ts * 1.2, 'worried', target=(560, 530))
-    actor(d, 'owner', 830, 690, .95, ts * 1.1, 'neutral', target=(560, 530))
-    if ts > .4: paste_stamp(d._base, 500, 250, 'MASIH JUNIOR', CORAL, 1.3, -6 + math.sin(ts * 8) * 1.5)
-    if ts > 1.6: bubble(d, 330, 330, 330, 74, '"Jangan mengajariku."', fnt(24))
-    d.text((500, 120), 'yang dibahas bukan gagasannya', font=fnt(24), fill=CORAL, anchor='mm')
+    paste_card(d._base, d, 560, 550, 200, 105, 'IDE PENJUALAN', tilt=3)
+    actor(d, 'bima', 170, 720, .92, ts * .9, 'neutral', target=(560, 560))
+    actor(d, 'owner', 830, 720, .95, ts * .8, 'neutral', target=(560, 560))
+    d.line([(320, 500), (670, 390)], fill=TEAL, width=8)
+    if ts > .5: bubble(d, 240, 300, 380, 74, '"Pak, mari buka datanya bersama."', fnt(22))
+    d.text((500, 140), 'dengan tenang — hampir seperti konsultan', font=fnt(24), fill='#56655f', anchor='mm')
+    d.text((500, 200), 'yang dimintakan: BUKA DATA', font=fnt(22), fill=TEAL, anchor='mm')
 
 def S3(d, t, ts):
-    d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
-    cx = 330 + math.sin(ts * 1.4) * 6
-    d.rounded_rectangle((cx - 120, 300, cx + 120, 470), 16, fill='#bcd6d0', outline=INK, width=6)
-    d.text((cx, 385), 'ARGUMEN', font=fnt(34), fill=INK, anchor='mm')
-    glow = 6 + int(4 * math.sin(ts * 3))
-    d.rounded_rectangle((cx - 120 - glow, 300 - glow, cx + 120 + glow, 470 + glow), 20, outline=TEAL, width=5)
-    paste_card(d._base, d, cx, 560, 150, 80, 'ISI', ring='green')
-    tg.actor(d, 'owner', 790, 660, 1.0, ts, 'neutral', target=(560, 470))
-    arrow_hook(d, cx + 130, 380, 640, 400)
-    d.text((500, 120), 'yang dipukul: ORANGNYA — bukan kartunya', font=fnt(24), fill=CORAL, anchor='mm')
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#d7e1d7')
+    table(d)
+    dead = ts > 15.5
+    if not dead: paste_card(d._base, d, 560, 550, 200, 105, 'IDE PENJUALAN', tilt=3)
+    else:
+        d.rounded_rectangle((460, 498, 660, 602), 8, fill='#cfc8b8', outline='#9a917f', width=4)
+        d.text((560, 550), 'IDE PENJUALAN', font=fnt(20), fill='#9a917f', anchor='mm')
+        d.line([(470, 508), (650, 592)], fill=CORAL, width=8); d.line([(650, 508), (470, 592)], fill=CORAL, width=8)
+    actor(d, 'bima', 170, 720, .92, ts * .9, 'worried' if ts > 10.5 else 'neutral', target=(560, 560))
+    actor(d, 'owner', 830, 720, .95, ts * .8, 'neutral', target=(560, 560))
+    if ts < 10.5:
+        bubble(d, 240, 300, 380, 74, '"Pak, mari buka datanya bersama."', fnt(22))
+        d.text((500, 140), 'dia sedang bicara — tenang, isi-ke-isi', font=fnt(22), fill='#56655f', anchor='mm')
+    if ts > 10.5: paste_stamp(d._base, 500, 235, 'MASIH BARU', CORAL, 1.3, -6 + math.sin(ts * 8) * 1.5)
+    if ts > 11.3: bubble(d, 330, 330, 400, 74, '"Jangan mengajari saya."', fnt(22))
+    if ts > 13.5:
+        d.text((500, 140), 'bahasa paling dewasa — dibalas bahasa kekuasaan', font=fnt(24), fill=CORAL, anchor='mm')
+    if ts > 13.5:
+        d.rounded_rectangle((120, 620, 880, 745), 14, fill='#193333', outline=INK, width=5)
+        d.text((500, 655), 'YANG DIMINTA: BUKA DATA', font=pm(24), fill=CREAM, anchor='mm')
+        d.text((500, 705), 'YANG DITERIMA: CERAMAH USIA KERJA', font=pm(24), fill=CORAL, anchor='mm')
 
 def S4(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill=MIST if hasattr(tg, 'MIST') else '#cfd8d3')
@@ -631,7 +653,7 @@ def scene_windows():
     c = [win(i) for i in range(9)]
     def sub(ci, a, b): return (c[ci][0] + (c[ci][1] - c[ci][0]) * a, c[ci][0] + (c[ci][1] - c[ci][0]) * b)
     S = [
-        (sub(0, 0.00, .18), S1), (sub(0, .18, .40), S2), (sub(0, .40, .60), S3), (sub(0, .60, 1.0), S4),
+        (sub(0, 0.00, .30), S1), (sub(0, .30, .44), S2), (sub(0, .44, .69), S3), (sub(0, .69, 1.0), S4),
         (sub(1, 0.00, .50), S5), (sub(1, .50, .76), S6), (sub(1, .76, 1.0), S7),
         ((c[2][0], c[2][1]), S8),
         ((c[3][0], c[3][1]), S9edu),
@@ -720,7 +742,7 @@ def encode(scenes, cues, total, work, out):
     sfxev = []
     for (a, b), fn in scenes:
         nm = fn.__name__
-        if nm == 'S2': sfxev += [(a + .45, 'thud'), (a + 1.7, 'thud')]
+        if nm == 'S3': sfxev += [(a + 10.8, 'thud'), (a + 16.3, 'damp')]
         elif nm == 'S8': sfxev += [(a + (b - a) * .55, 'damp')]
         elif nm == 'S9edu': sfxev += [(a + 1.9, 'thud')]
         elif nm == 'S26': sfxev += [(a + 2.1, 'chime')]

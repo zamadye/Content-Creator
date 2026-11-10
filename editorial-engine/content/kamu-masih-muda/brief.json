@@ -101,13 +101,20 @@
   "cues": 148,
   "audioDesign": "musik bed penuh + SFX thud/damp/whoosh/chime di adegan krusial",
   "driveId": "1i4OWxz7_9V7FJ6qz4IyNeEjmFe152jsd",
-  "fileName": "kamu-masih-muda DRAF PRIVAT (review 2).mp4"
+  "fileName": "kamu-masih-muda DRAF PRIVAT (review 2).mp4",
+  "trashed": true
  },
  "draft3": {
   "sha256": "1729979d6f66c3c6030b47bbaca908e9adf45a0fb897577809658ff5ab21433f",
   "durasi": "00:09:21.92",
   "scenes": 31,
   "cues": 156,
-  "perubahan": "C1 dramatisasi: bawahan tenang seperti konsultan ('Pak, saya ingin memastikan kita sudah memperhitungkan satu hal... buka datanya bersama') dijawab atasan ('Kamu masih baru. Jangan... mengajari saya... yang sudah lama dan lebih tahu soal lapangan.'); teks layar YANG DIMINTA: BUKA DATA / YANG DITERIMA: CERAMAH USIA KERJA; stamp MASIH BARU; kartu ide mati; SFX thud+damp di fase serangan"
+  "perubahan": "C1 dramatisasi: bawahan tenang seperti konsultan ('Pak, saya ingin memastikan kita sudah memperhitungkan satu hal... buka datanya bersama') dijawab atasan ('Kamu masih baru. Jangan... mengajari saya... yang sudah lama dan lebih tahu soal lapangan.'); teks layar YANG DIMINTA: BUKA DATA / YANG DITERIMA: CERAMAH USIA KERJA; stamp MASIH BARU; kartu ide mati; SFX thud+damp di fase serangan",
+  "driveId": "1qDAo6JkSrnDl1TesUKtMS1Unabd0mNbz",
+  "fileName": "kamu-masih-muda DRAF PRIVAT (review 3).mp4"
+ },
+ "audio_backup_v4": {
+  "driveId": "1yyqoJRZW0CZagGfD9fp2kQHdA-jMnm7F",
+  "file": "kamu-masih-muda VO chunks v4.zip"
  }
 }

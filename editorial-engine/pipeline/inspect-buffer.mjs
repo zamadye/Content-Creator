@@ -70,6 +70,29 @@ const which = spawnSync('buffer', ['--version'], { encoding: 'utf8' });
 if (which.status !== 0) fail('CLI buffer tidak ditemukan. Jalankan: npm i -g @bufferapp/cli');
 
 console.log(`CLI buffer: ${(which.stdout ?? '').trim()}`);
+/* ------------------------------------------------- antrean kanal */
+/* Read-only: status + waktu saja (WIB). Caption/URL tidak dicetak. */
+try {
+  const posts = run(['posts', 'list', '--limit', '100',
+    '--fields', 'items.id,items.status,items.dueAt,items.sentAt,items.channelId,items.channelService']);
+  const items = dig(posts.json, (o) => Array.isArray(o.items))?.items ?? [];
+  const wib = (iso) => {
+    if (!iso) return '-';
+    const d = new Date(iso);
+    if (!Number.isFinite(d.getTime())) return String(iso).slice(0, 16);
+    return new Date(d.getTime() + 7 * 3600e3).toISOString().slice(5, 16).replace('T', ' ') + ' WIB';
+  };
+  console.log('\n=== 3b. antrean (status + waktu saja, semua kanal) ===');
+  if (!items.length) console.log('  (kosong / tidak terbaca)');
+  for (const it of items) {
+    const svc = it.channelService ?? '';
+    const t = String(it.status ?? '').toLowerCase() === 'sent' ? wib(it.sentAt ?? it.dueAt) : wib(it.dueAt);
+    console.log('  -', svc.padEnd(9), String(it.status ?? '').padEnd(10), t);
+  }
+} catch (e) {
+  console.log('\n=== 3b. antrean: gagal dibaca (read-only, dilewati) ===');
+}
+
 
 /* ---------------------------------------------------------------- akun */
 console.log('\n=== 1. akun ===');

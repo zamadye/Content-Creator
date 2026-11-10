@@ -1,0 +1,68 @@
+{
+ "slug": "kamu-masih-muda",
+ "judul": {
+  "utama": "Yang Diserang Bukan Argumenmu, Tapi Kamu: Bedah Ad Hominem & Logika Toxic",
+  "alternatif": [
+   "Kenapa Orang Lebih Suka Menyerang Kamu daripada Argumenmu?",
+   "Ad Hominem: Senjata Diam-Diam Orang yang Kalah Debat",
+   "Usia Bukan Ukuran Kedewasaan",
+   "Logical Fallacy: Cara Orang Menghindari Kebenaran Tanpa Terlihat Salah"
+  ]
+ },
+ "format": "long video 5-15 menit (target narasi 7-8 menit), 720x1280, voice-05, musik dramatis pipeline",
+ "status": {
+  "naskah": "v2 (blueprint user) SELESAI",
+  "audio": "8 chunk VO voice-05 + full 7:37 SELESAI — menunggu review telinga user",
+  "visual": "belum — mulai setelah audio disetujui"
+ },
+ "permintaanUser": [
+  "Tema psikologi: logical fallacies dan turunannya, ad hominem sebagai pintu masuk",
+  "Konteks lebih jelas dari konten sebelumnya: apa yang diserang, siapa korbannya, apa dampak/akibatnya",
+  "Contoh relatable: dibalas soal hidup/fisik; orang yang selalu merasa benar, selalu punya alasan dan pelampiasan (sering orang tua — 'lebih tua = lebih benar', padahal belum tentu)",
+  "Pesan: kedewasaan dinilai dari karakter, bukan usia",
+  "Poin kedua: cara mengonter orang seperti ini — jawaban relatif tergantung situasi/konteks",
+  "Storytelling terstruktur + ritme/intonasi tidak datar",
+  "Produksi bertahap: script dulu, lalu audio sampai selesai, baru visual jika sesuai"
+ ],
+ "keputusanKejujuran": {
+  "statistikUser5070Persen": "TIDAK dipakai sebagai fakta — tidak ada sumber terverifikasi. Diganti cermin inklusif: 'termasuk saya, termasuk kamu'. Diterangkan ke user.",
+  "risetUsia": "Disajikan campur secara jujur: Grossmann 2010 (PNAS) konflik orang lain: usia lebih tua rata-rata lebih bijak; studi lanjutan (Psychological Science, Grossmann dkk.) konflik pribadi: korelasi usia ~nol (r=-0.02), self-distancing yang menolong; budaya mempengaruhi (2012)."
+ },
+ "sumberFakta": [
+  "IEP Fallacies — ad hominem: serangan pribadi yang tidak relevan terhadap argumen; kredibilitas kadang relevan",
+  "Critical Thinking Hub / SEP / IEP — jenis ad hominem: abusive, circumstantial, tu quoque, poisoning the well; guilt by association; whataboutism sebagai bentuk modern tu quoque",
+  "Grossmann dkk. 2010 PNAS 'Reasoning about social conflicts improves into old age' — 60-90 th lebih bijak menilai konflik orang lain",
+  "Grossmann dkk. Psychological Science — wise reasoning konflik PRIBADI: tidak ada perbedaan usia (r_age=-0.02); self-distancing menolong lintas usia",
+  "Grossmann 2012 'Aging and Wisdom: Culture Matters' — budaya mempengaruhi; antisipasi stereotip ageism"
+ ],
+ "struktur": [
+  "Cold open 3 detik: ide bagus dibalas 'dasar anak muda' — usul mati tanpa dibahas",
+  "Cerita utama: Rani (24) vs rapat RT — serangan iuran/label anak kos",
+  "Bedah: apa yang diserang / siapa korban / dampak jangka panjang",
+  "Peta keluarga fallacy: strawman, tu quoque, whataboutism, poisoning the well, umpan kedudukan",
+  "Twist 1 cermin: Rani melakukan hal yang sama di grup alumni — fallacy menular",
+  "Twist 2 nuansa: kapan menilai orang justru sah (dokter/pilot/saksi) vs menghindari isi",
+  "Sosok tak pernah salah + riset usia jujur + pesan kedewasaan = kebiasaan",
+  "Empat jalur menghadapi (relatif): kembalikan isi / buat dia berpikir / mundur strategis / cek diri",
+  "Penutup: ide sama disetujui saat dibawa orang berbeda + 2 pertanyaan diskusi, tanpa CTA generik"
+ ],
+ "audio": {
+  "full": "audio/kamu-masih-muda-full-voice05.mp3",
+  "fullSha256": "5aaa3bf719f5445ed802a566c77c70afddfab428eb15ad67e7a1bb962bdb44ed",
+  "durasi": "00:07:37.24",
+  "chunks": 8,
+  "manifest": "audio/voice-manifest.json"
+ },
+ "drive": {
+  "folder": "1DULWF_icaWk_LOYv0__3e99eTbsbwnE2",
+  "fullVO": "17cldqHqUhSyotcMBubEFEAkYMYM9Q4H8",
+  "chunksZip": "1UxuzZt0NBvCXSLD6e__5COVTG9pO1VnQ",
+  "naskah": "1HtNqsR_v6VVPax0sGCi90o2bJn2DnWov",
+  "riset": "1WxDVnJVNpBpEvvjORCv4hhZ9r25hbCUI",
+  "izin": "owner-only terverifikasi 2026-11-10"
+ },
+ "durasi": {
+  "narasi": "7:37 (blueprint: bisa dipotong 8 menit)",
+  "perpanjang": "opsi role-play orang tua-anak dari blueprint bila target 10-15 menit"
+ }
+}

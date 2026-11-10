@@ -1,0 +1,51 @@
+{
+ "format": 1,
+ "voiceId": "voice-05",
+ "project": "kamu-masih-muda",
+ "scriptHash": "9a3a9f05d9336125de60b31185fa4ee6fdff8c9d95e36ef713f902d0df7f7366",
+ "chunks": [
+  {
+   "file": "vo-c1-cold-open.mp3",
+   "sha256": "5cbd4f4c87e0de3cd074079412612caa6a212e8ab867813d47700e43f40a18f8",
+   "bytes": 218253
+  },
+  {
+   "file": "vo-c2-korban.mp3",
+   "sha256": "1cacae4a1d5718fe9fa2fc2bec6d328aec382962d881344971eb4be08f3f4912",
+   "bytes": 212589
+  },
+  {
+   "file": "vo-c3-dampak.mp3",
+   "sha256": "92ca4ad5bb555d88cd6bdb3201a694c98607b47e9e9e3c7f2bd00ec6043f793d",
+   "bytes": 136269
+  },
+  {
+   "file": "vo-c4-peta-fallacy.mp3",
+   "sha256": "119065c63f01a08c826261ee7dcbcd2acf1f88e9206154ae0c4c16f2f49f585c",
+   "bytes": 264621
+  },
+  {
+   "file": "vo-c5-lebih-tua.mp3",
+   "sha256": "5ba84d2a88c438975b5eb0b77f9ccc6443f51526bb03dbd7185b5f4e113414ed",
+   "bytes": 302541
+  },
+  {
+   "file": "vo-c6-konter-6langkah.mp3",
+   "sha256": "1c247de950408417d0fc9299d4f197db27672bd26c8cdc8f274769ad23db4bbb",
+   "bytes": 326061
+  },
+  {
+   "file": "vo-c7-twist.mp3",
+   "sha256": "8781f2dbcfdda21c2673feca58e41e186612fbb6ca4e72d72394e4fde30a8c48",
+   "bytes": 172269
+  },
+  {
+   "file": "vo-c8-closing.mp3",
+   "sha256": "726e44dddd60914cd02c84652b4cd8be57732963277a6b74d446d9bb734a1b3e",
+   "bytes": 183981
+  }
+ ],
+ "combined": "kamu-masih-muda-full-voice05.mp3",
+ "combinedSha256": "5aaa3bf719f5445ed802a566c77c70afddfab428eb15ad67e7a1bb962bdb44ed",
+ "note": "TTS voice-05; jeda disisipkan saat perakitan; belum direview telinga manusia"
+}

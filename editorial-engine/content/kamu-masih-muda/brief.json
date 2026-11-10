@@ -126,11 +126,14 @@
   "sinkron": "subtitle & fase visual mengikuti segmen bicara aktual per kalimat (silencedetect+DP), bukan proporsi paragraf",
   "catatan": "glif tidak-ada-di-font (→,≠,♥) diganti teks/bentuk gambar; gap antar-chunk mempertahankan scene terakhir",
   "driveId": "19V3m1HffA4FcsRwl5gIRkrfT4q8Cp1R0",
-  "fileName": "kamu-masih-muda DRAF PRIVAT (review 4, landscape).mp4"
+  "fileName": "kamu-masih-muda DRAF PRIVAT (review 4, landscape).mp4",
+  "trashed": true
  },
  "draft5": {
   "sha256": "89d76c81f4309133619a9cfe2c6b9042bc7ed9acadc91acb61f56e6f5925ee95",
   "durasi": "00:09:21.92",
-  "resolusi": "1280x720"
+  "resolusi": "1280x720",
+  "driveId": "1cBObJgRRbvJEykjlVKMO7ySckZmBh4kk",
+  "fileName": "kamu-masih-muda DRAF PRIVAT (review 5).mp4"
  }
 }

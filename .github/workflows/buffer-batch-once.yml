@@ -29,6 +29,15 @@ jobs:
           node-version: '20'
       - name: Test safety gates without Buffer calls
         run: node --test editorial-engine/pipeline/tests/buffer-batch.test.mjs editorial-engine/pipeline/tests/buffer-batch-relay.test.mjs editorial-engine/pipeline/tests/buffer-three-platforms.test.mjs
+      - name: Install ffprobe for media verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffprobe >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq --no-install-recommends ffmpeg
+          fi
+          ffprobe -version | head -1
       - name: Install Buffer CLI for a real batch
         shell: bash
         run: |

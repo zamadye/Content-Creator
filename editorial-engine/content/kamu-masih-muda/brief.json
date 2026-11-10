@@ -124,6 +124,8 @@
   "scenes": 35,
   "cues": 156,
   "sinkron": "subtitle & fase visual mengikuti segmen bicara aktual per kalimat (silencedetect+DP), bukan proporsi paragraf",
-  "catatan": "glif tidak-ada-di-font (→,≠,♥) diganti teks/bentuk gambar; gap antar-chunk mempertahankan scene terakhir"
+  "catatan": "glif tidak-ada-di-font (→,≠,♥) diganti teks/bentuk gambar; gap antar-chunk mempertahankan scene terakhir",
+  "driveId": "19V3m1HffA4FcsRwl5gIRkrfT4q8Cp1R0",
+  "fileName": "kamu-masih-muda DRAF PRIVAT (review 4, landscape).mp4"
  }
 }

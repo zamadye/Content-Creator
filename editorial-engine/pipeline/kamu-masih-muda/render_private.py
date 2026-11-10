@@ -25,8 +25,9 @@ PM = ImageFont.truetype(str(FONT_DIR / 'permanent-marker-latin-400-normal.ttf'),
 W, H = 720, 1280
 FPS, DRAW_FPS = 24, 12
 RAW_W, RAW_H = 1000, 800
-_CHUNKS = ['vo-c1-cold-open', 'vo-c2-korban', 'vo-c3-dampak', 'vo-c4-peta-fallacy',
-           'vo-c5-lebih-tua', 'vo-c6-konter-6langkah', 'vo-c7-twist', 'vo-c8-closing']
+_CHUNKS = ['vo-c1-cold-open', 'vo-c2-korban', 'vo-c3-dampak', 'vo-c3b-pemimpin',
+           'vo-c4-peta-fallacy', 'vo-c5-lebih-tua', 'vo-c6-konter-6langkah',
+           'vo-c7-twist', 'vo-c8-closing']
 _GAP, _GAP_TWIST = 0.4, 1.6
 _RELEASE = None  # renderer ini memang tidak memiliki jalur rilis.
 
@@ -48,28 +49,31 @@ def chunk_durations():
 # ---------------- teks cue (subtitle) per chunk ----------------
 CUES = {
  'vo-c1-cold-open': [
-  "Seorang anak menemukan data:", "kebiasaan keluarganya ternyata berbahaya.",
-  "Dia sampaikan pelan-pelan, hati-hati, sambil bawa sumbernya.",
-  "Dan jawaban yang keluar bukan data.", "Jawabannya satu kalimat:",
-  "kamu belum makan garam... jangan ngajarin saya.",
-  "Atau di kantor: idemu bagus, tapi kamu masih junior.",
-  "Perhatikan — yang diserang bukan datanya. Tapi orangnya.",
-  "Pernah nggak kamu bawa argumen,", "tapi yang dibalas justru fisik, usia, atau masa lalumu?",
+  "\"Kamu ini masih kecil.", "Sok-sok-an menasihati saya.", "Tau apa kamu tentang hidup?\"",
+  "Kalimat ini mungkin terdengar familiar.", "Bukan di film — tapi di meja makan,",
+  "di ruang rapat, di grup keluarga.",
+  "Perhatikan: tidak ada satu pun yang membahas gagasannya.",
+  "Yang dibahas: usiamu, harga dirimu, hakmu bicara.", "Contohnya sederhana.",
+  "Seorang karyawan meneliti cara meningkatkan penjualan.",
+  "Gagasannya dia bawa ke atasan: data, usulan, rencana.",
+  "Yang dibalas bukan gagasannya — tapi,", "kamu masih junior. Jangan mengajariku.",
+  "Gagasan tentang penjualan mati... tanpa satu pun angka yang dibahas.",
+  "Pernah nggak kamu mengalami ini —", "kamu bawa gagasan, yang dibalas fisik, usia, atau masa lalumu?",
   "Itu bukan debat. Itu ad hominem.",
-  "Hari ini kita bedah: kenapa orang menyerang pribadi, siapa korbannya, apa dampaknya,",
-  "dan bagaimana mengonter tanpa ikut jadi toxic.",
-  "Sampai satu twist di ujung — soal kedewasaan... dan usia."],
+  "Hari ini kita bedah: kenapa orang menyerang pribadi, siapa korbannya, apa dampaknya —",
+  "sampai satu twist di ujung, soal kedewasaan dan usia."],
  'vo-c2-korban': [
-  "Kita bedah pelan-pelan.", "Dalam ad hominem, yang diserang itu identitas:",
-  "fisik, usia, latar belakang, pengalaman, niat, moral.",
-  "Dan yang tidak dibahas: premis, bukti, logika.",
-  "Coba cek lagi kasus tadi.", "Satu pun angka tidak dibantah.",
-  "Satu pun sumber tidak dibuka.", "Yang dibalas: usia, jatah garam, dan jabatan.",
-  "Siapa korbannya? Tiga lapis.", "Yang pertama jelas: pemilik argumen —",
-  "idenya mati padahal belum dibahas.", "Yang kedua: audiens.",
-  "Seisi ruangan kehilangan satu kesempatan tahu, ide itu benar atau salah.",
-  "Dan yang ketiga sering kelewat: hubungan itu sendiri.",
-  "Anak jadi takut bicara. Bawahan jadi diam.",
+  "Kita bedah pelan-pelan.", "Setiap percakapan punya dua wilayah.",
+  "Wilayah objektif: fakta, data, argumen — hal yang bisa dicek benar atau salah.",
+  "Wilayah subjektif: orangnya — fisik, usia, latar belakang, niat, moral.",
+  "Ad hominem adalah serangan yang memindahkan percakapan",
+  "dari wilayah objektif... ke wilayah subjektif.",
+  "Coba cek kasus tadi.", "Satu pun angka penjualan tidak dibantah.",
+  "Satu pun usulan tidak dibahas.", "Yang dibalas: jabatan dan usia.",
+  "Siapa korbannya? Tiga lapis.", "Pemilik gagasan — idenya mati padahal belum dibahas.",
+  "Audiens — ruangan kehilangan kesempatan tahu, ide itu benar atau salah.",
+  "Dan yang sering kelewat: hubungan itu sendiri.",
+  "Karyawan jadi diam. Anak jadi takut bicara.",
   "Diskusi yang seharusnya menyelamatkan... mati lebih dulu."],
  'vo-c3-dampak': [
   "Dan dampaknya menjalar.", "Dimulai dari ragu-ragu: mungkin memang aku yang kurang.",
@@ -79,6 +83,21 @@ CUES = {
   "Dan di skala besar, inilah cara sebuah keluarga, kantor, atau komunitas",
   "kehilangan peringatan dini:", "alarmnya bukan rusak...",
   "tapi yang punya alarm capek didengar."],
+ 'vo-c3b-pemimpin': [
+  "Dan di sini ada pelajaran yang jarang disentuh.",
+  "Kalau kamu seorang pemimpin — di negara, di perusahaan, atau cukup di rumah —",
+  "kebiasaan menyerang pribadi itu mahal harganya.",
+  "Sekali bicara, orang mencatat.", "Dua kali, mereka berhenti membawa kabar.",
+  "Penasihat yang takut diserang akan memilih diam.",
+  "Laporan yang tidak enak dibaca akan dibungkus manis.",
+  "Dan pemimpin yang hanya dikelilingi orang yang setuju...",
+  "akhirnya memutuskan sendirian, dengan informasi yang sudah dibersihkan.",
+  "Banyak keputusan besar yang salah bukan karena pemimpinnya bodoh —",
+  "tapi karena kritik yang paling dibutuhkan justru tidak pernah sampai.",
+  "Jadi kalau kamu pemimpin, di skala apa pun:",
+  "jangan sering jadi ad hominem.",
+  "Setiap kali kamu menyerang orangnya,",
+  "kamu mengajarkan semua orang... untuk membisukan diri."],
  'vo-c4-peta-fallacy': [
   "Ad hominem ternyata satu keluarga besar bernama logical fallacy:",
   "kesalahan berpikir yang terdengar seperti argumen.", "Kenalkan anggotanya.",
@@ -300,23 +319,25 @@ def fake_comment(d, x, y, name, text, ft=None):
 
 # ---------------- 30 scene (raw 1000x800) ----------------
 def S1(d, t, ts):
-    tg.table(d)
-    push = min(1, ts / 2.5); gx = 560 - 240 * push
-    paste_card(d._base, d, 430, 545, 190, 110, 'DATA', tilt=-4)
-    box(d, (300, 470, 380, 545), 6, '#8a7a66', INK, 3); d.text((312, 480), 'sumber', font=fnt(15), fill=INK)
-    salt(d, gx, 560)
-    tg.actor(d, 'nara', 180, 690, .92, ts * 1.2, 'neutral', target=(430, 520))
-    tg.actor(d, 'owner', 800, 690, .95, ts * 1.1, 'neutral')
-    if ts > 3.2: paste_stamp(d._base, 620, 300, 'BELUM MAKAN GARAM', CORAL, 1.05, -7 + math.sin(ts * 9) * 2)
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#d7e1d7')
+    table(d)
+    rise = min(1, ts / 2.5)
+    d.line([(320, 470)] + [(320 + i * 70, 470 - i * 55 * rise) for i in range(1, 5)], fill=TEAL, width=8)
+    paste_card(d._base, d, 560, 520, 200, 105, 'IDE PENJUALAN', tilt=-3)
+    box(d, (250, 455, 300, 545), 5, '#8a7a66', INK, 3); d.text((258, 462), 'data', font=fnt(15), fill=INK)
+    actor(d, 'bima', 170, 690, .92, ts * 1.2, 'neutral', target=(560, 530))
+    actor(d, 'owner', 830, 690, .95, ts * 1.1, 'neutral')
+    d.text((500, 130), 'seorang karyawan membawa gagasan ke atasannya', font=fnt(24), fill='#56655f', anchor='mm')
 
 def S2(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#d7e1d7')
-    tg.table(d)
-    paste_card(d._base, d, 500, 520, 180, 100, 'IDE', tilt=3)
-    for i in range(3): paste_card(d._base, d, 500 + i * 6, 560 + i * 14, 170, 92, tilt=(-3, 2, 5)[i])
-    d.line((660, 430, 660, 560), fill='#56655f', width=8); d.ellipse((644, 414, 676, 446), fill='#8a94a0', outline=INK, width=3)
-    tg.actor(d, 'owner', 210, 690, .95, ts, 'neutral', target=(520, 540))
-    if ts > 1.6: paste_stamp(d._base, 700, 280, 'MASIH JUNIOR', CORAL, 1.0, 6)
+    table(d)
+    paste_card(d._base, d, 560, 520, 200, 105, 'IDE PENJUALAN', tilt=3)
+    actor(d, 'bima', 170, 690, .92, ts * 1.2, 'worried', target=(560, 530))
+    actor(d, 'owner', 830, 690, .95, ts * 1.1, 'neutral', target=(560, 530))
+    if ts > .4: paste_stamp(d._base, 500, 250, 'MASIH JUNIOR', CORAL, 1.3, -6 + math.sin(ts * 8) * 1.5)
+    if ts > 1.6: bubble(d, 330, 330, 330, 74, '"Jangan mengajariku."', fnt(24))
+    d.text((500, 120), 'yang dibahas bukan gagasannya', font=fnt(24), fill=CORAL, anchor='mm')
 
 def S3(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
@@ -354,9 +375,21 @@ def S5(d, t, ts):
         paste_card(d._base, d, 150, 260 + i * 120, 150, 70, lb, ring='green')
 
 def S6(d, t, ts):
-    S1(d, t, 1.2)
-    if ts > .8: paste_stamp(d._base, 430, 210, 'TIDAK DIBANTAH', TEAL, 1.0, -5 if int(ts * 2) % 2 else 4)
-    d.text((500, 90), 'replay: kartu tidak pernah dibahas', font=fnt(22), fill='#56655f', anchor='mm')
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
+    d.rounded_rectangle((90, 200, 480, 560), 18, fill='#bcd6d0', outline=INK, width=6)
+    d.text((285, 250), 'OBJEKTIF', font=fnt(34), fill=INK, anchor='mm')
+    for i, lb in enumerate(['fakta', 'data', 'argumen']):
+        paste_card(d._base, d, 285, 330 + i * 72, 210, 56, lb, ring='green')
+    d.rounded_rectangle((520, 200, 910, 560), 18, fill='#4a5a57', outline=INK, width=6)
+    d.text((715, 250), 'SUBJEKTIF', font=fnt(34), fill=CREAM, anchor='mm')
+    for i, lb in enumerate(['fisik', 'usia', 'latar', 'niat', 'moral']):
+        x = 585 + (i % 2) * 170; y = 330 + (i // 2) * 78
+        hot = int(ts * 1.4) % 5 == i
+        d.rounded_rectangle((x, y, x + 150, y + 54), 12, fill=CORAL if hot else '#5c6d69', outline=INK, width=3)
+        d.text((x + 75, y + 27), lb, font=fnt(20), fill=CREAM, anchor='mm')
+    arrow_hook(d, 462, 380, 540, 380)
+    d.text((500, 330), 'serangan', font=fnt(20), fill=CORAL, anchor='mm')
+    d.text((500, 640), 'percakapan dipindah dari isi... ke orangnya', font=fnt(24), fill=INK, anchor='mm')
 
 def S7(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
@@ -387,6 +420,27 @@ def S8(d, t, ts):
         bubble(d, 300 + i * 60 - i * 20, 300 + i * 60, 220, 70, 'coba saran dikit', ) if fade >= a - .01 else None
     bell(d, 760, 300, 1.2, closed=ts > 4.5)
     d.text((500, 120), 'peringatan dini mati pelan-pelan', font=fnt(26), fill=CORAL, anchor='mm')
+
+def S9edu(d, t, ts):
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#26312e')
+    d.text((500, 110), 'kalau kamu seorang PEMIMPIN', font=fnt(30), fill=CREAM, anchor='mm')
+    for x, lb in ((230, 'NEGARA'), (500, 'PERUSAHAAN'), (770, 'RUMAH')):
+        d.rounded_rectangle((x - 105, 200, x + 105, 430), 16, fill='#31403c', outline=INK, width=5)
+        d.text((x, 395), lb, font=fnt(24), fill=CREAM, anchor='mm')
+        if lb == 'NEGARA':
+            d.polygon([(x - 60, 330), (x + 60, 330), (x, 250)], fill=GOLD)
+            d.rectangle((x - 40, 330, x + 40, 365), fill=GOLD)
+        elif lb == 'PERUSAHAAN':
+            d.rectangle((x - 55, 250, x + 55, 365), fill='#8a94a0')
+            for r in range(3):
+                for c in range(3): d.rectangle((x - 40 + c * 30, 262 + r * 34, x - 22 + c * 30, 280 + r * 34), fill='#c3d9d2')
+        else:
+            d.polygon([(x - 55, 300), (x, 252), (x + 55, 300)], fill=CORAL)
+            d.rectangle((x - 42, 300, x + 42, 365), fill='#e4d3ae')
+    actor(d, 'inspector', 500, 700, 1.05, ts * .8, 'neutral', target=(500, 470))
+    if ts > 1.8: paste_stamp(d._base, 760, 170, 'KRITIK MATI', CORAL, 1.1, -7)
+    bubble(d, 130, 470, 250, 96, '...', fnt(30))
+    d.text((255, 596), 'penasihat membisukan diri', font=fnt(19), fill='#9ab5ac', anchor='mm')
 
 def fallacy_slide(d, t, ts, num, name, example):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
@@ -558,33 +612,36 @@ def S29(d, t, ts):
     paste_card(d._base, d, 690, 300, 190, 70, 'ATURAN', tilt=4)
     for i, s2 in enumerate(['tanpa nama orang', 'tanpa menyerang balik', 'satu contoh satu komentar']):
         d.text((560, 400 + i * 36), '· ' + s2, font=fnt(21), fill=INK)
+    d.text((140, 560), '♥ LIKE', font=fnt(26), fill=CORAL)
+    d.text((280, 560), '· SHARE ke temanmu — siapa tau dia butuh', font=fnt(24), fill=INK)
 
 def S30(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#193333')
-    scarecrow_card(d, 500, 380 + math.sin(ts) * 8, 1.4)
-    d.text((500, 560), 'NEXT: STRAW MAN', font=pm(44), fill=CREAM, anchor='mm')
-    d.text((500, 640), 'cerita fiksi · knot theory', font=fnt(24), fill='#9ab5ac', anchor='mm')
+    d.text((500, 330), 'CERITA FIKTIF', font=pm(40), fill=CREAM, anchor='mm')
+    d.text((500, 420), 'knot theory', font=fnt(30), fill='#9ab5ac', anchor='mm')
+    if int(ts * 1.4) % 2: d.text((500, 530), 'share ke temanmu — siapa tau dia butuh', font=fnt(22), fill='#c3d9d2', anchor='mm')
 
 def scene_windows():
     durs = chunk_durations()
     starts = []; t = 0.0
     for i, du in enumerate(durs):
-        starts.append(t); t += du + (_GAP_TWIST if i == 5 else _GAP)
+        starts.append(t); t += du + (_GAP_TWIST if i == 6 else _GAP)
     total = t - _GAP
     def win(i): return starts[i], starts[i] + durs[i]
-    c = [win(i) for i in range(8)]
+    c = [win(i) for i in range(9)]
     def sub(ci, a, b): return (c[ci][0] + (c[ci][1] - c[ci][0]) * a, c[ci][0] + (c[ci][1] - c[ci][0]) * b)
     S = [
-        (sub(0, 0.00, .08), S1), (sub(0, .08, .16), S2), (sub(0, .16, .30), S3), (sub(0, .30, 1.0), S4),
-        (sub(1, 0.00, .55), S5), (sub(1, .55, .78), S6), (sub(1, .78, 1.0), S7),
+        (sub(0, 0.00, .18), S1), (sub(0, .18, .40), S2), (sub(0, .40, .60), S3), (sub(0, .60, 1.0), S4),
+        (sub(1, 0.00, .50), S5), (sub(1, .50, .76), S6), (sub(1, .76, 1.0), S7),
         ((c[2][0], c[2][1]), S8),
-        (sub(3, 0.00, .125), S9), (sub(3, .125, .25), S10), (sub(3, .25, .375), S11), (sub(3, .375, .5), S12),
-        (sub(3, .5, .625), S13), (sub(3, .625, .75), S14), (sub(3, .75, .875), S15), (sub(3, .875, 1.0), S16),
-        (sub(4, 0.00, .30), S17), (sub(4, .30, .55), S18), (sub(4, .55, .80), S19), (sub(4, .80, 1.0), S20),
-        (sub(5, 0.00, .20), S21), (sub(5, .20, .36), S22), (sub(5, .36, .52), S23), (sub(5, .52, .68), S24),
-        (sub(5, .68, .84), S25), (sub(5, .84, 1.0), S26),
-        ((c[6][0], c[6][1]), S27),
-        (sub(7, 0.00, .30), S28), (sub(7, .30, .72), S29), (sub(7, .72, 1.0), S30),
+        ((c[3][0], c[3][1]), S9edu),
+        (sub(4, 0.00, .125), S9), (sub(4, .125, .25), S10), (sub(4, .25, .375), S11), (sub(4, .375, .5), S12),
+        (sub(4, .5, .625), S13), (sub(4, .625, .75), S14), (sub(4, .75, .875), S15), (sub(4, .875, 1.0), S16),
+        (sub(5, 0.00, .30), S17), (sub(5, .30, .55), S18), (sub(5, .55, .80), S19), (sub(5, .80, 1.0), S20),
+        (sub(6, 0.00, .166), S21), (sub(6, .166, .333), S22), (sub(6, .333, .5), S23), (sub(6, .5, .666), S24),
+        (sub(6, .666, .833), S25), (sub(6, .833, 1.0), S26),
+        ((c[7][0], c[7][1]), S27),
+        (sub(8, 0.00, .30), S28), (sub(8, .30, .74), S29), (sub(8, .74, 1.0), S30),
     ]
     return S, total, durs, c
 
@@ -656,12 +713,23 @@ def encode(scenes, cues, total, work, out):
             f.write(f"file '{(CONTENT / 'audio' / f'{name}.mp3').resolve()}'\n")
             if i < 7:
                 f.write(f"file '{work_abs}/gap1.mp3'\n")
-                if i == 5: f.write(f"file '{work_abs}/gap2.mp3'\n")
+                if i == 6: f.write(f"file '{work_abs}/gap2.mp3'\n")
     vo = work / 'vo-full.mp3'
     subprocess.run([rough.FF, '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0',
                     '-i', str(vo_list), '-c:a', 'libmp3lame', '-b:a', '160k', str(vo)], check=True)
-    command = [rough.FF, '-y', '-loglevel', 'error', '-i', str(silent), '-i', str(vo), '-i', str(music),
-               '-filter_complex', '[1:a]volume=1.0[voice];[2:a]volume=0.28[music];[voice][music]amix=inputs=2:duration=first:dropout_transition=0:normalize=0,alimiter=limit=0.95[a]',
+    sfxev = []
+    for (a, b), fn in scenes:
+        nm = fn.__name__
+        if nm == 'S2': sfxev += [(a + .45, 'thud'), (a + 1.7, 'thud')]
+        elif nm == 'S8': sfxev += [(a + (b - a) * .55, 'damp')]
+        elif nm == 'S9edu': sfxev += [(a + 1.9, 'thud')]
+        elif nm == 'S26': sfxev += [(a + 2.1, 'chime')]
+        elif nm == 'S27': sfxev += [(a + 1.45, 'whoosh')]
+        elif nm == 'S30': sfxev += [(a + .5, 'chime')]
+    sfx = work / 'sfx.wav'
+    synth_sfx(sfxev, total, sfx)
+    command = [rough.FF, '-y', '-loglevel', 'error', '-i', str(silent), '-i', str(vo), '-i', str(music), '-i', str(sfx),
+               '-filter_complex', '[1:a]volume=1.0[voice];[2:a]volume=0.25[music];[3:a]volume=0.9[sfx];[voice][music][sfx]amix=inputs=3:duration=first:dropout_transition=0:normalize=0,alimiter=limit=0.95[a]',
                '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k',
                '-movflags', '+faststart', '-shortest', str(out)]
     subprocess.run(command, check=True)
@@ -678,6 +746,29 @@ def restore_audio():
             subprocess.run(['unzip', '-q', '-o', str(z), '-d', str(CONTENT)], check=True)
             if marker.with_suffix('.mp3').exists(): return 'RESTORED'
     raise RuntimeError('Audio chunk tidak ditemukan; unduh ulang ZIP dari Drive.')
+
+def synth_sfx(events, total, out):
+    """Lapisan 2: sound effect hanya di adegan krusial (bukan musik latar)."""
+    import numpy as np, wave
+    sr = 44100; buf = np.zeros(int(total * sr) + sr, dtype=np.float32)
+    for t, kind in events:
+        i = int(t * sr)
+        if kind == 'thud':
+            n = int(.28 * sr); f = np.linspace(120, 45, n)
+            w = np.sin(2 * np.pi * np.cumsum(f) / sr) * np.exp(-np.linspace(0, 9, n)); buf[i:i + n] += w * .9
+        elif kind == 'damp':
+            n = int(.4 * sr)
+            w = np.sin(2 * np.pi * 220 * np.linspace(0, .4, n)) * np.exp(-np.linspace(0, 7, n)); buf[i:i + n] += w * .5
+        elif kind == 'whoosh':
+            n = int(.6 * sr)
+            w = np.random.RandomState(7).randn(n) * np.hanning(n); buf[i:i + n] += w * .2
+        elif kind == 'chime':
+            n = int(.8 * sr)
+            w = (np.sin(2 * np.pi * 880 * np.linspace(0, .8, n)) + .5 * np.sin(2 * np.pi * 1320 * np.linspace(0, .8, n))) * np.exp(-np.linspace(0, 5, n)); buf[i:i + n] += w * .32
+    buf = buf / max(1e-9, np.max(np.abs(buf))) * .8
+    with wave.open(str(out), 'wb') as wf:
+        wf.setnchannels(1); wf.setsampwidth(2); wf.setframerate(sr)
+        wf.writeframes((buf[:int(total * sr)] * 32767).astype('<i2').tobytes())
 
 def main():
     ap = argparse.ArgumentParser()

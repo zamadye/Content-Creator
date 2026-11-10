@@ -40,3 +40,12 @@ DISETUJUI; jendela waktu dihitung renderer dari durasi audio eksak.
 
 QA scene: semua ID dirender; sampel frame tiap scene disimpan; subtitle
 tampil di semua window VO; durasi total == durasi audio 457.24s.
+
+## v3 (koreksi review user, draf 2)
+- S1→S2: kantor — karyawan bawa gagasan penjualan ke atasan; serangan stamp
+  "MASIH JUNIOR" + balon "Jangan mengajariku." (detik pertama = serangan).
+- S6: papan OBJEKTIF (fakta/data/argumen) vs SUBJEKTIF (fisik/usia/latar/niat/moral).
+- S9edu BARU: pelajaran pemimpin — panel NEGARA/PERUSAHAAN/RUMAH + stamp "KRITIK MATI".
+- S29: CTA komentar + ♥LIKE · SHARE santai; S30: kartu penutup brand (teaser straw man dihapus).
+- AUDIO: musik = bed sepanjang video (vol 0.25); SFX terpisah (thud/damp/whoosh/chime)
+  hanya adegan krusial. 31 scene, total 542.8s.

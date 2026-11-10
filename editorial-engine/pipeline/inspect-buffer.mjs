@@ -16,6 +16,7 @@
  * repo ini publik — log GitHub Actions bisa dibaca siapa saja.
  */
 import { spawnSync } from 'node:child_process';
+// run 2026-11-10: dipicu ulang untuk mendapatkan channelId YouTube (short gateway kamu-masih-muda).
 
 const RAW = process.argv.includes('--raw');
 const KEY = process.env.BUFFER_API_KEY;

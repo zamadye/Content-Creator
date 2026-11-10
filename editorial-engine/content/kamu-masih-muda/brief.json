@@ -217,11 +217,19 @@
       },
       "bufferPostId": "6af3353a42d372a81f639e03",
       "status": "SUBMITTED SCHEDULED_VERIFIED (run 42842373253; terbaca-balik dari Buffer)",
-      "verification": "status tayang belum terkonfirmasi - cek ulang setelah 23:30 WIB"
+      "verification": "status tayang belum terkonfirmasi - cek ulang setelah 23:30 WIB",
+      "publishedAt": "2026-11-10T23:30 WIB (Buffer sent; dilihat ulang 23:47 WIB)",
+      "externalLink": "https://www.youtube.com/shorts/OKVnCMSYXwg"
     },
     "verification_labels": {
       "post_created": "VERIFIED (readback Buffer)",
       "published": "UNKNOWN (menunggu 23:30 WIB)"
-    }
+    },
+    "release": {
+      "check": "check-release.mjs PASS (semua dependensi sent dengan link; run diagnostik 42857582581)",
+      "driveRePrivatized": "1gVD83mwLXUbwM8dTGm-z9T9-VA2UWXEb kembali private (VERIFIED list_permissions: hanya owner)",
+      "note": "URL sumber hanya dibutuhkan saat penjadwalan; video sudah diambil YouTube"
+    },
+    "status_final": "TAYANG (VERIFIED sent+link via Buffer readback)"
   }
 }

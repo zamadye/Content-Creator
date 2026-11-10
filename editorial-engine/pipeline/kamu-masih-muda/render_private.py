@@ -645,16 +645,18 @@ def encode(scenes, cues, total, work, out):
     for si, im in saved.items(): im.save(work / f'scene-{si:02d}.png')
     music = work / 'music.wav'
     rough.synth_score(music, total)
-    for gl, nm in ((_GAP, 'gap1.wav'), (1.2, 'gap2.wav')):
+    for gl, nm in ((_GAP, 'gap1.mp3'), (1.2, 'gap2.mp3')):
         subprocess.run([rough.FF, '-y', '-loglevel', 'error', '-f', 'lavfi', '-t', str(gl),
-                        '-i', 'anullsrc=r=44100:cl=mono', str(work / nm)], check=True)
+                        '-i', 'anullsrc=r=44100:cl=mono', '-c:a', 'libmp3lame', '-b:a', '160k',
+                        str(work / nm)], check=True)
+    work_abs = work.resolve()
     vo_list = work / 'vo.txt'
     with open(vo_list, 'w') as f:
         for i, name in enumerate(_CHUNKS):
-            f.write(f"file '{CONTENT}/audio/{name}.mp3'\n")
+            f.write(f"file '{(CONTENT / 'audio' / f'{name}.mp3').resolve()}'\n")
             if i < 7:
-                f.write(f"file '{work}/gap1.wav'\n")
-                if i == 5: f.write(f"file '{work}/gap2.wav'\n")
+                f.write(f"file '{work_abs}/gap1.mp3'\n")
+                if i == 5: f.write(f"file '{work_abs}/gap2.mp3'\n")
     vo = work / 'vo-full.mp3'
     subprocess.run([rough.FF, '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0',
                     '-i', str(vo_list), '-c:a', 'libmp3lame', '-b:a', '160k', str(vo)], check=True)

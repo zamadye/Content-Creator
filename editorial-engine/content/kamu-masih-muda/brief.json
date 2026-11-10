@@ -13,7 +13,7 @@
  "status": {
   "naskah": "v2 DISETUJUI user",
   "audio": "8 chunk VO voice-05 + full 7:37 SELESAI — menunggu review telinga user",
-  "visual": "PLANING: visual-concept-plan.md selesai — belum generate gambar/animasi (sesuai instruksi user)"
+  "visual": "DRAF 1 dirender (ber-watermark DRAF PRIVAT) — menunggu review user sebelum polesan/final"
  },
  "permintaanUser": [
   "Tema psikologi: logical fallacies dan turunannya, ad hominem sebagai pintu masuk",
@@ -78,5 +78,20 @@
    "c8": 45.88
   }
  },
- "commentLoop": "kolom komentar = arena pencarian ad hominem; contoh terbaik jadi materi episode berikutnya"
+ "commentLoop": "kolom komentar = arena pencarian ad hominem; contoh terbaik jadi materi episode berikutnya",
+ "draft1": {
+  "file": ".scratch/kamu-out/kamu-DRAF-PRIVAT.mp4",
+  "sha256": "3418cecf584ccb1e1985c3c022e23c2f7d26b614ef96fa8bac67c3d40b8d6e3f",
+  "durasi": "00:07:37.24",
+  "scenes": 30,
+  "cues": 128,
+  "resolusi": "720x1280",
+  "qa": {
+   "decodePenuh": "PASS (0 error)",
+   "watermarkSample": "475-478 px gelap di 4 sampel (t=10/120/300/430) PASS",
+   "subtitle": "tampil di semua sampel",
+   "catatan": "subtitle estimasi proporsional per kalimat; bubbles S8 hanya tampak awal scene — polesan menyusul setelah review user"
+  },
+  "drive": "1iAO1OgWVJwiKA1UMzv1AHumXeaPtQWwO"
+ }
 }

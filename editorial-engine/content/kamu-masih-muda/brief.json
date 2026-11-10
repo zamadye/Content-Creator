@@ -11,9 +11,9 @@
  },
  "format": "long video 5-15 menit (target narasi 7-8 menit), 720x1280, voice-05, musik dramatis pipeline",
  "status": {
-  "naskah": "v2 (blueprint user) SELESAI",
+  "naskah": "v2 DISETUJUI user",
   "audio": "8 chunk VO voice-05 + full 7:37 SELESAI — menunggu review telinga user",
-  "visual": "belum — mulai setelah audio disetujui"
+  "visual": "PLANING: visual-concept-plan.md selesai — belum generate gambar/animasi (sesuai instruksi user)"
  },
  "permintaanUser": [
   "Tema psikologi: logical fallacies dan turunannya, ad hominem sebagai pintu masuk",
@@ -64,5 +64,19 @@
  "durasi": {
   "narasi": "7:37 (blueprint: bisa dipotong 8 menit)",
   "perpanjang": "opsi role-play orang tua-anak dari blueprint bila target 10-15 menit"
- }
+ },
+ "timeline": {
+  "total": "457.24s",
+  "chunks": {
+   "c1": 54.44,
+   "c2": 53.04,
+   "c3": 33.96,
+   "c4": 66.04,
+   "c5": 75.52,
+   "c6": 81.4,
+   "c7": 42.96,
+   "c8": 45.88
+  }
+ },
+ "commentLoop": "kolom komentar = arena pencarian ad hominem; contoh terbaik jadi materi episode berikutnya"
 }

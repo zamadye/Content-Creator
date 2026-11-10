@@ -179,7 +179,7 @@ CUES = {
   "Sampai jumpa."],
 }
 
-_CUEW, _PHS, _TOTAL, _PH, _NOSUB = None, {}, 0.0, [], []
+_CUEW, _PHS, _TOTAL, _PH, _NOSUB, _CLEAN = None, {}, 0.0, [], [], False
 
 def _P(i):
     return _PH[i] if i < len(_PH) else 1e9
@@ -879,7 +879,8 @@ def compose(t, scenes, cues):
     bg = art; d = ImageDraw.Draw(bg)
     _motes(d, t)
     d.text((26, 20), 'ad hominem - ep. 1: logika toxic', font=fnt(16), fill='#9ab5ac')
-    d.text((1254, 20), 'DRAF PRIVAT', font=pm(22), fill='#e8dcca', anchor='ra')
+    if not _CLEAN:
+        d.text((1254, 20), 'DRAF PRIVAT', font=pm(22), fill='#e8dcca', anchor='ra')
     cue = cue_at(cues, t)
     if cue and not _in_nosub(t):
         rows = None
@@ -895,8 +896,9 @@ def compose(t, scenes, cues):
     d.rounded_rectangle((30, 706, 1250, 714), 4, '#0c1f1d')
     if _TOTAL > 0:
         d.rounded_rectangle((30, 706, 30 + int(1220 * min(1, t / _TOTAL)), 714), 4, TEAL)
-    wm = _watermark()
-    bg.paste(wm, (0, 0), wm)
+    if not _CLEAN:
+        wm = _watermark()
+        bg.paste(wm, (0, 0), wm)
     return bg
 
 def encode(scenes, cues, total, work, out):
@@ -997,11 +999,13 @@ def synth_sfx(events, total, out):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--private-rough', action='store_true')
+    ap.add_argument('--clean', action='store_true', help='render bersih tanpa watermark DRAF PRIVAT (setelah approve)')
     ap.add_argument('--plan-only', action='store_true')
     ap.add_argument('--work-dir', type=Path, required=True)
     ap.add_argument('--out-dir', type=Path, required=True)
     a = ap.parse_args()
-    if not a.private_rough: ap.error('Hanya --private-rough; render final tidak ada di sini.')
+    if not (a.private_rough or a.clean): ap.error('Butuh --private-rough (draf) atau --clean (final).')
+    if a.clean: globals()['_CLEAN'] = True
     rough.validate_mode(True, a.out_dir); rough.validate_mode(True, a.work_dir)
     print('audio:', restore_audio(), flush=True)
     scenes, total, durs, chunks = scene_windows()
@@ -1011,9 +1015,9 @@ def main():
         for i, ((sa, sb), fn) in enumerate(scenes): print(f'S{i+1:02d} {sa:7.2f}-{sb:7.2f} {fn.__name__}')
         return
     a.work_dir.mkdir(parents=True, exist_ok=True); a.out_dir.mkdir(parents=True, exist_ok=True)
-    out = a.out_dir / 'kamu-DRAF-PRIVAT.mp4'
+    out = a.out_dir / ('kamu-FINAL.mp4' if a.clean else 'kamu-DRAF-PRIVAT.mp4')
     encode(scenes, cues, total, a.work_dir, out)
-    print('PRIVATE ROUGH ONLY: estimated subtitle timing; human/facts/release gates remain open.', flush=True)
+    print(('CLEAN FINAL: butuh human receipt & gates sebelum publish.' if a.clean else 'PRIVATE ROUGH ONLY: estimated subtitle timing; human/facts/release gates remain open.'), flush=True)
 
 if __name__ == '__main__':
     main()

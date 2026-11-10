@@ -1,193 +1,227 @@
 {
- "slug": "kamu-masih-muda",
- "judul": {
-  "utama": "Yang Diserang Bukan Argumenmu, Tapi Kamu: Bedah Ad Hominem & Logika Toxic",
-  "alternatif": [
-   "Kenapa Orang Lebih Suka Menyerang Kamu daripada Argumenmu?",
-   "Ad Hominem: Senjata Diam-Diam Orang yang Kalah Debat",
-   "Usia Bukan Ukuran Kedewasaan",
-   "Logical Fallacy: Cara Orang Menghindari Kebenaran Tanpa Terlihat Salah"
-  ]
- },
- "format": "long video 5-15 menit (target narasi 7-8 menit), 720x1280, voice-05, musik dramatis pipeline",
- "status": {
-  "naskah": "v4 (review 2: dramatisasi dialog konsultan→atasan, teks layar 'yang diminta/yang diterima')",
-  "audio": "9 chunk voice-05 (c1/c2/c3b/c8 versi terbaru), total narasi 9:22",
-  "visual": "FINAL CLEAN (16x9, tanpa watermark) — approve draf 5 oleh user 2026-11-10",
-  "stage": "SHORT GATEWAY SIAP — upload YT via Buffer batch menunggu receipt+jadwal dari user"
- },
- "permintaanUser": [
-  "Tema psikologi: logical fallacies dan turunannya, ad hominem sebagai pintu masuk",
-  "Konteks lebih jelas dari konten sebelumnya: apa yang diserang, siapa korbannya, apa dampak/akibatnya",
-  "Contoh relatable: dibalas soal hidup/fisik; orang yang selalu merasa benar, selalu punya alasan dan pelampiasan (sering orang tua — 'lebih tua = lebih benar', padahal belum tentu)",
-  "Pesan: kedewasaan dinilai dari karakter, bukan usia",
-  "Poin kedua: cara mengonter orang seperti ini — jawaban relatif tergantung situasi/konteks",
-  "Storytelling terstruktur + ritme/intonasi tidak datar",
-  "Produksi bertahap: script dulu, lalu audio sampai selesai, baru visual jika sesuai"
- ],
- "keputusanKejujuran": {
-  "statistikUser5070Persen": "TIDAK dipakai sebagai fakta — tidak ada sumber terverifikasi. Diganti cermin inklusif: 'termasuk saya, termasuk kamu'. Diterangkan ke user.",
-  "risetUsia": "Disajikan campur secara jujur: Grossmann 2010 (PNAS) konflik orang lain: usia lebih tua rata-rata lebih bijak; studi lanjutan (Psychological Science, Grossmann dkk.) konflik pribadi: korelasi usia ~nol (r=-0.02), self-distancing yang menolong; budaya mempengaruhi (2012)."
- },
- "sumberFakta": [
-  "IEP Fallacies — ad hominem: serangan pribadi yang tidak relevan terhadap argumen; kredibilitas kadang relevan",
-  "Critical Thinking Hub / SEP / IEP — jenis ad hominem: abusive, circumstantial, tu quoque, poisoning the well; guilt by association; whataboutism sebagai bentuk modern tu quoque",
-  "Grossmann dkk. 2010 PNAS 'Reasoning about social conflicts improves into old age' — 60-90 th lebih bijak menilai konflik orang lain",
-  "Grossmann dkk. Psychological Science — wise reasoning konflik PRIBADI: tidak ada perbedaan usia (r_age=-0.02); self-distancing menolong lintas usia",
-  "Grossmann 2012 'Aging and Wisdom: Culture Matters' — budaya mempengaruhi; antisipasi stereotip ageism"
- ],
- "struktur": [
-  "Cold open 3 detik: ide bagus dibalas 'dasar anak muda' — usul mati tanpa dibahas",
-  "Cerita utama: Rani (24) vs rapat RT — serangan iuran/label anak kos",
-  "Bedah: apa yang diserang / siapa korban / dampak jangka panjang",
-  "Peta keluarga fallacy: strawman, tu quoque, whataboutism, poisoning the well, umpan kedudukan",
-  "Twist 1 cermin: Rani melakukan hal yang sama di grup alumni — fallacy menular",
-  "Twist 2 nuansa: kapan menilai orang justru sah (dokter/pilot/saksi) vs menghindari isi",
-  "Sosok tak pernah salah + riset usia jujur + pesan kedewasaan = kebiasaan",
-  "Empat jalur menghadapi (relatif): kembalikan isi / buat dia berpikir / mundur strategis / cek diri",
-  "Penutup: ide sama disetujui saat dibawa orang berbeda + 2 pertanyaan diskusi, tanpa CTA generik"
- ],
- "audio": {
-  "full": "audio/kamu-masih-muda-full-voice05.mp3",
-  "fullSha256": "5aaa3bf719f5445ed802a566c77c70afddfab428eb15ad67e7a1bb962bdb44ed",
-  "durasi": "00:07:37.24",
-  "chunks": 8,
-  "manifest": "audio/voice-manifest.json"
- },
- "drive": {
-  "folder": "1DULWF_icaWk_LOYv0__3e99eTbsbwnE2",
-  "fullVO": "17cldqHqUhSyotcMBubEFEAkYMYM9Q4H8",
-  "chunksZip": "1UxuzZt0NBvCXSLD6e__5COVTG9pO1VnQ",
-  "naskah": "1HtNqsR_v6VVPax0sGCi90o2bJn2DnWov",
-  "riset": "1WxDVnJVNpBpEvvjORCv4hhZ9r25hbCUI",
-  "izin": "owner-only terverifikasi 2026-11-10"
- },
- "durasi": {
-  "narasi": "7:37 (blueprint: bisa dipotong 8 menit)",
-  "perpanjang": "opsi role-play orang tua-anak dari blueprint bila target 10-15 menit"
- },
- "timeline": {
-  "total": "457.24s",
-  "chunks": {
-   "c1": 54.44,
-   "c2": 53.04,
-   "c3": 33.96,
-   "c4": 66.04,
-   "c5": 75.52,
-   "c6": 81.4,
-   "c7": 42.96,
-   "c8": 45.88
-  }
- },
- "commentLoop": "kolom komentar = arena pencarian ad hominem; contoh terbaik jadi materi episode berikutnya",
- "draft1": {
-  "file": ".scratch/kamu-out/kamu-DRAF-PRIVAT.mp4",
-  "sha256": "3418cecf584ccb1e1985c3c022e23c2f7d26b614ef96fa8bac67c3d40b8d6e3f",
-  "durasi": "00:07:37.24",
-  "scenes": 30,
-  "cues": 128,
-  "resolusi": "720x1280",
-  "qa": {
-   "decodePenuh": "PASS (0 error)",
-   "watermarkSample": "475-478 px gelap di 4 sampel (t=10/120/300/430) PASS",
-   "subtitle": "tampil di semua sampel",
-   "catatan": "subtitle estimasi proporsional per kalimat; bubbles S8 hanya tampak awal scene — polesan menyusul setelah review user"
+  "slug": "kamu-masih-muda",
+  "judul": {
+    "utama": "Yang Diserang Bukan Argumenmu, Tapi Kamu: Bedah Ad Hominem & Logika Toxic",
+    "alternatif": [
+      "Kenapa Orang Lebih Suka Menyerang Kamu daripada Argumenmu?",
+      "Ad Hominem: Senjata Diam-Diam Orang yang Kalah Debat",
+      "Usia Bukan Ukuran Kedewasaan",
+      "Logical Fallacy: Cara Orang Menghindari Kebenaran Tanpa Terlihat Salah"
+    ]
   },
-  "drive": "1iAO1OgWVJwiKA1UMzv1AHumXeaPtQWwO"
- },
- "draft2": {
-  "sha256": "2df62c19614da1b95929a46a4b2aed78cc197533b3186df3bc80dd34e2b5a404",
-  "durasi": "00:09:02.40",
-  "scenes": 31,
-  "cues": 148,
-  "audioDesign": "musik bed penuh + SFX thud/damp/whoosh/chime di adegan krusial",
-  "driveId": "1i4OWxz7_9V7FJ6qz4IyNeEjmFe152jsd",
-  "fileName": "kamu-masih-muda DRAF PRIVAT (review 2).mp4",
-  "trashed": true
- },
- "draft3": {
-  "sha256": "1729979d6f66c3c6030b47bbaca908e9adf45a0fb897577809658ff5ab21433f",
-  "durasi": "00:09:21.92",
-  "scenes": 31,
-  "cues": 156,
-  "perubahan": "C1 dramatisasi: bawahan tenang seperti konsultan ('Pak, saya ingin memastikan kita sudah memperhitungkan satu hal... buka datanya bersama') dijawab atasan ('Kamu masih baru. Jangan... mengajari saya... yang sudah lama dan lebih tahu soal lapangan.'); teks layar YANG DIMINTA: BUKA DATA / YANG DITERIMA: CERAMAH USIA KERJA; stamp MASIH BARU; kartu ide mati; SFX thud+damp di fase serangan",
-  "driveId": "1qDAo6JkSrnDl1TesUKtMS1Unabd0mNbz",
-  "fileName": "kamu-masih-muda DRAF PRIVAT (review 3).mp4"
- },
- "audio_backup_v4": {
-  "driveId": "1yyqoJRZW0CZagGfD9fp2kQHdA-jMnm7F",
-  "file": "kamu-masih-muda VO chunks v4.zip"
- },
- "draft4": {
-  "sha256": "625b8c63d996b2a2f2bc9c31b5d3fef5ef88341f7ecd685532c1a2febb826dc9",
-  "durasi": "00:09:21.92",
-  "resolusi": "1280x720 16:9",
-  "scenes": 35,
-  "cues": 156,
-  "sinkron": "subtitle & fase visual mengikuti segmen bicara aktual per kalimat (silencedetect+DP), bukan proporsi paragraf",
-  "catatan": "glif tidak-ada-di-font (→,≠,♥) diganti teks/bentuk gambar; gap antar-chunk mempertahankan scene terakhir",
-  "driveId": "19V3m1HffA4FcsRwl5gIRkrfT4q8Cp1R0",
-  "fileName": "kamu-masih-muda DRAF PRIVAT (review 4, landscape).mp4",
-  "trashed": true
- },
- "draft5": {
-  "sha256": "89d76c81f4309133619a9cfe2c6b9042bc7ed9acadc91acb61f56e6f5925ee95",
-  "durasi": "00:09:21.92",
-  "resolusi": "1280x720",
-  "driveId": "1cBObJgRRbvJEykjlVKMO7ySckZmBh4kk",
-  "fileName": "kamu-masih-muda DRAF PRIVAT (review 5).mp4"
- },
- "final": {
-  "sha256": "eebe36cc2ca29a1fb245e6f837ddaee839f5f1845d972032e46efaa898c66212",
-  "driveId": "1Z7AOZMKtbGBBCU6FPIIKgMAgq8dLFmEP",
-  "fileName": "kamu-masih-muda FINAL (16x9).mp4",
-  "durasi": "00:09:21.92",
-  "resolusi": "1280x720",
-  "thumbnail": {
-   "driveId": "1W-5mrVe0700u83oUMvaAREDOFPqkaiB7",
-   "file": "kamu-masih-muda thumbnail (cinematic).png",
-   "style": "fotorealistis sinematik (AI, bukan foto orang nyata), headline 'MASIH MUDA? BERARTI SALAH.'",
-   "catatan": "bila platform minta disclosure: gambar fotorealistis dibuat dengan AI, tokoh fiksi"
+  "format": "long video 5-15 menit (target narasi 7-8 menit), 720x1280, voice-05, musik dramatis pipeline",
+  "status": {
+    "naskah": "v4 (review 2: dramatisasi dialog konsultan→atasan, teks layar 'yang diminta/yang diterima')",
+    "audio": "9 chunk voice-05 (c1/c2/c3b/c8 versi terbaru), total narasi 9:22",
+    "visual": "FINAL CLEAN (16x9, tanpa watermark) — approve draf 5 oleh user 2026-11-10",
+    "stage": "SHORT GATEWAY SIAP — upload YT via Buffer batch menunggu receipt+jadwal dari user"
   },
-  "captions": {
-   "driveId": "1C0_V6lGO5Wrwv39yB-r07Radjl_NtjY9",
-   "file": "captions.txt"
-  },
-  "chapters": "0:23 kasus1, 1:37 objektif/subjektif, 2:36 dampak, 3:11 pemimpin, 4:04 8 wajah, 5:11 kasus2, 6:27 6 langkah, 7:50 twist, 8:33 bekal+CTA",
-  "thumbnail_lama_animasi_trashed": true
- },
- "short": {
-  "file": "kamu-SHORT-gateway.mp4",
-  "driveId": "1gVD83mwLXUbwM8dTGm-z9T9-VA2UWXEb",
-  "sha256": "f51ad0f7368e936bf946edb88d28493ef146d99df8fb5537bc8aff9dae8def88",
-  "durasi": "00:01:03.33",
-  "resolusi": "720x1280",
-  "isi": "C1 cue10-25: dialog konsultan→serangan MASIH BARU→ad hominem + end card 'CERITA PENUHNYA'",
-  "status": "MASTER PRIVATE — menunggu receipt user + jadwal + salinan publik berizin utk schedule YT Shorts via Buffer",
-  "yt_path": {
-   "attempt": "read-only channels snapshot via Actions run 42833166207",
-   "hasil": "FAILED di step eksekusi snapshot (steps 1-5 PASS: checkout/node/test/cli-install). Log tidak terbaca (EOF). Anotasi tidak memuat laporan terenkripsi.",
-   "next": "butuh verifikasi koneksi Buffer/secret dari user, ATAU jalankan ulang snapshot; JANGAN kirim batch tanpa channelId terverifikasi + receipt user"
-  }
- },
- "cleanup_2026_11_10": {
-  "drive_trashed": [
-   "draf review 1",
-   "draf review 5 (disetujui, digantikan FINAL)",
-   "VO chunks+manifest v2.zip",
-   "VO FULL v2.mp3",
-   "naskah v2.md",
-   "(sebelumnya: review 2,3,4)"
+  "permintaanUser": [
+    "Tema psikologi: logical fallacies dan turunannya, ad hominem sebagai pintu masuk",
+    "Konteks lebih jelas dari konten sebelumnya: apa yang diserang, siapa korbannya, apa dampak/akibatnya",
+    "Contoh relatable: dibalas soal hidup/fisik; orang yang selalu merasa benar, selalu punya alasan dan pelampiasan (sering orang tua — 'lebih tua = lebih benar', padahal belum tentu)",
+    "Pesan: kedewasaan dinilai dari karakter, bukan usia",
+    "Poin kedua: cara mengonter orang seperti ini — jawaban relatif tergantung situasi/konteks",
+    "Storytelling terstruktur + ritme/intonasi tidak datar",
+    "Produksi bertahap: script dulu, lalu audio sampai selesai, baru visual jika sesuai"
   ],
-  "drive_kept": [
-   "FINAL (16x9)",
-   "SHORT gateway",
-   "thumbnail cinematic",
-   "captions.txt",
-   "VO chunks v4.zip (audio produksi)",
-   "riset-batas-fakta.md",
-   "visual-concept-plan.md"
+  "keputusanKejujuran": {
+    "statistikUser5070Persen": "TIDAK dipakai sebagai fakta — tidak ada sumber terverifikasi. Diganti cermin inklusif: 'termasuk saya, termasuk kamu'. Diterangkan ke user.",
+    "risetUsia": "Disajikan campur secara jujur: Grossmann 2010 (PNAS) konflik orang lain: usia lebih tua rata-rata lebih bijak; studi lanjutan (Psychological Science, Grossmann dkk.) konflik pribadi: korelasi usia ~nol (r=-0.02), self-distancing yang menolong; budaya mempengaruhi (2012)."
+  },
+  "sumberFakta": [
+    "IEP Fallacies — ad hominem: serangan pribadi yang tidak relevan terhadap argumen; kredibilitas kadang relevan",
+    "Critical Thinking Hub / SEP / IEP — jenis ad hominem: abusive, circumstantial, tu quoque, poisoning the well; guilt by association; whataboutism sebagai bentuk modern tu quoque",
+    "Grossmann dkk. 2010 PNAS 'Reasoning about social conflicts improves into old age' — 60-90 th lebih bijak menilai konflik orang lain",
+    "Grossmann dkk. Psychological Science — wise reasoning konflik PRIBADI: tidak ada perbedaan usia (r_age=-0.02); self-distancing menolong lintas usia",
+    "Grossmann 2012 'Aging and Wisdom: Culture Matters' — budaya mempengaruhi; antisipasi stereotip ageism"
   ],
-  "lokal": "hanya FINAL + SHORT yang dipertahankan"
- }
+  "struktur": [
+    "Cold open 3 detik: ide bagus dibalas 'dasar anak muda' — usul mati tanpa dibahas",
+    "Cerita utama: Rani (24) vs rapat RT — serangan iuran/label anak kos",
+    "Bedah: apa yang diserang / siapa korban / dampak jangka panjang",
+    "Peta keluarga fallacy: strawman, tu quoque, whataboutism, poisoning the well, umpan kedudukan",
+    "Twist 1 cermin: Rani melakukan hal yang sama di grup alumni — fallacy menular",
+    "Twist 2 nuansa: kapan menilai orang justru sah (dokter/pilot/saksi) vs menghindari isi",
+    "Sosok tak pernah salah + riset usia jujur + pesan kedewasaan = kebiasaan",
+    "Empat jalur menghadapi (relatif): kembalikan isi / buat dia berpikir / mundur strategis / cek diri",
+    "Penutup: ide sama disetujui saat dibawa orang berbeda + 2 pertanyaan diskusi, tanpa CTA generik"
+  ],
+  "audio": {
+    "full": "audio/kamu-masih-muda-full-voice05.mp3",
+    "fullSha256": "5aaa3bf719f5445ed802a566c77c70afddfab428eb15ad67e7a1bb962bdb44ed",
+    "durasi": "00:07:37.24",
+    "chunks": 8,
+    "manifest": "audio/voice-manifest.json"
+  },
+  "drive": {
+    "folder": "1DULWF_icaWk_LOYv0__3e99eTbsbwnE2",
+    "fullVO": "17cldqHqUhSyotcMBubEFEAkYMYM9Q4H8",
+    "chunksZip": "1UxuzZt0NBvCXSLD6e__5COVTG9pO1VnQ",
+    "naskah": "1HtNqsR_v6VVPax0sGCi90o2bJn2DnWov",
+    "riset": "1WxDVnJVNpBpEvvjORCv4hhZ9r25hbCUI",
+    "izin": "owner-only terverifikasi 2026-11-10"
+  },
+  "durasi": {
+    "narasi": "7:37 (blueprint: bisa dipotong 8 menit)",
+    "perpanjang": "opsi role-play orang tua-anak dari blueprint bila target 10-15 menit"
+  },
+  "timeline": {
+    "total": "457.24s",
+    "chunks": {
+      "c1": 54.44,
+      "c2": 53.04,
+      "c3": 33.96,
+      "c4": 66.04,
+      "c5": 75.52,
+      "c6": 81.4,
+      "c7": 42.96,
+      "c8": 45.88
+    }
+  },
+  "commentLoop": "kolom komentar = arena pencarian ad hominem; contoh terbaik jadi materi episode berikutnya",
+  "draft1": {
+    "file": ".scratch/kamu-out/kamu-DRAF-PRIVAT.mp4",
+    "sha256": "3418cecf584ccb1e1985c3c022e23c2f7d26b614ef96fa8bac67c3d40b8d6e3f",
+    "durasi": "00:07:37.24",
+    "scenes": 30,
+    "cues": 128,
+    "resolusi": "720x1280",
+    "qa": {
+      "decodePenuh": "PASS (0 error)",
+      "watermarkSample": "475-478 px gelap di 4 sampel (t=10/120/300/430) PASS",
+      "subtitle": "tampil di semua sampel",
+      "catatan": "subtitle estimasi proporsional per kalimat; bubbles S8 hanya tampak awal scene — polesan menyusul setelah review user"
+    },
+    "drive": "1iAO1OgWVJwiKA1UMzv1AHumXeaPtQWwO"
+  },
+  "draft2": {
+    "sha256": "2df62c19614da1b95929a46a4b2aed78cc197533b3186df3bc80dd34e2b5a404",
+    "durasi": "00:09:02.40",
+    "scenes": 31,
+    "cues": 148,
+    "audioDesign": "musik bed penuh + SFX thud/damp/whoosh/chime di adegan krusial",
+    "driveId": "1i4OWxz7_9V7FJ6qz4IyNeEjmFe152jsd",
+    "fileName": "kamu-masih-muda DRAF PRIVAT (review 2).mp4",
+    "trashed": true
+  },
+  "draft3": {
+    "sha256": "1729979d6f66c3c6030b47bbaca908e9adf45a0fb897577809658ff5ab21433f",
+    "durasi": "00:09:21.92",
+    "scenes": 31,
+    "cues": 156,
+    "perubahan": "C1 dramatisasi: bawahan tenang seperti konsultan ('Pak, saya ingin memastikan kita sudah memperhitungkan satu hal... buka datanya bersama') dijawab atasan ('Kamu masih baru. Jangan... mengajari saya... yang sudah lama dan lebih tahu soal lapangan.'); teks layar YANG DIMINTA: BUKA DATA / YANG DITERIMA: CERAMAH USIA KERJA; stamp MASIH BARU; kartu ide mati; SFX thud+damp di fase serangan",
+    "driveId": "1qDAo6JkSrnDl1TesUKtMS1Unabd0mNbz",
+    "fileName": "kamu-masih-muda DRAF PRIVAT (review 3).mp4"
+  },
+  "audio_backup_v4": {
+    "driveId": "1yyqoJRZW0CZagGfD9fp2kQHdA-jMnm7F",
+    "file": "kamu-masih-muda VO chunks v4.zip"
+  },
+  "draft4": {
+    "sha256": "625b8c63d996b2a2f2bc9c31b5d3fef5ef88341f7ecd685532c1a2febb826dc9",
+    "durasi": "00:09:21.92",
+    "resolusi": "1280x720 16:9",
+    "scenes": 35,
+    "cues": 156,
+    "sinkron": "subtitle & fase visual mengikuti segmen bicara aktual per kalimat (silencedetect+DP), bukan proporsi paragraf",
+    "catatan": "glif tidak-ada-di-font (→,≠,♥) diganti teks/bentuk gambar; gap antar-chunk mempertahankan scene terakhir",
+    "driveId": "19V3m1HffA4FcsRwl5gIRkrfT4q8Cp1R0",
+    "fileName": "kamu-masih-muda DRAF PRIVAT (review 4, landscape).mp4",
+    "trashed": true
+  },
+  "draft5": {
+    "sha256": "89d76c81f4309133619a9cfe2c6b9042bc7ed9acadc91acb61f56e6f5925ee95",
+    "durasi": "00:09:21.92",
+    "resolusi": "1280x720",
+    "driveId": "1cBObJgRRbvJEykjlVKMO7ySckZmBh4kk",
+    "fileName": "kamu-masih-muda DRAF PRIVAT (review 5).mp4"
+  },
+  "final": {
+    "sha256": "eebe36cc2ca29a1fb245e6f837ddaee839f5f1845d972032e46efaa898c66212",
+    "driveId": "1Z7AOZMKtbGBBCU6FPIIKgMAgq8dLFmEP",
+    "fileName": "kamu-masih-muda FINAL (16x9).mp4",
+    "durasi": "00:09:21.92",
+    "resolusi": "1280x720",
+    "thumbnail": {
+      "driveId": "1W-5mrVe0700u83oUMvaAREDOFPqkaiB7",
+      "file": "kamu-masih-muda thumbnail (cinematic).png",
+      "style": "fotorealistis sinematik (AI, bukan foto orang nyata), headline 'MASIH MUDA? BERARTI SALAH.'",
+      "catatan": "bila platform minta disclosure: gambar fotorealistis dibuat dengan AI, tokoh fiksi"
+    },
+    "captions": {
+      "driveId": "1C0_V6lGO5Wrwv39yB-r07Radjl_NtjY9",
+      "file": "captions.txt"
+    },
+    "chapters": "0:23 kasus1, 1:37 objektif/subjektif, 2:36 dampak, 3:11 pemimpin, 4:04 8 wajah, 5:11 kasus2, 6:27 6 langkah, 7:50 twist, 8:33 bekal+CTA",
+    "thumbnail_lama_animasi_trashed": true
+  },
+  "short": {
+    "file": "kamu-SHORT-gateway.mp4",
+    "driveId": "1gVD83mwLXUbwM8dTGm-z9T9-VA2UWXEb",
+    "sha256": "f51ad0f7368e936bf946edb88d28493ef146d99df8fb5537bc8aff9dae8def88",
+    "durasi": "00:01:03.33",
+    "resolusi": "720x1280",
+    "isi": "C1 cue10-25: dialog konsultan→serangan MASIH BARU→ad hominem + end card 'CERITA PENUHNYA'",
+    "status": "MASTER PRIVATE — menunggu receipt user + jadwal + salinan publik berizin utk schedule YT Shorts via Buffer",
+    "yt_path": {
+      "attempt": "read-only channels snapshot via Actions run 42833166207",
+      "hasil": "FAILED di step eksekusi snapshot (steps 1-5 PASS: checkout/node/test/cli-install). Log tidak terbaca (EOF). Anotasi tidak memuat laporan terenkripsi.",
+      "next": "butuh verifikasi koneksi Buffer/secret dari user, ATAU jalankan ulang snapshot; JANGAN kirim batch tanpa channelId terverifikasi + receipt user"
+    }
+  },
+  "cleanup_2026_11_10": {
+    "drive_trashed": [
+      "draf review 1",
+      "draf review 5 (disetujui, digantikan FINAL)",
+      "VO chunks+manifest v2.zip",
+      "VO FULL v2.mp3",
+      "naskah v2.md",
+      "(sebelumnya: review 2,3,4)"
+    ],
+    "drive_kept": [
+      "FINAL (16x9)",
+      "SHORT gateway",
+      "thumbnail cinematic",
+      "captions.txt",
+      "VO chunks v4.zip (audio produksi)",
+      "riset-batas-fakta.md",
+      "visual-concept-plan.md"
+    ],
+    "lokal": "hanya FINAL + SHORT yang dipertahankan"
+  },
+  "buffer_schedule_2026_11_10": {
+    "target": "YouTube 'Knot Theory' (Buffer channelId 6ae9e5d7e29c69a1714a96f1)",
+    "content": "kamu-SHORT-gateway.mp4 sha256 f51ad0f7368e936bf946edb88d28493ef146d99df8fb5537bc8aff9dae8def88 (master delivered)",
+    "driveSource": "1gVD83mwLXUbwM8dTGm-z9T9-VA2UWXEb (anyoneWithLink reader, re-privatize setelah sent)",
+    "attempts": [
+      {
+        "run": "42839624806",
+        "result": "STOPPED_BEFORE_CREATION EXISTING_GAP_CONFLICT",
+        "cause": "shareNow ~21:59 WIB terlalu dekat ke post YT terakhir sent 21:03 WIB (gap 56 mnt < 2 jam). Tidak ada post dibuat."
+      },
+      {
+        "run": "42841025114",
+        "result": "STOPPED_BEFORE_CREATION BAD_VERTICAL_VIDEO_SIZE",
+        "cause": "floor internal 1080x1920; file 720x1280. Tidak ada post dibuat."
+      }
+    ],
+    "resolution": {
+      "mode": "customScheduled (user minta langsung; shareNow diblok gap 2 jam antar post - jadwal terdekat yang legal)",
+      "dueAt": "2026-11-10T23:30:00+07:00",
+      "approvedEdition": {
+        "sha256": "f51ad0f7368e936bf946edb88d28493ef146d99df8fb5537bc8aff9dae8def88",
+        "minWidth": 720,
+        "minHeight": 1280,
+        "note": "edisi master yang di-approve user; floor internal diturunkan terikat hash persis"
+      },
+      "bufferPostId": "6af3353a42d372a81f639e03",
+      "status": "SUBMITTED SCHEDULED_VERIFIED (run 42842373253; terbaca-balik dari Buffer)",
+      "verification": "status tayang belum terkonfirmasi - cek ulang setelah 23:30 WIB"
+    },
+    "verification_labels": {
+      "post_created": "VERIFIED (readback Buffer)",
+      "published": "UNKNOWN (menunggu 23:30 WIB)"
+    }
+  }
 }

@@ -74,14 +74,14 @@ console.log(`CLI buffer: ${(which.stdout ?? '').trim()}`);
 /* Read-only: status + waktu saja (WIB). Caption/URL tidak dicetak. */
 try {
   const args = ['posts', 'list', '--organization-id', '6ae9e5493e91026c72c93e3b', '--limit', '100',
-    '--fields', 'items.status,items.channelId,items.channelService,items.sentAt,items.dueAt,pageInfo.hasNextPage,pageInfo.endCursor'];
+    '--fields', 'items.id,items.status,items.channelId,items.channelService,items.sentAt,items.dueAt,items.externalLink,pageInfo.hasNextPage,pageInfo.endCursor'];
   const posts = run(args);
   let items = dig(posts.json, (o) => Array.isArray(o.items))?.items ?? [];
   let cur = dig(posts.json, (o) => o?.pageInfo?.endCursor);
   let guard = 0;
   while (dig(posts.json, (o) => o?.pageInfo?.hasNextPage) && cur && guard++ < 5) {
     const more = run(['posts', 'list', '--organization-id', '6ae9e5493e91026c72c93e3b', '--limit', '100',
-      '--fields', 'items.status,items.channelId,items.channelService,items.sentAt,items.dueAt,pageInfo.hasNextPage,pageInfo.endCursor',
+      '--fields', 'items.id,items.status,items.channelId,items.channelService,items.sentAt,items.dueAt,items.externalLink,pageInfo.hasNextPage,pageInfo.endCursor',
       '--after', String(cur)]);
     items = items.concat(dig(more.json, (o) => Array.isArray(o.items))?.items ?? []);
     cur = dig(more.json, (o) => o?.pageInfo?.endCursor);
@@ -97,7 +97,9 @@ try {
   for (const it of items) {
     const svc = it.channelService ?? (String(it.channelId ?? '') === '6ae9e5d7e29c69a1714a96f1' ? 'youtube' : '?');
     const t = String(it.status ?? '').toLowerCase() === 'sent' ? wib(it.sentAt ?? it.dueAt) : wib(it.dueAt);
-    console.log('  -', svc.padEnd(9), String(it.status ?? '').padEnd(10), t);
+    const ext = it.externalLink ? ' link:' + String(it.externalLink).slice(0, 60) : '';
+    const pid = it.id ? ' id:' + String(it.id).slice(0, 12) : '';
+    console.log('  -', svc.padEnd(9), String(it.status ?? '').padEnd(10), t, pid, ext);
   }
 } catch (e) {
   console.log('\n=== 3b. antrean: gagal dibaca (read-only, dilewati) ===', String((e && e.message) ?? '').slice(0, 80));

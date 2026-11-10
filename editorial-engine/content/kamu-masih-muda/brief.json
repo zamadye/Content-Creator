@@ -14,7 +14,7 @@
   "naskah": "v4 (review 2: dramatisasi dialog konsultan→atasan, teks layar 'yang diminta/yang diterima')",
   "audio": "9 chunk voice-05 (c1/c2/c3b/c8 versi terbaru), total narasi 9:22",
   "visual": "FINAL CLEAN (16x9, tanpa watermark) — approve draf 5 oleh user 2026-11-10",
-  "stage": "DELIVERED — publish path long-form menunggu putusan user; TikTok tetap tahan sampai instruksi"
+  "stage": "SHORT GATEWAY SIAP — upload YT via Buffer batch menunggu receipt+jadwal dari user"
  },
  "permintaanUser": [
   "Tema psikologi: logical fallacies dan turunannya, ad hominem sebagai pintu masuk",
@@ -155,5 +155,34 @@
   },
   "chapters": "0:23 kasus1, 1:37 objektif/subjektif, 2:36 dampak, 3:11 pemimpin, 4:04 8 wajah, 5:11 kasus2, 6:27 6 langkah, 7:50 twist, 8:33 bekal+CTA",
   "thumbnail_lama_animasi_trashed": true
+ },
+ "short": {
+  "file": "kamu-SHORT-gateway.mp4",
+  "driveId": "1gVD83mwLXUbwM8dTGm-z9T9-VA2UWXEb",
+  "sha256": "f51ad0f7368e936bf946edb88d28493ef146d99df8fb5537bc8aff9dae8def88",
+  "durasi": "00:01:03.33",
+  "resolusi": "720x1280",
+  "isi": "C1 cue10-25: dialog konsultan→serangan MASIH BARU→ad hominem + end card 'CERITA PENUHNYA'",
+  "status": "MASTER PRIVATE — menunggu receipt user + jadwal + salinan publik berizin utk schedule YT Shorts via Buffer"
+ },
+ "cleanup_2026_11_10": {
+  "drive_trashed": [
+   "draf review 1",
+   "draf review 5 (disetujui, digantikan FINAL)",
+   "VO chunks+manifest v2.zip",
+   "VO FULL v2.mp3",
+   "naskah v2.md",
+   "(sebelumnya: review 2,3,4)"
+  ],
+  "drive_kept": [
+   "FINAL (16x9)",
+   "SHORT gateway",
+   "thumbnail cinematic",
+   "captions.txt",
+   "VO chunks v4.zip (audio produksi)",
+   "riset-batas-fakta.md",
+   "visual-concept-plan.md"
+  ],
+  "lokal": "hanya FINAL + SHORT yang dipertahankan"
  }
 }

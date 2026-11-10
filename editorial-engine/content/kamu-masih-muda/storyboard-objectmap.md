@@ -49,3 +49,14 @@ tampil di semua window VO; durasi total == durasi audio 457.24s.
 - S29: CTA komentar + ♥LIKE · SHARE santai; S30: kartu penutup brand (teaser straw man dihapus).
 - AUDIO: musik = bed sepanjang video (vol 0.25); SFX terpisah (thud/damp/whoosh/chime)
   hanya adegan krusial. 31 scene, total 542.8s.
+
+## v5 (draf 4, koreksi review 3) — LANDSCAPE 1280x720
+- Layout: kanvas 16:9 — kiri 720x720 animasi (pan lembut +-12px), kanan panel subtitle.
+- SUBTITLE SINKRON PER KALIMAT: windows diukur dari audio (silencedetect -36dB/0.20s)
+  lalu DP-assign kalimat ke segmen bicara (bukan estimasi paragraf).
+- Scene dibagi per kalimat: 35 jendela; fase internal scene pakai anchor kalimat (_PH).
+- Scene baru/dirombak: S2 montage 3 lokasi, S3 fase dialog, S4a kontras+layar,
+  S4b callout+janji, S8 3 fase dampak, S8d keluarga fallacy, S16b isi vs orang,
+  S26b langkah-6 pilih, S27 twist 3 fase, S28 kartu per kalimat.
+- Progress bar episode, motes idle, end card + CTA share.
+- QA: decode 0 error; probe sinkron t=33/232/470 vs kalimat aktif = cocok.

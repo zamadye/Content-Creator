@@ -13,7 +13,7 @@
  "status": {
   "naskah": "v4 (review 2: dramatisasi dialog konsultan→atasan, teks layar 'yang diminta/yang diterima')",
   "audio": "9 chunk voice-05 (c1/c2/c3b/c8 versi terbaru), total narasi 9:22",
-  "visual": "DRAF 3 (v4) dirender ber-watermark — menunggu review user"
+  "visual": "DRAF 4 (v5, LANDSCAPE 1280x720) — subtitle sinkron per kalimat (DP di atas silencedetect), 35 scene per-kalimat — menunggu review user"
  },
  "permintaanUser": [
   "Tema psikologi: logical fallacies dan turunannya, ad hominem sebagai pintu masuk",
@@ -116,5 +116,14 @@
  "audio_backup_v4": {
   "driveId": "1yyqoJRZW0CZagGfD9fp2kQHdA-jMnm7F",
   "file": "kamu-masih-muda VO chunks v4.zip"
+ },
+ "draft4": {
+  "sha256": "625b8c63d996b2a2f2bc9c31b5d3fef5ef88341f7ecd685532c1a2febb826dc9",
+  "durasi": "00:09:21.92",
+  "resolusi": "1280x720 16:9",
+  "scenes": 35,
+  "cues": 156,
+  "sinkron": "subtitle & fase visual mengikuti segmen bicara aktual per kalimat (silencedetect+DP), bukan proporsi paragraf",
+  "catatan": "glif tidak-ada-di-font (→,≠,♥) diganti teks/bentuk gambar; gap antar-chunk mempertahankan scene terakhir"
  }
 }

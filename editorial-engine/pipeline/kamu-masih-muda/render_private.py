@@ -22,7 +22,8 @@ box, actor, table = tg.box, tg.actor, tg.table
 INK, CORAL, CREAM, TEAL, GOLD = tg.INK, tg.CORAL, tg.CREAM, tg.TEAL, tg.GOLD
 FONT_DIR = ROOT / 'editorial-engine/assets/fonts'
 PM = ImageFont.truetype(str(FONT_DIR / 'permanent-marker-latin-400-normal.ttf'), 34)
-W, H = 720, 1280
+W, H = 1280, 720
+ART = 720
 FPS, DRAW_FPS = 24, 12
 RAW_W, RAW_H = 1000, 800
 _CHUNKS = ['vo-c1-cold-open', 'vo-c2-korban', 'vo-c3-dampak', 'vo-c3b-pemimpin',
@@ -164,26 +165,105 @@ CUES = {
   "karena kamu bukan idemu.", "Idemu boleh salah... kamu tetap utuh."],
  'vo-c8-closing': [
   "Tiga hal yang mau saya tinggalkan.",
-  "Satu: pisahkan orang dari argumen — termasuk orangmu sendiri.",
+  "Satu: pisahkan orang dari gagasannya — termasuk gagasanmu sendiri.",
   "Dua: usia bukan bukti. Pengalaman bukan otomatis kebenaran.",
   "Tiga: konter terbaik bukan mempermalukan lawan...",
   "melainkan batas yang jelas, dan isi yang tetap dibicarakan.",
-  "Sekarang giliran kamu.", "Pernah kena ad hominem soal apa —",
-  "usia, fisik, masa lalu, atau kelompokmu?", "Tulis di komentar.",
-  "Dan kalau kamu pernah sadar diri sendiri melakukannya...",
-  "itu bukan tanda kamu jahat. Itu tanda kamu mulai jadi dewasa.",
-  "Di cerita berikutnya: straw man — cara orang memutar balik argumenmu",
-  "tanpa terlihat melenceng. Sampai jumpa."],
+  "Sekarang giliran kamu.",
+  "Pernah kena ad hominem soal apa — usia, fisik, masa lalu, atau kelompokmu?",
+  "Tulis di komentar; contoh terbaik akan kita bedah di episode berikutnya.",
+  "Dan kalau kamu pernah sadar pernah melakukannya...",
+  "itu tanda kamu mulai jadi dewasa, bukan tanda kamu jahat.",
+  "Oh iya — kalau konten ini bermanfaat, like dan share ke teman kamu.",
+  "Siapa tau dia sedang butuh dilindungi dari serangan begini.",
+  "Sampai jumpa."],
 }
 
-def build_cues(windows):
-    cues = []
-    for name, (a, b) in zip(_CHUNKS, windows):
-        lines = CUES[name]; total = sum(len(x) for x in lines); t = a
-        for line in lines:
-            d = (b - a) * len(line) / total
-            cues.append({'start': t, 'end': t + d, 'text': line}); t += d
-    return cues
+_CUEW, _PHS, _TOTAL, _PH = None, {}, 0.0, []
+
+def _P(i):
+    return _PH[i] if i < len(_PH) else 1e9
+
+def _speech_intervals(path, total):
+    r = subprocess.run([rough.FF, '-i', str(path), '-af', 'silencedetect=noise=-36dB:d=0.20',
+                        '-f', 'null', '-'], capture_output=True, text=True)
+    starts = [float(x) for x in re.findall(r'silence_start: ([\d.]+)', r.stderr)]
+    ends = [float(x) for x in re.findall(r'silence_end: ([\d.]+)', r.stderr)]
+    ivs = []; cur = 0.0
+    for i, st in enumerate(starts):
+        e = ends[i] if i < len(ends) else total
+        if st - cur > 0.30: ivs.append((cur, st))
+        cur = e
+    if total - cur > 0.30: ivs.append((cur, total))
+    return ivs or [(0.0, total)]
+
+def _align_cues(texts, ivs, total):
+    """DP: setiap kalimat mendapat 1..k segmen bicara berurutan; biaya =
+    deviasi durasi grup dari ekspektasi proporsi karakter. Jendela kalimat
+    mencakup jeda di dalam kalimatnya."""
+    n, k = len(texts), len(ivs)
+    if k == n: return list(ivs)
+    if k < n:
+        ws = [max(6, len(c)) for c in texts]; tot = sum(ws)
+        idx = []; acc = 0.0
+        for w in ws:
+            idx.append(min(k - 1, int(acc / tot * k + 1e-9))); acc += w
+        idx[-1] = k - 1
+        for j in range(1, n): idx[j] = max(idx[j], idx[j - 1])
+        from collections import defaultdict
+        d = defaultdict(list)
+        for j, i2 in enumerate(idx): d[i2].append(j)
+        out = [None] * n
+        for i2 in range(k):
+            js = d[i2]
+            if not js: continue
+            a0, b0 = ivs[i2]; wsj = [ws[j] for j in js]; ssum = sum(wsj); cur = a0
+            for j in js:
+                seg = (b0 - a0) * ws[j] / ssum
+                out[j] = (cur, cur + seg); cur += seg
+        for j in range(n):
+            if out[j] is None: out[j] = (max(0.0, total - .5), total)
+        return out
+    ws = [max(6, len(c)) for c in texts]; tot = sum(ws)
+    exp = [total * w / tot for w in ws]
+    INF = 1e18
+    ends = [b for _, b in ivs]; t0 = ivs[0][0]
+    f = [[INF] * k for _ in range(n)]; bk = [[-1] * k for _ in range(n)]
+    for j in range(k):
+        f[0][j] = abs((ends[j] - t0) - exp[0])
+    for i in range(1, n):
+        for j in range(i, k - (n - 1 - i)):
+            best, arg = INF, -1
+            for j2 in range(i - 1, j):
+                c = f[i - 1][j2] + abs((ends[j] - ends[j2]) - exp[i])
+                if c < best: best, arg = c, j2
+            f[i][j] = best; bk[i][j] = arg
+    bounds = [0] * n; j = k - 1
+    for i in range(n - 1, -1, -1):
+        bounds[i] = j
+        j = bk[i][j] if i > 0 else -1
+    out = []; prev_end = t0
+    for i in range(n):
+        out.append((prev_end, ends[bounds[i]])); prev_end = ends[bounds[i]]
+    return out
+
+def sentence_windows():
+    global _CUEW, _TOTAL
+    durs = chunk_durations(); cw = []; off = 0.0
+    for i, name in enumerate(_CHUNKS):
+        ivs = _speech_intervals(CONTENT / 'audio' / f'{name}.mp3', durs[i])
+        mapped = _align_cues(CUES[name], ivs, durs[i])
+        cw.append([(off + a, off + min(durs[i], b)) for a, b in mapped])
+        off += durs[i] + (_GAP_TWIST if i == 6 else _GAP)
+    _CUEW = cw; _TOTAL = off - _GAP
+    return cw, _TOTAL
+
+def build_cues(_ignored=None):
+    flat = []
+    for i, name in enumerate(_CHUNKS):
+        for (a, b), txt in zip(_CUEW[i], CUES[name]):
+            flat.append({'start': a, 'end': b, 'text': txt})
+    return flat
 
 def cue_at(cues, t):
     for c in cues:
@@ -340,48 +420,81 @@ def S1(d, t, ts):
     d.text((500, 360), 'detik pertama: yang diserang BUKAN gagasannya', font=fnt(22), fill='#56655f', anchor='mm')
 
 def S2(d, t, ts):
-    d.rectangle((0, 0, RAW_W, RAW_H), fill='#d7e1d7')
-    table(d)
-    paste_card(d._base, d, 560, 550, 200, 105, 'IDE PENJUALAN', tilt=3)
-    actor(d, 'bima', 170, 720, .92, ts * .9, 'neutral', target=(560, 560))
-    actor(d, 'owner', 830, 720, .95, ts * .8, 'neutral', target=(560, 560))
-    d.line([(320, 500), (670, 390)], fill=TEAL, width=8)
-    if ts > .5: bubble(d, 240, 300, 380, 74, '"Pak, mari buka datanya bersama."', fnt(22))
-    d.text((500, 140), 'dengan tenang — hampir seperti konsultan', font=fnt(24), fill='#56655f', anchor='mm')
-    d.text((500, 200), 'yang dimintakan: BUKA DATA', font=fnt(22), fill=TEAL, anchor='mm')
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
+    d.text((500, 84), '"kalimat ini terdengar familiar..."', font=pm(30), fill=INK, anchor='mm')
+    for i, (lb, th) in enumerate((('MEJA MAKAN', .8), ('RUANG RAPAT', 2.6), ('GRUP KELUARGA', 4.4))):
+        if ts < th: continue
+        x = 235 + i * 265
+        d.rounded_rectangle((x - 130, 170, x + 130, 400), 16, fill='#fffaf0', outline=INK, width=5)
+        d.text((x, 368), lb, font=fnt(20), fill='#56655f', anchor='mm')
+        if i == 0:
+            d.ellipse((x - 62, 230, x + 62, 320), fill='#e4d3ae', outline=INK, width=4)
+            d.ellipse((x - 40, 248, x + 40, 302), fill='#cfc8b8', outline=INK, width=3)
+            d.line((x + 40, 222, x + 74, 290), fill=INK, width=6)
+        elif i == 1:
+            d.rounded_rectangle((x - 90, 260, x + 90, 315), 10, fill='#8a7a66', outline=INK, width=4)
+            d.line((x - 60, 215, x - 60, 260), fill=INK, width=5); d.line((x + 60, 215, x + 60, 260), fill=INK, width=5)
+            d.ellipse((x - 72, 200, x - 48, 224), fill='#bcd6d0', outline=INK, width=3)
+            d.ellipse((x + 48, 200, x + 72, 224), fill='#bcd6d0', outline=INK, width=3)
+        else:
+            for j in range(3):
+                px = x - 70 + j * 70
+                d.rounded_rectangle((px, 220 + (j % 2) * 16, px + 48, 306 + (j % 2) * 16), 8, fill='#193333', outline=INK, width=3)
+                d.text((px + 24, 262 + (j % 2) * 16), '...', font=fnt(20), fill=CREAM, anchor='mm')
+    d.rounded_rectangle((150, 470, 850, 590), 14, fill='#193333', outline=INK, width=5)
+    d.text((500, 510), 'Perhatikan: tidak ada satu pun yang membahas gagasannya.', font=fnt(23), fill=CREAM, anchor='mm')
+    d.text((500, 556), 'Yang dibahas: usia, harga diri, hak bicara.', font=fnt(22), fill=GOLD, anchor='mm')
 
 def S3(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#d7e1d7')
     table(d)
-    dead = ts > 15.5
-    if not dead: paste_card(d._base, d, 560, 550, 200, 105, 'IDE PENJUALAN', tilt=3)
-    else:
-        d.rounded_rectangle((460, 498, 660, 602), 8, fill='#cfc8b8', outline='#9a917f', width=4)
-        d.text((560, 550), 'IDE PENJUALAN', font=fnt(20), fill='#9a917f', anchor='mm')
-        d.line([(470, 508), (650, 592)], fill=CORAL, width=8); d.line([(650, 508), (470, 592)], fill=CORAL, width=8)
-    actor(d, 'bima', 170, 720, .92, ts * .9, 'worried' if ts > 10.5 else 'neutral', target=(560, 560))
+    atk = ts > _P(0)
+    rise = min(1, ts / 2.5)
+    d.line([(320, 500)] + [(320 + i * 70, 500 - i * 55 * rise) for i in range(1, 5)], fill=TEAL, width=8)
+    paste_card(d._base, d, 560, 550, 200, 105, 'IDE PENJUALAN', tilt=3)
+    actor(d, 'bima', 170, 720, .92, ts * .9, 'worried' if atk else 'neutral', target=(560, 560))
     actor(d, 'owner', 830, 720, .95, ts * .8, 'neutral', target=(560, 560))
-    if ts < 10.5:
-        bubble(d, 240, 300, 380, 74, '"Pak, mari buka datanya bersama."', fnt(22))
-        d.text((500, 140), 'dia sedang bicara — tenang, isi-ke-isi', font=fnt(22), fill='#56655f', anchor='mm')
-    if ts > 10.5: paste_stamp(d._base, 500, 235, 'MASIH BARU', CORAL, 1.3, -6 + math.sin(ts * 8) * 1.5)
-    if ts > 11.3: bubble(d, 330, 330, 400, 74, '"Jangan mengajari saya."', fnt(22))
-    if ts > 13.5:
-        d.text((500, 140), 'bahasa paling dewasa — dibalas bahasa kekuasaan', font=fnt(24), fill=CORAL, anchor='mm')
-    if ts > 13.5:
-        d.rounded_rectangle((120, 620, 880, 745), 14, fill='#193333', outline=INK, width=5)
-        d.text((500, 655), 'YANG DIMINTA: BUKA DATA', font=pm(24), fill=CREAM, anchor='mm')
-        d.text((500, 705), 'YANG DITERIMA: CERAMAH USIA KERJA', font=pm(24), fill=CORAL, anchor='mm')
+    if not atk:
+        bubble(d, 240, 300, 400, 74, '"Pak, mari buka datanya bersama."', fnt(22))
+        d.text((500, 140), 'dia bicara tenang — isi ke isi', font=fnt(24), fill='#56655f', anchor='mm')
+    else:
+        paste_stamp(d._base, 500, 235, 'MASIH BARU', CORAL, 1.3, -6 + math.sin(ts * 8) * 1.5)
+        if ts > _P(1): bubble(d, 330, 330, 400, 74, '"Jangan mengajari saya."', fnt(22))
+        d.text((500, 140), 'yang dibahas bukan gagasannya', font=fnt(24), fill=CORAL, anchor='mm')
 
-def S4(d, t, ts):
-    d.rectangle((0, 0, RAW_W, RAW_H), fill=MIST if hasattr(tg, 'MIST') else '#cfd8d3')
-    items = ['MENGAPA', 'KORBAN', 'DAMPAK', 'KONTER']
-    for i, it in enumerate(items):
-        x = 120 + (i % 2) * 400; y = 200 + (i // 2) * 230
-        on = ts > i * 1.1
-        d.rounded_rectangle((x, y, x + 330, y + 170), 16, fill='#fffaf0' if on else '#d9d2c2', outline=INK, width=5)
-        d.text((x + 165, y + 85), it, font=fnt(34), fill=INK if on else '#9a917f', anchor='mm')
-    paste_card(d._base, d, 500, 700, 120, 60, '??', tilt=8 if int(ts * 2) % 2 else -8)
+def S4a(d, t, ts):
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#26312e')
+    d.text((500, 110), 'Perhatikan kontrasnya', font=pm(30), fill=CREAM, anchor='mm')
+    d.text((500, 190), 'bahasa paling dewasa sudah dipakai —', font=fnt(26), fill='#c3d9d2', anchor='mm')
+    d.text((500, 232), 'yang dibalas tetap bahasa kekuasaan', font=fnt(26), fill=CORAL, anchor='mm')
+    if ts > _P(0):
+        d.rounded_rectangle((120, 300, 880, 450), 14, fill='#193333', outline=GOLD, width=5)
+        d.text((500, 342), 'YANG DIMINTA: BUKA DATA', font=pm(24), fill=CREAM, anchor='mm')
+        d.text((500, 402), 'YANG DITERIMA: CERAMAH USIA KERJA', font=pm(24), fill=CORAL, anchor='mm')
+    if ts > _P(1):
+        d.rounded_rectangle((350, 500, 650, 610), 10, fill='#cfc8b8', outline='#9a917f', width=4)
+        d.text((500, 555), 'IDE PENJUALAN', font=fnt(22), fill='#9a917f', anchor='mm')
+        d.line([(360, 510), (640, 600)], fill=CORAL, width=9)
+        d.line([(640, 510), (360, 600)], fill=CORAL, width=9)
+        d.text((500, 660), 'mati tanpa satu pun angka dibahas', font=fnt(23), fill='#9ab5ac', anchor='mm')
+
+def S4b(d, t, ts):
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
+    if ts < _P(1):
+        d.text((500, 150), 'Pernah nggak kamu mengalami ini?', font=fnt(30), fill=INK, anchor='mm')
+        fake_comment(d, 220, 230, 'kamu (mengingat)', 'aku bawa data, dibalas ngejudge...')
+        if ts > _P(0):
+            d.text((500, 470), 'ITU BUKAN DEBAT. ITU AD HOMINEM.', font=pm(32), fill=CORAL, anchor='mm')
+    else:
+        d.text((500, 120), 'hari ini kita bedah:', font=fnt(26), fill='#56655f', anchor='mm')
+        items = ['MENGAPA', 'KORBAN', 'DAMPAK', 'KONTER']
+        for i, it in enumerate(items):
+            x = 120 + (i % 2) * 400; y = 180 + (i // 2) * 210
+            on = ts > _P(1) + .5 + i * .7
+            d.rounded_rectangle((x, y, x + 330, y + 150), 16, fill='#fffaf0' if on else '#d9d2c2', outline=INK, width=5)
+            d.text((x + 165, y + 75), it, font=fnt(32), fill=INK if on else '#9a917f', anchor='mm')
+        if ts > _P(2):
+            d.text((500, 690), '+ satu twist di ujung: kedewasaan vs usia', font=fnt(24), fill=CORAL, anchor='mm')
 
 def S5(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
@@ -434,36 +547,62 @@ def S7(d, t, ts):
 
 def S8(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#dfe4e0')
-    for i in range(3):
-        x = 200 + i * 300; y = 640 - i * 130
-        d.rectangle((x - 130, y, x + 130, y + 26), fill='#9d6e51', outline=INK, width=4)
-    fade = max(0, 1 - ts / 6)
-    for i, a in enumerate((1, .7, .45)):
-        bubble(d, 300 + i * 60 - i * 20, 300 + i * 60, 220, 70, 'coba saran dikit', ) if fade >= a - .01 else None
-    bell(d, 760, 300, 1.2, closed=ts > 4.5)
-    d.text((500, 120), 'peringatan dini mati pelan-pelan', font=fnt(26), fill=CORAL, anchor='mm')
+    if ts < _P(1):
+        for i, (lb, th) in enumerate((('1 · ragu: "mungkin memang aku"', .3), ('2 · diam', 1.9), ('3 · tak berdaya', 3.4))):
+            if ts < th: continue
+            x = 130 + i * 280
+            d.rounded_rectangle((x, 300 - i * 40, x + 250, 400 - i * 40), 12, fill='#fffaf0', outline=INK, width=5)
+            d.text((x + 125, 350 - i * 40), lb, font=fnt(21), fill=INK, anchor='mm')
+        d.text((500, 150), 'dampaknya menjalar pelan-pelan', font=fnt(26), fill='#56655f', anchor='mm')
+    elif ts < _P(2):
+        tg.actor(d, 'nara', 500, 690, 1.05, ts * .6, 'sad')
+        d.arc((330, 380, 670, 620), 200, 340, fill=CORAL, width=8)
+        d.rounded_rectangle((380, 330, 620, 392), 10, fill='#fffaf0', outline=CORAL, width=4)
+        d.text((500, 361), 'learned helplessness', font=fnt(22), fill=CORAL, anchor='mm')
+        d.text((500, 150), 'bicara = diserang, menurutnya — jadi ya sudah', font=fnt(23), fill='#56655f', anchor='mm')
+    else:
+        bell(d, 500, 330, 1.6, closed=True)
+        d.text((500, 520), 'alarmnya bukan rusak...', font=fnt(28), fill=INK, anchor='mm')
+        d.text((500, 570), 'yang punya alarm capek didengar', font=pm(28), fill=CORAL, anchor='mm')
 
 def S9edu(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#26312e')
-    d.text((500, 110), 'kalau kamu seorang PEMIMPIN', font=fnt(30), fill=CREAM, anchor='mm')
-    for x, lb in ((230, 'NEGARA'), (500, 'PERUSAHAAN'), (770, 'RUMAH')):
-        d.rounded_rectangle((x - 105, 200, x + 105, 430), 16, fill='#31403c', outline=INK, width=5)
-        d.text((x, 395), lb, font=fnt(24), fill=CREAM, anchor='mm')
+    d.text((500, 100), 'kalau kamu seorang PEMIMPIN', font=fnt(30), fill=CREAM, anchor='mm')
+    for i, (x, lb) in enumerate(((230, 'NEGARA'), (500, 'PERUSAHAAN'), (770, 'RUMAH'))):
+        if ts < _P(0) + i * .8: continue
+        d.rounded_rectangle((x - 105, 170, x + 105, 400), 16, fill='#31403c', outline=INK, width=5)
+        d.text((x, 368), lb, font=fnt(24), fill=CREAM, anchor='mm')
         if lb == 'NEGARA':
-            d.polygon([(x - 60, 330), (x + 60, 330), (x, 250)], fill=GOLD)
-            d.rectangle((x - 40, 330, x + 40, 365), fill=GOLD)
+            d.polygon([(x - 60, 300), (x + 60, 300), (x, 220)], fill=GOLD); d.rectangle((x - 40, 300, x + 40, 335), fill=GOLD)
         elif lb == 'PERUSAHAAN':
-            d.rectangle((x - 55, 250, x + 55, 365), fill='#8a94a0')
-            for r in range(3):
-                for c in range(3): d.rectangle((x - 40 + c * 30, 262 + r * 34, x - 22 + c * 30, 280 + r * 34), fill='#c3d9d2')
+            d.rectangle((x - 55, 220, x + 55, 335), fill='#8a94a0')
+            for r_ in range(3):
+                for c in range(3): d.rectangle((x - 40 + c * 30, 232 + r_ * 34, x - 22 + c * 30, 250 + r_ * 34), fill='#c3d9d2')
         else:
-            d.polygon([(x - 55, 300), (x, 252), (x + 55, 300)], fill=CORAL)
-            d.rectangle((x - 42, 300, x + 42, 365), fill='#e4d3ae')
-    actor(d, 'inspector', 500, 700, 1.05, ts * .8, 'neutral', target=(500, 470))
-    if ts > 1.8: paste_stamp(d._base, 760, 170, 'KRITIK MATI', CORAL, 1.1, -7)
-    bubble(d, 130, 470, 250, 96, '...', fnt(30))
-    d.text((255, 596), 'penasihat membisukan diri', font=fnt(19), fill='#9ab5ac', anchor='mm')
+            d.polygon([(x - 55, 270), (x, 222), (x + 55, 270)], fill=CORAL); d.rectangle((x - 42, 270, x + 42, 335), fill='#e4d3ae')
+    if ts > _P(1):
+        bubble(d, 130, 420, 210, 60, '"..."', fnt(26)); d.text((235, 505), 'penasihat membisukan diri', font=fnt(17), fill='#9ab5ac', anchor='mm')
+    if ts > _P(2):
+        d.rounded_rectangle((620, 425, 880, 480), 10, fill='#31403c', outline=INK, width=4)
+        d.text((750, 452), 'laporan dibungkus manis', font=fnt(18), fill=CREAM, anchor='mm')
+    if ts > _P(4):
+        paste_stamp(d._base, 500, 625, 'KRITIK MATI', CORAL, 1.0, -5)
 
+def S8d(d, t, ts):
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#26312e')
+    d.text((500, 110), 'ad hominem = satu keluarga besar', font=fnt(28), fill=CREAM, anchor='mm')
+    d.text((500, 155), 'logical fallacy — kesalahan berpikir yang terdengar seperti argumen', font=fnt(20), fill='#9ab5ac', anchor='mm')
+    names = ['abusive', 'circum.', 'tu quoque', 'assoc.', 'age/auth.', 'straw man', 'whatabout.', 'tone polic.']
+    for i, nm in enumerate(names):
+        ang = i * math.pi / 4 - math.pi / 2
+        ap = max(0.0, min(1.0, (ts - .3 - i * .18)))
+        if ap <= 0: continue
+        x = 500 + math.cos(ang) * 330; y = 440 + math.sin(ang) * 195
+        d.ellipse((x - 16 * ap, y - 16 * ap, x + 16 * ap, y + 16 * ap), fill=CORAL, outline=INK, width=3)
+        d.text((x, y + 34), nm, font=fnt(17), fill=CREAM, anchor='mm')
+    r = 46 + math.sin(ts * 2) * 4
+    d.ellipse((500 - r, 440 - r, 500 + r, 440 + r), fill=TEAL, outline=CREAM, width=5)
+    d.text((500, 440), 'fallacy', font=fnt(20), fill=INK, anchor='mm')
 def fallacy_slide(d, t, ts, num, name, example):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
     paste_card(d._base, d, 500, 430, 260, 150, 'ARGUMEN', tilt=math.sin(ts * 2) * 4)
@@ -519,6 +658,17 @@ def S16(d, t, ts):
         if ts > 1.6 and i < int((ts - 1.6) * 2): continue
         d.arc((420, y, 470, y + 30), 300, 60, fill=TEAL, width=6)
 
+def S16b(d, t, ts):
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
+    d.text((500, 180), 'delapan nama, satu akar:', font=fnt(28), fill='#56655f', anchor='mm')
+    d.rounded_rectangle((150, 260, 430, 390), 16, fill='#bcd6d0', outline=INK, width=6)
+    d.text((290, 325), 'ISI ARGUMEN', font=fnt(28), fill=INK, anchor='mm')
+    d.rounded_rectangle((570, 260, 850, 390), 16, fill='#4a5a57', outline=INK, width=6)
+    d.text((710, 325), 'ORANGNYA', font=fnt(28), fill=CREAM, anchor='mm')
+    k = max(0.0, min(1.0, (ts - .4) / 1.2))
+    arrow_hook(d, 440, 325, 440 + int(120 * k), 325)
+    d.text((500, 470), 'memindahkan pertarungan dari isi... ke orang', font=pm(26), fill=CORAL, anchor='mm')
+
 def S17(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#dfe4e0')
     d.rounded_rectangle((380, 380, 620, 560), 14, fill='#c9ae8f', outline=INK, width=6)
@@ -552,7 +702,7 @@ def S19(d, t, ts):
 
 def S20(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#193333')
-    lines = ['USIA ≠ KEBENARAN', 'PENGALAMAN ≠ BUKTI', '"SAYA BISA SALAH"']
+    lines = ['USIA BUKAN KEBENARAN', 'PENGALAMAN BUKAN BUKTI', '"SAYA BISA SALAH"']
     for i, s in enumerate(lines):
         if ts < i * 1.4: continue
         y = 200 + i * 170
@@ -601,26 +751,55 @@ def S26(d, t, ts):
     door(d, 500, 480, 1.3, glow=ts > 2)
     paste_card(d._base, d, 200, 520, 160, 90, 'ISI', ring='green')
 
+def S26b(d, t, ts):
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#dfe4e0')
+    d.text((500, 110), 'LANGKAH 6 · PILIH: LANJUT ATAU STOP', font=fnt(28), fill=INK, anchor='mm')
+    d.rounded_rectangle((90, 180, 450, 430), 16, fill='#bcd6d0', outline=INK, width=5)
+    d.text((270, 230), 'LANJUT', font=fnt(26), fill=INK, anchor='mm')
+    d.text((270, 278), 'kalau masih membahas isi', font=fnt(19), fill='#56655f', anchor='mm')
+    d.text((270, 330), '"kita bahas isinya"', font=fnt(21), fill=TEAL, anchor='mm')
+    d.rounded_rectangle((545, 180, 895, 430), 16, fill='#4a5a57', outline=INK, width=5)
+    d.text((720, 230), 'STOP', font=fnt(26), fill=CREAM, anchor='mm')
+    d.text((720, 278), 'kalau abusive berulang', font=fnt(19), fill='#c3d9d2', anchor='mm')
+    d.text((720, 330), 'berhenti dan pergi', font=fnt(21), fill=GOLD, anchor='mm')
+    tg.actor(d, 'nara', 500, 700, 1.0, ts * .8, 'neutral')
+    if ts > _P(0):
+        d.rounded_rectangle((120, 470, 880, 545), 12, fill='#fffaf0', outline=CORAL, width=5)
+        d.text((500, 508), 'kalau ada ancaman atau manipulasi berulang — keselamatan dulu', font=fnt(20), fill=CORAL, anchor='mm')
+
 def S27(d, t, ts):
-    if ts < 1.5:
-        d.rectangle((0, 0, RAW_W, RAW_H), fill='#101816'); return
-    d.rectangle((0, 0, RAW_W, RAW_H), fill='#26312e')
-    mirror(d, 300, 420, 1.5)
-    tg.actor(d, 'nara', 300, 660, .8, ts * .5, 'sad')
-    typed = max(0, min(1, (ts - 2.5) / 2.5)); erased = max(0, (ts - 6.5) / 2.0)
-    msg = 'dasar bodoh, dulu juga gagal'
+    d.rectangle((0, 0, RAW_W, RAW_H), fill='#101816' if ts < .3 else '#26312e')
+    mirror(d, 280, 430, 1.4)
+    tg.actor(d, 'nara', 280, 690, .85, ts * .5, 'sad' if ts < _P(0) else 'neutral')
+    typed = max(0.0, min(1.0, (ts - .6) / 2.2))
+    erased = max(0.0, min(1.0, (ts - _P(0)) / 1.2)) if ts > _P(0) else 0.0
+    msg = 'lho, kamu kan yang dulu gagal'
     k = int(len(msg) * typed * (1 - erased))
-    fake_comment(d, 420, 260, 'kamu (jari menggetar)', msg[:k] + ('|' if int(ts * 2) % 2 else ''))
-    d.text((500, 600), 'itu bukan jawaban... itu pelarian', font=fnt(26), fill=CREAM, anchor='mm')
+    fake_comment(d, 430, 240, 'kamu (jari menggetar)', msg[:k] + ('|' if erased == 0 and int(ts * 2) % 2 else ''))
+    if ts > _P(0):
+        d.text((500, 420), 'jempol berhenti...', font=fnt(26), fill=CREAM, anchor='mm')
+        d.text((500, 470), 'itu bukan jawaban. itu pelarian.', font=pm(28), fill=GOLD, anchor='mm')
+    if ts > _P(1):
+        d.rounded_rectangle((600, 150, 895, 380), 16, fill='#193333', outline=GOLD, width=5)
+        d.text((748, 195), 'ANTIDOT', font=pm(26), fill=GOLD, anchor='mm')
+        d.text((748, 245), 'intellectual humility:', font=fnt(21), fill=CREAM, anchor='mm')
+        d.text((748, 282), 'berani bilang "saya mungkin keliru"', font=fnt(18), fill='#c3d9d2', anchor='mm')
+        d.text((748, 335), 'kamu bukan idemu', font=fnt(23), fill=TEAL, anchor='mm')
+    if ts > _P(2):
+        d.text((500, 620), 'idemu boleh salah... kamu tetap utuh', font=pm(30), fill=CREAM, anchor='mm')
+    d.text((500, 90), 'twist: senjata yang sama ada di tanganmu', font=fnt(22), fill='#9ab5ac', anchor='mm')
 
 def S28(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#e9ddca')
-    take = ['1 · ORANG ≠ ARGUMEN', '2 · USIA BUKAN BUKTI', '3 · BATAS YANG JELAS']
-    for i, s in enumerate(take):
-        if ts < i * 1.3: continue
-        y = 170 + i * 170
-        d.rounded_rectangle((120, y, 880, y + 120), 16, fill='#fffaf0', outline=INK, width=6)
-        d.text((500, y + 60), s, font=fnt(36), fill=INK, anchor='mm')
+    take = ['1 · ORANG BUKAN ARGUMEN', '2 · USIA BUKAN BUKTI', '3 · BATAS YANG JELAS']
+    th = (0.0, _P(0), _P(1))
+    for i, s2 in enumerate(take):
+        if ts < th[i]: continue
+        y = 120 + i * 150
+        d.rounded_rectangle((120, y, 880, y + 110), 16, fill='#fffaf0', outline=INK, width=6)
+        d.text((500, y + 55), s2, font=fnt(36), fill=INK, anchor='mm')
+    if ts > _P(2):
+        d.text((500, 620), 'tiga bekal pulang', font=fnt(22), fill='#56655f', anchor='mm')
 
 def S29(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#dfe4e0')
@@ -634,8 +813,13 @@ def S29(d, t, ts):
     paste_card(d._base, d, 690, 300, 190, 70, 'ATURAN', tilt=4)
     for i, s2 in enumerate(['tanpa nama orang', 'tanpa menyerang balik', 'satu contoh satu komentar']):
         d.text((560, 400 + i * 36), '· ' + s2, font=fnt(21), fill=INK)
-    d.text((140, 560), '♥ LIKE', font=fnt(26), fill=CORAL)
+    hx, hy = 150, 560
+    d.ellipse((hx, hy - 12, hx + 16, hy + 4), fill=CORAL); d.ellipse((hx + 12, hy - 12, hx + 28, hy + 4), fill=CORAL)
+    d.polygon([(hx, hy - 2), (hx + 28, hy - 2), (hx + 14, hy + 16)], fill=CORAL)
+    d.text((178, 560), 'LIKE', font=fnt(26), fill=CORAL)
     d.text((280, 560), '· SHARE ke temanmu — siapa tau dia butuh', font=fnt(24), fill=INK)
+    if ts > _P(0):
+        d.text((500, 660), 'pernah melakukannya? itu tanda mulai dewasa', font=fnt(22), fill=TEAL, anchor='mm')
 
 def S30(d, t, ts):
     d.rectangle((0, 0, RAW_W, RAW_H), fill='#193333')
@@ -644,58 +828,94 @@ def S30(d, t, ts):
     if int(ts * 1.4) % 2: d.text((500, 530), 'share ke temanmu — siapa tau dia butuh', font=fnt(22), fill='#c3d9d2', anchor='mm')
 
 def scene_windows():
-    durs = chunk_durations()
-    starts = []; t = 0.0
-    for i, du in enumerate(durs):
-        starts.append(t); t += du + (_GAP_TWIST if i == 6 else _GAP)
-    total = t - _GAP
-    def win(i): return starts[i], starts[i] + durs[i]
-    c = [win(i) for i in range(9)]
-    def sub(ci, a, b): return (c[ci][0] + (c[ci][1] - c[ci][0]) * a, c[ci][0] + (c[ci][1] - c[ci][0]) * b)
-    S = [
-        (sub(0, 0.00, .30), S1), (sub(0, .30, .44), S2), (sub(0, .44, .69), S3), (sub(0, .69, 1.0), S4),
-        (sub(1, 0.00, .50), S5), (sub(1, .50, .76), S6), (sub(1, .76, 1.0), S7),
-        ((c[2][0], c[2][1]), S8),
-        ((c[3][0], c[3][1]), S9edu),
-        (sub(4, 0.00, .125), S9), (sub(4, .125, .25), S10), (sub(4, .25, .375), S11), (sub(4, .375, .5), S12),
-        (sub(4, .5, .625), S13), (sub(4, .625, .75), S14), (sub(4, .75, .875), S15), (sub(4, .875, 1.0), S16),
-        (sub(5, 0.00, .30), S17), (sub(5, .30, .55), S18), (sub(5, .55, .80), S19), (sub(5, .80, 1.0), S20),
-        (sub(6, 0.00, .166), S21), (sub(6, .166, .333), S22), (sub(6, .333, .5), S23), (sub(6, .5, .666), S24),
-        (sub(6, .666, .833), S25), (sub(6, .833, 1.0), S26),
-        ((c[7][0], c[7][1]), S27),
-        (sub(8, 0.00, .30), S28), (sub(8, .30, .74), S29), (sub(8, .74, 1.0), S30),
+    cw, total = sentence_windows()
+    def W3(ci, a, b, fn, marks=()):
+        return ((cw[ci][a][0], cw[ci][b - 1][1]), fn, [cw[ci][j][0] for j in marks])
+    T = [
+        W3(0, 0, 3, S1), W3(0, 3, 8, S2), W3(0, 8, 18, S3, [15, 16]),
+        W3(0, 18, 22, S4a, [19, 21]), W3(0, 22, 27, S4b, [24, 25, 26]),
+        W3(1, 0, 6, S5), W3(1, 6, 10, S6), W3(1, 10, 16, S7, [11, 12, 13]),
+        W3(2, 0, 10, S8, [1, 5, 6]),
+        W3(3, 0, 15, S9edu, [1, 5, 6, 8, 12]),
+        W3(4, 0, 3, S8d), W3(4, 3, 5, S9), W3(4, 5, 7, S10), W3(4, 7, 9, S11),
+        W3(4, 9, 11, S12), W3(4, 11, 12, S13), W3(4, 12, 13, S14),
+        W3(4, 13, 14, S15), W3(4, 14, 15, S16), W3(4, 15, 17, S16b),
+        W3(5, 0, 6, S17), W3(5, 6, 12, S18), W3(5, 12, 18, S19, [13, 15]), W3(5, 18, 20, S20),
+        W3(6, 0, 3, S21), W3(6, 3, 6, S22), W3(6, 6, 8, S23), W3(6, 8, 13, S24),
+        W3(6, 13, 16, S25), W3(6, 16, 20, S26), W3(6, 20, 25, S26b, [22]),
+        W3(7, 0, 13, S27, [5, 8, 12]),
+        W3(8, 0, 5, S28, [1, 2, 3]), W3(8, 5, 10, S29, [8]), W3(8, 10, 13, S30),
     ]
-    return S, total, durs, c
+    S = [(w, f) for w, f, _ in T]
+    _PHS.clear(); _PHS.update({f.__name__: [m - w[0] for m in mk] for w, f, mk in T})
+    return S, total, chunk_durations(), cw
 
 MIST = getattr(tg, 'MIST', '#cfd8d3')
 
 def raw_frame(t, scenes):
+    cur = None
     for (a, b), fn in scenes:
-        if a <= t < b or (fn is scenes[-1][1] and t >= a):
-            im = Image.new('RGB', (RAW_W, RAW_H), '#e8dcca'); d = ImageDraw.Draw(im)
-            im._base = im; d._base = im
-            fn(d, t, t - a)
-            return im
+        if a <= t: cur = ((a, b), fn)
+        else: break
+    if cur is not None:
+        (a, b), fn = cur
+        im = Image.new('RGB', (RAW_W, RAW_H), '#e8dcca'); d = ImageDraw.Draw(im)
+        im._base = im; d._base = im
+        global _PH
+        _PH = list(_PHS.get(fn.__name__, ()))
+        fn(d, t, max(0.0, t - a))
+        return im
     im = Image.new('RGB', (RAW_W, RAW_H), '#e8dcca'); return im
+
+_WM = None
+def _watermark():
+    global _WM
+    if _WM is None:
+        tmp = Image.new('RGBA', (1700, 1000), (0, 0, 0, 0))
+        td = ImageDraw.Draw(tmp)
+        for i in range(5):
+            td.text((70, 130 + i * 175), 'DRAF PRIVAT — CERITA FIKTIF', font=pm(44), fill=(150, 45, 45, 66))
+        tmp = tmp.rotate(16, expand=False)
+        _WM = tmp.crop((210, 140, 1490, 860))
+    return _WM
+
+def _motes(d, t):
+    for i in range(7):
+        x = (i * 173 + t * (11 + 5 * (i % 3))) % ART
+        y = (i * 271 - t * (8 + 3 * (i % 2))) % ART
+        r = 2 + i % 3
+        d.ellipse((x - r, y - r, x + r, y + r), fill='#3f5a54')
 
 def compose(t, scenes, cues):
     raw = raw_frame(t, scenes)
-    art = raw.crop((100, 0, 900, 800)).resize((720, 720), Image.Resampling.BILINEAR)
-    bg = Image.new('RGB', (W, H), '#f2e2c9'); bg.paste(art, (0, 193))
+    pan = 100 + 12 * math.sin(0.10 * t + .5)
+    art = raw.crop((int(pan), 0, int(pan) + 800, 800)).resize((ART, ART), Image.Resampling.BILINEAR)
+    bg = Image.new('RGB', (W, H), '#122a28'); bg.paste(art, (0, 0))
     d = ImageDraw.Draw(bg)
-    box(d, (42, 38, 222, 76), 8, INK)
-    d.text((53, 45), 'CERITA FIKTIF', font=fnt(18), fill=CREAM)
-    d.text((W - 200, 47), 'DRAF PRIVAT', font=fnt(16), fill=INK)
+    _motes(d, t)
+    box(d, (28, 30, 196, 66), 8, INK)
+    d.text((40, 38), 'CERITA FIKTIF', font=fnt(18), fill=CREAM)
+    d.text((W - 28, 28), 'DRAF PRIVAT', font=pm(24), fill='#e8dcca', anchor='ra')
     cue = cue_at(cues, t)
     if cue:
         rows = None
-        for px in (30, 27, 25):
-            ft = fnt(px); rows = bag.wrap_width(d, cue, ft, 610 - 48)
-            if len(rows) <= 2: break
-        lh = int(ft.size * 1.22); bh = len(rows) * lh + 28; top = int(1000 - bh / 2)
-        box(d, ((W - 610) / 2, top, (W + 610) / 2, top + bh), 13, (19, 51, 51, 240))
+        for px in (32, 29, 26, 23):
+            ft = fnt(px); rows = bag.wrap_width(d, cue, ft, 486)
+            if len(rows) <= 4: break
+        lh = int(ft.size * 1.24); bh = len(rows) * lh + 30
+        top = 176 + (420 - bh) // 2
+        x0, x1 = ART + 28, W - 28
+        d.rounded_rectangle((x0, top, x1, top + bh), 13, '#0c1f1d')
+        d.rounded_rectangle((x0, top, x0 + 6, top + bh), 3, GOLD)
         for i, r in enumerate(rows):
-            d.text(((W - d.textlength(r, font=ft)) / 2, top + 10 + i * lh), r, font=ft, fill='#fffaf0')
+            d.text(((x0 + x1) / 2, top + 15 + i * lh), r, font=ft, fill='#fffaf0', anchor='ma')
+    d.text((ART + 30, H - 44), 'ad hominem · ep. 1 — logika toxic', font=fnt(17), fill='#9ab5ac')
+    d.text((W - 30, H - 44), 'knot theory', font=pm(16), fill='#9ab5ac', anchor='ra')
+    d.rounded_rectangle((ART + 30, H - 20, W - 30, H - 12), 4, '#0c1f1d')
+    if _TOTAL > 0:
+        d.rounded_rectangle((ART + 30, H - 20, ART + 30 + int((W - 60) * min(1, t / _TOTAL)), H - 12), 4, TEAL)
+    wm = _watermark()
+    bg.paste(wm, (0, 0), wm)
     return bg
 
 def encode(scenes, cues, total, work, out):
@@ -703,7 +923,7 @@ def encode(scenes, cues, total, work, out):
     n = math.ceil(total * DRAW_FPS)
     cmd = [rough.FF, '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24',
            '-s', f'{W}x{H}', '-r', str(DRAW_FPS), '-i', 'pipe:0', '-an', '-r', str(FPS),
-           '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '21', '-pix_fmt', 'yuv420p',
+           '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p',
            '-movflags', '+faststart', str(silent)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     saved = {}; mids = [(w[0] + w[1]) / 2 for w, f in scenes]
@@ -741,13 +961,14 @@ def encode(scenes, cues, total, work, out):
                     '-i', str(vo_list), '-c:a', 'libmp3lame', '-b:a', '160k', str(vo)], check=True)
     sfxev = []
     for (a, b), fn in scenes:
-        nm = fn.__name__
-        if nm == 'S3': sfxev += [(a + 10.8, 'thud'), (a + 16.3, 'damp')]
-        elif nm == 'S8': sfxev += [(a + (b - a) * .55, 'damp')]
-        elif nm == 'S9edu': sfxev += [(a + 1.9, 'thud')]
-        elif nm == 'S26': sfxev += [(a + 2.1, 'chime')]
-        elif nm == 'S27': sfxev += [(a + 1.45, 'whoosh')]
-        elif nm == 'S30': sfxev += [(a + .5, 'chime')]
+        nm = fn.__name__; ph = _PHS.get(nm, [])
+        if nm == 'S3' and ph: sfxev.append((a + ph[0] + .05, 'thud'))
+        if nm == 'S4a' and len(ph) > 1: sfxev.append((a + ph[1] + .05, 'damp'))
+        if nm == 'S9edu' and len(ph) > 4: sfxev.append((a + ph[4] + .05, 'thud'))
+        if nm == 'S8' and len(ph) > 1: sfxev.append((a + ph[1] + .05, 'damp'))
+        if nm == 'S27' and ph: sfxev.append((a + ph[0] + .05, 'whoosh'))
+        if nm == 'S26b': sfxev.append((a + 1.0, 'chime'))
+        if nm == 'S30': sfxev.append((a + .5, 'chime'))
     sfx = work / 'sfx.wav'
     synth_sfx(sfxev, total, sfx)
     command = [rough.FF, '-y', '-loglevel', 'error', '-i', str(silent), '-i', str(vo), '-i', str(music), '-i', str(sfx),

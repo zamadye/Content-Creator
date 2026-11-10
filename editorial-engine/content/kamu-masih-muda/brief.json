@@ -163,7 +163,12 @@
   "durasi": "00:01:03.33",
   "resolusi": "720x1280",
   "isi": "C1 cue10-25: dialog konsultan→serangan MASIH BARU→ad hominem + end card 'CERITA PENUHNYA'",
-  "status": "MASTER PRIVATE — menunggu receipt user + jadwal + salinan publik berizin utk schedule YT Shorts via Buffer"
+  "status": "MASTER PRIVATE — menunggu receipt user + jadwal + salinan publik berizin utk schedule YT Shorts via Buffer",
+  "yt_path": {
+   "attempt": "read-only channels snapshot via Actions run 42833166207",
+   "hasil": "FAILED di step eksekusi snapshot (steps 1-5 PASS: checkout/node/test/cli-install). Log tidak terbaca (EOF). Anotasi tidak memuat laporan terenkripsi.",
+   "next": "butuh verifikasi koneksi Buffer/secret dari user, ATAU jalankan ulang snapshot; JANGAN kirim batch tanpa channelId terverifikasi + receipt user"
+  }
  },
  "cleanup_2026_11_10": {
   "drive_trashed": [

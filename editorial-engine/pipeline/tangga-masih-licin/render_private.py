@@ -567,7 +567,8 @@ def render_frame(edition, scene_info, elapsed, duration, cue=None):
         d.rounded_rectangle((headline_x,headline_y+len(lines)*int(fs*1.16)+18,headline_x+76,headline_y+len(lines)*int(fs*1.16)+24),radius=3,fill=CORAL)
     d=ImageDraw.Draw(bg,'RGBA');box(d,badge,8,INK)
     d.text((badge[0]+11,badge[1]+7),'CERITA FIKTIF',font=font(18 if portrait else 17),fill=CREAM)
-    d.text((W-181 if portrait else W-180,47 if portrait else 43),'DRAF PRIVAT',font=font(16),fill=INK)
+    if not _RELEASE_CLEAN:
+        d.text((W-181 if portrait else W-180,47 if portrait else 43),'DRAF PRIVAT',font=font(16),fill=INK)
     if cue:
         ft=font(sub_size);rows=bag.wrap_width(d,cue['text'],ft,sub_w-48)
         while len(rows)>2 and sub_size>25:
@@ -648,10 +649,25 @@ def poster(root):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--private-rough',action='store_true')
+    ap.add_argument('--release-clean',action='store_true',help='Omit the DRAF PRIVAT stamp. Requires a fresh user release-authorization file; still renders only into .scratch.')
     ap.add_argument('--voice-dir',type=Path,required=True);ap.add_argument('--work-dir',type=Path,required=True);ap.add_argument('--out-dir',type=Path,required=True)
     ap.add_argument('--edition',choices=['master','master-vertical','short','all'],default='all');ap.add_argument('--plan-only',action='store_true')
     a=ap.parse_args()
     if not a.private_rough:ap.error('Explicit --private-rough is required')
+    release=False
+    if a.release_clean:
+        auth_path=ROOT/'editorial-engine/deliverables/buffer-batch/private/staircase-release/release-authorization.json'
+        try:auth=json.loads(auth_path.read_text(encoding='utf-8'))
+        except Exception as e:ap.error(f'Release authorization unreadable: {e}')
+        import datetime as _dt
+        fresh=lambda s:abs((_dt.datetime.now(_dt.timezone.utc)-_dt.datetime.fromisoformat(s.replace('Z','+00:00'))).total_seconds())<=48*3600
+        if not (auth.get('episode')=='tangga-masih-licin' and auth.get('orderedBy')=='user'
+                and auth.get('watermarkRemoved') is True and isinstance(auth.get('channels'),list) and auth['channels']
+                and isinstance(auth.get('orderedAt'),str) and fresh(auth['orderedAt'])
+                and auth.get('instruction')=='publish-now-no-schedule'):
+            ap.error('Release authorization invalid, stale, or not a user publish-now order; clean render refused.')
+        release=True
+    global _RELEASE_CLEAN;_RELEASE_CLEAN=release
     rough.validate_mode(True,a.out_dir);rough.validate_mode(True,a.work_dir)
     manifest=json.loads((a.voice_dir/'voice-manifest.json').read_text(encoding='utf-8'))
     editions=['master','master-vertical','short'] if a.edition=='all' else [a.edition]
@@ -662,8 +678,11 @@ def main():
     for edition in editions:
         tl,cues=bag.make_plan(edition,manifest,a.voice_dir,tdir)
         bag.contact(edition,tl,cues,a.out_dir)
-        if not a.plan_only:encode(edition,tl,cues,a.work_dir,a.out_dir/f'{edition}-DRAF-PRIVAT.mp4')
+        if not a.plan_only:encode(edition,tl,cues,a.work_dir,a.out_dir/f'{edition}{"" if release else "-DRAF-PRIVAT"}.mp4')
     poster(a.out_dir)
-    print('PRIVATE ROUGH ONLY: estimated timing; human, rights, disclosure and release gates remain open.',flush=True)
+    if release:
+        print('CLEAN RELEASE RENDER: DRAF PRIVAT stamp omitted per recorded user publish-now order; facts/human review status is recorded outside this script, not claimed here.',flush=True)
+    else:
+        print('PRIVATE ROUGH ONLY: estimated timing; human, rights, disclosure and release gates remain open.',flush=True)
 
 if __name__=='__main__':main()

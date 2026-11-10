@@ -37,8 +37,9 @@ function fakeIo({failCreate=0, interfere=false}={}) {
     async createPost(p){calls++;events.push('create:'+p.channelId);if(calls===failCreate)throw Error('ambiguous');const id='new'+calls;made.set(id,p);return id;},
     async getPost(id){
       events.push('read:'+id);const p=made.get(id);
+      const mode=p.mode??'customScheduled';
       return {id,status:'scheduled',channelId:p.channelId,dueAt:p.dueAt,text:p.text,
-        schedulingType:'automatic',shareMode:'customScheduled',isCustomScheduled:true,
+        schedulingType:'automatic',shareMode:mode,isCustomScheduled:mode==='customScheduled',
         metadata:{title:p.metadata.youtube?.title,isAiGenerated:false},assets:[{type:'video',source:'https://source.example/video'}]};
     },
   };
@@ -61,7 +62,7 @@ test('exception cannot be generalized to unrelated, extra, shifted, or unapprove
     [b=>b.videos[1].storyId='different',/EXCEPTION_STORY_MISMATCH/],
     [b=>{b.posts[2].platform='facebook';b.posts[2].videoId='short';},/UNUSED_VIDEO|EXCEPTION_PLATFORM_MISMATCH/],
     [b=>b.posts[2].channelId='fb1',/EXCEPTION_CHANNELS_NOT_UNIQUE/],
-    [b=>b.exceptions.push({type:'anything'}),/TIMING_EXCEPTION_NOT_AUTHORIZED/],
+    [b=>b.exceptions.push({type:'anything'}),/MULTIPLE_TIMING_EXCEPTIONS/],
   ];
   for(const [mutate,error] of variants){const b=fixture();mutate(b);assert.throws(()=>validateBatch(b,NOW),error);}
 });
@@ -122,6 +123,97 @@ test('a timeout on create never retries or continues to another platform',async(
   await assert.rejects(runBatch(fixture(),io,{now:NOW,report}),/CREATE_UNCERTAIN_RECONCILE/);
   assert.equal(io.calls,2);assert.equal(report.status,'PARTIAL_OR_UNCERTAIN');
   assert.deepEqual(report.posts.map(p=>p.outcome),['SCHEDULED_VERIFIED','CREATE_UNCERTAIN','NOT_ATTEMPTED']);
+});
+
+test('verifyMedia applies the approved floor only after bytes match the approved hash',async()=>{
+  const bytes=Buffer.from('0'.repeat(20000));
+  const sha=crypto.createHash('sha256').update(bytes).digest('hex');
+  const video={id:'m',url:'https://res.cloudinary.com/demo/video.mp4',sha256:sha,sizeBytes:bytes.length,
+    approvedEdition:{sha256:sha,minWidth:720,minHeight:1280,reason:'user-selected draft edition'}};
+  const seen=[];
+  const fetch=async()=>new Response(bytes,{headers:{'content-type':'video/mp4'}});
+  await verifyMedia(video,['facebook'],fetch,(file,platforms,floor)=>{seen.push(floor);return {duration:80.8};});
+  await verifyMedia({...video,approvedEdition:{...video.approvedEdition,sha256:'a'.repeat(64)}},['facebook'],fetch,
+    (file,platforms,floor)=>{seen.push(floor);return {duration:80.8};});
+  await verifyMedia({...video,approvedEdition:{...video.approvedEdition,minWidth:480}},['facebook'],fetch,
+    (file,platforms,floor)=>{seen.push(floor);return {duration:80.8};});
+  assert.deepEqual(seen,[{width:720,height:1280},undefined,undefined]);
+});
+
+function shareNowBatch(){
+  const video=(id)=>({id,storyId:'story1',url:'https://res.cloudinary.com/demo/video.mp4',
+    sha256:'a'.repeat(64),sizeBytes:10000,publicCopyApproved:true,aiAssisted:false,
+    qa:{facts:'PASS',rights:'PASS',technical:'PASS',human:'PASS'},
+    disclosure:{facebook:'optional',youtube:'optional'}});
+  return {schemaVersion:1,nonce:'c'.repeat(32),action:'schedule',
+    authorization:{scheduleApproved:true,immediatePublishApproved:true},
+    videos:[video('master'),video('short')],
+    posts:[
+      {id:'fb',videoId:'short',platform:'facebook',channelId:'fb1',mode:'shareNow',text:'Cerita fiksi di Facebook.'},
+      {id:'yt',videoId:'master',platform:'youtube',channelId:'yt1',mode:'shareNow',text:'Cerita fiksi di YouTube.',title:'Tangga masih licin'},
+    ],
+    exceptions:[{type:'immediate-share-now',postIds:['fb','yt']}],
+  };
+}
+
+test('approved immediate shareNow batch validates and builds publish-now payloads',()=>{
+  const b=shareNowBatch();
+  assert.equal(validateBatch(b,NOW).size,2);
+  const fb=buildPayload(b.posts[0],b.videos[1]);
+  assert.equal(fb.mode,'shareNow');assert.equal('dueAt' in fb,false);
+  assert.deepEqual(fb.metadata,{facebook:{type:'reel'}});
+  const yt=buildPayload(b.posts[1],b.videos[0]);
+  assert.equal(yt.metadata.youtube.title,'Tangga masih licin');
+});
+
+test('immediate exception is refused without explicit approval or exact scope',()=>{
+  for(const [mutate,error] of [
+    [b=>b.authorization.immediatePublishApproved=false,/IMMEDIATE_PUBLISH_NOT_AUTHORIZED/],
+    [b=>delete b.exceptions,/BATCH_GAP_CONFLICT/],
+    [b=>b.exceptions[0].type='simultaneous-single-story',/TIMING_EXCEPTION_NOT_AUTHORIZED/],
+    [b=>b.exceptions[0].type='ignore-gap',/BAD_TIMING_EXCEPTION/],
+    [b=>b.exceptions[0].postIds=['fb'],/EXCEPTION_SCOPE_MISMATCH/],
+    [b=>b.posts[0].dueAt=DUE,/SHARE_NOW_WITH_DUE_AT|EXCEPTION_SCOPE_MISMATCH/],
+    [b=>{b.posts[0].mode='customScheduled';b.posts[0].dueAt=DUE;},/EXCEPTION_SCOPE_MISMATCH/],
+    [b=>b.posts[1].channelId='fb1',/EXCEPTION_CHANNELS_NOT_UNIQUE/],
+    [b=>b.posts.push({...b.posts[0],id:'fb2'}),/EXCEPTION_SCOPE_MISMATCH|DUPLICATE_OR_BAD/],
+    [b=>b.exceptions.push({type:'immediate-share-now',postIds:['fb','yt']}),/MULTIPLE_TIMING_EXCEPTIONS|BAD_EXCEPTION_POSTS/],
+  ]){const b=shareNowBatch();mutate(b);assert.throws(()=>validateBatch(b,NOW),error);}
+});
+
+test('shareNow queue gaps are measured against the publish instant',()=>{
+  const b=shareNowBatch();
+  assert.throws(()=>validateQueue(b.posts,[{id:'old',channelId:'other',status:'scheduled',dueAt:'2026-11-09T18:00:00+07:00'}],NOW),/EXISTING_GAP_CONFLICT/);
+  validateQueue(b.posts,[{id:'old',channelId:'other',status:'scheduled',dueAt:'2026-11-09T16:30:00+07:00'}],NOW);
+  assert.throws(()=>validateQueue(b.posts,[{id:'old',status:'sent',sentAt:'2026-11-09T18:00:00+07:00'}],NOW),/EXISTING_GAP_CONFLICT/);
+});
+
+test('shareNow readback accepts active or completed statuses and exact share mode',()=>{
+  const b=shareNowBatch(),p=b.posts[0];
+  const actual={id:'p1',status:'sending',channelId:p.channelId,text:p.text,
+    shareMode:'shareNow',isCustomScheduled:false,assets:[{type:'video',source:'https://source.example/video'}]};
+  assert.equal(checkReadback(p,actual,'p1'),true);
+  assert.equal(checkReadback(p,{...actual,status:'sent'},'p1'),true);
+  assert.throws(()=>checkReadback(p,{...actual,status:'draft'},'p1'),/READBACK_NOT_SCHEDULED/);
+  assert.throws(()=>checkReadback(p,{...actual,shareMode:'customScheduled',isCustomScheduled:true},'p1'),/READBACK_NOT_SHARE_NOW/);
+  assert.throws(()=>checkReadback(p,{...actual,assets:[]},'p1'),/READBACK_VIDEO_MISSING/);
+});
+
+test('mocked immediate batch submits and verifies both platform posts',async()=>{
+  const io=fakeIo(),report={};await runBatch(shareNowBatch(),io,{now:NOW,report});
+  assert.equal(io.calls,2);assert.equal(report.status,'SUBMITTED');
+  assert.deepEqual(report.posts.map(p=>p.outcome),['SUBMITTED_VERIFIED','SUBMITTED_VERIFIED']);
+  assert.ok(report.posts.every(p=>['scheduled','sending','sent'].includes(p.status)));
+  assert.ok(io.events.filter(e=>e==='queue').length>=3);
+});
+
+test('only a valid, attributable owner override may bypass a non-PASS QA gate',()=>{
+  const b=shareNowBatch();
+  b.videos.forEach(v=>v.qa.facts='NEEDS REVIEW');
+  assert.throws(()=>validateBatch(b,NOW),/QA_NOT_APPROVED/);
+  assert.throws(()=>validateBatch({...b,authorization:{...b.authorization,ownerQaOverride:{by:'user',at:'2026-11-10T00:07:00Z'}}},NOW),/QA_NOT_APPROVED/);
+  validateBatch({...b,authorization:{...b.authorization,
+    ownerQaOverride:{by:'user',at:'2026-11-10T00:07:00Z',note:'user ordered immediate publish of this episode'}}},NOW);
 });
 
 test('TikTok media duration bound and existing full-HD safety gate',()=>{

@@ -13,6 +13,19 @@ const MINUTE = 60_000;
 export const MIN_GAP_MS = 120 * MINUTE;
 export const MAX_POSTS = 100;
 export const MAX_MEDIA_BYTES = 100_000_000;
+const POST_MODES = ['customScheduled', 'shareNow'];
+/** Posts are customScheduled by default. shareNow asks Buffer to publish as
+ * soon as it processes the post; it must not carry a dueAt. */
+export function postMode(post) {
+  return post?.mode === undefined ? 'customScheduled' : post.mode;
+}
+/** A batch may proceed with not-yet-PASS QA only through an explicit,
+ * attributable owner override. This records who ordered publication without
+ * pretending any review happened; the report carries the override forward. */
+function ownerQaOverrideValid(o) {
+  return !!o && o.by === 'user' && typeof o.note === 'string' && o.note.trim().length >= 3
+    && Number.isFinite(Date.parse(o.at));
+}
 // A caption disclosure is deliberately explicit; the native TikTok toggle is
 // a separate setting and TikTok may apply an automatic label regardless.
 export const TIKTOK_AI_CAPTION_NOTICE = 'Narasi video ini menggunakan suara sintetis AI.';
@@ -57,7 +70,8 @@ export function validateBatch(batch, now = Date.now()) {
     requireSafe(SHA256.test(video.sha256 ?? '') && Number.isSafeInteger(video.sizeBytes)
       && video.sizeBytes >= 1_000 && video.sizeBytes <= MAX_MEDIA_BYTES, 'BAD_MEDIA_FINGERPRINT');
     requireSafe(video.publicCopyApproved === true, 'PUBLIC_COPY_NOT_AUTHORIZED');
-    requireSafe(['facts', 'rights', 'technical', 'human'].every(k => video.qa?.[k] === 'PASS'), 'QA_NOT_APPROVED');
+    requireSafe(['facts','rights','technical','human'].every(k => video.qa?.[k] === 'PASS')
+      || ownerQaOverrideValid(batch.authorization?.ownerQaOverride), 'QA_NOT_APPROVED');
     requireSafe(typeof video.aiAssisted === 'boolean', 'AI_ASSISTANCE_UNDECLARED');
     videos.set(video.id, video);
   }
@@ -69,8 +83,13 @@ export function validateBatch(batch, now = Date.now()) {
     const video = videos.get(post.videoId);
     requireSafe(video, 'UNKNOWN_VIDEO'); usedVideos.add(post.videoId);
     requireSafe(['facebook', 'youtube', 'tiktok'].includes(post.platform) && ID.test(post.channelId ?? ''), 'BAD_CHANNEL');
-    const when = wibTime(post.dueAt);
-    requireSafe(Number.isFinite(when) && when >= now + 5 * MINUTE, 'BAD_OR_PAST_WIB_TIME');
+    requireSafe(POST_MODES.includes(postMode(post)), 'BAD_POST_MODE');
+    if (postMode(post) === 'shareNow') {
+      requireSafe(post.dueAt === undefined, 'SHARE_NOW_WITH_DUE_AT');
+    } else {
+      const when = wibTime(post.dueAt);
+      requireSafe(Number.isFinite(when) && when >= now + 5 * MINUTE, 'BAD_OR_PAST_WIB_TIME');
+    }
     const textLimit = post.platform === 'tiktok' ? 2200 : 5000; // Buffer counts UTF-16 code units.
     requireSafe(typeof post.text === 'string' && post.text.trim().length > 0 && post.text.length <= textLimit
       && !/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(post.text), 'BAD_CAPTION');
@@ -91,16 +110,46 @@ export function validateBatch(batch, now = Date.now()) {
     }
   }
   requireSafe(usedVideos.size === videos.size, 'UNUSED_VIDEO');
-  const simultaneous = validateSingleStoryException(batch, videos);
+  const exceptionSet = timingExceptionSet(batch, videos);
+  const effective = (p) => postMode(p) === 'shareNow' ? now : wibTime(p.dueAt);
   for (let i = 0; i < batch.posts.length; i++) {
     for (let j = i + 1; j < batch.posts.length; j++) {
       const a = batch.posts[i], b = batch.posts[j];
-      const sameApprovedGroup = simultaneous && simultaneous.has(a.id) && simultaneous.has(b.id);
-      requireSafe(sameApprovedGroup || Math.abs(wibTime(a.dueAt) - wibTime(b.dueAt)) >= MIN_GAP_MS, 'BATCH_GAP_CONFLICT');
+      const sameApprovedGroup = exceptionSet?.has(a.id) && exceptionSet.has(b.id);
+      requireSafe(sameApprovedGroup || Math.abs(effective(a) - effective(b)) >= MIN_GAP_MS, 'BATCH_GAP_CONFLICT');
       requireSafe(!(a.channelId === b.channelId && a.text.trim() === b.text.trim()), 'DUPLICATE_BATCH_CAPTION');
     }
   }
   return videos;
+}
+
+/** Dispatch exactly one timing exception by type. Each kind validates and
+ * scopes itself; mixed or multiple exceptions are always rejected. */
+function timingExceptionSet(batch, videos) {
+  const exceptions = batch.exceptions ?? [];
+  if (exceptions.length === 0) return null;
+  requireSafe(exceptions.length === 1, 'MULTIPLE_TIMING_EXCEPTIONS');
+  if (exceptions[0]?.type === 'simultaneous-single-story') return validateSingleStoryException(batch, videos);
+  if (exceptions[0]?.type === 'immediate-share-now') return validateImmediateException(batch);
+  throw new BatchError('BAD_TIMING_EXCEPTION');
+}
+
+/** An immediate-publish exception applies only when every post in the batch is
+ * a shareNow post listed in the exception, each on its own channel and
+ * platform, and the user explicitly approved immediate publishing for this
+ * batch. It never extends to scheduled posts or future batches. */
+export function validateImmediateException(batch) {
+  const exceptions = batch.exceptions ?? [];
+  requireSafe(exceptions.length === 1 && exceptions[0]?.type === 'immediate-share-now', 'BAD_TIMING_EXCEPTION');
+  requireSafe(batch.authorization?.immediatePublishApproved === true, 'IMMEDIATE_PUBLISH_NOT_AUTHORIZED');
+  const ids = exceptions[0]?.postIds;
+  requireSafe(Array.isArray(ids) && ids.length >= 1 && ids.length === new Set(ids).size
+    && ids.every(id => ID.test(String(id))), 'BAD_EXCEPTION_POSTS');
+  requireSafe(batch.posts.length === ids.length && batch.posts.every(p => ids.includes(p.id)), 'EXCEPTION_SCOPE_MISMATCH');
+  requireSafe(batch.posts.every(p => postMode(p) === 'shareNow' && p.dueAt === undefined), 'EXCEPTION_SCOPE_MISMATCH');
+  requireSafe(new Set(batch.posts.map(p => p.channelId)).size === batch.posts.length, 'EXCEPTION_CHANNELS_NOT_UNIQUE');
+  requireSafe(new Set(batch.posts.map(p => p.platform)).size === batch.posts.length, 'EXCEPTION_PLATFORM_MISMATCH');
+  return new Set(ids);
 }
 
 /** A timing exception is valid only for exactly three explicitly approved
@@ -137,10 +186,12 @@ export function validateChannels(posts, channels) {
 }
 
 /** Reject ambiguity rather than silently treating a matching/partial post as
- * safe to create. This includes captions in drafts or errors. */
-export function validateQueue(posts, queue) {
+ * safe to create. This includes captions in drafts or errors. shareNow posts
+ * publish around `now`, so the queue is compared against that instant. */
+export function validateQueue(posts, queue, now = Date.now()) {
   requireSafe(Array.isArray(queue), 'QUEUE_UNAVAILABLE');
   const allowed = new Set(['scheduled', 'sending', 'needs_approval', 'draft', 'error', 'sent']);
+  const effective = new Map(posts.map(p => [p.id, postMode(p) === 'shareNow' ? now : wibTime(p.dueAt)]));
   for (const existing of queue) {
     const status = String(existing.status ?? '').toLowerCase();
     requireSafe(allowed.has(status), 'UNKNOWN_EXISTING_STATUS');
@@ -153,16 +204,17 @@ export function validateQueue(posts, queue) {
     if (!['scheduled', 'sending', 'needs_approval', 'sent'].includes(status)) continue;
     const t = Date.parse(status === 'sent' ? (existing.sentAt ?? existing.dueAt) : existing.dueAt);
     requireSafe(Number.isFinite(t), 'EXISTING_TIME_UNKNOWN');
-    for (const p of posts) requireSafe(Math.abs(t - wibTime(p.dueAt)) >= MIN_GAP_MS, 'EXISTING_GAP_CONFLICT');
+    for (const p of posts) requireSafe(Math.abs(t - effective.get(p.id)) >= MIN_GAP_MS, 'EXISTING_GAP_CONFLICT');
   }
 }
 
 export function buildPayload(post, video) {
   const payload = {
-    channelId: post.channelId, schedulingType: 'automatic', mode: 'customScheduled',
-    dueAt: new Date(wibTime(post.dueAt)).toISOString(), text: post.text,
-    aiAssisted: video.aiAssisted, assets: [{video: {url: video.url}}],
+    channelId: post.channelId, schedulingType: 'automatic', mode: postMode(post),
+    text: post.text, aiAssisted: video.aiAssisted, assets: [{video: {url: video.url}}],
   };
+  if (postMode(post) === 'shareNow') payload.mode = 'shareNow';
+  else payload.dueAt = new Date(wibTime(post.dueAt)).toISOString();
   if (post.platform === 'facebook') payload.metadata = {facebook: {type: 'reel'}};
   else if (post.platform === 'youtube') payload.metadata = {youtube: {title: post.title, categoryId: '27', privacy: 'public', madeForKids: false, isAiGenerated: false}};
   else if (post.platform === 'tiktok') payload.metadata = {tiktok: {isAiGenerated: false}};
@@ -172,11 +224,18 @@ export function buildPayload(post, video) {
 
 export function checkReadback(post, actual, createdId) {
   requireSafe(actual && String(actual.id ?? '') === String(createdId), 'READBACK_ID_MISMATCH');
-  requireSafe(String(actual.status ?? '').toLowerCase() === 'scheduled', 'READBACK_NOT_SCHEDULED');
-  requireSafe(String(actual.schedulingType ?? '').toLowerCase() === 'automatic', 'READBACK_NOT_AUTOMATIC');
-  requireSafe(String(actual.shareMode ?? '') === 'customScheduled' && actual.isCustomScheduled === true, 'READBACK_NOT_CUSTOM_SCHEDULED');
+  if (postMode(post) === 'shareNow') {
+    // Buffer may already be sending or have sent the post by the time we read
+    // it back; any active or completed status proves the same placement.
+    requireSafe(['scheduled', 'sending', 'sent'].includes(String(actual.status ?? '').toLowerCase()), 'READBACK_NOT_SCHEDULED');
+    requireSafe(String(actual.shareMode ?? '') === 'shareNow' && actual.isCustomScheduled === false, 'READBACK_NOT_SHARE_NOW');
+  } else {
+    requireSafe(String(actual.status ?? '').toLowerCase() === 'scheduled', 'READBACK_NOT_SCHEDULED');
+    requireSafe(String(actual.schedulingType ?? '').toLowerCase() === 'automatic', 'READBACK_NOT_AUTOMATIC');
+    requireSafe(String(actual.shareMode ?? '') === 'customScheduled' && actual.isCustomScheduled === true, 'READBACK_NOT_CUSTOM_SCHEDULED');
+    requireSafe(Date.parse(actual.dueAt) === wibTime(post.dueAt), 'READBACK_TIME_MISMATCH');
+  }
   requireSafe(String(actual.channelId ?? actual.channel?.id ?? '') === post.channelId, 'READBACK_CHANNEL_MISMATCH');
-  requireSafe(Date.parse(actual.dueAt) === wibTime(post.dueAt), 'READBACK_TIME_MISMATCH');
   requireSafe(String(actual.text ?? '').trim() === post.text.trim(), 'READBACK_CAPTION_MISMATCH');
   requireSafe(Array.isArray(actual.assets) && actual.assets.some(a => String(a.type ?? '').toLowerCase() === 'video' && typeof a.source === 'string' && a.source), 'READBACK_VIDEO_MISSING');
   if (post.platform === 'youtube') requireSafe(actual.metadata?.title === post.title, 'READBACK_TITLE_MISMATCH');
@@ -208,10 +267,13 @@ export async function runBatch(batch, io, {now, clock = Date.now, report, persis
   const currentTime = () => now ?? clock();
   try {
     const videos = validateBatch(batch, currentTime());
+    if (batch.authorization?.ownerQaOverride) {
+      out.qaOverride = {at: batch.authorization.ownerQaOverride.at, note: batch.authorization.ownerQaOverride.note};
+    }
     out.posts = batch.posts.map(p => ({clientId: p.id, videoId: p.videoId, platform: p.platform, outcome: 'NOT_ATTEMPTED'}));
     out.status = 'PREFLIGHT_IN_PROGRESS'; save();
     validateChannels(batch.posts, await io.listChannels());
-    validateQueue(batch.posts, await io.listPosts());
+    validateQueue(batch.posts, await io.listPosts(), currentTime());
     for (const video of videos.values()) {
       const platforms = [...new Set(batch.posts.filter(p => p.videoId === video.id).map(p => p.platform))];
       await io.verifyMedia(video, platforms);
@@ -225,8 +287,8 @@ export async function runBatch(batch, io, {now, clock = Date.now, report, persis
       // eliminate, races with changes made directly in Buffer by other people.
       const latest = await io.listPosts();
       requireSafe(Array.isArray(latest), 'QUEUE_UNAVAILABLE');
-      validateQueue(batch.posts, latest.filter(q => !createdIds.has(String(q.id ?? ''))));
-      requireSafe(wibTime(post.dueAt) >= currentTime() + 5 * MINUTE, 'SCHEDULE_WINDOW_EXPIRED');
+      validateQueue(batch.posts, latest.filter(q => !createdIds.has(String(q.id ?? ''))), currentTime());
+      requireSafe(postMode(post) === 'shareNow' || wibTime(post.dueAt) >= currentTime() + 5 * MINUTE, 'SCHEDULE_WINDOW_EXPIRED');
       const record = out.posts.find(p => p.clientId === post.id);
       record.outcome = 'CREATE_IN_PROGRESS'; out.status = 'CREATING'; save();
       let id;
@@ -237,12 +299,16 @@ export async function runBatch(batch, io, {now, clock = Date.now, report, persis
       const actual = await io.getPost(id);
       checkReadback(post, actual, id);
       createdIds.add(String(id));
-      record.outcome = 'SCHEDULED_VERIFIED'; record.status = 'scheduled'; record.dueAt = post.dueAt; save();
+      if (postMode(post) === 'shareNow') {
+        record.outcome = 'SUBMITTED_VERIFIED'; record.status = String(actual.status ?? '').toLowerCase(); save();
+      } else {
+        record.outcome = 'SCHEDULED_VERIFIED'; record.status = 'scheduled'; record.dueAt = post.dueAt; save();
+      }
     }
     out.status = 'SUBMITTED'; save();
     return out;
   } catch (err) {
-    out.status = out.posts?.some(p => ['CREATE_IN_PROGRESS', 'CREATE_UNCERTAIN', 'CREATED_NOT_VERIFIED', 'SCHEDULED_VERIFIED'].includes(p.outcome)) ? 'PARTIAL_OR_UNCERTAIN' : 'STOPPED_BEFORE_CREATION';
+    out.status = out.posts?.some(p => ['CREATE_IN_PROGRESS', 'CREATE_UNCERTAIN', 'CREATED_NOT_VERIFIED', 'SUBMITTED_VERIFIED', 'SCHEDULED_VERIFIED'].includes(p.outcome)) ? 'PARTIAL_OR_UNCERTAIN' : 'STOPPED_BEFORE_CREATION';
     out.error = err instanceof BatchError ? err.code : 'ADAPTER_OR_NETWORK_ERROR'; save();
     throw err;
   }

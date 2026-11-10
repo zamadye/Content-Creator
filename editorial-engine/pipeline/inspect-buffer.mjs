@@ -73,9 +73,19 @@ console.log(`CLI buffer: ${(which.stdout ?? '').trim()}`);
 /* ------------------------------------------------- antrean kanal */
 /* Read-only: status + waktu saja (WIB). Caption/URL tidak dicetak. */
 try {
-  const posts = run(['posts', 'list', '--limit', '100',
-    '--fields', 'items.id,items.status,items.dueAt,items.sentAt,items.channelId,items.channelService']);
-  const items = dig(posts.json, (o) => Array.isArray(o.items))?.items ?? [];
+  const args = ['posts', 'list', '--organization-id', '6ae9e5493e91026c72c93e3b', '--limit', '100',
+    '--fields', 'items.status,items.channelId,items.channelService,items.sentAt,items.dueAt,pageInfo.hasNextPage,pageInfo.endCursor'];
+  const posts = run(args);
+  let items = dig(posts.json, (o) => Array.isArray(o.items))?.items ?? [];
+  let cur = dig(posts.json, (o) => o?.pageInfo?.endCursor);
+  let guard = 0;
+  while (dig(posts.json, (o) => o?.pageInfo?.hasNextPage) && cur && guard++ < 5) {
+    const more = run(['posts', 'list', '--organization-id', '6ae9e5493e91026c72c93e3b', '--limit', '100',
+      '--fields', 'items.status,items.channelId,items.channelService,items.sentAt,items.dueAt,pageInfo.hasNextPage,pageInfo.endCursor',
+      '--after', String(cur)]);
+    items = items.concat(dig(more.json, (o) => Array.isArray(o.items))?.items ?? []);
+    cur = dig(more.json, (o) => o?.pageInfo?.endCursor);
+  }
   const wib = (iso) => {
     if (!iso) return '-';
     const d = new Date(iso);
@@ -85,12 +95,12 @@ try {
   console.log('\n=== 3b. antrean (status + waktu saja, semua kanal) ===');
   if (!items.length) console.log('  (kosong / tidak terbaca)');
   for (const it of items) {
-    const svc = it.channelService ?? '';
+    const svc = it.channelService ?? (String(it.channelId ?? '') === '6ae9e5d7e29c69a1714a96f1' ? 'youtube' : '?');
     const t = String(it.status ?? '').toLowerCase() === 'sent' ? wib(it.sentAt ?? it.dueAt) : wib(it.dueAt);
     console.log('  -', svc.padEnd(9), String(it.status ?? '').padEnd(10), t);
   }
 } catch (e) {
-  console.log('\n=== 3b. antrean: gagal dibaca (read-only, dilewati) ===');
+  console.log('\n=== 3b. antrean: gagal dibaca (read-only, dilewati) ===', String((e && e.message) ?? '').slice(0, 80));
 }
 
 

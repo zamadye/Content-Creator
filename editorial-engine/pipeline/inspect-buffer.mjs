@@ -173,3 +173,5 @@ if (!youtube.length) {
 console.log('\n  Catatan: kanal YouTube harus tersambung lewat akun Google pemilik channel,');
 console.log('  bukan brand account lain — kalau nama di atas bukan channel yang Anda maksud,');
 console.log('  sambungkan ulang di Buffer → Channels → Connect Channel → YouTube.');
+
+/* poll: cek tayang */

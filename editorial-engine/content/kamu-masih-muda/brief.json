@@ -13,7 +13,7 @@
  "status": {
   "naskah": "v4 (review 2: dramatisasi dialog konsultan→atasan, teks layar 'yang diminta/yang diterima')",
   "audio": "9 chunk voice-05 (c1/c2/c3b/c8 versi terbaru), total narasi 9:22",
-  "visual": "DRAF 4 (v5, LANDSCAPE 1280x720) — subtitle sinkron per kalimat (DP di atas silencedetect), 35 scene per-kalimat — menunggu review user"
+  "visual": "DRAF 5 (v6): tanpa 'cerita fiktif' di visual, subtitle bawah, full-bleed, tanpa dobel teks (poin 1-2 kata + nosub)"
  },
  "permintaanUser": [
   "Tema psikologi: logical fallacies dan turunannya, ad hominem sebagai pintu masuk",
@@ -127,5 +127,10 @@
   "catatan": "glif tidak-ada-di-font (→,≠,♥) diganti teks/bentuk gambar; gap antar-chunk mempertahankan scene terakhir",
   "driveId": "19V3m1HffA4FcsRwl5gIRkrfT4q8Cp1R0",
   "fileName": "kamu-masih-muda DRAF PRIVAT (review 4, landscape).mp4"
+ },
+ "draft5": {
+  "sha256": "89d76c81f4309133619a9cfe2c6b9042bc7ed9acadc91acb61f56e6f5925ee95",
+  "durasi": "00:09:21.92",
+  "resolusi": "1280x720"
  }
 }

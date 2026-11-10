@@ -60,3 +60,14 @@ tampil di semua window VO; durasi total == durasi audio 457.24s.
   S26b langkah-6 pilih, S27 twist 3 fase, S28 kartu per kalimat.
 - Progress bar episode, motes idle, end card + CTA share.
 - QA: decode 0 error; probe sinkron t=33/232/470 vs kalimat aktif = cocok.
+
+## v6 (draf 5, koreksi review 4) — final polish
+- "CERITA FIKTIF" DIHAPUS dari semua visual (badge & watermark; watermark kini hanya DRAF PRIVAT).
+- SUBTITLE pindah ke BAWAH (box gelap, maks 2-3 baris, y~600-690) — kanan-kiri kini full-bleed
+  animasi (crop vertikal tengah raw, pan drift kecil, tanpa panel samping).
+- DOBEL TEKS DIHAPUS: teks layar kini poin 1-2 kata (BUKA DATA, KONTRAS, AD HOMINEM,
+  ALARM MATI, PEMIMPIN, TWIST, PELARIAN, KAMU TETAP UTUH, GILIRAN KAMU...);
+  kutipan dialog besar & demo ketik-komentar = nosub (subtitle ditekan; daftar _NOSUB);
+  step_slide tidak lagi mengulang kalimat (nama langkah saja).
+- Antisipasi tumpang-tindih subtitle: kartu IDE & elemen CTA diangkat ke atas zona subtitle.
+- QA: decode 0 error; probe t=3/40/230/486/545/558 bersih.

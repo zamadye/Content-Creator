@@ -248,5 +248,21 @@
     "qaOverride": "user: uji semat link afiliasi Shopee, izin eksplisit 11 Nov 2026",
     "release": "check-release PASS; Drive 1gVD83mw... re-privatized (VERIFIED: hanya owner permission)",
     "infra_note": "Runner Actions hari ini: apt & pip hang (2 run hang/timeout) - ffprobe step diubah ke npm ffprobe-static + fallback pip/apt + timeout bermasalah diperbaiki (commit a2ddf70, be6d3b9)"
+  },
+  "zernio_affiliate_test_2026_11_12": {
+    "purpose": "Uji post via API Zernio (key di Actions secrets, ZERNIO_API_KEY terverifikasi ada via diagnostic read-only GET /accounts: 6 akun, termasuk FB Knot Theory 6af3c1617516a62f54776770).",
+    "product_field_honesty": "Zernio API TIDAK punya field 'tambah produk' untuk FB (platformSpecificData FB: contentType reel/story, title, firstComment, pageId, geoRestriction, carouselCards, draft). Commerce API Zernio = Shopify saja. Kolom terdekat yang terdokumentasi = firstComment (link sebagai komentar pertama, tidak masuk video, tidak di caption).",
+    "format_note": "FB Reel via Zernio dibatasi 60 detik (dokumen resmi) - video 63 s diposting sebagai video feed.",
+    "post": {
+      "buffer": "Zernio POST /v1/posts, Idempotency-Key=nonce sesi",
+      "id": "6af4f6e203a143dd00b10d3e",
+      "status": "published (HTTP 201, VERIFIED via respons API; runner verifikasi sha256+size media sebelum kirim)",
+      "url": "https://www.facebook.com/watch/?v=1812539663283594",
+      "firstComment": "Tautan afiliasi Shopee: https://s.shopee.co.id/8fTqbvPbWL (perlu cek visual manual di post)",
+      "run": "43118212295"
+    },
+    "release": "check-release konsep sama: Drive dikunci kembali setelah published (VERIFIED hanya owner permission)",
+    "pipeline": "editorial-engine/pipeline/zernio/ (prepare + runner + tests 6/6) + .github/workflows/zernio-batch-once.yml; seal dipakai ulang dengan KNOT_TRIGGER_PATH; pelajaran: sesi baru wajib untuk retrigger (amplop lama terkonsumsi runner baru)",
+    "diagnostic_workflow": ".github/workflows/zernio-diagnostic.yml (read-only)"
   }
 }

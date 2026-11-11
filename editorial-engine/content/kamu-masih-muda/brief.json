@@ -231,5 +231,22 @@
       "note": "URL sumber hanya dibutuhkan saat penjadwalan; video sudah diambil YouTube"
     },
     "status_final": "TAYANG (VERIFIED sent+link via Buffer readback)"
+  },
+  "affiliate_test_2026_11_11": {
+    "purpose": "Uji permintaan user: sematkan link afiliasi Shopee saat posting reel. Catatan: API/CLI Buffer TIDAK punya kolom 'tambah produk' - sematan hanya mungkin di caption. Kartu produk native Meta di luar jangkauan API.",
+    "connector_note": "User menyebut 'api zernio' - connector Zernio TIDAK tersedia di Arena (list_connector_tools: unsupported). Uji dilakukan via pipeline Buffer batch.",
+    "platform": "facebook reel (Knot Theory, channelId 6aeb4254e29c69a1715da3e1)",
+    "content": "kamu-SHORT-gateway.mp4 (master, sha f51ad0f7..., approvedEdition 720x1280)",
+    "caption": "... Versi penuhnya (9 menit) ada di channel YouTube Knot Theory. Tautan afiliasi Shopee: https://s.shopee.co.id/8fTqbvPbWL (label afiliasi eksplisit)",
+    "link": "https://s.shopee.co.id/8fTqbvPbWL",
+    "result": {
+      "bufferPostId": "6af49cca39f6862ef6fcde68",
+      "status": "SUBMITTED_VERIFIED sent (batch run 43062068909; readback ulang via diagnostic: sent 23:50 WIB)",
+      "externalLink": "https://www.facebook.com/reel/2679235482509372/",
+      "published": "VERIFIED"
+    },
+    "qaOverride": "user: uji semat link afiliasi Shopee, izin eksplisit 11 Nov 2026",
+    "release": "check-release PASS; Drive 1gVD83mw... re-privatized (VERIFIED: hanya owner permission)",
+    "infra_note": "Runner Actions hari ini: apt & pip hang (2 run hang/timeout) - ffprobe step diubah ke npm ffprobe-static + fallback pip/apt + timeout bermasalah diperbaiki (commit a2ddf70, be6d3b9)"
   }
 }

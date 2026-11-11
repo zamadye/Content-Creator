@@ -1,0 +1,80 @@
+name: Diagnostik Zernio
+
+# ---------------------------------------------------------------------------
+#  Menjawab: apakah kunci Zernio tersedia di Actions secrets, dan akun apa
+#  saja yang terhubung? Read-only: tidak membuat post apa pun.
+#
+#  Kenapa anotasi: log Actions mentah bisa dibaca siapa saja; anotasi
+#  check-run adalah jalur baca yang terbukti andal untuk pipeline Buffer.
+#  Kunci disamarkan sebelum dipakai; respons mentah tidak dicetak penuh.
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    branches:
+      - arena/54cb36c6-content-creator
+    paths:
+      - '.github/workflows/zernio-diagnostic.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: zernio-diag
+  cancel-in-progress: false
+
+jobs:
+  cek:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Probe Zernio read-only
+        env:
+          ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+          ZERNIO_KEY: ${{ secrets.ZERNIO_KEY }}
+          ZERNIO_TOKEN: ${{ secrets.ZERNIO_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT=/tmp/zernio-diag.txt
+          : > "$OUT"
+          KEY=""; KEYNAME=""
+          for v in ZERNIO_API_KEY ZERNIO_KEY ZERNIO_TOKEN; do
+            val="${!v:-}"
+            if [ -n "$val" ]; then
+              echo "::add-mask::${val}"
+              if [ -z "$KEY" ]; then KEY="$val"; KEYNAME="$v"; fi
+            fi
+          done
+          {
+            echo "=== 1. kunci ==="
+            if [ -z "$KEY" ]; then
+              echo "  TIDAK ADA: ZERNIO_API_KEY / ZERNIO_KEY / ZERNIO_TOKEN semuanya kosong"
+            else
+              echo "  ditemukan: $KEYNAME (panjang ${#KEY}, ter-mask)"
+              echo "=== 2. akun terhubung (GET /accounts, read-only) ==="
+              CODE=$(curl -sS --max-time 30 -o /tmp/acc.json -w '%{http_code}' \
+                -H "Authorization: Bearer $KEY" -H 'Accept: application/json' \
+                'https://zernio.com/api/v1/accounts?limit=50' || echo ERR)
+              echo "  HTTP $CODE"
+              if [ "$CODE" = "200" ]; then
+                jq -r 'if type == "array" then . else (.accounts // .data // .items // .) end
+                  | if type == "array" then
+                      "  jumlah akun: \(length)",
+                      (.[] | "  - \( .platform // "?" ) | \( (.username // .name // "?") | tostring | .[0:40] ) | id=\( (.id // ._id // "?") | tostring | .[0:40] ) | status=\( .status // "?" )")
+                    else
+                      "  struktur tak dikenal; kunci: \((keys | join(",")) | .[0:200])"
+                    end' /tmp/acc.json | head -40 >> "$OUT" || echo "  jq gagal mengurai" >> "$OUT"
+              else
+                head -c 300 /tmp/acc.json | tr '\n' ' ' >> "$OUT"; echo >> "$OUT"
+              fi
+            fi
+          } >> "$OUT"
+          while IFS= read -r line; do
+            echo "::notice::${line:0:900}"
+          done < "$OUT"

@@ -67,7 +67,7 @@ export function prepare(source) {
   fs.writeFileSync(path.join(session,'request.json'), plain, {flag:'wx',mode:0o600});
   fs.writeFileSync(path.join(session,'owner-private.pem'), keys.privateKey, {flag:'wx',mode:0o600});
   const trigger = {schemaVersion:1, nonce:request.nonce, requestSha256:hash(plain),
-    ownerPublicKeyB64:Buffer.from(keys.publicKey).toString('base64')};
+    ownerPublicKeyB64:Buffer.from(keys.publicKey).toString('base64'), simulation:false};
   fs.writeFileSync(TRIGGER, JSON.stringify(trigger,null,2) + '\n', {mode:0o644});
   return {nonce:request.nonce, session: path.relative(ROOT,session)};
 }

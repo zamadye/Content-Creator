@@ -56,9 +56,9 @@ export function prepare(source) {
   ensure(bytes.length > 0 && bytes.length < 1_000_000, 'BAD_PRIVATE_REQUEST_SIZE');
   let request;
   try { request = JSON.parse(bytes.toString('utf8')); } catch { throw new BatchError('BAD_PRIVATE_REQUEST'); }
+  validateZernioRequest(request);
   request.nonce = crypto.randomBytes(16).toString('hex');
   request._requestSalt = crypto.randomBytes(32).toString('hex');
-  validateZernioRequest(request);
   const plain = Buffer.from(JSON.stringify(request) + '\n');
   const keys = crypto.generateKeyPairSync('rsa', {modulusLength:3072,
     publicKeyEncoding:{type:'spki',format:'pem'}, privateKeyEncoding:{type:'pkcs8',format:'pem'}});

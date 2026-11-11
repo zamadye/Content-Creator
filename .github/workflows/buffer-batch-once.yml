@@ -31,15 +31,35 @@ jobs:
         run: node --test editorial-engine/pipeline/tests/buffer-batch.test.mjs editorial-engine/pipeline/tests/buffer-batch-relay.test.mjs editorial-engine/pipeline/tests/buffer-three-platforms.test.mjs
       - name: Install ffprobe for media verification
         shell: bash
+        timeout-minutes: 8
         run: |
           set -euo pipefail
-          if ! command -v ffprobe >/dev/null 2>&1; then
-            sudo apt-get update -qq
-            sudo apt-get install -y -qq --no-install-recommends ffmpeg
+          if command -v ffprobe >/dev/null 2>&1; then
+            ffprobe -version | head -1
+            exit 0
           fi
+          # Primary: static binaries from PyPI (apt mirrors can hang).
+          if pip install --quiet static-ffmpeg; then
+            DIR="$(python3 - <<'PY'
+import os
+from static_ffmpeg import run
+_ff, fp = run.get_or_fetch_platform_executables_else_raise()
+print(os.path.dirname(fp))
+PY
+)"
+            if [ -n "$DIR" ] && [ -x "$DIR/ffprobe" ]; then
+              echo "$DIR" >> "$GITHUB_PATH"
+              "$DIR/ffprobe" -version | head -1
+              exit 0
+            fi
+          fi
+          # Fallback: apt, bounded by the step timeout.
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg
           ffprobe -version | head -1
       - name: Install Buffer CLI for a real batch
         shell: bash
+        timeout-minutes: 10
         run: |
           set -euo pipefail
           if [ "$(node -p "require('./.github/buffer-batch-trigger.json').simulation")" = false ]; then

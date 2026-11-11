@@ -1,0 +1,33 @@
+{
+  "episodeId": "LL-0004",
+  "status": "requested",
+  "createdAt": "2026-11-03T00:00:00Z",
+  "format": "longform",
+  "media": "the-last-signal/releases/LL-0004.mp4",
+  "episode": {
+    "title": "Jangan Pernah Menjawab Panggilan dari Sumur Itu",
+    "subgenre": "Indonesian supernatural mystery horror",
+    "structure": "Panggilan dari sumur → peringatan Pak Seno → suara di balik pintu → surat Rukmini → bayangan berwajah Ardi → rekaman menjawab sendiri + CTA",
+    "durationSeconds": 555,
+    "scenes": 8,
+    "jumpscares": 0
+  },
+  "platforms": ["youtube"],
+  "youtube": {
+    "title": "Jangan Pernah Menjawab Panggilan dari Sumur Itu",
+    "description": "Pukul 02.13, Ardi mendengar suara ibunya dari sumur tua di belakang rumah. Ibunya sudah meninggal tujuh bulan sebelumnya.\n\nDua malam kemudian, suara itu berpindah ke balik pintu belakang. Surat lama menyisakan pertanyaan tentang Rukmini, dan rekaman ponsel menyimpan jawaban yang tidak diingat Ardi pernah ucapkan.\n\nSebuah cerita horor panjang tentang rumah lama, suara yang dikenal, dan misteri yang belum terjawab.",
+    "tags": [
+      "cerita horor",
+      "horor Indonesia",
+      "misteri sumur",
+      "cerita seram Indonesia",
+      "narasi horor panjang"
+    ],
+    "categoryId": "24",
+    "visibility": "public",
+    "madeForKids": false,
+    "containsSyntheticMedia": false,
+    "notifySubscribers": true,
+    "firstComment": "Kalau mendengar suara ibu dari sumur, apa kamu akan menjawabnya?"
+  }
+}

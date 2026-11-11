@@ -1,0 +1,60 @@
+name: Zernio — one-shot post
+
+# ---------------------------------------------------------------------------
+#  Satu Action sekali jalan per permintaan: membuka handshake kunci sekali
+#  pakai, menerima SATU permintaan terenkripsi (nonce + digest + kunci publik
+#  saja yang terlihat publik), memverifikasi media, lalu membuat satu post
+#  Facebook via API Zernio. Laporan status dikembalikan terenkripsi.
+# ---------------------------------------------------------------------------
+
+on:
+  push:
+    branches:
+      - arena/54cb36c6-content-creator
+    paths:
+      - '.github/zernio-batch-trigger.json'
+
+permissions:
+  contents: read
+  checks: write
+
+concurrency:
+  group: zernio-publish
+  cancel-in-progress: false
+
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Test safety gates without Zernio calls
+        run: node --test editorial-engine/pipeline/tests/zernio.test.mjs
+      - name: Preflight and submit one Zernio post
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+          KNOT_REPORT_PATH: /tmp/knot-zernio-report.json
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${ZERNIO_API_KEY:-}" ]; then echo "::add-mask::${ZERNIO_API_KEY}"; fi
+          node editorial-engine/pipeline/zernio/runner.mjs
+      - name: Return encrypted status for private review
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          f=/tmp/knot-zernio-report.json
+          if [ -s "$f" ]; then
+            node -e "const r=require('./.github/zernio-batch-trigger.json');require('fs').writeFileSync('/tmp/zernio-owner-public.pem',Buffer.from(r.ownerPublicKeyB64,'base64'))"
+            node editorial-engine/pipeline/encrypt-diagnostic.mjs /tmp/zernio-owner-public.pem < "$f"
+          else
+            echo "::notice::No Zernio report was written; the run failed before the runner started."
+          fi

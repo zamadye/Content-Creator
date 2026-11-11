@@ -21,7 +21,8 @@ function gh(args) {
 }
 export async function seal(session, triggerSha) {
   ensure(/^[a-f0-9]{40}$/.test(triggerSha ?? ''), 'BAD_TRIGGER_SHA');
-  const trigger = JSON.parse(fs.readFileSync(path.join(ROOT,'.github/buffer-batch-trigger.json'),'utf8'));
+  const triggerPath = process.env.KNOT_TRIGGER_PATH ?? '.github/buffer-batch-trigger.json';
+  const trigger = JSON.parse(fs.readFileSync(path.join(ROOT, triggerPath),'utf8'));
   validateTrigger(trigger);
   const requestPath = resolvePrivateFile(path.join(session,'request.json'));
   ensure(path.basename(path.dirname(requestPath)) === trigger.nonce, 'SESSION_MISMATCH');

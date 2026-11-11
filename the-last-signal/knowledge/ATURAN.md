@@ -238,7 +238,11 @@ bercak air, tangan satu sendi terlalu panjang, berdiri diam seperti menunggu.
 | 3.4.4 | Tangga framing bergantian dengan selisih skala minimal **0,25** (1,00 → 1,34 → 1,12 → 1,48). Selisih kecil terbaca sebagai gambar bergeser, bukan shot baru. | [ukur] |
 | 3.4.5 | Kamera berbeda setiap shot berurutan; setiap cut punya punch 6 frame + jolt 8 frame. | [ukur] |
 | 3.4.6 | Tidak ada counter penonton/follower palsu di overlay. | [ukur] |
-| 3.4.7 | Kamera tidak bergerak sendiri (referensi: 0,000 px/frame); kesan hidup datang dari cut + partikel di dalam frame. | [ukur] |
+| 3.4.7 | Gerak kamera tidak boleh menjadi pengganti aksi di dalam shot. Pan/zoom, cut, grain, hujan, debu, atau transisi saja **tidak** membuat visual bergerak. | [manual] |
+| 3.4.8 | **Dilarang memakai foto/gambar diam sebagai visual timeline** — termasuk slideshow, Ken Burns, parallax, atau still yang "dihidupkan" hanya dengan efek. Setiap shot naratif harus berupa footage bergerak atau animasi adegan yang benar-benar menggerakkan subjek/objek utama. | [manual + cek media] |
+| 3.4.9 | Gerak subjek/objek terlihat saat ditonton pada kecepatan normal dan tetap terbaca tanpa zoom, grain, partikel, teks, atau transisi. Jangan freeze-frame atau mengulang satu frame untuk memenuhi durasi. | [manual] |
+| 3.4.10 | Still boleh dipakai untuk thumbnail/cover terpisah saja; **bukan** sebagai frame pembuka/penutup yang dibakar ke dalam video. Teks judul boleh menjadi overlay di atas footage yang terus bergerak. | [cek timeline] |
+| 3.4.11 | Jika footage/animasi bergerak belum tersedia, **hentikan render** dan minta/sediakan aset motion; jangan diam-diam menggantinya dengan foto dan efek. | [gerbang produksi] |
 
 ---
 

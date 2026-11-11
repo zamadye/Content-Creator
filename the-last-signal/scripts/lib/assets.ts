@@ -11,6 +11,7 @@ export function collectRequiredAssets(episode: ParsedEpisode): string[] {
 
   for (const scene of episode.scenes) {
     required.add(scene.image);
+    if (scene.motionVideo) required.add(scene.motionVideo);
     if (scene.narrationAudio) required.add(scene.narrationAudio);
     if (scene.audio.ambienceId) required.add(scene.audio.ambienceId);
     for (const cut of scene.cuts) {
@@ -31,6 +32,7 @@ export function collectRequiredAssets(episode: ParsedEpisode): string[] {
   for (const scare of episode.jumpscares) {
     required.add(scare.assetId);
     if (scare.image) required.add(scare.image);
+    if (scare.motionVideo) required.add(scare.motionVideo);
   }
 
   // Overlay tekstur selalu dipakai komposisi (grain & scanline).
@@ -51,7 +53,7 @@ export function findMissingAssets(episode: ParsedEpisode, episodeDir: string): s
   return collectRequiredAssets(episode).filter((path) => !existsSync(join(episodeDir, path)));
 }
 
-/** Rata-rata panjang shot (detik) — ukuran kasar "ini slideshow atau bukan". */
+/** Rata-rata durasi shot (detik) untuk laporan ritme; bukan ukuran gerak footage. */
 export function averageShotLength(episode: ParsedEpisode): number {
   const shots = episode.scenes.reduce((total, scene) => total + 1 + scene.cuts.length, 0);
   const frames = episode.scenes.reduce((total, scene) => total + scene.durationFrames, 0);

@@ -381,3 +381,61 @@ Tangga gerak: `push_in`, `dolly_in`, `pan_left`, `pan_right`, `tilt_up`,
 dua kali berturut-turut. Zoom ke dalam dipakai untuk **detail yang baru
 disebut**; geser kiri-kanan untuk **ruang yang lebih luas dari bingkai**;
 atas-bawah untuk **bangunan dan tubuh**.
+
+---
+
+## Pola observasional — analisis 11 video Nadia Omara (masukan pemilik kanal)
+
+Sampel yang dilaporkan: 8 video panjang dan 3 Shorts, dianalisis dari transkrip
+asli. Ini **hipotesis kerja dari sampel kecil**, bukan bukti sebab-akibat atau
+jaminan performa. Pinjam mekanismenya, bukan kalimat, persona, logat, cerita,
+atau detail permukaannya.
+
+### Video panjang: janji cerita, bukti, lalu pembayaran
+
+Urutan yang paling sering terlihat pada sampel:
+
+1. Buka langsung dengan potongan adegan paling tegang; jangan beri salam atau
+   konteks sebelum cold open.
+2. Setelah cold open, beri salam dan sinopsis singkat: dugaan awal → fakta yang
+   membuat dugaan itu retak → pertanyaan besar cerita.
+3. Sebelum 1:30, sampaikan premis utuh secukupnya agar penonton tahu janji
+   judulnya. Ucapkan kata kunci judul dalam menit pertama.
+4. Kenalkan konsep/fakta yang diperlukan sebelum klimaks, lalu panggil kembali
+   secara eksplisit ketika konsep itu dipakai untuk memahami payoff.
+5. Ucapkan kebingungan penonton dengan wajar, jawab saat cerita siap menjawab,
+   atau janjikan jawaban nanti hanya jika benar-benar dibayar.
+6. Jaga suara tutur yang akrab dan mudah didengar. Analogi sehari-hari dan
+   pengakuan batas pengetahuan berguna bila sesuai; jangan meniru catchphrase,
+   dialek, atau persona kreator lain.
+
+### Shorts: tanpa salam, langsung ke benda dan kejanggalan
+
+Pada sampel, pembuka Shorts langsung memakai benda/tempat yang akrab namun
+menyimpan misteri, atau peristiwa bertanggal dengan detail saksi yang spesifik.
+Tidak perlu memindahkan salam dan sinopsis panjang dari struktur video panjang.
+Tetap penuhi hukum Shorts yang sudah ada: hook verbal-visual pada frame pertama,
+konflik cepat terbaca, detail konkret, beat ringkas, dan payoff/loop yang sudah
+ditanam.
+
+### Topik dan pemeriksaan sebelum rekam
+
+Analisis tersebut melihat topik lokal, misteri, dan manusia pada contoh dengan
+angka tayang tertinggi di dalam sampelnya. Angka itu tidak cukup untuk
+menyimpulkan bahwa formula tersebut menyebabkan views; gunakan hanya sebagai
+arah eksplorasi, bukan target atau prediksi.
+
+- [ ] Kata kunci judul terdengar di menit pertama (format panjang).
+- [ ] Premis dan pertanyaan utama jelas sebelum 1:30 (format panjang).
+- [ ] Fakta yang kelak dipakai sudah dikenalkan sebelum payoff; callback-nya
+      terdengar jelas.
+- [ ] Ada rasa ingin tahu yang spesifik, bukan janji kosong; pertanyaan yang
+      diajukan memang dijawab atau sengaja dibiarkan terbuka secara terarah.
+- [ ] Shorts tidak diawali salam; frame dan kalimat pertama sudah memuat objek /
+      kejadian konkret serta kejanggalannya.
+- [ ] Relatabilitas datang dari kebutuhan, rutinitas, atau pilihan manusia yang
+      dikenal penonton; bukan menyalin benda atau plot dari referensi.
+- [ ] Dialog terasa lisan dan sesuai narator kanal, bukan imitasi kreator sumber.
+
+Sumber: ringkasan analisis transkrip 11 video yang diberikan pemilik kanal
+(8 panjang, 3 Shorts); data views dan metode sampling tidak diverifikasi terpisah.

@@ -1,0 +1,52 @@
+{
+  "episodeId": "LS-0020",
+  "revision": "01",
+  "purpose": "source and license record for the silent 2.5D visual review draft",
+  "sourceRepository": "https://github.com/KhronosGroup/glTF-Sample-Assets",
+  "sourceBranch": "main (each asset file SHA recorded below)",
+  "assets": [
+    {
+      "file": "apps/renderer/public/assets/ls0020-revisi-01/models/RiggedFigure.glb",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/RiggedFigure",
+      "blobSha": "c505a33dfa5ba84bd5f3dd0a85f74ee4c9978322",
+      "license": "CC-BY-4.0",
+      "attribution": "Cesium, Rigged Figure, 2017",
+      "note": "Retained as a licensed source asset but not used for the current character silhouettes; those are procedural animated proxies pending higher-quality character assets."
+    },
+    {
+      "file": "apps/renderer/public/assets/ls0020-revisi-01/models/SheenChair.glb",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/SheenChair",
+      "blobSha": "6652347f769f090f76688b727134aef92a9213b9",
+      "license": "CC0-1.0",
+      "attribution": "Eric Chadwick / Wayfair, LLC, Sheen Chair, 2020 (CC0; attribution appreciated)"
+    },
+    {
+      "file": "apps/renderer/public/assets/ls0020-revisi-01/models/DiffuseTransmissionPlant.glb",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/DiffuseTransmissionPlant",
+      "blobSha": "5ecabfb34b122c3440c9b008db1451b1983346ad",
+      "license": "CC-BY-4.0 for materials/animation; CC0-1.0 for original plant asset",
+      "attribution": "Eric Chadwick, Darmstadt Graphics Group GmbH, materials and animation (2024); original plant asset by Rico Cilliers (2021, CC0)"
+    },
+    {
+      "file": "apps/renderer/public/assets/ls0020-revisi-01/models/IridescenceLamp.glb",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/IridescenceLamp",
+      "blobSha": "464a54a6ed84321816ae60c1d18bd05f6aedc22f",
+      "license": "CC-BY-4.0",
+      "attribution": "Eric Chadwick / Wayfair, LLC, Iridescence Lamp, 2022"
+    }
+  ],
+  "visualPreview": {
+    "driveUrl": "https://drive.google.com/file/d/1fZTP0BbngQrka9juv2HP7CNHfIrqKidB/view?usp=drivesdk",
+    "status": "silent low-resolution review draft; not final or approved",
+    "specs": "50 seconds, 30 fps, 360x640 (9:16), H.264; no audio stream; hosted externally, not committed to Git"
+  },
+  "audio": {
+    "production": "none by agent; owner will create final VO and sound in ElevenLabs",
+    "script": "projects/episodes/LS-0020/revisi-01/audio-script-elevenlabs.md"
+  },
+  "rejectedAssets": [
+    "projects/episodes/LS-0020/images/* (old Tangan di Foto Gerbang story)",
+    "projects/episodes/LS-0020/audio/* (old rejected story)",
+    "renders/LS-0020.mp4 and renders/LS-0020-review.mp4"
+  ]
+}

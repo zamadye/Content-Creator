@@ -1223,6 +1223,266 @@
      "seconds": 0.9
     }
    ]
+  },
+  {
+   "episodeId": "LS-0020",
+   "format": "short_9x16",
+   "status": "original rejected; revision 01 approved; silent 360x640 visual review draft rendered; awaiting creative review; no final render or publish",
+   "judul": "Sekolah Bilang Anak Saya Sudah Dijemput Pukul Dua",
+   "subgenre": "Domestic / social horror",
+   "experiment": "Kecemasan orang tua yang sangat sehari-hari: sekolah mengira orang asing adalah ayah karena satu tanda kecil yang sama.",
+   "structure": "klimaks foto penjemputan → tanda tinta → POTONG → orang tua masih di kantor → kesaksian guru → anak mengingat orang yang sama → foto kedua → CTA; bingkai foto pertama kembali di akhir",
+   "story": {
+    "title": "Tangan di Foto Gerbang",
+    "hook": "Pukul dua, sekolah bilang anak saya sudah dijemput.",
+    "premise": "Orang tua menerima foto gerbang sekolah yang menunjukkan anaknya pulang bersama seseorang, padahal ia masih di kantor.",
+    "twist": "Orang di foto memiliki noda tinta berbentuk bulan sabit yang sama dengan ayahnya. Sekolah terus mengenalinya sebagai ayah, bahkan ketika ayah berdiri di samping anak dengan kedua tangan bersih.",
+    "dualReading": {
+     "a": "Guru mungkin keliru mengira wali lain sebagai ayah karena noda tinta yang mirip.",
+     "b": "Seseorang dengan tanda persis itu terus muncul sebagai ayah saat ayahnya tidak berada di sekolah; siapa orangnya tetap tidak terjawab."
+    },
+    "loops": {
+     "l1": "Mengapa sekolah mengira penjemputan itu biasa: guru pernah melihat orang dengan tanda yang dikenali sebagai tanda ayah.",
+     "l2": "CTA: apakah penonton percaya foto itu atau kesaksian ayah?",
+     "l3": "Siapa yang menggenggam tangan anak di foto kedua ketika ayah berdiri di sampingnya?"
+    },
+    "ending": "Sekolah kembali mengirim kabar bahwa ayah menjemput anaknya pada pukul dua; pertanyaan untuk penonton meminta mereka memilih apakah percaya foto itu."
+   },
+   "scenes": [
+    {
+     "segmen": "S1 — klimaks dan potong",
+     "kata": 8,
+     "narasi": "Pukul dua, sekolah bilang anak saya sudah dijemput.",
+     "narration": "Pukul dua, sekolah bilang anak saya sudah dijemput.",
+     "camera": "handheld",
+     "shot": "medium",
+     "lighting": "afternoon_school_gate_4800k",
+     "intensity": 0.45,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ],
+     "imagePrompt": "Vertical 9:16 cinematic still, Indonesian social horror, ordinary elementary school gate at 2 PM; child in navy-and-white school uniform holding the hand of an adult seen chest-down; the adult right thumb has a small crescent-shaped blue ink stain. Teacher blurred in the background. The stained hand is the clear clue and a human figure is visibly present from frame one. Documentary realism, restrained dread, no text, no watermark.",
+     "sfx": []
+    },
+    {
+     "segmen": "S1 — klimaks dan potong",
+     "kata": 8,
+     "narasi": "Foto gerbang memperlihatkan anak saya menggenggam tangan seseorang.",
+     "narration": "Foto gerbang memperlihatkan anak saya menggenggam tangan seseorang.",
+     "camera": "pan_left",
+     "shot": "closeup",
+     "lighting": "cool_office_daylight_5000k",
+     "intensity": 0.4,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ],
+     "imagePrompt": "Vertical 9:16 cinematic documentary still, same Indonesian father in his mid-thirties, medium-brown skin, short black hair, dark teal office shirt, seated at his desk staring at a phone showing an indistinct school-gate photo of a child holding an adult hand. No readable phone UI or text; office workers soft in background, ordinary daylight, restrained dread.",
+     "sfx": [
+      {
+       "asset": "whisper.mp3",
+       "at": 0.36,
+       "volume": 0.2
+      }
+     ]
+    },
+    {
+     "segmen": "S1 — klimaks dan potong",
+     "kata": 12,
+     "narasi": "Noda bulan sabit di ibu jarinya sama dengan milik saya. Kamu curiga?",
+     "narration": "Noda bulan sabit di ibu jarinya sama dengan milik saya. Kamu curiga?",
+     "camera": "tilt_down",
+     "shot": "closeup",
+     "lighting": "afternoon_school_gate_4800k",
+     "intensity": 0.48,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "focus_rack"
+     ],
+     "imagePrompt": "Vertical 9:16 close view at the same school gate: the adult right thumb with a distinct small crescent blue ink stain holds the child’s hand; child in navy-and-white uniform visible in soft midground, teacher and gate blurred. Focus on the mark. Ordinary daylight, realistic hands, no readable signs, no text, no watermark.",
+     "sfx": []
+    },
+    {
+     "segmen": "S2 — cerita dan petunjuk",
+     "kata": 12,
+     "narasi": "Saya masih di kantor, menghapus noda tinta bulan sabit di ibu jari.",
+     "narration": "Saya masih di kantor, menghapus noda tinta bulan sabit di ibu jari.",
+     "camera": "dolly_in",
+     "shot": "medium",
+     "lighting": "cool_office_washroom_5000k",
+     "intensity": 0.46,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "focus_rack"
+     ],
+     "imagePrompt": "Vertical 9:16 cinematic documentary still, same Indonesian father mid-thirties, medium-brown skin, short black hair, dark teal office shirt, scrubbing his right thumb at an office washroom sink; faint crescent blue ink stain dissolving under running water. Partial face in mirror, controlled worry, cool fluorescent light, no text.",
+     "sfx": []
+    },
+    {
+     "segmen": "S2 — cerita dan petunjuk",
+     "kata": 8,
+     "narasi": "Guru berkata, “Bapak tadi menjemput anak seperti biasa.”",
+     "narration": "Guru berkata, “Bapak tadi menjemput anak seperti biasa.”",
+     "camera": "pan_right",
+     "shot": "medium",
+     "lighting": "school_corridor_warm_4500k",
+     "intensity": 0.42,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ],
+     "imagePrompt": "Vertical 9:16 realistic cinematic still in an Indonesian elementary school corridor. A female teacher in her thirties holds a phone to her ear and glances toward the gate; child in navy-and-white uniform blurred behind her. Composed, slightly concerned expression; warm afternoon daylight, no readable text or signs.",
+     "sfx": []
+    },
+    {
+     "segmen": "S2 — cerita dan petunjuk",
+     "kata": 9,
+     "narasi": "Saya tak pernah datang sebelum bel pulang. Kamu percaya?",
+     "narration": "Saya tak pernah datang sebelum bel pulang. Kamu percaya?",
+     "camera": "drift",
+     "shot": "medium",
+     "lighting": "cool_office_daylight_5000k",
+     "intensity": 0.4,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ],
+     "imagePrompt": "Vertical 9:16 cinematic documentary still, same father mid-thirties in dark teal office shirt standing by a window at work, phone to ear, one clean right thumb visible. His reflected face is worried but restrained; distant school-like buildings barely visible in the glass. Mixed cool office light and afternoon sun, no text.",
+     "sfx": []
+    },
+    {
+     "segmen": "S3 — twist dan CTA",
+     "kata": 10,
+     "narasi": "Besoknya, anak saya minta saya membersihkan noda itu sebelum berangkat.",
+     "narration": "Besoknya, anak saya minta saya membersihkan noda itu sebelum berangkat.",
+     "camera": "tilt_up",
+     "shot": "medium",
+     "lighting": "home_warm_evening_3000k",
+     "intensity": 0.4,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "dust_motes"
+     ],
+     "imagePrompt": "Vertical 9:16 cinematic still at a modest Indonesian home doorway in the evening. Same father in dark teal office shirt kneels at child height; elementary-school child in navy-and-white uniform gently points at his right thumb, asking him to clean it. Warm intimate light, everyday tenderness with a subtle uneasy undertone, no text.",
+     "sfx": []
+    },
+    {
+     "segmen": "S3 — twist dan CTA",
+     "kata": 10,
+     "narasi": "Foto baru menunjukkan noda bulan sabit itu di tangan penjemput.",
+     "narration": "Foto baru menunjukkan noda bulan sabit itu di tangan penjemput.",
+     "camera": "push_in",
+     "shot": "closeup",
+     "lighting": "afternoon_school_gate_4800k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette",
+      "focus_rack"
+     ],
+     "imagePrompt": "Vertical 9:16 realistic cinematic still, second school-gate pickup photo on a smartphone held by the same father. Child in navy-and-white uniform holds an adult hand whose right thumb again bears the same small crescent blue ink stain. Phone screen shows only a plausible photo, no legible interface or text; ordinary afternoon, restrained dread.",
+     "sfx": []
+    },
+    {
+     "segmen": "S3 — twist dan CTA",
+     "kata": 10,
+     "narasi": "Anak saya berdiri di samping saya; kedua tangan saya bersih.",
+     "narration": "Anak saya berdiri di samping saya; kedua tangan saya bersih.",
+     "camera": "handheld",
+     "shot": "wide",
+     "lighting": "afternoon_school_gate_4800k",
+     "intensity": 0.5,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ],
+     "imagePrompt": "Vertical 9:16 cinematic documentary still at the school gate: same father stands visibly beside his child, both of his hands clean and slightly raised. At the near frame edge, a second adult hand with a crescent blue ink stain lightly holds the child’s hand. No face for this second adult. Physically plausible, ambiguous, no ghost effects, no text.",
+     "sfx": []
+    },
+    {
+     "segmen": "S3 — twist dan CTA",
+     "kata": 12,
+     "narasi": "Pukul dua, sekolah bilang saya menjemput lagi. Kamu percaya fotonya? Tulis komentarmu.",
+     "narration": "Pukul dua, sekolah bilang saya menjemput lagi. Kamu percaya fotonya? Tulis komentarmu.",
+     "camera": "static",
+     "shot": "medium",
+     "lighting": "afternoon_school_gate_4800k",
+     "intensity": 0.46,
+     "effects": [
+      "film_grain",
+      "vignette"
+     ],
+     "imagePrompt": "Repeat the exact visual from the first frame: Indonesian elementary-school gate at 2 PM, child in navy-and-white uniform holding the hand of a chest-down adult with a crescent-shaped blue ink stain on the right thumb; teacher blurred behind. Vertical 9:16, documentary realism, no text, no watermark.",
+     "sfx": []
+    }
+   ],
+   "clues": [
+    {
+     "kind": "visual",
+     "atSeconds": 0,
+     "paidAtSeconds": 36,
+     "detail": "Noda tinta bulan sabit pada ibu jari orang di foto pertama muncul lagi pada foto kedua, ketika tangan narator terlihat bersih."
+    },
+    {
+     "kind": "audio",
+     "atSeconds": 5,
+     "paidAtSeconds": 22,
+     "detail": "Di bawah pesan suara guru terdengar bisikan ‘seperti biasa’; guru mengulang frasa itu saat menelepon."
+    },
+    {
+     "kind": "teks",
+     "atSeconds": 0,
+     "paidAtSeconds": 36,
+     "detail": "Deskripsi dan komentar sematan meminta penonton membandingkan tangan di dua foto; jawabannya baru terlihat saat narator berdiri di samping anak."
+    }
+   ],
+   "releases": [
+    {
+     "atRatio": 0.35,
+     "seconds": 0.9
+    },
+    {
+     "atRatio": 0.7,
+     "seconds": 0.9
+    }
+   ],
+   "unexplained": "Siapa pemilik tangan bernoda tinta di foto kedua, ketika narator berdiri di samping anak dengan kedua tangan bersih? Jangan dijawab atau diberi sebab di dalam video.",
+   "youtube": {
+    "title": "Sekolah Bilang Anak Saya Sudah Dijemput Pukul Dua",
+    "description": "Pukul dua, sekolah bilang anak saya sudah dijemput. Saya masih di kantor.\n\nDi foto gerbang, anak saya menggenggam tangan seseorang dengan noda tinta bulan sabit seperti milik saya. Besoknya, noda itu muncul lagi saat saya berdiri di samping anak.\n\nPerhatikan tangan di kedua foto.",
+    "tags": [
+     "cerita horor",
+     "horor indonesia",
+     "cerita sekolah",
+     "orang tua",
+     "cerita seram"
+    ],
+    "pinComment": "Di foto kedua, siapa yang menggenggam tangan anak saya? Tunjuk detail yang membuatmu yakin."
+   },
+   "thumb": {
+    "headline": "SUDAH DIJEMPUT",
+    "kicker": "saya masih di kantor"
+   },
+   "catatan": "Versi produksi pertama DITOLAK pemilik kanal: kurang horor, visual terlalu terang, beberapa aturan kanal terlewat, dan kesinambungan visual gagal. Revisi 01 disetujui pemilik kanal untuk produksi penuh pada 2026-11-03. Jangan gunakan aset/render cerita lama. Acuan visual LS-0013 hanya untuk palet low-key dan kontras amber/biru. Draft visual review hening 360x640 telah dirender ke projects/episodes/LS-0020/revisi-01/visual-preview-draft.mp4; masih menunggu review kreatif dan bukan master final. Belum ada jadwal atau publikasi. Pemilik kanal membuat audio lewat ElevenLabs; agen hanya menyiapkan naskah audio.",
+   "cards": [
+    "SUDAH DIJEMPUT",
+    "NODA BULAN SABIT",
+    "KAMU PERCAYA?"
+   ],
+   "cta": {
+    "card": "Kamu percaya fotonya?",
+    "holdFrames": 84
+   },
+   "revisionCandidate": "stories/shorts/LS-0020/revisi-01.md",
+   "revision01Title": "Ayah Tadi Sudah Masuk",
+   "revision01Status": "approved for full production; visual prototype in progress",
+   "revision01AudioScript": "projects/episodes/LS-0020/revisi-01/audio-script-elevenlabs.md",
+   "revision01Audio": "owner will produce with ElevenLabs; no audio generated by agent",
+   "visualReference": "LS-0013 — visual language only; do not reuse story motifs"
   }
  ],
  "catatan_keputusan": "Short adalah cerita baru yang berdiri sendiri, bukan potongan video panjang (arahan pemilik kanal 7 Nov 2026)."

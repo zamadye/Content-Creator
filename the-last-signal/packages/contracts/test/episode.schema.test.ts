@@ -31,6 +31,16 @@ test("episode acuan LS-0010 valid", () => {
   assert.equal(result.success, true, JSON.stringify(result.success ? [] : result.error.issues));
 });
 
+test("scene menerima path footage bergerak terpisah dari poster legacy", () => {
+  const episode = mutated((input) => {
+    input.scenes.forEach((scene: any, index: number) => {
+      scene.motionVideo = `video/scene-${String(index + 1).padStart(2, "0")}.mp4`;
+    });
+  });
+  const result = safeParseEpisode(episode);
+  assert.equal(result.success, true, JSON.stringify(result.success ? [] : result.error.issues));
+});
+
 test("timeline: total frame dan offset scene konsisten", () => {
   const episode = safeParseEpisode(base());
   assert.ok(episode.success);

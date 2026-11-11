@@ -1,10 +1,13 @@
 # Facebook — jalur terpisah dari YouTube
 
-Arahan pemilik kanal, 8 November 2026: **khusus Facebook, saya boleh bertindak
-sebagai admin/director yang membuat post** — bukan hanya Reel, tapi juga post
-caption biasa dengan **1–2 foto atau slideshow**. Alasannya struktural:
-Facebook dan YouTube punya mekanisme yang berbeda, dan cerita bisa disampaikan
-lewat **post teks biasa**.
+Arahan pemilik kanal: **khusus Facebook, saya boleh bertindak sebagai
+admin/director yang membuat post** — bukan hanya Reel, tapi juga post caption
+biasa dengan **1–2 foto atau slideshow**. Izin format foto/slideshow ini hanya
+untuk feed post statis, bukan video/Reel yang dimaksudkan untuk monetisasi.
+Arahan terbaru pemilik kanal: semua video sekarang dan ke depan harus memakai
+footage/animasi dengan gerak subjek yang nyata; jangan mengemas foto diam
+menjadi video slideshow dengan pan/zoom/efek. Facebook menyatakan format video
+foto-statis itu tidak dimonetisasi; kebijakan YouTube belum dipastikan.
 
 ## Kenapa dua jalur, bukan satu
 

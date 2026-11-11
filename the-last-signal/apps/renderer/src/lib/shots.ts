@@ -15,9 +15,8 @@ export type Shot = {
 /**
  * Mengubah satu scene + daftar cut menjadi rangkaian shot.
  *
- * Tanpa cut: scene = 1 shot. Dengan cut: satu master image bisa dipakai
- * berulang dengan framing berbeda, sehingga terasa seperti beberapa shot
- * yang diedit, bukan satu gambar yang di-zoom pelan.
+ * Cut mengatur framing per shot. Pada produksi baru, motion video tetap wajib;
+ * cut dan zoom tidak boleh dipakai sebagai pengganti gerak subjek.
  */
 export function buildShots(scene: Scene): Shot[] {
   const cuts = [...scene.cuts].sort((a, b) => a.atFrame - b.atFrame);

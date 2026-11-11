@@ -11,8 +11,8 @@ export type CameraTransform = {
 const ease = Easing.inOut(Easing.sin);
 
 /**
- * Kamera tidak pernah benar-benar diam. Scene "static" tetap mendapat
- * dorongan sangat halus supaya video tidak terasa seperti slideshow.
+ * Gerak kamera hanya membingkai footage; dorongan/zoom tidak dihitung sebagai
+ * gerak visual. Jalur kamera ini tetap dipakai untuk legacy dan motion footage.
  *
  * Format panjang mengubah masalahnya: satu gambar bertahan 6–10 detik dan
  * penonton menonton sembilan menit. Dorongan 1,02 → 1,055 yang cukup untuk

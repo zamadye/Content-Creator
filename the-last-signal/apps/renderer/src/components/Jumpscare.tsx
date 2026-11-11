@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, OffthreadVideo, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { ParsedEpisode } from "@the-last-signal/contracts";
 
 type Scare = ParsedEpisode["jumpscares"][number];
@@ -26,17 +26,26 @@ export const Jumpscare: React.FC<{ scare: Scare }> = ({ scare }) => {
 
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
-      {scare.image ? (
+      {scare.motionVideo || scare.image ? (
         <AbsoluteFill
           style={{
             transform: `translate(${translateX}px, ${translateY}px) scale(${zoom})`,
             filter: "saturate(0.55) contrast(1.35) brightness(0.85)",
           }}
         >
-          <Img
-            src={staticFile(scare.image)}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+          {scare.motionVideo ? (
+            <OffthreadVideo
+              src={staticFile(scare.motionVideo)}
+              muted
+              startFrom={0}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          ) : scare.image ? (
+            <Img
+              src={staticFile(scare.image)}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          ) : null}
         </AbsoluteFill>
       ) : null}
 

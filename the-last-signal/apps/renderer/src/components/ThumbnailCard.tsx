@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, OffthreadVideo, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { theme } from "../lib/theme";
 
 /**
@@ -22,8 +22,9 @@ export const ThumbnailCard: React.FC<{
   headline: string;
   kicker?: string;
   image: string;
+  motionVideo?: string;
   durationInFrames: number;
-}> = ({ headline, kicker, image, durationInFrames }) => {
+}> = ({ headline, kicker, image, motionVideo, durationInFrames }) => {
   const frame = useCurrentFrame();
 
   // Dorongan pelan: 1.0 → 1.045. Cukup untuk terasa hidup, tidak menggeser teks.
@@ -40,10 +41,19 @@ export const ThumbnailCard: React.FC<{
   return (
     <AbsoluteFill style={{ backgroundColor: theme.colors.black }}>
       <AbsoluteFill style={{ transform: `scale(${scale})` }}>
-        <Img
-          src={staticFile(image)}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+        {motionVideo ? (
+          <OffthreadVideo
+            src={staticFile(motionVideo)}
+            muted
+            startFrom={0}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        ) : (
+          <Img
+            src={staticFile(image)}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        )}
       </AbsoluteFill>
 
       {/* Gradasi: gelap di atas untuk teks, gelap di bawah untuk tanda kanal. */}

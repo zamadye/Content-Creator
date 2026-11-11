@@ -57,8 +57,8 @@ export const EffectSchema = z.enum([
   "creature_reveal",
   "flashlight",
   "timestamp_hud",
-  // Lapisan atmosfer yang bergerak sendiri: ini yang membuat gambar diam
-  // terasa hidup tanpa perlu video AI.
+  // Lapisan atmosfer bergerak adalah aksen; shot naratif tetap wajib punya
+  // subjek/objek bergerak dalam footage atau animasi adegan.
   "rain",
   "heavy_rain",
   "mist_drift",
@@ -92,11 +92,9 @@ export const SubtitleCueSchema = z.object({
 });
 
 /**
- * Potongan di dalam satu scene ("virtual camera").
- *
- * Satu master image boleh dipakai beberapa kali dengan framing berbeda, jadi
- * satu scene 9 detik tetap terasa seperti 3 shot yang diedit — bukan satu gambar
- * yang di-zoom pelan. Ini yang membedakan rekaman dari slideshow.
+ * Potongan framing di dalam satu scene. Untuk episode baru, shot harus tetap
+ * memakai footage/animasi bergerak; variasi framing/cut tidak mengubah still
+ * image menjadi motion footage.
  */
 export const CutSchema = z.object({
   /** Frame relatif terhadap awal scene. Harus naik dan < durationFrames. */
@@ -118,8 +116,11 @@ export const SceneSchema = z.object({
   order: z.number().int().nonnegative(),
   durationFrames: z.number().int().positive(),
 
-  /** Path gambar master relatif terhadap publicDir (= folder episode). */
+  /** Path gambar master relatif terhadap publicDir (= folder episode); legacy poster reference. */
   image: z.string().min(1),
+
+  /** Footage/animasi bergerak untuk timeline, relatif terhadap folder episode. */
+  motionVideo: z.string().min(1).optional(),
 
   /** Narasi yang diucapkan pada scene ini (dipakai TTS + subtitle fallback). */
   narration: z.string().default(""),
@@ -285,8 +286,10 @@ export const EpisodeSchema = z.object({
     .array(
       z.object({
         atFrame: z.number().int().nonnegative(),
-        /** Gambar pengganti saat scare (mis. sosok versi close-up). */
+        /** Still pengganti hanya untuk episode legacy. */
         image: z.string().optional(),
+        /** Footage scare bergerak; wajib untuk produksi baru. */
+        motionVideo: z.string().min(1).optional(),
         assetId: z.string().min(1),
         volume: z.number().min(0).max(1).default(1),
         /** Intensitas kilatan putih 0–1. */

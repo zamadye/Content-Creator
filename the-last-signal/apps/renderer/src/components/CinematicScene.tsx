@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, Img, OffthreadVideo, interpolate, staticFile, useCurrentFrame } from "remotion";
 import type { Scene } from "@the-last-signal/contracts";
 import { computeCameraTransform } from "../lib/camera";
 import { buildShots, shotAt } from "../lib/shots";
@@ -32,9 +32,9 @@ const atmosphereOf = (scene: Scene): AtmosphereKind[] =>
   ATMOSPHERE.filter((kind) => has(scene, kind));
 
 /**
- * Satu scene = rangkaian shot (lihat lib/shots.ts). Setiap shot punya framing,
- * gerakan kamera, dan "punch" sendiri, sehingga cut terasa disengaja
- * — bukan slideshow dengan zoom pelan.
+ * Satu scene = rangkaian shot (lihat lib/shots.ts). Episode baru wajib memakai
+ * motionVideo: gerak subjek berasal dari footage/animasi; framing dan atmosfer
+ * hanya aksen. Jalur Img di bawah dipertahankan untuk arsip legacy saja.
  */
 export const CinematicScene: React.FC<{ scene: Scene; index: number }> = ({ scene, index }) => {
   const frame = useCurrentFrame();
@@ -80,7 +80,14 @@ export const CinematicScene: React.FC<{ scene: Scene; index: number }> = ({ scen
           filter,
         }}
       >
-        {has(scene, "focus_rack") ? (
+        {scene.motionVideo ? (
+          <OffthreadVideo
+            src={staticFile(scene.motionVideo)}
+            muted
+            startFrom={0}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        ) : has(scene, "focus_rack") ? (
           <ParallaxPlate
             src={shot.image}
             focusX={52 + Math.sin(seed) * 12}
@@ -105,8 +112,8 @@ export const CinematicScene: React.FC<{ scene: Scene; index: number }> = ({ scen
         }}
       />
 
-      {/* Atmosfer bergerak: hujan, kabut, debu, percikan laut, asap, statik radio.
-          Ini yang paling terasa "hidup" — gambar tetap, partikelnya tidak. */}
+      {/* Atmosfer bergerak hanya memperkaya motion footage yang sudah ada;
+          partikel tidak dihitung sebagai gerak subjek. */}
       {atmosphereOf(scene).map((kind) => (
         <Atmosphere key={kind} kind={kind} intensity={intensity} seed={seed} />
       ))}

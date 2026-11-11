@@ -270,7 +270,7 @@ console.log(`  ${scenes.length} scene · ${totalFrames} frame (${(totalFrames / 
 console.log(`  kartu: ${onScreenText.map((card) => card.text).join(" → ")}`);
 console.log(`  jumpscare: ${jumpscares[0]?.atFrame ?? "-"} (scene ${entry.jumpscare?.atScene ?? "-"})`);
 console.log(`\n  Berikutnya:`);
-console.log(`   1. gambar:  projects/episodes/${entry.episodeId}/images/scene-01..06.jpg (9:16)`);
+console.log(`   1. motion:  projects/episodes/${entry.episodeId}/video/scene-01.. (footage/animasi bergerak, 9:16)`);
 console.log(`   2. TTS   :  audio/narration/scene-01..06.mp3 (voice-00)`);
 console.log(`   3. align :  pnpm tsx scripts/align-narration.ts --episode ${entry.episodeId}`);
 console.log(`   4. score :  node scripts/make-score.mjs --episode ${entry.episodeId}`);

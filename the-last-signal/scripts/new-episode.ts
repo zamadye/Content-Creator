@@ -121,7 +121,8 @@ async function main() {
 
   console.log(`\n✔ ${episodeId} dibuat di ${episodeDir.replace(ROOT + "/", "")}`);
   console.log("  langkah berikutnya:");
-  console.log(`   1. isi ${sceneCount} master image di images/ (1080×1920, PNG)`);
+  console.log(`   1. isi ${sceneCount} klip footage/animasi bergerak di video/ dan tetapkan motionVideo per scene`);
+  console.log("      Foto diam, pan/zoom, grain, partikel, dan transisi saja tidak lolos gerbang video.");
   console.log("   2. tulis narasi + subtitle (frame-exact) di episode.json");
   console.log(`   3. pnpm validate -- --episode ${episodeId}`);
   console.log(`   4. pnpm render -- --episode ${episodeId}`);

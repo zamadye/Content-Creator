@@ -2,7 +2,8 @@ import React, { useMemo } from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
 
 /**
- * Atmosfer prosedural — alasan utama gambar diam terasa hidup.
+ * Lapisan atmosfer prosedural untuk memperkaya footage yang memang bergerak.
+ * Partikel/atmosfer bukan pengganti motion pada subjek utama.
  *
  * Gambar yang kita punya adalah still. Yang membuat mata percaya itu rekaman
  * bukan gambarnya, tapi partikel yang bergerak di depannya: hujan yang jatuh

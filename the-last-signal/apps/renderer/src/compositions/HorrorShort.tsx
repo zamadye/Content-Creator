@@ -94,6 +94,7 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
   const ctaFrom = episode.publishing.cta
     ? Math.max(0, endCardFrom - (episode.publishing.cta.holdFrames ?? 84))
     : endCardFrom;
+  const fullMotionEpisode = episode.scenes.every((scene) => Boolean(scene.motionVideo));
 
   return (
     <AbsoluteFill style={{ backgroundColor: theme.colors.black }}>
@@ -108,10 +109,9 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
         </Sequence>
       ))}
 
-      {/* Transisi menimpa PERSAMBUNGAN dua scene: separuh frame di ekor scene
-          keluar, separuh di kepala scene masuk. Gambarnya diambil dari shot
-          nyata terakhir/pertama, jadi gerakannya membawa isi cerita. */}
-      {episode.scenes.slice(1).map((scene, i) => {
+      {/* Footage motion-video memakai hard cut agar tidak menyisipkan still frame.
+          Transisi berbasis gambar hanya dipakai untuk episode legacy. */}
+      {!fullMotionEpisode ? episode.scenes.slice(1).map((scene, i) => {
         const index = i + 1;
         const previous = episode.scenes[index - 1];
         const kind =
@@ -137,7 +137,7 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
             />
           </Sequence>
         );
-      })}
+      }) : null}
 
       <Sequence from={0} durationInFrames={ctaFrom} name="subtitle (sebelum CTA)">
         <SubtitleTrack episode={episode} />
@@ -178,6 +178,7 @@ export const HorrorShort: React.FC<{ episode: ParsedEpisode }> = ({ episode }) =
             headline={episode.publishing.thumbnail.headline}
             kicker={episode.publishing.thumbnail.kicker}
             image={episode.publishing.thumbnail.image ?? episode.scenes[0].image}
+            motionVideo={episode.scenes[0].motionVideo}
             durationInFrames={episode.publishing.thumbnail.holdFrames ?? 15}
           />
         </Sequence>

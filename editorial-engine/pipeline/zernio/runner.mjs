@@ -15,7 +15,14 @@ export async function runZernio(batch, apiKey, {report, persist, fetcher = fetch
   const out = report ?? {schemaVersion:1, status:'INITIALIZING', posts:[], error:null, startedAt:new Date().toISOString()};
   const save = () => persist?.(out);
   try {
+    /* The sealed request carries its nonce (used as the Zernio Idempotency-Key)
+     * and an internal salt; both are relay-internal and not part of the schema. */
+    const idemKey = typeof batch?.nonce === 'string' && /^[a-f0-9]{32}$/.test(batch.nonce)
+      ? batch.nonce : crypto.randomUUID();
+    delete batch?._requestSalt;
+    delete batch?.nonce;
     validateZernioRequest(batch);
+    out.idempotencyKey = idemKey;
     out.platform = batch.platform; save();
     if (!apiKey) throw new BatchError('ZERNIO_KEY_MISSING');
     /* Verify the exact media bytes before asking Zernio to publish. */
@@ -40,7 +47,7 @@ export async function runZernio(batch, apiKey, {report, persist, fetcher = fetch
     const created = await fetcher(`${ZERNIO_BASE}/posts`, {
       method:'POST',
       headers:{'Authorization':`Bearer ${apiKey}`, 'Content-Type':'application/json',
-        'Idempotency-Key': batch.nonce},
+        'Idempotency-Key': idemKey},
       body: JSON.stringify(body),
       signal: AbortSignal.timeout(300_000),
     });

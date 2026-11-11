@@ -52,6 +52,18 @@ const mkFetcher = (r, postStatus, body) => {
   };
 };
 
+test('zernio run: sealed request with nonce/_requestSalt validates (stripped before schema)', async () => {
+  const r = base();
+  r.nonce = 'a'.repeat(32);
+  r._requestSalt = 'b'.repeat(64);
+  r.video.sha256 = sha1000; r.video.sizeBytes = 1000;
+  const body = {post: {_id: 'x9', platforms: [{status: 'published', platformPostUrl: 'https://fb.example/9'}]}};
+  const report = {posts: [], status: 'INITIALIZING'};
+  const out = await runZernio(r, 'key', {report, persist: () => {}, fetcher: mkFetcher(r, 201, body)});
+  assert.equal(out.status, 'SUBMITTED');
+  assert.equal(out.idempotencyKey, 'a'.repeat(32));
+});
+
 test('zernio run: hash mismatch stops before creation', async () => {
   const r = base();
   const report = {posts: [], status: 'INITIALIZING'};

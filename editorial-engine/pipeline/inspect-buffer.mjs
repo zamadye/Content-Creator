@@ -175,3 +175,5 @@ console.log('  bukan brand account lain — kalau nama di atas bukan channel yan
 console.log('  sambungkan ulang di Buffer → Channels → Connect Channel → YouTube.');
 
 /* poll: cek tayang */
+
+/* poll: affiliate test readback */

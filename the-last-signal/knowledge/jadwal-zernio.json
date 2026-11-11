@@ -1,27 +1,57 @@
 {
   "timezone": "Asia/Makassar",
-  "updatedAt": "2026-11-08T00:37:12.131Z",
+  "updatedAt": "2026-11-11T01:58:08.083Z",
   "items": [
     {
       "episodeId": "LS-0012",
       "ok": true,
       "skipped": true,
       "scheduledFor": "2026-11-08T04:05:00.000Z",
-      "updatedAt": "2026-11-08T00:37:12.131Z"
+      "updatedAt": "2026-11-11T01:58:08.083Z",
+      "zernioPostId": null,
+      "zernioStatus": "published",
+      "youtube": {
+        "status": "published",
+        "url": "https://www.youtube.com/watch?v=hBYCn8nCW70"
+      },
+      "facebook": {
+        "status": "published",
+        "url": "https://www.facebook.com/reel/1429908565409021"
+      }
     },
     {
       "episodeId": "LS-0013",
       "ok": true,
       "skipped": true,
       "scheduledFor": "2026-11-08T05:05:00.000Z",
-      "updatedAt": "2026-11-08T00:37:12.131Z"
+      "updatedAt": "2026-11-11T01:58:08.083Z",
+      "zernioPostId": null,
+      "zernioStatus": "published",
+      "youtube": {
+        "status": "published",
+        "url": "https://www.youtube.com/watch?v=z86fS1iB6Fg"
+      },
+      "facebook": {
+        "status": "published",
+        "url": "https://www.facebook.com/reel/1146788024595120"
+      }
     },
     {
       "episodeId": "LS-0014",
       "ok": true,
       "skipped": true,
       "scheduledFor": "2026-11-08T07:05:00.000Z",
-      "updatedAt": "2026-11-08T00:37:12.131Z"
+      "updatedAt": "2026-11-11T01:58:08.083Z",
+      "zernioPostId": null,
+      "zernioStatus": "published",
+      "youtube": {
+        "status": "published",
+        "url": "https://www.youtube.com/watch?v=7KPPhdlL9DQ"
+      },
+      "facebook": {
+        "status": "published",
+        "url": "https://www.facebook.com/reel/2180917156161595"
+      }
     },
     {
       "episodeId": "LL-0002",
@@ -37,14 +67,14 @@
         "status": "published",
         "url": "https://www.facebook.com/watch/?v=2144087316475744"
       },
-      "updatedAt": "2026-11-08T00:36:03.489Z"
+      "updatedAt": "2026-11-11T01:58:08.082Z"
     },
     {
       "episodeId": "LS-0015",
       "ok": true,
       "scheduledFor": "2026-11-08T00:33:11.194Z",
       "postId": null,
-      "updatedAt": "2026-11-08T00:36:03.489Z",
+      "updatedAt": "2026-11-11T01:58:08.082Z",
       "zernioPostId": null,
       "zernioStatus": "published",
       "youtube": {
@@ -55,6 +85,19 @@
         "status": "published",
         "url": "https://www.facebook.com/reel/1105613089136385"
       }
+    },
+    {
+      "episodeId": "LL-0004",
+      "ok": true,
+      "zernioPostId": null,
+      "zernioStatus": "published",
+      "scheduledFor": "2026-11-11T01:56:34.743Z",
+      "youtube": {
+        "status": "published",
+        "url": "https://www.youtube.com/watch?v=yUuSVZ8Qwow"
+      },
+      "facebook": null,
+      "updatedAt": "2026-11-11T01:58:08.082Z"
     }
   ]
 }

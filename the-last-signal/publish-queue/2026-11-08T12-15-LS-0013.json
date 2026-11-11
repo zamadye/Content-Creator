@@ -1,6 +1,6 @@
 {
   "episodeId": "LS-0013",
-  "status": "scheduled",
+  "status": "published",
   "createdAt": "2026-11-08T22:50:00Z",
   "media": "the-last-signal/releases/LS-0013.mp4",
   "format": "short",
@@ -38,7 +38,9 @@
   },
   "catatan": "Short cerita baru (bukan potongan video panjang). status=held: belum diunggah; slot harian yang melepas menjadi requested.",
   "zernioPostId": null,
-  "zernioStatus": "scheduled",
+  "zernioStatus": "published",
   "scheduledFor": "2026-11-08T05:05:00.000Z",
-  "reconciledAt": "2026-11-07T23:23:57.922Z"
+  "reconciledAt": "2026-11-11T01:58:08.083Z",
+  "youtubeUrl": "https://www.youtube.com/watch?v=z86fS1iB6Fg",
+  "facebookUrl": "https://www.facebook.com/reel/1146788024595120"
 }

@@ -1,6 +1,6 @@
 {
   "episodeId": "LL-0004",
-  "status": "requested",
+  "status": "published",
   "createdAt": "2026-11-03T00:00:00Z",
   "format": "longform",
   "media": "the-last-signal/releases/LL-0004.mp4",
@@ -12,7 +12,9 @@
     "scenes": 8,
     "jumpscares": 0
   },
-  "platforms": ["youtube"],
+  "platforms": [
+    "youtube"
+  ],
   "youtube": {
     "title": "Jangan Pernah Menjawab Panggilan dari Sumur Itu",
     "description": "Pukul 02.13, Ardi mendengar suara ibunya dari sumur tua di belakang rumah. Ibunya sudah meninggal tujuh bulan sebelumnya.\n\nDua malam kemudian, suara itu berpindah ke balik pintu belakang. Surat lama menyisakan pertanyaan tentang Rukmini, dan rekaman ponsel menyimpan jawaban yang tidak diingat Ardi pernah ucapkan.\n\nSebuah cerita horor panjang tentang rumah lama, suara yang dikenal, dan misteri yang belum terjawab.",
@@ -29,5 +31,10 @@
     "containsSyntheticMedia": false,
     "notifySubscribers": true,
     "firstComment": "Kalau mendengar suara ibu dari sumur, apa kamu akan menjawabnya?"
-  }
+  },
+  "zernioPostId": null,
+  "zernioStatus": "published",
+  "scheduledFor": "2026-11-11T01:56:34.743Z",
+  "youtubeUrl": "https://www.youtube.com/watch?v=yUuSVZ8Qwow",
+  "reconciledAt": "2026-11-11T01:58:08.082Z"
 }

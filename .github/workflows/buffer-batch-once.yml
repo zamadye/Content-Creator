@@ -40,13 +40,7 @@ jobs:
           fi
           # Primary: static binaries from PyPI (apt mirrors can hang).
           if pip install --quiet static-ffmpeg; then
-            DIR="$(python3 - <<'PY'
-import os
-from static_ffmpeg import run
-_ff, fp = run.get_or_fetch_platform_executables_else_raise()
-print(os.path.dirname(fp))
-PY
-)"
+            DIR="$(python3 -c "import os; from static_ffmpeg import run; print(os.path.dirname(run.get_or_fetch_platform_executables_else_raise()[1]))")"
             if [ -n "$DIR" ] && [ -x "$DIR/ffprobe" ]; then
               echo "$DIR" >> "$GITHUB_PATH"
               "$DIR/ffprobe" -version | head -1

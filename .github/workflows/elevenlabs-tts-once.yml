@@ -17,6 +17,7 @@ on:
   push:
     paths:
       - 'editorial-engine/content/kamar-berlangit/naskah-vo.json'
+      - '.github/workflows/elevenlabs-tts-once.yml'
 permissions:
   contents: write
 jobs:

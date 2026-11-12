@@ -11,4 +11,6 @@ Episode long-form baru, kembali ke niche **Dunia Kebalik** (keputusan pengguna 1
 - `riset-batas-fakta.md` — verifikasi klaim tahap 2 (status per klaim, sumber, batas honesty, pertanyaan terbuka).
 - `naskah-master.md` — draf v1 (30 scene, 9 gerak), belum audit penuh, belum storyboard.
 
-**Tahap berikutnya:** cek tahap-3 (§5 riset) → review pengguna atas draf v1 → audit kalimat + storyboard/objectMap → VO + render + QA → izin publikasi.
+**Cadangan Drive (PRIVAT):** folder `13QwdIeN847GwbOVpblG6bZ0IUZJp_GGe` ("Sungai-Di-Langit — Banjir California 1862 — PRIVAT", parent `0AD5goVbudvMkUk9PVA`) berisi README + riset + naskah v1.1 + audit + storyboard (commit f6fbd49, VERIFIED 5 file).
+
+**Tahap berikutnya:** review pengguna → VO + render + QA → izin publikasi.

@@ -39,7 +39,11 @@ lufs=float(levels[-1]) if levels else None;peak=float(peaks[-1]) if peaks else N
 checks['integrated_loudness_between_-18_and_-13_lufs']=lufs is not None and -18<=lufs<=-13
 checks['true_peak_not_above_-2_dbtp']=peak is not None and peak<=-2
 checks['four_caption_sections']=all(t in caption.read_text(encoding='utf8') for t in ['FACEBOOK REELS','TIKTOK','YOUTUBE SHORTS','INSTAGRAM REELS'])
-checks['lowercase_cta_in_render_and_captions']=all('ikuti knot theory' in t for t in [(ROOT/'pipeline/teleskop-2026-11-12/render.tsx').read_text(encoding='utf8'),caption.read_text(encoding='utf8'),srt.read_text(encoding='utf8')])
+render_src=(ROOT/'pipeline/teleskop-2026-11-12/render.tsx').read_text(encoding='utf8');caption_src=caption.read_text(encoding='utf8');srt_src=srt.read_text(encoding='utf8')
+checks['lowercase_cta_in_render_and_captions']=all('ikuti knot theory' in t for t in [render_src,caption_src])
+# The CTA pill is a VISUAL overlay: the user's verbatim VO never speaks it,
+# so the subtitle track must NOT contain it.
+checks['cta_visual_only_absent_from_vo_subtitles']='ikuti knot theory' not in srt_src
 checks['seven_object_mapped_scenes']=len(p['story']['scenes'])==7 and all(len(s['objectMap'])>=3 and s['action'] for s in p['story']['scenes'])
 checks['contiguous_scene_offsets']=all(abs(a['end']-b['start'])<1e-6 for a,b in zip(p['timeline'],p['timeline'][1:])) and abs(p['timeline'][0]['start'])<1e-6
 checks['narration_verbatim_matches_user_transcript']=re.sub(r'\s+',' ',' '.join(line for q in p['cues'] for line in q['lines']))==re.sub(r'\s+',' ',' '.join(x['narration'] for x in p['story']['scenes']))
@@ -69,6 +73,7 @@ lines=['# QA mekanis — episode Teleskop', '',f'- Status: {"PASS" if all(checks
 lines += [f'- {"PASS" if ok else "FAIL"}: {name}' for name,ok in checks.items()]
 lines += ['', '## Batas pengujian',
  '- NEEDS REVIEW: dengarkan seluruh narasi asli pengguna; subtitle mengikuti transcript ber-timestamp milik pengguna — waktu per frasa di-snap ke jeda suara terdeteksi, BUKAN forced alignment.',
+ '- CATATAN: pil penutup "ikuti knot theory" adalah overlay visual saja; VO verbatim milik pengguna tidak mengucapkannya (keputusan closing masih menunggu konfirmasi pengguna).',
  '- NEEDS REVIEW: durasi master 146,5 detik > batas 90 detik FB Reels via Buffer. Distribusi Facebook butuh keputusan (rute feed/lain atau potongan) — tidak dipotong diam-diam.',
  '- NEEDS REVIEW: penilaian kreatif dari pengguna; gerak utuh, prop teleskop, ekspresi, pacing, keterbacaan pada ponsel.',
  '- TESTED: dua contoh frame per adegan berbeda juga ketika area subtitle dibuang. Perbedaan bisa berasal dari latar atau gerak kecil dan bukan bukti kualitas interaksi.',

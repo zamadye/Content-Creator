@@ -4,8 +4,8 @@
   "title": "Lihat ke Atas, Lihat Masa Lalu?",
   "timezone": "Asia/Jakarta",
   "plannedSlot": "belum ditentukan (rencana, bukan bukti jadwal)",
-  "voiceId": "voice-05 (VO master satu file dari pengguna, tanpa perubahan tempo)",
-  "reference": "Dunia Kebalik; rig Host Danau/Antartika/Hiu yang sama; gaya konsisten dengan Shorts yang sudah terbit (danau di laut, gurun Antartika, dst).",
+  "voiceId": "VO master satu file, direkam sendiri oleh pengguna (suara laki-laki) — tanpa perubahan tempo",
+  "reference": "Dunia Kebalik; gaya konsisten dengan Shorts yang sudah terbit (danau di laut, gurun Antartika, dst). Karakter di layar: narator LAKI-LAKI baru (rig narrator.tsx) karena VO ber-suara laki-laki; rig wanita jilbab (host.tsx di pipeline Hiu) tetap dipakai episode lain.",
   "sources": [
     {"url": "https://www.yahoo.com/news/articles/previously-unimaginable-james-webb-telescope-195514002.html", "supports": "JWST mengonfirmasi MoM-z14, galaksi terjauh yang pernah diamati, tampak 280 juta tahun setelah Big Bang; redshift z=14.44; studi di arXiv 23 Mei 2025, diterbitkan Open Journal of Astrophysics Januari 2026." },
     {"url": "https://www.techexplorist.com/webb-detects-bright-galaxy-280-million-years-big-bang/101967/", "supports": "Cahaya MoM-z14 menempuh sekitar 13,5 miliar tahun dari umur alam semesta 13,8 miliar tahun; NIRSpec JWST yang mengonfirmasi redshift." },
@@ -16,7 +16,8 @@
     "Narasi memakai 'NASA mengumumkan konfirmasi' — catatan akurat: konfirmasi spektroskopik oleh JWST (teleskop NASA), tim Naidu dkk.; diterbitkan Januari 2026. Narasi pengguna dipertahankan verbatim; maknanya sesuai.",
     "Nama galaksi di naskah tertulis 'MOMZ14' (verbatim pengguna); nama resmi MoM-z14. Subtitle mengikuti naskah; overlay memakai MOMZ14 agar konsisten.",
     "Semua visual ilustrasi/skema, bukan foto; latar dibuat AI; garis waktu tidak berskala; tanpa logo resmi NASA/JWST.",
-    "Penutup 'ikuti knot theory' hanya TEKS (VO pengguna tidak mengucapkannya) — keputusan closing perlu konfirmasi pengguna."
+    "Penutup 'ikuti knot theory' hanya TEKS (VO pengguna tidak mengucapkannya) — keputusan closing perlu konfirmasi pengguna.",
+    "2026-11-12: pengguna mengonfirmasi VO laki-laki tetapi karakter awal wanita jilbab — keputusan: karakter diganti narator laki-laki baru (proporsi & ekspresi ditingkatkan, skala +8–10%), rig wanita tetap untuk episode lain."
   ],
   "scenes": [
     {

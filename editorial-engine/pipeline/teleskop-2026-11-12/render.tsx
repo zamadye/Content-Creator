@@ -10,7 +10,7 @@ import {spawn} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {once} from 'node:events';
-import {Host} from './host';
+import {Narrator} from './narrator';
 
 const root=process.cwd(), dir=path.join(root,'deliverables/teleskop-2026-11-12');
 const data=JSON.parse(fs.readFileSync(path.join(dir,'prepared.json'),'utf8'));
@@ -37,21 +37,22 @@ const Ray=({t,x1,y1,x2,y2,seed=0}:{t:number;x1:number;y1:number;x2:number;y2:num
 function Scene({i,t,frame,len}:{i:number;t:number;frame:number;len:number}){
  const s=story.scenes[i],f=frame;t_global=t;
  if(i===0){const a=enter(t,.4,1.6);return <><Bg name="night" t={t} dark={.16}/><Stars t={t}/><Heading s={s}/>
-  <circle cx="620" cy="760" r={7+2.2*Math.abs(Math.sin(f*.11))} fill={C.gold} opacity={a}/>
-  <line x1="620" y1="772" x2="305" y2="1112" stroke={C.gold} strokeWidth="6" strokeDasharray="4 15" strokeLinecap="round" opacity={.85*a}/>
-  <Host x={250} y={935} scale={.62} frame={f} armL={60} armR={-20} talk/>
-  <Scope x={231} y={1218} s={.62} rot={-48}/>
+  <ellipse cx="249" cy="1408" rx="132" ry="19" fill={C.deep} opacity=".3"/>
+  <circle cx="520" cy="640" r={7+2.2*Math.abs(Math.sin(f*.11))} fill={C.gold} opacity={a}/>
+  <line x1="520" y1="652" x2="179" y2="1138" stroke={C.gold} strokeWidth="6" strokeDasharray="4 15" strokeLinecap="round" opacity={.85*a}/>
+  <Narrator x={215} y={968} scale={.74} frame={f} armL={38} armR={-20} talk/>
+  <Scope x={95} y={1245} s={.70} rot={-52}/>
   <Label text="ILUSTRASI"/></>;}
  if(i===1){const a=enter(t,.5,1.7);const s2=(t*.09)%1,bx=940-610*s2,by=560+880*s2;return <><Bg name="sun" t={t} dark={.30}/><Heading s={s}/>
   <g opacity={a}><circle cx={bx} cy={by} r={10} fill={C.cream}/><circle cx={bx} cy={by} r={19} fill={C.cream} opacity={.35*(1-s2)}/></g>
   <Chip x={620} y={900} text="8 MNT 20 DTK" delay={2.4}/>
   <T x={620} y={1005} size={27} anchor="middle" opacity={enter(t,3.2,4.2)}>CAHAYA MATAHARI KE BUMI</T>
-  <Host x={880} y={1010} scale={.48} frame={f} armL={60} armR={-88} talk/>
+  <Narrator x={880} y={990} scale={.53} frame={f} armL={60} armR={-88} talk/>
   <Label text="SKEMA • TIDAK BERSKALA"/></>;}
  if(i===2){const a=enter(t,1.2,2.4);return <><Bg name="galaxy" t={t} dark={.24}/><Heading s={s}/>
   <g opacity={a}><ellipse cx="600" cy="880" rx="262" ry="158" fill="none" stroke={C.mint} strokeWidth="6" strokeDasharray="20 16" opacity=".9" transform={`rotate(${t*4} 600 880)`}/></g>
   <Chip x={640} y={1300} text="2,5 JUTA TAHUN CAHAYA" delay={2.8}/>
-  <Host x={205} y={880} scale={.66} frame={f} armL={42} armR={-80} talk/>
+  <Narrator x={205} y={858} scale={.72} frame={f} armL={42} armR={-80} talk/>
   <Label text="ILUSTRASI GALAKSI"/></>;}
  if(i===3){const a=enter(t,.5,1.7),b=enter(t,2.6,3.8),c=enter(t,4.4,5.6);return <><Bg name="galaxy" t={t} dark={.58}/><Heading s={s}/>
   <Panel x={75} y={505} w={930} h={800}/>
@@ -61,13 +62,13 @@ function Scene({i,t,frame,len}:{i:number;t:number;frame:number;len:number}){
   <T x={865} y={955} size={29} anchor="middle" opacity={a}>TIBA</T><T x={865} y={995} size={25} fill={C.gold} anchor="middle" opacity={a}>HARI INI</T>
   <g opacity={b} transform={`translate(0 ${(1-b)*40})`}><circle cx="540" cy="672" r="34" fill={C.cream} stroke={C.deep} strokeWidth="6"/><path d="M498 812 Q540 726 582 812" fill={C.cream} stroke={C.deep} strokeWidth="6"/><T x={540} y={862} size={25} anchor="middle">SEBELUM MANUSIA MODERN</T></g>
   <Chip x={540} y={1150} text="CAHAYA LAMA, TIBA HARI INI" delay={4.8} fill={C.cream} color={C.deep}/>
-  <Host x={150} y={1065} scale={.38} frame={f} armL={45} armR={-70} talk/>
+  <Narrator x={150} y={1049} scale={.42} frame={f} armL={45} armR={-70} talk/>
   <T x={540} y={1372} size={27} anchor="middle" opacity={c}>FOTO LAMA DARI LANGIT</T>
   <Label text="SKEMA WAKTU" y={1445}/></>;}
  if(i===4){const a=enter(t,.6,2);return <><Bg name="deepfield" t={t} dark={.38}/><Heading s={s}/>
   {Array.from({length:12},(_,k)=>{const x=[250,420,610,780,330,540,700,880,200,470,640,820][k],y=[700,640,760,690,930,880,950,900,1140,1090,1180,1120][k],d=1+k*.45,o=enter(t,d,d+1)*(.75+.25*Math.sin(t*2+k));return <g key={k}><circle cx={x} cy={y} r={8} fill={k%2?C.mint:C.gold} opacity={o}/><circle cx={x} cy={y} r={16} fill={k%2?C.mint:C.gold} opacity={o*.28}/></g>;})}
   <Chip x={620} y={1330} text="INFRAMERAH" delay={1.8}/>
-  <Host x={880} y={1005} scale={.5} frame={f} armL={70} armR={-75} talk/>
+  <Narrator x={880} y={985} scale={.55} frame={f} armL={70} armR={-75} talk/>
   <T x={540} y={1425} size={26} anchor="middle" opacity={a}>GALAKSI-GALAKSI MASA AWAL MENYALA</T>
   <Label text="SKEMA • BUKAN FOTO" y={1478}/></>;}
  if(i===5){const a=enter(t,.5,1.8),b=enter(t,1.8,2.9),c=enter(t,3.2,4.3),d=enter(t,4.6,5.7);return <><Bg name="deepfield" t={t} dark={.60}/><Heading s={s}/>
@@ -80,7 +81,7 @@ function Scene({i,t,frame,len}:{i:number;t:number;frame:number;len:number}){
   <g opacity={b} transform={`translate(0 ${(1-b)*40})`}><circle cx="205" cy="985" r="26" fill={C.gold} stroke={C.deep} strokeWidth="7"/><line x1="205" y1="860" x2="205" y2="959" stroke={C.gold} strokeWidth="8" strokeDasharray="10 8"/><rect x="88" y="770" width="234" height="86" rx="14" fill={C.gold}/><T x="205" y="826" size={27} fill={C.deep} anchor="middle">280 JUTA TAHUN</T></g>
   <g opacity={c} transform={`translate(0 ${(1-c)*40})`}><rect x="470" y="640" width="460" height="180" rx="19" fill="#286e71" stroke={C.mint} strokeWidth="4"/><T x="700" y="725" size={46} fill={C.gold} anchor="middle">MOMZ14</T><T x="700" y="780" size={27} anchor="middle">DIKONFIRMASI JANUARI 2026</T></g>
   <Chip x={540} y={1180} text="LEBIH DARI 13 MILIAR TAHUN" delay={5.2} fill={C.cream}/>
-  <Host x={150} y={1065} scale={.38} frame={f} armL={45} armR={-70} talk/>
+  <Narrator x={150} y={1049} scale={.42} frame={f} armL={45} armR={-70} talk/>
   <T x={540} y={1372} size={27} anchor="middle" opacity={d}>GARIS WAKTU TIDAK BERSKALA</T>
   <Label text="SKEMA KOSMOLOGI"/></>;}
  if(i===6){const a=enter(t,.5,2),b=enter(t,2.2,3.6),pill=enter(t,7.5,8.7);return <><Bg name="night" t={t} dark={.26}/><Stars t={t}/><Heading s={s}/>
@@ -89,15 +90,16 @@ function Scene({i,t,frame,len}:{i:number;t:number;frame:number;len:number}){
    <clipPath id="fr"><rect x="622" y="587" width="356" height="286" rx="8"/></clipPath>
    <image href={art.deepfield} x="622" y="587" width="356" height="286" preserveAspectRatio="xMidYMid slice" clipPath="url(#fr)"/>
    <T x="800" y="932" size={26} anchor="middle">SEMESTA MUDA — SKEMA</T></g>
-  <Host x={235} y={935} scale={.62} frame={f} armL={60} armR={-20} happy={t>9} talk={t<=9}/>
-  <Scope x={216} y={1218} s={.62} rot={-48}/>
+  <ellipse cx="269" cy="1408" rx="132" ry="19" fill={C.deep} opacity=".3"/>
+  <Narrator x={235} y={968} scale={.74} frame={f} armL={38} armR={-20} happy={t>9} talk={t<=9}/>
+  <Scope x={80} y={1245} s={.70} rot={-52}/>
   <g opacity={pill} transform={`translate(0 ${(1-pill)*40})`}><rect x="280" y="1310" width="520" height="90" rx="45" fill={C.gold}/><T x="540" y="1370" size={45} fill={C.deep} anchor="middle">ikuti knot theory</T></g>
   <Label text="ILUSTRASI"/></>;}
- const tail=enter(t,2,3.4);return <><Bg name="night" t={t} dark={.40}/><Heading s={s}/><g opacity={tail}><Host x={240} y={820} scale={.7} frame={f} armL={55} armR={-60} talk/></g></>;
+ const tail=enter(t,2,3.4);return <><Bg name="night" t={t} dark={.40}/><Heading s={s}/><g opacity={tail}><Narrator x={240} y={805} scale={.75} frame={f} armL={55} armR={-60} talk/></g></>;
 }
 function Artwork({time}:{time:number}){let i=timeline.findIndex((x:any)=>time>=x.start&&time<x.end);if(i<0)i=timeline.length-1;const seg=timeline[i],local=Math.max(0,time-seg.start);return <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920"><Scene i={i} t={local} frame={Math.round(local*fps)} len={seg.end-seg.start}/><Cue t={time}/></svg>}
-function Thumbnail(){return <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920"><image href={art.night} width="1080" height="1920"/><rect width="1080" height="1920" fill={C.deep} opacity=".30"/><rect width="1080" height="550" fill={C.deep} opacity=".94"/><Brand/><T x={70} y={285} size={92} family="Permanent Marker" weight={400}>LIHAT KE ATAS,</T><T x={70} y={405} size={95} fill={C.gold} family="Permanent Marker" weight={400}>LIHAT MASA LALU?</T><rect x="74" y="454" width="860" height="66" rx="10" fill={C.cream}/><T x={96} y={500} size={31} fill={C.deep}>MATAHARI 8 MENIT • ANDROMEDA 2,5 JUTA TAHUN</T><circle cx="750" cy="830" r="240" fill={C.teal} stroke={C.mint} strokeWidth="10"/><Scope x={750} y={810} s={1.15} rot={-42}/><rect x="95" y="1170" width="460" height="290" rx="28" fill={C.navy} stroke={C.gold} strokeWidth="8"/><Stars t={1.5}/><T x="325" y="1290" size={33} anchor="middle">2,5 JT TAHUN LALU</T><T x="325" y="1350" size={29} anchor="middle">SEBELUM MANUSIA MODERN</T><Host x={655} y={1180} scale={.78} frame={0} armL={55} armR={-70} happy/><Label text="ILUSTRASI KONSEPTUAL" x={75} y={1670}/></svg>}
-function Poster(){return <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><rect width="1080" height="1350" fill={C.deep}/><circle cx="820" cy="380" r="310" fill={C.teal}/><Brand/><T x={70} y={300} size={88} family="Permanent Marker" weight={400}>LIHAT KE ATAS,</T><T x={70} y={410} size={95} fill={C.gold} family="Permanent Marker" weight={400}>LIHAT MASA LALU?</T><T x={75} y={475} size={30} fill={C.mint}>CAHAYA ADALAH MESIN WAKTU</T><Scope x={760} y={420} s={1.1} rot={-44}/><Stars t={1.2}/><Host x={280} y={940} scale={.8} frame={0} armL={55} armR={-65} happy/><T x="700" y="900" size={31} anchor="middle">8 MNT 20 DTK</T><T x="700" y="950" size={27} anchor="middle">MATAHARI KE BUMI</T><Label text="ILUSTRASI KONSEPTUAL" y={1290}/></svg>}
+function Thumbnail(){return <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920"><image href={art.night} width="1080" height="1920"/><rect width="1080" height="1920" fill={C.deep} opacity=".30"/><rect width="1080" height="550" fill={C.deep} opacity=".94"/><Brand/><T x={70} y={285} size={92} family="Permanent Marker" weight={400}>LIHAT KE ATAS,</T><T x={70} y={405} size={95} fill={C.gold} family="Permanent Marker" weight={400}>LIHAT MASA LALU?</T><rect x="74" y="454" width="860" height="66" rx="10" fill={C.cream}/><T x={96} y={500} size={31} fill={C.deep}>MATAHARI 8 MENIT • ANDROMEDA 2,5 JUTA TAHUN</T><circle cx="750" cy="830" r="240" fill={C.teal} stroke={C.mint} strokeWidth="10"/><Scope x={750} y={810} s={1.15} rot={-42}/><rect x="95" y="1170" width="460" height="290" rx="28" fill={C.navy} stroke={C.gold} strokeWidth="8"/><Stars t={1.5}/><T x="325" y="1290" size={33} anchor="middle">2,5 JT TAHUN LALU</T><T x="325" y="1350" size={29} anchor="middle">SEBELUM MANUSIA MODERN</T><Narrator x={655} y={1185} scale={.8} frame={0} armL={55} armR={-70} happy/><Label text="ILUSTRASI KONSEPTUAL" x={75} y={1670}/></svg>}
+function Poster(){return <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><rect width="1080" height="1350" fill={C.deep}/><circle cx="820" cy="380" r="310" fill={C.teal}/><Brand/><T x={70} y={300} size={88} family="Permanent Marker" weight={400}>LIHAT KE ATAS,</T><T x={70} y={410} size={95} fill={C.gold} family="Permanent Marker" weight={400}>LIHAT MASA LALU?</T><T x={75} y={475} size={30} fill={C.mint}>CAHAYA ADALAH MESIN WAKTU</T><Scope x={760} y={420} s={1.1} rot={-44}/><Stars t={1.2}/><Narrator x={280} y={956} scale={.8} frame={0} armL={55} armR={-65} happy/><T x="700" y="900" size={31} anchor="middle">8 MNT 20 DTK</T><T x="700" y="950" size={27} anchor="middle">MATAHARI KE BUMI</T><Label text="ILUSTRASI KONSEPTUAL" y={1290}/></svg>}
 const raster=(element:React.ReactElement)=>Buffer.from(new Resvg(renderToStaticMarkup(element),{font:{fontFiles:fonts,loadSystemFonts:false,defaultFontFamily:'Archivo SemiBold'}}).render().asPng());
 const png=(t:number)=>raster(<Artwork time={t}/>);
 async function main(){if(process.argv.includes('--stills')){const times=[0,...timeline.map((s:any)=>s.start+(s.end-s.start)*.48),...timeline.map((s:any)=>s.start+(s.end-s.start)*.68)];times.forEach((t:number,i:number)=>fs.writeFileSync(path.join(dir,`qa-sample-${String(i).padStart(2,'0')}.png`),png(t)));fs.writeFileSync(path.join(dir,'teleskop-thumbnail.png'),raster(<Thumbnail/>));fs.writeFileSync(path.join(dir,'teleskop-poster-4x5.png'),raster(<Poster/>));console.log(JSON.stringify({stills:times.map((t:number)=>+t.toFixed(3))}));return;}

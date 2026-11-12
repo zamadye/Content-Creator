@@ -60,13 +60,15 @@ Aturan pemakaian: di naskah dipakai TERJEMAHAN bebas yang setia, dengan penyebut
 - Angka kerugian modern selain $725 miliar (2007) / "lebih dari triliunan versi terbaru" — pilih SATU: $725 miliar (dolar 2007) dengan penjelasan.
 - Motif/pikiran/dilog Stanford atau warga — hanya tindakan yang tercatat (datang dengan perahu; legislatif memilih pindah).
 
-## 5. Pertanyaan terbuka sebelum final (cek tahap 3)
+## 5. Cek tahap-3 — SELESAI (11–12 Nov 2026)
 
-1. Verifikasi kelahiran istilah "atmospheric river" (Newell dkk., ±1990-an) sebelum dipakai sebagai beat twist.
-2. Rentang korban jiwa: cari satu sumber kajian sejarah yang menjelaskan kenapa rentangnya selebar itu (catatan pribumi tak dihitung) — untuk kalimat ketidakpastian yang lebih kuat.
-3. Angka ternak: satu sumber kajian (Jelinek 1998/1999, California History) kalau bisa diakses — untuk memantapkan "sekitar seperempat".
-4. Tanggal persis pemindahan ibu kota (23 vs 24 Jan) — pakai "akhir Januari" di naskah; cukup.
-5. Status salju: "salju November–Desember tak biasa banyak lalu dicairkan badai hangat Januari" — dua sumber populer sepakat; cari sumber ilmiah sekunder (Dettinger & Ingram 2013) bila sempat.
+1. **Istilah "atmospheric river"** ✓ TERVERIFIKASI: Newell, Newell, Zhu & Scott, "Tropospheric Rivers? – A Pilot Study", *Geophysical Research Letters* 19(24), 1992 (diciptakan untuk menjelaskan transport uap yang menyeret CO ke lintang tinggi); Newell & Zhu 1994 memopulerkan "atmospheric rivers". Definisi formal baru 2015. → naskah S19 memakai "1992 — 130 tahun setelah banjir" (1862+130=1992 ✓).
+2. **Rentang korban jiwa** ✓ DITANGANI DENGAN LABEL: Wikipedia kini mencantumkan ">4.000 (≈1% penduduk)"; EarthDate "≥21 (catatan kontemporer)". Tidak ada sumber yang memberi penjelasan eksplisit tentang korban tak tercatat — jadi naskah TIDAK menambahkan penjelasan spekulatif; cukup menyebut ketidakpastian.
+3. **Angka ternak** ✓ TERPECAHKAN: Wikipedia (bagian Economic impact): "One-quarter of California's estimated 800,000 cattle were killed, accelerating the end of the cattle-based ranchero society" → **200.000 dari ±800.000 = ¼**. Angka Turlock ("800.000 tenggelam") adalah outlier/keliru. Naskah memakai 200 ribu dari 800 ribu.
+4. **Tanggal pemindahan ibu kota** ✓ cukup "akhir Januari" di naskah (sumber: 23 vs 24 Jan; sidang pindah dipilih 11 Jan, bersidang di SF dari akhir Jan, ~6 bulan per EarthDate). Naskah S21 kini "sekitar enam bulan San Francisco menjadi rumah pemerintahan" + klaim unik "satu-satunya negara bagian..." DIHAPUS (tak terverifikasi).
+5. **Salju dicairkan badai hangat** ✓ didukung banyak sumber sekunder (Turlock, Meteo24News: "Sierra experienced heavy snowfall, which later melted due to additional rainfall and warm temperatures"); label di naskah tetap ada pada kalimat kekeringan. Sumber akademik (Dettinger & Ingram 2013) belum diakses langsung — status: LIKELY, cukup untuk narasi tanpa angka.
+
+**Revisi naskah dari audit kalimat** (13 koreksi, rincian di `audit-kalimat.md`): telegraf/koran (klaim tak terverifikasi) dihapus; "orang terpenting"→"gubernur barunya"; etimologi Mojave dihapus; angka ternak final; klaim unik ibu kota dihapus; batas "paling kering tercatat" diperketat; AR 1992 ditambahkan.
 
 ## 6. Sumber terdaftar
 

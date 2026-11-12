@@ -19,13 +19,13 @@
 [OBJEK] perahu dayung · papan nama jalan setengah tenggelam · atap gedung legislatif
 VO:
 - Januari 1862. Ibu kota California tenggelam tiga meter.
-- Dan orang terpenting di kota ini datang untuk dilantik — mendayung.
+- Dan gubernur barunya datang untuk dilantik — mendayung.
 
 ### S2 — Cut pertanyaan (HOST terakhir, lalu ilustrasi penuh)
 [VISUAL] Kamera ilustrasi zoom ke perahu tunggal menuju gedung; Host fade-out. Label kecil: "rekonstruksi ilustrasi — berdasarkan catatan sejarah".
 [OBJEK] perahu · gedung legislatif · hujan
 VO:
-- Bukan dia yang aneh. Anehnya kota ini.
+- Perahunya bukan yang aneh. Yang aneh: ibu kota negara bagian terendam.
 - Kok ibu kota bisa jadi laut?
 
 ## GERAK 2 — ORIENTASI
@@ -34,14 +34,14 @@ VO:
 [VISUAL] Peta Amerika 1861; zoom California; bintang emas kecil di Sierra; garis "ibu kota: Sacramento (1854)".
 [OBJEK] peta · bintang emas · garis ibu kota
 VO:
-- California saat itu masih kanak-kanak: jadi negara bagian baru sebelas tahun, panas karena emas.
+- California saat itu masih kanak-kanak: masuk AS baru sebelas tahun, dan demam emas masih hangat.
 - Ibu kotanya, Sacramento, duduk di pertemuan dua sungai — tempat yang murah hati tapi licin.
 
 ### S4 — Dua dekade kering
 [VISUAL] Transisi peta → tanah retak; rumput kering; angin debu; keranjang jerami.
 [OBJEK] tanah retak · keranjang jerami
 VO:
-- Sepuluh tahun sebelumnya, hampir tidak turun apa-apa.*
+- Bertahun-tahun sebelumnya, hujan yang berarti hampir tidak turun.*
 - Para peternak merindukan hujan. Mereka minta sedikit —
 - dan langit menjawab seumur hidup.
 
@@ -59,7 +59,7 @@ VO:
 [OBJEK] dermaga · perabot · levee tanah
 VO:
 - 9 Desember, Sacramento terendam pertama kali.
-- Orang menyebutnya banjir musiman: "nanti juga turun." Air memang turun.
+- Kedengarannya seperti banjir musiman: nanti juga turun. Air memang turun sesaat.
 - Lalu, malam Natal, langit membuka lagi.
 
 ## GERAK 4 — USAHA & HAMBATAN
@@ -100,8 +100,8 @@ VO:
 [VISUAL] Jalan K Street jadi selat; perahu-perahu mengangkut orang; tanda toko setengah terendam; koran dicetak di lantai atas.
 [OBJEK] tanda toko · perahu · mesin cetak
 VO:
-- Jalan-jalan jadi selat. Satu-satunya transport: perahu.
-- Toko tutup. Telegraf mati. Koran dicetak di lantai atas gedungnya sendiri.
+- Jalan-jalan jadi selat. Satu-satunya transportasi: perahu.
+- Dan kota ini belum tahu: sebagian besarnya tidak akan kering selama hampir tiga bulan.
 
 ### S12 — Pelantikan dengan perahu
 [VISUAL] Kembali ke adegan S1, kini lebih dekat: perahu kecil mendekat ke gedung; orang berjas basah; label: "menurut berbagai catatan".
@@ -134,9 +134,8 @@ VO:
 [VISUAL] Irisan lembah: air 30 kaki di titik dalam; atap rumah di atas air; perahu melewati puncak pohon.
 [OBJEK] atap · puncak pohon · tongkang
 VO:
-- Di titik terdalam, air mencapai sembilan meter.
-- Perahu melewati puncak pohon. Rumah hanya terlihat atapnya.
-- Yang tidak sempat keluar, tidak ada kabar. Berhari-hari.
+- Di titik terdalam, air mencapai sembilan meter — kira-kira atap rumah dua lantai.
+- Di banyak tempat, yang tampak hanya atap. Berhari-hari, satu-satunya jalan adalah perahu.
 
 ### S16 — Bergeser ke selatan
 [VISUAL] Peta geser ke California Selatan; hujan terus di Los Angeles; danau baru di gurun Mojave; ternak bergerombol di tanah tinggi.
@@ -144,14 +143,14 @@ VO:
 VO:
 - Februari dekat, giliran California Selatan.
 - Los Angeles: hujan tanpa henti 28 hari. "Satu desa utuh hancur," tulis Brewer.
-- Danau terbentuk di gurun Mojave — gurun yang berasal dari kata kering.
+- Danau terbentuk di gurun Mojave — di padang yang seharusnya kering.
 
 ### S17 — Ternak, dan orang-orang
 [VISUAL] Padang basah dengan ternak tercecer; siluet-siluet di tanah tinggi; kamera perlahan naik ke langit kelabu.
 [OBJEK] ternak tercecer · tanah tinggi · langit kelabu
 VO:
-- Sapi tidak bisa berlari di lumpur. Ratusan ribu — mungkin 800 ribu — tenggelam berdiri.*
-- Itu kira-kira seperempat ternak seluruh negara bagian.
+- Sapi tidak bisa berlari di lumpur. Sekitar 200 ribu tenggelam berdiri.*
+- Dari kira-kira 800 ribu ternak di California — seperempatnya, hilang dalam berminggu-minggu.
 - Korban jiwa sampai hari ini tak ada angka pastinya:
 - catatan resmi menyebut sedikitnya belasan; estilasi modern mencapai ribuan — banyak yang tidak pernah dicatat.*
 
@@ -169,7 +168,8 @@ VO:
 [VISUAL] Peta modern: kolom uap tipis dan panjang dari Pasifik ke California; satelit; skala "ratusan mil panjang, puluhan mil lebar".
 [OBJEK] satelit · kolom uap · skala
 VO:
-- Jawabannya baru punya nama jauh setelah itu: atmospheric river.
+- Jawabannya baru punya nama pada 1992 — 130 tahun setelah banjir itu.
+- Dua peneliti, Reginald Newell dan Yong Zhu, menyebutnya: atmospheric river. Sungai di langit.
 - Sungai di langit: pita uap air selebar puluhan kilometer, panjangnya ratusan,
 - mengangkut air dari tropis, lalu membukanya seperti keran.
 - Rangkaian sepuluh lebih badai Pasifik dalam enam minggu — satu persatu, tanpa jeda.
@@ -190,7 +190,7 @@ VO:
 VO:
 - Ibu kota menyerah sementara. Akhir Januari, legislatif memilih pindah ke San Francisco.
 - Hasil pemungutan suara: 20 lawan 13. Sewa gedung: 4.047 dolar.
-- California menjadi satu-satunya negara bagian yang ibu kotanya pernah mengungsi karena air.
+- Selama sekitar enam bulan, San Francisco menjadi rumah pemerintahan California.
 
 ### S22 — Kas kosong
 [VISUAL] Meja kas negara: kotak hampir kosong; lembar tagihan; stempel "BELUM DIBAYAR".
@@ -222,7 +222,7 @@ VO:
 [OBJEK] garis waktu · tanah retak · ikon ternak
 VO:
 - Dan langit belum selesai mengajar.
-- Setelah banjir besar, datang kekeringan 1862–64 — tahun-tahun paling kering yang tercatat.
+- Setelah banjir besar, datang kekeringan beruntun 1862–64, ditutup musim kemarau yang tercatat luar biasa.*
 - Ternak yang selamat dari air, mati karena tidak ada rumput.
 - Industri rancho — budaya ternak besar California — tidak pernah bangkit lagi.
 
@@ -239,7 +239,7 @@ VO:
 [OBJEK] peta model · angka · ikon ahli
 VO:
 - 2011, 117 ahli pimpinan USGS mensimulasikan ulangannya: skenario "ARkStorm".
-- Kerugian yang dihitung: 725 miliar dolar — lebih mahal dari skenario gempa besar mana pun di California.
+- Kerugian yang dihitung: 725 miliar dolar (nilai 2007) — perkiraannya lebih besar daripada skenario gempa besar California.
 - Dan studi 2022 di jurnal Science Advances menemukan hal yang lebih jujur:
 - karena pemanasan, risiko badai tipe ini SUDAH berlipat dua dibanding seratus tahun lalu.
 

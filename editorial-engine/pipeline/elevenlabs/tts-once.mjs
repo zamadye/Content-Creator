@@ -15,14 +15,15 @@ const VOICE_NAME = process.argv[4] || 'Zephlyn';
 const MODEL = 'eleven_multilingual_v2';
 const API = 'https://api.elevenlabs.io';
 const key = process.env.ELEVENLABS_API_KEY;
+const fail = (msg) => { console.log(`::error::${msg}`); console.error(msg); };
 if (!key) {
-  console.error('FAIL: ELEVENLABS_API_KEY not set (checked fallback secret names in the workflow).');
+  fail('FAIL: ELEVENLABS_API_KEY not set (checked fallback secret names in the workflow).');
   process.exit(2);
 }
 const episode = JSON.parse(fs.readFileSync(path.join(ROOT, SCRIPT), 'utf8'));
 const text = episode.fullTextTTS;
-if (!text || text.length < 200) { console.error('FAIL: script has no fullTextTTS'); process.exit(2); }
-if (text.length > 4500) { console.error(`FAIL: text too long for one request: ${text.length}`); process.exit(2); }
+if (!text || text.length < 200) { fail('FAIL: script has no fullTextTTS'); process.exit(2); }
+if (text.length > 4500) { fail(`FAIL: text too long for one request: ${text.length}`); process.exit(2); }
 
 async function api(url, opts) {
   const res = await fetch(url, opts);
@@ -38,7 +39,7 @@ const voicesRes = await api(`${API}/v1/voices`, {headers: {'xi-api-key': key}});
 const voices = (await voicesRes.json()).voices || [];
 const match = voices.find(v => v.name && v.name.toLowerCase() === VOICE_NAME.toLowerCase());
 if (!match) {
-  console.error(`FAIL: voice "${VOICE_NAME}" not found. Available names: ${voices.map(v => v.name).join(', ')}`);
+  fail(`FAIL: voice "${VOICE_NAME}" not found. Available names: ${voices.map(v => v.name).join(', ')}`);
   process.exit(3);
 }
 console.log(JSON.stringify({step: 'voice-resolved', name: match.name, voiceId: match.voice_id, category: match.category || null}));
@@ -55,7 +56,7 @@ const ttsRes = await api(`${API}/v1/text-to-speech/${match.voice_id}?output_form
   body: JSON.stringify(body)
 });
 const buf = Buffer.from(await ttsRes.arrayBuffer());
-if (buf.length < 10000) { console.error(`FAIL: suspiciously small audio (${buf.length} B)`); process.exit(4); }
+if (buf.length < 10000) { fail(`FAIL: suspiciously small audio (${buf.length} B)`); process.exit(4); }
 fs.mkdirSync(path.dirname(path.join(ROOT, OUT)), {recursive: true});
 fs.writeFileSync(path.join(ROOT, OUT), buf);
 const out = {

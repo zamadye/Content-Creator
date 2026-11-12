@@ -7,6 +7,7 @@
   "scripts": {
     "fonts": "node pipeline/prepare-fonts.mjs",
     "build:hiu": "bash pipeline/hiu-sebelum-hutan-2026/build.sh",
+    "build:teleskop": "bash pipeline/teleskop-2026-11-12/build.sh",
     "build:antartika": "bash pipeline/interactive-antartika-v2/build.sh",
     "test": "node --test pipeline/tests/*.test.mjs pipeline/schedule-shark-1900/test-runner.mjs pipeline/publish-antartika/test-runner.mjs pipeline/coverr-transfer/test-transfer.mjs pipeline/drive-relay/test-relay.mjs",
     "test:python": "python3 -m unittest pipeline/test_coverr_search.py pipeline/coverr-transfer/test-search-hq.py",

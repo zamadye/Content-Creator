@@ -41,18 +41,27 @@ async function main() {
   if (!text || text.length < 200) { fail('FAIL: script has no fullTextTTS'); process.exit(2); }
   if (text.length > 4500) { fail(`FAIL: text too long for one request: ${text.length}`); process.exit(2); }
 
-  // 1) Resolve the voice by NAME (user asked: use voices -> Zephlyn).
-  const voicesRes = await api(`${API}/v1/voices`, {headers: {'xi-api-key': key}});
-  const voices = (await voicesRes.json()).voices || [];
-  const match = voices.find(v => v.name && v.name.toLowerCase() === VOICE_NAME.toLowerCase());
-  if (!match) {
-    fail(`FAIL: voice "${VOICE_NAME}" not found. Available: ${voices.map(v => v.name).join(', ').slice(0, 800)}`);
-    process.exit(3);
+  // 1) Resolve the voice: explicit VOICE_ID wins (no voices_read permission
+  // needed); otherwise resolve by NAME via GET /v1/voices.
+  const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || '';
+  let voiceId = '', voiceName = VOICE_NAME;
+  if (VOICE_ID) {
+    voiceId = VOICE_ID;
+    console.log(JSON.stringify({step: 'voice-id-direct', voiceId}));
+  } else {
+    const voicesRes = await api(`${API}/v1/voices`, {headers: {'xi-api-key': key}});
+    const voices = (await voicesRes.json()).voices || [];
+    const match = voices.find(v => v.name && v.name.toLowerCase() === VOICE_NAME.toLowerCase());
+    if (!match) {
+      fail(`FAIL: voice "${VOICE_NAME}" not found. Available: ${voices.map(v => v.name).join(', ').slice(0, 800)}`);
+      process.exit(3);
+    }
+    voiceId = match.voice_id; voiceName = match.name;
+    console.log(JSON.stringify({step: 'voice-resolved', name: match.name, voiceId: match.voice_id, category: match.category || null}));
   }
-  console.log(JSON.stringify({step: 'voice-resolved', name: match.name, voiceId: match.voice_id, category: match.category || null}));
 
   // 2) Render the script.
-  const ttsRes = await api(`${API}/v1/text-to-speech/${match.voice_id}?output_format=mp3_44100_128`, {
+  const ttsRes = await api(`${API}/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`, {
     method: 'POST',
     headers: {'xi-api-key': key, 'content-type': 'application/json', 'accept': 'audio/mpeg'},
     body: JSON.stringify({text, model_id: MODEL, voice_settings: {stability: 0.42, similarity_boost: 0.8, style: 0.2, use_speaker_boost: true}})
@@ -63,7 +72,7 @@ async function main() {
   fs.writeFileSync(path.join(ROOT, OUT), buf);
   const out = {
     ok: true,
-    voice: {name: match.name, voiceId: match.voice_id},
+    voice: {name: voiceName, voiceId},
     model: MODEL,
     textChars: text.length,
     audioBytes: buf.length,

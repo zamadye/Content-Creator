@@ -36,7 +36,7 @@ jobs:
           node-version: '20'
       - name: Render VO via ElevenLabs
         env:
-          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY || secrets.ELEVEN_LABS_API_KEY || secrets.ELEVENLABS_KEY || secrets.ELEVEN_LABS_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENTLABS_API_KEY || secrets.ELEVENLABS_API_KEY || secrets.ELEVEN_LABS_API_KEY || secrets.ELEVENLABS_KEY || secrets.ELEVEN_LABS_KEY }}
         run: node editorial-engine/pipeline/elevenlabs/tts-once.mjs "${{ github.event.inputs.script }}" "${{ github.event.inputs.out }}" "${{ github.event.inputs.voice }}"
       - name: Commit the VO back to the branch
         run: |

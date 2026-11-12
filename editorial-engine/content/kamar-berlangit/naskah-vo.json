@@ -64,7 +64,7 @@
     }
   ],
   "ctaVisualOnly": "ikuti knot theory (pil visual di adegan penutup; VO TIDAK mengucapkannya — pola sama dengan Teleskop)",
-  "ttsRequest": "VO dirender via ElevenLabs (voice Zephlyn, model eleven_multilingual_v2) oleh workflow elevenlabs-tts-once; hasil mp3 di-commit ke assets/audio/episode-kamar-berlangit-2026/ oleh runner. Suara ini jadi identitas kanal untuk episode berikutnya (keputusan pengguna 2026-11-12).",
+  "ttsRequest": "VO dirender via ElevenLabs (voice Zephlyn, model eleven_multilingual_v2) oleh workflow elevenlabs-tts-once; hasil mp3 di-commit ke assets/audio/episode-kamar-berlangit-2026/ oleh runner. Suara ini jadi identitas kanal untuk episode berikutnya (keputusan pengguna 2026-11-12). Riwayat: run 43323502005 gagal 14s (log tak terbaca; runner dipatch agar error muncul sebagai annotation).",
   "facts": [
     "Ribuan bintang terlihat di langit gelap sempurna vs puluhan di kota besar (katalog bintang terang ±9.000 seluruh langit; di kota biasanya puluhan) — angka dikonservatifkan jadi 'ribuan' vs 'dua puluh, tiga puluh'.",
     "80% penduduk Amerika Utara tidak dapat melihat Bima Sakti; ~1/3 umat manusia — Falchi dkk. 2016, 'New World Atlas of Artificial Night Sky Brightness', Science Advances (dikutip luas, cek ulang saat produksi).",

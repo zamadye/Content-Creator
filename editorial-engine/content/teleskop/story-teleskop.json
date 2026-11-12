@@ -1,0 +1,79 @@
+{
+  "id": "teleskop-2026-11-12",
+  "status": "Episode baru Dunia Kebalik dari input pengguna (KNOT THEORY/TELESKOP); penerbitan butuh QA dan izin terpisah.",
+  "title": "Lihat ke Atas, Lihat Masa Lalu?",
+  "timezone": "Asia/Jakarta",
+  "plannedSlot": "belum ditentukan (rencana, bukan bukti jadwal)",
+  "voiceId": "voice-05 (VO master satu file dari pengguna, tanpa perubahan tempo)",
+  "reference": "Dunia Kebalik; rig Host Danau/Antartika/Hiu yang sama; gaya konsisten dengan Shorts yang sudah terbit (danau di laut, gurun Antartika, dst).",
+  "sources": [
+    {"url": "https://www.yahoo.com/news/articles/previously-unimaginable-james-webb-telescope-195514002.html", "supports": "JWST mengonfirmasi MoM-z14, galaksi terjauh yang pernah diamati, tampak 280 juta tahun setelah Big Bang; redshift z=14.44; studi di arXiv 23 Mei 2025, diterbitkan Open Journal of Astrophysics Januari 2026." },
+    {"url": "https://www.techexplorist.com/webb-detects-bright-galaxy-280-million-years-big-bang/101967/", "supports": "Cahaya MoM-z14 menempuh sekitar 13,5 miliar tahun dari umur alam semesta 13,8 miliar tahun; NIRSpec JWST yang mengonfirmasi redshift." },
+    {"url": "https://www.sciencenewstoday.org/how-long-does-light-take-to-reach-earth", "supports": "Cahaya Matahari menempuh sekitar 8 menit 20 detik (≈500 detik) dari 1 AU ke Bumi." },
+    {"url": "https://www.jameswebbdiscovery.com/discoveries/james-webb-space-telescope-confirms-mom-z14-farthest-galaxy-ever-seen", "supports": "MoM-z14 pada z=14.44; alam semesta saat itu kurang dari 2% usia sekarang." }
+  ],
+  "factNotes": [
+    "Narasi memakai 'NASA mengumumkan konfirmasi' — catatan akurat: konfirmasi spektroskopik oleh JWST (teleskop NASA), tim Naidu dkk.; diterbitkan Januari 2026. Narasi pengguna dipertahankan verbatim; maknanya sesuai.",
+    "Nama galaksi di naskah tertulis 'MOMZ14' (verbatim pengguna); nama resmi MoM-z14. Subtitle mengikuti naskah; overlay memakai MOMZ14 agar konsisten.",
+    "Semua visual ilustrasi/skema, bukan foto; latar dibuat AI; garis waktu tidak berskala; tanpa logo resmi NASA/JWST.",
+    "Penutup 'ikuti knot theory' hanya TEKS (VO pengguna tidak mengucapkannya) — keputusan closing perlu konfirmasi pengguna."
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "heading": ["LIHAT KE ATAS,", "LIHAT MASA LALU"],
+      "sub": "bintang yang kamu lihat adalah masa lalunya",
+      "narration": "Pernah nggak lu kepikiran? Pas lagi ngeliat bintang di langit malam, sebenarnya lu itu kagak lagi ngeliat keadaan bintang tersebut sekarang.",
+      "objectMap": ["langit bintang dengan galaksi samar", "Host memegang teleskop kecil mengarah ke atas", "jejak cahaya bintang yang tiba"],
+      "action": "Host di bukit menengadah memegang teleskop; bintang emas berkedip; jejak cahaya turun ke teleskop"
+    },
+    {
+      "id": "S02",
+      "heading": ["BAHKAN MATAHARI", "TERTUNDA 8 MENIT"],
+      "sub": "cahaya butuh waktu menempuh jarak",
+      "narration": "Lu justru lagi ngeliat masa lalunya. Dan ini bukan cerita fiksi ilmiah ya. Ada alasan ilmiah yang sederhana banget di balik semua ini. Cahaya itu butuh waktu buat sampai ke mata kita. Bahkan cahaya matahari aja butuh waktu sekitar 8 menit 20 detik buat nyampe ke bumi.",
+      "objectMap": ["Matahari emas bersinar", "Bumi teal kecil", "jalur cahaya putus-putus Matahari-Bumi", "chip 8 MNT 20 DTK"],
+      "action": "Jalur cahaya merambat dari Matahari ke Bumi; chip waktu menyala; Host menunjuk ke atas"
+    },
+    {
+      "id": "S03",
+      "heading": ["YANG LEBIH GILA:", "ANDROMEDA"],
+      "sub": "2,5 juta tahun cahaya dari bumi",
+      "narration": "Artinya, setiap kali lu ngeliat matahari, yang sebenarnya lu liat adalah keadaan matahari 8 menit yang lalu. Nah, sekarang coba bayangin sesuatu yang jauh lebih gila. Ada sebuah galaksi yang jaraknya sekitar 2,5 juta tahun cahaya dari bumi. Namanya Andromeda.",
+      "objectMap": ["galaksi spiral Andromeda", "chip 2,5 JUTA TAHUN CAHAYA", "Host di panel kiri"],
+      "action": "Galaksi berputar sangat pelan (slow zoom); chip jarak menyala; Host memperkenalkan Andromeda"
+    },
+    {
+      "id": "S04",
+      "heading": ["BERANGKAT", "SEBELUM KITA ADA"],
+      "sub": "cahaya yang tiba malam ini adalah foto lama",
+      "narration": "Cahaya dari galaksi ini butuh waktu sekitar 2,5 juta tahun buat nyampe ke mata kita. Jadi, cahaya yang sekarang kita lihat itu sebenarnya berangkat dari sana ketika nenek moyang manusia modern bahkan belum muncul seperti sekarang.",
+      "objectMap": ["panah waktu BERANGKAT→TIBA", "siluet nenek moyang (ikon)", "chip 2,5 JUTA TAHUN"],
+      "action": "Garis waktu cahaya berangkat→tiba; ikon masa lalu menyala; Host menjelaskan"
+    },
+    {
+      "id": "S05",
+      "heading": ["MAKIN JAUH =", "MAKIN MASA LALU"],
+      "sub": "James Webb menangkap inframerah redup",
+      "narration": "Dan ada satu hal yang lebih menarik lagi. Makin jauh kita ngeliat ke luar angkasa, makin jauh juga kita ngeliat ke masa lalu. Nah, di sinilah James Webb Space Telescope punya peran yang luar biasa. Teleskop ini dirancang buat menangkap cahaya inframerah yang sangat redup dari objek-objek yang jaraknya luar biasa jauh. Termasuk galaksi-galaksi yang terbentuk di masa awal alam semesta.",
+      "objectMap": ["cermin heksagonal emas JWST (ikon)", "berkas inframerah redup", "galaksi-galaksi kecil masa awal", "chip INFRAMERAH"],
+      "action": "Cermin JWST tergambar; berkas inframerah masuk; galaksi kecil menyala satu per satu"
+    },
+    {
+      "id": "S06",
+      "heading": ["MOMZ14:", "BAYI SEMESTA"],
+      "sub": "dikonfirmasi Januari 2026 — 280 juta tahun setelah Big Bang",
+      "narration": "Bahkan, pada Januari 2026, NASA mengumumkan konfirmasi sebuah galaksi bernama MOMZ14. Galaksi ini kita lihat sebagaimana keadaannya ketika alam semesta baru berusia sekitar 280 juta tahun setelah Big Bang. Coba pikirin baik-baik. Alam semesta kita sekarang diperkirakan berusia sekitar 13,8 miliar tahun. Tapi, cahaya dari galaksi tersebut sudah menempuh perjalanan lebih dari 13 miliar tahun sebelum akhirnya sampai ke teleskop manusia.",
+      "objectMap": ["penggaris waktu Big Bang→SEKARANG", "penanda 280 JUTA TAHUN", "kartu galaksi MOMZ14", "chip LEBIH DARI 13 MILIAR TAHUN"],
+      "action": "Penggaris 13,8 miliar tahun tergambar; penanda 280 juta tahun menyala; cahaya mengalir dari ujung kiri ke teleskop"
+    },
+    {
+      "id": "S07",
+      "heading": ["KACA WAKTU", "DI LANGIT MALAM"],
+      "sub": "cahaya yang berangkat dulu, tiba hari ini",
+      "narration": "Artinya, lewat cahaya yang kita tangkap hari ini, kita bisa mempelajari kondisi alam semesta ketika usianya masih sangat muda. Jadi, ada sesuatu yang menarik dari semua ini. Ketika lu ngeliat semakin jauh ke luar angkasa, sebenarnya lu juga lagi ngeliat semakin jauh ke masa lalu. Dan mungkin, hal paling luar biasa dari alam semesta bukan cuma seberapa luas ukurannya, tapi kenyataan bahwa cahaya yang berangkat miliaran tahun lalu masih bisa tiba di hadapan kita hari ini.",
+      "objectMap": ["langit bintang penuh", "bingkai foto SEMESTA MUDA", "pil teks ikuti knot theory"],
+      "action": "Bintang berkedip; bingkai foto semesta muda menampilkan deep field; pil teks penutup muncul setelah payoff"
+    }
+  ]
+}

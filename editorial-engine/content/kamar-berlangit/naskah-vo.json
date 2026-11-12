@@ -1,0 +1,78 @@
+{
+  "id": "kamar-berlangit-2026-11-12",
+  "episode": "Kamar Berlangit (Dunia Kebalik) — episode soft-selling pertama",
+  "status": "NASKAH untuk VO ElevenLabs (voice Zephlyn); belum dirender; belum ada persetujuan publikasi",
+  "format": "Storytelling 7 beat mengikuti episode Teleskop (lihat brainstorm-softselling/README.md)",
+  "product": "Proyektor langit astronaut (kategori; VO menyebut kategori, bukan merek) — mode: alat tokoh di ending + CTA companion",
+  "vo": {
+    "engine": "ElevenLabs API via GitHub Actions (api.elevenlabs.io tidak bisa diakses dari sandbox)",
+    "voice": "Zephlyn — Calm, Neutral and Measured (dicari via GET /v1/voices, match nama)",
+    "model": "eleven_multilingual_v2",
+    "identityDecision": "User 2026-11-12: suara ini jadi identitas kanal untuk episode berikutnya (clone persis dari rekaman Teleskop tidak tersedia di toolset ini)"
+  },
+  "styleNotes": [
+    "Gaya Betawi santai ala naskah Teleskop: sapaan 'lu', 'nggak/kagak', 'banget', 'nyampe', 'ngeliat', 'nengadah'.",
+    "Kata penghubung khas: 'Nah, …', 'coba pikirin baik-baik', 'Artinya, …', penutup reflektif 'Dan mungkin, …'.",
+    "Tulis angka dengan kata agar TTS melafalkan benar: 'empat koma dua tahun cahaya', 'delapan puluh persen'.",
+    "VO TIDAK menyebut merek, harga, atau ajakan beli — penyematan lewat konteks cerita; link afiliasi hanya di caption/firstComment."
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "label": "Hook pertanyaan personal",
+      "text": "Pernah nggak lu kepikiran? Langit malam di kota itu kayaknya isinya dua puluh, tiga puluh bintang doang."
+    },
+    {
+      "id": "B2",
+      "label": "Framing kejujuran",
+      "text": "Dan ini bukan karena bintangnya yang ilang ya. Bintangnya tetep ada di tempat. Yang berubah itu langitnya."
+    },
+    {
+      "id": "B3",
+      "label": "Bukti kecil pertama",
+      "text": "Langit yang beneran gelap bisa nunjukin bintang sampai ribuan sekali nengadah. Tapi di kota besar, lampu jalan, gedung, sama neon iklan bikin cahayanya naik ke atmosfer, mantul-mantul di uap air, terus balik lagi ke mata kita. Akibatnya, mata lu cuma kebagian bintang yang paling terang doang."
+    },
+    {
+      "id": "B4",
+      "label": "Artinya (anchor kecil)",
+      "text": "Artinya, yang ngabisin langit malam lu itu bukan awan. Tapi cahaya yang salah alamat."
+    },
+    {
+      "id": "B5",
+      "label": "Eskalasi jauh lebih gila",
+      "text": "Nah, sekarang coba bayangin sesuatu yang lebih gila. Ada penelitian yang ngitung, sekitar delapan puluh persen penduduk Amerika Utara udah nggak bisa liat Bima Sakti dari tempat tinggal mereka, cuma gara-gara polusi cahaya. Sepertiga penduduk bumi juga kena nasib yang sama. Bintang yang udah nemani manusia sejak zaman gua purba, sekarang ilang dari halaman rumah sendiri."
+    },
+    {
+      "id": "B6",
+      "label": "Prinsip + ALAT (soft-sell mulai)",
+      "text": "Dan di sinilah ada satu alat yang menarik. Proyektor langit. Bentuknya kayak astronot kecil, tinggal dinyalain, terus dia nocuh pola bintang ke plafon kamar lu. Jujur ya, dia bukan pengganti langit asli, dan gak bakal bikin lu bisa paham arah mata angin. Tapi buat kamar yang langitnya ditutup lampu kota, dia nunjukin pola bintang sama galaksi yang mulai jarang banget keliatan."
+    },
+    {
+      "id": "B7",
+      "label": "Puncak kontras",
+      "text": "Coba pikirin baik-baik. Bintang terdekat dari bumi, Proxima Centauri, cahayanya butuh waktu sekitar empat koma dua tahun buat nyampe ke mata kita. Jadi setiap malam, langit itu sebenernya nunjukin masa lalu, dari jarak yang dihitung pakai tahun cahaya. Kagak lucu banget kan, sesuatu sejauh itu gratis buat diliat, tapi kita ngelupain gara-gara lampu?"
+    },
+    {
+      "id": "B8",
+      "label": "Payoff reflektif + soft-sell ringan",
+      "text": "Jadi, mungkin malam ini lu bisa coba hal simpel. Matiin lampu kamar lima menit, biarin mata lu adaptasi ke gelap, terus nengadah. Kalau langit di halaman rumah udah gak kasih apa-apa lagi, di situlah proyektor langit punya tempat. Bukan buat ganti bintang, tapi buat balikin kebiasaan nengadah."
+    },
+    {
+      "id": "B9",
+      "label": "Closing reflektif",
+      "text": "Dan mungkin, hal paling aneh dari semua ini: langit paling jelas di kota besar itu bukan yang di atas kita, tapi yang di plafon kamar kita."
+    }
+  ],
+  "ctaVisualOnly": "ikuti knot theory (pil visual di adegan penutup; VO TIDAK mengucapkannya — pola sama dengan Teleskop)",
+  "facts": [
+    "Ribuan bintang terlihat di langit gelap sempurna vs puluhan di kota besar (katalog bintang terang ±9.000 seluruh langit; di kota biasanya puluhan) — angka dikonservatifkan jadi 'ribuan' vs 'dua puluh, tiga puluh'.",
+    "80% penduduk Amerika Utara tidak dapat melihat Bima Sakti; ~1/3 umat manusia — Falchi dkk. 2016, 'New World Atlas of Artificial Night Sky Brightness', Science Advances (dikutip luas, cek ulang saat produksi).",
+    "Proxima Centauri ±4,24 tahun cahaya — nilai baku astronomi.",
+    "Proyektor langit digambarkan jujur sebagai dekorasi suasana, BUKAN alat ilmiah — tidak ada klaim presisi bintang."
+  ],
+  "sources": [
+    {"url": "https://www.science.org/doi/10.1126/sciadv.1600377", "supports": "Falchi dkk. 2016, New World Atlas of Artificial Night Sky Brightness: 80% penduduk Amerika Utara dan lebih dari 1/3 populasi dunia tidak dapat melihat Bima Sakti karena polusi cahaya."},
+    {"url": "https://science.nasa.gov/universe/stars/", "supports": "Bintang terdekat Proxima Centauri ±4,2 tahun cahaya; katalog bintang mata telanjang ±9.000 seluruh langit."}
+  ],
+  "fullTextTTS": "Pernah nggak lu kepikiran? Langit malam di kota itu kayaknya isinya dua puluh, tiga puluh bintang doang.\n\nDan ini bukan karena bintangnya yang ilang ya. Bintangnya tetep ada di tempat. Yang berubah itu langitnya.\n\nLangit yang beneran gelap bisa nunjukin bintang sampai ribuan sekali nengadah. Tapi di kota besar, lampu jalan, gedung, sama neon iklan bikin cahayanya naik ke atmosfer, mantul-mantul di uap air, terus balik lagi ke mata kita. Akibatnya, mata lu cuma kebagian bintang yang paling terang doang.\n\nArtinya, yang ngabisin langit malam lu itu bukan awan. Tapi cahaya yang salah alamat.\n\nNah, sekarang coba bayangin sesuatu yang lebih gila. Ada penelitian yang ngitung, sekitar delapan puluh persen penduduk Amerika Utara udah nggak bisa liat Bima Sakti dari tempat tinggal mereka, cuma gara-gara polusi cahaya. Sepertiga penduduk bumi juga kena nasib yang sama. Bintang yang udah nemani manusia sejak zaman gua purba, sekarang ilang dari halaman rumah sendiri.\n\nDan di sinilah ada satu alat yang menarik. Proyektor langit. Bentuknya kayak astronot kecil, tinggal dinyalain, terus dia nocuh pola bintang ke plafon kamar lu. Jujur ya, dia bukan pengganti langit asli, dan gak bakal bikin lu bisa paham arah mata angin. Tapi buat kamar yang langitnya ditutup lampu kota, dia nunjukin pola bintang sama galaksi yang mulai jarang banget keliatan.\n\nCoba pikirin baik-baik. Bintang terdekat dari bumi, Proxima Centauri, cahayanya butuh waktu sekitar empat koma dua tahun buat nyampe ke mata kita. Jadi setiap malam, langit itu sebenernya nunjukin masa lalu, dari jarak yang dihitung pakai tahun cahaya. Kagak lucu banget kan, sesuatu sejauh itu gratis buat diliat, tapi kita ngelupain gara-gara lampu?\n\nJadi, mungkin malam ini lu bisa coba hal simpel. Matiin lampu kamar lima menit, biarin mata lu adaptasi ke gelap, terus nengadah. Kalau langit di halaman rumah udah gak kasih apa-apa lagi, di situlah proyektor langit punya tempat. Bukan buat ganti bintang, tapi buat balikin kebiasaan nengadah.\n\nDan mungkin, hal paling aneh dari semua ini: langit paling jelas di kota besar itu bukan yang di atas kita, tapi yang di plafon kamar kita."
+}

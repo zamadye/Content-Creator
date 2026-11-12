@@ -1,0 +1,49 @@
+name: elevenlabs-tts-once
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: 'Path to episode script JSON (with fullTextTTS)'
+        required: false
+        default: 'editorial-engine/content/kamar-berlangit/naskah-vo.json'
+      out:
+        description: 'Output MP3 path (relative to repo root)'
+        required: false
+        default: 'editorial-engine/assets/audio/episode-kamar-berlangit-2026/vo-kamar-berlangit.mp3'
+      voice:
+        description: 'ElevenLabs voice NAME to resolve via /v1/voices'
+        required: false
+        default: 'Zephlyn'
+permissions:
+  contents: write
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          token: ${{ github.token }}
+      - name: Use Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Render VO via ElevenLabs
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY || secrets.ELEVEN_LABS_API_KEY || secrets.ELEVENLABS_KEY || secrets.ELEVEN_LABS_KEY }}
+        run: node editorial-engine/pipeline/elevenlabs/tts-once.mjs "${{ github.event.inputs.script }}" "${{ github.event.inputs.out }}" "${{ github.event.inputs.voice }}"
+      - name: Commit the VO back to the branch
+        run: |
+          git config user.name "knot-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add "editorial-engine/assets/audio/"
+          git commit -m "elevenlabs: VO ${{ github.event.inputs.voice }} untuk ${{ github.event.inputs.script }}" || echo "nothing to commit"
+          git push origin HEAD:${{ github.ref }}
+      - name: Save artifact too
+        uses: actions/upload-artifact@v4
+        with:
+          name: vo-mp3
+          path: ${{ github.event.inputs.out }}
+          if-no-files-found: error

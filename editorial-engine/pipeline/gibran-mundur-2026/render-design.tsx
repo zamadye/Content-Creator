@@ -165,17 +165,19 @@ function Frame({n,t}:{n:number;t:number}){
   const label=scene.visualType==='footage'?'PLATE FOOTAGE + MOTION REMOTION':scene.visualType==='mixed'?'FOOTAGE (JIKA ADA) + OBJEK REMOTION':'ANIMASI REMOTION';
   const overlayText=(scene.overlay||scene.visual.slice(0,40)).replaceAll('≠','BUKAN').replaceAll('→','KE');
   const overlayFont=overlayText.length>48?22:overlayText.length>36?26:30;
-  return <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
-    <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stopColor={C.bg}/><stop offset="1" stopColor={C.bg2}/></linearGradient><pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse"><path d="M72 0H0V72" fill="none" stroke={C.teal} strokeOpacity=".15" strokeWidth="1"/></pattern></defs>
-    <rect width="1080" height="1920" fill="url(#b)"/><rect width="1080" height="1920" fill="url(#grid)"/>
-    <circle cx="82" cy="145" r="10" fill={C.gold}/><text x="108" y="154" fill={C.cream} fontSize="25" fontWeight="700" fontFamily="Archivo">KNOT THEORY / DUNIA KEBALIK</text>
-    <rect x="64" y="196" width="520" height="42" rx="8" fill="#041219" opacity=".9"/><T x={324} y={225} size={19}>{label}</T>
-    <text x="74" y="330" fill={C.cream} fontSize="40" fontFamily="Archivo" fontWeight="700">SC{String(n).padStart(2,'0')} · {scene.section.toUpperCase()}</text>
-    <Illustration n={n} t={t}/>
-    <rect x="68" y="1510" width="944" height="158" rx="20" fill="#041219" opacity=".94" stroke={C.teal} strokeWidth="3"/>
-    <text x="540" y="1580" fill={C.white} fontSize={overlayFont} textAnchor="middle" fontFamily="Archivo" fontWeight="700">{overlayText}</text>
-    <text x="540" y="1635" fill={C.gold} fontSize="20" textAnchor="middle" fontFamily="Archivo">SUBTITLE SINKRON AUDIO — AKAN DIPASANG SAAT MASTER RENDER</text>
-    <text x="73" y="1855" fill={C.mint} fontSize="20" fontFamily="Archivo">ILUSTRASI · TIDAK MENGGAMBARKAN TOKOH ATAU PERISTIWA NYATA</text>
+  return <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stopColor={C.bg}/><stop offset="1" stopColor={C.bg2}/></linearGradient><pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse"><path d="M72 0H0V72" fill="none" stroke={C.teal} strokeOpacity=".12" strokeWidth="1"/></pattern><radialGradient id="glow"><stop stopColor={C.teal} stopOpacity=".25"/><stop offset="1" stopColor={C.bg} stopOpacity="0"/></radialGradient></defs>
+    <rect width="1920" height="1080" fill="url(#b)"/><rect width="1920" height="1080" fill="url(#grid)"/><ellipse cx="960" cy="555" rx="760" ry="500" fill="url(#glow)"/>
+    <circle cx="78" cy="70" r="10" fill={C.gold}/><text x="105" y="79" fill={C.cream} fontSize="25" fontWeight="700" fontFamily="Archivo">KNOT THEORY / DUNIA KEBALIK</text>
+    <rect x="78" y="112" width="520" height="40" rx="8" fill="#041219" opacity=".9"/><text x="98" y="139" fill={C.mint} fontSize="19" fontWeight="700" fontFamily="Archivo">{label}</text>
+    <text x="78" y="220" fill={C.cream} fontSize="38" fontFamily="Archivo" fontWeight="700">SC{String(n).padStart(2,'0')} · {scene.section.toUpperCase()}</text>
+    <g transform="translate(485 -330) scale(.88)"><Illustration n={n} t={t}/></g>
+    <g opacity=".62"><path d="M80 330h230M1610 330h230M80 765h230M1610 765h230" stroke={C.teal} strokeWidth="3"/><circle cx="170" cy="545" r="75" fill="none" stroke={C.teal} strokeWidth="3"/><circle cx="1750" cy="545" r="75" fill="none" stroke={C.teal} strokeWidth="3"/><text x="170" y="552" fill={C.mint} fontSize="22" textAnchor="middle" fontFamily="Archivo">{String(n).padStart(2,'0')}</text><text x="1750" y="552" fill={C.gold} fontSize="22" textAnchor="middle" fontFamily="Archivo">{Math.floor(scene.start/60)}:{String(Math.floor(scene.start%60)).padStart(2,'0')}</text></g>
+    <rect x="70" y="890" width="1780" height="132" rx="20" fill="#041219" opacity=".96" stroke={C.teal} strokeWidth="3"/>
+    <text x="960" y="946" fill={C.white} fontSize={overlayFont} textAnchor="middle" fontFamily="Archivo" fontWeight="700">{overlayText}</text>
+    <text x="960" y="990" fill={C.gold} fontSize="18" textAnchor="middle" fontFamily="Archivo">SUBTITLE AKAN DISINKRONKAN KE VO · FRAME PREVIEW DESAIN</text>
+    <text x="78" y="1055" fill={C.mint} fontSize="17" fontFamily="Archivo">ILUSTRASI REMOTION · TIDAK MENGGAMBARKAN TOKOH ATAU PERISTIWA NYATA</text>
+    <text x="1842" y="1055" fill={C.mint} fontSize="17" textAnchor="end" fontFamily="Archivo">1920 × 1080 · 16:9</text>
   </svg>;
 }
 async function main(){

@@ -2,11 +2,12 @@
   "id": "gibran-mundur-2026-11-13",
   "title": "Satu Pilar Hilang, Gedung Langsung Roboh?",
   "format": {
-    "width": 1080,
-    "height": 1920,
+    "width": 1920,
+    "height": 1080,
     "fps": 30,
-    "orientation": "vertical",
-    "durationSeconds": 434.991
+    "orientation": "landscape 16:9",
+    "durationSeconds": 434.991,
+    "longForm": true
   },
   "narration": "../../assets/audio/gibran-mundur-2026-11-13/vo-gibran-mundur.mp3",
   "timingSource": "Drive Google Doc Timpstamp Gibran Mundur; scene endpoints from storyboard_gibran_mundur.xlsx. Transcript timing remains an estimate within each broad interval and must be listened through during QA.",

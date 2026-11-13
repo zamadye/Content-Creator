@@ -1,13 +1,13 @@
 # Gibran Mundur — Visual Board + Flow Footage Prompt Pack
 
-**Versi kerja v2 · 13 Nov 2026 · durasi master VO 7:14,991 · kanvas 1080×1920, 30 fps**  
+**Versi kerja v3 · 13 Nov 2026 · durasi master VO 7:14,991 · kanvas 1920×1080 (16:9 landscape), 30 fps**  
 Sumber timing: Google Doc `Timpstamp Gibran Mundur`; struktur scene: `storyboard_gibran_mundur.xlsx`.  
 Tujuan dokumen: rencana produksi yang menempatkan **Remotion sebagai pekerjaan utama** (animasi objek, diagram, transisi, tipografi, dan compositing di dalam kanvas). Flow hanya untuk tiga klip pendukung yang benar-benar memberi nilai visual; bukan pengganti animasi atau editor.
 
 ## Arah visual dan aturan akurasi
 
 - **Gaya:** editorial explainer / ilustrasi teknik, bukan simulasi berita. Latar deep-navy `#071e26`, garis/objek teal `#216d6d`, aksen mint `#abe1c7`, amber `#f2c473`, merah retak `#c75b53`, teks cream `#fff3d9`. Archivo + Permanent Marker; maksimal dua font.
-- **Komposisi vertikal:** brand/sumber kecil di safe area atas; objek utama di tengah 35–70%; subtitle bawah sesuai template kanal; jangan menaruh teks penting di tepi. Visual bergerak nyata dan ada objek spesifik di setiap scene—hindari frame kosong atau sekadar kartu teks.
+- **Komposisi landscape 16:9:** brand/sumber kecil di safe area atas landscape; objek utama di tengah 35–70%, dukung kiri/kanan dengan footage atau diagram sekunder; subtitle bawah sesuai template kanal; jangan menaruh teks penting di tepi. Visual bergerak nyata dan ada objek spesifik di setiap scene—hindari frame kosong atau sekadar kartu teks.
 - **Animasi canvas:** semua node, pilar, retakan, dokumen mockup, jam, diagram, mobil, dan ikon dibuat sebagai SVG/Remotion ber-layer; kamera digital pan/zoom/parallax, reveal bertahap, partikel/garis aliran. Gunakan cut/motion-beat setiap 3–6 detik di dalam rentang scene panjang.
 - **Footage Flow:** klip Flow adalah **visual ilustratif sintetis**, bukan arsip atau bukti lokasi/peristiwa. Pasang label layar `ILUSTRASI` untuk klip generatif. Prompt melarang teks/logo/insignia serta orang yang dapat dikenali; jangan membuat Gibran, Prabowo, hakim, atau pejabat terlihat. Untuk gedung MPR/MK/MA yang benar-benar perlu dikenali, ganti dengan lisensi footage dokumenter resmi yang diverifikasi—jangan menyebut bangunan generik sebagai gedung nyata.
 - **Dokumen:** surat pengunduran diri hanya berupa kertas generik bertanda jelas `ILUSTRASI`, tanpa tiruan kop, tanda tangan, nomor surat, cap, atau kutipan yang tidak bersumber. Jangan menambahkan kutipan langsung yang tidak ada di audio/sumber primer.
@@ -21,13 +21,13 @@ Tujuan dokumen: rencana produksi yang menempatkan **Remotion sebagai pekerjaan u
 
 **Rasio tugas:** sekitar 85–90% animasi Remotion, 10–15% footage. Remotion membangun bentuk, gerak, tipografi, dan compositing; Flow hanya menyediakan tiga plate footage ilustratif: pilar/gedung pembuka (P01), ruang rapat generik yang bisa dipakai sebagai latar untuk dua perspektif (P16), dan mesin mobil untuk analogi (P18). Jangan minta Flow membuat motion graphics, teks, atau montage—semua itu tugas Remotion.
 
-Flow prompts ditulis dalam bahasa Inggris. Setiap prompt menghasilkan satu klip portrait 9:16 berdurasi 5–7 detik, tanpa teks. Semua klip Flow ilustratif, bukan footage peristiwa sebenarnya, dan overlay kanal harus menyebut `ILUSTRASI`. Klip dipotong secukupnya; Remotion tetap menjadi layer foreground/diagram/subtitle/transisi.
+Flow prompts ditulis dalam bahasa Inggris. Setiap prompt menghasilkan satu klip landscape 16:9 (1920×1080) berdurasi 5–7 detik, tanpa teks. Semua klip Flow ilustratif, bukan footage peristiwa sebenarnya, dan overlay kanal harus menyebut `ILUSTRASI`. Klip dipotong secukupnya; Remotion tetap menjadi layer foreground/diagram/subtitle/transisi.
 
 ### SC01 · 00:00–00:09 · Hook gedung berpilar
 **VO:** “Coba bayangin, lo lagi berdiri di depan sebuah gedung raksasa…”  
 **Canvas / Remotion:** 0–3s: low-angle fasad gedung abstrak; kamera naik melewati 3 pilar. 3–6s: skala pilar dibandingkan siluet manusia generik (tanpa ciri/identitas). 6–9s: tilt ke atas, garis-garis struktur menyatu. Hook visual tanpa teks; subtitle saja.  
 **Asset:** Flow clip P01 sebagai background; SVG pilar foreground memberi parallax, supaya bisa lanjut ke animasi scene 2.  
-**Prompt P01:** `Vertical 9:16, 6-second cinematic illustrative shot of a monumental modern civic-style building facade supported by several tall stone columns, viewed from ground level, slow upward tilt, late-afternoon side light, subtle dust motes, refined documentary-explainer look, realistic materials but clearly generic architecture, no identifiable real-world landmark, no people, no flags, no seals, no signs, no logos, no text, no dramatic collapse, stable camera motion.`
+**Prompt P01:** `Horizontal 16:9 landscape, 1920x1080, 6-second cinematic illustrative shot of a monumental modern civic-style building facade supported by several tall stone columns, viewed from ground level, slow upward tilt, late-afternoon side light, subtle dust motes, refined documentary-explainer look, realistic materials but clearly generic architecture, no identifiable real-world landmark, no people, no flags, no seals, no signs, no logos, no text, no dramatic collapse, stable camera motion.`
 
 ### SC02 · 00:09–00:25 · Satu pilar hilang, gedung belum roboh
 **VO:** gedung saling menopang; kalau satu pilar hilang, apakah langsung roboh? “Belum tentu.”  
@@ -104,7 +104,7 @@ Flow prompts ditulis dalam bahasa Inggris. Setiap prompt menghasilkan satu klip 
 ### SC16 · 04:07–04:27 · Perspektif A: mundur meredakan konflik
 **VO:** ada yang melihat mundur sebagai tanggung jawab/meredakan konflik agar pemerintahan bekerja lagi.  
 **Canvas / Remotion:** gelombang konflik divisualkan sebagai garis berombak yang mereda; meeting table generik dari atas, kursi-kursi kosong/tanpa tokoh; indikator stabil turun dari amber ke mint. Hindari menggambarkan rapat aktual.  
-**Prompt P16:** `Vertical 9:16, 6-second illustrative editorial video of a quiet, generic public-administration meeting room after a meeting, long table, empty chairs, papers neatly stacked, warm neutral light, a small abstract red waveform on a glass wall gradually settles into a calm line, slow camera push-in, no people, no government seals, no flags, no readable text, no logos, not an actual government office or news recording.`
+**Prompt P16:** `Horizontal 16:9 landscape, 1920x1080, 6-second illustrative editorial video of a quiet, generic public-administration meeting room after a meeting, long table, empty chairs, papers neatly stacked, warm neutral light, a small abstract red waveform on a glass wall gradually settles into a calm line, slow camera push-in, no people, no government seals, no flags, no readable text, no logos, not an actual government office or news recording.`
 
 ### SC17 · 04:28–04:50 · Perspektif B: apakah persoalan selesai?
 **VO:** pejabat mundur tidak otomatis menghapus persoalan/prosedur yang perlu dievaluasi.  
@@ -113,7 +113,7 @@ Flow prompts ditulis dalam bahasa Inggris. Setiap prompt menghasilkan satu klip 
 ### SC18 · 04:51–05:10 · Analogi mobil / akar masalah
 **VO:** komponen diganti, mobil berjalan, tetapi sistem pendingin bermasalah membuat kerusakan dapat berulang.  
 **Canvas / Remotion:** outline mobil generik; baut satu komponen diganti; roda bergerak; temperatur naik; radiator berdenyut amber; alur pendingin terputus; berhenti sebelum visual jadi mekanik realistis yang membingungkan.  
-**Flow prompt P18:** `Vertical 9:16, 6-second illustrative macro shot of a generic car engine bay with the hood open, a mechanic's gloved hands carefully replacing one small anonymous component, then a simple temperature gauge rises into amber as a coolant hose pulses, clean cinematic workshop light, no brand badges, no readable labels, no dangerous sparks, no identifiable person, educational metaphor, not a repair tutorial.`
+**Flow prompt P18:** `Horizontal 16:9 landscape, 1920x1080, 6-second illustrative macro shot of a generic car engine bay with the hood open, a mechanic's gloved hands carefully replacing one small anonymous component, then a simple temperature gauge rises into amber as a coolant hose pulses, clean cinematic workshop light, no brand badges, no readable labels, no dangerous sparks, no identifiable person, educational metaphor, not a repair tutorial.`
 
 ### SC19 · 05:11–05:22 · Mengganti orang ≠ memperbaiki sistem
 **VO:** mengganti atau mempertahankan orang tidak otomatis memperbaiki sistem; periksa mekanisme.  

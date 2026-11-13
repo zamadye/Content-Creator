@@ -49,6 +49,6 @@ jobs:
       - name: Save artifact too
         uses: actions/upload-artifact@v4
         with:
-          name: vo-mp3
-          path: ${{ github.event.inputs.out }}
+          name: vo-kamar-berlangit
+          path: editorial-engine/assets/audio/episode-kamar-berlangit-2026/vo-kamar-berlangit.mp3
           if-no-files-found: error

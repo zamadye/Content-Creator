@@ -40,9 +40,13 @@ if [[ -z "$browser" ]]; then
  for candidate in google-chrome google-chrome-stable chromium chromium-browser; do if command -v "$candidate" >/dev/null;then browser="$(command -v "$candidate")";break;fi;done
 fi
 if [[ -z "$browser" ]]; then
- echo 'System Chrome not found; manually extracting @sparticuz/chromium...'
- npm run extract:chromium
  browser="$PWD/../.jalan-pulang-tools/chromium"
+ if [[ -x "$browser" && -d "$PWD/../.jalan-pulang-tools/al2023/lib" && -d "$PWD/../.jalan-pulang-tools/swiftshader" ]]; then
+  echo 'Reusing extracted Chromium cache; clear .jalan-pulang-tools after changing the npm Chromium version.'
+ else
+  echo 'System Chrome not found; manually extracting @sparticuz/chromium...'
+  npm run extract:chromium
+ fi
  export LD_LIBRARY_PATH="$PWD/../.jalan-pulang-tools/al2023/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
  if [[ "$mode" == software ]];then export LD_LIBRARY_PATH="$PWD/../.jalan-pulang-tools/swiftshader:$LD_LIBRARY_PATH";fi
 fi

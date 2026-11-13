@@ -2,6 +2,7 @@ import React,{useEffect,useRef,useState} from 'react';
 import {AbsoluteFill,cancelRender,continueRender,delayRender,staticFile,useCurrentFrame,useVideoConfig} from 'remotion';
 import * as THREE from 'three';
 import {createMotorcycle} from './motorcycle';
+import {HOME_KNOCK_TIMES} from './home-cues';
 import {holdMotorcycleGrips,solveArm} from './arm-ik';
 import {createRiggedEntity,loadRidingGarments,poseSeated} from './rigged-entity';
 
@@ -60,7 +61,7 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
   dimas.mesh.position.set(startX*(1-walk),1.04-.18*dismount+.16*walk,startZ+(-1.8-startZ)*walk);dimas.mesh.rotation.y=Math.PI;
   const stride=walk>0&&walk<1?Math.sin((t-59)*7)*.32:0;
   dimas.bones['upperleg01.L'].rotation.x+=stride;dimas.bones['upperleg01.R'].rotation.x-=stride;
-  const knock=[62.25,63.05,63.85].reduce((v,beat)=>Math.max(v,Math.max(0,1-Math.abs(t-beat)/.14)),0);
+  const knock=HOME_KNOCK_TIMES.reduce((v,beat)=>Math.max(v,Math.max(0,1-Math.abs(t-beat)/.14)),0);
   const armUp=clamp((t-61.5)*2)*(1-clamp((t-64.4)*2));
   dimas.bones.spine01.rotation.x=.35*(1-dismount);
   dimas.bones['upperarm01.L'].rotation.set(0,0,-.65*(1-dismount)-.62*dismount);

@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile} from 'remotion';
 import {OpeningSet} from './opening-scenes';
+import {RoutineScene} from './routine-scenes';
 import {RideTest} from './ride';
 import {FatherMemory} from './father-memory';
 import {SignScene} from './sign-scene';
@@ -13,7 +14,10 @@ const Shot=({shot,from,view,resolutionScale})=>{
   case 'memory-ride': return <AbsoluteFill style={{filter:'sepia(0.5) saturate(0.55)'}}><RideTest memory rideView="side" resolutionScale={resolutionScale}/></AbsoluteFill>;
   case 'father-memory': return <FatherMemory resolutionScale={resolutionScale}/>;
   case 'ride': return <RideTest rideView={view||'follow'} rideOffset={from>=101&&from<227?from-101:0} resolutionScale={resolutionScale}/>;
-  case 'warehouse': return <OpeningSet set="warehouse" resolutionScale={resolutionScale}/>;
+  case 'warehouse': return <OpeningSet set="warehouse" timeOffset={from-11} resolutionScale={resolutionScale}/>;
+  case 'routine-clock': return <RoutineScene kind="clock" resolutionScale={resolutionScale}/>;
+  case 'routine-factory': return <RoutineScene kind="factory" resolutionScale={resolutionScale}/>;
+  case 'routine-transfer': return <RoutineScene kind="transfer" resolutionScale={resolutionScale}/>;
   case 'traffic': return <OpeningSet set="traffic" resolutionScale={resolutionScale}/>;
   case 'sign-dry': return <SignScene resolutionScale={resolutionScale}/>;
   case 'sign-wet': return <SignScene wet resolutionScale={resolutionScale}/>;

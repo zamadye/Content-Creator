@@ -2,7 +2,11 @@
 // These are a rough blocking edit, not a claim that the narrated action is done.
 export const storyShots=[
  {from:0,to:11,shot:'ride'},
- {from:11,to:49,shot:'warehouse'},
+ {from:11,to:17,shot:'warehouse'},
+ {from:17,to:20,shot:'routine-clock'},
+ {from:20,to:22,shot:'routine-factory'},
+ {from:22,to:25,shot:'routine-transfer'},
+ {from:25,to:49,shot:'warehouse'},
  {from:49,to:71,shot:'ride'},
  {from:71,to:101,shot:'traffic'},
  {from:101,to:108,shot:'ride',view:'wide'},

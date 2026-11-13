@@ -9,7 +9,7 @@ import {solveArm,holdMotorcycleGrips} from './arm-ik';
 
 // Blockout for the opening sequence. Sets, props and characters are real 3D;
 // character styling, detailed acting, audio alignment and lookdev remain WIP.
-export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
+export const OpeningSet=({set='warehouse',resolutionScale=1,timeOffset=0})=>{
   const canvas=useRef(null),state=useRef(null),frame=useCurrentFrame(),{fps,width,height}=useVideoConfig();
   const [handle]=useState(()=>delayRender('Load opening characters')),[ready,setReady]=useState(false);
   useEffect(()=>{
@@ -85,7 +85,7 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
     };setup().catch(e=>{if(!dead)cancelRender(e)});
     return()=>{dead=true;state.current=null;scene?.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material]))m.dispose()});renderer?.dispose()};
   },[handle,width,height,set,resolutionScale]);
-  useEffect(()=>{if(!ready||!state.current)return;const s=state.current,t=frame/fps;
+  useEffect(()=>{if(!ready||!state.current)return;const s=state.current,t=frame/fps+timeOffset;
     const clamp=x=>Math.max(0,Math.min(1,x));
     if(set==='warehouse'){
       const p=s.people[0],walking=t<8;
@@ -122,7 +122,7 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
       else{s.camera.position.set(5.6,2,4);s.camera.lookAt(2.9,1.3,-.7)}
     }
     s.renderer.render(s.scene,s.camera);
-  },[frame,fps,ready,set]);
+  },[frame,fps,ready,set,timeOffset]);
   return <AbsoluteFill><canvas ref={canvas} style={{width:'100%',height:'100%'}}/></AbsoluteFill>;
 };
 // Absolute VO time and scene-local frames are deliberately separate.

@@ -4,7 +4,7 @@ Sumber lengkap: `PANDUAN-ANIMASI-ORIGINAL.md`, disalin dari Drive. **Waktu sumbe
 
 ## 1. Perkenalan Dimas dan telepon ibu
 
-Acuan VO: 00:00–00:49. Ada: Perjalanan dan gudang/telepon rig. Masih perlu: jam, transfer, foto ayah dan rumah ibu belum dibuat. Status semua baris: **belum diverifikasi shot per shot**.
+Acuan VO: 00:00–00:49. Ada: Perjalanan, gudang/telepon rig serta insert jam, pabrik dan transfer. Masih perlu: foto ayah dan rumah ibu belum dibuat; prop serta timing perlu QC. Status semua baris: **belum diverifikasi shot per shot**.
 
 | Shot | Waktu panduan asli | Rincian panduan asli |
 |---|---|---|

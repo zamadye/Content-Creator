@@ -7,7 +7,7 @@ import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js';
 import {makeMap} from './forest';
 import {createMotorcycle} from './motorcycle';
 import {holdMotorcycleGrips,solveArm} from './arm-ik';
-import {createRiggedEntity,poseSeated,loadGarments,loadRidingGarments} from './rigged-entity';
+import {createRiggedEntity,poseSeated,loadGarments,loadRidingGarments,loadSkin,applySkin} from './rigged-entity';
 
 // Solve the arm from a fixed rest pose on every frame. Targets and joints are
 // in the same scene graph; no frame-to-frame accumulation during random seeks.
@@ -270,9 +270,9 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               standingEntity.bones['neck01'].rotation.x=.12;
               if(['call','brake','mirror','shadow','release','aftermath'].includes(warungScene)){
                 // Dimas is alongside the stopped bike; the phone appears only during the call.
-                const dimasClothes=await loadRidingGarments(staticFile);if(disposed)return;
+                const [dimasClothes,dimasSkin]=await Promise.all([loadRidingGarments(staticFile),loadSkin(staticFile)]);if(disposed)return;
                 dimas=createRiggedEntity(data,null,dimasClothes);
-                dimas.mesh.material.color.set('#967765');dimas.mesh.scale.setScalar(.105);
+                applySkin(dimas,dimasSkin);dimas.mesh.scale.setScalar(.105);
                 dimas.mesh.position.set(-1.0,.86,1.0);dimas.mesh.rotation.y=.35;scene.add(dimas.mesh);
                 dimas.bones['upperarm01.L'].rotation.z=-.62;
                 dimas.bones['upperarm01.R'].rotation.z=-.35;

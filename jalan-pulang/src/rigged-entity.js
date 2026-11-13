@@ -117,3 +117,21 @@ export async function loadGarments(staticFile, names=['namuhekam_male_polo_shirt
 
 // A single full outfit avoids overlapping separate top/trouser meshes.
 export const loadRidingGarments=staticFile=>loadGarments(staticFile,['male_casualsuit05','shoes01']);
+
+// Authored CC0 MakeHuman UV skin texture. Caller awaits before rendering.
+export async function loadSkin(staticFile,name='skin_young_asian_male'){
+ const texture=await new THREE.TextureLoader().loadAsync(staticFile(`skin/${name}.jpg`));texture.colorSpace=THREE.SRGBColorSpace;return texture;
+}
+export function applySkin(entity,texture){
+ entity.mesh.material.map=texture;entity.mesh.material.color.set('#ffffff');entity.mesh.material.needsUpdate=true;
+ // The MakeHuman base excludes separate eyeball meshes. Add eyes at their
+ // anatomical eye bones rather than relying on the exposed eyelid texture.
+ const sclera=new THREE.MeshStandardMaterial({color:'#dfd6c4',roughness:.42}),iris=new THREE.MeshStandardMaterial({color:'#211c18',roughness:.28});
+ for(const side of ['L','R']){
+  const bone=entity.bones[`eye.${side}`];if(bone.getObjectByName('authored-eye'))continue;
+  const eye=new THREE.Group();eye.name='authored-eye';bone.add(eye);
+  const white=new THREE.Mesh(new THREE.SphereGeometry(.14,16,12),sclera);eye.add(white);
+  const pupil=new THREE.Mesh(new THREE.SphereGeometry(.055,12,8),iris);pupil.position.z=.125;pupil.scale.z=.38;eye.add(pupil);
+ }
+}
+

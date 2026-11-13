@@ -6,7 +6,7 @@
   },
   "model": "eleven_multilingual_v2",
   "textChars": 2140,
-  "audioBytes": 2123275,
+  "audioBytes": 2220660,
   "output": "editorial-engine/assets/audio/episode-kamar-berlangit-2026/vo-kamar-berlangit.mp3",
   "note": "VO only. Subtitle timing comes later from silence detection on this file. Nothing published."
 }

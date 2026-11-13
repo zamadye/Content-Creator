@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {AbsoluteFill, cancelRender, continueRender, delayRender, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import * as THREE from 'three';
+import {sceneryZ,rightBendX} from './road-motion';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js';
 import {makeMap} from './forest';
@@ -30,7 +31,7 @@ function aimPhoneAtEar(entity,progress=1){
 }
 
 // Stylised work-in-progress, not a representation of the final Dimas or Supra.
-export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, village = false, callIntro = false, resolutionScale = 1}) => {
+export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, village = false, callIntro = false, rideView = 'follow', rideOffset = 0, resolutionScale = 1}) => {
   const canvas=useRef(null), state=useRef(null), frame=useCurrentFrame();
   const {fps,width,height}=useVideoConfig();
   const [handle]=useState(()=>delayRender('Load Kenney vegetation'));
@@ -87,7 +88,9 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       const addSphere=(parent,r,m,x,y,z)=>{let o=new THREE.Mesh(new THREE.SphereGeometry(r,16,12),m);o.position.set(x,y,z);parent.add(o);return o};
       const link=(parent,a,b,r,m)=>{const d=new THREE.Vector3().subVectors(new THREE.Vector3(...b),new THREE.Vector3(...a));let o=new THREE.Mesh(new THREE.CylinderGeometry(r,r,d.length(),8),m);o.position.copy(new THREE.Vector3(...a).add(new THREE.Vector3(...b)).multiplyScalar(.5));o.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.normalize());parent.add(o);return o};
       const roadMap=makeMap('road');const floor=new THREE.Mesh(new THREE.PlaneGeometry(60,95),mat('#283a2f'));floor.rotation.x=-Math.PI/2;floor.position.set(0,-.03,-25);scene.add(floor);
-      const road=new THREE.Mesh(new THREE.PlaneGeometry(5.5,90),new THREE.MeshStandardMaterial({color:'#6e7b75',map:roadMap,bumpMap:roadMap,bumpScale:.025,roughness:.85,metalness:.02}));road.rotation.x=-Math.PI/2;road.position.set(0,.001,-25);scene.add(road);
+      const roadGeometry=new THREE.PlaneGeometry(5.5,90,1,64);
+      if(rideView==='curve'&&!warungScene){const p=roadGeometry.getAttribute('position');for(let i=0;i<p.count;i++){const worldZ=-25-p.getY(i);p.setX(i,p.getX(i)+rightBendX(worldZ))}p.needsUpdate=true;roadGeometry.computeVertexNormals();}
+      const road=new THREE.Mesh(roadGeometry,new THREE.MeshStandardMaterial({color:'#6e7b75',map:roadMap,bumpMap:roadMap,bumpScale:.025,roughness:.85,metalness:.02}));road.rotation.x=-Math.PI/2;road.position.set(0,.001,-25);scene.add(road);
       const trunkMat=mat('#665b4b'), leafMat=mat('#304d3e');const trunkGeom=new THREE.CylinderGeometry(.12,.23,8,9), crownGeom=new THREE.IcosahedronGeometry(1,1);
       let trees=[]; for(let i=0;i<32;i++){let row=Math.floor(i/2),side=i%2?1:-1,g=new THREE.Group();g.position.set(side*(3.6+(row%3)*.8),0,4-row*2.5);let tr=new THREE.Mesh(trunkGeom,trunkMat);tr.position.y=4;g.add(tr);for(let k=0;k<3;k++){let l=new THREE.Mesh(crownGeom,leafMat);l.position.set((k-1)*.8,7.5+(k%2)*.5,0);l.scale.set(1.7,1.1,1.6);g.add(l)}scene.add(g);trees.push({g,base:row*2.5,side});}
       // Modular closed warung, positioned to the left of the road. Kept as one
@@ -160,7 +163,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       for(let side of [-1,1]){link(rider,[side*.28,1.72,.12],[side*.36,1.45,-.2],.10,cloth);link(rider,[side*.36,1.45,-.2],[side*.39,1.1,-.67],.075,cloth);addSphere(rider,.075,skin,side*.39,1.1,-.67);link(rider,[side*.17,1.14,.26],[side*.35,.90,-.03],.11,pants);link(rider,[side*.35,.90,-.03],[side*.32,.6,.35],.085,pants);addBox(rider,.17,.12,.27,black,side*.32,.56,.28)}
       if(['call','mirror','shadow','release','aftermath'].includes(warungScene)){rider.visible=false;lamp.intensity=0;wash.visible=false;}
       const loader=new GLTFLoader();loader.load(staticFile('kenney-nature/plant_bush.glb'),gltf=>{
-        if(disposed)return;let bushes=[];for(let i=0;i<18;i++){let b=gltf.scene.clone();let side=i%2?1:-1,row=Math.floor(i/2);b.position.set(side*(3.2+(row%2)*.65),0,4-row*4);b.scale.setScalar(.8+(row%3)*.2);scene.add(b);bushes.push({g:b,base:row*4});}
+        if(disposed)return;gltf.scene.traverse(o=>{if(o.isMesh&&o.material){o.material=o.material.clone();o.material.color?.multiplyScalar(.24);o.material.roughness=.95}});let bushes=[];for(let i=0;i<18;i++){let b=gltf.scene.clone();let side=i%2?1:-1,row=Math.floor(i/2);b.position.set(side*(3.2+(row%2)*.65),0,4-row*4);b.scale.setScalar(.8+(row%3)*.2);scene.add(b);bushes.push({g:b,base:row*4,x:b.position.x});}
         new OBJLoader().load(staticFile('makehuman/entity-head.obj'),async head=>{
           try {
             if(disposed)return;
@@ -300,12 +303,12 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       },undefined,error=>cancelRender(error));
     }catch(error){cancelRender(error)}
     return()=>{disposed=true;state.current=null;if(scene)scene.traverse(o=>{o.geometry?.dispose();if(o.material){for(const m of (Array.isArray(o.material)?o.material:[o.material])){m.map?.dispose();m.dispose()}}});mirrorTarget?.dispose();renderer?.dispose()};
-  },[handle,width,height,showWarung,warungScene,resolutionScale,revealFace,village]);
-  useEffect(()=>{if(!ready||!state.current)return;const s=state.current,t=frame/fps,travel=t*2.5;
+  },[handle,width,height,showWarung,warungScene,resolutionScale,revealFace,village,rideView]);
+  useEffect(()=>{if(!ready||!state.current)return;const s=state.current,t=frame/fps,travel=(t+rideOffset)*2.5;
     const stopped=['call','brake','mirror','shadow','release','aftermath'].includes(warungScene);
     const brakeDistance=Math.min(t,3)*1.5-Math.min(t,3)**2*.25;
     s.bike.position.y=stopped?0:Math.sin(t*7)*.018;
-    s.bike.rotation.z=warungScene==='brake'?(-.08*Math.min(t/3,1)):stopped?-.08:Math.sin(t*.8)*.025;
+    s.bike.rotation.z=warungScene==='brake'?(-.08*Math.min(t/3,1)):stopped?-.08:rideView==='curve'?-.16*Math.sin(Math.min(t/6,1)*Math.PI):Math.sin(t*.8)*.025;
     const departure=warungScene==='aftermath'?Math.max(0,t-29):0;
     s.bike.position.z=warungScene==='brake' ? 1.5-brakeDistance*.67 : -departure*departure*.24;
     if(warungScene==='aftermath'){s.bike.rotation.z=-.08*(1-Math.min(departure,1));s.lamp.intensity=t>=28?32:0;s.wash.visible=t>=28;}
@@ -329,6 +332,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         s.riderHelmet.visible=false; // Standing Dimas has no helmet in this shot; do not pop one into frame.
       }
       s.skinnedRider.bones.spine01.rotation.x=.35*seatedWeight;
+      s.skinnedRider.bones.neck01.rotation.x=-.16*seatedWeight;s.skinnedRider.bones.head.rotation.x=-.16*seatedWeight;
       if(s.skinnedRider.mesh.visible){
         // Reset arm rotations before solving so Remotion's out-of-order frame
         // rendering does not accumulate a different pose on each seek.
@@ -339,8 +343,8 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
     }
     s.rider.rotation.z=Math.sin(t*.8)*.012;
     for(const w of s.wheels)w.rotation.z=warungScene==='brake'?brakeDistance/.34:warungScene==='aftermath'?departure*departure*.24/.34:stopped?0:travel/.34;
-    for(const item of s.trees)item.g.position.z=4-((item.base-travel+40)%40);
-    for(const item of s.bushes)item.g.position.z=4-((item.base-travel+36)%36);
+    for(const item of s.trees){item.g.position.z=sceneryZ(item.base,travel,40);item.g.position.x=item.side*(3.6+(Math.floor(item.base/2.5)%3)*.8)+(rideView==='curve'?rightBendX(item.g.position.z):0);}
+    for(const item of s.bushes){item.g.position.z=sceneryZ(item.base,travel,36);item.g.position.x=item.x+(rideView==='curve'?rightBendX(item.g.position.z):0);}
     if(village){for(const item of [...s.trees,...s.bushes])item.g.visible=false;for(const item of s.villageSet)item.g.position.z=item.base+travel;}
     for(const map of [s.asphaltColor,s.asphaltNormal,s.asphaltRough])map.offset.y=stopped?0:-travel/6;
     if(warungScene){
@@ -412,7 +416,15 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       }else if(detailCamera){s.camera.position.set(-3.55,1.52,-1.1-t*.03);s.camera.lookAt(-4.55,1.03,-5.2)}else{s.camera.position.set(-1.8,1.95,3.6-t*.08);s.camera.lookAt(-4.9,1.32,-5.0);}
       for(const item of s.trees)item.g.visible=false;
       for(const item of s.bushes)item.g.visible=false;
-    }else{s.warung.position.z=-22+travel;s.camera.position.x=3.4+Math.sin(t*.25)*.15;s.camera.lookAt(showWarung ? -Math.min(t/9,1)*1.5 : 0,1,-3);}
+    }else{
+      s.warung.position.z=-22+(showWarung?t*2.5:travel);
+      if(rideView==='pov'){s.camera.position.set(0,1.68,-.32);s.camera.lookAt(0,1.1,-8)}
+      else if(rideView==='side'){s.camera.position.set(-2.8,1.7,1.7);s.camera.lookAt(0,1.15,-.1)}
+      else if(rideView==='hands'){s.camera.position.set(1.05,1.70,-1.3);s.camera.lookAt(0,1.28,-.32)}
+      else if(rideView==='wide'){s.camera.position.set(2.4,3.6,7.2);s.camera.lookAt(0,1,-4)}
+      else if(rideView==='curve'){s.camera.position.set(2.2,2.1,6.0);s.camera.lookAt(1.1,1,-7)}
+      else{s.camera.position.set(3.4+Math.sin(t*.25)*.15,2.55,6.8);s.camera.lookAt(showWarung?-Math.min(t/9,1)*1.5:0,1,-3)}
+    }
     if(s.mirror){
       // Render a real second viewpoint into the mirror, excluding its own plane.
       s.mirror.visible=false;s.shadowActor.mesh.visible=true;s.dimas.mesh.visible=false;
@@ -420,6 +432,6 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       s.mirror.visible=true;s.shadowActor.mesh.visible=false;s.dimas.mesh.visible=true;
     }
     s.renderer.render(s.scene,s.camera);
-  },[fps,frame,ready,showWarung,warungScene,detailCamera,revealFace,village,callIntro]);
+  },[fps,frame,ready,showWarung,warungScene,detailCamera,revealFace,village,callIntro,rideView,rideOffset]);
   return <AbsoluteFill style={{backgroundColor:'#14262b'}}><canvas ref={canvas} style={{width:'100%',height:'100%'}}/></AbsoluteFill>;
 };

@@ -27,7 +27,7 @@ Acuan VO: 00:49–01:11. Ada: Perjalanan 3D. Masih perlu: halaman kos, tas dan p
 
 ## 3. Tukang parkir dan jalan pintas
 
-Acuan VO: 01:11–01:41. Ada: Kemacetan, petugas dan kendaraan 3D. Masih perlu: interaksi, parkir dan close-up belum selesai. Status semua baris: **belum diverifikasi shot per shot**.
+Acuan VO: 01:11–01:41. Ada: Kemacetan, petugas mendekat dan menunjuk, Dimas duduk di motor serta kamera berganti. Masih perlu: lip sync, pakaian petugas, kendaraan low-poly dan kontak masih perlu QC. Status semua baris: **belum diverifikasi shot per shot**.
 
 | Shot | Waktu panduan asli | Rincian panduan asli |
 |---|---|---|
@@ -37,7 +37,7 @@ Acuan VO: 01:11–01:41. Ada: Kemacetan, petugas dan kendaraan 3D. Masih perlu: 
 
 ## 4. Masuk hutan karet
 
-Acuan VO: 01:41–02:25. Ada: Jalan, vegetasi, motor dan papan 12 km. Masih perlu: hutan karet autentik, instrumen dan reaksi detail belum selesai. Status semua baris: **belum diverifikasi shot per shot**.
+Acuan VO: 01:41–02:25. Ada: Jalan dan vegetasi bergerak dengan sudut lebar/POV/samping, motor dan papan 12 km. Masih perlu: vegetasi karet autentik, instrumen, genggaman dan reaksi detail masih perlu QC. Status semua baris: **belum diverifikasi shot per shot**.
 
 | Shot | Waktu panduan asli | Rincian panduan asli |
 |---|---|---|
@@ -50,7 +50,7 @@ Acuan VO: 01:41–02:25. Ada: Jalan, vegetasi, motor dan papan 12 km. Masih perl
 
 ## 5. Putaran pertama dan kedua
 
-Acuan VO: 02:25–03:47. Ada: Warung, papan dan ponsel 3D. Masih perlu: tikungan, merogoh saku dan reaksi perlu disusun. Status semua baris: **belum diverifikasi shot per shot**.
+Acuan VO: 02:25–03:47. Ada: Warung, papan berulang, jalan melengkung dan ponsel 3D; kamera tangan/setang. Masih perlu: aksi merogoh ponsel, genggaman dan transisi motor masih perlu QC. Status semua baris: **belum diverifikasi shot per shot**.
 
 | Shot | Waktu panduan asli | Rincian panduan asli |
 |---|---|---|

@@ -2,10 +2,10 @@ import React, {useEffect,useRef,useState} from 'react';
 import {AbsoluteFill,Audio,Sequence,cancelRender,continueRender,delayRender,staticFile,useCurrentFrame,useVideoConfig} from 'remotion';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
-import {createRiggedEntity,loadGarments,loadRidingGarments} from './rigged-entity';
+import {createRiggedEntity,loadGarments,loadRidingGarments,poseSeated} from './rigged-entity';
 import {RideTest} from './ride';
 import {createMotorcycle} from './motorcycle';
-import {solveArm} from './arm-ik';
+import {solveArm,holdMotorcycleGrips} from './arm-ik';
 
 // Blockout for the opening sequence. Sets, props and characters are real 3D;
 // character styling, detailed acting, audio alignment and lookdev remain WIP.
@@ -42,7 +42,7 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
         entity.bones['upperarm01.L'].rotation.z=-.62;entity.bones['upperarm01.R'].rotation.z=.62;
         people.push({o:entity.mesh,bones:entity.bones,entity});return entity;
       };
-      let lightRed,lightBlue,phone,bike,parcel;
+      let lightRed,lightBlue,phone,bike,parcel,bikeModel;
       if(set==='warehouse'){
         box(scene,20,6,.25,wallMat,0,3,-8);box(scene,.25,6,15,wallMat,-8,3,-1);box(scene,.25,6,15,wallMat,8,3,-1);
         const shelfAsset=await new GLTFLoader().loadAsync(staticFile('models/steel_frame_shelves_01/steel_frame_shelves_01_1k.gltf'));if(dead)return;
@@ -78,10 +78,10 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
         const redMat=new THREE.MeshBasicMaterial({color:'#b3262e'}),blueMat=new THREE.MeshBasicMaterial({color:'#2a4fa8'});
         box(scene,.35,.16,.28,redMat,1.1,1.9,-8);box(scene,.35,.16,.28,blueMat,1.7,1.9,-8);
         lightRed=new THREE.PointLight('#b3262e',10,15);lightRed.position.set(1.1,2,-8);scene.add(lightRed);lightBlue=new THREE.PointLight('#2a4fa8',10,15);lightBlue.position.set(1.7,2,-8);scene.add(lightBlue);
-        person(3,0,ridingGarments);person(3.8,-3);
-        bike=new THREE.Group();const generatedBike=createMotorcycle();bike.add(generatedBike.model);bike.position.set(2.4,0,.2);bike.rotation.y=-.2;scene.add(bike);for(let z of [-11,-7,-3]){const cone=coneAsset.scene.clone();const bounds=new THREE.Box3().setFromObject(cone);const size=bounds.getSize(new THREE.Vector3());cone.scale.setScalar(.65/size.y);cone.position.set(4,-bounds.min.y*cone.scale.y,z);scene.add(cone)}
+        const rider=person(0,0,ridingGarments);person(3.8,-3);
+        bike=new THREE.Group();const generatedBike=createMotorcycle();bike.add(generatedBike.model);bikeModel=generatedBike.model;bike.position.set(2.4,0,.2);bike.rotation.y=-.2;scene.add(bike);bike.add(rider.mesh);rider.mesh.position.set(0,1.04,.05);rider.mesh.rotation.y=Math.PI;poseSeated(rider.bones);for(let z of [-11,-7,-3]){const cone=coneAsset.scene.clone();const bounds=new THREE.Box3().setFromObject(cone);const size=bounds.getSize(new THREE.Vector3());cone.scale.setScalar(.65/size.y);cone.position.set(4.8,-bounds.min.y*cone.scale.y,z);scene.add(cone)}
       }
-      state.current={scene,renderer,camera,people,lightRed,lightBlue,phone,bike,parcel};setReady(true);continueRender(handle);
+      state.current={scene,renderer,camera,people,lightRed,lightBlue,phone,bike,bikeModel,parcel};setReady(true);continueRender(handle);
     };setup().catch(e=>{if(!dead)cancelRender(e)});
     return()=>{dead=true;state.current=null;scene?.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material]))m.dispose()});renderer?.dispose()};
   },[handle,width,height,set,resolutionScale]);
@@ -106,15 +106,20 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
       else{s.camera.position.set(-1.9,1.7,2.8);s.camera.lookAt(0,1.4,-.5)}
     }else{
       const dimas=s.people[0],attendant=s.people[1],approach=clamp((t-5)/5);
-      dimas.o.rotation.y=Math.PI;dimas.bones['spine01'].rotation.z=Math.sin(t*.5)*.02;
+      dimas.o.rotation.y=Math.PI;poseSeated(dimas.bones);dimas.bones['spine01'].rotation.z=Math.sin(t*.5)*.02;
+      dimas.bones['upperarm01.L'].rotation.set(0,0,-.65);dimas.bones['upperarm01.R'].rotation.set(0,0,.65);holdMotorcycleGrips(dimas.entity,s.bikeModel);
+      // Rider turns to listen, then watches the attendant's direction.
+      dimas.bones.head.rotation.y=t>=10?-.22:0;
       attendant.o.position.z=-3+2*approach;attendant.o.position.x=3.8-.35*approach;attendant.o.rotation.y=-.45;
       const step=t>=5&&t<10?Math.sin((t-5)*5)*.35:0;
       attendant.bones['upperleg01.L'].rotation.x=step;attendant.bones['upperleg01.R'].rotation.x=-step;
       attendant.bones['upperarm01.R'].rotation.z=.62-(t>=10?clamp((t-10)/2)*.95:0);
       attendant.bones['lowerarm01.R'].rotation.z=t>=10?-.3:0;
       s.lightRed.intensity=(Math.sin(t*5)>0?18:1);s.lightBlue.intensity=(Math.sin(t*5)>0?1:18);
-      if(t<11){s.camera.position.set(5.7,2.7,7.5-t*.035);s.camera.lookAt(0,1,-5)}
-      else{s.camera.position.set(6.1,1.9,3.9);s.camera.lookAt(3.1,1.3,-.5)}
+      if(t<6){s.camera.position.set(5.7,2.7,7.5-t*.035);s.camera.lookAt(0,1,-5)}
+      else if(t<17){s.camera.position.set(6.1,1.9,4.4-(t-6)*.025);s.camera.lookAt(3.0,1.25,-.4)}
+      else if(t<23){s.camera.position.set(5.4,1.8,1.4);s.camera.lookAt(3.4,1.4,-.7)}
+      else{s.camera.position.set(5.6,2,4);s.camera.lookAt(2.9,1.3,-.7)}
     }
     s.renderer.render(s.scene,s.camera);
   },[frame,fps,ready,set]);

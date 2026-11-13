@@ -8,10 +8,10 @@ import {PhoneClockInsert} from './phone-insert';
 import {storyShots,validateShots} from './story-timeline';
 
 const CallShot=({resolutionScale,callIntro=false})=><RideTest warungScene="call" callIntro={callIntro} resolutionScale={resolutionScale}/>;
-const Shot=({shot,from,resolutionScale})=>{
+const Shot=({shot,from,view,resolutionScale})=>{
  switch(shot){
   case 'father-memory': return <FatherMemory resolutionScale={resolutionScale}/>;
-  case 'ride': return <RideTest resolutionScale={resolutionScale}/>;
+  case 'ride': return <RideTest rideView={view||'follow'} rideOffset={from>=101&&from<227?from-101:0} resolutionScale={resolutionScale}/>;
   case 'warehouse': return <OpeningSet set="warehouse" resolutionScale={resolutionScale}/>;
   case 'traffic': return <OpeningSet set="traffic" resolutionScale={resolutionScale}/>;
   case 'sign-dry': return <SignScene resolutionScale={resolutionScale}/>;
@@ -36,7 +36,7 @@ const Shot=({shot,from,resolutionScale})=>{
 export const StoryBlocking=({resolutionScale=1})=>{
  validateShots();
  return <AbsoluteFill>
-  {storyShots.map((s,i)=><Sequence key={i} from={s.from*30} durationInFrames={(s.to-s.from)*30+(i===storyShots.length-1?19:0)}><Shot shot={s.shot} from={s.from} resolutionScale={resolutionScale}/></Sequence>)}
+  {storyShots.map((s,i)=><Sequence key={i} from={s.from*30} durationInFrames={(s.to-s.from)*30+(i===storyShots.length-1?19:0)}><Shot shot={s.shot} from={s.from} view={s.view} resolutionScale={resolutionScale}/></Sequence>)}
   <Audio src={staticFile('vo/VO-Jalan-Pulang_01.mp3')}/>
  </AbsoluteFill>;
 };

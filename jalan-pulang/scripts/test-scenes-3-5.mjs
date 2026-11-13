@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {storyShots,validateShots} from '../src/story-timeline.js';
+import {sceneryZ,rightBendX} from '../src/road-motion.js';
+assert.equal(validateShots(),543);
+const at=t=>storyShots.find(s=>s.from<=t&&t<s.to);
+assert.equal(at(80).shot,'traffic');
+assert.equal(at(105).view,'wide');assert.equal(at(110).view,'pov');assert.equal(at(120).view,'side');
+assert.equal(at(130).shot,'sign-dry');assert.equal(at(155).shot,'warung-approach');
+assert.equal(at(170).view,'curve');assert.equal(at(176).shot,'sign-dry');
+assert.equal(at(185).view,'hands');assert.equal(at(200).shot,'warung-approach');
+assert.equal(at(210).shot,'sign-dry');assert.equal(at(216).shot,'phone-clock');
+for(const travel of [0,40,80,200,1000])assert.ok(sceneryZ(10,travel,40)>-36);
+assert.ok(rightBendX(-15)>rightBendX(-5));
+console.log('Scene 3–5 shot assignments, scenery cycle and bend pass');

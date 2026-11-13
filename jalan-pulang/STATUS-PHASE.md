@@ -119,3 +119,8 @@ Jaket dan jeans `male_casualsuit05` bertekstur dan UV-skinned (MakeHuman team CC
 ## Material kulit dan ingatan ayah
 - Rig MakeHuman kini memakai peta warna/normal/kekasaran prosedural halus yang dibagi antar karakter; bukan scan wajah atau pengganti skin shading final. Bundle dan uji IK tetap lulus.
 - Kilas balik ayah dipecah menjadi 3D pengendara dengan penumpang bayangan (06:57–07:04), lalu kamar (07:04–07:14), sesuai kisaran transkrip. Kamera samping dan gradasi sepia membuatnya terbaca sebagai ingatan; rambut/material ditandai berbeda. Still awal diperiksa; bentuk motor, wajah ayah, kontak dan gerak bayangan masih perlu QC.
+
+## Pemeriksaan lintas rangkaian
+- `scripts/qc-story-stills.mjs` merender satu frame tengah dari setiap blok yang benar-benar terpasang. Sebanyak 44 frame (40 blok VO 01 + 4 VO 02) berhasil dihasilkan secara serial dan diperiksa sebagai indeks visual; ini bukan 72 shot panduan dan bukan pengganti QC gerak/audio. Skrip runner diuji ulang dengan dua frame setelah perbaikan penutupan browser.
+- Pemeriksaan menemukan kamera desa terhalang atap: rumah dipindah menjauh dari jalur, kamera disetel ulang, dan tiga frame kini memperlihatkan Dimas melewati gerbang. Panggilan setelah kilas balik dibuat dengan sudut berbeda; jari ponsel dilipat, dan rahang diberi gerak kecil pada perkiraan rentang dialog. Gerakan rahang bukan lip-sync fonem, sehingga tetap perlu dicocokkan dengan suara.
+- Visual masih stylized; mobil, vegetasi, motor dan beberapa properti belum sesuai tingkat final yang diminta. Belum ada render penuh yang diperiksa, dan asesmen 44 frame tidak membuktikan keseluruhan video selesai.

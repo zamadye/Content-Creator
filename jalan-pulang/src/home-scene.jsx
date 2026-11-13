@@ -71,6 +71,7 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
   // Breathing and a restrained reaction during the question behind the door.
   dimas.bones.spine02.rotation.x=.012*Math.sin(t*2.1)+(t>=85&&t<110?.025:0);
   dimas.bones.head.rotation.set(t>=85&&t<110?-.09:0,t>=90&&t<110?.12:0,.012*Math.sin(t*1.3));
+  const speaking=(t>=70&&t<74)||(t>=85&&t<91);dimas.bones.jaw.rotation.x=speaking?.045*(.5+.5*Math.sin(t*7)):0;
   if(dismount<1)holdMotorcycleGrips(dimas,state.current.bikeModel,1-dismount);
   // The presence is held out of view until the breath behind his ear.
   shadow.mesh.visible=t>=110;shadow.mesh.position.set(.38,.86,-.90);shadow.mesh.rotation.y=Math.PI;shadow.bones.head.rotation.set(.2,0,-.12);shadow.bones['upperarm01.L'].rotation.z=-.62;shadow.bones['upperarm01.R'].rotation.z=.62;shadow.bones['lowerarm01.L'].rotation.z=-.12;shadow.bones['lowerarm01.R'].rotation.z=.12;

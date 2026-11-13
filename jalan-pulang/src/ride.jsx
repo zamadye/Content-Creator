@@ -27,11 +27,12 @@ function aimPhoneAtEar(entity,progress=1){
   joint.quaternion.premultiply(local).normalize();
  }
  b['wrist.R'].rotation.set(0,0,Math.PI);
+ for(let f=2;f<=5;f++)for(let j=1;j<=3;j++)b[`finger${f}-${j}.R`].rotation.x=.65;
  root.updateMatrixWorld(true);
 }
 
 // Stylised work-in-progress, not a representation of the final Dimas or Supra.
-export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, village = false, callIntro = false, memory = false, rideView = 'follow', rideOffset = 0, resolutionScale = 1}) => {
+export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, village = false, callIntro = false, callPhase = 0, memory = false, rideView = 'follow', rideOffset = 0, resolutionScale = 1}) => {
   const canvas=useRef(null), state=useRef(null), frame=useCurrentFrame();
   const {fps,width,height}=useVideoConfig();
   const [handle]=useState(()=>delayRender('Load Kenney vegetation'));
@@ -209,7 +210,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
                 addBox(g,.12,2.1,.12,timber,front*1.9,1.05,1.3);addBox(g,.8,.1,2.8,roof,front*1.85,2.1,0);
                 villageSet.push({g,base:z});
               };
-              for(let i=0;i<6;i++)makeHouse(i%2?-4.8:4.8,-5-i*5,i);
+              for(let i=0;i<6;i++)makeHouse(i%2?-6.4:6.4,-5-i*5,i);
               const gate=new THREE.Group();gate.position.z=-15;scene.add(gate);
               for(const x of [-3.4,3.4]){addBox(gate,.44,3.4,.44,stucco,x,1.7,0);addBox(gate,.66,.18,.66,timber,x,3.43,0)}
               addBox(gate,7.1,.55,.32,timber,0,3.15,0);
@@ -361,6 +362,10 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         s.standingEntity.bones.head.rotation.z=Math.sin(t*.25)*.02;
         s.dimas.bones.spine01.rotation.z=Math.sin(t*.65)*.018;
         s.dimas.bones.head.rotation.x=.12+Math.sin(t*.35)*.025;
+        // Restrained approximate jaw motion only during Dimas's narrated speech
+        // windows; phoneme-level dialogue timing requires an audio-led pass.
+        const speaking=warungScene==='call'&&((callIntro&&t>=12&&t<20)||(callPhase===498&&t>=16&&t<33));
+        s.dimas.bones.jaw.rotation.x=speaking?.045*(.5+.5*Math.sin(t*7)):0;
         s.dimas.bones['wrist.R'].rotation.z=Math.sin(t*1.5)*.025;
         if(warungScene==='brake'){
           const steps=Math.min(Math.max((t-4)/3,0),1);
@@ -402,6 +407,12 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
           else if(t<45){s.camera.position.set(-2.8,1.7,3.5-(t-26)*.025);s.camera.lookAt(-.85,1.45,.65)}
           else if(t<60){s.camera.position.set(1.6,1.68,2.35-(t-45)*.02);s.camera.lookAt(-1,1.46,1)}
           else {s.camera.position.set(2.5,1.9,4.1-(t-60)*.02);s.camera.lookAt(-1,1.35,.3)}
+        }else if(warungScene==='call'&&callPhase===434){
+          s.dimas.bones.head.rotation.y=-.16;s.camera.position.set(.35,1.85,2.7-t*.015);s.camera.lookAt(-1,1.52,1.0);
+        }else if(warungScene==='call'&&callPhase===474){
+          s.camera.position.set(1.8,1.82,3.6-t*.016);s.camera.lookAt(-1.0,1.43,.85);
+        }else if(warungScene==='call'&&callPhase===498){
+          s.dimas.bones.head.rotation.x=.20+.015*Math.sin(t*.5);s.camera.position.set(.25,1.75,2.6-t*.01);s.camera.lookAt(-1,1.50,1);
         }else if(detailCamera){s.camera.position.set(.8+Math.sin(t*.12)*.08,1.75,3.3);s.camera.lookAt(-1,1.45,1);}else{s.camera.position.set(3.8+Math.sin(t*.12)*.2,2.25,5.4-Math.min(t*.012,1));s.camera.lookAt(-.8,1.0,-.8);}
         if(['call','mirror','shadow','release'].includes(warungScene)){const p=warungScene==='call'&&callIntro?Math.min(Math.max((t-7.5)/3,0),1):1;aimPhoneAtEar(s.dimas,p);}
       }else if(s.standingEntity){
@@ -412,6 +423,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         b['lowerarm01.R'].rotation.z=-raise*.4;
         b['wrist.R'].rotation.z=raise*Math.sin(t*1.9)*.22;
         b['head'].rotation.z=Math.sin(t*.6)*.035;
+        b.jaw.rotation.x=t>=20?.035*(.5+.5*Math.sin((t-20)*4)):0;
         s.camera.position.set(-1.7,1.55,1.5-t*.045);s.camera.lookAt(-3.1,1.2,-3.2);
       }else if(revealFace&&s.seatedEntity){
         const reveal=Math.min(t/2,1);
@@ -425,7 +437,8 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       for(const item of s.bushes)item.g.visible=false;
     }else{
       s.warung.position.z=-22+(showWarung?t*2.5:travel);
-      if(rideView==='pov'){s.camera.position.set(0,1.68,-.32);s.camera.lookAt(0,1.1,-8)}
+      if(village){s.camera.position.set(0,2.5,6.8);s.camera.lookAt(0,1,-5)}
+      else if(rideView==='pov'){s.camera.position.set(0,1.68,-.32);s.camera.lookAt(0,1.1,-8)}
       else if(rideView==='side'){s.camera.position.set(-2.8,1.7,1.7);s.camera.lookAt(0,1.15,-.1)}
       else if(rideView==='hands'){s.camera.position.set(1.05,1.70,-1.3);s.camera.lookAt(0,1.28,-.32)}
       else if(rideView==='wide'){s.camera.position.set(2.4,3.6,7.2);s.camera.lookAt(0,1,-4)}
@@ -439,6 +452,6 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       s.mirror.visible=true;s.shadowActor.mesh.visible=false;s.dimas.mesh.visible=true;
     }
     s.renderer.render(s.scene,s.camera);
-  },[fps,frame,ready,showWarung,warungScene,detailCamera,revealFace,village,callIntro,rideView,rideOffset]);
+  },[fps,frame,ready,showWarung,warungScene,detailCamera,revealFace,village,callIntro,callPhase,rideView,rideOffset]);
   return <AbsoluteFill style={{backgroundColor:'#14262b'}}><canvas ref={canvas} style={{width:'100%',height:'100%'}}/></AbsoluteFill>;
 };

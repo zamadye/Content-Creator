@@ -7,7 +7,7 @@ import {SignScene} from './sign-scene';
 import {PhoneClockInsert} from './phone-insert';
 import {storyShots,validateShots} from './story-timeline';
 
-const CallShot=({resolutionScale,callIntro=false})=><RideTest warungScene="call" callIntro={callIntro} resolutionScale={resolutionScale}/>;
+const CallShot=({resolutionScale,from})=><RideTest warungScene="call" callIntro={from===362} callPhase={from} resolutionScale={resolutionScale}/>;
 const Shot=({shot,from,view,resolutionScale})=>{
  switch(shot){
   case 'memory-ride': return <AbsoluteFill style={{filter:'sepia(0.5) saturate(0.55)'}}><RideTest memory rideView="side" resolutionScale={resolutionScale}/></AbsoluteFill>;
@@ -27,7 +27,7 @@ const Shot=({shot,from,view,resolutionScale})=>{
   case 'shadow': return <RideTest warungScene="shadow" resolutionScale={resolutionScale}/>;
   case 'release': return <RideTest warungScene="release" resolutionScale={resolutionScale}/>;
   case 'brake': return <RideTest warungScene="brake" resolutionScale={resolutionScale}/>;
-  case 'call': return <CallShot callIntro={from===362} resolutionScale={resolutionScale}/>;
+  case 'call': return <CallShot from={from} resolutionScale={resolutionScale}/>;
   case 'entity-standing': return <RideTest warungScene="standing" resolutionScale={resolutionScale}/>;
   default: throw new Error(`Unknown shot: ${shot}`);
  }

@@ -29,7 +29,10 @@ Acuan: `TRANSKRIP-TIMESTAMP-RAPI.md`, 30 fps. Batas ini adalah perkiraan detik d
 | 07:47–08:18 | Kesadaran tentang penumpang dan sosok putih yang menunggu di jalan. | Visual dan animasi belum dibuat |
 | 08:18–08:40 | Instruksi ibu; Dimas memejamkan mata, menarik napas dan mengucap salam. | Akting dan shot belum dibuat |
 | 08:40–09:03 | Dimas meminta sosok turun; beban perlahan terangkat. | Animasi dan efek belum dibuat |
-| 09:03–akhir VO | Belum ditentukan: transkrip yang tersedia terputus. Dengarkan/transkrip VO lanjutan dan cocokkan offset sebelum staging. | Belum dibuat |
+| VO 02 00:00–00:23 | Sosok menurunkan tangan, melihat jok; lampu padam, sosok lenyap dan Dimas sendiri. | Blocking aftermath ada; tatapan, anggukan, napas dan tindakan belum final |
+| VO 02 00:24–00:49 | Dimas kembali berkendara, papan Sukamaju 3 km dan perjalanan ke desa. | Motor dan papan blockout; tikungan, tangis, gerbang dan gang belum divisualkan dengan tepat |
+| VO 02 00:50–01:07 | Tiba di rumah, parkir, turun, berjalan dan mengetuk tiga kali; pintu tetap tertutup. | Rig dan gerak awal, rumah dan motor proxy; kontak tangan/ kaki dan suara belum final |
+| VO 02 01:08–02:16 | Dialog ibu di balik pintu, pengungkapan dua suara dan suara di belakang Dimas. | Blocking pintu dan bayangan; akting, reaksi, suara dan ekspresi belum final |
 
 ## Pemeriksaan sebelum final
 - Cocokkan waktu dengan kedua berkas VO; jangan menganggap sambungan kedua file atau titik potong sudah tepat tanpa mendengar.

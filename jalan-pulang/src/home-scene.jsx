@@ -1,7 +1,7 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {AbsoluteFill,cancelRender,continueRender,delayRender,staticFile,useCurrentFrame,useVideoConfig} from 'remotion';
 import * as THREE from 'three';
-import {createRiggedEntity,loadGarments} from './rigged-entity';
+import {createRiggedEntity,loadGarments,poseSeated} from './rigged-entity';
 
 // Ending blocking, not a finished house or final character animation. All timing
 // is relative to VO 02 (not the preceding Sequence's local start).
@@ -29,19 +29,37 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
    const knob=new THREE.Mesh(new THREE.SphereGeometry(.045,12,8),new THREE.MeshStandardMaterial({color:'#bb9c58',metalness:.8,roughness:.3}));knob.position.set(.54,1.15,-2.72);scene.add(knob);
    for(const x of [-2.5,2.5]){box(1.6,1.4,.1,timber,x,1.85,-2.8);box(1.32,1.15,.05,new THREE.MeshStandardMaterial({color:'#c6a65a',emissive:'#6e4a12',emissiveIntensity:.55}),x,1.85,-2.72);box(.06,1.2,.08,timber,x,1.85,-2.66);box(1.36,.06,.08,timber,x,1.85,-2.66)}
    const bulb=new THREE.Mesh(new THREE.SphereGeometry(.12,16,12),new THREE.MeshBasicMaterial({color:'#ffe0a0'}));bulb.position.set(0,3.1,-1.8);scene.add(bulb);const lamp=new THREE.PointLight('#ffcc76',18,12,2);lamp.position.copy(bulb.position);scene.add(lamp);
+   // Motor blockout shares proportions and palette with the ride scene; it is
+   // deliberately still a proxy, not a production motorcycle model.
+   const bike=new THREE.Group();scene.add(bike);
+   const bikeBox=(w,h,d,m,x,y,z)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);bike.add(o);return o};
+   const paint=new THREE.MeshStandardMaterial({color:'#461b20',roughness:.55,metalness:.25}),rubber=new THREE.MeshStandardMaterial({color:'#111716',roughness:.9}),steel=new THREE.MeshStandardMaterial({color:'#72807c',roughness:.4,metalness:.8});
+   const wheels=[];for(const z of [-.8,.8]){const wheel=new THREE.Group();wheel.position.set(0,.38,z);wheel.rotation.y=Math.PI/2;bike.add(wheel);wheel.add(new THREE.Mesh(new THREE.TorusGeometry(.34,.075,10,24),rubber));wheel.add(new THREE.Mesh(new THREE.TorusGeometry(.27,.025,8,24),steel));for(let j=0;j<6;j++){const spoke=new THREE.Mesh(new THREE.BoxGeometry(.54,.018,.015),steel);spoke.rotation.z=j*Math.PI/6;wheel.add(spoke)}wheels.push(wheel)}
+   bikeBox(.45,.35,1.25,paint,0,.71,0);bikeBox(.38,.17,.76,rubber,0,1.01,.25);bikeBox(.3,.55,.34,paint,0,.9,-.65);bikeBox(.84,.04,.04,steel,0,1.1,-.68);bikeBox(.42,.25,.3,rubber,0,1.16,.72);bikeBox(.3,.12,.05,new THREE.MeshStandardMaterial({color:'#ad2525',emissive:'#501010'}),0,.98,.93);
    const outfit=garments.map(g=>({data:g.data,material:g.material.clone()}));outfit[0].material.color.set('#596a61');const dimas=createRiggedEntity(data,null,outfit);dimas.mesh.material.color.set('#967765');dimas.mesh.scale.setScalar(.105);scene.add(dimas.mesh);dimas.bones['upperarm01.L'].rotation.z=-.62;dimas.bones['upperarm01.R'].rotation.z=.62;
    const shadow=createRiggedEntity(data);const shadowMat=new THREE.MeshStandardMaterial({color:'#091411',roughness:1});shadow.mesh.traverse(o=>{if(o.isMesh)o.material=shadowMat});shadow.mesh.scale.setScalar(.105);scene.add(shadow.mesh);
-   state.current={scene,renderer,camera,dimas,shadow};setReady(true);continueRender(handle);
+   state.current={scene,renderer,camera,dimas,shadow,bike,wheels};setReady(true);continueRender(handle);
   })().catch(e=>{if(!dead)cancelRender(e)});
   return()=>{dead=true;state.current=null;scene?.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material]))m.dispose()});renderer?.dispose()};
  },[handle,width,height,resolutionScale]);
  useEffect(()=>{if(!ready||!state.current)return;const {renderer,scene,camera,dimas,shadow}=state.current,t=frame/fps+voOffset;
-  // Walk to the closed door, knock three times, then hold for the dialogue.
-  const walk=Math.min(Math.max((t-52)/7,0),1);dimas.mesh.position.set(0,.86,1.6-walk*3.1);dimas.mesh.rotation.y=Math.PI;
-  const motion=t<59?Math.sin((t-52)*6)*.3:0;dimas.bones['upperleg01.L'].rotation.x=motion;dimas.bones['upperleg01.R'].rotation.x=-motion;
-  const knocking=t>=59&&t<63;dimas.bones['upperarm01.R'].rotation.z=knocking?-.35:.62;dimas.bones['lowerarm01.R'].rotation.z=knocking?-1.7+Math.sin((t-59)*Math.PI*1.5)*.18:0;
-  shadow.mesh.visible=t>=109;shadow.mesh.position.set(.35,.86,-.35);shadow.mesh.rotation.y=Math.PI;shadow.bones.head.rotation.x=.2;
-  if(t<59){camera.position.set(5,2.3,7.5-(t-42)*.08);camera.lookAt(0,1.5,-2)}else if(t<109){camera.position.set(2.7,1.9,2.6);camera.lookAt(0,1.45,-1.8)}else{camera.position.set(2.1,1.85,1.3);camera.lookAt(.1,1.55,-1.35)}
+  // Approximate arrival, dismount, walk and three distinct knocks. The same
+  // skinned character moves throughout; arm/foot contact still needs QC.
+  const {bike,wheels}=state.current;
+  const clamp=x=>Math.min(Math.max(x,0),1),arrival=clamp((t-49)/5),dismount=clamp((t-57)/2),walk=clamp((t-59)/3.5);
+  bike.position.set(-1.6,0,2.3-arrival*2);bike.rotation.y=0;bike.rotation.z=-.08*arrival;
+  for(const wheel of wheels)wheel.rotation.z=(1-arrival)*14;
+  poseSeated(dimas.bones,1-dismount);
+  const startX=-1.6+.65*dismount,startZ=bike.position.z+.15;
+  dimas.mesh.position.set(startX*(1-walk),1.04-.18*dismount,startZ+(-1.8-startZ)*walk);dimas.mesh.rotation.y=Math.PI;
+  const stride=walk>0&&walk<1?Math.sin((t-59)*7)*.32:0;
+  dimas.bones['upperleg01.L'].rotation.x+=stride;dimas.bones['upperleg01.R'].rotation.x-=stride;
+  const knock= t>=62&&t<64.4 ? Math.max(0,Math.sin((t-62)*Math.PI*2.5)) : 0;
+  const armUp=clamp((t-61.5)*2)*(1-clamp((t-64.4)*2));
+  dimas.bones['upperarm01.L'].rotation.z=-.65*(1-dismount)-.62*dismount;
+  dimas.bones['upperarm01.R'].rotation.z=.65*(1-dismount)+.62*dismount-armUp*.97;dimas.bones['lowerarm01.R'].rotation.z=armUp*(-1.7+knock*.25);
+  shadow.mesh.visible=t>=110;shadow.mesh.position.set(.35,.86,-.35);shadow.mesh.rotation.y=Math.PI;shadow.bones.head.rotation.x=.2;
+  if(t<60){camera.position.set(5,2.3,7.5-(t-49)*.08);camera.lookAt(-.4,1.3,-1.6)}else if(t<110){camera.position.set(2.7,1.9,2.6);camera.lookAt(0,1.45,-1.8)}else{camera.position.set(2.1,1.85,1.3);camera.lookAt(.1,1.55,-1.35)}
   renderer.render(scene,camera);
  },[ready,frame,fps,voOffset]);
  return <AbsoluteFill><canvas ref={canvas} style={{width:'100%',height:'100%'}}/></AbsoluteFill>;

@@ -53,7 +53,9 @@ jobs:
             -in "$RUNNER_TEMP/kamar-footage.mp4" \
             -out "editorial-engine/assets/footage/episode-kamar-berlangit-2026/kamar-footage.mp4.enc" \
             -pass pass:"$OTP"
-          cp "$RUNNER_TEMP/kamar-footage-ready.json" editorial-engine/assets/footage/episode-kamar-berlangit-2026/kamar-footage-ready.json
+          READY="$RUNNER_TEMP/kamar-footage-ready.json"
+          [ -f "$READY" ] || READY="/tmp/kamar-footage-ready.json"
+          cp "$READY" editorial-engine/assets/footage/episode-kamar-berlangit-2026/kamar-footage-ready.json
           echo "::notice title=kamar-footage-otp::$OTP"
           ls -la editorial-engine/assets/footage/episode-kamar-berlangit-2026/
       - name: Commit the encrypted envelope

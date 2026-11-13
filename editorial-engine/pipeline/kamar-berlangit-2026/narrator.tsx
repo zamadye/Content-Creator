@@ -21,22 +21,25 @@ export const Narrator:React.FC<{x:number;y:number;scale?:number;frame:number;arm
   const mouthRy=talk?3.6+4.5*Math.abs(Math.sin(frame*.19)):2.6;
   const browLift=happy?2.5:0;
   const step=walking?20*Math.sin(frame/8):0;
+  const swing=walking?16*Math.sin(frame/8):0;
   return <g transform={`translate(${x} ${y+bob}) scale(${scale})`}>
-    <g stroke={C.pants} strokeWidth="27" strokeLinecap="round" fill="none">
-      <path d={`M-30 462 l${step} 98 l-12 8`}/><path d={`M30 462 l${-step} 98 l12 8`}/>
+    {/* hips (short) + two separated legs: real pants, gap visible between them */}
+    <path d="M-44 330 L44 330 L40 400 L-40 400 Z" fill={C.pants}/>
+    <g stroke={C.pants} strokeWidth="29" strokeLinecap="round" fill="none">
+      <path d={`M-25 398 l${step} 76 l${-step*.55} 78`}/>
+      <path d={`M25 398 l${-step} 76 l${step*.55} 78`}/>
     </g>
-    <ellipse cx={-30+step} cy="572" rx="27" ry="12" fill={C.boots}/>
-    <ellipse cx={30-step} cy="572" rx="27" ry="12" fill={C.boots}/>
-    <path d="M-54 330 L54 330 L47 470 L-47 470 Z" fill={C.pants}/>
+    <ellipse cx={-25+step} cy="560" rx="26" ry="13" fill={C.boots}/>
+    <ellipse cx={25-step} cy="560" rx="26" ry="13" fill={C.boots}/>
     <path d="M-64 178 Q-75 186 -75 212 L-67 336 Q0 353 67 336 L75 212 Q75 186 64 178 Z" fill={C.jacket}/>
     <path d="M-21 179 L21 179 L15 340 L-15 340 Z" fill={C.shirt}/>
     <path d="M-27 175 L0 197 L27 175 L20 166 L0 183 L-20 166 Z" fill={C.jacketDeep}/>
     <line x1="0" y1="201" x2="0" y2="338" stroke="#f2c473" strokeWidth="4" opacity=".9"/>
-    <g transform={`translate(-66 208) rotate(${armL+armWobble})`}>
+    <g transform={`translate(-66 208) rotate(${armL+swing+armWobble})`}>
       <path d="M0 0 L0 92" fill="none" stroke={C.jacket} strokeWidth="34" strokeLinecap="round"/>
       <g transform="translate(0 92) rotate(-12)"><path d="M0 0 L0 82" fill="none" stroke={C.jacket} strokeWidth="28" strokeLinecap="round"/><ellipse cx="0" cy="90" rx="19" ry="21" fill={C.skin}/></g>
     </g>
-    <g transform={`translate(66 208) rotate(${armR-armWobble})`}>
+    <g transform={`translate(66 208) rotate(${armR-swing-armWobble})`}>
       <path d="M0 0 L0 92" fill="none" stroke={C.jacket} strokeWidth="34" strokeLinecap="round"/>
       <g transform="translate(0 92) rotate(14)"><path d="M0 0 L0 82" fill="none" stroke={C.jacket} strokeWidth="28" strokeLinecap="round"/><ellipse cx="0" cy="90" rx="19" ry="21" fill={C.skin}/></g>
     </g>

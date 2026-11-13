@@ -33,3 +33,10 @@ export const StandingFigureWithVO = () => <AbsoluteFill>
   <RideTest warungScene="standing"/>
   <Audio src={staticFile('vo/VO-Jalan-Pulang_01.mp3')} startFrom={318*30}/>
 </AbsoluteFill>;
+
+// Phone conversation blocking, 06:02–07:23. Visual performance and VO
+// alignment are still unverified; phone and character interactions need QC.
+export const CallWithVO = () => {
+ const frame=useCurrentFrame();
+ return <AbsoluteFill><RideTest warungScene="call" detailCamera={frame>=21*30}/><Audio src={staticFile('vo/VO-Jalan-Pulang_01.mp3')} startFrom={362*30}/></AbsoluteFill>;
+};

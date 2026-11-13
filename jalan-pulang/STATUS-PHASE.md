@@ -35,3 +35,6 @@ Timeline `StoryBlocking` sudah mencakup 00:00–05:39. `scripts/render-five-minu
 - Set gudang memakai material aspal/beton/plester dengan peta color, normal dan roughness, ditambah mesh rak glTF dengan tekstur PBR. Ukuran rak disesuaikan setelah pemeriksaan frame; posisi kotak diselaraskan dengan rak. Set masih blockout dan banyak aksi belum ada.
 - Warung memakai peta kayu PBR hasil scan dari mirror dan meja glTF mengganti meja kotak. Potongan kayu dan kursi masih geometri sederhana; belum final. Referensi dan catatan lisensi `public/pbr/PROVENANCE.md`, `public/models/PROVENANCE.md`.
 - Lisensi individual model meja dan rak serta vegetasi **belum diverifikasi di sumber asli**; jangan dipublikasikan sebelum verifikasi. Bukan bukti kualitas realistis final.
+
+## Blok adegan panggilan (06:02–07:23)
+`CallWithVO` adalah komposisi terpisah dengan VO 01 dari 06:02, menampilkan motor berhenti, sosok di dekat warung, Dimas ber-rig, telepon 3D pada pergelangan dan perpindahan kamera. Ini masih blocking: telepon belum pas di telinga/tangan, gestur, ekspresi dan motor masih sementara; dua karakter masih berbagi bentuk dan pakaian dasar. Frame lebar dan dekat diuji, belum ada render video atau QC sinkronisasi. Belum diintegrasikan ke StoryBlocking karena bagian 05:39–06:02 belum dipentaskan dengan benar; tidak menganggap 06:02–07:23 sudah selesai.

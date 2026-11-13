@@ -7,12 +7,14 @@ import {PhoneCallTest} from './phone';
 import {RideTest} from './ride';
 import {SignDryWithVO, SignWetWithVO} from './sign-scene';
 import {EntityRigStudy} from './entity-rig';
-import {WarungWithVO, WarungFigureWithVO, ThirdLoopAssembly, StandingFigureWithVO} from './vo-scene';
+import {WarungWithVO, WarungFigureWithVO, ThirdLoopAssembly, StandingFigureWithVO, CallWithVO} from './vo-scene';
 const Root = () => <>
   <Composition id="StoryBlocking" component={StoryBlocking} width={1920} height={1080} fps={30} durationInFrames={10170} />
   <Composition id="OpeningAssembly" component={OpeningAssembly} width={1920} height={1080} fps={30} durationInFrames={3030} />
   <Composition id="WarehouseSet" component={OpeningSet} width={1920} height={1080} fps={30} durationInFrames={1140} />
   <Composition id="TrafficSet" component={OpeningSet} defaultProps={{set:"traffic"}} width={1920} height={1080} fps={30} durationInFrames={900} />
+  <Composition id="CallWithVO" component={CallWithVO} width={1920} height={1080} fps={30} durationInFrames={2430} />
+  <Composition id="CallSceneStudy" component={RideTest} defaultProps={{warungScene:"call"}} width={1920} height={1080} fps={30} durationInFrames={900} />
   <Composition id="StandingFigureWithVO" component={StandingFigureWithVO} width={1920} height={1080} fps={30} durationInFrames={630} />
   <Composition id="SignDryWithVO" component={SignDryWithVO} width={1920} height={1080} fps={30} durationInFrames={540} />
   <Composition id="SignWetWithVO" component={SignWetWithVO} width={1920} height={1080} fps={30} durationInFrames={390} />

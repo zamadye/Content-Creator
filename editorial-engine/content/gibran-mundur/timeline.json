@@ -1,35 +1,277 @@
 {
   "id": "gibran-mundur-2026-11-13",
   "title": "Satu Pilar Hilang, Gedung Langsung Roboh?",
-  "format": {"width": 1080, "height": 1920, "fps": 30, "orientation": "vertical", "durationSeconds": 434.991},
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "orientation": "vertical",
+    "durationSeconds": 434.991
+  },
   "narration": "../../assets/audio/gibran-mundur-2026-11-13/vo-gibran-mundur.mp3",
   "timingSource": "Drive Google Doc Timpstamp Gibran Mundur; scene endpoints from storyboard_gibran_mundur.xlsx. Transcript timing remains an estimate within each broad interval and must be listened through during QA.",
-  "policy": {"doNotRegenerateVO": true, "noGibranLikeness": true, "noFabricatedQuotes": true, "labelMockDocumentsAsIllustration": true, "publicationAuthorized": false},
+  "policy": {
+    "doNotRegenerateVO": true,
+    "noGibranLikeness": true,
+    "noFabricatedQuotes": true,
+    "labelMockDocumentsAsIllustration": true,
+    "publicationAuthorized": false
+  },
   "scenes": [
-    {"n":1,"start":0,"end":9,"section":"Pembuka","visualType":"footage","visual":"Low-angle gedung raksasa berpilar; tilt-up pelan, cahaya senja dramatis. No text in the first hook beat.","overlay":"","motion":"slow tilt / gentle push"},
-    {"n":2,"start":9,"end":25,"section":"Pembuka","visualType":"animation","visual":"Satu pilar generik menghilang; gedung tetap berdiri; kamera zoom out; tanda tanya muncul.","overlay":"Satu pilar hilang… gedung langsung roboh? → Belum tentu.","motion":"pillar vanishes; structure flexes but holds"},
-    {"n":3,"start":25,"end":54,"section":"Konsep","visualType":"animation","visual":"Panah beban berpindah ke pilar lain (biru), satu pilar kelebihan beban memerah, retak merambat; retakan transisi jadi siluet gedung parlemen generik.","overlay":"LOAD REDISTRIBUTION → Batas kemampuan struktur","motion":"animated load arrows, stress color ramp, crack-trace transition"},
-    {"n":4,"start":55,"end":70,"section":"Peristiwa","visualType":"mixed","visual":"Footage eksterior kompleks MPR/DPR Senayan (berlisensi/arsip yang boleh dipakai ulang). Mockup surat generik berlabel ILUSTRASI, bukan replika dokumen asli.","overlay":"12 November 2026 · Pengunduran diri Wakil Presiden","motion":"slow footage pan; paper mockup slides in"},
-    {"n":5,"start":71,"end":83,"section":"Peristiwa","visualType":"mixed","visual":"Eksterior Istana; ikon surat bergerak ke ikon MPR dan Presiden. Kutipan hanya jika cocok verbatim dengan dokumen/sumber; jangan reka quote.","overlay":"Disampaikan ke pimpinan MPR & Presiden","motion":"letter path animates between labeled institutions"},
-    {"n":6,"start":84,"end":98,"section":"Peristiwa","visualType":"animation","visual":"Lembar ilustrasi dengan kolom alasan dikosongkan (bukan blur pada dokumen asli); tanda tanya; rewind untuk mundur ke konteks.","overlay":"Alasan spesifik: tidak dijelaskan","motion":"blank field reveals; question mark; quick rewind"},
-    {"n":7,"start":98,"end":113,"section":"Konteks hukum","visualType":"mixed","visual":"Eksterior MK dan MA dari footage berlisensi; palu hakim generik, ikon dokumen pendidikan, timeline putusan. Do not imply ruling content not supported by primary documents.","overlay":"Putusan MK & MA · Bukan sekadar debat medsos","motion":"documents/timeline enter in sequence"},
-    {"n":8,"start":114,"end":128,"section":"Konteks hukum","visualType":"animation","visual":"Berkas dan checklist persyaratan; timbangan keadilan. Keep distinction between court ruling and claims not made by judges.","overlay":"Putusan ≠ tuduhan yang tidak pernah dinyatakan hakim","motion":"checklist draws; scales settle"},
-    {"n":9,"start":128,"end":145,"section":"Konteks hukum","visualType":"animation","visual":"Split-screen 'Mundur' vs 'Mengaku bersalah' with not-equal sign; empty chair in generic chamber.","overlay":"Jangan buru-buru menyimpulkan","motion":"two panels separate; ≠ snaps in; empty chair push-in"},
-    {"n":10,"start":145,"end":157,"section":"Analogi sistem","visualType":"animation","visual":"Kembali ke gedung; crane memasang pilar baru; orbit camera.","overlay":"Cukup pasang pilar baru?","motion":"crane lifts and slots pillar"},
-    {"n":11,"start":157,"end":185,"section":"Analogi sistem","visualType":"animation","visual":"Blueprint di meja, fondasi retak; split-screen 'ganti komponen' versus 'perbaiki sistem'.","overlay":"Desain bangunan? Sistem pemeriksaan? Distribusi beban?","motion":"blueprint pans; foundation crack pulses; compare panels"},
-    {"n":12,"start":185,"end":200,"section":"Sistem negara","visualType":"infographic","visual":"Jaringan node: Presiden, Wapres, DPR, MPR, Pengadilan, Lembaga Negara, Masyarakat; nodes terhubung seperti struktur penopang.","overlay":"Negara ≠ hanya presiden & wapres","motion":"nodes connect one by one"},
-    {"n":13,"start":200,"end":209,"section":"Sistem negara","visualType":"infographic","visual":"Garis penghubung antar-node menyala; cincin besar 'Konstitusi' mengelilingi jaringan.","overlay":"Kewenangan · Batas · Satu sistem","motion":"network pulses; constitution ring draws"},
-    {"n":14,"start":209,"end":232,"section":"Mekanisme","visualType":"mixed","visual":"Kutipan Pasal 8 ayat (2) UUD 1945 hanya setelah cek teks primer; flow Presiden mengusulkan dua calon → MPR memilih; countdown 60 hari; footage sidang MPR berlisensi.","overlay":"Maks. 60 hari","motion":"two candidate tokens flow to MPR; counter ticks"},
-    {"n":15,"start":233,"end":247,"section":"Dua sudut pandang","visualType":"animation","visual":"Pintu mekanisme terbuka lalu tanda tanya; frame terbelah menjadi dua perspektif.","overlay":"Dua sudut pandang","motion":"door opens; question mark; split reveal"},
-    {"n":16,"start":247,"end":267,"section":"Dua sudut pandang","visualType":"footage","visual":"Sisi A: suasana rapat pemerintahan generik yang tenang; api konflik mengecil; timbangan menyeimbang.","overlay":"Mundur = meredakan konflik","motion":"calm footage; animated flame diminishes"},
-    {"n":17,"start":268,"end":290,"section":"Dua sudut pandang","visualType":"footage","visual":"Sisi B: berkas tertinggal di meja kosong; siluet generik keluar pintu; dokumen tetap ada.","overlay":"Persoalan otomatis selesai?","motion":"slow dolly from empty chair to remaining files"},
-    {"n":18,"start":291,"end":310,"section":"Analogi mobil","visualType":"animation","visual":"Mekanik mengganti komponen; mobil berjalan lalu overheat; close-up radiator/sistem pendingin.","overlay":"Akar masalah tidak diperbaiki → kerusakan berulang","motion":"part replacement; temperature gauge rises; radiator pulses"},
-    {"n":19,"start":310,"end":322,"section":"Analogi mobil","visualType":"animation","visual":"Mobil berubah menjadi gedung institusi; kursi diganti tetapi roda gigi di belakangnya tetap sama.","overlay":"Ganti orang ≠ perbaiki sistem","motion":"match-cut car engine gears into institutional mechanism"},
-    {"n":20,"start":323,"end":346,"section":"Resilience","visualType":"animation","visual":"Loop sistem: diguncang → deteksi → perbaikan → pencegahan; indikator hijau menyala.","overlay":"RESILIENCE","motion":"system shock, sensors, repair, prevention loop"},
-    {"n":21,"start":346,"end":371,"section":"Penutup","visualType":"animation","visual":"Dua jalur bercabang ('sistem memperbaiki diri' vs 'ganti satu komponen'); close-up pilar lalu wide shot gedung.","overlay":"Pilar bukan pemilik gedung","motion":"branch paths; resolve to wide structure"},
-    {"n":22,"start":371,"end":379,"section":"Penutup","visualType":"animation","visual":"Kursi jabatan kosong dengan cahaya redup; kunci diletakkan di atasnya.","overlay":"Jabatan bukan milik pribadi","motion":"key lands; light moves off chair"},
-    {"n":23,"start":379,"end":402,"section":"Penutup","visualType":"animation","visual":"Montage simbol: satu nama, satu keluarga, satu kelompok tunduk pada satu garis aturan, timbangan, dan buku konstitusi generik.","overlay":"Siapapun yang berkuasa, tunduk pada aturan yang sama","motion":"symbols enter then align under shared rule line"},
-    {"n":24,"start":403,"end":434.991,"section":"Ajakan komentar","visualType":"animation","visual":"Dua opsi A (ganti komponen) dan B (evaluasi sistem), ikon komentar; closing line; Knot Theory wordmark only if approved official asset exists.","overlay":"Menurut lo, mana yang lebih penting? Tulis pendapat lo di komentar.","motion":"choice cards; comment icon; soft close"}
+    {
+      "n": 1,
+      "start": 0,
+      "end": 9,
+      "section": "Pembuka",
+      "visualType": "footage",
+      "visual": "Low-angle gedung raksasa berpilar; tilt-up pelan, cahaya senja dramatis. No text in the first hook beat.",
+      "overlay": "",
+      "motion": "slow tilt / gentle push"
+    },
+    {
+      "n": 2,
+      "start": 9,
+      "end": 25,
+      "section": "Pembuka",
+      "visualType": "animation",
+      "visual": "Satu pilar generik menghilang; gedung tetap berdiri; kamera zoom out; tanda tanya muncul.",
+      "overlay": "Satu pilar hilang… gedung langsung roboh? → Belum tentu.",
+      "motion": "pillar vanishes; structure flexes but holds"
+    },
+    {
+      "n": 3,
+      "start": 25,
+      "end": 55,
+      "section": "Konsep",
+      "visualType": "animation",
+      "visual": "Panah beban berpindah ke pilar lain (biru), satu pilar kelebihan beban memerah, retak merambat; retakan transisi jadi siluet gedung parlemen generik.",
+      "overlay": "LOAD REDISTRIBUTION → Batas kemampuan struktur",
+      "motion": "animated load arrows, stress color ramp, crack-trace transition",
+      "holdThroughTranscriptPause": true
+    },
+    {
+      "n": 4,
+      "start": 55,
+      "end": 71,
+      "section": "Peristiwa",
+      "visualType": "mixed",
+      "visual": "Footage eksterior kompleks MPR/DPR Senayan (berlisensi/arsip yang boleh dipakai ulang). Mockup surat generik berlabel ILUSTRASI, bukan replika dokumen asli.",
+      "overlay": "12 November 2026 · Pengunduran diri Wakil Presiden",
+      "motion": "slow footage pan; paper mockup slides in",
+      "holdThroughTranscriptPause": true
+    },
+    {
+      "n": 5,
+      "start": 71,
+      "end": 84,
+      "section": "Peristiwa",
+      "visualType": "mixed",
+      "visual": "Eksterior Istana; ikon surat bergerak ke ikon MPR dan Presiden. Kutipan hanya jika cocok verbatim dengan dokumen/sumber; jangan reka quote.",
+      "overlay": "Disampaikan ke pimpinan MPR & Presiden",
+      "motion": "letter path animates between labeled institutions",
+      "holdThroughTranscriptPause": true
+    },
+    {
+      "n": 6,
+      "start": 84,
+      "end": 98,
+      "section": "Peristiwa",
+      "visualType": "animation",
+      "visual": "Lembar ilustrasi dengan kolom alasan dikosongkan (bukan blur pada dokumen asli); tanda tanya; rewind untuk mundur ke konteks.",
+      "overlay": "Alasan spesifik: tidak dijelaskan",
+      "motion": "blank field reveals; question mark; quick rewind"
+    },
+    {
+      "n": 7,
+      "start": 98,
+      "end": 114,
+      "section": "Konteks hukum",
+      "visualType": "mixed",
+      "visual": "Eksterior MK dan MA dari footage berlisensi; palu hakim generik, ikon dokumen pendidikan, timeline putusan. Do not imply ruling content not supported by primary documents.",
+      "overlay": "Putusan MK & MA · Bukan sekadar debat medsos",
+      "motion": "documents/timeline enter in sequence",
+      "holdThroughTranscriptPause": true
+    },
+    {
+      "n": 8,
+      "start": 114,
+      "end": 128,
+      "section": "Konteks hukum",
+      "visualType": "animation",
+      "visual": "Berkas dan checklist persyaratan; timbangan keadilan. Keep distinction between court ruling and claims not made by judges.",
+      "overlay": "Putusan ≠ tuduhan yang tidak pernah dinyatakan hakim",
+      "motion": "checklist draws; scales settle"
+    },
+    {
+      "n": 9,
+      "start": 128,
+      "end": 145,
+      "section": "Konteks hukum",
+      "visualType": "animation",
+      "visual": "Split-screen 'Mundur' vs 'Mengaku bersalah' with not-equal sign; empty chair in generic chamber.",
+      "overlay": "Jangan buru-buru menyimpulkan",
+      "motion": "two panels separate; ≠ snaps in; empty chair push-in"
+    },
+    {
+      "n": 10,
+      "start": 145,
+      "end": 157,
+      "section": "Analogi sistem",
+      "visualType": "animation",
+      "visual": "Kembali ke gedung; crane memasang pilar baru; orbit camera.",
+      "overlay": "Cukup pasang pilar baru?",
+      "motion": "crane lifts and slots pillar"
+    },
+    {
+      "n": 11,
+      "start": 157,
+      "end": 185,
+      "section": "Analogi sistem",
+      "visualType": "animation",
+      "visual": "Blueprint di meja, fondasi retak; split-screen 'ganti komponen' versus 'perbaiki sistem'.",
+      "overlay": "Desain bangunan? Sistem pemeriksaan? Distribusi beban?",
+      "motion": "blueprint pans; foundation crack pulses; compare panels"
+    },
+    {
+      "n": 12,
+      "start": 185,
+      "end": 200,
+      "section": "Sistem negara",
+      "visualType": "infographic",
+      "visual": "Jaringan node: Presiden, Wapres, DPR, MPR, Pengadilan, Lembaga Negara, Masyarakat; nodes terhubung seperti struktur penopang.",
+      "overlay": "Negara ≠ hanya presiden & wapres",
+      "motion": "nodes connect one by one"
+    },
+    {
+      "n": 13,
+      "start": 200,
+      "end": 209,
+      "section": "Sistem negara",
+      "visualType": "infographic",
+      "visual": "Garis penghubung antar-node menyala; cincin besar 'Konstitusi' mengelilingi jaringan.",
+      "overlay": "Kewenangan · Batas · Satu sistem",
+      "motion": "network pulses; constitution ring draws"
+    },
+    {
+      "n": 14,
+      "start": 209,
+      "end": 233,
+      "section": "Mekanisme",
+      "visualType": "mixed",
+      "visual": "Kutipan Pasal 8 ayat (2) UUD 1945 hanya setelah cek teks primer; flow Presiden mengusulkan dua calon → MPR memilih; countdown 60 hari; footage sidang MPR berlisensi.",
+      "overlay": "Maks. 60 hari",
+      "motion": "two candidate tokens flow to MPR; counter ticks",
+      "holdThroughTranscriptPause": true
+    },
+    {
+      "n": 15,
+      "start": 233,
+      "end": 247,
+      "section": "Dua sudut pandang",
+      "visualType": "animation",
+      "visual": "Pintu mekanisme terbuka lalu tanda tanya; frame terbelah menjadi dua perspektif.",
+      "overlay": "Dua sudut pandang",
+      "motion": "door opens; question mark; split reveal"
+    },
+    {
+      "n": 16,
+      "start": 247,
+      "end": 268,
+      "section": "Dua sudut pandang",
+      "visualType": "footage",
+      "visual": "Sisi A: suasana rapat pemerintahan generik yang tenang; api konflik mengecil; timbangan menyeimbang.",
+      "overlay": "Mundur = meredakan konflik",
+      "motion": "calm footage; animated flame diminishes",
+      "holdThroughTranscriptPause": true
+    },
+    {
+      "n": 17,
+      "start": 268,
+      "end": 291,
+      "section": "Dua sudut pandang",
+      "visualType": "footage",
+      "visual": "Sisi B: berkas tertinggal di meja kosong; siluet generik keluar pintu; dokumen tetap ada.",
+      "overlay": "Persoalan otomatis selesai?",
+      "motion": "slow dolly from empty chair to remaining files",
+      "holdThroughTranscriptPause": true
+    },
+    {
+      "n": 18,
+      "start": 291,
+      "end": 310,
+      "section": "Analogi mobil",
+      "visualType": "animation",
+      "visual": "Mekanik mengganti komponen; mobil berjalan lalu overheat; close-up radiator/sistem pendingin.",
+      "overlay": "Akar masalah tidak diperbaiki → kerusakan berulang",
+      "motion": "part replacement; temperature gauge rises; radiator pulses"
+    },
+    {
+      "n": 19,
+      "start": 310,
+      "end": 323,
+      "section": "Analogi mobil",
+      "visualType": "animation",
+      "visual": "Mobil berubah menjadi gedung institusi; kursi diganti tetapi roda gigi di belakangnya tetap sama.",
+      "overlay": "Ganti orang ≠ perbaiki sistem",
+      "motion": "match-cut car engine gears into institutional mechanism",
+      "holdThroughTranscriptPause": true
+    },
+    {
+      "n": 20,
+      "start": 323,
+      "end": 346,
+      "section": "Resilience",
+      "visualType": "animation",
+      "visual": "Loop sistem: diguncang → deteksi → perbaikan → pencegahan; indikator hijau menyala.",
+      "overlay": "RESILIENCE",
+      "motion": "system shock, sensors, repair, prevention loop"
+    },
+    {
+      "n": 21,
+      "start": 346,
+      "end": 371,
+      "section": "Penutup",
+      "visualType": "animation",
+      "visual": "Dua jalur bercabang ('sistem memperbaiki diri' vs 'ganti satu komponen'); close-up pilar lalu wide shot gedung.",
+      "overlay": "Pilar bukan pemilik gedung",
+      "motion": "branch paths; resolve to wide structure"
+    },
+    {
+      "n": 22,
+      "start": 371,
+      "end": 379,
+      "section": "Penutup",
+      "visualType": "animation",
+      "visual": "Kursi jabatan kosong dengan cahaya redup; kunci diletakkan di atasnya.",
+      "overlay": "Jabatan bukan milik pribadi",
+      "motion": "key lands; light moves off chair"
+    },
+    {
+      "n": 23,
+      "start": 379,
+      "end": 403,
+      "section": "Penutup",
+      "visualType": "animation",
+      "visual": "Montage simbol: satu nama, satu keluarga, satu kelompok tunduk pada satu garis aturan, timbangan, dan buku konstitusi generik.",
+      "overlay": "Siapapun yang berkuasa, tunduk pada aturan yang sama",
+      "motion": "symbols enter then align under shared rule line",
+      "holdThroughTranscriptPause": true
+    },
+    {
+      "n": 24,
+      "start": 403,
+      "end": 434.991,
+      "section": "Ajakan komentar",
+      "visualType": "animation",
+      "visual": "Dua opsi A (ganti komponen) dan B (evaluasi sistem), ikon komentar; closing line; Knot Theory wordmark only if approved official asset exists.",
+      "overlay": "Menurut lo, mana yang lebih penting? Tulis pendapat lo di komentar.",
+      "motion": "choice cards; comment icon; soft close"
+    }
   ],
-  "notes": ["Storyboard's listed scene intervals sum to 425s while supplied VO probes at 434.991s; scene 24 is extended to audio end pending word-level timing/QA.", "Several source storyboard notes are conceptual; factual legal wording and exact UUD text require primary-source review before final export.", "All footage license checks and visual asset acquisition remain open."]
+  "notes": [
+    "All 24 scenes now cover the full audio interval without black gaps; the 9 one-second pauses between transcript blocks hold the outgoing visual until the next scene.",
+    "Storyboard's scene durations sum to 425 s because it omits 9 one-second transcript pauses; audio probes at 434.991 s. Scene 24 closes on the audio end.",
+    "Several source storyboard notes are conceptual; exact legal wording and UUD text must be checked to primary sources before export.",
+    "All footage license checks and Flow clip generation remain open."
+  ]
 }

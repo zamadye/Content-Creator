@@ -163,6 +163,8 @@ function Frame({n,t}:{n:number;t:number}){
   tGlobal=t;
   const scene=timeline.scenes[n-1];
   const label=scene.visualType==='footage'?'PLATE FOOTAGE + MOTION REMOTION':scene.visualType==='mixed'?'FOOTAGE (JIKA ADA) + OBJEK REMOTION':'ANIMASI REMOTION';
+  const overlayText=(scene.overlay||scene.visual.slice(0,40)).replaceAll('≠','BUKAN').replaceAll('→','KE');
+  const overlayFont=overlayText.length>48?22:overlayText.length>36?26:30;
   return <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
     <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stopColor={C.bg}/><stop offset="1" stopColor={C.bg2}/></linearGradient><pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse"><path d="M72 0H0V72" fill="none" stroke={C.teal} strokeOpacity=".15" strokeWidth="1"/></pattern></defs>
     <rect width="1080" height="1920" fill="url(#b)"/><rect width="1080" height="1920" fill="url(#grid)"/>
@@ -171,7 +173,7 @@ function Frame({n,t}:{n:number;t:number}){
     <text x="74" y="330" fill={C.cream} fontSize="40" fontFamily="Archivo" fontWeight="700">SC{String(n).padStart(2,'0')} · {scene.section.toUpperCase()}</text>
     <Illustration n={n} t={t}/>
     <rect x="68" y="1510" width="944" height="158" rx="20" fill="#041219" opacity=".94" stroke={C.teal} strokeWidth="3"/>
-    <text x="540" y="1580" fill={C.white} fontSize="30" textAnchor="middle" fontFamily="Archivo" fontWeight="700" textLength="870" lengthAdjust="spacingAndGlyphs">{(scene.overlay||scene.visual.slice(0,40)).replaceAll('≠','BUKAN').replaceAll('→','KE')}</text>
+    <text x="540" y="1580" fill={C.white} fontSize={overlayFont} textAnchor="middle" fontFamily="Archivo" fontWeight="700">{overlayText}</text>
     <text x="540" y="1635" fill={C.gold} fontSize="20" textAnchor="middle" fontFamily="Archivo">SUBTITLE SINKRON AUDIO — AKAN DIPASANG SAAT MASTER RENDER</text>
     <text x="73" y="1855" fill={C.mint} fontSize="20" fontFamily="Archivo">ILUSTRASI · TIDAK MENGGAMBARKAN TOKOH ATAU PERISTIWA NYATA</text>
   </svg>;

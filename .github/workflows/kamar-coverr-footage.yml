@@ -1,0 +1,67 @@
+name: kamar-coverr-footage
+# Kamar Berlangit visual test: Coverr search and ONE encrypted download.
+# Authorized by the user on 2026-11-13 (footage test with narrator overlay).
+# Push marker required per step; no schedule, publish, or Buffer calls.
+on:
+  push:
+    branches: [arena/54cb36c6-content-creator]
+    paths:
+      - '.github/workflows/kamar-coverr-footage.yml'
+      - 'editorial-engine/pipeline/kamar-berlangit-2026/**'
+permissions:
+  contents: write
+  checks: write
+jobs:
+  footage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - name: Coverr search (sanitized metadata via annotations)
+        if: ${{ contains(github.event.head_commit.message, '[approved-coverr-kamar-search]') }}
+        env:
+          COVERR_SECRET: ${{ secrets.COVERR_API_KEY || secrets.COVERR_VIDEO_API_KEY || secrets.COVERR_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export COVERR_API_KEY="${COVERR_SECRET}"
+          if [ -n "$COVERR_API_KEY" ]; then echo "::add-mask::$COVERR_API_KEY"; fi
+          python3 editorial-engine/pipeline/kamar-berlangit-2026/coverr-search.py
+      - name: Fetch one approved video (plaintext only in RUNNER_TEMP)
+        if: ${{ contains(github.event.head_commit.message, '[approved-coverr-kamar-download]') }}
+        env:
+          COVERR_SECRET: ${{ secrets.COVERR_API_KEY || secrets.COVERR_VIDEO_API_KEY || secrets.COVERR_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export COVERR_API_KEY="${COVERR_SECRET}"
+          if [ -n "$COVERR_API_KEY" ]; then echo "::add-mask::$COVERR_API_KEY"; fi
+          VIDEO_ID="${{ vars.KAMAR_COVERR_VIDEO_ID }}"
+          if [ -z "$VIDEO_ID" ] && [ -f editorial-engine/pipeline/kamar-berlangit-2026/approved-video-id.txt ]; then
+            VIDEO_ID=$(tr -d '[:space:]' < editorial-engine/pipeline/kamar-berlangit-2026/approved-video-id.txt)
+          fi
+          if [ -z "$VIDEO_ID" ]; then echo "::error::no approved video id (var KAMAR_COVERR_VIDEO_ID or approved-video-id.txt)"; exit 2; fi
+          node editorial-engine/pipeline/kamar-berlangit-2026/coverr-fetch.mjs "$VIDEO_ID" "$RUNNER_TEMP/kamar-footage.mp4"
+      - name: Encrypt into Git (one-time password via annotation)
+        if: ${{ contains(github.event.head_commit.message, '[approved-coverr-kamar-download]') }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p editorial-engine/assets/footage/episode-kamar-berlangit-2026
+          OTP=$(openssl rand -hex 24)
+          openssl enc -aes-256-cbc -pbkdf2 -iter 120000 -salt \
+            -in "$RUNNER_TEMP/kamar-footage.mp4" \
+            -out "editorial-engine/assets/footage/episode-kamar-berlangit-2026/kamar-footage.mp4.enc" \
+            -pass pass:"$OTP"
+          cp "$RUNNER_TEMP/kamar-footage-ready.json" editorial-engine/assets/footage/episode-kamar-berlangit-2026/kamar-footage-ready.json
+          echo "::notice title=kamar-footage-otp::$OTP"
+          ls -la editorial-engine/assets/footage/episode-kamar-berlangit-2026/
+      - name: Commit the encrypted envelope
+        if: ${{ contains(github.event.head_commit.message, '[approved-coverr-kamar-download]') }}
+        shell: bash
+        run: |
+          git config user.name "knot-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add editorial-engine/assets/footage/episode-kamar-berlangit-2026/
+          git commit -m "kamar: footage envelope (ciphertext + ready; kunci sekali-pakai via annotation)" || echo "nothing to commit"
+          git push origin HEAD:${{ github.ref }}

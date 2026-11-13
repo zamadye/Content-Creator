@@ -28,6 +28,9 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
    box(28,.12,24,concrete,0,-.06,1);box(9,3.8,.25,plaster,0,1.9,-3);box(9,.18,2.5,timber,0,3.4,-1.7);box(9,.25,.3,timber,0,3.65,-1.0);
    box(.16,3.3,.16,timber,-4.2,1.65,-1);box(.16,3.3,.16,timber,4.2,1.65,-1);
    box(1.5,2.65,.14,timber,0,1.325,-2.83);for(let y of [.5,1.3,2.1])box(1.27,.04,.06,dark,0,y,-2.73);
+   // Light leaking from the closed door and moving shadows behind its lower edge.
+   const threshold=new THREE.Mesh(new THREE.PlaneGeometry(1.28,.035),new THREE.MeshBasicMaterial({color:'#e8bb6e',transparent:true,opacity:.8,depthWrite:false}));threshold.position.set(0,.19,-2.745);scene.add(threshold);
+   const footsteps=new THREE.Group();scene.add(footsteps);for(const x of [-.13,.13]){const shadow=new THREE.Mesh(new THREE.CircleGeometry(.095,20),new THREE.MeshBasicMaterial({color:'#130f0b',transparent:true,opacity:.72,depthWrite:false}));shadow.scale.set(1.15,.16,1);shadow.position.set(x,.19,-2.715);footsteps.add(shadow)}
    const knob=new THREE.Mesh(new THREE.SphereGeometry(.045,12,8),new THREE.MeshStandardMaterial({color:'#bb9c58',metalness:.8,roughness:.3}));knob.position.set(.54,1.15,-2.72);scene.add(knob);
    for(const x of [-2.5,2.5]){box(1.6,1.4,.1,timber,x,1.85,-2.8);box(1.32,1.15,.05,new THREE.MeshStandardMaterial({color:'#c6a65a',emissive:'#6e4a12',emissiveIntensity:.55}),x,1.85,-2.72);box(.06,1.2,.08,timber,x,1.85,-2.66);box(1.36,.06,.08,timber,x,1.85,-2.66)}
    // Porch structure, inset window lintels, steps and restrained domestic details.
@@ -40,14 +43,15 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
    const bike=new THREE.Group();scene.add(bike);const generatedBike=createMotorcycle();bike.add(generatedBike.model);const wheels=generatedBike.wheels;
    const outfit=garments.map(g=>({data:g.data,material:g.material.clone()}));const dimas=createRiggedEntity(data,null,outfit);dimas.mesh.material.color.set('#967765');dimas.mesh.scale.setScalar(.105);scene.add(dimas.mesh);dimas.bones['upperarm01.L'].rotation.z=-.62;dimas.bones['upperarm01.R'].rotation.z=.62;
    const shadow=createRiggedEntity(data);const shadowMat=new THREE.MeshStandardMaterial({color:'#091411',roughness:1});shadow.mesh.traverse(o=>{if(o.isMesh)o.material=shadowMat});shadow.mesh.scale.setScalar(.105);scene.add(shadow.mesh);
-   state.current={scene,renderer,camera,dimas,shadow,bike,bikeModel:generatedBike.model,wheels};setReady(true);continueRender(handle);
+   state.current={scene,renderer,camera,dimas,shadow,bike,bikeModel:generatedBike.model,wheels,footsteps,threshold};setReady(true);continueRender(handle);
   })().catch(e=>{if(!dead)cancelRender(e)});
   return()=>{dead=true;state.current=null;scene?.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material]))m.dispose()});renderer?.dispose()};
  },[handle,width,height,resolutionScale]);
  useEffect(()=>{if(!ready||!state.current)return;const {renderer,scene,camera,dimas,shadow}=state.current,t=frame/fps+voOffset;
   // Approximate arrival, dismount, walk and three distinct knocks. The same
   // skinned character moves throughout; arm/foot contact still needs QC.
-  const {bike,wheels}=state.current;
+  const {bike,wheels,footsteps,threshold}=state.current;
+  footsteps.visible=t>=65&&t<110;footsteps.position.x=t<67?-.25*(1-(t-65)/2):0;threshold.material.opacity=t>=65&&t<110?.85:.55;
   const clamp=x=>Math.min(Math.max(x,0),1),arrival=clamp((t-49)/5),dismount=clamp((t-57)/2),walk=clamp((t-59)/3.5);
   bike.position.set(-1.6,0,2.3-arrival*2);bike.rotation.y=0;bike.rotation.z=-.08*arrival;
   for(const wheel of wheels)wheel.rotation.z=(1-arrival)*14;
@@ -71,7 +75,8 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
   // The presence is held out of view until the breath behind his ear.
   shadow.mesh.visible=t>=110;shadow.mesh.position.set(.38,.86,-.90);shadow.mesh.rotation.y=Math.PI;shadow.bones.head.rotation.set(.2,0,-.12);shadow.bones['upperarm01.L'].rotation.z=-.62;shadow.bones['upperarm01.R'].rotation.z=.62;shadow.bones['lowerarm01.L'].rotation.z=-.12;shadow.bones['lowerarm01.R'].rotation.z=.12;
   if(t<59){camera.position.set(5,2.3,7.5-(t-49)*.08);camera.lookAt(-.4,1.3,-1.6)}
-  else if(t<68){camera.position.set(2.9-(t-59)*.055,1.9,2.7-(t-59)*.08);camera.lookAt(0,1.45,-1.8)}
+  else if(t<65){camera.position.set(2.9-(t-59)*.055,1.9,2.7-(t-59)*.08);camera.lookAt(0,1.45,-1.8)}
+  else if(t<68){camera.position.set(-1.0,.45,-1.65);camera.lookAt(0,.21,-2.74)}
   else if(t<85){camera.position.set(-1.85,1.7,-.18-(t-68)*.018);camera.lookAt(.25,1.5,-2.65)}
   else if(t<98){camera.position.set(1.55-(t-85)*.025,1.75,-.1);camera.lookAt(.0,1.5,-1.8)}
   else if(t<110){camera.position.set(-1.35,1.68,-.35-(t-98)*.018);camera.lookAt(0,1.48,-1.8)}
@@ -79,5 +84,6 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
   else{camera.position.set(2.3+(t-125)*.04,1.85,1.4+(t-125)*.07);camera.lookAt(.1,1.45,-1.6)}
   renderer.render(scene,camera);
  },[ready,frame,fps,voOffset]);
- return <AbsoluteFill><canvas ref={canvas} style={{width:'100%',height:'100%'}}/></AbsoluteFill>;
+ const elapsed=frame/fps+voOffset,fade=Math.min(1,Math.max(0,(elapsed-132)/3));
+ return <AbsoluteFill><canvas ref={canvas} style={{width:'100%',height:'100%'}}/><AbsoluteFill style={{backgroundColor:'black',opacity:fade,pointerEvents:'none'}}/><AbsoluteFill style={{alignItems:'center',justifyContent:'center',color:'#d9d7c8',fontFamily:'Georgia, serif',fontSize:width*.027,letterSpacing:'0.28em',opacity:Math.max(0,Math.min(1,(elapsed-134.6)/.7)),pointerEvents:'none'}}>JALAN PULANG</AbsoluteFill></AbsoluteFill>;
 };

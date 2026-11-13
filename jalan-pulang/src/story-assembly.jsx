@@ -2,6 +2,7 @@ import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile} from 'remotion';
 import {OpeningSet} from './opening-scenes';
 import {RideTest} from './ride';
+import {FatherMemory} from './father-memory';
 import {SignScene} from './sign-scene';
 import {PhoneClockInsert} from './phone-insert';
 import {storyShots,validateShots} from './story-timeline';
@@ -9,6 +10,7 @@ import {storyShots,validateShots} from './story-timeline';
 const CallShot=({resolutionScale,callIntro=false})=><RideTest warungScene="call" callIntro={callIntro} resolutionScale={resolutionScale}/>;
 const Shot=({shot,from,resolutionScale})=>{
  switch(shot){
+  case 'father-memory': return <FatherMemory resolutionScale={resolutionScale}/>;
   case 'ride': return <RideTest resolutionScale={resolutionScale}/>;
   case 'warehouse': return <OpeningSet set="warehouse" resolutionScale={resolutionScale}/>;
   case 'traffic': return <OpeningSet set="traffic" resolutionScale={resolutionScale}/>;

@@ -42,7 +42,7 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
         entity.bones['upperarm01.L'].rotation.z=-.62;entity.bones['upperarm01.R'].rotation.z=.62;
         people.push({o:entity.mesh,bones:entity.bones,entity});return entity;
       };
-      let lightRed,lightBlue,phone,bike;
+      let lightRed,lightBlue,phone,bike,parcel;
       if(set==='warehouse'){
         box(scene,20,6,.25,wallMat,0,3,-8);box(scene,.25,6,15,wallMat,-8,3,-1);box(scene,.25,6,15,wallMat,8,3,-1);
         const shelfAsset=await new GLTFLoader().loadAsync(staticFile('models/steel_frame_shelves_01/steel_frame_shelves_01_1k.gltf'));if(dead)return;
@@ -51,11 +51,12 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
           for(let y of [.24,1.15,2.06,2.97])for(let k=0;k<2;k++)box(scene,.48,.46,.56,card,x-.32+k*.64,y+.23,z);
         }
         for(const z of [-4,1,6]){const strip=box(scene,3,.07,.17,white,0,5.3,z);strip.material=new THREE.MeshBasicMaterial({color:'#c6d8c8'});const lamp=new THREE.PointLight('#c1d4c4',12,13,2);lamp.position.set(0,5,z);scene.add(lamp)}
-        const dimas=person(0,-1);const bench=box(scene,2.4,.1,1.1,metal,2,.95,0);for(let x of [1,3])for(let z of [-.4,.4])box(scene,.08,.9,.08,metal,x,.45,z);
+        const dimas=person(0,-1);parcel=new THREE.Mesh(new THREE.BoxGeometry(3.5,2.6,2.2),card);parcel.position.set(0,-1,1);dimas.bones['wrist.L'].add(parcel);const bench=box(scene,2.4,.1,1.1,metal,2,.95,0);for(let x of [1,3])for(let z of [-.4,.4])box(scene,.08,.9,.08,metal,x,.45,z);
         // Phone follows the wrist; local units are scaled with the character.
         phone=new THREE.Group();phone.position.set(-.18,-.25,.13);dimas.bones['wrist.R'].add(phone);
         const phoneBody=new THREE.Mesh(new THREE.BoxGeometry(.85,1.45,.14),dark);phone.add(phoneBody);
-        const screen=new THREE.Mesh(new THREE.PlaneGeometry(.72,1.3),new THREE.MeshBasicMaterial({color:'#7aa5a6'}));screen.position.z=.075;phone.add(screen);
+        const phoneCanvas=document.createElement('canvas');phoneCanvas.width=256;phoneCanvas.height=512;const ctx=phoneCanvas.getContext('2d');ctx.fillStyle='#102832';ctx.fillRect(0,0,256,512);ctx.textAlign='center';ctx.fillStyle='#e4f1ed';ctx.font='bold 38px sans-serif';ctx.fillText('Ibu',128,210);ctx.font='22px sans-serif';ctx.fillText('Panggilan masuk',128,258);ctx.fillStyle='#6da58a';ctx.beginPath();ctx.arc(128,368,30,0,Math.PI*2);ctx.fill();const phoneMap=new THREE.CanvasTexture(phoneCanvas);phoneMap.colorSpace=THREE.SRGBColorSpace;
+        const screen=new THREE.Mesh(new THREE.PlaneGeometry(.72,1.3),new THREE.MeshBasicMaterial({map:phoneMap}));screen.position.z=.075;phone.add(screen);
       }else{
         // Stopped traffic, overturned truck and pulsing emergency lights.
         box(scene,1,.03,55,m('#bcb595'),0,.01,-14);
@@ -80,7 +81,7 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
         person(3,0,ridingGarments);person(3.8,-3);
         bike=new THREE.Group();const generatedBike=createMotorcycle();bike.add(generatedBike.model);bike.position.set(2.4,0,.2);bike.rotation.y=-.2;scene.add(bike);for(let z of [-11,-7,-3]){const cone=coneAsset.scene.clone();const bounds=new THREE.Box3().setFromObject(cone);const size=bounds.getSize(new THREE.Vector3());cone.scale.setScalar(.65/size.y);cone.position.set(4,-bounds.min.y*cone.scale.y,z);scene.add(cone)}
       }
-      state.current={scene,renderer,camera,people,lightRed,lightBlue,phone,bike};setReady(true);continueRender(handle);
+      state.current={scene,renderer,camera,people,lightRed,lightBlue,phone,bike,parcel};setReady(true);continueRender(handle);
     };setup().catch(e=>{if(!dead)cancelRender(e)});
     return()=>{dead=true;state.current=null;scene?.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material]))m.dispose()});renderer?.dispose()};
   },[handle,width,height,set,resolutionScale]);
@@ -91,10 +92,15 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
       p.o.position.z=-1+Math.min(t*.08,.64);p.o.rotation.y=.2;
       p.bones['upperleg01.L'].rotation.x=walking?Math.sin(t*5)*.25:0;p.bones['upperleg01.R'].rotation.x=walking?-Math.sin(t*5)*.25:0;
       p.bones['spine01'].rotation.z=Math.sin(t*.65)*.025;p.bones['head'].rotation.x=t>14?.18:.03;
+      // Repeated warehouse work before the call: hand and parcel travel with
+      // the rig instead of a floating object independent of the character.
+      s.parcel.visible=t>=5&&t<12;
+      const work=clamp((t-5)/1.5)*(1-clamp((t-10)/2));
+      p.bones['upperarm01.L'].rotation.set(0,0,-.62+work*.6);p.bones['lowerarm01.L'].rotation.set(-work*.7,0,0);
       p.bones['upperarm01.R'].rotation.set(0,0,.62);p.bones['lowerarm01.R'].rotation.set(0,0,0);
       s.phone.visible=t>=13;
       const holding=clamp((t-13)/2)*(1-clamp((t-37)/1));
-      if(holding>0){p.o.updateWorldMatrix(true,true);const target=p.bones.head.localToWorld(new THREE.Vector3(-.85,.55,.25));solveArm(p.entity,'R',target,holding);}
+      if(holding>0){p.o.updateWorldMatrix(true,true);const target=p.bones.head.localToWorld(new THREE.Vector3(-1.05,.20,1.15));solveArm(p.entity,'R',target,holding);p.bones['wrist.R'].rotation.z=Math.PI*holding;}
       if(t<13){s.camera.position.set(3.5-t*.025,2.3,6.4-t*.04);s.camera.lookAt(.2,1.35,-1)}
       else if(t<27){s.camera.position.set(1.9,1.8,3.3-(t-13)*.025);s.camera.lookAt(0,1.42,-.5)}
       else{s.camera.position.set(-1.9,1.7,2.8);s.camera.lookAt(0,1.4,-.5)}

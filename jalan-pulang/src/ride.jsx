@@ -31,7 +31,7 @@ function aimPhoneAtEar(entity,progress=1){
 }
 
 // Stylised work-in-progress, not a representation of the final Dimas or Supra.
-export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, village = false, callIntro = false, rideView = 'follow', rideOffset = 0, resolutionScale = 1}) => {
+export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, village = false, callIntro = false, memory = false, rideView = 'follow', rideOffset = 0, resolutionScale = 1}) => {
   const canvas=useRef(null), state=useRef(null), frame=useCurrentFrame();
   const {fps,width,height}=useVideoConfig();
   const [handle]=useState(()=>delayRender('Load Kenney vegetation'));
@@ -152,7 +152,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         const shoe=addSphere(figure,.10,black,side*.15,.11,.41);shoe.scale.set(.8,.55,1.45);
       }
       figure.visible=warungScene==='seated';
-      let standingEntity=null, seatedEntity=null, dimas=null, skinnedRider=null, riderHelmet=null, shadowActor=null, mirror=null, mirrorCamera=null;
+      let standingEntity=null, seatedEntity=null, dimas=null, skinnedRider=null, riderHelmet=null, memoryPassenger=null, shadowActor=null, mirror=null, mirrorCamera=null;
       const bike=new THREE.Group();scene.add(bike);bike.visible=!warungScene || ['call','brake','mirror','shadow','release','aftermath'].includes(warungScene);
       const shadow=new THREE.Mesh(new THREE.CircleGeometry(.65,32),new THREE.MeshBasicMaterial({color:'#000000',transparent:true,opacity:.24,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.scale.set(1,2,1);shadow.position.y=.012;bike.add(shadow);
       const generatedBike=createMotorcycle();bike.add(generatedBike.model);const wheels=generatedBike.wheels;
@@ -226,6 +226,12 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               skinnedRider.mesh.position.set(0,1.04,.05);skinnedRider.mesh.rotation.y=Math.PI;bike.add(skinnedRider.mesh);
               // Helmet is a separate rigid accessory; clothing is the same CC0 outfit as the standing rig.
               const helmet=new THREE.Mesh(new THREE.SphereGeometry(1.02,24,16),black);helmet.scale.set(1,.8,1);helmet.position.set(0,1,.1);skinnedRider.bones.head.add(helmet);riderHelmet=helmet;
+              if(memory){
+                helmet.visible=false;for(const o of skinnedRider.bones.head.children)if(o.isMesh&&o!==helmet&&o.material)o.material.color.set('#5b5c58');
+                for(const g of outfit)g.material.color.set('#897e72');
+                const passenger=createRiggedEntity(data);const shade=new THREE.MeshStandardMaterial({color:'#111815',roughness:1,transparent:true,opacity:.7,depthWrite:false});
+                passenger.mesh.traverse(o=>{if(o.isMesh)o.material=shade});poseSeated(passenger.bones);passenger.mesh.scale.setScalar(.105);passenger.mesh.position.set(0,1.04,.63);passenger.mesh.rotation.y=Math.PI;passenger.bones.head.rotation.x=.45;bike.add(passenger.mesh);memoryPassenger=passenger;
+              }
               rider.visible=false;
             }
             if(warungScene==='seated'){
@@ -297,13 +303,13 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               for(const side of [-1,1]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.19,16,10),blackEyes);eye.position.set(side*.32,.52,1.23);eye.scale.set(1,.68,.38);standingEntity.bones.head.add(eye)}
             }
             if(warungScene){scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});bulbMesh.castShadow=false;wash.castShadow=false;}
-            state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,villageSet,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,seatedEntity,dimas,skinnedRider,riderHelmet,lamp,wash,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
+            state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,villageSet,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,seatedEntity,dimas,skinnedRider,riderHelmet,memoryPassenger,lamp,wash,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
           } catch(error){cancelRender(error)}
         },undefined,error=>cancelRender(error));
       },undefined,error=>cancelRender(error));
     }catch(error){cancelRender(error)}
     return()=>{disposed=true;state.current=null;if(scene)scene.traverse(o=>{o.geometry?.dispose();if(o.material){for(const m of (Array.isArray(o.material)?o.material:[o.material])){m.map?.dispose();m.dispose()}}});mirrorTarget?.dispose();renderer?.dispose()};
-  },[handle,width,height,showWarung,warungScene,resolutionScale,revealFace,village,rideView]);
+  },[handle,width,height,showWarung,warungScene,resolutionScale,revealFace,village,rideView,memory]);
   useEffect(()=>{if(!ready||!state.current)return;const s=state.current,t=frame/fps,travel=(t+rideOffset)*2.5;
     const stopped=['call','brake','mirror','shadow','release','aftermath'].includes(warungScene);
     const brakeDistance=Math.min(t,3)*1.5-Math.min(t,3)**2*.25;
@@ -341,6 +347,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         holdMotorcycleGrips(s.skinnedRider,s.bikeModel,seatedWeight);
       }
     }
+    if(s.memoryPassenger){s.memoryPassenger.bones.head.rotation.z=.035*Math.sin(t*.8);s.memoryPassenger.bones.spine01.rotation.z=.015*Math.sin(t*.6);}
     s.rider.rotation.z=Math.sin(t*.8)*.012;
     for(const w of s.wheels)w.rotation.z=warungScene==='brake'?brakeDistance/.34:warungScene==='aftermath'?departure*departure*.24/.34:stopped?0:travel/.34;
     for(const item of s.trees){item.g.position.z=sceneryZ(item.base,travel,40);item.g.position.x=item.side*(3.6+(Math.floor(item.base/2.5)%3)*.8)+(rideView==='curve'?rightBendX(item.g.position.z):0);}

@@ -10,6 +10,7 @@ import {storyShots,validateShots} from './story-timeline';
 const CallShot=({resolutionScale,callIntro=false})=><RideTest warungScene="call" callIntro={callIntro} resolutionScale={resolutionScale}/>;
 const Shot=({shot,from,view,resolutionScale})=>{
  switch(shot){
+  case 'memory-ride': return <AbsoluteFill style={{filter:'sepia(0.5) saturate(0.55)'}}><RideTest memory rideView="side" resolutionScale={resolutionScale}/></AbsoluteFill>;
   case 'father-memory': return <FatherMemory resolutionScale={resolutionScale}/>;
   case 'ride': return <RideTest rideView={view||'follow'} rideOffset={from>=101&&from<227?from-101:0} resolutionScale={resolutionScale}/>;
   case 'warehouse': return <OpeningSet set="warehouse" resolutionScale={resolutionScale}/>;

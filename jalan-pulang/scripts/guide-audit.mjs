@@ -10,7 +10,7 @@ const coverage={
  6:['03:47–04:27','Warung menyala dan sosok duduk','lintasan motor, senandung dan close-up telinga belum final'],
  7:['04:27–05:45','Papan basah, wajah dan sosok berdiri','mata, mulut, akting serta tangan pada setang belum final'],
  8:['05:45–06:23','Rem/turun motor dan panggilan 3D','kontak, UI sinyal dan sinkronisasi perlu dibenahi'],
- 9:['06:23–07:15','Panggilan, kamera berganti dan kamar kilas balik','reaksi dan pose ayah masih kasar'],
+ 9:['06:23–07:15','Panggilan, kamera berganti dan kilas balik ayah di motor serta kamar','reaksi dan pose ayah masih kasar'],
  10:['07:15–08:18','Spion render target dan lengan bayangan','montase penyebab dan kontak tubuh perlu dibuat ulang'],
  11:['08:18–09:03.633','Panggilan dan fade sosok','akting salam, napas dan ekspresi perlu dibenahi'],
  12:['VO02 00:00–00:49','Sosok padam, naik motor, papan 3 km dan desa','kontinuitas helm, kontak dan respons emosi perlu QC'],

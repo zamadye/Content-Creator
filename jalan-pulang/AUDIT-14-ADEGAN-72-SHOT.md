@@ -105,7 +105,7 @@ Acuan VO: 05:45–06:23. Ada: Rem/turun motor dan panggilan 3D. Masih perlu: kon
 
 ## 9. Ibu membuka rahasia
 
-Acuan VO: 06:23–07:15. Ada: Panggilan, kamera berganti dan kamar kilas balik. Masih perlu: reaksi dan pose ayah masih kasar. Status semua baris: **belum diverifikasi shot per shot**.
+Acuan VO: 06:23–07:15. Ada: Panggilan, kamera berganti dan kilas balik ayah di motor serta kamar. Masih perlu: reaksi dan pose ayah masih kasar. Status semua baris: **belum diverifikasi shot per shot**.
 
 | Shot | Waktu panduan asli | Rincian panduan asli |
 |---|---|---|

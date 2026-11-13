@@ -115,3 +115,7 @@ Jaket dan jeans `male_casualsuit05` bertekstur dan UV-skinned (MakeHuman team CC
 ## Fase prop ponsel dan opsi mix penuh
 - Insert waktu 23:47 kini menggunakan ponsel geometri 3D yang mengikuti pergelangan karakter berpakaian; empat jari digerakkan melalui tulang dan kamera mengikuti pergelangan. Dua still diperiksa; angka terbaca. Genggaman masih perlu fitting dan verifikasi gerak.
 - Render lokal full mendapat opsi `--guide-sound` untuk menyatukan kedua VO dengan rancangan ambiens/Foley, AAC 320 kbps dan berkas atribusi CC BY. Preflight mode baru lulus; sampel mux H.264/AAC dan generasi audio penuh lulus. Smoke tetap hanya menguji VO. Mix dan kredit belum ditinjau pada film penuh; mesin dan sebagian ambiens masih pengganti.
+
+## Material kulit dan ingatan ayah
+- Rig MakeHuman kini memakai peta warna/normal/kekasaran prosedural halus yang dibagi antar karakter; bukan scan wajah atau pengganti skin shading final. Bundle dan uji IK tetap lulus.
+- Kilas balik ayah dipecah menjadi 3D pengendara dengan penumpang bayangan (06:57–07:04), lalu kamar (07:04–07:14), sesuai kisaran transkrip. Kamera samping dan gradasi sepia membuatnya terbaca sebagai ingatan; rambut/material ditandai berbeda. Still awal diperiksa; bentuk motor, wajah ayah, kontak dan gerak bayangan masih perlu QC.

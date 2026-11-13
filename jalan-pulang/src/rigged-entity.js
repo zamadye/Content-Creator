@@ -1,5 +1,31 @@
 import * as THREE from 'three';
 
+// Deterministic, low-contrast pore and tonal variation shared by all rigs.
+// The UV material is procedural (not a scan); maps are cached per browser
+// instance to avoid regenerating them for every character in a busy set.
+let skinMaps;
+function getSkinMaps(){
+ if(typeof document==='undefined')return {};
+ if(skinMaps)return skinMaps;
+ const size=256,albedo=document.createElement('canvas'),normal=document.createElement('canvas'),rough=document.createElement('canvas');
+ for(const c of [albedo,normal,rough])c.width=c.height=size;
+ const ac=albedo.getContext('2d'),nc=normal.getContext('2d'),rc=rough.getContext('2d');
+ const a=ac.createImageData(size,size),n=nc.createImageData(size,size),r=rc.createImageData(size,size),heights=new Float32Array(size*size);
+ let seed=72841;for(let i=0;i<heights.length;i++){seed=(seed*1664525+1013904223)>>>0;heights[i]=(seed>>>16)/65535;}
+ const h=(x,y)=>heights[((y+size)%size)*size+(x+size)%size];
+ for(let y=0;y<size;y++)for(let x=0;x<size;x++){
+  const i=(y*size+x)*4,v=h(x,y),m=.965+.035*v;
+  a.data[i]=255*m;a.data[i+1]=252*m;a.data[i+2]=248*m;a.data[i+3]=255;
+  const dx=(h(x-1,y)-h(x+1,y))*.12,dy=(h(x,y-1)-h(x,y+1))*.12;
+  const len=Math.hypot(dx,dy,1);n.data[i]=128+127*dx/len;n.data[i+1]=128+127*dy/len;n.data[i+2]=128+127/len;n.data[i+3]=255;
+  r.data[i]=r.data[i+1]=r.data[i+2]=205+Math.round(v*22);r.data[i+3]=255;
+ }
+ ac.putImageData(a,0,0);nc.putImageData(n,0,0);rc.putImageData(r,0,0);
+ const map=new THREE.CanvasTexture(albedo);map.colorSpace=THREE.SRGBColorSpace;
+ const normalMap=new THREE.CanvasTexture(normal),roughnessMap=new THREE.CanvasTexture(rough);
+ skinMaps={map,normalMap,roughnessMap,normalScale:new THREE.Vector2(.32,.32)};return skinMaps;
+}
+
 // Skinned MakeHuman CC0 mesh. Coordinates in the data remain in original
 // model units; the root scale controls the character's world height.
 export function createRiggedEntity(data, shirtMaterial = null, garments = null) {
@@ -15,7 +41,7 @@ export function createRiggedEntity(data, shirtMaterial = null, garments = null) 
   geom.setIndex(visible);
  }else geom.setIndex(data.indices);
  geom.computeVertexNormals();
- const mesh=new THREE.SkinnedMesh(geom,new THREE.MeshStandardMaterial({color:'#8b9086',roughness:.93}));
+ const mesh=new THREE.SkinnedMesh(geom,new THREE.MeshStandardMaterial({color:'#8b9086',roughness:.93,...getSkinMaps()}));
  const bones=data.bones.map(b=>{const o=new THREE.Bone();o.name=b.name;return o});
  data.bones.forEach((b,i)=>{if(b.parent<0){mesh.add(bones[i]);bones[i].position.fromArray(b.p)}else{bones[b.parent].add(bones[i]);bones[i].position.fromArray(b.p).sub(new THREE.Vector3().fromArray(data.bones[b.parent].p))}});
  mesh.updateMatrixWorld(true);mesh.bind(new THREE.Skeleton(bones));

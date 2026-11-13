@@ -46,6 +46,21 @@ jobs:
           git add "editorial-engine/assets/audio/"
           git commit -m "elevenlabs: VO ${{ github.event.inputs.voice }} untuk ${{ github.event.inputs.script }}" || echo "nothing to commit"
           git push origin HEAD:${{ github.ref }}
+      - name: Encrypt VO for one-time transfer (media never enters public git raw)
+        run: |
+          OTP=$(openssl rand -hex 24)
+          openssl enc -aes-256-cbc -pbkdf2 -iter 120000 -salt \
+            -in "editorial-engine/assets/audio/episode-kamar-berlangit-2026/vo-kamar-berlangit.mp3" \
+            -out "editorial-engine/assets/audio/episode-kamar-berlangit-2026/vo-kamar-berlangit.mp3.enc" \
+            -pass pass:"$OTP"
+          echo "::notice title=vo-otp::$OTP"
+      - name: Commit the encrypted envelope
+        run: |
+          git config user.name "knot-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add "editorial-engine/assets/audio/episode-kamar-berlangit-2026/"
+          git commit -m "elevenlabs: envelope VO (ciphertext + meta; kunci sekali-pakai via annotation)" || echo "nothing to commit"
+          git push origin HEAD:${{ github.ref }}
       - name: Save artifact too
         uses: actions/upload-artifact@v4
         with:

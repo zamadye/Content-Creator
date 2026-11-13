@@ -2,7 +2,7 @@ import React,{useEffect,useRef,useState} from 'react';
 import {AbsoluteFill,cancelRender,continueRender,delayRender,staticFile,useCurrentFrame,useVideoConfig} from 'remotion';
 import * as THREE from 'three';
 import {createMotorcycle} from './motorcycle';
-import {holdMotorcycleGrips} from './arm-ik';
+import {holdMotorcycleGrips,solveArm} from './arm-ik';
 import {createRiggedEntity,loadRidingGarments,poseSeated} from './rigged-entity';
 
 // Ending blocking, not a finished house or final character animation. All timing
@@ -30,6 +30,11 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
    box(1.5,2.65,.14,timber,0,1.325,-2.83);for(let y of [.5,1.3,2.1])box(1.27,.04,.06,dark,0,y,-2.73);
    const knob=new THREE.Mesh(new THREE.SphereGeometry(.045,12,8),new THREE.MeshStandardMaterial({color:'#bb9c58',metalness:.8,roughness:.3}));knob.position.set(.54,1.15,-2.72);scene.add(knob);
    for(const x of [-2.5,2.5]){box(1.6,1.4,.1,timber,x,1.85,-2.8);box(1.32,1.15,.05,new THREE.MeshStandardMaterial({color:'#c6a65a',emissive:'#6e4a12',emissiveIntensity:.55}),x,1.85,-2.72);box(.06,1.2,.08,timber,x,1.85,-2.66);box(1.36,.06,.08,timber,x,1.85,-2.66)}
+   // Porch structure, inset window lintels, steps and restrained domestic details.
+   box(9.4,.22,2.8,timber,0,3.56,-1.8);box(2.4,.16,.7,concrete,0,.08,-2.35);box(3,.12,.65,concrete,0,.06,-1.7);
+   for(const x of [-2.5,2.5]){box(1.85,.12,.22,timber,x,2.62,-2.68);box(1.85,.11,.25,timber,x,1.08,-2.66);}
+   const potMat=new THREE.MeshStandardMaterial({color:'#695042',roughness:.9}),leafMat=new THREE.MeshStandardMaterial({color:'#314635',roughness:1});
+   for(const x of [-3.25,3.25]){const pot=new THREE.Mesh(new THREE.CylinderGeometry(.23,.16,.35,12),potMat);pot.position.set(x,.175,-1.5);scene.add(pot);for(let k=0;k<5;k++){const leaf=new THREE.Mesh(new THREE.SphereGeometry(.17,8,6),leafMat);leaf.scale.set(.65,1.55,.65);leaf.position.set(x+Math.cos(k*1.26)*.14,.48+Math.sin(k*3)*.04,-1.5+Math.sin(k*1.26)*.14);scene.add(leaf)}}
    const bulb=new THREE.Mesh(new THREE.SphereGeometry(.12,16,12),new THREE.MeshBasicMaterial({color:'#ffe0a0'}));bulb.position.set(0,3.1,-1.8);scene.add(bulb);const lamp=new THREE.PointLight('#ffcc76',18,12,2);lamp.position.copy(bulb.position);scene.add(lamp);
    // Same generated motorcycle and wheel pivots as the forest/warung shots.
    const bike=new THREE.Group();scene.add(bike);const generatedBike=createMotorcycle();bike.add(generatedBike.model);const wheels=generatedBike.wheels;
@@ -48,17 +53,30 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
   for(const wheel of wheels)wheel.rotation.z=(1-arrival)*14;
   poseSeated(dimas.bones,1-dismount);
   const startX=-1.6+.65*dismount,startZ=bike.position.z+.05;
-  dimas.mesh.position.set(startX*(1-walk),1.04-.18*dismount,startZ+(-1.8-startZ)*walk);dimas.mesh.rotation.y=Math.PI;
+  dimas.mesh.position.set(startX*(1-walk),1.04-.18*dismount+.16*walk,startZ+(-1.8-startZ)*walk);dimas.mesh.rotation.y=Math.PI;
   const stride=walk>0&&walk<1?Math.sin((t-59)*7)*.32:0;
   dimas.bones['upperleg01.L'].rotation.x+=stride;dimas.bones['upperleg01.R'].rotation.x-=stride;
-  const knock= t>=62&&t<64.4 ? Math.max(0,Math.sin((t-62)*Math.PI*2.5)) : 0;
+  const knock=[62.25,63.05,63.85].reduce((v,beat)=>Math.max(v,Math.max(0,1-Math.abs(t-beat)/.14)),0);
   const armUp=clamp((t-61.5)*2)*(1-clamp((t-64.4)*2));
   dimas.bones.spine01.rotation.x=.35*(1-dismount);
   dimas.bones['upperarm01.L'].rotation.set(0,0,-.65*(1-dismount)-.62*dismount);
-  dimas.bones['upperarm01.R'].rotation.set(0,0,.65*(1-dismount)+.62*dismount-armUp*.97);dimas.bones['lowerarm01.R'].rotation.z=armUp*(-1.7+knock*.25);
+  dimas.bones['upperarm01.R'].rotation.set(0,0,.65*(1-dismount)+.62*dismount-armUp*.97);dimas.bones['lowerarm01.R'].rotation.set(0,0,0);
+  if(armUp>0){ // Approach the actual door surface; retract between the three taps.
+   solveArm(dimas,'R',new THREE.Vector3(.36,1.42,-2.52-knock*.19),armUp);
+  }
+  // Breathing and a restrained reaction during the question behind the door.
+  dimas.bones.spine02.rotation.x=.012*Math.sin(t*2.1)+(t>=85&&t<110?.025:0);
+  dimas.bones.head.rotation.set(t>=85&&t<110?-.09:0,t>=90&&t<110?.12:0,.012*Math.sin(t*1.3));
   if(dismount<1)holdMotorcycleGrips(dimas,state.current.bikeModel,1-dismount);
-  shadow.mesh.visible=t>=110;shadow.mesh.position.set(.35,.86,-.35);shadow.mesh.rotation.y=Math.PI;shadow.bones.head.rotation.x=.2;
-  if(t<60){camera.position.set(5,2.3,7.5-(t-49)*.08);camera.lookAt(-.4,1.3,-1.6)}else if(t<110){camera.position.set(2.7,1.9,2.6);camera.lookAt(0,1.45,-1.8)}else{camera.position.set(2.1,1.85,1.3);camera.lookAt(.1,1.55,-1.35)}
+  // The presence is held out of view until the breath behind his ear.
+  shadow.mesh.visible=t>=110;shadow.mesh.position.set(.38,.86,-.90);shadow.mesh.rotation.y=Math.PI;shadow.bones.head.rotation.set(.2,0,-.12);shadow.bones['upperarm01.L'].rotation.z=-.62;shadow.bones['upperarm01.R'].rotation.z=.62;shadow.bones['lowerarm01.L'].rotation.z=-.12;shadow.bones['lowerarm01.R'].rotation.z=.12;
+  if(t<59){camera.position.set(5,2.3,7.5-(t-49)*.08);camera.lookAt(-.4,1.3,-1.6)}
+  else if(t<68){camera.position.set(2.9-(t-59)*.055,1.9,2.7-(t-59)*.08);camera.lookAt(0,1.45,-1.8)}
+  else if(t<85){camera.position.set(-1.85,1.7,-.18-(t-68)*.018);camera.lookAt(.25,1.5,-2.65)}
+  else if(t<98){camera.position.set(1.55-(t-85)*.025,1.75,-.1);camera.lookAt(.0,1.5,-1.8)}
+  else if(t<110){camera.position.set(-1.35,1.68,-.35-(t-98)*.018);camera.lookAt(0,1.48,-1.8)}
+  else if(t<125){camera.position.set(1.6-(t-110)*.02,1.72,-.10-(t-110)*.025);camera.lookAt(.12,1.48,-1.65)}
+  else{camera.position.set(2.3+(t-125)*.04,1.85,1.4+(t-125)*.07);camera.lookAt(.1,1.45,-1.6)}
   renderer.render(scene,camera);
  },[ready,frame,fps,voOffset]);
  return <AbsoluteFill><canvas ref={canvas} style={{width:'100%',height:'100%'}}/></AbsoluteFill>;

@@ -85,3 +85,8 @@ Jaket dan jeans `male_casualsuit05` bertekstur dan UV-skinned (MakeHuman team CC
 
 ## Rancangan suara lintas kedua VO
 - Ditambahkan lima rekaman ambiens dan Foley Oculus Audio Pack 01 berlisensi CC BY 4.0, dengan lisensi dan atribusi di `public/audio-oculus/`. `scripts/mix-story-guide.sh` menghasilkan mix opsional 11:19,9 dengan VO gabungan, ambiens malam/ruang, mesin pengganti, langkah dan ketukan, dengan crossfade level tiap rentang. Skrip tidak mengubah render utama dan tidak menggantikan perekaman suara motor asli; timing dan level harus diperiksa dengan mendengarkan.
+
+## Fase rumah dan kontinuitas VO 02
+- Rumah kini memiliki anak tangga, bingkai jendela dan tanaman; pijakan Dimas dinaikkan ke ketinggian teras. Adegan kedatangan, ketukan dan percakapan di pintu menggunakan enam framing/kamera bergerak, bukan satu sudut yang ditahan selama hampir 90 detik. Pernapasan dan reaksi kepala ditambahkan; tangan diarahkan dengan IK ke permukaan pintu dan ditarik dalam tiga gerakan terpisah. Sosok di belakang masuk pada segmen napas dan lengannya tidak lagi dalam pose default terbuka.
+- Lima still fase rumah diperiksa secara visual, lalu tiga still perbaikan dan klip 81 frame bagian ketukan berhasil dirender. Klip belum ditinjau gerak dan kontak jari/ketukan masih memerlukan QC. Sosok akhir masih siluet generik, belum wajah/akting final.
+- Batas lima shot VO 02 dipusatkan pada `src/ending-timeline.js`; `scripts/test-ending-timeline.mjs` memeriksa kontinuitas berbasis frame dan ujung komposisi 20398. Tes timeline VO 01, IK setang, bundle dan preflight full lulus. Sinkronisasi dialog dan tiga ketukan belum divalidasi melalui pendengaran.

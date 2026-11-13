@@ -1,8 +1,8 @@
 # Gibran Mundur — Visual Board + Flow Footage Prompt Pack
 
-**Versi kerja v1 · 13 Nov 2026 · durasi master VO 7:14,991 · kanvas 1080×1920, 30 fps**  
+**Versi kerja v2 · 13 Nov 2026 · durasi master VO 7:14,991 · kanvas 1080×1920, 30 fps**  
 Sumber timing: Google Doc `Timpstamp Gibran Mundur`; struktur scene: `storyboard_gibran_mundur.xlsx`.  
-Tujuan dokumen: arahan visual yang bisa langsung dipakai untuk (A) objek Remotion di dalam kanvas dan (B) footage ilustratif yang dihasilkan lewat Flow. Ini bukan render final.
+Tujuan dokumen: rencana produksi yang menempatkan **Remotion sebagai pekerjaan utama** (animasi objek, diagram, transisi, tipografi, dan compositing di dalam kanvas). Flow hanya untuk tiga klip pendukung yang benar-benar memberi nilai visual; bukan pengganti animasi atau editor.
 
 ## Arah visual dan aturan akurasi
 
@@ -17,9 +17,11 @@ Tujuan dokumen: arahan visual yang bisa langsung dipakai untuk (A) objek Remotio
 
 ---
 
-## Peta objek kanvas + Flow
+## Peta objek kanvas + footage
 
-Flow prompts ditulis dalam bahasa Inggris agar mudah dipakai sebagai text-to-video prompt. Setiap prompt menghasilkan **satu klip portrait 9:16 berdurasi 5–7 detik**, tanpa teks. Jika Flow meminta rasio/durasi di UI, pilih 9:16 dan 5–7 s. Jangan minta beberapa shot dalam satu prompt; buat klip terpisah sesuai kode prompt. Semua klip Flow di bawah adalah ilustrasi, bukan footage peristiwa sebenarnya.
+**Rasio tugas:** sekitar 85–90% animasi Remotion, 10–15% footage. Remotion membangun bentuk, gerak, tipografi, dan compositing; Flow hanya menyediakan tiga plate footage ilustratif: pilar/gedung pembuka (P01), ruang rapat generik yang bisa dipakai sebagai latar untuk dua perspektif (P16), dan mesin mobil untuk analogi (P18). Jangan minta Flow membuat motion graphics, teks, atau montage—semua itu tugas Remotion.
+
+Flow prompts ditulis dalam bahasa Inggris. Setiap prompt menghasilkan satu klip portrait 9:16 berdurasi 5–7 detik, tanpa teks. Semua klip Flow ilustratif, bukan footage peristiwa sebenarnya, dan overlay kanal harus menyebut `ILUSTRASI`. Klip dipotong secukupnya; Remotion tetap menjadi layer foreground/diagram/subtitle/transisi.
 
 ### SC01 · 00:00–00:09 · Hook gedung berpilar
 **VO:** “Coba bayangin, lo lagi berdiri di depan sebuah gedung raksasa…”  
@@ -41,13 +43,12 @@ Flow prompts ditulis dalam bahasa Inggris agar mudah dipakai sebagai text-to-vid
 ### SC04 · 00:55–01:10 · Peristiwa pengunduran diri
 **VO:** tanggal 12 Nov 2026; surat pengunduran diri Wapres diserahkan kepada pimpinan MPR.  
 **Canvas / Remotion:** peta abstrak Jakarta atau dua ikon gedung generik bertanda `PRESIDEN` dan `MPR`; satu surat kosong bertanda `ILUSTRASI` bergerak ke dua ikon. Tanggal sebagai super hanya setelah cocok dengan VO.  
-**Asset:** bila memakai Flow, label `ILUSTRASI` jelas; jangan menyiratkan rekaman penyerahan surat. Alternatif lebih aman: Remotion-only.  
-**Prompt P04:** `Vertical 9:16, 6-second clearly illustrative symbolic scene: a single plain cream paper envelope travels along a thin glowing line between two abstract civic buildings at dusk, one building with simple generic columns and one modern office block, slow lateral camera drift, quiet neutral newsroom explainer palette, no humans, no hands, no flags, no official emblems, no recognizable Jakarta landmark, no writing, no seals, no logos, no claim of depicting a real event.`
+**Asset:** Remotion-only. Gedung dan amplop adalah objek vector yang kita animasikan sendiri; tidak perlu Flow untuk gerak amplop.
 
 ### SC05 · 01:11–01:23 · Surat juga disampaikan ke Presiden
 **VO:** surat disampaikan kepada Presiden; alasan dinyatakan demi kepentingan bangsa/kelancaran pemerintahan; “ada satu hal menarik.”  
 **Canvas / Remotion:** dua jalur bercahaya menuju node `PRESIDEN` dan `MPR`; amplop berhenti di masing-masing node tanpa menggandakan seolah dua surat asli. Kutipan visual hanya berupa parafrasa, bukan quotation marks, kecuali wording sumber resmi sudah dicocokkan.  
-**Flow:** sambungan P04 boleh dipakai kalau continuity cukup; bila tidak, gunakan Remotion.
+**Flow:** tidak dipakai; node, garis, dan amplop dianimasikan di Remotion.
 
 ### SC06 · 01:24–01:38 · Alasan spesifik tidak dijelaskan
 **VO:** surat tidak menjelaskan alasan spesifik; timbul pertanyaan; mundur ke konteks.  
@@ -107,8 +108,7 @@ Flow prompts ditulis dalam bahasa Inggris agar mudah dipakai sebagai text-to-vid
 
 ### SC17 · 04:28–04:50 · Perspektif B: apakah persoalan selesai?
 **VO:** pejabat mundur tidak otomatis menghapus persoalan/prosedur yang perlu dievaluasi.  
-**Canvas / Remotion:** berkas tetap berada di meja setelah kursi kosong; checklist prosedur punya satu kotak belum tercentang; kamera dolly dari pintu ke berkas. Subtitle/VO yang menyatakan pertanyaan jadi fokus, bukan kartu kesimpulan.  
-**Prompt P17:** `Vertical 9:16, 6-second clearly illustrative close-up of an empty chair beside a wooden office desk with a small stack of plain unmarked folders left behind, a closed door softly out of focus in the background, slow gentle dolly toward the folders, restrained neutral lighting, no person, no names, no official seals, no signatures, no readable text, no government insignia, not a real office or documentary footage.`
+**Canvas / Remotion:** berkas tetap berada di meja setelah kursi kosong; checklist prosedur punya satu kotak belum tercentang; kamera dolly dilakukan sebagai move pada layer Remotion. Untuk sedikit texture saja, gunakan plate P16 yang sama dengan framing ulang/crop; foreground berkas/kursi adalah objek Remotion. Subtitle/VO fokus, bukan kartu kesimpulan.
 
 ### SC18 · 04:51–05:10 · Analogi mobil / akar masalah
 **VO:** komponen diganti, mobil berjalan, tetapi sistem pendingin bermasalah membuat kerusakan dapat berulang.  
@@ -147,16 +147,13 @@ Flow prompts ditulis dalam bahasa Inggris agar mudah dipakai sebagai text-to-vid
 
 ---
 
-## Prompt Flow tambahan: latar gedung generik
-Gunakan hanya bila butuh potongan arsitektur penghubung, bukan untuk mengklaim lokasi MPR/MK/MA.
-
-**P04B — generic civic exterior:** `Vertical 9:16, 6-second illustrative establishing shot of a generic modern civic building with broad steps and repeated columns, viewed from a public plaza at early morning, slow lateral camera move, soft overcast daylight, a few distant anonymous silhouettes only if fully unidentifiable, no flags, no seals, no signs, no logos, no recognizable landmarks, no readable text, no political figures, not presented as an actual Indonesian government building.`
-
-**P01B — structural detail:** `Vertical 9:16, 6-second cinematic close-up traveling upward along three massive neutral stone columns supporting a high roof, visible architectural load-bearing geometry, soft amber light and deep blue shadows, slow smooth tilt, no cracks or collapse, no people, no signage, no logos, clearly generic architecture.`
-
-**P16B — room without real officials:** `Vertical 9:16, 6-second slow overhead-to-eye-level move across a generic empty conference table with several unoccupied chairs, one closed plain folder at the center, calm neutral light, atmosphere of deliberation without depicting an actual meeting, no people, no official symbols, no writing, no seals, no logos.`
+## Batas penggunaan Flow
+- Flow hanya dipanggil untuk P01, P16, P18 (tiga klip saja).
+- Jangan gunakan output Flow untuk scene hukum, dokumen surat, MPR/MK/MA, ataupun tokoh politik; visual tersebut dibuat sendiri sebagai diagram/objek Remotion agar akurat dan tidak memberi kesan arsip.
+- Bila klip P01/P16/P18 tidak memadai, ganti dengan vector/stock berlisensi; jangan mengisi kekurangan dengan generasi massal.
 
 ## Editing checklist before rendering
+0. **Prioritas kerja:** animasikan dan desain semua objek/transisi Remotion; Flow adalah plate latar terbatas, bukan pekerjaan utama atau pengganti compositing.
 1. Replace overly long source scenes with 3–6 second motion beats while preserving voice timestamps; use speech boundaries, not arbitrary equal cuts.
 2. Subtitle timing still needs word-level listen-through; current timeline does not claim verified cue boundaries.
 3. Verify every legal overlay against official source text and the complete MA judgment. Keep citations in a small end-card/source note or caption; avoid turning allegations into narration.

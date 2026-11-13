@@ -4,10 +4,10 @@
 Transkrip unggahan 00:00–09:03 baru acuan kasar. Dua berkas VO ada, tetapi offset, kecocokan dan akhir setelah 09:03 belum ditranskrip/diverifikasi. Shotlist `SHOTLIST-PRODUKSI.md` mengidentifikasi isi dan gap.
 
 ## Fase 2 — rangkaian adegan: sedang dikerjakan, belum selesai
-- `StoryBlocking` menyambung 23 blok shot dari 00:00–05:39 ke satu track VO, dengan potongan kira-kira menurut timestamp; banyak isi masih berulang atau belum sesuai aksi. Telah divalidasi tanpa celah/overlap dan frame ponsel, sosok duduk dan berdiri diuji; belum dirender/ditonton utuh atau dicocokkan dengan audio.
+- `StoryBlocking` menyambung 27 blok shot dari 00:00–07:23 ke satu track VO, dengan potongan kira-kira menurut timestamp; banyak isi masih berulang atau belum sesuai aksi. Telah divalidasi tanpa celah/overlap dan frame ponsel, sosok duduk dan berdiri diuji; belum dirender/ditonton utuh atau dicocokkan dengan audio.
 - `OpeningAssembly` mencakup 00:00–01:41 dengan audio VO pertama: motor, gudang, motor, kemacetan. Ini **blokout**, bukan adegan final. Gudang dan kemacetan set 3D baru, dengan figur skinned; belum ada aksi mengirim uang, menelepon, berangkat dari rumah, interaksi dengan tukang parkir, atau staging kecelakaan yang benar. Karakter dan pakaian masih perlu fitting. Motor berulang dipakai sementara, bukan penyelesaian shot.
 - Jalan, warung, papan dan sosok sudah punya komposisi uji terpisah. Papan basah, sosok berdiri dan kamera masih perlu animasi, fitting dan QC; belum menjadi rangkaian lengkap.
-- Bagian 04:16–05:39 baru blocking dari aset uji, dan 05:39–09:03 serta kelanjutan VO belum dibangun menyeluruh. Jangan menganggap timeline lengkap atau adegan final.
+- Bagian 04:16–07:23 baru blocking dari aset uji, dan 07:23–09:03 serta kelanjutan VO belum dibangun menyeluruh. Jangan menganggap timeline lengkap atau adegan final.
 
 ## Fase 3 — penyempurnaan: belum selesai
 Aksi dan kontinuitas karakter, material, lisensi vegetasi, suara, sinyal/panggilan, compositing dan QC artistik masih tertunda.
@@ -21,7 +21,7 @@ Render simultan sebelumnya memicu crash/kehabisan sumber daya. Render warung 29 
 - Papan dan warung berulang merupakan placeholder; tikungan, muka tersenyum dan interaksi aktual belum lengkap. Seluruh transisi/VO perlu QC.
 
 ## Rangkaian 5 menit (00:00–05:00) — render draft
-Timeline `StoryBlocking` sudah mencakup 00:00–05:39. `scripts/render-five-minutes.sh` merender 00:00–05:00 menjadi 15 potongan berurutan 20 detik, memeriksa 600 frame tiap potongan, kemudian menggabungkan VO satu kali dan memeriksa 9000 frame. Ini hanya draft 960×540: aset, aksi, sinkronisasi, sound design dan QC belum final. Resolusi internal setengah khusus untuk draft; komposisi lain tetap pada resolusi normal. Frame uji 1 detik berhasil, tetapi seluruh rangkaian belum selesai diverifikasi.
+Timeline `StoryBlocking` kini mencakup 00:00–07:23. `scripts/render-five-minutes.sh` merender 00:00–05:00 menjadi 15 potongan berurutan 20 detik, memeriksa 600 frame tiap potongan, kemudian menggabungkan VO satu kali dan memeriksa 9000 frame. Ini hanya draft 960×540: aset, aksi, sinkronisasi, sound design dan QC belum final. Resolusi internal setengah khusus untuk draft; komposisi lain tetap pada resolusi normal. Frame uji 1 detik berhasil, tetapi seluruh rangkaian belum selesai diverifikasi.
 
 ## Sound guide sementara
 `scripts/make-ambience.py` menghasilkan ambient sintetis berdasarkan timestamp: mesin, hum gudang, sirene, bohlam, dan nada senandung. Bukan rekaman Foley dan belum dinilai artistik. Guide mix 300 detik sementara di `render/vo-ambience-guide-5min.m4a` (rata-rata −29,5 dBFS, puncak −8,0 dBFS hasil volumedetect; bukan LUFS). Pengukuran ini bukan pengganti pemeriksaan pendengaran. `scripts/apply-guide-audio.sh` siap menambahkan mix ke video **setelah** render dan QC; belum dijalankan karena video belum selesai.
@@ -37,4 +37,7 @@ Timeline `StoryBlocking` sudah mencakup 00:00–05:39. `scripts/render-five-minu
 - Lisensi individual model meja dan rak serta vegetasi **belum diverifikasi di sumber asli**; jangan dipublikasikan sebelum verifikasi. Bukan bukti kualitas realistis final.
 
 ## Blok adegan panggilan (06:02–07:23)
-`CallWithVO` adalah komposisi terpisah dengan VO 01 dari 06:02, menampilkan motor berhenti, sosok di dekat warung, Dimas ber-rig, telepon 3D pada pergelangan dan perpindahan kamera. Ini masih blocking: telepon belum pas di telinga/tangan, gestur, ekspresi dan motor masih sementara; dua karakter masih berbagi bentuk dan pakaian dasar. Frame lebar dan dekat diuji, belum ada render video atau QC sinkronisasi. Belum diintegrasikan ke StoryBlocking karena bagian 05:39–06:02 belum dipentaskan dengan benar; tidak menganggap 06:02–07:23 sudah selesai.
+`CallWithVO` adalah komposisi terpisah dengan VO 01 dari 06:02, menampilkan motor berhenti, sosok di dekat warung, Dimas ber-rig, telepon 3D pada pergelangan dan perpindahan kamera. Ini masih blocking: telepon belum pas di telinga/tangan, gestur, ekspresi dan motor masih sementara; dua karakter masih berbagi bentuk dan pakaian dasar. Frame lebar dan dekat diuji, belum ada render video atau QC sinkronisasi. Kini diintegrasikan setelah blok pengereman sementara; tidak menganggap 06:02–07:23 sudah selesai.
+
+## Sambungan pengereman ke panggilan (WIP)
+Pada 05:45–06:02 motor melambat dan berhenti; rig Dimas muncul di samping lalu bergerak mundur. Ini transisi blockout, **bukan animasi turun yang mulus**: rig pengendara proxy diganti mendadak dengan rig berdiri, dan pakaian/penampilan belum konsisten. Tahap 06:02–07:23 memakai adegan telepon; gestur memegang telepon dan akting masih perlu fitting. Frame awal dan setelah turun serta frame timeline panggilan diuji; belum dirender video/di-QC terhadap VO. Render lokal kini menerima maksimum 443 detik untuk timeline ini, tetap bukan film lengkap.

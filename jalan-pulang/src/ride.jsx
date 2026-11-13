@@ -127,7 +127,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       }
       figure.visible=warungScene==='seated';
       let standingEntity=null, dimas=null;
-      const bike=new THREE.Group();scene.add(bike);bike.visible=!warungScene || warungScene==='call';
+      const bike=new THREE.Group();scene.add(bike);bike.visible=!warungScene || ['call','brake'].includes(warungScene);
       const shadow=new THREE.Mesh(new THREE.CircleGeometry(.65,32),new THREE.MeshBasicMaterial({color:'#000000',transparent:true,opacity:.24,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.scale.set(1,2,1);shadow.position.y=.012;bike.add(shadow);
       const wheels=[];for(let z of [-.8,.8]){const wheel=new THREE.Group();wheel.position.set(0,.38,z);wheel.rotation.y=Math.PI/2;bike.add(wheel);const tyre=new THREE.Mesh(new THREE.TorusGeometry(.34,.075,10,24),rubber);wheel.add(tyre);const rim=new THREE.Mesh(new THREE.TorusGeometry(.27,.025,8,24),steel);wheel.add(rim);for(let j=0;j<6;j++){let spoke=new THREE.Mesh(new THREE.BoxGeometry(.54,.018,.015),steel);spoke.rotation.z=j*Math.PI/6;wheel.add(spoke)}wheels.push(wheel);}
       addBox(bike,.45,.35,1.25,maroon,0,.71,0);addBox(bike,.38,.17,.76,black,0,1.01,.25);addBox(bike,.3,.55,.34,maroon,0,.9,-.65);link(bike,[0,.65,-.1],[0,.39,-.8],.06,steel);link(bike,[0,.82,-.68],[0,.38,-.8],.045,steel);link(bike,[-.42,1.1,-.68],[.42,1.1,-.68],.035,steel);
@@ -179,7 +179,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               for(const x of [-.23,.23])addBox(figure,.055,.72,.055,timber,x,.91,-.23);
               for(const y of [.78,1.03,1.24])addBox(figure,.51,.07,.055,timber,0,y,-.23);
             }
-            if(warungScene==='standing' || warungScene==='call'){
+            if(['standing','call','brake'].includes(warungScene)){
               const response=await fetch(staticFile('makehuman/rigged-body.json'));if(!response.ok)throw Error(`Entity rig HTTP ${response.status}`);
               const data=await response.json();if(disposed)return;
               const garments=await loadGarments(staticFile);if(disposed)return;
@@ -187,8 +187,8 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               // Standing on the road shoulder, facing approaching Dimas.
               standingEntity.mesh.scale.setScalar(.105);standingEntity.mesh.position.set(2.9,.86,2.8);standingEntity.mesh.rotation.y=0;warung.add(standingEntity.mesh);
               standingEntity.bones['neck01'].rotation.x=.12;
-              if(warungScene==='call'){
-                // Dimas stands by the stopped bike, holding a physical phone.
+              if(['call','brake'].includes(warungScene)){
+                // Dimas is alongside the stopped bike; the phone appears only during the call.
                 const dimasClothes=garments.map(g=>({data:g.data,material:g.material.clone()}));dimasClothes[0].material.color.set('#596a61');
                 dimas=createRiggedEntity(data,null,dimasClothes);
                 dimas.mesh.material.color.set('#967765');dimas.mesh.scale.setScalar(.105);
@@ -196,7 +196,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
                 dimas.bones['upperarm01.L'].rotation.z=-.62;
                 dimas.bones['upperarm01.R'].rotation.z=-.35;
                 dimas.bones['lowerarm01.R'].rotation.z=-2.1;
-                const phoneGroup=new THREE.Group();phoneGroup.position.set(-.18,-.25,.13);dimas.bones['wrist.R'].add(phoneGroup);
+                const phoneGroup=new THREE.Group();phoneGroup.position.set(-.18,-.25,.13);phoneGroup.visible=warungScene==='call';dimas.bones['wrist.R'].add(phoneGroup);
                 addBox(phoneGroup,.85,1.45,.14,black,0,0,0);
                 const screenCanvas=document.createElement('canvas');screenCanvas.width=256;screenCanvas.height=512;const sx=screenCanvas.getContext('2d');sx.fillStyle='#122c33';sx.fillRect(0,0,256,512);sx.fillStyle='#deede6';sx.textAlign='center';sx.font='32px sans-serif';sx.fillText('Ibu',128,190);sx.font='16px sans-serif';sx.fillText('Panggilan',128,230);const screenTexture=new THREE.CanvasTexture(screenCanvas);screenTexture.colorSpace=THREE.SRGBColorSpace;
                 const screen=new THREE.Mesh(new THREE.PlaneGeometry(.72,1.3),new THREE.MeshBasicMaterial({map:screenTexture}));screen.position.z=.075;phoneGroup.add(screen);
@@ -214,11 +214,17 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
     return()=>{disposed=true;state.current=null;if(scene)scene.traverse(o=>{o.geometry?.dispose();if(o.material){for(const m of (Array.isArray(o.material)?o.material:[o.material])){m.map?.dispose();m.dispose()}}});renderer?.dispose()};
   },[handle,width,height,showWarung,warungScene,resolutionScale]);
   useEffect(()=>{if(!ready||!state.current)return;const s=state.current,t=frame/fps,travel=t*2.5;
-    s.bike.position.y=warungScene==='call'?0:Math.sin(t*7)*.018;s.bike.rotation.z=warungScene==='call'?-.08:Math.sin(t*.8)*.025;s.rider.rotation.z=Math.sin(t*.8)*.012;
-    for(const w of s.wheels)w.rotation.z=warungScene==='call'?0:travel/.34;
+    const stopped=warungScene==='call'||warungScene==='brake';
+    const brakeDistance=Math.min(t,3)*1.5-Math.min(t,3)**2*.25;
+    s.bike.position.y=stopped?0:Math.sin(t*7)*.018;
+    s.bike.rotation.z=warungScene==='brake'?(-.08*Math.min(t/3,1)):warungScene==='call'?-.08:Math.sin(t*.8)*.025;
+    s.bike.position.z=warungScene==='brake' ? 1.5-brakeDistance*.67 : 0;
+    s.rider.visible=warungScene==='brake'?t<4:warungScene!=='call';
+    s.rider.rotation.z=Math.sin(t*.8)*.012;
+    for(const w of s.wheels)w.rotation.z=warungScene==='brake'?brakeDistance/.34:warungScene==='call'?0:travel/.34;
     for(const item of s.trees)item.g.position.z=4-((item.base-travel+40)%40);
     for(const item of s.bushes)item.g.position.z=4-((item.base-travel+36)%36);
-    for(const map of [s.asphaltColor,s.asphaltNormal,s.asphaltRough])map.offset.y=warungScene==='call'?0:-travel/6;
+    for(const map of [s.asphaltColor,s.asphaltNormal,s.asphaltRough])map.offset.y=stopped?0:-travel/6;
     if(warungScene){
       s.warung.position.z=-6;s.body.rotation.z=0;s.headPivot.rotation.x=.52;s.bulbPivot.rotation.z=Math.sin(t*Math.PI*2/3)*Math.PI/30;
       s.bulbLight.intensity=16+(Math.sin(t*4)*.5);
@@ -227,7 +233,14 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         s.dimas.bones.spine01.rotation.z=Math.sin(t*.65)*.018;
         s.dimas.bones.head.rotation.x=.12+Math.sin(t*.35)*.025;
         s.dimas.bones['wrist.R'].rotation.z=Math.sin(t*1.5)*.025;
-        if(detailCamera){s.camera.position.set(.8+Math.sin(t*.12)*.08,1.75,3.3);s.camera.lookAt(-1,1.45,1);}else{s.camera.position.set(3.8+Math.sin(t*.12)*.2,2.25,5.4-Math.min(t*.012,1));s.camera.lookAt(-.8,1.0,-.8);}
+        if(warungScene==='brake'){
+          const steps=Math.min(Math.max((t-4)/3,0),1);
+          s.dimas.mesh.visible=t>=4;s.dimas.mesh.position.set(-.35-.65*steps,.86,.45+.55*steps);
+          s.dimas.bones['upperarm01.R'].rotation.z=.62;s.dimas.bones['lowerarm01.R'].rotation.z=0;
+          s.dimas.bones['upperleg01.L'].rotation.x=Math.sin((t-4)*5)*.25*(1-steps);
+          s.dimas.bones['upperleg01.R'].rotation.x=-Math.sin((t-4)*5)*.25*(1-steps);
+          s.camera.position.set(3.8,2.25,5.4);s.camera.lookAt(-.8,1,-.8);
+        }else if(detailCamera){s.camera.position.set(.8+Math.sin(t*.12)*.08,1.75,3.3);s.camera.lookAt(-1,1.45,1);}else{s.camera.position.set(3.8+Math.sin(t*.12)*.2,2.25,5.4-Math.min(t*.012,1));s.camera.lookAt(-.8,1.0,-.8);}
       }else if(s.standingEntity){
         const b=s.standingEntity.bones;
         // The hand slowly rises, then waves; animation is deterministic at every frame.

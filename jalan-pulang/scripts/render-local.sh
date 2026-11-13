@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 mode=gpu; seconds=300; concurrency=1; scale=0.5; browser="${CHROME_PATH:-}"; check_only=0; smoke=0
 usage() { cat <<'HELP'
 Usage: bash scripts/render-local.sh [--check|--smoke] [--mode gpu|software]
-       [--browser /path/to/chromium] [--seconds 1..339]
+       [--browser /path/to/chromium] [--seconds 1..443]
        [--scale 0.25..1] [--concurrency positive_integer]
 Default: GPU (ANGLE EGL), 300 seconds, 960x540, 30 fps, concurrency 1.
 --check checks dependencies/assets only; --smoke renders one second with VO.
@@ -22,7 +22,7 @@ while (($#)); do
 done
 [[ "$(uname -s)" == Linux && "$(uname -m)" == x86_64 ]] || { echo 'Supported workflow: Linux x86_64 or Windows WSL2 x86_64. macOS/native Windows not tested.' >&2; exit 1; }
 [[ "$mode" == gpu || "$mode" == software ]] || { echo 'Mode must be gpu or software' >&2;exit 2; }
-[[ "$seconds" =~ ^[0-9]+$ && "$seconds" -ge 1 && "$seconds" -le 339 ]] || { echo 'Seconds must be 1..339' >&2;exit 2; }
+[[ "$seconds" =~ ^[0-9]+$ && "$seconds" -ge 1 && "$seconds" -le 443 ]] || { echo 'Seconds must be 1..443' >&2;exit 2; }
 [[ "$concurrency" =~ ^[1-9][0-9]*$ ]] || { echo 'Concurrency must be a positive integer' >&2;exit 2; }
 [[ "$scale" =~ ^(0\.[0-9]+|1|1\.0+)$ ]] && awk "BEGIN {exit !($scale>=0.25 && $scale<=1)}" || { echo 'Scale must be 0.25..1' >&2;exit 2; }
 for command in node npm tar sha256sum awk; do command -v "$command" >/dev/null || { echo "Missing required command: $command" >&2;exit 1; };done

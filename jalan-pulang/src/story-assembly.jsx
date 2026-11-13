@@ -1,11 +1,15 @@
 import React from 'react';
-import {AbsoluteFill,Audio,Sequence,staticFile} from 'remotion';
+import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
 import {OpeningSet} from './opening-scenes';
 import {RideTest} from './ride';
 import {SignScene} from './sign-scene';
 import {PhoneClockInsert} from './phone-insert';
 import {storyShots,validateShots} from './story-timeline';
 
+const CallShot=({resolutionScale})=>{
+ const frame=useCurrentFrame();
+ return <RideTest warungScene="call" detailCamera={frame>=21*30} resolutionScale={resolutionScale}/>;
+};
 const Shot=({shot,resolutionScale})=>{
  switch(shot){
   case 'ride': return <RideTest resolutionScale={resolutionScale}/>;
@@ -18,12 +22,14 @@ const Shot=({shot,resolutionScale})=>{
   case 'warung-lit': return <RideTest warungScene="lit" resolutionScale={resolutionScale}/>;
   case 'entity-seated': return <RideTest warungScene="seated" resolutionScale={resolutionScale}/>;
   case 'entity-detail': return <RideTest warungScene="seated" detailCamera resolutionScale={resolutionScale}/>;
+  case 'brake': return <RideTest warungScene="brake" resolutionScale={resolutionScale}/>;
+  case 'call': return <CallShot resolutionScale={resolutionScale}/>;
   case 'entity-standing': return <RideTest warungScene="standing" resolutionScale={resolutionScale}/>;
   default: throw new Error(`Unknown shot: ${shot}`);
  }
 };
 // One continuous narration track prevents drift or duplicate playback at cuts.
-// No silent filler is used for unbuilt story portions beyond 05:39.
+// No silent filler is used for unbuilt story portions beyond 07:23.
 export const StoryBlocking=({resolutionScale=1})=>{
  validateShots();
  return <AbsoluteFill>

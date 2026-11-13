@@ -1,5 +1,7 @@
 import React from 'react';
 import {registerRoot, Composition} from 'remotion';
+import {FullStoryBlocking} from './full-story';
+import {HomeScene} from './home-scene';
 import {StoryBlocking} from './story-assembly';
 import {OpeningAssembly,OpeningSet} from './opening-scenes';
 import {ForestTest} from './forest';
@@ -9,6 +11,8 @@ import {SignDryWithVO, SignWetWithVO} from './sign-scene';
 import {EntityRigStudy} from './entity-rig';
 import {WarungWithVO, WarungFigureWithVO, ThirdLoopAssembly, StandingFigureWithVO, CallWithVO} from './vo-scene';
 const Root = () => <>
+  <Composition id="FullStoryBlocking" component={FullStoryBlocking} width={1920} height={1080} fps={30} durationInFrames={20398} />
+  <Composition id="HomeSceneStudy" component={HomeScene} width={1920} height={1080} fps={30} durationInFrames={3000} />
   <Composition id="StoryBlocking" component={StoryBlocking} width={1920} height={1080} fps={30} durationInFrames={16290} />
   <Composition id="OpeningAssembly" component={OpeningAssembly} width={1920} height={1080} fps={30} durationInFrames={3030} />
   <Composition id="WarehouseSet" component={OpeningSet} width={1920} height={1080} fps={30} durationInFrames={1140} />

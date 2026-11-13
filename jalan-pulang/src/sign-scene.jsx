@@ -5,7 +5,7 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 // Sign insert: same physical geometry for both loops. The second version adds
 // wet lettering and animated paint trails. Camera and objects remain 3D.
-export const SignScene = ({wet=false,resolutionScale=1}) => {
+export const SignScene = ({wet=false,resolutionScale=1,distance='12 km'}) => {
   const canvas=useRef(null), state=useRef(null), frame=useCurrentFrame();
   const {width,height,fps}=useVideoConfig();
   const [handle]=useState(()=>delayRender('Loading sign scene assets'));
@@ -41,7 +41,7 @@ export const SignScene = ({wet=false,resolutionScale=1}) => {
       // Deterministic grime and scratches on the enamel surface.
       let seed=173;const rand=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
       for(let i=0;i<4000;i++){const a=rand()*.13;ctx.fillStyle=`rgba(50,42,30,${a})`;ctx.fillRect(rand()*1024,rand()*384,1+rand()*5,1+rand()*3)}
-      ctx.textAlign='center';ctx.fillStyle='#202823';ctx.font='bold 76px sans-serif';ctx.fillText('DESA SUKAMAJU',512,150);ctx.font='bold 105px sans-serif';ctx.fillText('12 km',512,290);
+      ctx.textAlign='center';ctx.fillStyle='#202823';ctx.font='bold 76px sans-serif';ctx.fillText('DESA SUKAMAJU',512,150);ctx.font='bold 105px sans-serif';ctx.fillText(distance,512,290);
       const labelMap=new THREE.CanvasTexture(c);labelMap.colorSpace=THREE.SRGBColorSpace;
       const label=new THREE.Mesh(new THREE.PlaneGeometry(2.54,.85),new THREE.MeshStandardMaterial({map:labelMap,roughness:wet?.27:.9,metalness:wet?.12:0}));label.position.set(0,2.65,.054);sign.add(label);
       const dripMaterial=new THREE.MeshStandardMaterial({color:'#d4d2bb',roughness:.25,metalness:.05});
@@ -50,7 +50,7 @@ export const SignScene = ({wet=false,resolutionScale=1}) => {
       state.current={renderer,scene,camera,drips};setReady(true);continueRender(handle);
     };setup().catch(e=>{if(!stopped)cancelRender(e)});
     return()=>{stopped=true;state.current=null;scene?.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material])){m.map?.dispose();m.dispose()}});renderer?.dispose()};
-  },[handle,width,height,wet,resolutionScale]);
+  },[handle,width,height,wet,resolutionScale,distance]);
   useEffect(()=>{if(!ready||!state.current)return;const {renderer,scene,camera,drips}=state.current,t=frame/fps;
     camera.position.set(-1.1+t*.11,1.85,4.4-t*.10);camera.lookAt(2.1,2.0,-3);
     for(const {drop,phase} of drips){const progress=((t*.25+phase)%1);drop.scale.y=.35+progress*1.1;drop.position.y=2.23-progress*.18}

@@ -36,7 +36,7 @@ const Shot=({shot,resolutionScale})=>{
 export const StoryBlocking=({resolutionScale=1})=>{
  validateShots();
  return <AbsoluteFill>
-  {storyShots.map((s,i)=><Sequence key={i} from={s.from*30} durationInFrames={(s.to-s.from)*30}><Shot shot={s.shot} resolutionScale={resolutionScale}/></Sequence>)}
+  {storyShots.map((s,i)=><Sequence key={i} from={s.from*30} durationInFrames={(s.to-s.from)*30+(i===storyShots.length-1?19:0)}><Shot shot={s.shot} resolutionScale={resolutionScale}/></Sequence>)}
   <Audio src={staticFile('vo/VO-Jalan-Pulang_01.mp3')}/>
  </AbsoluteFill>;
 };

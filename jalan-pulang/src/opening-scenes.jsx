@@ -1,7 +1,8 @@
 import React, {useEffect,useRef,useState} from 'react';
 import {AbsoluteFill,Audio,Sequence,cancelRender,continueRender,delayRender,staticFile,useCurrentFrame,useVideoConfig} from 'remotion';
 import * as THREE from 'three';
-import {createRiggedEntity,coverTorso} from './rigged-entity';
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {createRiggedEntity,loadGarments} from './rigged-entity';
 import {RideTest} from './ride';
 
 // Blockout for the opening sequence. Sets, props and characters are real 3D;
@@ -19,23 +20,33 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
       const m=(c,r=.8,metalness=0)=>new THREE.MeshStandardMaterial({color:c,roughness:r,metalness});
       const concrete=m('#4e5752'),metal=m('#4a5a57',.5,.6),wood=m('#82694b'),card=m('#92764e'),dark=m('#172320'),white=m('#c8c5ad');
       const box=(par,w,h,d,mat,x,y,z)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);o.position.set(x,y,z);par.add(o);return o};
-      const road=box(scene,35,.1,65,concrete,0,-.07,-13);
+      const tex=new THREE.TextureLoader();
+      const load=async(name,color=false,repeat=[1,1])=>{const t=await tex.loadAsync(staticFile('pbr/'+name));t.colorSpace=color?THREE.SRGBColorSpace:THREE.NoColorSpace;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(...repeat);return t};
+      const [floorColor,floorNormal,floorRough,wallColor,wallNormal,wallRough,roadColor,roadNormal,roadRough]=await Promise.all([
+        load('sidewalk_concrete_Color.png',true,[8,8]),load('sidewalk_concrete_NormalGL.jpg',false,[8,8]),load('sidewalk_concrete_Roughness.jpg',false,[8,8]),
+        load('wall_plaster_dirty_Color.png',true,[4,2]),load('wall_plaster_dirty_NormalGL.jpg',false,[4,2]),load('wall_plaster_dirty_Roughness.jpg',false,[4,2]),
+        load('street_asphalt_Color.png',true,[6,12]),load('street_asphalt_NormalGL.jpg',false,[6,12]),load('street_asphalt_Roughness.jpg',false,[6,12])]);
+      const floorMat=new THREE.MeshStandardMaterial({map:floorColor,normalMap:floorNormal,roughnessMap:floorRough,roughness:1,color:'#88958c'});
+      const wallMat=new THREE.MeshStandardMaterial({map:wallColor,normalMap:wallNormal,roughnessMap:wallRough,roughness:1,color:'#a0aaa2'});
+      const roadMat=new THREE.MeshStandardMaterial({map:roadColor,normalMap:roadNormal,roughnessMap:roadRough,roughness:1,color:'#7c8781'});
+      box(scene,35,.1,65,set==='warehouse'?floorMat:roadMat,0,-.07,-13);
       const response=await fetch(staticFile('makehuman/rigged-body.json'));if(!response.ok)throw Error(`Character rig HTTP ${response.status}`);
-      const data=await response.json();if(dead)return;
+      const data=await response.json();const garments=await loadGarments(staticFile);if(dead)return;
       const people=[];
       const person=(x,z)=>{
-        const clothing=m('#48554e');const entity=createRiggedEntity(data,clothing);
-        entity.mesh.material.color.set('#a68770');coverTorso(entity,data,clothing);entity.mesh.scale.setScalar(.105);
+        const entity=createRiggedEntity(data,null,garments);
+        entity.mesh.material.color.set('#a68770');entity.mesh.scale.setScalar(.105);
         entity.mesh.position.set(x,.86,z);scene.add(entity.mesh);
         entity.bones['upperarm01.L'].rotation.z=-.62;entity.bones['upperarm01.R'].rotation.z=.62;
         people.push({o:entity.mesh,bones:entity.bones});return entity.mesh;
       };
       let lightRed,lightBlue,phone;
       if(set==='warehouse'){
-        box(scene,20,6,.25,concrete,0,3,-8);box(scene,.25,6,15,concrete,-8,3,-1);box(scene,.25,6,15,concrete,8,3,-1);
+        box(scene,20,6,.25,wallMat,0,3,-8);box(scene,.25,6,15,wallMat,-8,3,-1);box(scene,.25,6,15,wallMat,8,3,-1);
+        const shelfAsset=await new GLTFLoader().loadAsync(staticFile('models/steel_frame_shelves_01/steel_frame_shelves_01_1k.gltf'));if(dead)return;
         for(let x of [-5,5])for(let z of [-6,0,5]){
-          for(let dx of [-1,1])box(scene,.12,4,.12,metal,x+dx,2,z);
-          for(let y of [.6,1.7,2.8,3.9]){box(scene,2.2,.1,1.15,metal,x,y,z);for(let k=0;k<3;k++)box(scene,.58,.62,.72,card,x-.65+k*.65,y+.36,z)}
+          const shelf=shelfAsset.scene.clone();shelf.position.set(x,0,z);shelf.scale.setScalar(.18);scene.add(shelf);
+          for(let y of [.24,1.15,2.06,2.97])for(let k=0;k<2;k++)box(scene,.48,.46,.56,card,x-.32+k*.64,y+.23,z);
         }
         for(const z of [-4,1,6]){const strip=box(scene,3,.07,.17,white,0,5.3,z);strip.material=new THREE.MeshBasicMaterial({color:'#c6d8c8'});const lamp=new THREE.PointLight('#c1d4c4',12,13,2);lamp.position.set(0,5,z);scene.add(lamp)}
         person(0,-1);const bench=box(scene,2.4,.1,1.1,metal,2,.95,0);for(let x of [1,3])for(let z of [-.4,.4])box(scene,.08,.9,.08,metal,x,.45,z);

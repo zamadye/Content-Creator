@@ -1,0 +1,3 @@
+# Set furniture provenance (WIP)
+
+`steel_frame_shelves_01` and `wooden_table_02` are glTF meshes with base color, OpenGL normal and packed metallic/roughness textures. Source: https://github.com/nfranchetti-svg/abitaprima-assets/tree/c9c9649beff61aca562647814b953b059bf5754c/models . The mirror repository description identifies its assets as Poly Haven CC0; its README specifically describes its *textures* as CC0. The two original model entries and their individual licensing **have not been independently verified**. Do not publish until the individual asset origins and licences are confirmed. Geometry and texture files are unchanged; transforms are set in the scene.

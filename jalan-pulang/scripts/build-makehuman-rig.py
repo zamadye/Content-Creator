@@ -19,15 +19,15 @@ for n,weights in w.items():
  if n in lookup:
   for vi,value in weights:
    if vi<len(v) and value>0: influences[vi].append((value,lookup[n]))
-pos=[];tex=[];skinidx=[];skinweights=[];indices=[]; lut={}; unweighted=0
+pos=[];tex=[];skinidx=[];skinweights=[];indices=[];source=[]; lut={}; unweighted=0
 for face in faces:
  for vertex,coord in face:
   key=(vertex,coord)
   if key in lut: continue
-  lut[key]=len(pos)//3;pos.extend(v[vertex-1]);tex.extend(uv[coord-1]); inf=sorted(influences[vertex-1],reverse=True)[:4]
+  lut[key]=len(pos)//3;source.append(vertex-1);pos.extend(v[vertex-1]);tex.extend(uv[coord-1]); inf=sorted(influences[vertex-1],reverse=True)[:4]
   if not inf: inf=[(1,lookup['root'])]; unweighted+=1
   total=sum(x[0] for x in inf); skinidx.extend([i for _,i in inf]+[0]*(4-len(inf)));skinweights.extend([round(z/total,6) for z,_ in inf]+[0]*(4-len(inf)))
  for k in range(1,len(face)-1): indices.extend([lut[face[0]],lut[face[k]],lut[face[k+1]]])
-out={'positions':pos,'uv':tex,'skinIndex':skinidx,'skinWeight':skinweights,'indices':indices,'bones':bones}
+out={'positions':pos,'uv':tex,'skinIndex':skinidx,'skinWeight':skinweights,'indices':indices,'sourceVertex':source,'bones':bones}
 Path('public/makehuman/rigged-body.json').write_text(json.dumps(out,separators=(',',':')))
 print(f'{len(pos)//3} vertices, {len(indices)//3} triangles, {len(names)} bones, {unweighted} root fallbacks')

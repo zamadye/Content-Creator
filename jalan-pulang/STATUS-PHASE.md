@@ -25,3 +25,13 @@ Timeline `StoryBlocking` sudah mencakup 00:00–05:39. `scripts/render-five-minu
 
 ## Sound guide sementara
 `scripts/make-ambience.py` menghasilkan ambient sintetis berdasarkan timestamp: mesin, hum gudang, sirene, bohlam, dan nada senandung. Bukan rekaman Foley dan belum dinilai artistik. Guide mix 300 detik sementara di `render/vo-ambience-guide-5min.m4a` (rata-rata −29,5 dBFS, puncak −8,0 dBFS hasil volumedetect; bukan LUFS). Pengukuran ini bukan pengganti pemeriksaan pendengaran. `scripts/apply-guide-audio.sh` siap menambahkan mix ke video **setelah** render dan QC; belum dijalankan karena video belum selesai.
+
+## Revisi aset karakter (sesudah render draft dihentikan)
+- Render draft lama dihentikan karena user meminta mengganti placeholder sebelum render panjang. Bagian-bagian sebelumnya tidak boleh dicampur dengan render versi aset baru.
+- Pakaian proxy pada karakter berdiri/gudang/lalu lintas diganti mesh MakeHuman ber-UV dan tekstur polo, cargo dan sepatu (provenance `public/garments/PROVENANCE.md`). Transfer skin weight dan masking badan dibuat; frame diuji, tetapi pose dan clipping belum final. Entitas duduk masih memakai proxy yang disetujui untuk preview lama; pakaian yang sesuai, karakter, motor, gudang, kendaraan, pohon dan animasi masih perlu peningkatan.
+- Belum semua adegan atau VO setelah 09:03 tersedia; jangan gunakan status ini sebagai tanda film siap render.
+
+## Revisi set gudang dan warung
+- Set gudang memakai material aspal/beton/plester dengan peta color, normal dan roughness, ditambah mesh rak glTF dengan tekstur PBR. Ukuran rak disesuaikan setelah pemeriksaan frame; posisi kotak diselaraskan dengan rak. Set masih blockout dan banyak aksi belum ada.
+- Warung memakai peta kayu PBR hasil scan dari mirror dan meja glTF mengganti meja kotak. Potongan kayu dan kursi masih geometri sederhana; belum final. Referensi dan catatan lisensi `public/pbr/PROVENANCE.md`, `public/models/PROVENANCE.md`.
+- Lisensi individual model meja dan rak serta vegetasi **belum diverifikasi di sumber asli**; jangan dipublikasikan sebelum verifikasi. Bukan bukti kualitas realistis final.

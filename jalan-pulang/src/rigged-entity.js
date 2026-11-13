@@ -2,13 +2,19 @@ import * as THREE from 'three';
 
 // Skinned MakeHuman CC0 mesh. Coordinates in the data remain in original
 // model units; the root scale controls the character's world height.
-export function createRiggedEntity(data, shirtMaterial = null) {
+export function createRiggedEntity(data, shirtMaterial = null, garments = null) {
  const geom=new THREE.BufferGeometry();
+ if(garments && !data.sourceVertex)throw Error('Rig is missing original vertex mapping for garment masks');
  geom.setAttribute('position',new THREE.Float32BufferAttribute(data.positions,3));
  geom.setAttribute('uv',new THREE.Float32BufferAttribute(data.uv,2));
  geom.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(data.skinIndex,4));
  geom.setAttribute('skinWeight',new THREE.Float32BufferAttribute(data.skinWeight,4));
- geom.setIndex(data.indices);geom.computeVertexNormals();
+ if(garments){
+  const hidden=new Set(garments.flatMap(g=>g.data.hidden));const visible=[];
+  for(let i=0;i<data.indices.length;i+=3){const tri=data.indices.slice(i,i+3);if(tri.every(v=>!hidden.has(data.sourceVertex[v])))visible.push(...tri)}
+  geom.setIndex(visible);
+ }else geom.setIndex(data.indices);
+ geom.computeVertexNormals();
  const mesh=new THREE.SkinnedMesh(geom,new THREE.MeshStandardMaterial({color:'#8b9086',roughness:.93}));
  const bones=data.bones.map(b=>{const o=new THREE.Bone();o.name=b.name;return o});
  data.bones.forEach((b,i)=>{if(b.parent<0){mesh.add(bones[i]);bones[i].position.fromArray(b.p)}else{bones[b.parent].add(bones[i]);bones[i].position.fromArray(b.p).sub(new THREE.Vector3().fromArray(data.bones[b.parent].p))}});
@@ -16,6 +22,7 @@ export function createRiggedEntity(data, shirtMaterial = null) {
  const byName=Object.fromEntries(bones.map(b=>[b.name,b]));
  // Trousers and sleeves follow original vertex weights; their shapes are
  // temporary inflated shells, not simulated or production-fitted clothing.
+ if(!garments){
  function bodyShell(test,color,offset){
   const g=geom.clone(),p=g.getAttribute('position'),n=g.getAttribute('normal');
   for(let i=0;i<p.count;i++)p.setXYZ(i,p.getX(i)+n.getX(i)*offset,p.getY(i)+n.getY(i)*offset,p.getZ(i)+n.getZ(i)*offset);
@@ -38,6 +45,12 @@ export function createRiggedEntity(data, shirtMaterial = null) {
  for(let j=0;j<rows;j++)for(let k=0;k<cols;k++){let a=j*(cols+1)+k,b=a+cols+1;idx.push(a,b,a+1,b,b+1,a+1)}
  const shirt=new THREE.BufferGeometry();shirt.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));shirt.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));shirt.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(si,4));shirt.setAttribute('skinWeight',new THREE.Float32BufferAttribute(sw,4));shirt.setIndex(idx);shirt.computeVertexNormals();
  const cloth=new THREE.SkinnedMesh(shirt,shirtMaterial || new THREE.MeshStandardMaterial({color:'#b3aea0',roughness:.97,side:THREE.DoubleSide}));mesh.add(cloth);cloth.bind(mesh.skeleton,mesh.bindMatrix);
+ } else {
+  for(const item of garments){
+   const d=item.data,g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(d.positions,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(d.uv,2));g.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(d.skinIndex,4));g.setAttribute('skinWeight',new THREE.Float32BufferAttribute(d.skinWeight,4));g.setIndex(d.indices);g.computeVertexNormals();
+   const garment=new THREE.SkinnedMesh(g,item.material);mesh.add(garment);garment.bind(mesh.skeleton,mesh.bindMatrix);
+  }
+ }
  const hair=new THREE.Mesh(new THREE.SphereGeometry(.88,24,16),new THREE.MeshStandardMaterial({color:'#141916',roughness:1}));hair.scale.set(1,.65,1);hair.position.set(0,1.1,.2);byName.head.add(hair);
  // Irregular sparse locks break up the smooth helmet-like hair silhouette.
  const hairMat=hair.material;for(let i=0;i<26;i++){const a=i*2*Math.PI/26;const strand=new THREE.Mesh(new THREE.CapsuleGeometry(.035,.34+(i%4)*.06,3,6),hairMat);strand.position.set(Math.cos(a)*.74,.75,Math.sin(a)*.75+.2);strand.rotation.z=-Math.cos(a)*.12;byName.head.add(strand)}
@@ -63,4 +76,16 @@ export function coverTorso(entity, data, clothMaterial) {
  }
  const geom=entity.mesh.geometry;geom.setIndex([...skin,...cloth]);geom.clearGroups();geom.addGroup(0,skin.length,0);geom.addGroup(skin.length,cloth.length,1);
  entity.mesh.material=[entity.mesh.material,clothMaterial];
+}
+
+// Garment meshes + UV maps are pre-fitted to the matching MakeHuman base.
+export async function loadGarments(staticFile) {
+ const names=['namuhekam_male_polo_shirt','cortu_cargo_pants','shoes01'];
+ return Promise.all(names.map(async name=>{
+  const response=await fetch(staticFile(`garments/${name}.json`));
+  if(!response.ok)throw Error(`Garment ${name}: HTTP ${response.status}`);
+  const data=await response.json();
+  const texture=await new THREE.TextureLoader().loadAsync(staticFile(`garments/${data.texture}`));texture.colorSpace=THREE.SRGBColorSpace;
+  return {data,material:new THREE.MeshStandardMaterial({map:texture,roughness:.95,side:THREE.DoubleSide})};
+ }));
 }

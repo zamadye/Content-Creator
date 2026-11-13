@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js';
 import {makeMap} from './forest';
-import {createRiggedEntity,poseSeated,coverTorso} from './rigged-entity';
+import {createRiggedEntity,poseSeated,loadGarments} from './rigged-entity';
 
 // Stylised work-in-progress, not a representation of the final Dimas or Supra.
 export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, resolutionScale = 1}) => {
@@ -84,8 +84,9 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       for(let k=0;k<25;k++)addBox(warung,.025,.055,3.65,roof,-2.75+k*.23,2.75,0);
       addBox(warung,1.35,1.3,.06,dark,0,1.25,-1.36);
       // Closed shop: a table and upturned stools underneath the roof.
-      addBox(warung,1.65,.11,.9,timber,0,.83,.1);
-      for(const x of [-.7,.7])for(const z of [-.28,.48])addBox(warung,.09,.8,.09,timber,x,.42,z);
+      const tableBlockout=new THREE.Group();warung.add(tableBlockout);
+      addBox(tableBlockout,1.65,.11,.9,timber,0,.83,.1);
+      for(const x of [-.7,.7])for(const z of [-.28,.48])addBox(tableBlockout,.09,.8,.09,timber,x,.42,z);
       for(const x of [-.45,.45]){addBox(warung,.48,.08,.43,timber,x,.93,.08);for(const dx of [-.17,.17])for(const dz of [-.14,.14])addBox(warung,.05,.4,.05,timber,x+dx,1.17,.08+dz)}
       // Banyan trunk and aerial roots are distinct meshes, not a flat plate.
       const banyan=new THREE.Group();banyan.position.set(-3.25,0,-1.2);warung.add(banyan);
@@ -145,16 +146,20 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
             // Load licensed photo-derived PBR maps before releasing the frame.
             const textures=new THREE.TextureLoader();
             const load=(name,color=false,repeat=[1,1])=>textures.loadAsync(staticFile('pbr/'+name)).then(t=>{t.colorSpace=color?THREE.SRGBColorSpace:THREE.NoColorSpace;t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(...repeat);return t});
-            const [metalColor,metalNormal,metalRough,metalness,asphaltColor,asphaltNormal,asphaltRough]=await Promise.all([
+            const [metalColor,metalNormal,metalRough,metalness,asphaltColor,asphaltNormal,asphaltRough,woodColor,woodNormal,woodRough]=await Promise.all([
               load('metal_rusty_paint_Color.png',true),load('metal_rusty_paint_NormalGL.jpg'),load('metal_rusty_paint_Roughness.jpg'),load('metal_rusty_paint_Metalness.jpg'),
-              load('street_asphalt_Color.png',true,[2,25]),load('street_asphalt_NormalGL.jpg',false,[2,25]),load('street_asphalt_Roughness.jpg',false,[2,25])]);
+              load('street_asphalt_Color.png',true,[2,25]),load('street_asphalt_NormalGL.jpg',false,[2,25]),load('street_asphalt_Roughness.jpg',false,[2,25]),
+              load('wood_planks_diffuse.jpg',true,[1,.125]),load('wood_planks_normal.jpg',false,[1,.125]),load('wood_planks_rough.jpg',false,[1,.125])]);
+            Object.assign(timber,{map:woodColor,normalMap:woodNormal,roughnessMap:woodRough,roughness:1,metalness:0});timber.needsUpdate=true;
             Object.assign(roof,{map:metalColor,normalMap:metalNormal,roughnessMap:metalRough,metalnessMap:metalness,roughness:1,metalness:1});roof.needsUpdate=true;
             Object.assign(road.material,{color:new THREE.Color('#949d98'),map:asphaltColor,normalMap:asphaltNormal,roughnessMap:asphaltRough,bumpMap:null,roughness:1,metalness:0});road.material.needsUpdate=true;
             // Replace blockout crowns with authored 3D vegetation. Each model
             // keeps its original mesh; the material clone is darkened for night.
-            const [treeAsset,fernAsset]=await Promise.all([
+            const [treeAsset,fernAsset,tableAsset]=await Promise.all([
               loader.loadAsync(staticFile('nature-cc0/tree.glb')),
-              loader.loadAsync(staticFile('nature-cc0/fern.glb'))]);
+              loader.loadAsync(staticFile('nature-cc0/fern.glb')),
+              loader.loadAsync(staticFile('models/wooden_table_02/wooden_table_02_1k.gltf'))]);
+            tableBlockout.visible=false;const authoredTable=tableAsset.scene;authoredTable.scale.set(1.45,1.04,1.28);authoredTable.position.set(0,.03,.1);warung.add(authoredTable);
             const darken=(root)=>root.traverse(o=>{if(o.isMesh&&o.material){o.material=(Array.isArray(o.material)?o.material:[o.material]).map(m=>{const c=m.clone();c.color?.multiplyScalar(.38);c.roughness=.95;return c});if(o.material.length===1)o.material=o.material[0]}});
             darken(treeAsset.scene);darken(fernAsset.scene);
             const giant=treeAsset.scene.clone();giant.scale.setScalar(.85);banyan.add(giant);
@@ -176,7 +181,8 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
             if(warungScene==='standing'){
               const response=await fetch(staticFile('makehuman/rigged-body.json'));if(!response.ok)throw Error(`Entity rig HTTP ${response.status}`);
               const data=await response.json();if(disposed)return;
-              standingEntity=createRiggedEntity(data,clothSurface);coverTorso(standingEntity,data,clothSurface);
+              const garments=await loadGarments(staticFile);if(disposed)return;
+              standingEntity=createRiggedEntity(data,clothSurface,garments);
               // Standing on the road shoulder, facing approaching Dimas.
               standingEntity.mesh.scale.setScalar(.105);standingEntity.mesh.position.set(2.9,.86,2.8);standingEntity.mesh.rotation.y=0;warung.add(standingEntity.mesh);
               standingEntity.bones['neck01'].rotation.x=.12;
@@ -205,9 +211,9 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         const b=s.standingEntity.bones;
         // The hand slowly rises, then waves; animation is deterministic at every frame.
         const raise=Math.min(1,Math.max(0,(t-11)/2));
-        b['upperarm01.R'].rotation.z=raise*1.45;
-        b['lowerarm01.R'].rotation.z=raise*.65;
-        b['hand.R'] && (b['hand.R'].rotation.z=raise*Math.sin(t*1.9)*.22);
+        b['upperarm01.R'].rotation.z=-raise*1.1;
+        b['lowerarm01.R'].rotation.z=-raise*.4;
+        b['wrist.R'].rotation.z=raise*Math.sin(t*1.9)*.22;
         b['head'].rotation.z=Math.sin(t*.6)*.035;
         s.camera.position.set(-1.7,1.55,1.5-t*.045);s.camera.lookAt(-3.1,1.2,-3.2);
       }else if(detailCamera){s.camera.position.set(-3.55,1.52,-1.1-t*.03);s.camera.lookAt(-4.55,1.03,-5.2)}else{s.camera.position.set(-1.8,1.95,3.6-t*.08);s.camera.lookAt(-4.9,1.32,-5.0);}

@@ -126,7 +126,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         const shoe=addSphere(figure,.10,black,side*.15,.11,.41);shoe.scale.set(.8,.55,1.45);
       }
       figure.visible=warungScene==='seated';
-      let standingEntity=null, dimas=null, shadowActor=null, mirror=null, mirrorCamera=null;
+      let standingEntity=null, dimas=null, skinnedRider=null, shadowActor=null, mirror=null, mirrorCamera=null;
       const bike=new THREE.Group();scene.add(bike);bike.visible=!warungScene || ['call','brake','mirror','shadow','release'].includes(warungScene);
       const shadow=new THREE.Mesh(new THREE.CircleGeometry(.65,32),new THREE.MeshBasicMaterial({color:'#000000',transparent:true,opacity:.24,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.scale.set(1,2,1);shadow.position.y=.012;bike.add(shadow);
       const wheels=[];for(let z of [-.8,.8]){const wheel=new THREE.Group();wheel.position.set(0,.38,z);wheel.rotation.y=Math.PI/2;bike.add(wheel);const tyre=new THREE.Mesh(new THREE.TorusGeometry(.34,.075,10,24),rubber);wheel.add(tyre);const rim=new THREE.Mesh(new THREE.TorusGeometry(.27,.025,8,24),steel);wheel.add(rim);for(let j=0;j<6;j++){let spoke=new THREE.Mesh(new THREE.BoxGeometry(.54,.018,.015),steel);spoke.rotation.z=j*Math.PI/6;wheel.add(spoke)}wheels.push(wheel);}
@@ -168,6 +168,17 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
             if(warungScene){
               for(const [x,z,scale] of [[-12,-10,.65],[1,-10,.65],[-12,-17,.8],[5,-18,.85]]){const tree=treeAsset.scene.clone();tree.position.set(x,0,z);tree.scale.setScalar(scale);scene.add(tree)}
               for(const [x,z,scale] of [[-8,-3,.18],[-9,-4,.16],[1,-5,.20],[3,-7,.17]]){const fern=fernAsset.scene.clone();fern.position.set(x,0,z);fern.scale.setScalar(scale);scene.add(fern)}
+            }
+            if(!warungScene || warungScene==='brake'){
+              const response=await fetch(staticFile('makehuman/rigged-body.json'));if(!response.ok)throw Error(`Rider rig HTTP ${response.status}`);
+              const data=await response.json();const clothes=await loadGarments(staticFile);if(disposed)return;
+              const outfit=clothes.map(g=>({data:g.data,material:g.material.clone()}));outfit[0].material.color.set('#596a61');
+              skinnedRider=createRiggedEntity(data,null,outfit);skinnedRider.mesh.material.color.set('#967765');
+              poseSeated(skinnedRider.bones);skinnedRider.mesh.scale.setScalar(.105);
+              skinnedRider.mesh.position.set(0,1.04,.15);skinnedRider.mesh.rotation.y=Math.PI;bike.add(skinnedRider.mesh);
+              // Helmet is a separate rigid accessory; clothing is the same CC0 outfit as the standing rig.
+              const helmet=new THREE.Mesh(new THREE.SphereGeometry(1.02,24,16),black);helmet.scale.set(1,.8,1);helmet.position.set(0,1,.1);skinnedRider.bones.head.add(helmet);
+              rider.visible=false;
             }
             if(warungScene==='seated'){
               const response=await fetch(staticFile('makehuman/rigged-body.json'));if(!response.ok)throw Error(`Entity rig HTTP ${response.status}`);
@@ -223,7 +234,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               for(const side of [-1,1]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.19,16,10),blackEyes);eye.position.set(side*.32,.52,.81);eye.scale.set(1,.68,.38);standingEntity.bones.head.add(eye)}
             }
             if(warungScene){scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});bulbMesh.castShadow=false;wash.castShadow=false;}
-            state.current={renderer,scene,camera,bike,rider,wheels,trees,bushes,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,dimas,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
+            state.current={renderer,scene,camera,bike,rider,wheels,trees,bushes,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,dimas,skinnedRider,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
           } catch(error){cancelRender(error)}
         },undefined,error=>cancelRender(error));
       },undefined,error=>cancelRender(error));
@@ -236,7 +247,8 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
     s.bike.position.y=stopped?0:Math.sin(t*7)*.018;
     s.bike.rotation.z=warungScene==='brake'?(-.08*Math.min(t/3,1)):stopped?-.08:Math.sin(t*.8)*.025;
     s.bike.position.z=warungScene==='brake' ? 1.5-brakeDistance*.67 : 0;
-    s.rider.visible=warungScene==='brake'?t<4:!stopped;
+    s.rider.visible=!s.skinnedRider && (warungScene==='brake'?t<4:!stopped) && !['call','mirror','shadow','release'].includes(warungScene);
+    if(s.skinnedRider){s.skinnedRider.mesh.visible=warungScene==='brake'?t<4:!stopped;s.skinnedRider.bones.spine01.rotation.z=Math.sin(t*.8)*.025;}
     s.rider.rotation.z=Math.sin(t*.8)*.012;
     for(const w of s.wheels)w.rotation.z=warungScene==='brake'?brakeDistance/.34:stopped?0:travel/.34;
     for(const item of s.trees)item.g.position.z=4-((item.base-travel+40)%40);

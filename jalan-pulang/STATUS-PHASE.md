@@ -44,3 +44,6 @@ Pada 05:45–06:02 motor melambat dan berhenti; rig Dimas muncul di samping lalu
 
 ## Spion dan sosok bayangan (07:23–09:03), WIP
 Spion memakai mesh dan render target dari kamera kedua (gambar dalam spion bergerak, bukan gambar statis), menampilkan rig bayangan di atas motor. Shot berikutnya memperlihatkan bayangan ber-rig di belakang Dimas, dan shot 08:52 memudarkan dan menggeser bayangan selama sepuluh detik. Ini blockout: bentuk sosok masih mirip manusia biasa, lengannya belum melingkar di pinggang, spion tidak memakai solusi refleksi fisik, phone/ekspresi/penampilan karakter belum final, shot dan suara belum dicocokkan pada audio. Frame tiga studi dan frame timeline spion telah diuji; video keseluruhan belum dirender/diperiksa. Transkrip lanjutan dan penutup belum tersedia.
+
+## Rig pengendara (WIP)
+Pada perjalanan dan awal pengereman, proxy pengendara diganti rig MakeHuman berpakaian UV-skinned agar lebih konsisten dengan Dimas. Frame dua adegan diuji. Helm masih mesh sederhana, pose duduk belum menggenggam setang dan transisi turun masih mendadak; motor tetap blockout. Bila aset rig gagal dimuat digunakan proxy cadangan. Ini belum siap render final.

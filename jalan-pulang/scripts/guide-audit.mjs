@@ -3,12 +3,12 @@ import fs from 'node:fs';
 const shots=JSON.parse(fs.readFileSync('data/guide-72-shots.json','utf8'));
 const coverage={
  1:['00:00–00:49','Perjalanan, gudang/telepon rig serta insert jam, pabrik dan transfer','foto ayah dan rumah ibu belum dibuat; prop serta timing perlu QC'],
- 2:['00:49–01:11','Perjalanan 3D','halaman kos, tas dan persiapan berangkat belum dibuat'],
+ 2:['00:49–01:11','Halaman kos, keberangkatan, tas pada rak dan perjalanan 3D','kontak tubuh, tekstur tas dan model motor masih perlu QC'],
  3:['01:11–01:41','Kemacetan, petugas mendekat dan menunjuk, Dimas duduk di motor serta kamera berganti','lip sync, pakaian petugas, kendaraan low-poly dan kontak masih perlu QC'],
  4:['01:41–02:25','Jalan dan vegetasi bergerak dengan sudut lebar/POV/samping, motor dan papan 12 km','vegetasi karet autentik, instrumen, genggaman dan reaksi detail masih perlu QC'],
  5:['02:25–03:47','Warung, papan berulang, jalan melengkung dan ponsel 3D; kamera tangan/setang','aksi merogoh ponsel, genggaman dan transisi motor masih perlu QC'],
  6:['03:47–04:27','Warung menyala dan sosok duduk','lintasan motor, senandung dan close-up telinga belum final'],
- 7:['04:27–05:45','Papan basah, wajah dan sosok berdiri','mata, mulut, akting serta tangan pada setang belum final'],
+ 7:['04:27–05:45','Papan basah, wajah dan sosok berdiri dengan beberapa framing','mulut, akting serta tangan pada setang belum final'],
  8:['05:45–06:23','Rem/turun motor dan panggilan 3D','kontak, UI sinyal dan sinkronisasi perlu dibenahi'],
  9:['06:23–07:15','Panggilan, kamera berganti dan kilas balik ayah di motor serta kamar','reaksi dan pose ayah masih kasar'],
  10:['07:15–08:18','Spion render target dan lengan bayangan','montase penyebab dan kontak tubuh perlu dibuat ulang'],

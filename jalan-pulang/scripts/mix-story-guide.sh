@@ -29,7 +29,7 @@ node scripts/make-guide-siren.mjs render/guide-siren.tmp.wav
  [1:a]asetpts=PTS-STARTPTS[b];[a][b]concat=n=2:v=0:a=1[vo];\
  [2:a]atrim=duration=680,asetpts=PTS-STARTPTS,volume='0.075*max(0,min(1,min((t-101)/3,(592.633-t)/3)))':eval=frame[night];\
  [3:a]atrim=duration=680,asetpts=PTS-STARTPTS,volume='0.045*(max(0,min(1,min((t-11)/2,(49-t)/2)))+max(0,min(1,min((t-608)/2,(680-t)/2))))':eval=frame[room];\
- [4:a]atrim=duration=680,asetpts=PTS-STARTPTS,volume='0.025*(max(0,min(1,min(t/2,(11-t)/2)))+max(0,min(1,min((t-49)/2,(71-t)/2)))+max(0,min(1,min((t-101)/2,(345-t)/2)))+max(0,min(1,min((t-571.633)/2,(592.633-t)/2))))':eval=frame[engine];\
+ [4:a]atrim=duration=680,asetpts=PTS-STARTPTS,volume='0.025*(max(0,min(1,min(t/2,(11-t)/2)))+max(0,min(1,min((t-53)/2,(71-t)/2)))+max(0,min(1,min((t-101)/2,(345-t)/2)))+max(0,min(1,min((t-571.633)/2,(592.633-t)/2))))':eval=frame[engine];\
  [5:a]atrim=duration=0.20,asetpts=PTS-STARTPTS,volume=0.11,adelay=605883|605883[knock1];\
  [6:a]atrim=duration=0.20,asetpts=PTS-STARTPTS,volume=0.11,adelay=606683|606683[knock2];\
  [7:a]atrim=duration=0.20,asetpts=PTS-STARTPTS,volume=0.11,adelay=607483|607483[knock3];\

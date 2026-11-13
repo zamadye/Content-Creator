@@ -156,7 +156,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       let standingEntity=null, seatedEntity=null, dimas=null, skinnedRider=null, riderHelmet=null, memoryPassenger=null, shadowActor=null, mirror=null, mirrorCamera=null;
       const bike=new THREE.Group();scene.add(bike);bike.visible=!warungScene || ['call','brake','mirror','shadow','release','aftermath'].includes(warungScene);
       const shadow=new THREE.Mesh(new THREE.CircleGeometry(.65,32),new THREE.MeshBasicMaterial({color:'#000000',transparent:true,opacity:.24,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.scale.set(1,2,1);shadow.position.y=.012;bike.add(shadow);
-      const generatedBike=createMotorcycle();bike.add(generatedBike.model);const wheels=generatedBike.wheels;
+      const generatedBike=createMotorcycle();bike.add(generatedBike.model);if(memory)generatedBike.model.getObjectByName('Strapped travel bag').visible=false;const wheels=generatedBike.wheels;
       const lamp=new THREE.SpotLight('#ffe4a6',32,22,Math.PI/7,.65,1.5);lamp.position.set(0,1,-.9);lamp.target.position.set(0,0,-10);bike.add(lamp,lamp.target);
       // Visible headlight wash on road, subtle and independent of screen-space overlays.
       const lightCanvas=document.createElement('canvas');lightCanvas.width=lightCanvas.height=128;const lx=lightCanvas.getContext('2d');const gradient=lx.createRadialGradient(64,64,0,64,64,64);gradient.addColorStop(0,'rgba(255,224,150,0.40)');gradient.addColorStop(.35,'rgba(255,224,150,0.16)');gradient.addColorStop(1,'rgba(255,224,150,0)');lx.fillStyle=gradient;lx.fillRect(0,0,128,128);const washMap=new THREE.CanvasTexture(lightCanvas);washMap.colorSpace=THREE.SRGBColorSpace;const wash=new THREE.Mesh(new THREE.PlaneGeometry(5,9),new THREE.MeshBasicMaterial({map:washMap,transparent:true,depthWrite:false}));wash.rotation.x=-Math.PI/2;wash.position.set(0,.015,-5);bike.add(wash);
@@ -301,7 +301,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               }
               // Black eyes parented to the head, with geometry rather than a screen overlay.
               const blackEyes=new THREE.MeshStandardMaterial({color:'#050706',roughness:.15});
-              for(const side of [-1,1]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.19,16,10),blackEyes);eye.position.set(side*.32,.52,1.23);eye.scale.set(1,.68,.38);standingEntity.bones.head.add(eye)}
+              for(const side of ['L','R']){const eye=new THREE.Mesh(new THREE.SphereGeometry(.16,16,10),blackEyes);eye.position.set(0,0,.04);eye.scale.set(1,.65,.52);standingEntity.bones[`eye.${side}`].add(eye)}
             }
             if(warungScene){scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});bulbMesh.castShadow=false;wash.castShadow=false;}
             state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,villageSet,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,seatedEntity,dimas,skinnedRider,riderHelmet,memoryPassenger,lamp,wash,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
@@ -424,7 +424,12 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         b['wrist.R'].rotation.z=raise*Math.sin(t*1.9)*.22;
         b['head'].rotation.z=Math.sin(t*.6)*.035;
         b.jaw.rotation.x=t>=20?.035*(.5+.5*Math.sin((t-20)*4)):0;
-        s.camera.position.set(-1.7,1.55,1.5-t*.045);s.camera.lookAt(-3.1,1.2,-3.2);
+        // Reveal the black eyes and the silent syllables as the narration
+        // moves from the figure's stance to its wave and mouth.
+        if(t<5){s.camera.position.set(-1.7,1.65,1.5-t*.04);s.camera.lookAt(-3.1,1.2,-3.2)}
+        else if(t<11){s.camera.position.set(-2.2,1.65,-.5-(t-5)*.04);s.camera.lookAt(-3.1,1.42,-3.2)}
+        else if(t<21){s.camera.position.set(-2.4,1.62,-1.3-(t-11)*.025);s.camera.lookAt(-3.1,1.43,-3.2)}
+        else{s.camera.position.set(-2.70,1.55,-2.20-(t-21)*.04);s.camera.lookAt(-3.1,1.5,-3.2)}
       }else if(revealFace&&s.seatedEntity){
         const reveal=Math.min(t/2,1);
         s.seatedEntity.bones.head.rotation.y=.45*reveal;

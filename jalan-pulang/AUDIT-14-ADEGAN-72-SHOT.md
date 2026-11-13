@@ -17,7 +17,7 @@ Acuan VO: 00:00–00:49. Ada: Perjalanan, gudang/telepon rig serta insert jam, p
 
 ## 2. Berangkat dan macet
 
-Acuan VO: 00:49–01:11. Ada: Perjalanan 3D. Masih perlu: halaman kos, tas dan persiapan berangkat belum dibuat. Status semua baris: **belum diverifikasi shot per shot**.
+Acuan VO: 00:49–01:11. Ada: Halaman kos, keberangkatan, tas pada rak dan perjalanan 3D. Masih perlu: kontak tubuh, tekstur tas dan model motor masih perlu QC. Status semua baris: **belum diverifikasi shot per shot**.
 
 | Shot | Waktu panduan asli | Rincian panduan asli |
 |---|---|---|
@@ -77,7 +77,7 @@ Acuan VO: 03:47–04:27. Ada: Warung menyala dan sosok duduk. Masih perlu: linta
 
 ## 7. Putaran keempat dan kelima: sosok mendekat
 
-Acuan VO: 04:27–05:45. Ada: Papan basah, wajah dan sosok berdiri. Masih perlu: mata, mulut, akting serta tangan pada setang belum final. Status semua baris: **belum diverifikasi shot per shot**.
+Acuan VO: 04:27–05:45. Ada: Papan basah, wajah dan sosok berdiri dengan beberapa framing. Masih perlu: mulut, akting serta tangan pada setang belum final. Status semua baris: **belum diverifikasi shot per shot**.
 
 | Shot | Waktu panduan asli | Rincian panduan asli |
 |---|---|---|

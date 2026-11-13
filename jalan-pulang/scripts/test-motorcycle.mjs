@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {createMotorcycle} from '../src/motorcycle.js';
 const {model,wheels}=createMotorcycle();
 model.updateMatrixWorld(true);
+assert.ok(model.getObjectByName('Strapped travel bag'),'Travel bag must remain attached to the bike');
 assert.equal(wheels.length,2);assert.notEqual(wheels[0],wheels[1]);
 assert.deepEqual(wheels.map(w=>w.name),['Front wheel','Rear wheel']);
 let vertices=0,meshes=0;

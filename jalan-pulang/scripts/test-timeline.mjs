@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {storyShots,validateShots} from '../src/story-timeline.js';
 assert.equal(validateShots(),543);
 const at=t=>storyShots.find(s=>s.from<=t&&t<s.to);
+assert.equal(at(50).shot,'departure');assert.equal(at(60).shot,'ride');
 assert.equal(at(18).shot,'routine-clock');assert.equal(at(21).shot,'routine-factory');assert.equal(at(23).shot,'routine-transfer');assert.equal(at(26).shot,'warehouse');
 const reveal=storyShots.find(s=>s.shot==='entity-reveal');
 assert.deepEqual([reveal.from,reveal.to],[295,305]);

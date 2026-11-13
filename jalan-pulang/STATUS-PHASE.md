@@ -82,3 +82,6 @@ Jaket dan jeans `male_casualsuit05` bertekstur dan UV-skinned (MakeHuman team CC
 - VO 02: perjalanan dari papan 3 km ke rumah sekarang melewati gerbang desa dan rumah-rumah 3D dengan material bertekstur; bentuk rumah generik, bukan lingkungan Indonesia final.
 - Sosok bayangan: kedua lengan diarahkan melalui IK ke pinggang Dimas; mata sosok berdiri diposisikan lebih dekat permukaan wajah. Bentuk, clipping, jari, tampilan dan sinkronisasi tetap perlu diperiksa pada gerak/video.
 - Frame gudang, kemacetan, desa dan sosok diuji secara serial. Ini bukan pemeriksaan video lengkap; pekerjaan material, akting, sound design dan QC masih terbuka.
+
+## Rancangan suara lintas kedua VO
+- Ditambahkan lima rekaman ambiens dan Foley Oculus Audio Pack 01 berlisensi CC BY 4.0, dengan lisensi dan atribusi di `public/audio-oculus/`. `scripts/mix-story-guide.sh` menghasilkan mix opsional 11:19,9 dengan VO gabungan, ambiens malam/ruang, mesin pengganti, langkah dan ketukan, dengan crossfade level tiap rentang. Skrip tidak mengubah render utama dan tidak menggantikan perekaman suara motor asli; timing dan level harus diperiksa dengan mendengarkan.

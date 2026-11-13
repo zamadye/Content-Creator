@@ -20,7 +20,7 @@ for name,vals in weights.items():
  if name in lookup:
   for vi,w in vals:
    if 0<=vi<len(v) and w>0:influences[vi].append((lookup[name],w))
-for name in ['namuhekam_male_polo_shirt','cortu_cargo_pants','shoes01']:
+for name in ['namuhekam_male_polo_shirt','cortu_cargo_pants','shoes01','male_casualsuit05']:
  info=json.loads((src/(name+'.json')).read_text());raw=gzip.decompress((src/(name+'.bin.gz')).read_bytes())
  def arr(key):
   off,count,typ,*rest=info['layout'][key]

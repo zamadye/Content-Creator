@@ -72,3 +72,6 @@ Lengan pengendara kini memakai IK dua sendi untuk mendekati setang model motor, 
 
 ## Wajah sosok pada putaran keempat — WIP
 Timeline 04:47–05:05 kini dipisah: pandangan dari belakang hingga 04:55, lalu cut ke sisi wajah pada 04:55–05:05 mengikuti rentang transkrip. Kamera, putaran kepala dan garis mulut 3D mengikuti rig; garis diambil dari permukaan mesh agar tidak melayang sebagai bidang. Pada shot baru karakter mengenakan polo/cargo/sepatu UV-skinned, sedangkan pose preview yang disetujui pada shot sebelumnya dipertahankan. Dua frame dan validator kontinuitas timeline diuji. Garis mulut bukan ekspresi wajah yang dirig, desain rambut dan clipping pakaian belum final; perlu QC gerak, sinkronisasi audio, penampilan seram dan kontinuitas antarpotongan.
+
+## Kontinuitas jaket Dimas
+Jaket dan jeans `male_casualsuit05` bertekstur dan UV-skinned (MakeHuman team CC0 menurut katalog sumber) dipakai pada perjalanan, kemacetan, pengereman, panggilan dan rumah; gudang mempertahankan pakaian kerja sebelumnya. Empat frame di lokasi berbeda serta bundle diuji. Pakaian masih perlu inspeksi deformasi/kliping sepanjang animasi; helm, gestur dan kulit belum final.

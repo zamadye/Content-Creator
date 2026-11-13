@@ -79,8 +79,7 @@ export function coverTorso(entity, data, clothMaterial) {
 }
 
 // Garment meshes + UV maps are pre-fitted to the matching MakeHuman base.
-export async function loadGarments(staticFile) {
- const names=['namuhekam_male_polo_shirt','cortu_cargo_pants','shoes01'];
+export async function loadGarments(staticFile, names=['namuhekam_male_polo_shirt','cortu_cargo_pants','shoes01']) {
  return Promise.all(names.map(async name=>{
   const response=await fetch(staticFile(`garments/${name}.json`));
   if(!response.ok)throw Error(`Garment ${name}: HTTP ${response.status}`);
@@ -89,3 +88,6 @@ export async function loadGarments(staticFile) {
   return {data,material:new THREE.MeshStandardMaterial({map:texture,roughness:.95,side:THREE.DoubleSide})};
  }));
 }
+
+// A single full outfit avoids overlapping separate top/trouser meshes.
+export const loadRidingGarments=staticFile=>loadGarments(staticFile,['male_casualsuit05','shoes01']);

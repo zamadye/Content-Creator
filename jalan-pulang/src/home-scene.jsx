@@ -3,7 +3,7 @@ import {AbsoluteFill,cancelRender,continueRender,delayRender,staticFile,useCurre
 import * as THREE from 'three';
 import {createMotorcycle} from './motorcycle';
 import {holdMotorcycleGrips} from './arm-ik';
-import {createRiggedEntity,loadGarments,poseSeated} from './rigged-entity';
+import {createRiggedEntity,loadRidingGarments,poseSeated} from './rigged-entity';
 
 // Ending blocking, not a finished house or final character animation. All timing
 // is relative to VO 02 (not the preceding Sequence's local start).
@@ -20,7 +20,7 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
     load('wall_plaster_dirty_Color.png',true,[3,2]),load('wall_plaster_dirty_NormalGL.jpg',false,[3,2]),load('wall_plaster_dirty_Roughness.jpg',false,[3,2]),
     load('wood_planks_diffuse.jpg',true),load('wood_planks_normal.jpg'),load('wood_planks_rough.jpg'),
     load('sidewalk_concrete_Color.png',true,[6,6]),load('sidewalk_concrete_NormalGL.jpg',false,[6,6]),load('sidewalk_concrete_Roughness.jpg',false,[6,6]),
-    fetch(staticFile('makehuman/rigged-body.json')),loadGarments(staticFile)]);
+    fetch(staticFile('makehuman/rigged-body.json')),loadRidingGarments(staticFile)]);
    if(!response.ok)throw Error(`Home rig HTTP ${response.status}`);const data=await response.json();if(dead)return;
    const pbr=(map,normalMap,roughnessMap,color='#ffffff')=>new THREE.MeshStandardMaterial({map,normalMap,roughnessMap,color,roughness:1});
    const plaster=pbr(wall,wallN,wallR,'#a8a397'),timber=pbr(wood,woodN,woodR,'#8a6850'),concrete=pbr(floor,floorN,floorR,'#858b81'),dark=new THREE.MeshStandardMaterial({color:'#202d2c',roughness:.85});
@@ -33,7 +33,7 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
    const bulb=new THREE.Mesh(new THREE.SphereGeometry(.12,16,12),new THREE.MeshBasicMaterial({color:'#ffe0a0'}));bulb.position.set(0,3.1,-1.8);scene.add(bulb);const lamp=new THREE.PointLight('#ffcc76',18,12,2);lamp.position.copy(bulb.position);scene.add(lamp);
    // Same generated motorcycle and wheel pivots as the forest/warung shots.
    const bike=new THREE.Group();scene.add(bike);const generatedBike=createMotorcycle();bike.add(generatedBike.model);const wheels=generatedBike.wheels;
-   const outfit=garments.map(g=>({data:g.data,material:g.material.clone()}));outfit[0].material.color.set('#596a61');const dimas=createRiggedEntity(data,null,outfit);dimas.mesh.material.color.set('#967765');dimas.mesh.scale.setScalar(.105);scene.add(dimas.mesh);dimas.bones['upperarm01.L'].rotation.z=-.62;dimas.bones['upperarm01.R'].rotation.z=.62;
+   const outfit=garments.map(g=>({data:g.data,material:g.material.clone()}));const dimas=createRiggedEntity(data,null,outfit);dimas.mesh.material.color.set('#967765');dimas.mesh.scale.setScalar(.105);scene.add(dimas.mesh);dimas.bones['upperarm01.L'].rotation.z=-.62;dimas.bones['upperarm01.R'].rotation.z=.62;
    const shadow=createRiggedEntity(data);const shadowMat=new THREE.MeshStandardMaterial({color:'#091411',roughness:1});shadow.mesh.traverse(o=>{if(o.isMesh)o.material=shadowMat});shadow.mesh.scale.setScalar(.105);scene.add(shadow.mesh);
    state.current={scene,renderer,camera,dimas,shadow,bike,bikeModel:generatedBike.model,wheels};setReady(true);continueRender(handle);
   })().catch(e=>{if(!dead)cancelRender(e)});

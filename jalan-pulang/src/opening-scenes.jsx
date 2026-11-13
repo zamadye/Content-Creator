@@ -2,7 +2,7 @@ import React, {useEffect,useRef,useState} from 'react';
 import {AbsoluteFill,Audio,Sequence,cancelRender,continueRender,delayRender,staticFile,useCurrentFrame,useVideoConfig} from 'remotion';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
-import {createRiggedEntity,loadGarments} from './rigged-entity';
+import {createRiggedEntity,loadGarments,loadRidingGarments} from './rigged-entity';
 import {RideTest} from './ride';
 
 // Blockout for the opening sequence. Sets, props and characters are real 3D;
@@ -31,10 +31,10 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
       const roadMat=new THREE.MeshStandardMaterial({map:roadColor,normalMap:roadNormal,roughnessMap:roadRough,roughness:1,color:'#7c8781'});
       box(scene,35,.1,65,set==='warehouse'?floorMat:roadMat,0,-.07,-13);
       const response=await fetch(staticFile('makehuman/rigged-body.json'));if(!response.ok)throw Error(`Character rig HTTP ${response.status}`);
-      const data=await response.json();const garments=await loadGarments(staticFile);if(dead)return;
+      const data=await response.json();const garments=await loadGarments(staticFile);const ridingGarments=set==='traffic'?await loadRidingGarments(staticFile):garments;if(dead)return;
       const people=[];
-      const person=(x,z)=>{
-        const entity=createRiggedEntity(data,null,garments);
+      const person=(x,z,outfit=garments)=>{
+        const entity=createRiggedEntity(data,null,outfit);
         entity.mesh.material.color.set('#a68770');entity.mesh.scale.setScalar(.105);
         entity.mesh.position.set(x,.86,z);scene.add(entity.mesh);
         entity.bones['upperarm01.L'].rotation.z=-.62;entity.bones['upperarm01.R'].rotation.z=.62;
@@ -62,7 +62,7 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
         const redMat=new THREE.MeshBasicMaterial({color:'#b3262e'}),blueMat=new THREE.MeshBasicMaterial({color:'#2a4fa8'});
         box(scene,.35,.16,.28,redMat,1.1,1.9,-8);box(scene,.35,.16,.28,blueMat,1.7,1.9,-8);
         lightRed=new THREE.PointLight('#b3262e',10,15);lightRed.position.set(1.1,2,-8);scene.add(lightRed);lightBlue=new THREE.PointLight('#2a4fa8',10,15);lightBlue.position.set(1.7,2,-8);scene.add(lightBlue);
-        person(3,0);person(3.8,-3);for(let z of [-11,-7,-3]){const cone=new THREE.Mesh(new THREE.ConeGeometry(.23,.65,12),m('#cc6c30'));cone.position.set(4,.33,z);scene.add(cone)}
+        person(3,0,ridingGarments);person(3.8,-3);for(let z of [-11,-7,-3]){const cone=new THREE.Mesh(new THREE.ConeGeometry(.23,.65,12),m('#cc6c30'));cone.position.set(4,.33,z);scene.add(cone)}
       }
       state.current={scene,renderer,camera,people,lightRed,lightBlue,phone};setReady(true);continueRender(handle);
     };setup().catch(e=>{if(!dead)cancelRender(e)});

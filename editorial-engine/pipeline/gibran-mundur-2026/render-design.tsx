@@ -7,6 +7,8 @@
 import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {Resvg} from '@resvg/resvg-js';
+import {spawn} from 'node:child_process';
+import {once} from 'node:events';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -162,12 +164,14 @@ function Illustration({n,t}:{n:number;t:number}){
 function Frame({n,t}:{n:number;t:number}){
   tGlobal=t;
   const scene=timeline.scenes[n-1];
-  const label=scene.visualType==='footage'?'PLATE FOOTAGE + MOTION REMOTION':scene.visualType==='mixed'?'FOOTAGE (JIKA ADA) + OBJEK REMOTION':'ANIMASI REMOTION';
+  const useFootage=[1,16,17,18].includes(n);
+  const label=useFootage?'FOOTAGE FLOW · ILUSTRASI + MOTION REMOTION':'ANIMASI REMOTION';
   const overlayText=(scene.overlay||scene.visual.slice(0,40)).replaceAll('≠','BUKAN').replaceAll('→','KE');
   const overlayFont=overlayText.length>48?22:overlayText.length>36?26:30;
   return <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
     <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stopColor={C.bg}/><stop offset="1" stopColor={C.bg2}/></linearGradient><pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse"><path d="M72 0H0V72" fill="none" stroke={C.teal} strokeOpacity=".12" strokeWidth="1"/></pattern><radialGradient id="glow"><stop stopColor={C.teal} stopOpacity=".25"/><stop offset="1" stopColor={C.bg} stopOpacity="0"/></radialGradient></defs>
-    <rect width="1920" height="1080" fill="url(#b)"/><rect width="1920" height="1080" fill="url(#grid)"/><ellipse cx="960" cy="555" rx="760" ry="500" fill="url(#glow)"/>
+    {!useFootage&&<g><rect width="1920" height="1080" fill="url(#b)"/><rect width="1920" height="1080" fill="url(#grid)"/><ellipse cx="960" cy="555" rx="760" ry="500" fill="url(#glow)"/></g>}
+    {useFootage&&<rect width="1920" height="1080" fill="#071e26" opacity=".23"/>}
     <circle cx="78" cy="70" r="10" fill={C.gold}/><text x="105" y="79" fill={C.cream} fontSize="25" fontWeight="700" fontFamily="Archivo">KNOT THEORY / DUNIA KEBALIK</text>
     <rect x="78" y="112" width="520" height="40" rx="8" fill="#041219" opacity=".9"/><text x="98" y="139" fill={C.mint} fontSize="19" fontWeight="700" fontFamily="Archivo">{label}</text>
     <text x="78" y="220" fill={C.cream} fontSize="38" fontFamily="Archivo" fontWeight="700">SC{String(n).padStart(2,'0')} · {scene.section.toUpperCase()}</text>
@@ -175,19 +179,74 @@ function Frame({n,t}:{n:number;t:number}){
     <g opacity=".62"><path d="M80 330h230M1610 330h230M80 765h230M1610 765h230" stroke={C.teal} strokeWidth="3"/><circle cx="170" cy="545" r="75" fill="none" stroke={C.teal} strokeWidth="3"/><circle cx="1750" cy="545" r="75" fill="none" stroke={C.teal} strokeWidth="3"/><text x="170" y="552" fill={C.mint} fontSize="22" textAnchor="middle" fontFamily="Archivo">{String(n).padStart(2,'0')}</text><text x="1750" y="552" fill={C.gold} fontSize="22" textAnchor="middle" fontFamily="Archivo">{Math.floor(scene.start/60)}:{String(Math.floor(scene.start%60)).padStart(2,'0')}</text></g>
     <rect x="70" y="890" width="1780" height="132" rx="20" fill="#041219" opacity=".96" stroke={C.teal} strokeWidth="3"/>
     <text x="960" y="946" fill={C.white} fontSize={overlayFont} textAnchor="middle" fontFamily="Archivo" fontWeight="700">{overlayText}</text>
-    <text x="960" y="990" fill={C.gold} fontSize="18" textAnchor="middle" fontFamily="Archivo">SUBTITLE AKAN DISINKRONKAN KE VO · FRAME PREVIEW DESAIN</text>
-    <text x="78" y="1055" fill={C.mint} fontSize="17" fontFamily="Archivo">ILUSTRASI REMOTION · TIDAK MENGGAMBARKAN TOKOH ATAU PERISTIWA NYATA</text>
+    <text x="960" y="990" fill={C.gold} fontSize="18" textAnchor="middle" fontFamily="Archivo">PREVIEW VISUAL · CAPTION BELUM DISINKRONKAN KE VO</text>
+    <text x="78" y="1055" fill={C.mint} fontSize="17" fontFamily="Archivo">{useFootage?'FLOW FOOTAGE ILUSTRATIF · BUKAN REKAMAN PERISTIWA':'ILUSTRASI REMOTION · TANPA TOKOH NYATA'}</text>
     <text x="1842" y="1055" fill={C.mint} fontSize="17" textAnchor="end" fontFamily="Archivo">1920 × 1080 · 16:9</text>
   </svg>;
+}
+async function run(cmd:string,args:string[]){
+  const p=spawn(cmd,args,{stdio:['ignore','ignore','pipe']});
+  p.stderr.on('data',d=>{const s=String(d);if(/error|invalid/i.test(s))process.stderr.write(s);});
+  const [code]=await once(p,'close');if(code!==0)throw new Error(`${path.basename(cmd)} exit ${code}`);
 }
 async function main(){
   fs.mkdirSync(out,{recursive:true});
   const resvg=(el:React.ReactElement)=>Buffer.from(new Resvg(renderToStaticMarkup(el),{font:{fontFiles:[path.join(root,'assets/fonts/archivo-latin-700-normal.ttf')],loadSystemFonts:false,defaultFontFamily:'Archivo'}}).render().asPng());
-  const indices=Array.from({length:timeline.scenes.length},(_,i)=>i+1);
-  for(const n of indices){
-    const s=timeline.scenes[n-1], t=(s.end-s.start)*.54;
-    fs.writeFileSync(path.join(out,`design-sc${String(n).padStart(2,'0')}.png`),resvg(<Frame n={n} t={t}/>));
+  const args=process.argv.slice(2),ff=path.join(root,'node_modules/@ffmpeg-installer/linux-x64/ffmpeg'),fps=30;
+  if(args.includes('--render-chunk')){
+    const n=Number(args.find(x=>x.startsWith('--scene='))?.split('=')[1]);
+    const offset=Number(args.find(x=>x.startsWith('--offset='))?.split('=')[1]||0);
+    const duration=Number(args.find(x=>x.startsWith('--duration='))?.split('=')[1]||6);
+    const scene=timeline.scenes[n-1];if(!scene||offset<0||duration<=0||offset+duration>scene.end-scene.start+.001)throw new Error('Invalid chunk scene/offset/duration');
+    const tmp=fs.mkdtempSync(path.join(out,'chunk-tmp-')),framesDir=path.join(tmp,'frames');fs.mkdirSync(framesDir);
+    const count=Math.ceil(duration*fps);
+    for(let k=0;k<count;k++)fs.writeFileSync(path.join(framesDir,`f-${String(k).padStart(5,'0')}.png`),resvg(<Frame n={n} t={offset+k/fps}/>));
+    const plateMap:{[k:number]:string}={1:'SC01.mp4',16:'SC16.mp4',17:'SC16.mp4',18:'SC18.mp4'};
+    const plateFile=plateMap[n]?path.join(root,'assets/footage/gibran-mundur-2026-11-13',plateMap[n]):null;
+    const chunkName=`chunk-sc${String(n).padStart(2,'0')}-o${String(Math.round(offset*1000)).padStart(6,'0')}.mp4`;
+    const chunkPath=path.join(out,chunkName);
+    if(plateFile){await run(ff,['-nostdin','-hide_banner','-loglevel','error','-y','-stream_loop','-1','-i',plateFile,'-framerate',String(fps),'-i',path.join(framesDir,'f-%05d.png'),'-filter_complex','[0:v]scale=1920:1080:flags=lanczos,setsar=1[bg];[1:v]format=rgba[ov];[bg][ov]overlay=0:0:format=auto,format=yuv420p[v]','-map','[v]','-t',duration.toFixed(4),'-r',String(fps),'-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p',chunkPath]);}
+    else{await run(ff,['-nostdin','-hide_banner','-loglevel','error','-y','-f','lavfi','-i',`color=c=0x071e26:s=1920x1080:r=${fps}`,'-framerate',String(fps),'-i',path.join(framesDir,'f-%05d.png'),'-filter_complex','[1:v]format=rgba[ov];[0:v][ov]overlay=0:0:format=auto,format=yuv420p[v]','-map','[v]','-t',duration.toFixed(4),'-r',String(fps),'-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p',chunkPath]);}
+    fs.rmSync(tmp,{recursive:true,force:true});console.log(JSON.stringify({chunk:chunkPath,scene:n,offset,duration,footage:!!plateFile}));return;
   }
-  console.log(JSON.stringify({previewFrames:indices.length,scenes:timeline.scenes.length,frames:indices.map(n=>`design-sc${String(n).padStart(2,'0')}.png`)}));
+  const requested=args.find(x=>x==='--render-test');
+  if(requested){
+    const from=Number(args.find(x=>x.startsWith('--from='))?.split('=')[1]||1);
+    const to=Number(args.find(x=>x.startsWith('--to='))?.split('=')[1]||3);
+    if(from<1||to>timeline.scenes.length||from>to)throw new Error('Bad scene range (1-based inclusive)');
+    const tmp=fs.mkdtempSync(path.join(out,'render-test-'));
+    const encoded:string[]=[];
+    for(let n=from;n<=to;n++){
+      const scene=timeline.scenes[n-1],dur=scene.end-scene.start,frames=Math.ceil(dur*fps);
+      const frameDir=path.join(tmp,`scene-${String(n).padStart(2,'0')}`);fs.mkdirSync(frameDir,{recursive:true});
+      for(let k=0;k<frames;k++){
+        const t=k/fps;
+        fs.writeFileSync(path.join(frameDir,`f-${String(k).padStart(5,'0')}.png`),resvg(<Frame n={n} t={t}/>));
+      }
+      const seg=path.join(tmp,`seg-${String(n).padStart(2,'0')}.mp4`);
+      const plateMap:{[k:number]:string}={1:'SC01.mp4',16:'SC16.mp4',17:'SC16.mp4',18:'SC18.mp4'};
+      const plateFile=plateMap[n]?path.join(root,'assets/footage/gibran-mundur-2026-11-13',plateMap[n]):null;
+      if(plateFile){
+        await run(ff,['-nostdin','-hide_banner','-loglevel','error','-y','-stream_loop','-1','-i',plateFile,'-framerate',String(fps),'-i',path.join(frameDir,'f-%05d.png'),
+          '-filter_complex','[0:v]scale=1920:1080:flags=lanczos,setsar=1[bg];[1:v]format=rgba[ov];[bg][ov]overlay=0:0:format=auto,format=yuv420p[v]',
+          '-map','[v]','-t',dur.toFixed(4),'-r',String(fps),'-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p',seg]);
+      }else{
+        await run(ff,['-nostdin','-hide_banner','-loglevel','error','-y','-f','lavfi','-i',`color=c=0x071e26:s=1920x1080:r=${fps}`,'-framerate',String(fps),'-i',path.join(frameDir,'f-%05d.png'),
+          '-filter_complex','[1:v]format=rgba[ov];[0:v][ov]overlay=0:0:format=auto,format=yuv420p[v]',
+          '-map','[v]','-t',dur.toFixed(4),'-r',String(fps),'-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p',seg]);
+      }
+      fs.rmSync(frameDir,{recursive:true,force:true});encoded.push(seg);console.log(`scene ${n}/${to} encoded (${dur.toFixed(2)}s${plateFile?' + footage':''})`);
+    }
+    fs.writeFileSync(path.join(tmp,'concat.txt'),encoded.map(f=>`file '${path.relative(tmp,f)}'`).join('\n')+'\n');
+    const end=timeline.scenes[to-1].end,vo=path.join(root,'assets/audio/gibran-mundur-2026-11-13/vo-gibran-mundur.mp3');
+    const output=path.join(out,`visual-preview-${String(timeline.scenes[from-1].start).replace('.','_')}-${String(end).replace('.','_')}.mp4`);
+    await run(ff,['-nostdin','-hide_banner','-loglevel','error','-y','-f','concat','-safe','0','-i',path.join(tmp,'concat.txt'),'-i',vo,
+      '-filter_complex',`[0:v]fps=${fps},format=yuv420p[v];[1:a]atrim=0:${end.toFixed(4)},asetpts=PTS-STARTPTS,loudnorm=I=-16:TP=-3.5:LRA=11[a]`,
+      '-map','[v]','-map','[a]','-t',end.toFixed(4),'-r',String(fps),'-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-ar','48000','-movflags','+faststart',output]);
+    fs.rmSync(tmp,{recursive:true,force:true});console.log(JSON.stringify({preview:output,from,to,duration:end,width:1920,height:1080}));return;
+  }
+  const indices=Array.from({length:timeline.scenes.length},(_,i)=>i+1);
+  for(const n of indices){const s=timeline.scenes[n-1],t=(s.end-s.start)*.54;fs.writeFileSync(path.join(out,`design-sc${String(n).padStart(2,'0')}.png`),resvg(<Frame n={n} t={t}/>));}
+  console.log(JSON.stringify({previewFrames:indices.length,scenes:timeline.scenes.length,width:1920,height:1080}));
 }
 main().catch(e=>{console.error(e);process.exitCode=1});

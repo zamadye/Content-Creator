@@ -22,6 +22,7 @@ const Shot=({shot,resolutionScale})=>{
   case 'warung-lit': return <RideTest warungScene="lit" resolutionScale={resolutionScale}/>;
   case 'entity-seated': return <RideTest warungScene="seated" resolutionScale={resolutionScale}/>;
   case 'entity-detail': return <RideTest warungScene="seated" detailCamera resolutionScale={resolutionScale}/>;
+  case 'entity-reveal': return <RideTest warungScene="seated" detailCamera revealFace resolutionScale={resolutionScale}/>;
   case 'mirror': return <RideTest warungScene="mirror" resolutionScale={resolutionScale}/>;
   case 'shadow': return <RideTest warungScene="shadow" resolutionScale={resolutionScale}/>;
   case 'release': return <RideTest warungScene="release" resolutionScale={resolutionScale}/>;

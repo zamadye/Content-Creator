@@ -28,7 +28,7 @@ function aimPhoneAtEar(entity){
 }
 
 // Stylised work-in-progress, not a representation of the final Dimas or Supra.
-export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, resolutionScale = 1}) => {
+export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, resolutionScale = 1}) => {
   const canvas=useRef(null), state=useRef(null), frame=useCurrentFrame();
   const {fps,width,height}=useVideoConfig();
   const [handle]=useState(()=>delayRender('Load Kenney vegetation'));
@@ -147,7 +147,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         const shoe=addSphere(figure,.10,black,side*.15,.11,.41);shoe.scale.set(.8,.55,1.45);
       }
       figure.visible=warungScene==='seated';
-      let standingEntity=null, dimas=null, skinnedRider=null, shadowActor=null, mirror=null, mirrorCamera=null;
+      let standingEntity=null, seatedEntity=null, dimas=null, skinnedRider=null, shadowActor=null, mirror=null, mirrorCamera=null;
       const bike=new THREE.Group();scene.add(bike);bike.visible=!warungScene || ['call','brake','mirror','shadow','release','aftermath'].includes(warungScene);
       const shadow=new THREE.Mesh(new THREE.CircleGeometry(.65,32),new THREE.MeshBasicMaterial({color:'#000000',transparent:true,opacity:.24,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.scale.set(1,2,1);shadow.position.y=.012;bike.add(shadow);
       const generatedBike=createMotorcycle();bike.add(generatedBike.model);const wheels=generatedBike.wheels;
@@ -201,8 +201,23 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
             }
             if(warungScene==='seated'){
               const response=await fetch(staticFile('makehuman/rigged-body.json'));if(!response.ok)throw Error(`Entity rig HTTP ${response.status}`);
-              const data=await response.json();if(disposed)return;
-              const entity=createRiggedEntity(data,clothSurface);poseSeated(entity.bones);entity.mesh.scale.setScalar(.105);entity.mesh.position.set(1.45,.58,.75);entity.mesh.rotation.y=Math.PI;warung.add(entity.mesh);
+              const data=await response.json();const clothes=revealFace?await loadGarments(staticFile):null;if(disposed)return;
+              const entity=createRiggedEntity(data,clothSurface,clothes);entity.mesh.material.color.set('#aaa99c');poseSeated(entity.bones);entity.mesh.scale.setScalar(.105);entity.mesh.position.set(1.45,.58,.75);entity.mesh.rotation.y=Math.PI;warung.add(entity.mesh);seatedEntity=entity;
+              if(revealFace){
+                // Trace a curved lip line on the rest face mesh rather than
+                // floating a flat decal in front of the cheeks.
+                const ink=new THREE.MeshStandardMaterial({color:'#141815',roughness:.8});
+                const surface=new THREE.Mesh(entity.mesh.geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));surface.updateMatrixWorld(true);
+                const ray=new THREE.Raycaster(),points=[];const headRest=data.bones.find(b=>b.name==='head').p;
+                for(let i=0;i<=24;i++){
+                  const x=-.50+i/24, y=6.67+.18*(x/.5)**2;
+                  ray.set(new THREE.Vector3(x,y,4),new THREE.Vector3(0,0,-1));
+                  const hit=ray.intersectObject(surface)[0];
+                  if(hit)points.push(new THREE.Vector3(x-headRest[0],y-headRest[1],hit.point.z-headRest[2]+.012));
+                }
+                if(points.length>3){const curve=new THREE.CatmullRomCurve3(points);entity.bones.head.add(new THREE.Mesh(new THREE.TubeGeometry(curve,48,.027,6,false),ink));}
+                surface.material.dispose();
+              }
               // Keep only the chair from the original figure group.
               figure.children.slice(5).forEach(child=>{child.visible=false});
               // Slatted backrest, placed behind the seated figure (towards road).
@@ -253,13 +268,13 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               for(const side of [-1,1]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.19,16,10),blackEyes);eye.position.set(side*.32,.52,.81);eye.scale.set(1,.68,.38);standingEntity.bones.head.add(eye)}
             }
             if(warungScene){scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});bulbMesh.castShadow=false;wash.castShadow=false;}
-            state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,dimas,skinnedRider,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
+            state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,seatedEntity,dimas,skinnedRider,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
           } catch(error){cancelRender(error)}
         },undefined,error=>cancelRender(error));
       },undefined,error=>cancelRender(error));
     }catch(error){cancelRender(error)}
     return()=>{disposed=true;state.current=null;if(scene)scene.traverse(o=>{o.geometry?.dispose();if(o.material){for(const m of (Array.isArray(o.material)?o.material:[o.material])){m.map?.dispose();m.dispose()}}});mirrorTarget?.dispose();renderer?.dispose()};
-  },[handle,width,height,showWarung,warungScene,resolutionScale]);
+  },[handle,width,height,showWarung,warungScene,resolutionScale,revealFace]);
   useEffect(()=>{if(!ready||!state.current)return;const s=state.current,t=frame/fps,travel=t*2.5;
     const stopped=['call','brake','mirror','shadow','release','aftermath'].includes(warungScene);
     const brakeDistance=Math.min(t,3)*1.5-Math.min(t,3)**2*.25;
@@ -331,6 +346,13 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         b['wrist.R'].rotation.z=raise*Math.sin(t*1.9)*.22;
         b['head'].rotation.z=Math.sin(t*.6)*.035;
         s.camera.position.set(-1.7,1.55,1.5-t*.045);s.camera.lookAt(-3.1,1.2,-3.2);
+      }else if(revealFace&&s.seatedEntity){
+        const reveal=Math.min(t/2,1);
+        s.seatedEntity.bones.head.rotation.y=.45*reveal;
+        s.seatedEntity.bones.head.rotation.x=.20-.14*reveal;
+        // Cut to a partial face inside the set; the head slowly turns.
+        s.camera.position.set(-4.0,1.52,-6.1);
+        s.camera.lookAt(-4.55,1.25,-5.25);
       }else if(detailCamera){s.camera.position.set(-3.55,1.52,-1.1-t*.03);s.camera.lookAt(-4.55,1.03,-5.2)}else{s.camera.position.set(-1.8,1.95,3.6-t*.08);s.camera.lookAt(-4.9,1.32,-5.0);}
       for(const item of s.trees)item.g.visible=false;
       for(const item of s.bushes)item.g.visible=false;
@@ -342,6 +364,6 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       s.mirror.visible=true;s.shadowActor.mesh.visible=false;s.dimas.mesh.visible=true;
     }
     s.renderer.render(s.scene,s.camera);
-  },[fps,frame,ready,showWarung,warungScene,detailCamera]);
+  },[fps,frame,ready,showWarung,warungScene,detailCamera,revealFace]);
   return <AbsoluteFill style={{backgroundColor:'#14262b'}}><canvas ref={canvas} style={{width:'100%',height:'100%'}}/></AbsoluteFill>;
 };

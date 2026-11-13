@@ -69,3 +69,6 @@ Blok motor kotak pada perjalanan, pengereman/panggilan dan halaman rumah diganti
 
 ## Tangan pengendara ke setang (WIP)
 Lengan pengendara kini memakai IK dua sendi untuk mendekati setang model motor, dengan bobot yang berkurang saat turun; pose dihitung ulang agar frame acak konsisten. Panjang sumbu motor dipendekkan dan posisi badan digeser untuk jangkauan yang lebih masuk akal. Pengujian model/rig mengukur jarak asal pergelangan ke target sekitar **6,6 cm**, bukan kontak telapak yang sempurna; tiga frame dan bundle diuji. Jari, siku, kaki, jok, transisi dan bentuk motor tetap perlu diperbaiki, sehingga ini belum final.
+
+## Wajah sosok pada putaran keempat — WIP
+Timeline 04:47–05:05 kini dipisah: pandangan dari belakang hingga 04:55, lalu cut ke sisi wajah pada 04:55–05:05 mengikuti rentang transkrip. Kamera, putaran kepala dan garis mulut 3D mengikuti rig; garis diambil dari permukaan mesh agar tidak melayang sebagai bidang. Pada shot baru karakter mengenakan polo/cargo/sepatu UV-skinned, sedangkan pose preview yang disetujui pada shot sebelumnya dipertahankan. Dua frame dan validator kontinuitas timeline diuji. Garis mulut bukan ekspresi wajah yang dirig, desain rambut dan clipping pakaian belum final; perlu QC gerak, sinkronisasi audio, penampilan seram dan kontinuitas antarpotongan.

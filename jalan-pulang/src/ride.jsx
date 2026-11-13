@@ -147,7 +147,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         const shoe=addSphere(figure,.10,black,side*.15,.11,.41);shoe.scale.set(.8,.55,1.45);
       }
       figure.visible=warungScene==='seated';
-      let standingEntity=null, seatedEntity=null, dimas=null, skinnedRider=null, shadowActor=null, mirror=null, mirrorCamera=null;
+      let standingEntity=null, seatedEntity=null, dimas=null, skinnedRider=null, riderHelmet=null, shadowActor=null, mirror=null, mirrorCamera=null;
       const bike=new THREE.Group();scene.add(bike);bike.visible=!warungScene || ['call','brake','mirror','shadow','release','aftermath'].includes(warungScene);
       const shadow=new THREE.Mesh(new THREE.CircleGeometry(.65,32),new THREE.MeshBasicMaterial({color:'#000000',transparent:true,opacity:.24,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.scale.set(1,2,1);shadow.position.y=.012;bike.add(shadow);
       const generatedBike=createMotorcycle();bike.add(generatedBike.model);const wheels=generatedBike.wheels;
@@ -185,8 +185,8 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
             const giant=treeAsset.scene.clone();giant.scale.setScalar(.85);banyan.add(giant);
             for(const item of trees){while(item.g.children.length)item.g.remove(item.g.children[0]);const model=treeAsset.scene.clone();model.scale.setScalar(.7+(item.base%3)*.08);item.g.add(model)}
             if(warungScene){
-              for(const [x,z,scale] of [[-12,-10,.65],[1,-10,.65],[-12,-17,.8],[5,-18,.85]]){const tree=treeAsset.scene.clone();tree.position.set(x,0,z);tree.scale.setScalar(scale);scene.add(tree)}
-              for(const [x,z,scale] of [[-8,-3,.18],[-9,-4,.16],[1,-5,.20],[3,-7,.17]]){const fern=fernAsset.scene.clone();fern.position.set(x,0,z);fern.scale.setScalar(scale);scene.add(fern)}
+              for(const [x,z,scale] of [[-12,-10,.65],[4.2,-10,.65],[-12,-17,.8],[5,-18,.85]]){const tree=treeAsset.scene.clone();tree.position.set(x,0,z);tree.scale.setScalar(scale);scene.add(tree)}
+              for(const [x,z,scale] of [[-8,-3,.18],[-9,-4,.16],[3.4,-5,.20],[3.7,-7,.17]]){const fern=fernAsset.scene.clone();fern.position.set(x,0,z);fern.scale.setScalar(scale);scene.add(fern)}
             }
             const villageSet=[];
             if(village){
@@ -212,7 +212,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               const label=new THREE.CanvasTexture(c);label.colorSpace=THREE.SRGBColorSpace;const sign=new THREE.Mesh(new THREE.PlaneGeometry(5.8,.42),new THREE.MeshBasicMaterial({map:label,side:THREE.DoubleSide}));sign.position.set(0,3.15,.17);gate.add(sign);
               villageSet.push({g:gate,base:-15});
             }
-            if(!warungScene || warungScene==='brake'){
+            if(!warungScene || warungScene==='brake' || warungScene==='aftermath'){
               const response=await fetch(staticFile('makehuman/rigged-body.json'));if(!response.ok)throw Error(`Rider rig HTTP ${response.status}`);
               const data=await response.json();const clothes=await loadRidingGarments(staticFile);if(disposed)return;
               const outfit=clothes.map(g=>({data:g.data,material:g.material.clone()}));
@@ -220,7 +220,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               poseSeated(skinnedRider.bones);skinnedRider.mesh.scale.setScalar(.105);
               skinnedRider.mesh.position.set(0,1.04,.05);skinnedRider.mesh.rotation.y=Math.PI;bike.add(skinnedRider.mesh);
               // Helmet is a separate rigid accessory; clothing is the same CC0 outfit as the standing rig.
-              const helmet=new THREE.Mesh(new THREE.SphereGeometry(1.02,24,16),black);helmet.scale.set(1,.8,1);helmet.position.set(0,1,.1);skinnedRider.bones.head.add(helmet);
+              const helmet=new THREE.Mesh(new THREE.SphereGeometry(1.02,24,16),black);helmet.scale.set(1,.8,1);helmet.position.set(0,1,.1);skinnedRider.bones.head.add(helmet);riderHelmet=helmet;
               rider.visible=false;
             }
             if(warungScene==='seated'){
@@ -292,7 +292,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               for(const side of [-1,1]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.19,16,10),blackEyes);eye.position.set(side*.32,.52,1.23);eye.scale.set(1,.68,.38);standingEntity.bones.head.add(eye)}
             }
             if(warungScene){scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});bulbMesh.castShadow=false;wash.castShadow=false;}
-            state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,villageSet,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,seatedEntity,dimas,skinnedRider,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
+            state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,villageSet,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,seatedEntity,dimas,skinnedRider,riderHelmet,lamp,wash,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
           } catch(error){cancelRender(error)}
         },undefined,error=>cancelRender(error));
       },undefined,error=>cancelRender(error));
@@ -304,12 +304,14 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
     const brakeDistance=Math.min(t,3)*1.5-Math.min(t,3)**2*.25;
     s.bike.position.y=stopped?0:Math.sin(t*7)*.018;
     s.bike.rotation.z=warungScene==='brake'?(-.08*Math.min(t/3,1)):stopped?-.08:Math.sin(t*.8)*.025;
-    s.bike.position.z=warungScene==='brake' ? 1.5-brakeDistance*.67 : 0;
+    const departure=warungScene==='aftermath'?Math.max(0,t-29):0;
+    s.bike.position.z=warungScene==='brake' ? 1.5-brakeDistance*.67 : -departure*departure*.24;
+    if(warungScene==='aftermath'){s.bike.rotation.z=-.08*(1-Math.min(departure,1));s.lamp.intensity=t>=28?32:0;s.wash.visible=t>=28;}
     s.rider.visible=!s.skinnedRider && (warungScene==='brake'?t<4:!stopped) && !['call','mirror','shadow','release','aftermath'].includes(warungScene);
     if(s.skinnedRider){
-      s.skinnedRider.mesh.visible=warungScene==='brake'?t<6:!stopped;
+      s.skinnedRider.mesh.visible=warungScene==='brake'?t<6:warungScene==='aftermath'?t>=23:!stopped;
       s.skinnedRider.bones.spine01.rotation.z=Math.sin(t*.8)*.025;
-      const seatedWeight=warungScene==='brake'?1-Math.min(Math.max((t-4)/2,0),1):1;
+      const seatedWeight=warungScene==='brake'?1-Math.min(Math.max((t-4)/2,0),1):warungScene==='aftermath'?Math.min(Math.max((t-23.5)/3,0),1):1;
       if(warungScene==='brake'){
         const dismount=Math.min(Math.max((t-4)/2,0),1);
         poseSeated(s.skinnedRider.bones,1-dismount);
@@ -317,6 +319,12 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         s.skinnedRider.mesh.rotation.y=Math.PI+(.35-Math.PI)*dismount;
         s.skinnedRider.bones['upperarm01.L'].rotation.z=-.65*(1-dismount)-.62*dismount;
         s.skinnedRider.bones['upperarm01.R'].rotation.z=.65*(1-dismount)+.62*dismount;
+      }
+      if(warungScene==='aftermath'){
+        const mount=seatedWeight;poseSeated(s.skinnedRider.bones,mount);
+        s.skinnedRider.mesh.position.set(-.90*(1-mount),1.04-.18*(1-mount),.05+.85*(1-mount));
+        s.skinnedRider.mesh.rotation.y=.35+(Math.PI-.35)*mount;
+        s.riderHelmet.visible=false; // Standing Dimas has no helmet in this shot; do not pop one into frame.
       }
       s.skinnedRider.bones.spine01.rotation.x=.35*seatedWeight;
       if(s.skinnedRider.mesh.visible){
@@ -328,7 +336,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       }
     }
     s.rider.rotation.z=Math.sin(t*.8)*.012;
-    for(const w of s.wheels)w.rotation.z=warungScene==='brake'?brakeDistance/.34:stopped?0:travel/.34;
+    for(const w of s.wheels)w.rotation.z=warungScene==='brake'?brakeDistance/.34:warungScene==='aftermath'?departure*departure*.24/.34:stopped?0:travel/.34;
     for(const item of s.trees)item.g.position.z=4-((item.base-travel+40)%40);
     for(const item of s.bushes)item.g.position.z=4-((item.base-travel+36)%36);
     if(village){for(const item of [...s.trees,...s.bushes])item.g.visible=false;for(const item of s.villageSet)item.g.position.z=item.base+travel;}
@@ -350,9 +358,15 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
           s.camera.position.set(3.8,2.25,5.4);s.camera.lookAt(-.8,1,-.8);
         }else if(warungScene==='aftermath'){
           s.standingEntity.mesh.visible=t<12.5;s.bulbLight.intensity=t<11.5?16:0;s.bulbPivot.visible=t<11.5;
-          s.standingEntity.bones['upperarm01.R'].rotation.z=-.6*(1-Math.min(t/3,1));
-          s.dimas.bones['upperarm01.R'].rotation.z=.62;s.dimas.bones['lowerarm01.R'].rotation.z=0;
-          s.camera.position.set(2.2+Math.sin(t*.1)*.1,1.95,4.8);s.camera.lookAt(-2,1.3,-2.5);
+          // The man lowers his arm, glances at the pillion and nods once.
+          const eb=s.standingEntity.bones,lower=Math.min(t/3,1),nod=Math.max(0,1-Math.abs(t-8)/.8);
+          eb['upperarm01.R'].rotation.z=-.6*(1-lower)+.62*lower;eb['lowerarm01.R'].rotation.z=-.3*(1-lower);
+          eb.head.rotation.x=.08+.24*nod;eb.head.rotation.y=t<5?-.25:0;
+          s.dimas.mesh.visible=t<23;s.dimas.bones['upperarm01.R'].rotation.z=.62;s.dimas.bones['lowerarm01.R'].rotation.z=0;
+          s.dimas.bones.spine01.rotation.x=t>=12?.035*Math.sin(t*3):0;
+          if(t<12){s.camera.position.set(2.2+Math.sin(t*.1)*.1,1.95,4.8);s.camera.lookAt(-2,1.3,-2.5);}
+          else if(t<23){s.camera.position.set(1.8-(t-12)*.035,1.8,3.9-(t-12)*.045);s.camera.lookAt(-1,1.35,.7);}
+          else {s.camera.position.set(3.6,2.05,5.1-Math.min(departure*.35,1.8));s.camera.lookAt(-.3,1.2,s.bike.position.z-.7);}
         }else if(warungScene==='mirror'){
           s.camera.position.set(-1.5,1.83,.8);s.camera.lookAt(-.6,1.58,-.65);s.mirror.lookAt(s.camera.position);
         }else if(warungScene==='shadow'||warungScene==='release'){

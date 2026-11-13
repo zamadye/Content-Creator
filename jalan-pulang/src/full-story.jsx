@@ -14,7 +14,6 @@ export const FullStoryBlocking=({resolutionScale=1})=><AbsoluteFill>
  {ENDING_SHOTS.map(shot=>{
   let scene;
   if(shot.id==='aftermath')scene=<RideTest warungScene="aftermath" resolutionScale={resolutionScale}/>;
-  else if(shot.id==='ride-away')scene=<RideTest resolutionScale={resolutionScale}/>;
   else if(shot.id==='three-kilometres')scene=<SignScene distance="3 km" resolutionScale={resolutionScale}/>;
   else if(shot.id==='village')scene=<RideTest village resolutionScale={resolutionScale}/>;
   else if(shot.id==='home')scene=<HomeScene voOffset={shot.start} resolutionScale={resolutionScale}/>;

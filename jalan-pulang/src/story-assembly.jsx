@@ -1,16 +1,13 @@
 import React from 'react';
-import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
+import {AbsoluteFill,Audio,Sequence,staticFile} from 'remotion';
 import {OpeningSet} from './opening-scenes';
 import {RideTest} from './ride';
 import {SignScene} from './sign-scene';
 import {PhoneClockInsert} from './phone-insert';
 import {storyShots,validateShots} from './story-timeline';
 
-const CallShot=({resolutionScale})=>{
- const frame=useCurrentFrame();
- return <RideTest warungScene="call" detailCamera={frame>=21*30} resolutionScale={resolutionScale}/>;
-};
-const Shot=({shot,resolutionScale})=>{
+const CallShot=({resolutionScale,callIntro=false})=><RideTest warungScene="call" callIntro={callIntro} resolutionScale={resolutionScale}/>;
+const Shot=({shot,from,resolutionScale})=>{
  switch(shot){
   case 'ride': return <RideTest resolutionScale={resolutionScale}/>;
   case 'warehouse': return <OpeningSet set="warehouse" resolutionScale={resolutionScale}/>;
@@ -27,7 +24,7 @@ const Shot=({shot,resolutionScale})=>{
   case 'shadow': return <RideTest warungScene="shadow" resolutionScale={resolutionScale}/>;
   case 'release': return <RideTest warungScene="release" resolutionScale={resolutionScale}/>;
   case 'brake': return <RideTest warungScene="brake" resolutionScale={resolutionScale}/>;
-  case 'call': return <CallShot resolutionScale={resolutionScale}/>;
+  case 'call': return <CallShot callIntro={from===362} resolutionScale={resolutionScale}/>;
   case 'entity-standing': return <RideTest warungScene="standing" resolutionScale={resolutionScale}/>;
   default: throw new Error(`Unknown shot: ${shot}`);
  }
@@ -37,7 +34,7 @@ const Shot=({shot,resolutionScale})=>{
 export const StoryBlocking=({resolutionScale=1})=>{
  validateShots();
  return <AbsoluteFill>
-  {storyShots.map((s,i)=><Sequence key={i} from={s.from*30} durationInFrames={(s.to-s.from)*30+(i===storyShots.length-1?19:0)}><Shot shot={s.shot} resolutionScale={resolutionScale}/></Sequence>)}
+  {storyShots.map((s,i)=><Sequence key={i} from={s.from*30} durationInFrames={(s.to-s.from)*30+(i===storyShots.length-1?19:0)}><Shot shot={s.shot} from={s.from} resolutionScale={resolutionScale}/></Sequence>)}
   <Audio src={staticFile('vo/VO-Jalan-Pulang_01.mp3')}/>
  </AbsoluteFill>;
 };

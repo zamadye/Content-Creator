@@ -10,11 +10,12 @@ import {createRiggedEntity,poseSeated,loadGarments,loadRidingGarments} from './r
 
 // Solve the arm from a fixed rest pose on every frame. Targets and joints are
 // in the same scene graph; no frame-to-frame accumulation during random seeks.
-function aimPhoneAtEar(entity){
+function aimPhoneAtEar(entity,progress=1){
  const b=entity.bones,root=entity.mesh,effector=b['wrist.R'];
  b['upperarm01.R'].rotation.set(0,0,.62);b['lowerarm01.R'].rotation.set(0,0,0);
  root.updateMatrixWorld(true);
- const target=b.head.localToWorld(new THREE.Vector3(-.85,.55,.25));
+ const target=b.head.localToWorld(new THREE.Vector3(-1.05,.20,1.15));
+ const pocket=root.localToWorld(new THREE.Vector3(-2.0,-.1,1.3));target.lerpVectors(pocket,target,progress);
  const origin=new THREE.Vector3(),end=new THREE.Vector3(),qWorld=new THREE.Quaternion(),delta=new THREE.Quaternion();
  for(let pass=0;pass<14;pass++)for(const joint of [b['lowerarm01.R'],b['upperarm01.R']]){
   root.updateMatrixWorld(true);joint.getWorldPosition(origin);effector.getWorldPosition(end);
@@ -24,11 +25,12 @@ function aimPhoneAtEar(entity){
   joint.parent.getWorldQuaternion(qWorld);const local=qWorld.clone().invert().multiply(delta).multiply(qWorld);
   joint.quaternion.premultiply(local).normalize();
  }
+ b['wrist.R'].rotation.set(0,0,Math.PI);
  root.updateMatrixWorld(true);
 }
 
 // Stylised work-in-progress, not a representation of the final Dimas or Supra.
-export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, village = false, resolutionScale = 1}) => {
+export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, village = false, callIntro = false, resolutionScale = 1}) => {
   const canvas=useRef(null), state=useRef(null), frame=useCurrentFrame();
   const {fps,width,height}=useVideoConfig();
   const [handle]=useState(()=>delayRender('Load Kenney vegetation'));
@@ -381,8 +383,16 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
           }
           s.shadowActor.mesh.traverse(o=>{if(o.isMesh)o.material.opacity=.88*(1-fade)});
           s.camera.position.set(.65+Math.sin(t*.15)*.09,1.75,3.6);s.camera.lookAt(-1,1.38,.85);
+        }else if(warungScene==='call'&&callIntro){
+          // Start with a medium view as Dimas takes out the phone; after the
+          // unanswered call and his mother's warning, alternate closer views.
+          if(t<10){s.camera.position.set(2.9-t*.025,1.95,4.5-t*.035);s.camera.lookAt(-.9,1.2,.7)}
+          else if(t<26){s.camera.position.set(.65+Math.sin(t*.12)*.08,1.75,3.1);s.camera.lookAt(-1,1.44,1)}
+          else if(t<45){s.camera.position.set(-2.8,1.7,3.5-(t-26)*.025);s.camera.lookAt(-.85,1.45,.65)}
+          else if(t<60){s.camera.position.set(1.6,1.68,2.35-(t-45)*.02);s.camera.lookAt(-1,1.46,1)}
+          else {s.camera.position.set(2.5,1.9,4.1-(t-60)*.02);s.camera.lookAt(-1,1.35,.3)}
         }else if(detailCamera){s.camera.position.set(.8+Math.sin(t*.12)*.08,1.75,3.3);s.camera.lookAt(-1,1.45,1);}else{s.camera.position.set(3.8+Math.sin(t*.12)*.2,2.25,5.4-Math.min(t*.012,1));s.camera.lookAt(-.8,1.0,-.8);}
-        if(['call','mirror','shadow','release'].includes(warungScene))aimPhoneAtEar(s.dimas);
+        if(['call','mirror','shadow','release'].includes(warungScene)){const p=warungScene==='call'&&callIntro?Math.min(Math.max((t-7.5)/3,0),1):1;aimPhoneAtEar(s.dimas,p);}
       }else if(s.standingEntity){
         const b=s.standingEntity.bones;
         // The hand slowly rises, then waves; animation is deterministic at every frame.
@@ -410,6 +420,6 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       s.mirror.visible=true;s.shadowActor.mesh.visible=false;s.dimas.mesh.visible=true;
     }
     s.renderer.render(s.scene,s.camera);
-  },[fps,frame,ready,showWarung,warungScene,detailCamera,revealFace,village]);
+  },[fps,frame,ready,showWarung,warungScene,detailCamera,revealFace,village,callIntro]);
   return <AbsoluteFill style={{backgroundColor:'#14262b'}}><canvas ref={canvas} style={{width:'100%',height:'100%'}}/></AbsoluteFill>;
 };

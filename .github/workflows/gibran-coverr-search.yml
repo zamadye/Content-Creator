@@ -1,0 +1,24 @@
+name: Gibran Mundur — Coverr stock scout
+on:
+  push:
+    branches: [arena/54cb36c6-content-creator]
+    paths: [.github/workflows/gibran-coverr-search.yml, editorial-engine/pipeline/gibran-mundur-2026-coverr-search.py]
+  workflow_dispatch:
+permissions:
+  contents: read
+  checks: write
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v5
+      - name: Read-only search; sanitized metadata via annotations
+        env:
+          COVERR_KEY: ${{ secrets.COVERR_API_KEY || secrets.COVERR_VIDEO_API_KEY || secrets.COVERR_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export COVERR_API_KEY="$COVERR_KEY"
+          if [ -n "$COVERR_API_KEY" ]; then echo "::add-mask::$COVERR_API_KEY"; fi
+          python3 editorial-engine/pipeline/gibran-mundur-2026-coverr-search.py

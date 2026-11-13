@@ -56,3 +56,7 @@ Pada perjalanan dan awal pengereman, proxy pengendara diganti rig MakeHuman berp
 
 ## Transkrip pengguna dan staging kedatangan (WIP)
 Transkrip dan timestamp VO 02 kiriman pengguna tersimpan di `TRANSKRIP-VO02-PENGGUNA.md` dan menjadi acuan utama; teks meragukan tetap dipertahankan untuk diperiksa terhadap audio. Salinan Drive `1cng9JeSY8MFg9LhFbrUkBRc_RtXRc4gA`. Pergantian papan, berkendara dan rumah disesuaikan; rig Dimas kini tiba di motor, turun, berjalan dan mengetuk dalam adegan rumah. Tiga still diuji dan bundling berhasil; motor dan rumah masih proxy, kontak animasi, gerbang desa, ekspresi, suara serta sinkronisasi presisi masih WIP. Belum siap render final.
+
+## Kontak telepon dan transisi turun motor — WIP
+- Tangan kanan diarahkan mendekati telinga dengan penyelesaian IK sederhana pada lengan atas/bawah, dihitung ulang dari pose awal setiap frame agar hasil seek acak deterministik. Frame close-up panggilan diuji. Ponsel masih dipasang pada pergelangan, jari belum menggenggam, sudut tangan/siku dan kontak telinga belum final; IK tanpa batas anatomi dapat menghasilkan pose buruk dan perlu penyempurnaan.
+- Blok pengereman kini menginterpolasi pose duduk dan posisi pengendara selama dua detik sebelum beralih ke rig berdiri. Frame pada 4, 5,5 dan 6,5 detik diuji; masih ada pertukaran rig, perubahan helm, clipping dengan motor dan posisi kaki belum terkunci. Motor tetap geometri blockout; transisi ini belum layak dianggap animasi final.

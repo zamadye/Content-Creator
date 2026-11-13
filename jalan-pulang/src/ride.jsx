@@ -6,6 +6,25 @@ import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js';
 import {makeMap} from './forest';
 import {createRiggedEntity,poseSeated,loadGarments} from './rigged-entity';
 
+// Solve the arm from a fixed rest pose on every frame. Targets and joints are
+// in the same scene graph; no frame-to-frame accumulation during random seeks.
+function aimPhoneAtEar(entity){
+ const b=entity.bones,root=entity.mesh,effector=b['wrist.R'];
+ b['upperarm01.R'].rotation.set(0,0,.62);b['lowerarm01.R'].rotation.set(0,0,0);
+ root.updateMatrixWorld(true);
+ const target=b.head.localToWorld(new THREE.Vector3(-.85,.55,.25));
+ const origin=new THREE.Vector3(),end=new THREE.Vector3(),qWorld=new THREE.Quaternion(),delta=new THREE.Quaternion();
+ for(let pass=0;pass<14;pass++)for(const joint of [b['lowerarm01.R'],b['upperarm01.R']]){
+  root.updateMatrixWorld(true);joint.getWorldPosition(origin);effector.getWorldPosition(end);
+  const a=end.sub(origin),c=target.clone().sub(origin);if(a.lengthSq()<1e-10||c.lengthSq()<1e-10)continue;
+  delta.setFromUnitVectors(a.normalize(),c.normalize());
+  // Convert world-space correction to the joint's parent coordinates.
+  joint.parent.getWorldQuaternion(qWorld);const local=qWorld.clone().invert().multiply(delta).multiply(qWorld);
+  joint.quaternion.premultiply(local).normalize();
+ }
+ root.updateMatrixWorld(true);
+}
+
 // Stylised work-in-progress, not a representation of the final Dimas or Supra.
 export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, resolutionScale = 1}) => {
   const canvas=useRef(null), state=useRef(null), frame=useCurrentFrame();
@@ -248,7 +267,18 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
     s.bike.rotation.z=warungScene==='brake'?(-.08*Math.min(t/3,1)):stopped?-.08:Math.sin(t*.8)*.025;
     s.bike.position.z=warungScene==='brake' ? 1.5-brakeDistance*.67 : 0;
     s.rider.visible=!s.skinnedRider && (warungScene==='brake'?t<4:!stopped) && !['call','mirror','shadow','release','aftermath'].includes(warungScene);
-    if(s.skinnedRider){s.skinnedRider.mesh.visible=warungScene==='brake'?t<4:!stopped;s.skinnedRider.bones.spine01.rotation.z=Math.sin(t*.8)*.025;}
+    if(s.skinnedRider){
+      s.skinnedRider.mesh.visible=warungScene==='brake'?t<6:!stopped;
+      s.skinnedRider.bones.spine01.rotation.z=Math.sin(t*.8)*.025;
+      if(warungScene==='brake'){
+        const dismount=Math.min(Math.max((t-4)/2,0),1);
+        poseSeated(s.skinnedRider.bones,1-dismount);
+        s.skinnedRider.mesh.position.set(-.78*dismount,1.04-.18*dismount,.15+.67*dismount);
+        s.skinnedRider.mesh.rotation.y=Math.PI+(.35-Math.PI)*dismount;
+        s.skinnedRider.bones['upperarm01.L'].rotation.z=-.65*(1-dismount)-.62*dismount;
+        s.skinnedRider.bones['upperarm01.R'].rotation.z=.65*(1-dismount)+.62*dismount;
+      }
+    }
     s.rider.rotation.z=Math.sin(t*.8)*.012;
     for(const w of s.wheels)w.rotation.z=warungScene==='brake'?brakeDistance/.34:stopped?0:travel/.34;
     for(const item of s.trees)item.g.position.z=4-((item.base-travel+40)%40);
@@ -264,7 +294,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
         s.dimas.bones['wrist.R'].rotation.z=Math.sin(t*1.5)*.025;
         if(warungScene==='brake'){
           const steps=Math.min(Math.max((t-4)/3,0),1);
-          s.dimas.mesh.visible=t>=4;s.dimas.mesh.position.set(-.35-.65*steps,.86,.45+.55*steps);
+          s.dimas.mesh.visible=t>=6;s.dimas.mesh.position.set(-.35-.65*steps,.86,.45+.55*steps);
           s.dimas.bones['upperarm01.R'].rotation.z=.62;s.dimas.bones['lowerarm01.R'].rotation.z=0;
           s.dimas.bones['upperleg01.L'].rotation.x=Math.sin((t-4)*5)*.25*(1-steps);
           s.dimas.bones['upperleg01.R'].rotation.x=-Math.sin((t-4)*5)*.25*(1-steps);
@@ -282,6 +312,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
           s.shadowActor.mesh.traverse(o=>{if(o.isMesh)o.material.opacity=.88*(1-fade)});
           s.camera.position.set(.65+Math.sin(t*.15)*.09,1.75,3.6);s.camera.lookAt(-1,1.38,.85);
         }else if(detailCamera){s.camera.position.set(.8+Math.sin(t*.12)*.08,1.75,3.3);s.camera.lookAt(-1,1.45,1);}else{s.camera.position.set(3.8+Math.sin(t*.12)*.2,2.25,5.4-Math.min(t*.012,1));s.camera.lookAt(-.8,1.0,-.8);}
+        if(['call','mirror','shadow','release'].includes(warungScene))aimPhoneAtEar(s.dimas);
       }else if(s.standingEntity){
         const b=s.standingEntity.bones;
         // The hand slowly rises, then waves; animation is deterministic at every frame.

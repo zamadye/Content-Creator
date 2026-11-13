@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js';
 import {makeMap} from './forest';
+import {createMotorcycle} from './motorcycle';
 import {createRiggedEntity,poseSeated,loadGarments} from './rigged-entity';
 
 // Solve the arm from a fixed rest pose on every frame. Targets and joints are
@@ -148,9 +149,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       let standingEntity=null, dimas=null, skinnedRider=null, shadowActor=null, mirror=null, mirrorCamera=null;
       const bike=new THREE.Group();scene.add(bike);bike.visible=!warungScene || ['call','brake','mirror','shadow','release','aftermath'].includes(warungScene);
       const shadow=new THREE.Mesh(new THREE.CircleGeometry(.65,32),new THREE.MeshBasicMaterial({color:'#000000',transparent:true,opacity:.24,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.scale.set(1,2,1);shadow.position.y=.012;bike.add(shadow);
-      const wheels=[];for(let z of [-.8,.8]){const wheel=new THREE.Group();wheel.position.set(0,.38,z);wheel.rotation.y=Math.PI/2;bike.add(wheel);const tyre=new THREE.Mesh(new THREE.TorusGeometry(.34,.075,10,24),rubber);wheel.add(tyre);const rim=new THREE.Mesh(new THREE.TorusGeometry(.27,.025,8,24),steel);wheel.add(rim);for(let j=0;j<6;j++){let spoke=new THREE.Mesh(new THREE.BoxGeometry(.54,.018,.015),steel);spoke.rotation.z=j*Math.PI/6;wheel.add(spoke)}wheels.push(wheel);}
-      addBox(bike,.45,.35,1.25,maroon,0,.71,0);addBox(bike,.38,.17,.76,black,0,1.01,.25);addBox(bike,.3,.55,.34,maroon,0,.9,-.65);link(bike,[0,.65,-.1],[0,.39,-.8],.06,steel);link(bike,[0,.82,-.68],[0,.38,-.8],.045,steel);link(bike,[-.42,1.1,-.68],[.42,1.1,-.68],.035,steel);
-      addSphere(bike,.16,glow,0,1.02,-.85);addBox(bike,.3,.12,.05,red,0,.98,.93);addBox(bike,.42,.25,.3,black,0,1.16,.72);
+      const generatedBike=createMotorcycle();bike.add(generatedBike.model);const wheels=generatedBike.wheels;
       const lamp=new THREE.SpotLight('#ffe4a6',32,22,Math.PI/7,.65,1.5);lamp.position.set(0,1,-.9);lamp.target.position.set(0,0,-10);bike.add(lamp,lamp.target);
       // Visible headlight wash on road, subtle and independent of screen-space overlays.
       const lightCanvas=document.createElement('canvas');lightCanvas.width=lightCanvas.height=128;const lx=lightCanvas.getContext('2d');const gradient=lx.createRadialGradient(64,64,0,64,64,64);gradient.addColorStop(0,'rgba(255,224,150,0.40)');gradient.addColorStop(.35,'rgba(255,224,150,0.16)');gradient.addColorStop(1,'rgba(255,224,150,0)');lx.fillStyle=gradient;lx.fillRect(0,0,128,128);const washMap=new THREE.CanvasTexture(lightCanvas);washMap.colorSpace=THREE.SRGBColorSpace;const wash=new THREE.Mesh(new THREE.PlaneGeometry(5,9),new THREE.MeshBasicMaterial({map:washMap,transparent:true,depthWrite:false}));wash.rotation.x=-Math.PI/2;wash.position.set(0,.015,-5);bike.add(wash);

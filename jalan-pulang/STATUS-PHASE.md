@@ -63,3 +63,6 @@ Transkrip dan timestamp VO 02 kiriman pengguna tersimpan di `TRANSKRIP-VO02-PENG
 
 ## Jalur render draft kedua VO
 `render-local.sh --full` memilih `FullStoryBlocking`, memeriksa kedua VO, menyambung audio pada frame 16309 dan memverifikasi total 20398 frame hasil. Preflight, smoke satu detik, penolakan kombinasi opsi dan filter penggabungan audio diuji; **render lengkap belum dijalankan atau diperiksa**. `--full` bukan pernyataan kesiapan final, dan masih memerlukan aset, animasi, sound design serta QC.
+
+## Bentuk motor yang konsisten — masih sementara
+Blok motor kotak pada perjalanan, pengereman/panggilan dan halaman rumah diganti dengan geometri step-through terperinci yang dibuat secara deterministik oleh generator MIT MediaGeni; sumber, commit dan lisensi dicatat di `public/models/PROVENANCE.md`. Roda punya pivot terpisah dan frame dari tiga adegan diperiksa. Ini masih motor generik low-poly, **bukan** model Supra akurat atau aset PBR fotorealistis; jok, setang, tangan/kaki, suspensi dan pergerakan tetap perlu fitting dan QC. Validasi geometri tersedia via `node --experimental-default-type=module scripts/test-motorcycle.mjs`.

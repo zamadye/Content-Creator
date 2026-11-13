@@ -2,27 +2,29 @@
 # Linux x86_64 / WSL2. Offline assets required; render is WIP, not final film.
 set -euo pipefail
 cd "$(dirname "$0")/.."
-mode=gpu; seconds=300; concurrency=1; scale=0.5; browser="${CHROME_PATH:-}"; check_only=0; smoke=0; full=0; seconds_set=0
+mode=gpu; seconds=300; concurrency=1; scale=0.5; browser="${CHROME_PATH:-}"; check_only=0; smoke=0; full=0; seconds_set=0; guide_sound=0
 usage() { cat <<'HELP'
 Usage: bash scripts/render-local.sh [--check|--smoke] [--mode gpu|software]
        [--browser /path/to/chromium] [--seconds 1..543 | --full]
-       [--scale 0.25..1] [--concurrency positive_integer]
+       [--scale 0.25..1] [--concurrency positive_integer] [--guide-sound]
 Default: GPU (ANGLE EGL), 300 seconds, 960x540, 30 fps, concurrency 1.
 --check checks dependencies/assets only; --smoke renders one second with VO.
 --full renders both VO and the full rough blocking; this is NOT a final film.
+--guide-sound adds provisional attributed audio; only supported with --full.
 HELP
 }
 while (($#)); do
  case "$1" in
   --check) check_only=1; shift;; --smoke) smoke=1; shift;; --mode) mode="${2:?Missing mode}";shift 2;;
   --browser) browser="${2:?Missing browser path}";shift 2;; --seconds) seconds="${2:?Missing seconds}";seconds_set=1;shift 2;;
-  --full) full=1;shift;; --concurrency) concurrency="${2:?Missing concurrency}";shift 2;; --scale) scale="${2:?Missing scale}";shift 2;;
+  --full) full=1;shift;; --guide-sound) guide_sound=1;shift;; --concurrency) concurrency="${2:?Missing concurrency}";shift 2;; --scale) scale="${2:?Missing scale}";shift 2;;
   -h|--help) usage;exit 0;; *) echo "Unknown option: $1" >&2;usage;exit 2;;
  esac
 done
 [[ "$(uname -s)" == Linux && "$(uname -m)" == x86_64 ]] || { echo 'Supported workflow: Linux x86_64 or Windows WSL2 x86_64. macOS/native Windows not tested.' >&2; exit 1; }
 [[ "$mode" == gpu || "$mode" == software ]] || { echo 'Mode must be gpu or software' >&2;exit 2; }
 [[ "$seconds" =~ ^[0-9]+$ && "$seconds" -ge 1 && "$seconds" -le 543 ]] || { echo 'Seconds must be 1..543' >&2;exit 2; }
+(( guide_sound && ! full )) && { echo "--guide-sound requires --full" >&2;exit 2; }
 (( full && seconds_set )) && { echo "Choose --full or --seconds, not both" >&2;exit 2; }
 [[ "$concurrency" =~ ^[1-9][0-9]*$ ]] || { echo 'Concurrency must be a positive integer' >&2;exit 2; }
 [[ "$scale" =~ ^(0\.[0-9]+|1|1\.0+)$ ]] && awk "BEGIN {exit !($scale>=0.25 && $scale<=1)}" || { echo 'Scale must be 0.25..1' >&2;exit 2; }
@@ -33,6 +35,11 @@ for asset in 'vo/VO-Jalan-Pulang_01.mp3' 'kenney-nature/plant_bush.glb' 'kenney-
  [[ -s "public/$asset" ]] || { echo "Missing: public/$asset" >&2;missing=1; }
 done
 if ((full)) && [[ ! -s public/vo/VO-Jalan-Pulang_02.mp3 ]];then echo "Missing: public/vo/VO-Jalan-Pulang_02.mp3" >&2;missing=1;fi
+if ((guide_sound));then
+ for audio in AMBForst_Night_LOOP_01 AMBHome_RoomTone_LOOP_01 VEHCar_CarEngineSlow_LOOP_01 DOORKnck_OfficeDoorKnock_OS_01 FEETHmn_ShoeConcreteWalk_OS_01 AMBUrbn_CityAmerican_LOOP_01; do
+  [[ -s "public/audio-oculus/$audio.ogg" ]] || { echo "Missing sound: $audio" >&2;missing=1; }
+ done
+fi
 if ((missing)); then echo 'VO is excluded from Git: download VO-Jalan-Pulang_01.mp3 from Drive and place it at the path above. Restore any other missing assets from the branch.' >&2;exit 1;fi
 if [[ ! -x node_modules/.bin/remotion ]]; then echo 'Installing exact npm dependencies via npm ci...';npm ci;fi
 ffmpeg="$PWD/node_modules/@remotion/compositor-linux-x64-gnu/ffmpeg"
@@ -70,7 +77,9 @@ if [[ "$mode" == gpu ]];then flags+=(--gl=angle-egl);else flags+=(--gl=angle --c
 remotion=./node_modules/.bin/remotion
 if ((smoke));then
  "$remotion" render src/index.jsx "$composition" render/local/smoke.mp4 --frames=0-29 "${flags[@]}"
- echo 'Smoke test: render/local/smoke.mp4. Verify visual output and audio; a successful render does not prove GPU acceleration.';exit 0
+ echo 'Smoke test: render/local/smoke.mp4. Verify visual output and audio; a successful render does not prove GPU acceleration.'
+ (( guide_sound )) && echo 'Smoke includes VO only; the guide sound is mixed during full assembly.'
+ exit 0
 fi
 # Content-addressed cache: refuse to reuse stale chunks after changes in sources,
 # assets, audio, browser or settings. Deleting render/local is always safe.
@@ -96,11 +105,22 @@ done
 if ((full));then
  # VO 02 begins at frame 16309, matching FullStoryBlocking at 30 fps. The
  # concat input video is already cut to exactly $total frames.
- "$ffmpeg" -hide_banner -loglevel error -f concat -safe 0 -i "$list" -i public/vo/VO-Jalan-Pulang_01.mp3 -i public/vo/VO-Jalan-Pulang_02.mp3 -filter_complex '[1:a]atrim=end=543.633333333,asetpts=PTS-STARTPTS[a];[2:a]asetpts=PTS-STARTPTS[b];[a][b]concat=n=2:v=0:a=1[vo]' -map 0:v:0 -map '[vo]' -c:v copy -c:a aac -b:a 192k -t 679.933333333 -y "$dir/combined.mp4"
+ if ((guide_sound));then
+  bash scripts/mix-story-guide.sh "$dir/guide-audio.m4a"
+  "$ffmpeg" -hide_banner -loglevel error -f concat -safe 0 -i "$list" -i "$dir/guide-audio.m4a" -map 0:v:0 -map 1:a:0 -c:v copy -c:a copy -t 679.933333333 -y "$dir/combined.mp4"
+ else
+  "$ffmpeg" -hide_banner -loglevel error -f concat -safe 0 -i "$list" -i public/vo/VO-Jalan-Pulang_01.mp3 -i public/vo/VO-Jalan-Pulang_02.mp3 -filter_complex '[1:a]atrim=end=543.633333333,asetpts=PTS-STARTPTS[a];[2:a]asetpts=PTS-STARTPTS[b];[a][b]concat=n=2:v=0:a=1[vo]' -map 0:v:0 -map '[vo]' -c:v copy -c:a aac -b:a 320k -t 679.933333333 -y "$dir/combined.mp4"
+ fi
 else
  "$ffmpeg" -hide_banner -loglevel error -f concat -safe 0 -i "$list" -i public/vo/VO-Jalan-Pulang_01.mp3 -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -t "$seconds" -y "$dir/combined.mp4"
 fi
 frames=$("$ffprobe" -v error -select_streams v:0 -count_frames -show_entries stream=nb_read_frames -of default=noprint_wrappers=1:nokey=1 "$dir/combined.mp4")
 [[ "$frames" == "$total" ]] || { echo 'Invalid assembled frame count' >&2;exit 1; }
+(( guide_sound )) && label="${label}-guide-sound"
 out="deliverables/jalan-pulang-blocking-${label}.mp4";cp "$dir/combined.mp4" "$out"
+if ((guide_sound));then
+ cat > "${out%.mp4}-sound-credits.txt" <<'CREDITS'
+“Oculus Audio Pack 01” by Oculus VR, LLC (https://developers.meta.com/vr/downloads/package/oculus-audio-pack-1/), licensed under https://creativecommons.org/licenses/by/4.0/. Files renamed to the UCS naming convention; OGG previews transcoded from the original WAVs. Siren synthesized by this project. See public/audio-oculus/PROVENANCE.md. Include this attribution with any redistributed video.
+CREDITS
+fi
 echo "Done: $out (draft only; inspect video and audio before use)."

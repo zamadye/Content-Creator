@@ -42,3 +42,7 @@ bash scripts/render-local.sh --concurrency 2
 Default `--mode gpu` memakai ANGLE EGL. `--mode software` memakai SwiftShader; untuk browser sistem, dukungan SwiftShader bergantung pada paket browser. Untuk menilai akselerasi GPU, periksa diagnostik GPU Chrome/driver atau penggunaan GPU sistem saat `--smoke`: sukses render saja tidak membuktikan GPU dipakai. Rendering pakai GPU dapat lebih cepat, tetapi tidak ada estimasi yang valid tanpa benchmark pada mesin pengguna. Naikkan concurrency bertahap; terlalu tinggi dapat menyebabkan kekurangan RAM atau crash. Jika WebGL/EGL gagal, coba `--mode software`. Cache `render/local/` aman dihapus jika ingin mulai ulang. Jangan unggah hasil tanpa QC.
 
 Pada `--full`, output yang direncanakan `deliverables/jalan-pulang-blocking-full.mp4`; VO 02 dimulai pada frame 16309, asumsi tanpa jeda. Pemeriksaan sambungan audio, visual dan sinkronisasi secara menyeluruh masih diperlukan. `--full` dan `--seconds` tidak dapat digabung.
+
+### Mix panduan opsional
+
+`bash scripts/render-local.sh --full --guide-sound --mode software` merakit kedua VO dengan ambiens/Foley panduan sementara; gunakan `--check` untuk preflight. Output diberi sufiks `guide-sound` dan menghasilkan berkas kredit suara di samping MP4; sertakan kredit tersebut saat mendistribusikan. Efek mesin adalah rekaman mobil pengganti, bukan motor; sirene sintetis. `--smoke` hanya memeriksa VO, bukan mix panduan. Dengarkan keseluruhan sebelum digunakan, termasuk transisi dan loudness; pemakaian flag ini tidak menyatakan karya final.

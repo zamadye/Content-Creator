@@ -10,7 +10,7 @@ from urllib.error import HTTPError,URLError
 from urllib.parse import urlencode
 from urllib.request import Request,build_opener
 spec=importlib.util.spec_from_file_location('coverr_safe',Path(__file__).parents[1]/'coverr-search-test.py');safe=importlib.util.module_from_spec(spec);spec.loader.exec_module(safe)
-QUERIES=['milky way night sky','starry sky','night sky stars timelapse','city night skyline','city light pollution night']
+QUERIES=['milky way','stars night sky','galaxy space','starry sky timelapse','bedroom night','night lamp room','sleeping bed dark','nightstand lamp','projector light','night light']
 PAGE_SIZE=20
 
 def summarize(data,query,key):
@@ -29,7 +29,9 @@ def summarize(data,query,key):
 def search(query,key):
  if query not in QUERIES:return {'status':'INVALID_QUERY'}
  if not key:return {'query':query,'status':'MISSING_KEY'}
- params=urlencode({'query':query,'page':0,'page_size':PAGE_SIZE,'filter':'is_ai_generated:false'})
+ # 2026-11-13 user allows AI-generated footage from Coverr for this episode:
+ # no is_ai_generated filter; the flag is recorded and shown per candidate.
+ params=urlencode({'query':query,'page':0,'page_size':PAGE_SIZE})
  req=Request(safe.API_URL+'?'+params,headers={'x-api-key':key,'Accept':'application/json','User-Agent':'ContentCreator-Kamar-Stock-Search/1.0'})
  try:
   with build_opener(safe.SafeRedirect()).open(req,timeout=30) as res:status=res.getcode();body=res.read(safe.MAX_RESPONSE_BYTES+1)

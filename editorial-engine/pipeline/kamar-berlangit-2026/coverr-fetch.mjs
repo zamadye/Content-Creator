@@ -29,12 +29,14 @@ if(!KEY){fail('MISSING_COVERR_KEY');process.exit(2);}
 function checkKamar(v,id){
   if(!v||typeof v!=='object'||v.id!==id||!validId(id))throw new SafeError('BAD_VIDEO_ID');
   if(v.is_premium!==false)throw new SafeError('PREMIUM_OR_UNKNOWN');
-  if(v.is_ai_generated!==false)throw new SafeError('AI_OR_UNKNOWN');
+  // 2026-11-13 user explicitly allows AI-generated Coverr footage for this
+  // episode; the flag is recorded instead of rejected.
+  const isAi=v.is_ai_generated===true;
   const title=cleanText(v.title,id);if(!title)throw new SafeError('BAD_TITLE');
   if(typeof v.duration==='number'&&v.duration<8)throw new SafeError('TOO_SHORT');
   let u;try{u=new URL(v.urls?.mp4_download);}catch{throw new SafeError('BAD_MEDIA_URL');}
   if(u.protocol!=='https:'||u.username||u.password||!/(^|\.)coverr\.co$/i.test(u.hostname)||(u.port&&u.port!=='443'))throw new SafeError('UNTRUSTED_MEDIA_ORIGIN');
-  return {id,title,creator:creatorName(v),duration_seconds:v.duration,
+  return {id,title,creator:creatorName(v),duration_seconds:v.duration,isAi,
           is_vertical:v.is_vertical===true?'vertical':(v.is_vertical===false?'landscape':'unknown'),
           mediaUrl:u.toString()};
 }
@@ -75,11 +77,12 @@ async function run(){
     id:cand.id,title:cand.title,creator:cand.creator,
     duration_seconds:dur,bytes:buf.length,sha256:sha256(buf),
     width:v.width||null,height:v.height||null,orientation:cand.is_vertical,
+    ai_generated:cand.isAi,
     tracking,
     licenseNote:'Coverr license terms NEEDS_REVIEW before any publication; private test only.',
     plaintextPath:OUT
   };
   fs.writeFileSync(path.join(os.tmpdir(),'kamar-footage-ready.json'),JSON.stringify(ready,null,2)+'\n');
-  console.log(JSON.stringify({ok:true,id:cand.id,bytes:buf.length,sha256:ready.sha256,duration:dur,width:v.width,height:v.height,orientation:cand.is_vertical,tracking}));
+  console.log(JSON.stringify({ok:true,id:cand.id,bytes:buf.length,sha256:ready.sha256,duration:dur,width:v.width,height:v.height,orientation:cand.is_vertical,ai:cand.isAi,tracking}));
 }
 run().catch(e=>{fail(`FETCH-FAILED: ${e&&e.code?e.code:(e&&e.message||e)}`);process.exit(1);});

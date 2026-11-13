@@ -1,7 +1,7 @@
 # Render lokal — Jalan Pulang (draft)
 
 ## Cakupan sebenarnya
-Perintah ini merender `StoryBlocking`, animasi Three.js/Remotion dari 00:00 sampai maksimal **07:23**. Ini **blocking/prototipe**, bukan film atau animasi final: beberapa adegan dan aksi hanya placeholder, akting dan PBR belum final, sound design belum terintegrasi. Cerita setelah 07:23 belum tersedia untuk render. Transkrip dan kecocokan VO belum diverifikasi seluruhnya. Video output berisi VO 01, bukan VO 02 atau sound guide. Periksa lisensi individual vegetasi sebelum publikasi.
+Perintah ini merender `StoryBlocking`, animasi Three.js/Remotion dari 00:00 sampai maksimal **09:03**. Ini **blocking/prototipe**, bukan film atau animasi final: beberapa adegan dan aksi hanya placeholder, akting dan PBR belum final, sound design belum terintegrasi. Cerita setelah 09:03 belum tersedia untuk render. Transkrip dan kecocokan VO belum diverifikasi seluruhnya. Video output berisi VO 01, bukan VO 02 atau sound guide. Periksa lisensi individual vegetasi sebelum publikasi.
 
 ## Kebutuhan
 - Linux x86_64, atau Windows 10/11 dengan **WSL2 Linux x86_64**. Native Windows dan macOS belum diuji. WSL2 untuk GPU memerlukan driver host dan WSL GPU support; keberhasilannya tergantung konfigurasi.
@@ -27,8 +27,8 @@ bash scripts/render-local.sh
 bash scripts/render-local.sh --browser /usr/bin/chromium --mode gpu
 # Jika GPU/EGL gagal, fallback yang biasanya lebih lambat
 bash scripts/render-local.sh --mode software
-# Draft seluruh rentang yang tersedia (07:23), bukan seluruh cerita
-bash scripts/render-local.sh --seconds 443
+# Draft seluruh rentang yang tersedia (09:03), bukan seluruh cerita
+bash scripts/render-local.sh --seconds 543
 # Resolusi 1920x1080, jauh lebih berat
 bash scripts/render-local.sh --scale 1 --concurrency 1
 # Coba lebih banyak worker hanya jika RAM/GPU memadai

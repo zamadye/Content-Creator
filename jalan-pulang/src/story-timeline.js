@@ -28,6 +28,12 @@ export const storyShots=[
  {from:318,to:345,shot:'entity-standing'},
  {from:345,to:362,shot:'brake'},
  {from:362,to:443,shot:'call'},
+ {from:443,to:455,shot:'mirror'},
+ {from:455,to:474,shot:'shadow'},
+ {from:474,to:488,shot:'call'},
+ {from:488,to:498,shot:'shadow'},
+ {from:498,to:532,shot:'call'},
+ {from:532,to:543,shot:'release'},
 ];
 export function validateShots(shots=storyShots){
  if(!shots.length || shots[0].from!==0) throw Error('Timeline must start at 0');

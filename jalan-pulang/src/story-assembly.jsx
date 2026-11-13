@@ -22,6 +22,9 @@ const Shot=({shot,resolutionScale})=>{
   case 'warung-lit': return <RideTest warungScene="lit" resolutionScale={resolutionScale}/>;
   case 'entity-seated': return <RideTest warungScene="seated" resolutionScale={resolutionScale}/>;
   case 'entity-detail': return <RideTest warungScene="seated" detailCamera resolutionScale={resolutionScale}/>;
+  case 'mirror': return <RideTest warungScene="mirror" resolutionScale={resolutionScale}/>;
+  case 'shadow': return <RideTest warungScene="shadow" resolutionScale={resolutionScale}/>;
+  case 'release': return <RideTest warungScene="release" resolutionScale={resolutionScale}/>;
   case 'brake': return <RideTest warungScene="brake" resolutionScale={resolutionScale}/>;
   case 'call': return <CallShot resolutionScale={resolutionScale}/>;
   case 'entity-standing': return <RideTest warungScene="standing" resolutionScale={resolutionScale}/>;
@@ -29,7 +32,7 @@ const Shot=({shot,resolutionScale})=>{
  }
 };
 // One continuous narration track prevents drift or duplicate playback at cuts.
-// No silent filler is used for unbuilt story portions beyond 07:23.
+// No silent filler is used for unbuilt story portions beyond 09:03.
 export const StoryBlocking=({resolutionScale=1})=>{
  validateShots();
  return <AbsoluteFill>

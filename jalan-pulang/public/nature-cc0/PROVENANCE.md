@@ -1,0 +1,3 @@
+# Vegetation provenance
+
+`tree.glb` and `fern.glb` are from the directory `environment/vegetation/polypizza-stylized-nature-gltf/` in https://github.com/petroulacl/fps-buildings-env-kit at commit `1dd8e932402deb82422920df2e7fd079391e55d3`. The mirror README identifies these as Quaternius Stylized Nature MegaKit and describes the vegetation as CC0. No individual license file or original source URL was present alongside these GLBs in the mirror; independent verification of each asset's original license remains advisable before publication. The tree is a generic stylized tree, not an authentic banyan model; procedural aerial roots are added in the scene.

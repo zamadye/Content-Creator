@@ -1,0 +1,39 @@
+{
+  "name": "jalan-pulang",
+  "version": "1.0.0",
+  "description": "Persiapan toolchain video Jalan Pulang",
+  "scripts": {
+    "extract:chromium": "node scripts/extract-chromium.cjs",
+    "bundle:prototype": "remotion bundle src/index.jsx",
+    "render:prototype": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx ForestBlockout render/forest-blockout.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
+    "preview": "vite --host 0.0.0.0",
+    "render:warung": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx WarungApproach render/warung-first-pass.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
+    "render:warung-lit": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx WarungLit render/warung-lit.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
+    "render:warung-figure": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx WarungFigure render/warung-figure.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
+    "render:warung-vo": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx WarungWithVO render/warung-dengan-vo.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
+    "render:figure-vo": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx WarungFigureWithVO deliverables/warung-sosok-10-detik.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
+    "render:sign-dry": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx SignDryWithVO deliverables/papan-kering-18detik.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
+    "render:sign-wet": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx SignWetWithVO deliverables/papan-basah-13detik.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
+    "render:third-loop": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx ThirdLoopAssembly deliverables/warung-putaran-ketiga-29detik.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
+    "render:standing": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx StandingFigureWithVO deliverables/sosok-berdiri-21detik.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@ffmpeg-installer/linux-x64": "4.1.0",
+    "@remotion/bundler": "4.0.543",
+    "@remotion/cli": "4.0.543",
+    "@remotion/player": "4.0.543",
+    "@remotion/renderer": "4.0.543",
+    "@sparticuz/chromium": "153.0.0",
+    "gsap": "3.15.1",
+    "lottie-web": "5.13.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.543",
+    "three": "0.187.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "vite": "8.3.8"
+  }
+}

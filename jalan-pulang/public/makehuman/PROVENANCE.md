@@ -1,0 +1,5 @@
+# Entity head mesh provenance
+
+Extracted from MakeHuman `makehuman/data/3dobjs/base.obj`, commit `a8bc2d54ff0ac92e78ff71431b1023eda42bf482` (https://github.com/makehumancommunity/makehuman/blob/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/3dobjs/base.obj). The source file explicitly states CC0 and names Data Collection AB, Joel Palmius and Jonas Hauquier. License is in LICENSE.md. The `scripts/makehuman-head.py` script cuts the head region, scales it, and retains source UV coordinates; it does not create rigging or skin texture. Original full anatomical source remains outside tracked files under ignored `assets/`.
+
+`rigged-body.json` additionally derives from `makehuman/data/rigs/default.mhskel` and `default_weights.mhw` at the same commit. The rig and weights state CC0 in their metadata. `scripts/build-makehuman-rig.py` converts the source body, UVs and weights to Three.js skin data. Each vertex keeps at most four strongest influences and renormalizes them; all exported vertices had at least one influence. Helper meshes are excluded. This is a raw anatomical base with provisional clothing shells, not the finished entity.

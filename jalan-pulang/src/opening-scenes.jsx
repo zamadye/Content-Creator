@@ -4,6 +4,8 @@ import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {createRiggedEntity,loadGarments,loadRidingGarments} from './rigged-entity';
 import {RideTest} from './ride';
+import {createMotorcycle} from './motorcycle';
+import {solveArm} from './arm-ik';
 
 // Blockout for the opening sequence. Sets, props and characters are real 3D;
 // character styling, detailed acting, audio alignment and lookdev remain WIP.
@@ -38,9 +40,9 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
         entity.mesh.material.color.set('#a68770');entity.mesh.scale.setScalar(.105);
         entity.mesh.position.set(x,.86,z);scene.add(entity.mesh);
         entity.bones['upperarm01.L'].rotation.z=-.62;entity.bones['upperarm01.R'].rotation.z=.62;
-        people.push({o:entity.mesh,bones:entity.bones});return entity.mesh;
+        people.push({o:entity.mesh,bones:entity.bones,entity});return entity;
       };
-      let lightRed,lightBlue,phone;
+      let lightRed,lightBlue,phone,bike;
       if(set==='warehouse'){
         box(scene,20,6,.25,wallMat,0,3,-8);box(scene,.25,6,15,wallMat,-8,3,-1);box(scene,.25,6,15,wallMat,8,3,-1);
         const shelfAsset=await new GLTFLoader().loadAsync(staticFile('models/steel_frame_shelves_01/steel_frame_shelves_01_1k.gltf'));if(dead)return;
@@ -49,34 +51,64 @@ export const OpeningSet=({set='warehouse',resolutionScale=1})=>{
           for(let y of [.24,1.15,2.06,2.97])for(let k=0;k<2;k++)box(scene,.48,.46,.56,card,x-.32+k*.64,y+.23,z);
         }
         for(const z of [-4,1,6]){const strip=box(scene,3,.07,.17,white,0,5.3,z);strip.material=new THREE.MeshBasicMaterial({color:'#c6d8c8'});const lamp=new THREE.PointLight('#c1d4c4',12,13,2);lamp.position.set(0,5,z);scene.add(lamp)}
-        person(0,-1);const bench=box(scene,2.4,.1,1.1,metal,2,.95,0);for(let x of [1,3])for(let z of [-.4,.4])box(scene,.08,.9,.08,metal,x,.45,z);
-        phone=box(scene,.18,.30,.025,dark,.7,1.1,0);const screen=box(scene,.15,.26,.01,new THREE.MeshBasicMaterial({color:'#7aa5a6'}),.7,1.1,.02);
+        const dimas=person(0,-1);const bench=box(scene,2.4,.1,1.1,metal,2,.95,0);for(let x of [1,3])for(let z of [-.4,.4])box(scene,.08,.9,.08,metal,x,.45,z);
+        // Phone follows the wrist; local units are scaled with the character.
+        phone=new THREE.Group();phone.position.set(-.18,-.25,.13);dimas.bones['wrist.R'].add(phone);
+        const phoneBody=new THREE.Mesh(new THREE.BoxGeometry(.85,1.45,.14),dark);phone.add(phoneBody);
+        const screen=new THREE.Mesh(new THREE.PlaneGeometry(.72,1.3),new THREE.MeshBasicMaterial({color:'#7aa5a6'}));screen.position.z=.075;phone.add(screen);
       }else{
         // Stopped traffic, overturned truck and pulsing emergency lights.
         box(scene,1,.03,55,m('#bcb595'),0,.01,-14);
-        const truck=new THREE.Group();scene.add(truck);truck.position.set(-1,0,-13);truck.rotation.z=Math.PI/2;
-        box(truck,2.5,2.5,5.2,m('#64726a'),0,1.4,0);box(truck,2.4,1.8,1.8,m('#bdc1af'),0,1,-3.3);
-        for(let x of [-1.3,1.3])for(let z of [-2.7,1.5]){let wh=new THREE.Mesh(new THREE.CylinderGeometry(.48,.48,.28,16),dark);wh.rotation.z=Math.PI/2;wh.position.set(x,.4,z);truck.add(wh)}
-        const car=(x,z,color)=>{let g=new THREE.Group();scene.add(g);g.position.set(x,0,z);box(g,2,.7,3.5,m(color,.45,.2),0,.75,0);box(g,1.65,.65,1.7,m('#273c3e',.2,.1),0,1.38,-.2);for(let side of [-1,1])for(let zz of [-1.1,1.1]){const w=new THREE.Mesh(new THREE.CylinderGeometry(.34,.34,.22,14),dark);w.rotation.z=Math.PI/2;w.position.set(side, .36,zz);g.add(w)}return g};
-        car(-1.4,-5,'#62584c');car(1.4,-1,'#737674');car(-1.4,4,'#343a3c');car(1.4,-8,'#d4d4ca');
+        // Car Kit meshes include wheels and embedded color textures; scaling is
+        // computed from their original bounds so all props share world units.
+        const vehicleLoader=new GLTFLoader();
+        const [truckAsset,sedanAsset,suvAsset,policeAsset,coneAsset]=await Promise.all(
+          ['truck','sedan','suv','police','cone'].map(name=>vehicleLoader.loadAsync(staticFile(`kenney-car/${name}.glb`))));
+        if(dead)return;
+        const vehicle=(asset,x,z,length,overturned=false)=>{
+          const source=asset.scene.clone(),bounds=new THREE.Box3().setFromObject(source);
+          const size=bounds.getSize(new THREE.Vector3()),center=bounds.getCenter(new THREE.Vector3());
+          const scale=length/Math.max(size.x,size.z);source.position.sub(center);
+          const group=new THREE.Group();group.add(source);group.scale.setScalar(scale);group.position.set(x,overturned?size.x*scale/2:size.y*scale/2,z);
+          if(overturned)group.rotation.z=Math.PI/2;scene.add(group);return group;
+        };
+        vehicle(truckAsset,-1,-13,5.2,true);
+        vehicle(sedanAsset,-1.4,-5,3.5);vehicle(suvAsset,-.1,-1,3.5);vehicle(sedanAsset,-1.4,4,3.5);vehicle(policeAsset,1.4,-8,3.5);
         const redMat=new THREE.MeshBasicMaterial({color:'#b3262e'}),blueMat=new THREE.MeshBasicMaterial({color:'#2a4fa8'});
         box(scene,.35,.16,.28,redMat,1.1,1.9,-8);box(scene,.35,.16,.28,blueMat,1.7,1.9,-8);
         lightRed=new THREE.PointLight('#b3262e',10,15);lightRed.position.set(1.1,2,-8);scene.add(lightRed);lightBlue=new THREE.PointLight('#2a4fa8',10,15);lightBlue.position.set(1.7,2,-8);scene.add(lightBlue);
-        person(3,0,ridingGarments);person(3.8,-3);for(let z of [-11,-7,-3]){const cone=new THREE.Mesh(new THREE.ConeGeometry(.23,.65,12),m('#cc6c30'));cone.position.set(4,.33,z);scene.add(cone)}
+        person(3,0,ridingGarments);person(3.8,-3);
+        bike=new THREE.Group();const generatedBike=createMotorcycle();bike.add(generatedBike.model);bike.position.set(2.4,0,.2);bike.rotation.y=-.2;scene.add(bike);for(let z of [-11,-7,-3]){const cone=coneAsset.scene.clone();const bounds=new THREE.Box3().setFromObject(cone);const size=bounds.getSize(new THREE.Vector3());cone.scale.setScalar(.65/size.y);cone.position.set(4,-bounds.min.y*cone.scale.y,z);scene.add(cone)}
       }
-      state.current={scene,renderer,camera,people,lightRed,lightBlue,phone};setReady(true);continueRender(handle);
+      state.current={scene,renderer,camera,people,lightRed,lightBlue,phone,bike};setReady(true);continueRender(handle);
     };setup().catch(e=>{if(!dead)cancelRender(e)});
     return()=>{dead=true;state.current=null;scene?.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material]))m.dispose()});renderer?.dispose()};
   },[handle,width,height,set,resolutionScale]);
   useEffect(()=>{if(!ready||!state.current)return;const s=state.current,t=frame/fps;
+    const clamp=x=>Math.max(0,Math.min(1,x));
     if(set==='warehouse'){
-      const p=s.people[0];p.o.position.z=-1+Math.min(t*.08,1.6);p.o.rotation.y=.2;p.bones['spine01'].rotation.z=Math.sin(t*.65)*.025;p.bones['head'].rotation.x=t>14?.18:.03;
-      s.camera.position.set(3.5-Math.min(t*.025,.8),2.3,6.4-Math.min(t*.04,1.5));s.camera.lookAt(.2,1.35,-1);
+      const p=s.people[0],walking=t<8;
+      p.o.position.z=-1+Math.min(t*.08,.64);p.o.rotation.y=.2;
+      p.bones['upperleg01.L'].rotation.x=walking?Math.sin(t*5)*.25:0;p.bones['upperleg01.R'].rotation.x=walking?-Math.sin(t*5)*.25:0;
+      p.bones['spine01'].rotation.z=Math.sin(t*.65)*.025;p.bones['head'].rotation.x=t>14?.18:.03;
+      p.bones['upperarm01.R'].rotation.set(0,0,.62);p.bones['lowerarm01.R'].rotation.set(0,0,0);
+      s.phone.visible=t>=13;
+      const holding=clamp((t-13)/2)*(1-clamp((t-37)/1));
+      if(holding>0){p.o.updateWorldMatrix(true,true);const target=p.bones.head.localToWorld(new THREE.Vector3(-.85,.55,.25));solveArm(p.entity,'R',target,holding);}
+      if(t<13){s.camera.position.set(3.5-t*.025,2.3,6.4-t*.04);s.camera.lookAt(.2,1.35,-1)}
+      else if(t<27){s.camera.position.set(1.9,1.8,3.3-(t-13)*.025);s.camera.lookAt(0,1.42,-.5)}
+      else{s.camera.position.set(-1.9,1.7,2.8);s.camera.lookAt(0,1.4,-.5)}
     }else{
-      s.people[0].o.position.z=Math.max(-1.5,-.05*t);s.people[0].o.rotation.y=Math.PI;s.people[0].bones['upperarm01.R'].rotation.z=.62+Math.sin(t)*.08;
-      s.people[1].bones['head'].rotation.z=Math.sin(t*.4)*.04;s.people[1].o.rotation.y=-.8;
+      const dimas=s.people[0],attendant=s.people[1],approach=clamp((t-5)/5);
+      dimas.o.rotation.y=Math.PI;dimas.bones['spine01'].rotation.z=Math.sin(t*.5)*.02;
+      attendant.o.position.z=-3+2*approach;attendant.o.position.x=3.8-.35*approach;attendant.o.rotation.y=-.45;
+      const step=t>=5&&t<10?Math.sin((t-5)*5)*.35:0;
+      attendant.bones['upperleg01.L'].rotation.x=step;attendant.bones['upperleg01.R'].rotation.x=-step;
+      attendant.bones['upperarm01.R'].rotation.z=.62-(t>=10?clamp((t-10)/2)*.95:0);
+      attendant.bones['lowerarm01.R'].rotation.z=t>=10?-.3:0;
       s.lightRed.intensity=(Math.sin(t*5)>0?18:1);s.lightBlue.intensity=(Math.sin(t*5)>0?1:18);
-      s.camera.position.set(5.7,2.7,7.5-t*.035);s.camera.lookAt(0,1,-5);
+      if(t<11){s.camera.position.set(5.7,2.7,7.5-t*.035);s.camera.lookAt(0,1,-5)}
+      else{s.camera.position.set(6.1,1.9,3.9);s.camera.lookAt(3.1,1.3,-.5)}
     }
     s.renderer.render(s.scene,s.camera);
   },[frame,fps,ready,set]);

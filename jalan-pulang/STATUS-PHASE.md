@@ -75,3 +75,10 @@ Timeline 04:47–05:05 kini dipisah: pandangan dari belakang hingga 04:55, lalu 
 
 ## Kontinuitas jaket Dimas
 Jaket dan jeans `male_casualsuit05` bertekstur dan UV-skinned (MakeHuman team CC0 menurut katalog sumber) dipakai pada perjalanan, kemacetan, pengereman, panggilan dan rumah; gudang mempertahankan pakaian kerja sebelumnya. Empat frame di lokasi berbeda serta bundle diuji. Pakaian masih perlu inspeksi deformasi/kliping sepanjang animasi; helm, gestur dan kulit belum final.
+
+## Fase staging lintas awal dan akhir
+- Gudang: karakter berjalan lalu mengangkat ponsel saat percakapan, dengan kamera berpindah; telepon kini mengikuti rig, bukan melayang di meja. Masih ada keterbatasan IK/siku/jari dan pakaian.
+- Kemacetan: kendaraan kotak diganti lima aset GLB dari Kenney Car Kit 3.1 (CC0, `public/kenney-car/PROVENANCE.md`), termasuk truk miring, polisi, sedan/SUV dan kerucut. Motor Dimas dan tukang parkir yang mendekat/menunjuk disambungkan. Aset low-poly, belum PBR fotorealistis, posisi objek dan kecelakaan perlu QC.
+- VO 02: perjalanan dari papan 3 km ke rumah sekarang melewati gerbang desa dan rumah-rumah 3D dengan material bertekstur; bentuk rumah generik, bukan lingkungan Indonesia final.
+- Sosok bayangan: kedua lengan diarahkan melalui IK ke pinggang Dimas; mata sosok berdiri diposisikan lebih dekat permukaan wajah. Bentuk, clipping, jari, tampilan dan sinkronisasi tetap perlu diperiksa pada gerak/video.
+- Frame gudang, kemacetan, desa dan sosok diuji secara serial. Ini bukan pemeriksaan video lengkap; pekerjaan material, akting, sound design dan QC masih terbuka.

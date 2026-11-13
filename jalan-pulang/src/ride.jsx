@@ -5,7 +5,7 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js';
 import {makeMap} from './forest';
 import {createMotorcycle} from './motorcycle';
-import {holdMotorcycleGrips} from './arm-ik';
+import {holdMotorcycleGrips,solveArm} from './arm-ik';
 import {createRiggedEntity,poseSeated,loadGarments,loadRidingGarments} from './rigged-entity';
 
 // Solve the arm from a fixed rest pose on every frame. Targets and joints are
@@ -28,7 +28,7 @@ function aimPhoneAtEar(entity){
 }
 
 // Stylised work-in-progress, not a representation of the final Dimas or Supra.
-export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, resolutionScale = 1}) => {
+export const RideTest = ({showWarung = false, warungScene = "", detailCamera = false, revealFace = false, village = false, resolutionScale = 1}) => {
   const canvas=useRef(null), state=useRef(null), frame=useCurrentFrame();
   const {fps,width,height}=useVideoConfig();
   const [handle]=useState(()=>delayRender('Load Kenney vegetation'));
@@ -188,6 +188,30 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               for(const [x,z,scale] of [[-12,-10,.65],[1,-10,.65],[-12,-17,.8],[5,-18,.85]]){const tree=treeAsset.scene.clone();tree.position.set(x,0,z);tree.scale.setScalar(scale);scene.add(tree)}
               for(const [x,z,scale] of [[-8,-3,.18],[-9,-4,.16],[1,-5,.20],[3,-7,.17]]){const fern=fernAsset.scene.clone();fern.position.set(x,0,z);fern.scale.setScalar(scale);scene.add(fern)}
             }
+            const villageSet=[];
+            if(village){
+              const [wallMap,wallNormal,wallRough]=await Promise.all([
+                load('wall_plaster_dirty_Color.png',true,[1,1]),load('wall_plaster_dirty_NormalGL.jpg',false,[1,1]),load('wall_plaster_dirty_Roughness.jpg',false,[1,1])]);
+              if(disposed)return;
+              const stucco=new THREE.MeshStandardMaterial({map:wallMap,normalMap:wallNormal,roughnessMap:wallRough,roughness:1,color:'#a1a59a'});
+              const windowGlow=new THREE.MeshStandardMaterial({color:'#d4b16d',emissive:'#a46c27',emissiveIntensity:.55,roughness:.8});
+              const makeHouse=(x,z,i)=>{
+                const g=new THREE.Group();g.position.set(x,0,z);scene.add(g);
+                addBox(g,3.1,2.25,2.8,stucco,0,1.15,0);addBox(g,3.55,.14,3.2,roof,0,2.35,0);
+                const front=x<0?1:-1;
+                addBox(g,.08,1.5,.9,timber,front*1.59,.8,.35);addBox(g,.08,.9,.75,windowGlow,front*1.59,1.35,-.65);
+                addBox(g,.1,.95,.05,timber,front*1.65,1.35,-.65);addBox(g,.1,.05,.8,timber,front*1.65,1.35,-.65);
+                addBox(g,.12,2.1,.12,timber,front*1.9,1.05,1.3);addBox(g,.8,.1,2.8,roof,front*1.85,2.1,0);
+                villageSet.push({g,base:z});
+              };
+              for(let i=0;i<6;i++)makeHouse(i%2?-4.8:4.8,-5-i*5,i);
+              const gate=new THREE.Group();gate.position.z=-15;scene.add(gate);
+              for(const x of [-3.4,3.4]){addBox(gate,.44,3.4,.44,stucco,x,1.7,0);addBox(gate,.66,.18,.66,timber,x,3.43,0)}
+              addBox(gate,7.1,.55,.32,timber,0,3.15,0);
+              const c=document.createElement('canvas');c.width=1024;c.height=128;const ctx=c.getContext('2d');ctx.fillStyle='#343d32';ctx.fillRect(0,0,1024,128);ctx.fillStyle='#e8d5ac';ctx.textAlign='center';ctx.font='bold 66px sans-serif';ctx.fillText('DESA SUKAMAJU',512,89);
+              const label=new THREE.CanvasTexture(c);label.colorSpace=THREE.SRGBColorSpace;const sign=new THREE.Mesh(new THREE.PlaneGeometry(5.8,.42),new THREE.MeshBasicMaterial({map:label,side:THREE.DoubleSide}));sign.position.set(0,3.15,.17);gate.add(sign);
+              villageSet.push({g:gate,base:-15});
+            }
             if(!warungScene || warungScene==='brake'){
               const response=await fetch(staticFile('makehuman/rigged-body.json'));if(!response.ok)throw Error(`Rider rig HTTP ${response.status}`);
               const data=await response.json();const clothes=await loadRidingGarments(staticFile);if(disposed)return;
@@ -265,16 +289,16 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               }
               // Black eyes parented to the head, with geometry rather than a screen overlay.
               const blackEyes=new THREE.MeshStandardMaterial({color:'#050706',roughness:.15});
-              for(const side of [-1,1]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.19,16,10),blackEyes);eye.position.set(side*.32,.52,.81);eye.scale.set(1,.68,.38);standingEntity.bones.head.add(eye)}
+              for(const side of [-1,1]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.19,16,10),blackEyes);eye.position.set(side*.32,.52,1.23);eye.scale.set(1,.68,.38);standingEntity.bones.head.add(eye)}
             }
             if(warungScene){scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});bulbMesh.castShadow=false;wash.castShadow=false;}
-            state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,seatedEntity,dimas,skinnedRider,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
+            state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,villageSet,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,seatedEntity,dimas,skinnedRider,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
           } catch(error){cancelRender(error)}
         },undefined,error=>cancelRender(error));
       },undefined,error=>cancelRender(error));
     }catch(error){cancelRender(error)}
     return()=>{disposed=true;state.current=null;if(scene)scene.traverse(o=>{o.geometry?.dispose();if(o.material){for(const m of (Array.isArray(o.material)?o.material:[o.material])){m.map?.dispose();m.dispose()}}});mirrorTarget?.dispose();renderer?.dispose()};
-  },[handle,width,height,showWarung,warungScene,resolutionScale,revealFace]);
+  },[handle,width,height,showWarung,warungScene,resolutionScale,revealFace,village]);
   useEffect(()=>{if(!ready||!state.current)return;const s=state.current,t=frame/fps,travel=t*2.5;
     const stopped=['call','brake','mirror','shadow','release','aftermath'].includes(warungScene);
     const brakeDistance=Math.min(t,3)*1.5-Math.min(t,3)**2*.25;
@@ -307,6 +331,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
     for(const w of s.wheels)w.rotation.z=warungScene==='brake'?brakeDistance/.34:stopped?0:travel/.34;
     for(const item of s.trees)item.g.position.z=4-((item.base-travel+40)%40);
     for(const item of s.bushes)item.g.position.z=4-((item.base-travel+36)%36);
+    if(village){for(const item of [...s.trees,...s.bushes])item.g.visible=false;for(const item of s.villageSet)item.g.position.z=item.base+travel;}
     for(const map of [s.asphaltColor,s.asphaltNormal,s.asphaltRough])map.offset.y=stopped?0:-travel/6;
     if(warungScene){
       s.warung.position.z=-6;s.body.rotation.z=0;s.headPivot.rotation.x=.52;s.bulbPivot.rotation.z=Math.sin(t*Math.PI*2/3)*Math.PI/30;
@@ -332,7 +357,14 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
           s.camera.position.set(-1.5,1.83,.8);s.camera.lookAt(-.6,1.58,-.65);s.mirror.lookAt(s.camera.position);
         }else if(warungScene==='shadow'||warungScene==='release'){
           const fade=warungScene==='release'?Math.min(t/10,1):0;
-          s.shadowActor.mesh.position.z=.65-fade*.4;s.shadowActor.mesh.position.y=.88+fade*.08;
+          s.shadowActor.mesh.position.set(-1.35,.88+fade*.08,.54-fade*.4);
+          // Reach around the torso, targeting points on Dimas' jacket rather
+          // than free-floating arms. Re-solve from a neutral pose per frame.
+          s.dimas.mesh.updateWorldMatrix(true,true);
+          for(const [side,x] of [['L',1.25],['R',-1.25]]){
+            const b=s.shadowActor.bones;b[`upperarm01.${side}`].rotation.set(0,0,side==='L'?-.62:.62);b[`lowerarm01.${side}`].rotation.set(0,0,0);
+            const target=s.dimas.mesh.localToWorld(new THREE.Vector3(x,1.25,1.1));solveArm(s.shadowActor,side,target);
+          }
           s.shadowActor.mesh.traverse(o=>{if(o.isMesh)o.material.opacity=.88*(1-fade)});
           s.camera.position.set(.65+Math.sin(t*.15)*.09,1.75,3.6);s.camera.lookAt(-1,1.38,.85);
         }else if(detailCamera){s.camera.position.set(.8+Math.sin(t*.12)*.08,1.75,3.3);s.camera.lookAt(-1,1.45,1);}else{s.camera.position.set(3.8+Math.sin(t*.12)*.2,2.25,5.4-Math.min(t*.012,1));s.camera.lookAt(-.8,1.0,-.8);}
@@ -364,6 +396,6 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
       s.mirror.visible=true;s.shadowActor.mesh.visible=false;s.dimas.mesh.visible=true;
     }
     s.renderer.render(s.scene,s.camera);
-  },[fps,frame,ready,showWarung,warungScene,detailCamera,revealFace]);
+  },[fps,frame,ready,showWarung,warungScene,detailCamera,revealFace,village]);
   return <AbsoluteFill style={{backgroundColor:'#14262b'}}><canvas ref={canvas} style={{width:'100%',height:'100%'}}/></AbsoluteFill>;
 };

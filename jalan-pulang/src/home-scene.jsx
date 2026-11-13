@@ -2,6 +2,7 @@ import React,{useEffect,useRef,useState} from 'react';
 import {AbsoluteFill,cancelRender,continueRender,delayRender,staticFile,useCurrentFrame,useVideoConfig} from 'remotion';
 import * as THREE from 'three';
 import {createMotorcycle} from './motorcycle';
+import {holdMotorcycleGrips} from './arm-ik';
 import {createRiggedEntity,loadGarments,poseSeated} from './rigged-entity';
 
 // Ending blocking, not a finished house or final character animation. All timing
@@ -34,7 +35,7 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
    const bike=new THREE.Group();scene.add(bike);const generatedBike=createMotorcycle();bike.add(generatedBike.model);const wheels=generatedBike.wheels;
    const outfit=garments.map(g=>({data:g.data,material:g.material.clone()}));outfit[0].material.color.set('#596a61');const dimas=createRiggedEntity(data,null,outfit);dimas.mesh.material.color.set('#967765');dimas.mesh.scale.setScalar(.105);scene.add(dimas.mesh);dimas.bones['upperarm01.L'].rotation.z=-.62;dimas.bones['upperarm01.R'].rotation.z=.62;
    const shadow=createRiggedEntity(data);const shadowMat=new THREE.MeshStandardMaterial({color:'#091411',roughness:1});shadow.mesh.traverse(o=>{if(o.isMesh)o.material=shadowMat});shadow.mesh.scale.setScalar(.105);scene.add(shadow.mesh);
-   state.current={scene,renderer,camera,dimas,shadow,bike,wheels};setReady(true);continueRender(handle);
+   state.current={scene,renderer,camera,dimas,shadow,bike,bikeModel:generatedBike.model,wheels};setReady(true);continueRender(handle);
   })().catch(e=>{if(!dead)cancelRender(e)});
   return()=>{dead=true;state.current=null;scene?.traverse(o=>{o.geometry?.dispose();if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material]))m.dispose()});renderer?.dispose()};
  },[handle,width,height,resolutionScale]);
@@ -46,14 +47,16 @@ export const HomeScene=({resolutionScale=1,voOffset=42})=>{
   bike.position.set(-1.6,0,2.3-arrival*2);bike.rotation.y=0;bike.rotation.z=-.08*arrival;
   for(const wheel of wheels)wheel.rotation.z=(1-arrival)*14;
   poseSeated(dimas.bones,1-dismount);
-  const startX=-1.6+.65*dismount,startZ=bike.position.z+.15;
+  const startX=-1.6+.65*dismount,startZ=bike.position.z+.05;
   dimas.mesh.position.set(startX*(1-walk),1.04-.18*dismount,startZ+(-1.8-startZ)*walk);dimas.mesh.rotation.y=Math.PI;
   const stride=walk>0&&walk<1?Math.sin((t-59)*7)*.32:0;
   dimas.bones['upperleg01.L'].rotation.x+=stride;dimas.bones['upperleg01.R'].rotation.x-=stride;
   const knock= t>=62&&t<64.4 ? Math.max(0,Math.sin((t-62)*Math.PI*2.5)) : 0;
   const armUp=clamp((t-61.5)*2)*(1-clamp((t-64.4)*2));
-  dimas.bones['upperarm01.L'].rotation.z=-.65*(1-dismount)-.62*dismount;
-  dimas.bones['upperarm01.R'].rotation.z=.65*(1-dismount)+.62*dismount-armUp*.97;dimas.bones['lowerarm01.R'].rotation.z=armUp*(-1.7+knock*.25);
+  dimas.bones.spine01.rotation.x=.35*(1-dismount);
+  dimas.bones['upperarm01.L'].rotation.set(0,0,-.65*(1-dismount)-.62*dismount);
+  dimas.bones['upperarm01.R'].rotation.set(0,0,.65*(1-dismount)+.62*dismount-armUp*.97);dimas.bones['lowerarm01.R'].rotation.z=armUp*(-1.7+knock*.25);
+  if(dismount<1)holdMotorcycleGrips(dimas,state.current.bikeModel,1-dismount);
   shadow.mesh.visible=t>=110;shadow.mesh.position.set(.35,.86,-.35);shadow.mesh.rotation.y=Math.PI;shadow.bones.head.rotation.x=.2;
   if(t<60){camera.position.set(5,2.3,7.5-(t-49)*.08);camera.lookAt(-.4,1.3,-1.6)}else if(t<110){camera.position.set(2.7,1.9,2.6);camera.lookAt(0,1.45,-1.8)}else{camera.position.set(2.1,1.85,1.3);camera.lookAt(.1,1.55,-1.35)}
   renderer.render(scene,camera);

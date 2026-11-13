@@ -66,3 +66,6 @@ Transkrip dan timestamp VO 02 kiriman pengguna tersimpan di `TRANSKRIP-VO02-PENG
 
 ## Bentuk motor yang konsisten — masih sementara
 Blok motor kotak pada perjalanan, pengereman/panggilan dan halaman rumah diganti dengan geometri step-through terperinci yang dibuat secara deterministik oleh generator MIT MediaGeni; sumber, commit dan lisensi dicatat di `public/models/PROVENANCE.md`. Roda punya pivot terpisah dan frame dari tiga adegan diperiksa. Ini masih motor generik low-poly, **bukan** model Supra akurat atau aset PBR fotorealistis; jok, setang, tangan/kaki, suspensi dan pergerakan tetap perlu fitting dan QC. Validasi geometri tersedia via `node --experimental-default-type=module scripts/test-motorcycle.mjs`.
+
+## Tangan pengendara ke setang (WIP)
+Lengan pengendara kini memakai IK dua sendi untuk mendekati setang model motor, dengan bobot yang berkurang saat turun; pose dihitung ulang agar frame acak konsisten. Panjang sumbu motor dipendekkan dan posisi badan digeser untuk jangkauan yang lebih masuk akal. Pengujian model/rig mengukur jarak asal pergelangan ke target sekitar **6,6 cm**, bukan kontak telapak yang sempurna; tiga frame dan bundle diuji. Jari, siku, kaki, jok, transisi dan bentuk motor tetap perlu diperbaiki, sehingga ini belum final.

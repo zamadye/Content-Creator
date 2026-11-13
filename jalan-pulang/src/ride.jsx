@@ -5,6 +5,7 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader.js';
 import {makeMap} from './forest';
 import {createMotorcycle} from './motorcycle';
+import {holdMotorcycleGrips} from './arm-ik';
 import {createRiggedEntity,poseSeated,loadGarments} from './rigged-entity';
 
 // Solve the arm from a fixed rest pose on every frame. Targets and joints are
@@ -193,7 +194,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               const outfit=clothes.map(g=>({data:g.data,material:g.material.clone()}));outfit[0].material.color.set('#596a61');
               skinnedRider=createRiggedEntity(data,null,outfit);skinnedRider.mesh.material.color.set('#967765');
               poseSeated(skinnedRider.bones);skinnedRider.mesh.scale.setScalar(.105);
-              skinnedRider.mesh.position.set(0,1.04,.15);skinnedRider.mesh.rotation.y=Math.PI;bike.add(skinnedRider.mesh);
+              skinnedRider.mesh.position.set(0,1.04,.05);skinnedRider.mesh.rotation.y=Math.PI;bike.add(skinnedRider.mesh);
               // Helmet is a separate rigid accessory; clothing is the same CC0 outfit as the standing rig.
               const helmet=new THREE.Mesh(new THREE.SphereGeometry(1.02,24,16),black);helmet.scale.set(1,.8,1);helmet.position.set(0,1,.1);skinnedRider.bones.head.add(helmet);
               rider.visible=false;
@@ -252,7 +253,7 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
               for(const side of [-1,1]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.19,16,10),blackEyes);eye.position.set(side*.32,.52,.81);eye.scale.set(1,.68,.38);standingEntity.bones.head.add(eye)}
             }
             if(warungScene){scene.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true}});bulbMesh.castShadow=false;wash.castShadow=false;}
-            state.current={renderer,scene,camera,bike,rider,wheels,trees,bushes,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,dimas,skinnedRider,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
+            state.current={renderer,scene,camera,bike,bikeModel:generatedBike.model,rider,wheels,trees,bushes,roadMap,asphaltColor,asphaltNormal,asphaltRough,warung,bulbPivot,bulbLight,figure,body,headPivot,standingEntity,dimas,skinnedRider,shadowActor,mirror,mirrorCamera,mirrorTarget};setReady(true);continueRender(handle);
           } catch(error){cancelRender(error)}
         },undefined,error=>cancelRender(error));
       },undefined,error=>cancelRender(error));
@@ -269,13 +270,22 @@ export const RideTest = ({showWarung = false, warungScene = "", detailCamera = f
     if(s.skinnedRider){
       s.skinnedRider.mesh.visible=warungScene==='brake'?t<6:!stopped;
       s.skinnedRider.bones.spine01.rotation.z=Math.sin(t*.8)*.025;
+      const seatedWeight=warungScene==='brake'?1-Math.min(Math.max((t-4)/2,0),1):1;
       if(warungScene==='brake'){
         const dismount=Math.min(Math.max((t-4)/2,0),1);
         poseSeated(s.skinnedRider.bones,1-dismount);
-        s.skinnedRider.mesh.position.set(-.78*dismount,1.04-.18*dismount,.15+.67*dismount);
+        s.skinnedRider.mesh.position.set(-.78*dismount,1.04-.18*dismount,.05+.77*dismount);
         s.skinnedRider.mesh.rotation.y=Math.PI+(.35-Math.PI)*dismount;
         s.skinnedRider.bones['upperarm01.L'].rotation.z=-.65*(1-dismount)-.62*dismount;
         s.skinnedRider.bones['upperarm01.R'].rotation.z=.65*(1-dismount)+.62*dismount;
+      }
+      s.skinnedRider.bones.spine01.rotation.x=.35*seatedWeight;
+      if(s.skinnedRider.mesh.visible){
+        // Reset arm rotations before solving so Remotion's out-of-order frame
+        // rendering does not accumulate a different pose on each seek.
+        s.skinnedRider.bones['upperarm01.L'].rotation.set(0,0,-.65*(seatedWeight)-.62*(1-seatedWeight));
+        s.skinnedRider.bones['upperarm01.R'].rotation.set(0,0,.65*(seatedWeight)+.62*(1-seatedWeight));
+        holdMotorcycleGrips(s.skinnedRider,s.bikeModel,seatedWeight);
       }
     }
     s.rider.rotation.z=Math.sin(t*.8)*.012;

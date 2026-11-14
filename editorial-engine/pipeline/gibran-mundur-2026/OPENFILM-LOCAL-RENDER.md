@@ -11,10 +11,10 @@ cd Content-Creator
 
 ## 2. Download project ZIP satu kali
 
-Unduh **OpenFilm full 24-scene project v3 (WIP)** dari [Google Drive](https://drive.google.com/file/d/1tmqfI5LlNRVFYZ6FFe41ZL5KzkGI99CO/view?usp=drivesdk). Simpan ZIP tanpa diekstrak di:
+Unduh **OpenFilm full 24-scene project v3 (WIP)** dari [Google Drive](https://drive.google.com/file/d/1tmqfI5LlNRVFYZ6FFe41ZL5KzkGI99CO/view?usp=drivesdk). Simpan ZIP tanpa diekstrak di root clone (folder `Content-Creator`) dengan nama:
 
 ```text
-editorial-engine/incoming/gibran-mundur-openfilm-full-project-WIP.zip
+gibran-mundur-openfilm-full-project-v3.zip
 ```
 
 ZIP sudah berisi project `film.html`, semua 24 halaman scene, VO asli di `assets/vo.mp3`, dan footage pembuka di `assets/SC01.mp4`. **Tidak perlu menaruh/mengunduh VO secara terpisah.**

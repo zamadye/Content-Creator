@@ -8,7 +8,7 @@ if ROOT_FROM_GIT="$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel 2>/dev/null)"
 else
   ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 fi
-ZIP_DEFAULT="$ROOT/editorial-engine/incoming/gibran-mundur-openfilm-full-project-WIP.zip"
+ZIP_DEFAULT="$ROOT/gibran-mundur-openfilm-full-project-v3.zip"
 ZIP_PATH="${OPENFILM_PROJECT_ZIP:-$ZIP_DEFAULT}"
 PROJECT="$ROOT/editorial-engine/deliverables/gibran-mundur-2026/openfilm-full"
 OUT_DIR="$ROOT/editorial-engine/deliverables/gibran-mundur-2026"
@@ -63,7 +63,7 @@ printf '\nProject: %s\nScenes: 24 · 1920×1080 · 30 fps · 7:15\nWorkers: %s\n
 printf 'First run may download OpenFilm and its Chromium browser (~100 MB). Keep this terminal open.\n\n'
 (
   cd "$PROJECT"
-  npx --yes openfilm@0.3.2 render --workers="$WORKERS" --loudness=-16 --out "$OUTPUT"
+  npx --yes openfilm@0.3.2 render --workers "$WORKERS" --loudness=-16 --out "$OUTPUT"
   npx --yes openfilm@0.3.2 look "$OUTPUT" --full --loudness=-16
 )
 

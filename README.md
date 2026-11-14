@@ -2,6 +2,10 @@
 
 Kanal **cerita panjang lebih dulu**, bukan Shorts-first. Cerita harus memiliki tokoh/entitas, konflik, taruhan, perubahan dan akibat yang membuat orang peduli atau ingin membahasnya. Shorts/Reels diturunkan dari momen menentukan master setelah struktur dan konteksnya siap. Media dan cadangan tetap di Google Drive privat; repo ini publik.
 
+## Rencana Content Studio
+
+[Rencana arsitektur, UI VO/timestamp, integrasi tools, fase pengembangan, dan handoff agen](docs/content-studio/README.md). Status: desain untuk implementasi oleh agen; aplikasi dan deployment belum dibuat.
+
 ## Mulai di sini
 
 1. [Fondasi editorial](EDITORIAL-FONDATION.md) dan [sistem cerita panjang](editorial-engine/docs/SISTEM-CERITA-LONG-FORM.md) — aturan aktif, rumus kerja, emosi, percakapan, review dan turunan pendek.

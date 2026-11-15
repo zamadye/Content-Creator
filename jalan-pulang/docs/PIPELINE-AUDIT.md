@@ -28,15 +28,15 @@ Baris yang bergantung pada GPU ditandai eksplisit.
 | 1 | Pre-production | 4 | 0 | 0 | 0 |
 | 2 | Procedural & blockout | 5 | 0 | 0 | 0 |
 | 3 | Real geometry & modeling | 3 | 1 | 1 | 1 |
-| 4 | UV & texture preparation | 3 | 1 | 1 | 0 |
+| 4 | UV & texture preparation | 4 | 0 | 1 | 0 |
 | 5 | PBR material & texturing | 6 | 2 | 1 | 0 |
 | 6 | Rigging & deformation | 4 | 1 | 1 | 0 |
 | 7 | Animation production | 2 | 3 | 1 | 1 |
 | 8 | Scene assembly & lighting | 3 | 2 | 0 | 0 |
 | 9 | Rendering & post-production | 0 | 4 | 2 | 0 |
-|  | **Total** | 30 | 14 | 7 | 2 |
+|  | **Total** | 31 | 13 | 7 | 2 |
 
-Total: 30 selesai · 14 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
+Total: 31 selesai · 13 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 
 ---
 
@@ -77,7 +77,7 @@ Total: 30 selesai · 14 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 | 16 | UV unwrapping | ✅ | UV base MakeHuman untuk karakter; UV generator untuk aset prosedural (`uvpaint.py`) |
 | 17 | UV packing | ✅ | `docs/UV-PACKING.md` menyatakan **dua rezim** (atlas 0..1 untuk karakter/entitas/properti parametris, UV ruang-objek tiling untuk 27 aset lingkungan) dan mengukur keduanya: 52 aset, **0 tumpang tindih tak sengaja** (sebelumnya 3: lampu teplok 66,3 %, rumah kos 10,8 %, jeriken 92,5 %), kelas 19 rapat · 6 daur-ulang cermin · 27 tiling, kepadatan texel 123–3.870 px/m (ambang 100). Bug diperbaiki di `forge/kit.py` (U lathe/tabung per radius → radius acuan; cakram UV tutup yang negatif) dan `forge/uvpack.py` (shelf packing pulau parametris); 41 aset dibangun ulang, bukti visual `docs/uv-before-after.png`. Dijaga `npm run qc:uv` + grup tes `uv` |
 | 18 | High-to-low baking | ⛔ | Tidak ada high-poly sumber, jadi tidak ada yang bisa di-bake |
-| 19 | Texture baking | ◐ | Normal map & AO diproduksi prosedural (`tex.height_to_normal`, `tex.orm`), bukan hasil bake |
+| 19 | Texture baking | ✅ | Kanal AO sekarang **hasil bake geometri** (`studio-forge/forge/bake.py`): tiap texel menembak 14 sinar setengah bola ke grid voxel aset sendiri, dicampur ke kanal R ORM. Bukti: selftest sintetis (AO di bawah kotak 0,488 vs pojok terbuka 1,000; pelat datar 1,000; deterministik), 21 dari 52 aset menjadi lebih gelap, rata-rata AO 0,965 → 0,936, tanpa bercak berulang karena material UV-tiling dilewati. Dokumen `docs/BAKING.md`, baseline `docs/bake-baseline.json`, pagar `npm run qc:bake` + grup tes `bake`. **Normal map tetap prosedural** — high→low bake (langkah 18) tetap ⛔ |
 | 20 | Texture set preparation | ✅ | 3 peta per aset (base/normal/ORM), 512–2048 px, satu set material per aset |
 
 ## Phase 5 — PBR material & texturing

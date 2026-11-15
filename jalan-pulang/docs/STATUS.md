@@ -155,7 +155,7 @@ Tabel ringkasan di audit tidak lagi ditulis tangan: `scripts/audit-count.mjs`
 menghitung ulang semua 53 baris dan `npm run test:studio` (grup
 `audit-summary`) menolak dokumen yang tabelnya tidak cocok dengan isinya.
 
-**Phase 1 = 4/4 ✅, Phase 2 = 5/5 ✅, Phase 4 = 3 ✅ / 1 ◐ / 1 ⛔.** Langkah 4 (scene planning) ditutup
+**Phase 1 = 4/4 ✅, Phase 2 = 5/5 ✅, Phase 4 = 4 ✅ / 0 ◐ / 1 ⛔.** Langkah 4 (scene planning) ditutup
 dengan denah + pemeriksaan tata letak terukur, langkah 8 (topology planning)
 dengan rencana + anggaran yang ditegakkan tes — lihat dua bagian berikut.
 
@@ -255,8 +255,32 @@ kepadatan texel **123–3.870 px/m** (ambang 100). Bukti visual
 `docs/uv-before-after.png`; pagar `npm run qc:uv` + grup tes `uv` (yang juga
 membuktikan pagarnya bisa gagal).
 
-Langkah 19 (texture baking) tetap ◐: peta normal/AO masih prosedural, belum
-hasil bake. Langkah 18 (high→low) tetap ⛔ karena tidak ada sumber high-poly.
+## Bake AO dari geometri — langkah 19
+
+Kanal AO tidak lagi berasal dari noise permukaan. `forge/bake.py` merasterisasi
+tiap primitif di ruang UV, lalu menembakkan 14 sinar setengah bola per texel ke
+grid voxel aset itu sendiri; hasilnya dicampur ke kanal R tekstur ORM
+(bobot 0,55) sehingga detail cavity prosedural tetap ada.
+
+Bukti bahwa ini bake, bukan "dibuat lebih gelap":
+
+| uji | hasil |
+|---|---|
+| geometri sintetis (pelat + kotak melayang) | AO **0,488** di bawah kotak vs **1,000** di pojok terbuka |
+| pelat datar tanpa penghalang | AO **1,000** (tidak ada penggelapan palsu) |
+| determinisme | dua kali bake → array identik |
+| 52 aset | **21 menjadi lebih gelap**, rata-rata 0,965 → 0,936 |
+| paling terpengaruh | `entity.tall-limbs` 0,817 · `char.male-pekerja` 0,822 · `nature.tree.palm` 0,827 |
+
+Keputusan penting: material dengan **UV tiling** dilewati. Percobaan pertama
+membake semuanya dan hasilnya memperlihatkan bercak gelap yang berulang di
+dinding rumah — tekstur yang berulang tidak bisa menyimpan AO per permukaan.
+Sekarang hanya material atlas yang dibake; sisanya tetap AO prosedural.
+
+Bukti visual: `docs/bake-ao-maps.png`, `docs/bake-before-after.png`. Pagar:
+`npm run qc:bake` (membandingkan dengan `docs/bake-baseline.json`) dan grup tes
+`bake` yang menjalankan selftest + verify. Langkah 18 (high→low) tetap ⛔ karena
+tidak ada sumber high-poly.
 
 ## QC framing shot (`scripts/qc-framing.mjs`)
 

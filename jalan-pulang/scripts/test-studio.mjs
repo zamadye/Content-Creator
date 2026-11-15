@@ -420,6 +420,37 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
   ok('uv');
 }
 
+// --------------------------------------------------------------- 9. bake AO
+{
+  const {execFileSync} = await import('node:child_process');
+  const py = ['./.venv/bin/python', 'python3'].find((p) => fs.existsSync(path.join(root, p))) ?? 'python3';
+  let ok3 = true;
+  let skipped = '';
+  try {
+    const self = execFileSync(py, ['studio-forge/dev_bake.py', '--selftest'], {cwd: root, encoding: 'utf8'});
+    assert.match(self, /selftest lulus/, `selftest bake: ${self}`);
+    const verifyOut = execFileSync(py, ['studio-forge/dev_bake.py', '--verify', 'docs/bake-baseline.json'], {
+      cwd: root,
+      encoding: 'utf8',
+    });
+    assert.match(verifyOut, /0 masalah/, `verify bake: ${verifyOut}`);
+    ok3 = true;
+  } catch (err) {
+    if (/No module named 'numpy'|No module named 'PIL'|ENOENT/.test(String(err.stderr ?? err))) {
+      skipped = 'dilewati: numpy/PIL tidak tersedia';
+      console.warn(`  ! bake: ${skipped}`);
+    } else {
+      throw err;
+    }
+  }
+  const doc = fs.readFileSync(path.join(root, 'docs', 'BAKING.md'), 'utf8');
+  assert.ok(doc.includes('<!-- BEGIN:bake -->') && /\| `char\./.test(doc), 'tabel bake harus ada di BAKING.md');
+  assert.ok(fs.existsSync(path.join(root, 'docs', 'bake-baseline.json')), 'baseline bake harus tersimpan');
+  void ok3;
+  void skipped;
+  ok('bake');
+}
+
 const auditMd = fs.readFileSync(path.join(root, 'docs', 'PIPELINE-AUDIT.md'), 'utf8');
 const audit = parseAudit(auditMd);
 assert.equal(audit.totals.total, 53, 'audit harus 53 langkah');

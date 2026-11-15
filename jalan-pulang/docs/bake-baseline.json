@@ -1,0 +1,314 @@
+{
+ "building.house.kos": {
+  "dark": 0.0527,
+  "materials": 7,
+  "mean": 0.9593,
+  "min": 0.4235
+ },
+ "building.house.old": {
+  "dark": 0.042,
+  "materials": 6,
+  "mean": 0.9596,
+  "min": 0.4235
+ },
+ "building.house.village": {
+  "dark": 0.0549,
+  "materials": 6,
+  "mean": 0.9596,
+  "min": 0.6314
+ },
+ "building.industrial.warehouse": {
+  "dark": 0.0416,
+  "materials": 4,
+  "mean": 0.967,
+  "min": 0.6667
+ },
+ "building.shop.warung": {
+  "dark": 0.0549,
+  "materials": 6,
+  "mean": 0.9753,
+  "min": 0.6314
+ },
+ "char.female-dewasa": {
+  "dark": 0.168,
+  "materials": 10,
+  "mean": 0.9081,
+  "min": 0.0
+ },
+ "char.female-lansia": {
+  "dark": 0.168,
+  "materials": 10,
+  "mean": 0.9081,
+  "min": 0.0
+ },
+ "char.male-dewasa-polo": {
+  "dark": 0.1644,
+  "materials": 9,
+  "mean": 0.9087,
+  "min": 0.0
+ },
+ "char.male-lansia-kemeja": {
+  "dark": 0.1644,
+  "materials": 9,
+  "mean": 0.9087,
+  "min": 0.0
+ },
+ "char.male-muda-jaket": {
+  "dark": 0.1745,
+  "materials": 8,
+  "mean": 0.8972,
+  "min": 0.0
+ },
+ "char.male-pekerja": {
+  "dark": 0.1745,
+  "materials": 8,
+  "mean": 0.8971,
+  "min": 0.0
+ },
+ "entity.child": {
+  "dark": 0.0909,
+  "materials": 7,
+  "mean": 0.913,
+  "min": 0.0
+ },
+ "entity.pale-standing": {
+  "dark": 0.0909,
+  "materials": 7,
+  "mean": 0.913,
+  "min": 0.0
+ },
+ "entity.shadow-crouch": {
+  "dark": 0.0727,
+  "materials": 6,
+  "mean": 0.9149,
+  "min": 0.0
+ },
+ "entity.tall-limbs": {
+  "dark": 0.0727,
+  "materials": 6,
+  "mean": 0.9149,
+  "min": 0.0
+ },
+ "entity.veiled-seated": {
+  "dark": 0.0623,
+  "materials": 7,
+  "mean": 0.9236,
+  "min": 0.0
+ },
+ "kit.floor.tile": {
+  "dark": 0.0024,
+  "materials": 1,
+  "mean": 0.9842,
+  "min": 0.6667
+ },
+ "kit.wall.door": {
+  "dark": 0.0536,
+  "materials": 2,
+  "mean": 0.9768,
+  "min": 0.6314
+ },
+ "kit.wall.plain": {
+  "dark": 0.0409,
+  "materials": 1,
+  "mean": 0.9812,
+  "min": 0.7608
+ },
+ "kit.wall.window": {
+  "dark": 0.0334,
+  "materials": 3,
+  "mean": 0.9534,
+  "min": 0.7294
+ },
+ "nature.bush.fern": {
+  "dark": 0.0384,
+  "materials": 2,
+  "mean": 0.9788,
+  "min": 0.5451
+ },
+ "nature.grass.patch": {
+  "dark": 0.0354,
+  "materials": 2,
+  "mean": 0.9794,
+  "min": 0.5255
+ },
+ "nature.log.fallen": {
+  "dark": 0.0406,
+  "materials": 2,
+  "mean": 0.9727,
+  "min": 0.6039
+ },
+ "nature.rock.boulder": {
+  "dark": 0.0002,
+  "materials": 1,
+  "mean": 0.9873,
+  "min": 0.749
+ },
+ "nature.tree.banana": {
+  "dark": 0.0362,
+  "materials": 3,
+  "mean": 0.979,
+  "min": 0.549
+ },
+ "nature.tree.beringin": {
+  "dark": 0.0253,
+  "materials": 3,
+  "mean": 0.9809,
+  "min": 0.5098
+ },
+ "nature.tree.dead": {
+  "dark": 0.0026,
+  "materials": 1,
+  "mean": 0.9764,
+  "min": 0.7922
+ },
+ "nature.tree.karet": {
+  "dark": 0.0231,
+  "materials": 3,
+  "mean": 0.9801,
+  "min": 0.5176
+ },
+ "nature.tree.palm": {
+  "dark": 0.0238,
+  "materials": 3,
+  "mean": 0.9812,
+  "min": 0.5451
+ },
+ "prop.bed": {
+  "dark": 0.0088,
+  "materials": 3,
+  "mean": 0.9777,
+  "min": 0.7608
+ },
+ "prop.chair.wood": {
+  "dark": 0.0457,
+  "materials": 2,
+  "mean": 0.9769,
+  "min": 0.6588
+ },
+ "prop.clothesline": {
+  "dark": 0.0053,
+  "materials": 5,
+  "mean": 0.9808,
+  "min": 0.7608
+ },
+ "prop.crate": {
+  "dark": 0.0457,
+  "materials": 2,
+  "mean": 0.9769,
+  "min": 0.6588
+ },
+ "prop.drum": {
+  "dark": 0.0,
+  "materials": 3,
+  "mean": 0.9947,
+  "min": 0.851
+ },
+ "prop.jerrycan": {
+  "dark": 0.0,
+  "materials": 2,
+  "mean": 0.995,
+  "min": 0.8627
+ },
+ "prop.lamp.teplok": {
+  "dark": 0.0001,
+  "materials": 4,
+  "mean": 0.971,
+  "min": 0.8118
+ },
+ "prop.sack": {
+  "dark": 0.0,
+  "materials": 2,
+  "mean": 0.9858,
+  "min": 0.8627
+ },
+ "prop.shelves.steel": {
+  "dark": 0.0217,
+  "materials": 3,
+  "mean": 0.982,
+  "min": 0.6588
+ },
+ "prop.signboard": {
+  "dark": 0.0132,
+  "materials": 2,
+  "mean": 0.9896,
+  "min": 0.7608
+ },
+ "prop.stove": {
+  "dark": 0.0001,
+  "materials": 5,
+  "mean": 0.9941,
+  "min": 0.8118
+ },
+ "prop.table.wood": {
+  "dark": 0.0457,
+  "materials": 2,
+  "mean": 0.9769,
+  "min": 0.6588
+ },
+ "road.asphalt.cross": {
+  "dark": 0.0005,
+  "materials": 2,
+  "mean": 0.989,
+  "min": 0.7608
+ },
+ "road.asphalt.curve": {
+  "dark": 0.0005,
+  "materials": 2,
+  "mean": 0.989,
+  "min": 0.7608
+ },
+ "road.asphalt.straight": {
+  "dark": 0.0005,
+  "materials": 2,
+  "mean": 0.989,
+  "min": 0.7608
+ },
+ "road.asphalt.tjunction": {
+  "dark": 0.0005,
+  "materials": 2,
+  "mean": 0.989,
+  "min": 0.7608
+ },
+ "road.asphalt.wet": {
+  "dark": 0.0001,
+  "materials": 1,
+  "mean": 0.9902,
+  "min": 0.7608
+ },
+ "road.dirt.straight": {
+  "dark": 0.0001,
+  "materials": 2,
+  "mean": 0.9827,
+  "min": 0.7608
+ },
+ "road.prop.powerpole": {
+  "dark": 0.0112,
+  "materials": 3,
+  "mean": 0.9804,
+  "min": 0.6902
+ },
+ "road.prop.signpost": {
+  "dark": 0.023,
+  "materials": 3,
+  "mean": 0.9854,
+  "min": 0.549
+ },
+ "road.sidewalk.segment": {
+  "dark": 0.0025,
+  "materials": 1,
+  "mean": 0.9843,
+  "min": 0.6667
+ },
+ "vehicle.motorcycle.bebek": {
+  "dark": 0.0003,
+  "materials": 8,
+  "mean": 0.9795,
+  "min": 0.7765
+ },
+ "vehicle.pickup": {
+  "dark": 0.0003,
+  "materials": 5,
+  "mean": 0.9713,
+  "min": 0.7961
+ }
+}

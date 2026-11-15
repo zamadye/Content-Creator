@@ -43,7 +43,7 @@ export default {
     ]
    },
    "tris": 37848,
-   "bytes": 3671456,
+   "bytes": 3726280,
    "tags": [
     "human",
     "male",
@@ -129,7 +129,7 @@ export default {
     ]
    },
    "tris": 39386,
-   "bytes": 3753756,
+   "bytes": 3790252,
    "tags": [
     "human",
     "male",
@@ -214,7 +214,7 @@ export default {
     ]
    },
    "tris": 37790,
-   "bytes": 3793760,
+   "bytes": 3848172,
    "tags": [
     "human",
     "male",
@@ -300,7 +300,7 @@ export default {
     ]
    },
    "tris": 38066,
-   "bytes": 3825936,
+   "bytes": 3879720,
    "tags": [
     "human",
     "female",
@@ -387,7 +387,7 @@ export default {
     ]
    },
    "tris": 38066,
-   "bytes": 3979792,
+   "bytes": 4033260,
    "tags": [
     "human",
     "female",
@@ -474,7 +474,7 @@ export default {
     ]
    },
    "tris": 39369,
-   "bytes": 3733572,
+   "bytes": 3770452,
    "tags": [
     "human",
     "male",
@@ -559,7 +559,7 @@ export default {
     ]
    },
    "tris": 30334,
-   "bytes": 3243336,
+   "bytes": 3273936,
    "tags": [
     "ghost",
     "humanoid",
@@ -642,7 +642,7 @@ export default {
     ]
    },
    "tris": 29944,
-   "bytes": 2935292,
+   "bytes": 2961700,
    "tags": [
     "ghost",
     "humanoid",
@@ -724,7 +724,7 @@ export default {
     ]
    },
    "tris": 30560,
-   "bytes": 3083116,
+   "bytes": 3111884,
    "tags": [
     "ghost",
     "humanoid",
@@ -808,7 +808,7 @@ export default {
     ]
    },
    "tris": 30392,
-   "bytes": 3233260,
+   "bytes": 3260632,
    "tags": [
     "ghost",
     "child",
@@ -890,7 +890,7 @@ export default {
     ]
    },
    "tris": 29944,
-   "bytes": 2898144,
+   "bytes": 2927888,
    "tags": [
     "ghost",
     "shadow",
@@ -1348,7 +1348,7 @@ export default {
     ]
    },
    "tris": 230,
-   "bytes": 140984,
+   "bytes": 141060,
    "tags": [
     "road",
     "pole",
@@ -1396,7 +1396,7 @@ export default {
     ]
    },
    "tris": 2070,
-   "bytes": 452252,
+   "bytes": 460608,
    "tags": [
     "tree",
     "rubber",
@@ -1445,7 +1445,7 @@ export default {
     ]
    },
    "tris": 3144,
-   "bytes": 512640,
+   "bytes": 522664,
    "tags": [
     "tree",
     "banyan",
@@ -1494,7 +1494,7 @@ export default {
     ]
    },
    "tris": 394,
-   "bytes": 377864,
+   "bytes": 385680,
    "tags": [
     "tree",
     "palm",
@@ -1542,7 +1542,7 @@ export default {
     ]
    },
    "tris": 142,
-   "bytes": 415980,
+   "bytes": 428404,
    "tags": [
     "tree",
     "banana",
@@ -1636,7 +1636,7 @@ export default {
     ]
    },
    "tris": 36,
-   "bytes": 291092,
+   "bytes": 300088,
    "tags": [
     "bush",
     "fern",
@@ -1683,7 +1683,7 @@ export default {
     ]
    },
    "tris": 52,
-   "bytes": 291656,
+   "bytes": 296684,
    "tags": [
     "grass",
     "ground"
@@ -1925,7 +1925,7 @@ export default {
     ]
    },
    "tris": 592,
-   "bytes": 941252,
+   "bytes": 941832,
    "tags": [
     "shop",
     "warung",
@@ -2026,7 +2026,7 @@ export default {
     ]
    },
    "tris": 372,
-   "bytes": 975188,
+   "bytes": 978552,
    "tags": [
     "room",
     "kos",
@@ -2453,7 +2453,7 @@ export default {
     ]
    },
    "tris": 762,
-   "bytes": 349784,
+   "bytes": 350368,
    "tags": [
     "kitchen",
     "stove",
@@ -2503,7 +2503,7 @@ export default {
     ]
    },
    "tris": 712,
-   "bytes": 157164,
+   "bytes": 158396,
    "tags": [
     "light",
     "lamp",
@@ -2552,7 +2552,7 @@ export default {
     ]
    },
    "tris": 512,
-   "bytes": 232128,
+   "bytes": 233780,
    "tags": [
     "container",
     "drum",
@@ -2739,7 +2739,7 @@ export default {
     ]
    },
    "tris": 296,
-   "bytes": 894924,
+   "bytes": 895652,
    "tags": [
     "home",
     "clothesline",
@@ -2789,7 +2789,7 @@ export default {
     ]
    },
    "tris": 100,
-   "bytes": 168880,
+   "bytes": 169904,
    "tags": [
     "sign",
     "board"

@@ -54,7 +54,13 @@ def sample_clip(clip, fps=30):
     return times, {k: np.array(v, F) for k, v in quats.items()}, np.array(roots, F)
 
 
-def write_skinned_glb(path, name, parts, bones, clips, extras=None, fps=30, anchors=None, generator="Content-Creator studio-forge"):
+def write_skinned_glb(path, name, parts, bones, clips, extras=None, fps=30, anchors=None, generator="Content-Creator studio-forge", bake_ao=True):
+    if bake_ao:
+        from .bake import apply_to_material
+
+        # okluder = seluruh badan; sampel = satu material pada satu waktu
+        for part in parts:
+            apply_to_material(parts, part)
     w = GLBWriter(generator)
     if extras:
         w.asset_extras = extras
@@ -124,12 +130,25 @@ def write_skinned_glb(path, name, parts, bones, clips, extras=None, fps=30, anch
     return {"gltf": gltf, "nodes": nodes, "mesh_node": mesh_node_index, "roots": roots}
 
 
-def write_static_glb(path, name, builder, materials, extras=None, anchors=None, generator="Content-Creator studio-forge", pack_uv=True):
+def write_static_glb(path, name, builder, materials, extras=None, anchors=None, generator="Content-Creator studio-forge", pack_uv=True, bake_ao=True):
     """builder: kit.Builder with one Surface per material name; materials: name -> Material."""
     if pack_uv:
         from .uvpack import pack_builder
 
         pack_builder(builder)
+    baked = []
+    if bake_ao:
+        from .bake import apply_to_material
+
+        all_parts = [
+            {"pos": np.vstack(surf.pos), "idx": np.concatenate(surf.idx), "uv": np.vstack(surf.uv), "name": name}
+            for name, surf in builder.groups.items()
+            if surf.pos
+        ]
+        for part in all_parts:
+            part["mat"] = materials.get(part["name"])
+        for part in all_parts:
+            baked.append(apply_to_material(all_parts, part))
     w = GLBWriter(generator)
     if extras:
         w.asset_extras = extras

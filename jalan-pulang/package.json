@@ -29,7 +29,8 @@
     "qc:motion": "node scripts/qc-motion.mjs",
     "qc:plan": "node scripts/qc-plan.mjs",
     "qc:plan:png": "./.venv/bin/python studio-forge/dev_plan.py",
-    "test:plan": "node scripts/test-plan.mjs"
+    "test:plan": "node scripts/test-plan.mjs",
+    "qc:topology": "node scripts/qc-topology.mjs"
   },
   "license": "ISC",
   "dependencies": {

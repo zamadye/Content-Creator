@@ -17,6 +17,7 @@ import {sampleCamera, facingYaw, EYE_HEIGHT} from '../src/studio/camera.js';
 import {framingIssues} from './qc-framing.mjs';
 import {secondaryTurns} from '../src/studio/secondary.js';
 import {parseAudit, summaryTable, totalLine} from './lib/audit.mjs';
+import {budgetProblems, assetTable} from './qc-topology.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -384,6 +385,25 @@ assert.ok(catalogue.includes('KATALOG ASET'), 'catalogue header');
 assert.equal((catalogue.match(/^\| `/gm) ?? []).length, ids.length, 'catalogue rows must match registry');
 const storyDoc = fs.readFileSync(path.join(root, 'docs', 'STORY-FORMAT.md'), 'utf8');
 for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.includes(key), `STORY-FORMAT must document ${key}`);
+// --------------------------------------------------------------- 7. topologi & anggaran
+{
+  const {violations, summary, heaviestShot, stories, ids: topoIds} = await import('./qc-topology.mjs');
+  const {problems, heavy} = violations();
+  assert.deepEqual(problems, [], `anggaran topologi: ${problems.join('; ')}`);
+  assert.equal(topoIds.length, ids.length, 'semua aset diukur');
+  assert.ok(heavy.tris > 0 && heavy.tris <= 120000, `shot terberat ${heavy.where} = ${heavy.tris} tri`);
+  const per = summary();
+  assert.equal(Object.keys(per).length, registry.categories.length, 'semua kategori punya anggaran');
+  // pagar ini harus bisa gagal: aset karangan yang melewati anggaran wajib terdeteksi
+  const fake = budgetProblems({'char.palsu': {category: 'character', tris: 50000, maxTex: 4096, registryTris: 50000}});
+  assert.equal(fake.length, 2, `pelanggaran karangan harus dilaporkan, dapat ${JSON.stringify(fake)}`);
+  const planDoc = fs.readFileSync(path.join(root, 'docs', 'TOPOLOGY-PLAN.md'), 'utf8');
+  assert.ok(planDoc.includes(assetTable()), 'tabel topologi harus sinkron dengan GLB');
+  void stories;
+  void heaviestShot;
+  ok('topology');
+}
+
 const auditMd = fs.readFileSync(path.join(root, 'docs', 'PIPELINE-AUDIT.md'), 'utf8');
 const audit = parseAudit(auditMd);
 assert.equal(audit.totals.total, 53, 'audit harus 53 langkah');

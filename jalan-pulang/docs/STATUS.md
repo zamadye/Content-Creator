@@ -146,7 +146,7 @@ teplok).
 ## Audit pipeline 9 fase / 53 langkah
 
 `docs/PIPELINE-AUDIT.md` memetakan seluruh pipeline (pre-production sampai
-encoding) ke kondisi nyata repo: **28 selesai, 16 sebagian, 7 belum, 2 tidak
+encoding) ke kondisi nyata repo: **29 selesai, 15 sebagian, 7 belum, 2 tidak
 berlaku** (dihitung ulang otomatis, lihat di bawah). Lubang termahal tetap
 **belum ada render WebGL** — semua bukti visual berasal dari renderer
 perangkat lunak.
@@ -155,8 +155,9 @@ Tabel ringkasan di audit tidak lagi ditulis tangan: `scripts/audit-count.mjs`
 menghitung ulang semua 53 baris dan `npm run test:studio` (grup
 `audit-summary`) menolak dokumen yang tabelnya tidak cocok dengan isinya.
 
-**Phase 1 kini 4/4 ✅.** Langkah 4 (scene planning) ditutup sesi ini dengan
-denah + pemeriksaan tata letak terukur — lihat bagian berikut.
+**Phase 1 = 4/4 ✅, Phase 2 = 5/5 ✅.** Langkah 4 (scene planning) ditutup
+dengan denah + pemeriksaan tata letak terukur, langkah 8 (topology planning)
+dengan rencana + anggaran yang ditegakkan tes — lihat dua bagian berikut.
 
 Sesi ini menutup langkah 41 (foot sliding): `scripts/qc-motion.mjs` mengukur
 laju kaki saat menapak (walk 2,26 m/s, run 4,76 m/s pada `speed 1`, tanpa
@@ -202,6 +203,30 @@ segitiga harus di dalam kotak sampel ±2,5 m) dan dibatasi 6.000 segitiga per
 mesh; aktor diperiksa sebagai titik dada, bukan tabung badan penuh; dan ini
 tetap perhitungan, **bukan render** — ia tidak menangkap oklusi visual,
 pencahayaan, atau clipping near/far.
+
+## Rencana topologi & anggaran — langkah 8
+
+`docs/TOPOLOGY-PLAN.md` akhirnya menuliskan keputusan yang selama ini hanya ada
+di kode: mana yang jadi geometri, mana yang jadi tekstur, dan berapa plafonnya.
+Isinya dipakai — bukan pajangan:
+
+| bagian | isi |
+|---|---|
+| prinsip | bentuk besar = geometri, detail kecil = tekstur; silhouette dulu; statis = murah |
+| strategi per kategori | menunjuk fungsi aslinya (mis. daun = kartu alpha `add_leaf_card`, batang = `add_tube`; roda = `add_lathe`) |
+| keputusan yang ditolak | LOD, high→low bake, atlasing lintas aset — beserta alasan |
+| anggaran | character 42k · entity 34k · nature 4k · building 3k · vehicle 3k · prop 1,5k · road 1,5k tri; tekstur 512–2048 px; **shot 120k tri** |
+| tabel 52 aset | tri, vertex, primitif, material, tekstur, tulang, % pemakaian — **diukur dari GLB** |
+
+`npm run qc-topology` (`scripts/qc-topology.mjs`) memeriksa tiga hal sekaligus:
+tidak ada aset melewati anggaran, jumlah tri di GLB **sama** dengan registry, dan
+tabel di dokumen tidak basi (`--write` untuk menyegarkan). Hasil sekarang:
+52 aset, 0 pelanggaran; pemakaian tertinggi `char.male-muda-jaket` 39.386 tri =
+**94 %**; shot terberat `warung-malam/duduk-02` 79.044 tri = **66 %** anggaran.
+
+Grup tes `topology` di `npm run test:studio` juga membuktikan pagarnya **bisa
+gagal**: aset karangan 50.000 tri + tekstur 4096 px langsung dilaporkan sebagai
+dua pelanggaran.
 
 ## QC framing shot (`scripts/qc-framing.mjs`)
 

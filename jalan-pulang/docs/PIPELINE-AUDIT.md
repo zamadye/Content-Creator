@@ -26,7 +26,7 @@ Baris yang bergantung pada GPU ditandai eksplisit.
 | # | Fase | ✅ | ◐ | ⛔ | — |
 |---|---|---|---|---|---|
 | 1 | Pre-production | 4 | 0 | 0 | 0 |
-| 2 | Procedural & blockout | 4 | 1 | 0 | 0 |
+| 2 | Procedural & blockout | 5 | 0 | 0 | 0 |
 | 3 | Real geometry & modeling | 3 | 1 | 1 | 1 |
 | 4 | UV & texture preparation | 2 | 2 | 1 | 0 |
 | 5 | PBR material & texturing | 6 | 2 | 1 | 0 |
@@ -34,9 +34,9 @@ Baris yang bergantung pada GPU ditandai eksplisit.
 | 7 | Animation production | 2 | 3 | 1 | 1 |
 | 8 | Scene assembly & lighting | 3 | 2 | 0 | 0 |
 | 9 | Rendering & post-production | 0 | 4 | 2 | 0 |
-|  | **Total** | 28 | 16 | 7 | 2 |
+|  | **Total** | 29 | 15 | 7 | 2 |
 
-Total: 28 selesai · 16 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
+Total: 29 selesai · 15 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 
 ---
 
@@ -56,7 +56,7 @@ Total: 28 selesai · 16 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 | 5 | Procedural generation | ✅ | `studio-forge/forge/kit.py` (box/tube/lathe/extrude), `env_building.py`, `env_nature.py`, `env_prop.py`, `env_road.py`, `env_vehicle.py` |
 | 6 | Primitive blocking | ✅ | Seluruh aset lingkungan lahir dari primitif; `dev_sheet.py` menyusun blockout per kategori |
 | 7 | Layout blockout | ✅ | `stories/studio/*.json` (`set`, `objects`, `actors`) + `src/preview.jsx` 8 adegan |
-| 8 | Topology planning | ◐ | Keputusan detail-vs-statis ada di praktik (mis. pipa `add_tube` vs slab `add_box`), tapi belum ada dokumen rencana topologi per aset |
+| 8 | Topology planning | ✅ | `docs/TOPOLOGY-PLAN.md`: prinsip (bentuk besar = geometri, detail kecil = tekstur), strategi per kategori yang menunjuk fungsi aslinya, anggaran tri & tekstur per kategori + anggaran shot 120.000, dan tabel 52 aset yang **diukur dari GLB** (bukan disalin dari registry). Dijaga `scripts/qc-topology.mjs` (`npm run qc:topology`, keluar 1 bila melanggar atau dokumen basi) dan grup tes `topology` — termasuk tes bahwa pelanggaran karangan benar-benar terdeteksi |
 | 9 | Blockout validation | ✅ | Thumbnail 512 per aset + `stories/studio/uji-kamera.json` (9 shot, satu per preset kamera) |
 
 ## Phase 3 — Real geometry & modeling
@@ -67,7 +67,7 @@ Total: 28 selesai · 16 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 | 11 | High-poly modeling | ◐ | Detail prosedural (lipatan, jahitan, kusen) tanpa sculpt/subdivision adaptif |
 | 12 | Anatomical / structural refinement | ✅ | `shape()` di `character.py` (shoulder/chest/limb/jaw/neck), `entity.shape_entity` (limb_len, torso_len, neck_len) |
 | 13 | Retopology | — | Topologi base MakeHuman dipakai apa adanya; bukan pekerjaan yang dikerjakan ulang di sini |
-| 14 | Low-poly optimization | ✅ | Anggaran tris per kategori dijaga; total 232.658 vertex / 398k tris di registry |
+| 14 | Low-poly optimization | ✅ | Anggaran per kategori di `docs/TOPOLOGY-PLAN.md` (character 42k · entity 34k · nature 4k · building 3k · vehicle 3k · prop 1,5k · road 1,5k) dan anggaran shot 120k **ditegakkan** oleh `npm run qc:topology`; pemakaian terbesar character 94 % (39.386 tri), shot terberat 79.044 tri = 66 % anggaran; total 232.658 vertex di registry |
 | 15 | LOD generation | ⛔ | Belum ada LOD. Belum mendesak karena targetnya klip pendek 1080p, bukan game |
 
 ## Phase 4 — UV & texture preparation

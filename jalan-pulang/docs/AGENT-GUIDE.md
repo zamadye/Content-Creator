@@ -105,6 +105,10 @@ python studio-forge/build.py --only prop.bench.wood
 
 3. Registry, katalog, dan modul JS (`src/studio/registry.generated.js`)
    ikut ditulis ulang otomatis, lalu jalankan `npm run test:studio`.
+5. jalankan `npm run qc:topology -- --write` lalu `npm run qc:topology`. Kalau
+   aset baru melewati anggaran kategori di `docs/TOPOLOGY-PLAN.md`, pilihannya
+   hanya dua: turunkan detail geometri, atau naikkan anggaran **beserta
+   alasannya**. Pagar ini sengaja bisa gagal.
 
 Aturan builder:
 

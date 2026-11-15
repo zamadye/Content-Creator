@@ -15,8 +15,9 @@ The product needs deterministic seekable preview and full render, audio/sample a
 
 ## Evidence
 
-- Sandbox baseline: Node 22.22.3; no pnpm, FFmpeg/ffprobe, Chrome/Chromium, or Docker on PATH.
-- OpenFilm 0.3.2, HyperFrames 0.9.52, and Remotion 4.0.380 were identified as candidates; exact legal/runtime review and benchmark are outstanding.
+- Sandbox baseline: Node 22.22.3/Corepack 0.34.6. Global `PATH` lookup did not find FFmpeg/ffprobe or Chrome/Chromium, but that was not evidence the tools could not be provisioned.
+- Prior OpenFilm v7 rendered 1,500 frames and passed full-frame OpenFilm look QA; v8 was rendered and VO-muxed with a provisioned FFmpeg binary. Existing wrappers also support configured Chrome and tool-bin paths.
+- OpenFilm 0.3.2, HyperFrames 0.9.52, and Remotion 4.0.380 are candidates; the new synthetic comparative benchmark, exact legal/runtime review and seek/cancel/recovery tests remain outstanding.
 - See `docs/content-studio/reports/renderer-benchmark.md` and `reports/environment-baseline.md`.
 
 ## Selection gate

@@ -20,8 +20,8 @@ The product is a private, single-owner application first, with workspace-aware o
 
 ## Rationale / limits
 
-This follows the architecture document while avoiding a premature vendor lock or untested dependency pile. The sandbox has Node 22.22.3/Corepack 0.34.6 but no pnpm or Docker. No DB, Redis, object storage or auth integration has been run. This ADR is not an approval to deploy or accept real media.
+This follows the architecture document while avoiding a premature vendor lock or untested dependency pile. The sandbox has Node 22.22.3/Corepack 0.34.6 and a pinned pnpm workspace; Docker is not installed. No DB, Redis, object storage or auth integration has been run. This ADR is not an approval to deploy or accept real media.
 
 ## Required follow-up
 
-After the P0 renderer/runtime compatibility spike, pin package manager and Node engine; choose an OIDC library; verify local filesystem and one S3-compatible provider contracts; document threat model, ACL tests, upload limits, signed URL policy, migrations and rollback. Amend this ADR with exact versions and evidence before P1 integration is called complete.
+Next, complete the renderer/runtime compatibility spike; choose and pin an OIDC library and DB/queue/storage drivers; verify local filesystem and one S3-compatible provider contract; document threat model, ACL tests, upload limits, signed URL policy, migrations and rollback. Amend this ADR with exact versions and evidence before P1 integration is called complete.

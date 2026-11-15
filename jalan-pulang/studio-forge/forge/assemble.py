@@ -124,8 +124,12 @@ def write_skinned_glb(path, name, parts, bones, clips, extras=None, fps=30, anch
     return {"gltf": gltf, "nodes": nodes, "mesh_node": mesh_node_index, "roots": roots}
 
 
-def write_static_glb(path, name, builder, materials, extras=None, anchors=None, generator="Content-Creator studio-forge"):
+def write_static_glb(path, name, builder, materials, extras=None, anchors=None, generator="Content-Creator studio-forge", pack_uv=True):
     """builder: kit.Builder with one Surface per material name; materials: name -> Material."""
+    if pack_uv:
+        from .uvpack import pack_builder
+
+        pack_builder(builder)
     w = GLBWriter(generator)
     if extras:
         w.asset_extras = extras

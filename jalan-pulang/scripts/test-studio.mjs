@@ -404,6 +404,22 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
   ok('topology');
 }
 
+// --------------------------------------------------------------- 8. UV packing
+{
+  const {uvProblems, uvTable, summary: uvSummary} = await import('./qc-uv.mjs');
+  const problems = uvProblems();
+  assert.deepEqual(problems, [], `UV: ${problems.join('; ')}`);
+  const s = uvSummary();
+  assert.equal((s.kinds.tabrakan ?? 0), 0, 'tidak boleh ada UV bertabrakan');
+  assert.ok(s.minDensity >= 100, `kepadatan texel terendah ${Math.round(s.minDensity)} px/m`);
+  // pagar harus bisa gagal: baris karangan dengan tumpang tindih 40 % wajib dilaporkan
+  const fake = uvProblems([{id: 'x.palsu', uv: {kind: 'tabrakan', overlap: 0.4, density: 50}}]);
+  assert.equal(fake.length, 2, `pelanggaran UV karangan harus dilaporkan, dapat ${JSON.stringify(fake)}`);
+  const doc = fs.readFileSync(path.join(root, 'docs', 'UV-PACKING.md'), 'utf8');
+  assert.ok(doc.includes(uvTable()), 'tabel UV harus sinkron dengan GLB');
+  ok('uv');
+}
+
 const auditMd = fs.readFileSync(path.join(root, 'docs', 'PIPELINE-AUDIT.md'), 'utf8');
 const audit = parseAudit(auditMd);
 assert.equal(audit.totals.total, 53, 'audit harus 53 langkah');

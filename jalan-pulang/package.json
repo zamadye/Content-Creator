@@ -30,7 +30,8 @@
     "qc:plan": "node scripts/qc-plan.mjs",
     "qc:plan:png": "./.venv/bin/python studio-forge/dev_plan.py",
     "test:plan": "node scripts/test-plan.mjs",
-    "qc:topology": "node scripts/qc-topology.mjs"
+    "qc:topology": "node scripts/qc-topology.mjs",
+    "qc:uv": "node scripts/qc-uv.mjs"
   },
   "license": "ISC",
   "dependencies": {

@@ -155,7 +155,7 @@ Tabel ringkasan di audit tidak lagi ditulis tangan: `scripts/audit-count.mjs`
 menghitung ulang semua 53 baris dan `npm run test:studio` (grup
 `audit-summary`) menolak dokumen yang tabelnya tidak cocok dengan isinya.
 
-**Phase 1 = 4/4 ✅, Phase 2 = 5/5 ✅.** Langkah 4 (scene planning) ditutup
+**Phase 1 = 4/4 ✅, Phase 2 = 5/5 ✅, Phase 4 = 3 ✅ / 1 ◐ / 1 ⛔.** Langkah 4 (scene planning) ditutup
 dengan denah + pemeriksaan tata letak terukur, langkah 8 (topology planning)
 dengan rencana + anggaran yang ditegakkan tes — lihat dua bagian berikut.
 
@@ -227,6 +227,36 @@ tabel di dokumen tidak basi (`--write` untuk menyegarkan). Hasil sekarang:
 Grup tes `topology` di `npm run test:studio` juga membuktikan pagarnya **bisa
 gagal**: aset karangan 50.000 tri + tekstur 4096 px langsung dilaporkan sebagai
 dua pelanggaran.
+
+## UV: dua rezim, packing, dan dua bug — langkah 17
+
+`docs/UV-PACKING.md` mengubah pertanyaan "kenapa belum ada packing?" menjadi
+fakta terukur: repo ini memakai **dua rezim UV** yang tidak pernah ditulis.
+
+| rezim | aset | tumpang tindih |
+|---|---|---|
+| atlas 0..1 | 25 aset (karakter, entitas, properti parametris) | diukur; yang disengaja = pemakaian ulang bilangan bulat ≥ 2× (cermin kiri/kanan) |
+| ruang objek tiling | 27 aset lingkungan | tidak relevan — berulang memang tujuannya |
+
+Sambil mengukur, dua bug generator ketemu dan diperbaiki:
+
+* `add_lathe`/`add_tube` menskalakan **U per radius** → cincin kecil menimpa
+  cincin besar (lampu teplok: **66,3 %** texel tertimpa). Kini U memakai radius
+  acuan;
+* cakram UV tutup lathe/tabung memakai `cos/sin × r` → koordinat **negatif**
+  (sampai −0,44). Kini dinormalisasi ke `0,5 + 0,5·cos/sin`.
+
+Ditambah `forge/uvpack.py` (shelf packing per material, hanya untuk material
+yang seluruh pulaunya di dalam 0..1) yang dipanggil `write_static_glb`.
+
+Sesudah perbaikan dan rebuild 41 aset (±50 detik): **0 tumpang tindih tak
+sengaja** (sebelumnya 3 aset), kelas 19 rapat · 6 daur-ulang · 27 tiling,
+kepadatan texel **123–3.870 px/m** (ambang 100). Bukti visual
+`docs/uv-before-after.png`; pagar `npm run qc:uv` + grup tes `uv` (yang juga
+membuktikan pagarnya bisa gagal).
+
+Langkah 19 (texture baking) tetap ◐: peta normal/AO masih prosedural, belum
+hasil bake. Langkah 18 (high→low) tetap ⛔ karena tidak ada sumber high-poly.
 
 ## QC framing shot (`scripts/qc-framing.mjs`)
 

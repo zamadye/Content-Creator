@@ -28,15 +28,15 @@ Baris yang bergantung pada GPU ditandai eksplisit.
 | 1 | Pre-production | 4 | 0 | 0 | 0 |
 | 2 | Procedural & blockout | 5 | 0 | 0 | 0 |
 | 3 | Real geometry & modeling | 3 | 1 | 1 | 1 |
-| 4 | UV & texture preparation | 2 | 2 | 1 | 0 |
+| 4 | UV & texture preparation | 3 | 1 | 1 | 0 |
 | 5 | PBR material & texturing | 6 | 2 | 1 | 0 |
 | 6 | Rigging & deformation | 4 | 1 | 1 | 0 |
 | 7 | Animation production | 2 | 3 | 1 | 1 |
 | 8 | Scene assembly & lighting | 3 | 2 | 0 | 0 |
 | 9 | Rendering & post-production | 0 | 4 | 2 | 0 |
-|  | **Total** | 29 | 15 | 7 | 2 |
+|  | **Total** | 30 | 14 | 7 | 2 |
 
-Total: 29 selesai · 15 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
+Total: 30 selesai · 14 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 
 ---
 
@@ -64,7 +64,7 @@ Total: 29 selesai · 15 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 | # | Langkah | Status | Bukti / catatan |
 |---|---|---|---|
 | 10 | Base mesh construction | ✅ | Base MakeHuman + `character.py` (163 tulang, UV skin, garment fitting) |
-| 11 | High-poly modeling | ◐ | Detail prosedural (lipatan, jahitan, kusen) tanpa sculpt/subdivision adaptif |
+| 11 | High-poly modeling | ◐ | Detail prosedural (lipatan, jahitan, kusen) ada, tapi **tidak ada high-poly**: tanpa sculpt/subdivision dan tanpa sumber bake. Blokirnya keputusan toolchain, bukan lupa: anggaran tri karakter sudah 94 % (`docs/TOPOLOGY-PLAN.md`), jadi high-poly hanya berguna kalau ada jalur bake ke low-poly (langkah 18, ⛔). Sementara itu detail halus dibangkitkan prosedural di peta normal (langkah 19) |
 | 12 | Anatomical / structural refinement | ✅ | `shape()` di `character.py` (shoulder/chest/limb/jaw/neck), `entity.shape_entity` (limb_len, torso_len, neck_len) |
 | 13 | Retopology | — | Topologi base MakeHuman dipakai apa adanya; bukan pekerjaan yang dikerjakan ulang di sini |
 | 14 | Low-poly optimization | ✅ | Anggaran per kategori di `docs/TOPOLOGY-PLAN.md` (character 42k · entity 34k · nature 4k · building 3k · vehicle 3k · prop 1,5k · road 1,5k) dan anggaran shot 120k **ditegakkan** oleh `npm run qc:topology`; pemakaian terbesar character 94 % (39.386 tri), shot terberat 79.044 tri = 66 % anggaran; total 232.658 vertex di registry |
@@ -75,7 +75,7 @@ Total: 29 selesai · 15 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 | # | Langkah | Status | Bukti / catatan |
 |---|---|---|---|
 | 16 | UV unwrapping | ✅ | UV base MakeHuman untuk karakter; UV generator untuk aset prosedural (`uvpaint.py`) |
-| 17 | UV packing | ◐ | Tidak ada packing/UDIM; UV dipepetkan ke 0..1 per aset, atlas per material |
+| 17 | UV packing | ✅ | `docs/UV-PACKING.md` menyatakan **dua rezim** (atlas 0..1 untuk karakter/entitas/properti parametris, UV ruang-objek tiling untuk 27 aset lingkungan) dan mengukur keduanya: 52 aset, **0 tumpang tindih tak sengaja** (sebelumnya 3: lampu teplok 66,3 %, rumah kos 10,8 %, jeriken 92,5 %), kelas 19 rapat · 6 daur-ulang cermin · 27 tiling, kepadatan texel 123–3.870 px/m (ambang 100). Bug diperbaiki di `forge/kit.py` (U lathe/tabung per radius → radius acuan; cakram UV tutup yang negatif) dan `forge/uvpack.py` (shelf packing pulau parametris); 41 aset dibangun ulang, bukti visual `docs/uv-before-after.png`. Dijaga `npm run qc:uv` + grup tes `uv` |
 | 18 | High-to-low baking | ⛔ | Tidak ada high-poly sumber, jadi tidak ada yang bisa di-bake |
 | 19 | Texture baking | ◐ | Normal map & AO diproduksi prosedural (`tex.height_to_normal`, `tex.orm`), bukan hasil bake |
 | 20 | Texture set preparation | ✅ | 3 peta per aset (base/normal/ORM), 512–2048 px, satu set material per aset |

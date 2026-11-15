@@ -44,7 +44,7 @@ def apply_xform(pos, normal, m):
 class Surface:
     """A chunk of geometry for one material."""
 
-    __slots__ = ("pos", "uv", "nrm", "idx", "n")
+    __slots__ = ("pos", "uv", "nrm", "idx", "n", "islands")
 
     def __init__(self):
         self.pos = []
@@ -52,6 +52,7 @@ class Surface:
         self.nrm = []
         self.idx = []
         self.n = 0
+        self.islands = []  # rentang vertex per panggilan add_raw (satu pulau UV)
 
     def count(self):
         return self.n
@@ -82,6 +83,7 @@ class Builder:
         s.uv.append(uv)
         s.nrm.append(np.asarray(normal, F))
         s.idx.append(np.asarray(idx, np.int64).ravel() + base)
+        s.islands.append((base, base + len(pos)))
         s.n += len(pos)
 
     def add_quad(self, material, p0, p1, p2, p3, uv=((0, 0), (1, 0), (1, 1), (0, 1)), matrix=None, flip=False):
@@ -151,7 +153,7 @@ class Builder:
                 idx = []
                 for i in range(1, len(pts) - 1):
                     idx.extend([0, i, i + 1] if flip else [0, i + 1, i])
-                uvc = np.vstack([[[0.0, 0.0]], np.stack([np.cos(ang), np.sin(ang)], 1) * rr / uv_scale])
+                uvc = np.vstack([[[0.5, 0.5]], 0.5 + 0.5 * np.stack([np.cos(ang), np.sin(ang)], 1)])
                 self.add_raw(material, pts, idx, uvc, n, matrix)
 
     def add_tube(self, material, points, radii, sides=10, uv_scale=1.0, matrix=None, caps=True):
@@ -172,6 +174,7 @@ class Builder:
             frames.append((a, b))
             prev_a = a
         ang = np.linspace(0, 2 * np.pi, sides + 1, dtype=F)
+        u_ref = 2 * np.pi * max(float(np.max(r)), 1e-3)
         ca, sa = np.cos(ang)[:, None], np.sin(ang)[:, None]
         verts, normals, uvs = [], [], []
         acc_u = 0.0
@@ -180,7 +183,9 @@ class Builder:
             ring = ca * a[None, :] + sa * b[None, :]
             verts.append(p[None, :] + ring * rr)
             normals.append(ring)
-            u = ang / (2 * np.pi) * (2 * np.pi * max(rr, 1e-3)) / uv_scale
+            # sama seperti add_lathe: U konstan sepanjang tabung (radius acuan),
+            # supaya tabung menirus tidak menumpuk UV-nya sendiri
+            u = ang / (2 * np.pi) * u_ref / uv_scale
             v = acc_u / uv_scale
             uvs.append(np.stack([u, np.full_like(u, v)], 1))
             if i + 1 < len(pts):
@@ -203,7 +208,7 @@ class Builder:
                 a, b = frames[i]
                 ring = ca * a[None, :] + sa * b[None, :]
                 n = tangents[i] * (-1 if flip else 1)
-                uvc = np.vstack([[[0.0, 0.0]], np.stack([np.cos(ang), np.sin(ang)], 1) * rr / uv_scale])
+                uvc = np.vstack([[[0.5, 0.5]], 0.5 + 0.5 * np.stack([np.cos(ang), np.sin(ang)], 1)])
                 idxc = []
                 for j in range(1, sides):
                     idxc.extend([0, j, j + 1] if flip else [0, j + 1, j])
@@ -236,6 +241,7 @@ class Builder:
 
     def add_lathe(self, material, profile, segments=24, uv_scale=1.0, matrix=None, cap_bottom=True):
         prof = np.asarray(profile, F)
+        u_ref = 2 * np.pi * max(float(np.max(prof[:, 0])), 1e-3)
         ang = np.linspace(0, 2 * np.pi, segments + 1, dtype=F)
         verts, nrm, uv = [], [], []
         for k, (r, y) in enumerate(prof):
@@ -249,7 +255,10 @@ class Builder:
             n2 = _norm(np.array([dy, -dr], F))
             for j, th in enumerate(ang):
                 nrm.append([n2[0] * np.cos(th), n2[1], n2[0] * np.sin(th)])
-                uv.append([th / (2 * np.pi) * (2 * np.pi * max(r, 1e-3)) / uv_scale, y / uv_scale])
+                # U memakai radius acuan (radius terbesar profil), bukan radius
+                # baris ini: kalau tidak, cincin yang lebih kecil mengecil di U dan
+                # saling menimpa -> peta normal/ORM berbintik di tepi.
+                uv.append([th / (2 * np.pi) * u_ref / uv_scale, y / uv_scale])
         idx = []
         rows = len(prof)
         for i in range(rows - 1):
@@ -264,7 +273,9 @@ class Builder:
             idxc = []
             for j in range(1, segments + 1):
                 idxc.extend([0, j, j + 1])
-            uvc = np.stack([np.cos(ang), np.sin(ang)], 1) * r0 / uv_scale
+            # cakram UV di dalam 0..1 (dulu cos/sin * r/uv_scale -> koordinat negatif,
+            # yang membuat packing UV melewati tutup lathe dan tumpang tindih)
+            uvc = 0.5 + 0.5 * np.stack([np.cos(ang), np.sin(ang)], 1)
             self.add_raw(material, np.vstack([[[0, y0, 0]], ring]), idxc, np.vstack([[[0.0, 0.0]], uvc]), np.tile([0, -1, 0], (segments + 2, 1)), matrix)
 
     def add_plane(self, material, center, size, uv_scale=1.0, rx=0.0, rz=0.0, matrix=None, uv_offset=(0, 0), uv_repeat=None):

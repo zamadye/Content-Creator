@@ -134,3 +134,11 @@ file identik antar-jalan (kecuali JPEG encoder sistem berubah).
 2. Set interior siap pakai (kamar kos, gudang) supaya 9 modul `kit.*` terpakai.
 3. Entitas yang layak horor (siluet, bukan kostum).
 4. LOD + atlas tekstur: 12 aktor × 3,5 MB terlalu berat untuk satu adegan penuh.
+
+## Duduk di kursi library
+
+Klip `sit` sudah dicocokkan dengan `prop.chair.wood`: permukaan duduk 0,46 m,
+pelvis aktor y≈0,50 m, kaki di lantai (lihat `docs/sit-chair-check.png`).
+Cerita contoh baru `stories/studio/duduk-sore.json` (4 shot, 16 detik) memakai
+pasangan ini, plus `validate` bersih (satu peringatan status `draft` untuk lampu
+teplok).

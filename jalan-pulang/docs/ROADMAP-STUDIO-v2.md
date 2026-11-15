@@ -82,7 +82,7 @@ Roadmap ini dikerjakan **berurutan**. Setiap fase punya *gerbang* yang harus lol
 | 6 | Props + set library | `public/assets/prop/*` (14) | **selesai** — set siap pakai belum |
 | 7 | Registry + thumbnail + katalog | `public/assets/registry.json`, `index.html`, `docs/ASSET-CATALOG.md` | **selesai** |
 | 8 | Runtime + skema film v2 + CLI | `src/studio/*`, `scripts/studio.mjs` | **selesai, belum diverifikasi di browser** |
-| 9 | Contoh cerita + dokumen agent | `stories/studio/*` (3), `docs/STORY-FORMAT.md`, `docs/AGENT-GUIDE.md` | **selesai** |
+| 9 | Contoh cerita + dokumen agent | `stories/studio/*` (4), `docs/STORY-FORMAT.md`, `docs/AGENT-GUIDE.md` | **selesai** |
 | 10 | Tes + status jujur | `scripts/test-studio.mjs`, `docs/STATUS.md` | **selesai** |
 
 Lihat `docs/STATUS.md` untuk progres nyata, dan `docs/ASSET-CATALOG.md` untuk daftar aset yang sudah ada.

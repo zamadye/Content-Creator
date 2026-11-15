@@ -166,3 +166,18 @@ renderer).
 
 Semua masalah dilaporkan sekaligus (`StoryError.problems`), jadi satu iterasi
 bisa memperbaiki semuanya.
+
+## Duduk: `sit` + `prop.chair.wood`
+
+Klip `sit` mengasumsikan kursi setinggi **0,46 m** (pelvis aktor turun ke y≈0,50,
+telapak kaki tetap di lantai). `prop.chair.wood` punya permukaan duduk tepat
+0,46 m dan punggung di −Z, jadi tempatkan kursi dan aktor di titik yang sama
+dengan `rot: 0` dan `facing: "+Z"`:
+
+```json
+"objects": [{ "ref": "kursi", "at": [0, 0, 0], "rot": 0 }],
+"actors":  [{ "ref": "aku", "at": [0, 0, 0], "facing": "+Z", "clip": "sit" }]
+```
+
+Contoh lengkap: `stories/studio/duduk-sore.json`; bukti visual (render software,
+tanpa engine): `docs/sit-chair-check.png`.

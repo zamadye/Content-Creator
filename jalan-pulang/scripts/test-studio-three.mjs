@@ -15,7 +15,14 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {clone as cloneSkeleton} from 'three/examples/jsm/utils/SkeletonUtils.js';
 import {registry} from '../src/studio/library.js';
 import {compileStory} from '../src/studio/compile.js';
-import {secondaryTurns, applySecondary, prepareSecondary, resetSecondary, SECONDARY_BONES} from '../src/studio/secondary.js';
+import {
+  secondaryTurns,
+  applySecondary,
+  prepareSecondary,
+  resetSecondary,
+  SECONDARY_BONES,
+  CLOTH_BONES,
+} from '../src/studio/secondary.js';
 import {createClipSampler} from '../src/studio/clip-sample.js';
 import {aimGaze, gazeDirection, gazeOrigin} from '../src/studio/ik.js';
 import {attachToHand, handBone} from '../src/studio/attach.js';
@@ -112,7 +119,8 @@ for (const id of Object.keys(registry.assets)) {
     assert.ok(uv, `${id}: missing uv`);
     if (o.isSkinnedMesh) {
       skinned += 1;
-      assert.equal(o.skeleton.bones.length, 163, `${id}: skeleton bones`);
+      const expectedBones = registry.assets[id].rig?.bones;
+      if (expectedBones) assert.equal(o.skeleton.bones.length, expectedBones, `${id}: skeleton bones`);
       const weights = o.geometry.getAttribute('skinWeight');
       assert.ok(weights, `${id}: missing skinWeight`);
     }
@@ -357,6 +365,105 @@ for (const shot of compiled.shots) {
   );
 }
 
+// ------------------------------------------------- kain berayun (langkah 38/40)
+{
+  // Entitas ber-shroud punya rantai tulang kain (cloth01..03). Klip tidak
+  // menulisnya; lapisan sekunder yang menggerakkannya. Yang diuji: bobotnya
+  // menempel, geraknya halus (tidak menyentak), dan hasilnya deterministik.
+  const id = 'entity.pale-standing';
+  const {json, bin} = splitGlb(fs.readFileSync(path.join(root, 'public', registry.assets[id].uri)));
+  const gltf = await parse(buildGlb(json, bin));
+  const clip = THREE.AnimationClip.findByName(gltf.animations, 'walk');
+  const inst = cloneSkeleton(gltf.scene);
+  inst.updateMatrixWorld(true);
+
+  let shroud = null;
+  inst.traverse((o) => {
+    if (!o.isSkinnedMesh) return;
+    const mat = Array.isArray(o.material) ? o.material[0] : o.material;
+    if (/shroud/i.test(mat?.name ?? '')) shroud = o;
+  });
+  assert.ok(shroud, 'entity must have a shroud mesh');
+  const clothIdx = shroud.skeleton.bones.map((b, i) => (/^cloth/.test(b.name) ? i : -1)).filter((i) => i >= 0);
+  assert.equal(clothIdx.length, 3, 'shroud entity must have three cloth bones');
+
+  // bobot: setiap vertex dijumlahkan ~1, dan kain benar-benar menggerakkannya
+  const si = shroud.geometry.attributes.skinIndex;
+  const sw = shroud.geometry.attributes.skinWeight;
+  const clothSet = new Set(clothIdx);
+  let touched = 0;
+  for (let v = 0; v < si.count; v++) {
+    let sum = 0;
+    let cloth = 0;
+    for (let k = 0; k < 4; k++) {
+      sum += sw.getComponent(v, k);
+      if (clothSet.has(si.getComponent(v, k))) cloth += sw.getComponent(v, k);
+    }
+    assert.ok(Math.abs(sum - 1) < 0.02, `skin weights must normalise (vertex ${v}: ${sum.toFixed(3)})`);
+    if (cloth > 0.05) touched += 1;
+  }
+  assert.ok(touched > si.count * 0.5, `most shroud vertices must follow the cloth bones (${touched}/${si.count})`);
+
+  const sampler = createClipSampler(inst, clip);
+  prepareSecondary(inst, sampler.animatedNodes);
+  const pos = shroud.geometry.attributes.position;
+  const step = Math.max(1, Math.floor(pos.count / 80));
+  const indices = [];
+  for (let i = 0; i < pos.count; i += step) indices.push(i);
+  const sample = () => {
+    inst.updateMatrixWorld(true);
+    shroud.skeleton.update();
+    return indices.map((i) => {
+      const v = new THREE.Vector3().fromBufferAttribute(pos, i);
+      shroud.applyBoneTransform(i, v);
+      return v.applyMatrix4(shroud.matrixWorld);
+    });
+  };
+
+  // klip dibekukan: yang bergerak hanya lapisan sekunder
+  sampler.apply(0.6);
+  const still = sample();
+  let range = 0;
+  let maxJump = 0;
+  let prev = null;
+  for (let f = 0; f <= 60; f++) {
+    applySecondary(inst, secondaryTurns(f / 60, {clip: 'walk', duration: clip.duration, speed: 0.6, intensity: 1}));
+    const cur = sample();
+    for (let i = 0; i < cur.length; i++) {
+      range = Math.max(range, cur[i].distanceTo(still[i]));
+      if (prev) maxJump = Math.max(maxJump, cur[i].distanceTo(prev[i]));
+    }
+    prev = cur;
+  }
+  assert.ok(range > 0.004, `cloth must actually move (max ${(range * 1000).toFixed(1)} mm)`);
+  assert.ok(range < 0.15, `cloth must not fly away (max ${(range * 1000).toFixed(1)} mm)`);
+  assert.ok(maxJump < 0.02, `cloth must move smoothly, no snapping (${(maxJump * 1000).toFixed(1)} mm/frame)`);
+
+  // intensitas 0 = kain diam
+  const frozen = cloneSkeleton(gltf.scene);
+  frozen.updateMatrixWorld(true);
+  let shroud2 = null;
+  frozen.traverse((o) => {
+    if (!o.isSkinnedMesh) return;
+    const mat = Array.isArray(o.material) ? o.material[0] : o.material;
+    if (/shroud/i.test(mat?.name ?? '')) shroud2 = o;
+  });
+  const sampler2 = createClipSampler(frozen, clip);
+  prepareSecondary(frozen, sampler2.animatedNodes);
+  sampler2.apply(0.6);
+  applySecondary(frozen, secondaryTurns(0.5, {clip: 'walk', duration: clip.duration, intensity: 0}));
+  frozen.updateMatrixWorld(true);
+  shroud2.skeleton.update();
+  const v0 = new THREE.Vector3().fromBufferAttribute(shroud2.geometry.attributes.position, indices[0]);
+  shroud2.applyBoneTransform(indices[0], v0);
+  assert.ok(allFinite(v0.toArray()), 'frozen cloth must stay finite');
+
+  console.log(
+    `kain: ${clothIdx.length} tulang, ${touched}/${si.count} vertex mengikuti kain, ` +
+      `ayunan ${(range * 1000).toFixed(1)} mm (maks ${(maxJump * 1000).toFixed(1)} mm/frame)`,
+  );
+}
+
 // ------------------------------------------------ menoleh / aim gaze (langkah 33)
 {
   const charId = 'char.female-lansia';
@@ -435,11 +542,16 @@ for (const shot of compiled.shots) {
   const clip = THREE.AnimationClip.findByName(gltf.animations, 'walk');
   assert.ok(clip && clip.duration > 0, 'walk clip must exist');
 
-  // semua tulang yang disebut harus benar-benar ada di rig
+  // semua tulang tubuh yang disebut harus benar-benar ada di rig karakter
   const probe = cloneSkeleton(gltf.scene);
   for (const name of SECONDARY_BONES) {
     const found = probe.getObjectByName(name) ?? probe.getObjectByName(name.replace(/[.[\]:/ ]/g, ''));
     assert.ok(found, `secondary bone "${name}" must exist in the rig`);
+  }
+  // tulang kain memang tidak ada di karakter (hanya entitas ber-shroud)
+  for (const name of CLOTH_BONES) {
+    const found = probe.getObjectByName(name);
+    assert.ok(!found, `cloth bone "${name}" should only exist on shrouded entities`);
   }
 
   const track = (intensity) => {

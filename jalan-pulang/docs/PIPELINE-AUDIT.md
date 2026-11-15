@@ -110,7 +110,7 @@ Total: **27 selesai · 18 sebagian · 6 belum · 3 tidak berlaku**.
 |---|---|---|---|
 | 36 | Animation blocking | ✅ | `human.py`: idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish |
 | 37 | Spline / motion refinement | ◐ | Kurva sinus/easing prosedural; belum ada editor kurva |
-| 38 | Secondary motion | ◐ | Baru: `src/studio/secondary.js` menambah overlap napas/ayunan/kepala-tertinggal di atas klip (kepala bergeser 24,7 mm terukur di `test-studio-three`). Masih ⛔ untuk **rambut dan kain**: rig 163 tulang tidak punya tulang rambut/kain, shroud/veil diikat ke tulang punggung saja |
+| 38 | Secondary motion | ◐ | `secondary.js`: napas, keterlambatan kepala/tangan (24,7 mm), **dan kain**: rantai `cloth01–03` di 5 entitas ber-shroud (ayunan 37,8 mm, 2,2 mm/frame, bobot 594/594 vertex). Masih ⛔ untuk **rambut** — belum ada tulang rambut |
 | 39 | Procedural animation | ✅ | Pose dan root offset dihasilkan parameter waktu; `travel` (baru) menggeser aktor di dunia |
 | 40 | Physics simulation | ⛔ | Tidak ada cloth/rigid/soft body |
 | 41 | Animation cleanup | ◐ | Sesi ini: `scripts/qc-motion.mjs` mengukur laju kaki saat menapak (walk 2,26 m/s, run 4,76 m/s pada `speed 1`) dan interpenetrasi lantai (0 sampel). Foot sliding baru bisa *dihilangkan*, bukan hanya diukur, kalau cerita memakai `travel` |
@@ -178,6 +178,9 @@ Total: **27 selesai · 18 sebagian · 6 belum · 3 tidak berlaku**.
 * **Anchor aset (langkah 43).** `anchor.*` dulu diekspor di titik nol karena
   membaca `translation` (lokal) alih-alih `p` (absolut). Diperbaiki, 11 aset
   dibangun ulang, dan test kini memeriksa posisinya, bukan hanya jumlahnya.
+* **Kain berayun (langkah 38).** Tiga tulang kain per entitas ber-shroud +
+  bobot banded; ayunan prosedural 37,8 mm dengan kehalusan 2,2 mm/frame. Bukti
+  visual `docs/cloth-sway.png` (renderer perangkat lunak).
 * **Menoleh (langkah 33, sebagian).** `src/studio/ik.js`: arah pandang dihitung
   dari sumbu +Z tulang kepala, selisihnya dibagi ke neck02/neck03/head dengan
   batas 60° dan pitch ±29°. Diuji: galat 20,9° → 0,00°, target 91° di samping

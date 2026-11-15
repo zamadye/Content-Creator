@@ -42,7 +42,7 @@ def posed_world(bones, quats, frame, root_offset=(0.0, 0.0, 0.0)):
     return np.stack(world)
 
 
-def main(asset_id, clip_name, frame, out):
+def main(asset_id, clip_name, frame, out, cloth_deg=0.0):
     spec = character.SPECS.get(asset_id) or entity.SPECS[asset_id]
     captured = {}
     orig = character.write_skinned_glb
@@ -62,6 +62,15 @@ def main(asset_id, clip_name, frame, out):
     parts, bones, clips = captured["parts"], captured["bones"], captured["clips"]
     clip = clips[clip_name]
     _, quats, roots = sample_clip(clip, 30)
+    if cloth_deg:
+        # putar rantai kain untuk melihat apakah kainnya berayun mulus atau sobek
+        n = len(roots)
+        for i, name in enumerate(("cloth01", "cloth02", "cloth03")):
+            if name not in {b["name"] for b in bones}:
+                continue
+            k = (i + 1) / 3.0
+            rad = np.radians(cloth_deg) * k
+            quats[name] = [quat_from_euler(rad, 0.0, rad * 0.6) for _ in range(n)]
     frame = min(frame, len(roots) - 1)
     world = posed_world(bones, quats, frame, roots[frame])
     ibm = inverse_bind_matrices(bones)
@@ -100,7 +109,7 @@ def main(asset_id, clip_name, frame, out):
         ambient=0.32,
     )
     img.save(out)
-    print(f"{asset_id} {clip_name} frame {frame} -> {out}")
+    print(f"{asset_id} {clip_name} frame {frame} cloth={cloth_deg:g}° -> {out}")
 
 
 if __name__ == "__main__":
@@ -108,4 +117,5 @@ if __name__ == "__main__":
     c = sys.argv[2] if len(sys.argv) > 2 else "walk"
     f = int(sys.argv[3]) if len(sys.argv) > 3 else 12
     o = sys.argv[4] if len(sys.argv) > 4 else "/tmp/pose.png"
-    main(a, c, f, o)
+    cloth = float(sys.argv[5]) if len(sys.argv) > 5 else 0.0
+    main(a, c, f, o, cloth)

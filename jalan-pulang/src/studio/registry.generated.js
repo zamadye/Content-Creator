@@ -559,7 +559,7 @@ export default {
     ]
    },
    "tris": 30334,
-   "bytes": 3242884,
+   "bytes": 3243336,
    "tags": [
     "ghost",
     "humanoid",
@@ -571,7 +571,7 @@ export default {
    "notes": "",
    "rig": {
     "skeleton": "studio-humanoid-v1",
-    "bones": 163,
+    "bones": 166,
     "clips": [
      "idle",
      "walk",
@@ -642,7 +642,7 @@ export default {
     ]
    },
    "tris": 29944,
-   "bytes": 2934844,
+   "bytes": 2935292,
    "tags": [
     "ghost",
     "humanoid",
@@ -654,7 +654,7 @@ export default {
    "notes": "",
    "rig": {
     "skeleton": "studio-humanoid-v1",
-    "bones": 163,
+    "bones": 166,
     "clips": [
      "idle",
      "walk",
@@ -724,7 +724,7 @@ export default {
     ]
    },
    "tris": 30560,
-   "bytes": 3082664,
+   "bytes": 3083116,
    "tags": [
     "ghost",
     "humanoid",
@@ -737,7 +737,7 @@ export default {
    "notes": "",
    "rig": {
     "skeleton": "studio-humanoid-v1",
-    "bones": 163,
+    "bones": 166,
     "clips": [
      "idle",
      "walk",
@@ -808,7 +808,7 @@ export default {
     ]
    },
    "tris": 30392,
-   "bytes": 3232812,
+   "bytes": 3233260,
    "tags": [
     "ghost",
     "child",
@@ -819,7 +819,7 @@ export default {
    "notes": "",
    "rig": {
     "skeleton": "studio-humanoid-v1",
-    "bones": 163,
+    "bones": 166,
     "clips": [
      "idle",
      "walk",
@@ -890,7 +890,7 @@ export default {
     ]
    },
    "tris": 29944,
-   "bytes": 2897692,
+   "bytes": 2898144,
    "tags": [
     "ghost",
     "shadow",
@@ -902,7 +902,7 @@ export default {
    "notes": "",
    "rig": {
     "skeleton": "studio-humanoid-v1",
-    "bones": 163,
+    "bones": 166,
     "clips": [
      "idle",
      "walk",

@@ -296,3 +296,42 @@ memeriksa 23 shot dengan 0 masalah.
 
 Batas: `follow` hanya mengikuti aktor pertama yang tidak `hidden`; dolly selama
 mengikuti (mis. menjauh perlahan) belum ada.
+
+## Kain berayun: rantai tulang cloth01–03
+
+Sebelumnya shroud dan veil diikat ke tulang punggung saja, jadi kainnya kaku
+seperti papan. Sekarang aset ber-shroud mendapat **tiga tulang kain**
+(`spine03 → cloth01 → cloth02 → cloth03`) di
+`studio-forge/forge/character.py::_add_cloth_bones`, dengan bobot banded
+(`_cloth_weights`): puncak kain ikut punggung, ujung bawah ikut tulang terbawah.
+
+Lima entitas dibangun ulang (163 → **166 tulang**). Karakter tetap 163 tulang
+karena tidak memakai shroud.
+
+Penggeraknya di `src/studio/secondary.js`: ayunan mengikuti langkah dengan
+keterlambatan makin ke ujung (0,14 / 0,20 / 0,26 detik) plus angin pelan 5,7
+detik, diterapkan setelah sampler menulis pose klip.
+
+Angka yang diukur, bukan diklaim:
+
+| pengukuran | hasil | di mana |
+|---|---|---|
+| vertex shroud yang mengikuti tulang kain | **594 / 594** | `test-studio-three` |
+| normalisasi bobot kulit | selisih < 0,02 per vertex | `test-studio-three` |
+| rentang ayunan (klip dibekukan) | **37,8 mm** | `test-studio-three` |
+| gerak per frame | maks **2,2 mm** (halus, tanpa menyentak) | `test-studio-three` |
+| putar `cloth03` 8° di renderer perangkat lunak | hem bergeser hingga 41,8 mm, tidak sobek | `docs/cloth-sway.png` |
+
+Bukti visual: `docs/cloth-sway.png` (0° vs 8°), dirender
+`studio-forge/dev_pose.py` argumen kelima:
+`./.venv/bin/python studio-forge/dev_pose.py entity.pale-standing walk 10 /tmp/x.png 8`.
+
+Batas yang harus disebut:
+
+* Ini gerak **prosedural**, bukan simulasi kain. Tidak ada tabrakan dengan tubuh
+  atau diri sendiri; handuk tidak akan jatuh mengikuti gravitasi.
+* **Rambut tetap kaku** — belum ada tulang rambut, dan gaya rambut aset ini
+  pendek.
+* Shroud masih menembus kaki dan tangan pada pose tertentu (terlihat di
+  `docs/cloth-sway.png` sebagai bercak terang); itu masalah fit kain yang sudah
+  ada sebelumnya, bukan efek tulang baru.

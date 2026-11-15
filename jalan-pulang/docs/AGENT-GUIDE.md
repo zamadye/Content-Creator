@@ -111,7 +111,7 @@ Aturan builder:
 | kategori | jumlah | status | catatan |
 |---|---|---|---|
 | character | 6 | review | 163 tulang, 13 klip, PBR kulit/rambut/baju; jahitan lengan jaket masih terlihat |
-| entity | 5 | draft | siluet kafan/kerudung masih kasar, belum menyeramkan |
+| entity | 5 | draft | 166 tulang (163 + rantai kain `cloth01–03`), 13 klip, kain berayun prosedural; siluet kafan/kerudung masih kasar, rambut kaku |
 | building | 9 | review | atap pelana benar; interior kosong (butuh prop) |
 | road | 7 | review | marka + trotoar; belum ada varian rusak/berlubang |
 | nature | 9 | review | daun masih kartu besar, bukan daun individual |

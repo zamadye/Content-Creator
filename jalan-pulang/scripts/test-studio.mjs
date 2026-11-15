@@ -46,7 +46,8 @@ for (const id of ids) {
   assert.ok(e.pbr.baseColor && e.pbr.normal && e.pbr.metallicRoughness, `${id}: PBR set incomplete`);
   if (e.rig) {
     assert.equal(e.rig.skeleton.length > 0, true, `${id}: rig skeleton`);
-    assert.equal(e.rig.bones, 163, `${id}: expected 163 joints`);
+    // 163 tulang tubuh; entitas ber-shroud menambah rantai kain 3 tulang
+    assert.ok(e.rig.bones === 163 || e.rig.bones === 166, `${id}: unexpected joint count ${e.rig.bones}`);
     assert.ok(e.rig.clips.includes('idle') && e.rig.clips.includes('walk'), `${id}: core clips`);
   }
 }
@@ -98,7 +99,7 @@ for (const id of ids) {
   }
   if (doc.skins?.length) {
     animated += 1;
-    assert.equal(doc.skins[0].joints.length, 163, `${id}: joints`);
+    assert.equal(doc.skins[0].joints.length, registry.assets[id].rig.bones, `${id}: joints must match the registry`);
     assert.ok(doc.skins[0].inverseBindMatrices !== undefined, `${id}: IBM`);
     assert.ok(doc.animations.length >= 13, `${id}: animations`);
     for (const a of doc.animations) assert.ok(a.channels.length > 0, `${id}/${a.name}: channels`);

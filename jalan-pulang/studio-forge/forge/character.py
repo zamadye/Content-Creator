@@ -246,6 +246,10 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         P = P - body_nrm_raw * (hid[:, None] * 0.035)
 
     bones, S, off = _metres(b["bones"], spec["height"])
+    # Rantai tulang kain untuk shroud/veil. Sudah ada sejak awal supaya indeks
+    # sendi di mesh bisa menunjuk ke sini; tanpa tulang, kain hanya bisa ikut
+    # punggung dan mustahil berayun.
+    bones, cloth_span = _add_cloth_bones(bones, spec, S, off)
     name_to_i = {bn["name"]: i for i, bn in enumerate(bones)}
 
     def to_m(p):
@@ -370,7 +374,11 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
             ]
         )
         sp, suv, sidx = shroud(P[torso], **cfg)
-        j, w = _torso_weights(to_m(sp), bones)
+        j, w = (
+            _cloth_weights(to_m(sp), bones, cloth_span)
+            if cloth_span
+            else _torso_weights(to_m(sp), bones)
+        )
         cloth = tex.fabric(7, 512, (0.42, 0.44, 0.42), weave=200, folds=0.75)
         parts.append(
             {
@@ -476,6 +484,67 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         "parts": [p["mat"].name for p in parts],
     }
     return meta
+
+
+CLOTH_CHAIN = ("cloth01", "cloth02", "cloth03")
+
+
+def _add_cloth_bones(bones, spec, S, off):
+    """Tambah rantai tiga tulang kain (spine03 -> cloth01 -> cloth02 -> cloth03).
+
+    Posisi diambil dari tinggi shroud yang diminta spec, dikonversi ke meter
+    dengan skala yang sama seperti `_metres`. Mengembalikan (bones, span) dengan
+    span = (y_top, y_bottom) dalam meter, atau (bones, None) kalau aset tidak
+    punya kain panjang.
+    """
+    cfg = spec.get("shroud")
+    if not cfg:
+        return bones, None
+    k = HEIGHT_UNITS / 7.32
+    y_top_raw = FEET_Y + float(cfg.get("y_top", 5.6)) * k
+    y_bot_raw = FEET_Y + float(cfg.get("y_bottom", -0.6)) * k
+    if y_top_raw <= y_bot_raw:
+        return bones, None
+    y_top = (y_top_raw - off[1]) * S
+    y_bot = (y_bot_raw - off[1]) * S
+    h = y_top - y_bot
+    out = list(bones)
+    # `parent` di rig ini berupa indeks, bukan nama
+    index_of = {b["name"]: i for i, b in enumerate(out)}
+    parent = index_of.get("spine03", 0)
+    fracs = (0.22, 0.58, 0.92)
+    for name, frac in zip(CLOTH_CHAIN, fracs):
+        out.append({"name": name, "parent": parent, "p": np.array([0.0, y_top - h * frac, 0.03], F)})
+        parent = len(out) - 1
+    return out, (y_top, y_bot)
+
+
+def _cloth_weights(points, bones, span):
+    """Bobot kain: puncak ikut punggung, ujung bawah ikut tulang kain terbawah."""
+    name_to_i = {b["name"]: i for i, b in enumerate(bones)}
+    spine = name_to_i.get("spine03", 0)
+    idx = [name_to_i[n] for n in CLOTH_CHAIN]
+    y_top, y_bot = span
+    h = max(y_top - y_bot, 1e-4)
+    t = np.clip((y_top - points[:, 1]) / h, 0.0, 1.0)
+    # tiga band kain + pangkal punggung yang cepat memudar
+    bands = [np.exp(-(((t - c) / 0.30) ** 2)) for c in (0.25, 0.60, 0.95)]
+    spine_w = np.clip(1.0 - t / 0.30, 0.0, 1.0) * 1.3
+    cols = [spine_w] + bands
+    keys = [spine] + idx
+    W4 = np.zeros((len(points), 4), F)
+    J4 = np.zeros((len(points), 4), np.int64)
+    for n in range(len(points)):
+        w = np.array([c[n] for c in cols], np.float64)
+        if w.sum() <= 1e-9:
+            w[:] = 1.0
+        order = np.argsort(-w)[:4]
+        ws = w[order]
+        ws = ws / ws.sum()
+        for s_i, o in enumerate(order):
+            J4[n, s_i] = keys[o]
+            W4[n, s_i] = ws[s_i]
+    return J4, W4
 
 
 def _anchor_nodes(bones):

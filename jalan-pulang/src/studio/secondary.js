@@ -41,6 +41,31 @@ const CHAIN = [
   {bone: 'lowerarm01.R', axis: 'x', gain: 0.8, lag: 0.12},
 ];
 
+/**
+ * Rantai kain (hanya ada pada entitas ber-shroud/veil; karakter tidak punya).
+ * Tulang ini dibuat di `studio-forge/forge/character.py::_add_cloth_bones`, dan
+ * dipakai di sini supaya kain yang sama bergerak mengikuti langkah dan angin.
+ * Amplitudo diukur di renderer perangkat lunak: hem bergeser ~4 cm pada 8°,
+ * mulus tanpa sobek.
+ */
+const CLOTH_CHAIN = [
+  {bone: 'cloth01', axis: 'x', gain: 1.3, lag: 0.14},
+  {bone: 'cloth02', axis: 'x', gain: 2.0, lag: 0.2},
+  {bone: 'cloth03', axis: 'x', gain: 2.7, lag: 0.26},
+  {bone: 'cloth01', axis: 'z', gain: 0.7, lag: 0.18},
+  {bone: 'cloth02', axis: 'z', gain: 1.1, lag: 0.24},
+  {bone: 'cloth03', axis: 'z', gain: 1.5, lag: 0.3},
+];
+
+/** Angin pelan saat diam: kain tetap bergerak walau aktor tidak berjalan. */
+const CLOTH_IDLE_PERIOD = 5.7;
+const CLOTH_IDLE = [
+  {bone: 'cloth01', axis: 'z', gain: 0.6},
+  {bone: 'cloth02', axis: 'z', gain: 1.0},
+  {bone: 'cloth03', axis: 'z', gain: 1.4},
+];
+const CLOTH_IDLE_AMP = 0.014;
+
 /** Ayunan dasar langkah (radian, sebelum dikali gain). */
 const SWAY = 0.022;
 
@@ -96,7 +121,20 @@ export function secondaryTurns(seconds, {clip, duration, speed = 1, intensity = 
     }
   }
 
-  // 3. Goyangan lambat, supaya pose diam tidak terasa seperti patung.
+  // 3. Kain: ikut langkah (dengan keterlambatan makin ke ujung) + angin pelan.
+  if (gait && Number.isFinite(duration) && duration > 0.05) {
+    const cycle = duration / Math.max(0.05, speed);
+    for (const c of CLOTH_CHAIN) {
+      const phase = (2 * Math.PI * (t - c.lag)) / cycle;
+      ops.push({bone: c.bone, axis: c.axis, angle: SWAY * gait * 0.55 * c.gain * intensity * Math.sin(phase)});
+    }
+  }
+  const ciPhase = (2 * Math.PI * t) / CLOTH_IDLE_PERIOD;
+  for (const c of CLOTH_IDLE) {
+    ops.push({bone: c.bone, axis: c.axis, angle: CLOTH_IDLE_AMP * c.gain * intensity * Math.sin(ciPhase)});
+  }
+
+  // 4. Goyangan lambat, supaya pose diam tidak terasa seperti patung.
   const dPhase = (2 * Math.PI * t) / DRIFT_PERIOD;
   for (const d of DRIFT) {
     ops.push({bone: d.bone, axis: d.axis, angle: DRIFT_AMP * d.gain * intensity * Math.sin(dPhase)});
@@ -167,8 +205,11 @@ export function applySecondary(root, turns) {
   }
 }
 
-/** Nama tulang yang dipakai, untuk test dan dokumentasi. */
+/** Nama tulang tubuh yang dipakai, untuk test dan dokumentasi. */
 export const SECONDARY_BONES = [...new Set([...CHAIN, ...BREATH, ...DRIFT].map((c) => c.bone))];
+
+/** Tulang kain — hanya ada pada aset ber-shroud/veil (entitas). */
+export const CLOTH_BONES = [...new Set([...CLOTH_CHAIN, ...CLOTH_IDLE].map((c) => c.bone))];
 
 /** Kembalikan tulang sekunder ke pose awal (dipakai saat instans tidak tampil). */
 export function resetSecondary(root) {

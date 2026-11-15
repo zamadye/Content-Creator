@@ -46,3 +46,7 @@ Pada `--full`, output yang direncanakan `deliverables/jalan-pulang-blocking-full
 ### Mix panduan opsional
 
 `bash scripts/render-local.sh --full --guide-sound --mode software` merakit kedua VO dengan ambiens/Foley panduan sementara; gunakan `--check` untuk preflight. Output diberi sufiks `guide-sound` dan menghasilkan berkas kredit suara di samping MP4; sertakan kredit tersebut saat mendistribusikan. Efek mesin adalah rekaman mobil pengganti, bukan motor; sirene sintetis. `--smoke` hanya memeriksa VO, bukan mix panduan. Dengarkan keseluruhan sebelum digunakan, termasuk transisi dan loudness; pemakaian flag ini tidak menyatakan karya final.
+
+## Framework cerita lain (awal)
+
+Untuk roadmap pustaka aset bersama, kontrak manifest dan contoh cerita alternatif, lihat [`framework/ROADMAP.md`](framework/ROADMAP.md) dan [`framework/README.md`](framework/README.md). Komposisi `ManifestStory` adalah adaptor blocking awal; belum menyediakan pemilihan aset/rig secara bebas dan tidak menggantikan workflow Jalan Pulang di atas.

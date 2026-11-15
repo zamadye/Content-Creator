@@ -1,5 +1,7 @@
 import React from 'react';
 import {registerRoot, Composition} from 'remotion';
+import {ManifestStory, manifestMetadata} from './manifest-story';
+import example from '../stories/example.json';
 import {FullStoryBlocking} from './full-story';
 import {HomeScene} from './home-scene';
 import {StoryBlocking} from './story-assembly';
@@ -11,6 +13,7 @@ import {SignDryWithVO, SignWetWithVO} from './sign-scene';
 import {EntityRigStudy} from './entity-rig';
 import {WarungWithVO, WarungFigureWithVO, ThirdLoopAssembly, StandingFigureWithVO, CallWithVO} from './vo-scene';
 const Root = () => <>
+  <Composition id="ManifestStory" component={ManifestStory} defaultProps={example} calculateMetadata={manifestMetadata} width={1920} height={1080} fps={30} durationInFrames={270} />
   <Composition id="FullStoryBlocking" component={FullStoryBlocking} width={1920} height={1080} fps={30} durationInFrames={20398} />
   <Composition id="HomeSceneStudy" component={HomeScene} width={1920} height={1080} fps={30} durationInFrames={3000} />
   <Composition id="StoryBlocking" component={StoryBlocking} width={1920} height={1080} fps={30} durationInFrames={16290} />

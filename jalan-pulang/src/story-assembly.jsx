@@ -10,7 +10,7 @@ import {PhoneClockInsert} from './phone-insert';
 import {storyShots,validateShots} from './story-timeline';
 
 const CallShot=({resolutionScale,from})=><RideTest warungScene="call" callIntro={from===362} callPhase={from} resolutionScale={resolutionScale}/>;
-const Shot=({shot,from,view,resolutionScale})=>{
+export const Shot=({shot,from,view,resolutionScale})=>{
  switch(shot){
   case 'memory-ride': return <AbsoluteFill style={{filter:'sepia(0.5) saturate(0.55)'}}><RideTest memory rideView="side" resolutionScale={resolutionScale}/></AbsoluteFill>;
   case 'father-memory': return <FatherMemory resolutionScale={resolutionScale}/>;

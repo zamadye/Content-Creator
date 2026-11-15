@@ -1,0 +1,14 @@
+{
+  "story": {
+    "version": 1,
+    "id": "jalan-malam-demo",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "shots": [
+      {"type": "ride", "view": "wide", "from": 0, "duration": 90},
+      {"type": "sign-dry", "from": 90, "duration": 90},
+      {"type": "warung-approach", "from": 180, "duration": 90}
+    ]
+  }
+}

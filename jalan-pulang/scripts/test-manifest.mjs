@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {validateManifest} from '../src/manifest.js';
+const {story}=JSON.parse(fs.readFileSync(new URL('../stories/example.json',import.meta.url)));
+assert.equal(validateManifest(story).durationInFrames,270);
+const test=(change,pattern)=>{const s=structuredClone(story);change(s);assert.throws(()=>validateManifest(s),pattern)};
+test(s=>s.shots[1].from++,/expected from/);
+test(s=>s.shots[0].duration=0,/duration/);
+test(s=>s.shots[0].type='bogus',/unknown type/);
+test(s=>s.shots[0].view='bogus',/invalid view/);
+test(s=>s.shots[0].extra=1,/unknown field/);
+test(s=>s.audio=[{src:'vo/../secret',from:0,duration:30}],/safe public-relative/);
+test(s=>s.audio=[{src:'vo/test.mp3',from:260,duration:30}],/invalid range/);
+test(s=>s.fps=24,/fps/);
+console.log('Manifest validation tests passed');

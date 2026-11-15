@@ -221,3 +221,39 @@ diuji: 6 waktu × 4 urutan pemanggilan (segar, naik, acak, setelah melangkah
 ikut memakai sampler yang sama dan menghasilkan angka identik (walk 2,26 m/s,
 run 4,76 m/s) — bukti sampler tidak mengubah animasi, hanya membuatnya
 deterministik.
+
+## Menoleh ke lawan bicara (langkah 33, sebagian)
+
+`src/studio/ik.js` menambahkan **aim constraint** untuk leher dan kepala. Field
+aktor baru `lookAt` menerima nama aktor lain (yang wajib ada di shot yang sama)
+atau titik dunia `[x, y, z]`. Target dibaca dari tulang kepala lawan bicara pada
+pose frame itu — bukan tinggi tebakan — sehingga tetap tepat saat lawannya
+berjalan (`travel`).
+
+Diukur di `scripts/test-studio-three.mjs` pada `char.female-lansia` + `sit`:
+
+| kasus | galat sebelum | galat sesudah | putaran |
+|---|---|---|---|
+| target 2 m di depan | 20,9° | **0,00°** | 20,9° |
+| target 91° di samping | 91° | 21° | dipotong ke **60,2°** |
+| target di belakang | 179° | tetap di luar pandangan | dipotong ke 60,2° |
+
+Batasan: total putaran maksimum 60°, pitch ±29°, hanya leher+kepala. **Tidak ada
+IK tangan/kaki** — menaruh tangan di meja masih dikerjakan dengan menggeser
+seluruh aktor. Cerita yang memakainya: `warung-malam/duduk-02` (Bu Sri dan aku
+saling memandang) dan `duduk-sore/duduk-03` (tetangga menoleh).
+
+## Temuan yang belum diperbaiki: anchor aset ada di titik nol
+
+Saat mencari arah pandang, ketahuan `anchor.hand.L`, `anchor.foot.*`,
+`anchor.head`, dan `anchor.eye.*` **semua berada di (0, 0, 0)** — tujuh node di
+setiap karakter. Penyebabnya `studio-forge/forge/character.py::_anchor_nodes`
+membaca `b.get("translation")`, padahal rig menyimpan posisi absolut di kunci
+`p`; `translation` baru dibuat saat penulisan node. Akibatnya anchor tidak bisa
+dipakai untuk menempelkan properti ke tangan atau kamera ke kepala.
+
+Belum diperbaiki karena memperbaiki berarti membangun ulang 6 karakter (butuh
+`.venv` + numpy/Pillow, yang hilang saat sandbox di-reset). Sementara itu
+`ik.js` sengaja memakai sumbu +Z tulang kepala, bukan anchor mata. Test sekarang
+tetap menghitung jumlah anchor; menambah pemeriksaan posisi harus dilakukan
+bersamaan dengan perbaikan forge-nya.

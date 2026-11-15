@@ -259,7 +259,8 @@
             1.5
           ],
           "facing": "-Z",
-          "clip": "talk"
+          "clip": "talk",
+          "lookAt": "aku"
         }
       ],
       "camera": {

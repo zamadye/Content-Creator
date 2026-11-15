@@ -17,6 +17,7 @@ import {registry} from '../src/studio/library.js';
 import {compileStory} from '../src/studio/compile.js';
 import {secondaryTurns, applySecondary, prepareSecondary, resetSecondary, SECONDARY_BONES} from '../src/studio/secondary.js';
 import {createClipSampler} from '../src/studio/clip-sample.js';
+import {aimGaze, gazeDirection, gazeOrigin} from '../src/studio/ik.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -250,6 +251,74 @@ for (const shot of compiled.shots) {
   const pw = probe(smp, 0.8 + clip.duration);
   assert.ok(p0.distanceTo(pw) < 1e-9, 'clip must loop seamlessly in the sampler');
   console.log(`pose murni: ${times.length} waktu x 4 urutan, simpangan maks ${(worst * 1000).toFixed(4)} mm`);
+}
+
+// ------------------------------------------------ menoleh / aim gaze (langkah 33)
+{
+  const charId = 'char.female-lansia';
+  const {json, bin} = splitGlb(fs.readFileSync(path.join(root, 'public', registry.assets[charId].uri)));
+  const gltf = await parse(buildGlb(json, bin));
+  const clip = THREE.AnimationClip.findByName(gltf.animations, 'sit');
+
+  const rigged = () => {
+    const inst = cloneSkeleton(gltf.scene);
+    inst.updateMatrixWorld(true);
+    const sampler = createClipSampler(inst, clip);
+    prepareSecondary(inst, sampler.animatedNodes);
+    sampler.apply(0.7);
+    inst.updateMatrixWorld(true);
+    return inst;
+  };
+  const errorTo = (inst, target) => {
+    const want = new THREE.Vector3(...target).sub(gazeOrigin(inst)).normalize();
+    return gazeDirection(inst).angleTo(want);
+  };
+  const deg = (r) => (r * 180) / Math.PI;
+
+  // target di depan: harus hampir tepat
+  const front = [0, 1.35, 2];
+  const a = rigged();
+  const before = errorTo(a, front);
+  const res = aimGaze(a, front, {maxAngle: 1.05, maxPitch: 0.5});
+  a.updateMatrixWorld(true);
+  const after = errorTo(a, front);
+  assert.ok(res.applied, 'aim must report applied');
+  assert.ok(before > 0.05, `rig should not already stare straight ahead (was ${deg(before).toFixed(1)}°)`);
+  assert.ok(after < 0.05, `gaze must land on target (error ${deg(after).toFixed(1)}°)`);
+
+  // target di samping 80°: dipotong ke maxAngle, tapi tetap membaik
+  const side = [2, 1.35, 0];
+  const b = rigged();
+  const beforeSide = errorTo(b, side);
+  const resSide = aimGaze(b, side, {maxAngle: 1.05});
+  b.updateMatrixWorld(true);
+  assert.ok(resSide.angle <= 1.0501, `turn must be clamped (${deg(resSide.angle).toFixed(1)}°)`);
+  assert.ok(errorTo(b, side) < beforeSide * 0.85, 'clamped turn must still reduce the error');
+
+  // target di belakang: dipotong, leher tidak terpelintir
+  const c = rigged();
+  const resBack = aimGaze(c, [0, 1.4, -2], {maxAngle: 1.05});
+  c.updateMatrixWorld(true);
+  assert.ok(resBack.angle <= 1.0501, 'never twist the neck past the clamp');
+  assert.ok(errorTo(c, [0, 1.4, -2]) > 1.0, 'target behind the head stays out of view');
+
+  // murni terhadap pose: dua instans berbeda riwayat → hasil identik
+  const d1 = rigged();
+  const d2 = rigged();
+  for (const inst of [d1, d2]) {
+    aimGaze(inst, front, {maxAngle: 1.05});
+    inst.updateMatrixWorld(true);
+  }
+  const h1 = d1.getObjectByName('head').getWorldQuaternion(new THREE.Quaternion());
+  const h2 = d2.getObjectByName('head').getWorldQuaternion(new THREE.Quaternion());
+  // 1e-6 rad ≈ 0,00006°: batas noise acos di dekat dot=1 (data quaternion float32)
+  assert.ok(h1.angleTo(h2) < 1e-6, `aim must be deterministic (differs by ${h1.angleTo(h2).toExponential(2)} rad)`);
+  assert.ok(allFinite(h1.toArray()), 'aim must not produce NaN');
+
+  console.log(
+    `menoleh: galat ${deg(before).toFixed(1)}° → ${deg(after).toFixed(2)}° (target depan), ` +
+      `samping ${deg(beforeSide).toFixed(0)}° dipotong ke ${deg(resSide.angle).toFixed(1)}°`,
+  );
 }
 
 // ------------------------------------------------- gerak sekunder (langkah 38)

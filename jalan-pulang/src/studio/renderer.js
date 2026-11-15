@@ -10,6 +10,7 @@ import {clone as cloneSkeleton} from 'three/examples/jsm/utils/SkeletonUtils.js'
 import {asset} from './library.js';
 import {secondaryTurns, applySecondary, prepareSecondary, resetSecondary} from './secondary.js';
 import {createClipSampler} from './clip-sample.js';
+import {aimGaze} from './ik.js';
 
 export const LOOKS = {
   'kampung-siang': {sky: 0x9fb6c4, fog: 0x8fa7b4, sun: 0xfff2dd, sunIntensity: 2.6, hemi: 1.1, exposure: 1.0},
@@ -153,6 +154,7 @@ export class StudioRenderer {
         assetId,
         clip: clip ?? null,
         clipDuration: sampler?.duration ?? 0,
+        ref: key.split(':').pop(),
         speed,
         offset,
         at,
@@ -203,6 +205,23 @@ export class StudioRenderer {
     this.sun.castShadow = preset.intensity > 0.5;
   }
 
+  /**
+   * Posisi dunia tulang kepala sebuah instans pada pose terakhirnya.
+   * Ini titik yang dibidik saat aktor menoleh ke aktor lain.
+   */
+  headPosition(key) {
+    const inst = this.instances.get(key);
+    if (!inst) return null;
+    const head = inst.root.getObjectByName('head');
+    if (!head) {
+      const p = inst.root.position;
+      return [p.x, p.y + 1.5, p.z];
+    }
+    inst.root.updateMatrixWorld(true);
+    const v = head.getWorldPosition(new THREE.Vector3());
+    return [v.x, v.y, v.z];
+  }
+
   shotAtFrame(frame) {
     const {shots} = this.compiled;
     let lo = 0;
@@ -223,44 +242,67 @@ export class StudioRenderer {
     const u = shot.durationInFrames > 1 ? local / (shot.durationInFrames - 1) : 0;
     const seconds = local / this.fps;
 
+    // 1. posisi dulu: `travel` menggeser akar, dan target pandang dibaca dari
+    //    posisi itu, jadi urutannya penting.
     for (const [index, keys] of this.placements) {
       const active = index === shot.index;
       for (const key of keys) {
         const inst = this.instances.get(key);
         if (!inst) continue;
         inst.root.visible = active;
-        if (!inst.sampler) continue;
-        if (active) {
-          // pose = f(waktu lokal shot) — tidak ada state yang menumpuk
-          inst.sampler.apply(seconds * inst.speed + inst.offset);
-          // gerak sekunder: kepala & tangan terlambat dari dada, plus napas.
-          // Diterapkan setelah sampler menulis pose klip, supaya overlap ini
-          // menumpuk di atas animasi dan tidak dihapus frame berikutnya.
-          applySecondary(
-            inst.root,
-            secondaryTurns(seconds, {
-              clip: inst.clip,
-              duration: inst.clipDuration,
-              speed: inst.speed,
-              intensity: shot.secondary ?? 1,
-            }),
+        const at = inst.at;
+        if (active && inst.travel) {
+          inst.root.position.set(
+            at[0] + Math.sin(inst.yaw) * inst.travel * seconds,
+            at[1],
+            at[2] + Math.cos(inst.yaw) * inst.travel * seconds,
           );
-          // travel: world-space movement along `facing`. In-place locomotion
-          // clips slide exactly as fast as the actor fails to move, so this is
-          // the knob that stops foot sliding.
-          if (inst.travel) {
-            inst.root.position.set(
-              inst.at[0] + Math.sin(inst.yaw) * inst.travel * seconds,
-              inst.at[1],
-              inst.at[2] + Math.cos(inst.yaw) * inst.travel * seconds,
-            );
-          }
         } else {
-          inst.sampler.apply(0);
-          resetSecondary(inst.root);
-          inst.root.position.set(inst.at[0], inst.at[1], inst.at[2]);
+          inst.root.position.set(at[0], at[1], at[2]);
         }
       }
+    }
+
+    // 2. pose: klip -> gerak sekunder
+    for (const [index, keys] of this.placements) {
+      if (index !== shot.index) {
+        for (const key of keys) {
+          const inst = this.instances.get(key);
+          if (!inst?.sampler) continue;
+          inst.sampler.apply(0);
+          resetSecondary(inst.root);
+        }
+        continue;
+      }
+      for (const key of keys) {
+        const inst = this.instances.get(key);
+        if (!inst?.sampler) continue;
+        // pose = f(waktu lokal shot) — tidak ada state yang menumpuk
+        inst.sampler.apply(seconds * inst.speed + inst.offset);
+        // gerak sekunder: kepala & tangan terlambat dari dada, plus napas.
+        // Diterapkan setelah sampler menulis pose klip.
+        applySecondary(
+          inst.root,
+          secondaryTurns(seconds, {
+            clip: inst.clip,
+            duration: inst.clipDuration,
+            speed: inst.speed,
+            intensity: shot.secondary ?? 1,
+          }),
+        );
+      }
+    }
+
+    // 3. menoleh — setelah semua pose jadi, supaya target dibidik ke kepala
+    //    lawan bicara yang sebenarnya (bukan tinggi tebakan).
+    for (const c of shot.cast) {
+      if (!c.lookAt) continue;
+      const inst = this.instances.get(`cast:${shot.id}:${c.ref}`);
+      if (!inst) continue;
+      const target = Array.isArray(c.lookAt) ? c.lookAt : this.headPosition(`cast:${shot.id}:${c.lookAt}`);
+      if (!target) continue;
+      inst.root.updateMatrixWorld(true);
+      aimGaze(inst.root, target, {maxAngle: 1.05, maxPitch: 0.5});
     }
 
     this.applyShotLight(shot.light);

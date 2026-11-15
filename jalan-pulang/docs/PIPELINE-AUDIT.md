@@ -35,7 +35,7 @@ Baris yang bergantung pada GPU ditandai eksplisit.
 | 8 | Scene assembly & lighting | 3 | 2 | 0 | 0 |
 | 9 | Rendering & post-production | 0 | 4 | 2 | 0 |
 
-Total: **27 selesai · 17 sebagian · 7 belum · 3 tidak berlaku**.
+Total: **27 selesai · 18 sebagian · 6 belum · 3 tidak berlaku**.
 
 ---
 
@@ -100,7 +100,7 @@ Total: **27 selesai · 17 sebagian · 7 belum · 3 tidak berlaku**.
 | 30 | Skeleton creation | ✅ | `studio-humanoid-v1`, 163 tulang, 13 klip, 30 fps |
 | 31 | Joint placement | ✅ | Diperbaiki sesi ini: translasi node = `p − parent.p` (sebelumnya skeleton menumpuk 23 m) |
 | 32 | Skinning / weight painting | ✅ | Weight transfer + perbaikan IBM kolom-mayor; diverifikasi `applyBoneTransform` di 143 klip |
-| 33 | IK / FK setup | ⛔ | Tidak ada kontrol IK; semua gerak berasal dari klip yang dibangkitkan kode |
+| 33 | IK / FK setup | ◐ | Baru: `src/studio/ik.js` — aim constraint analitik untuk leher+kepala (`lookAt`, galat 0,0° terukur, dipotong 60°). **Belum** ada IK tangan/kaki, tidak ada solver numerik, tidak ada kontrol FK buatan tangan |
 | 34 | Corrective shape keys | ⛔ | Tidak ada blendshape koreksi deformasi ekstrem |
 | 35 | Rig validation | ✅ | `scripts/test-studio-three.mjs` (kotak tubuh tulang + vertex tak boleh melayang >1,1 m) dan `dev_pose.py` untuk tinjauan visual |
 
@@ -150,8 +150,10 @@ Total: **27 selesai · 17 sebagian · 7 belum · 3 tidak berlaku**.
    tertinggal, ayunan lengan) sekarang ada di `secondary.js`, tapi rambut dan
    kain masih kaku: rig tidak punya tulang untuk keduanya, dan tidak ada
    simulasi. Ini yang paling terasa kalau klip mulai dipakai berulang.
-3. **IK/FK & corrective shapes (33, 34).** Tanpa itu, pose ekstrem (jongkok
-   dalam, memanjat) hanya bisa didekati dengan klip yang ditulis manual.
+3. **IK/FK & corrective shapes (33, 34).** Pandangan sudah bisa diarahkan
+   (`lookAt`), tetapi tangan dan kaki belum punya IK: menaruh tangan di meja
+   atau kaki di undakan masih dikerjakan dengan menggeser seluruh aktor. Pose
+   ekstrem (jongkok dalam, memanjat) hanya bisa didekati dengan klip manual.
 
 ## Yang ditutup sesi ini
 
@@ -169,6 +171,10 @@ Total: **27 selesai · 17 sebagian · 7 belum · 3 tidak berlaku**.
   napas 3,6 detik, ayunan langkah yang merambat dengan keterlambatan per tulang,
   dan goyangan lambat 7,3 detik. Besar pengaruhnya diukur, bukan diklaim:
   kepala bergeser maks 24,7 mm / rata-rata 14,9 mm, tangan 16,1 mm.
+* **Menoleh (langkah 33, sebagian).** `src/studio/ik.js`: arah pandang dihitung
+  dari sumbu +Z tulang kepala, selisihnya dibagi ke neck02/neck03/head dengan
+  batas 60° dan pitch ±29°. Diuji: galat 20,9° → 0,00°, target 91° di samping
+  dipotong ke 60,2°, deterministik, tanpa NaN.
 * **Pose jadi fungsi waktu.** Saat memasang gerak sekunder ditemukan
   `AnimationMixer.setTime()` tidak deterministik antar-urutan frame (menyimpang
   13,8 cm pada `walk`), padahal Remotion merender frame secara acak dan paralel.

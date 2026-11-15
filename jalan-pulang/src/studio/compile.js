@@ -37,6 +37,7 @@ export function compileStory(raw, {registry = null} = {}) {
       speed: a.speed ?? 1,
       travel: a.travel ?? 0,
       offset: a.offset ?? 0,
+      lookAt: a.lookAt ?? null,
       hidden: Boolean(a.hidden),
     }));
     const objects = shot.objects.map((o) => ({

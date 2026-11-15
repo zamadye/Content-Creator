@@ -195,6 +195,46 @@ for (const file of storyFiles) {
 }
 ok('stories');
 
+// ------------------------------------------------------------------ 5d. lookAt
+{
+  const src = JSON.parse(fs.readFileSync(path.join(studioDir, 'warung-malam.json'), 'utf8'));
+  const base = JSON.parse(JSON.stringify(src));
+  base.shots = [
+    {
+      id: 'tatap',
+      duration: 2,
+      actors: [
+        {ref: 'ibu', at: [0, 0, 0], facing: '+Z', clip: 'talk', lookAt: 'aku'},
+        {ref: 'aku', at: [1.2, 0, 0.8], facing: '-X', clip: 'sit', lookAt: 'ibu'},
+      ],
+      camera: {preset: 'static'},
+    },
+  ];
+  const compiled = compileStory(base, {registry});
+  assert.equal(compiled.shots[0].cast[0].lookAt, 'aku', 'lookAt ref must survive compile');
+
+  const point = JSON.parse(JSON.stringify(base));
+  point.shots[0].actors[0].lookAt = [0, 1.4, 3];
+  assert.deepEqual(compileStory(point, {registry}).shots[0].cast[0].lookAt, [0, 1.4, 3]);
+
+  const self = JSON.parse(JSON.stringify(base));
+  self.shots[0].actors[0].lookAt = 'ibu';
+  assert.throws(() => validateStory(self, {registry}), /diri sendiri/, 'looking at self must be rejected');
+
+  const unknown = JSON.parse(JSON.stringify(base));
+  unknown.shots[0].actors[0].lookAt = 'hantu';
+  assert.throws(() => validateStory(unknown, {registry}), /not in cast/, 'unknown lookAt ref must be rejected');
+
+  const absent = JSON.parse(JSON.stringify(base));
+  absent.shots[0].actors = [absent.shots[0].actors[0]];
+  assert.throws(() => validateStory(absent, {registry}), /must be placed in this shot/, 'target must be in the shot');
+
+  const badVec = JSON.parse(JSON.stringify(base));
+  badVec.shots[0].actors[0].lookAt = [0, 1];
+  assert.throws(() => validateStory(badVec, {registry}), /lookAt/, 'lookAt point must be [x, y, z]');
+  ok('lookAt');
+}
+
 // ------------------------------------------------------------ 5a. gerak sekunder
 {
   const shot = {id: 'a', duration: 1, actors: [], camera: {preset: 'static'}};

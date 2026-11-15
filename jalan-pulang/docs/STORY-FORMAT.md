@@ -257,3 +257,35 @@ Catatan penting:
 * Pose aktor adalah **fungsi murni dari waktu lokal shot** (tanpa mixer three.js),
   jadi frame yang sama selalu menghasilkan pose yang sama walau Remotion
   merendernya acak dan paralel.
+
+## Menoleh: `lookAt`
+
+Aktor bisa diarahkan memandang aktor lain atau satu titik. Ini yang membuat
+adegan dua orang terasa seperti percakapan, bukan dua figur yang menatap lurus
+ke depan masing-masing:
+
+```json
+"actors": [
+  { "ref": "ibu", "at": [0, 0, 1.35], "facing": "+Z", "clip": "talk", "lookAt": "aku" },
+  { "ref": "aku", "at": [1.35, 0, 2.35], "facing": "-X", "clip": "sit", "lookAt": "ibu" }
+]
+```
+
+| nilai `lookAt` | arti |
+|---|---|
+| `"nama"` | pandang ke kepala aktor lain; aktor itu **wajib** ada di shot yang sama |
+| `[x, y, z]` | pandang ke satu titik dunia (mis. layar TV, papan nama, sosok di kejauhan) |
+| tidak ada | leher mengikuti klip saja |
+
+Aturannya:
+
+* Sudah ditangani otomatis: kepala lawan bicara dibaca dari **pose terakhirnya**,
+  termasuk `travel` — jadi target tetap tepat walau aktornya berjalan.
+* Putaran dibatasi: total maksimum **60°** (0,05 rad lebih), naik/turun maksimum
+  **±29°**. Target di belakang kepala tidak akan memelintir leher 180°.
+* Ini **aim constraint**, bukan IK: hanya leher dan kepala (neck02, neck03,
+  head). Tangan dan kaki tetap mengikuti klip; tidak ada penempelan ke properti.
+* Bisa digabung dengan `secondary`; menoleh diterapkan setelah gerak sekunder.
+
+Hasil terukur: galat pandang **0,0°** untuk target yang bisa dijangkau, dan
+target 91° di samping dipotong ke 60,2° — lihat `node scripts/test-studio-three.mjs`.

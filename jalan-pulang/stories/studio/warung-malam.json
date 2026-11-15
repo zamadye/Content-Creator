@@ -183,7 +183,8 @@
       1.35
      ],
      "facing": "+Z",
-     "clip": "talk"
+     "clip": "talk",
+     "lookAt": "aku"
     },
     {
      "ref": "aku",
@@ -193,7 +194,8 @@
       2.35
      ],
      "facing": "-X",
-     "clip": "sit"
+     "clip": "sit",
+     "lookAt": "ibu"
     }
    ],
    "camera": {

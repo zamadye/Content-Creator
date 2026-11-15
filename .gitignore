@@ -10,6 +10,14 @@ editorial-engine/deliverables/buffer-batch/private/
 editorial-engine/deliverables/gibran-mundur-2026/
 __pycache__/
 
+# Root Content Studio workspace dependencies/build outputs.
+node_modules/
+.pnpm-store/
+.next/
+dist/
+coverage/
+.turbo/
+
 # Media produksi BARU disimpan di Drive privat, bukan repo publik.
 # Aturan ignore tidak membatalkan tracking file lama dan bisa di-bypass `git add -f`;
 # selalu tinjau staged files sebelum commit/push.

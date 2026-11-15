@@ -12,7 +12,7 @@ Updated: 2026-11-01 UTC.
 | Stack/auth/storage/runtime decision | P0-04 | PARTIAL | ADR-0002 records boundaries and deferred choices. | Exact OIDC library, storage provider, package manager/version and services remain open. |
 | License inventory and technical ADR | P0-05 | PARTIAL | Preliminary `license-inventory.md`; ADR-0001 explicitly defers renderer selection. | Verify exact versions/licenses after spike; no runtime adapter selected. |
 | Existing repo safety tests | P0 | DONE (legacy scope only) | Story gate 16/16; script audit 7/7; Node syntax check passed. | These do not test Content Studio. |
-| Root workspace / auth / DB / queue / storage | P1 | NOT STARTED | No root package/workspace added. | Start only after P0 spike and exact stack/package pin decisions. |
+| Root workspace / auth / DB / queue / storage | P1 | PARTIAL | Root pnpm workspace pinned at `pnpm@10.34.9`; `@content-studio/contracts` implements strict integer-microsecond/rational-FPS schemas and conversions. Six unit tests and typecheck pass. | Auth, DB, queue, storage, web/API/worker remain unimplemented. Renderer selection still blocks engine-bound code. |
 | VO ingest and timestamp alignment | P2 | NOT STARTED | No product code. | Depends on P1 and provider/language validation. |
 | Scene-kit/renderer | P3 | NOT STARTED | No adapter selected. | Blocked on ADR-0001 benchmark. |
 | Planner/storyboard/revisions | P4 | NOT STARTED | No product code. | Depends on typed contracts, scene-kit and P2/P3. |

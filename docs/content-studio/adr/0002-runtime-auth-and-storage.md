@@ -12,7 +12,8 @@ The product is a private, single-owner application first, with workspace-aware o
 ## Decision
 
 - Preserve `editorial-engine/` as a legacy npm workspace during the initial migration.
-- A separate root pnpm workspace is the intended direction, but package-manager version, root scripts, auth library, database/storage drivers and service versions are **not yet selected or installed**.
+- The separate root pnpm workspace is now pinned to `pnpm@10.34.9` and Node `>=22.18.0`; the first renderer-neutral package pins Zod `4.6.7`, TypeScript `5.9.3`, and tsx `4.20.6`. These are an initial workspace choice, not a completed stack ADR.
+- Auth library, database/queue/storage drivers and service versions are **not yet selected or installed**.
 - Keep API, worker and UI as explicit boundaries; use private filesystem storage for local development and an S3-compatible adapter for production only after provider choice.
 - Use maintained OIDC/session libraries rather than custom authentication or cryptography. No OIDC provider is configured in this sandbox.
 - Never place user media, credentials or private outputs in Git or test fixtures; tests use synthetic data.

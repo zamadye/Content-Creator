@@ -25,6 +25,10 @@ Source: direct local commands in the Git sandbox; no private media inspected.
 
 No `AGENTS.md` was found in the checkout or its parent search. The legacy project has React/Remotion dependencies declared but `editorial-engine/node_modules` is absent. These facts describe this sandbox, not the user's desktop or deployment host.
 
+## Implementation delta after baseline
+
+A separate root pnpm workspace was added and pinned to `pnpm@10.34.9`; `editorial-engine/` remains excluded. The first contracts package installed reproducibly from its lockfile. This does not change the capability gaps above (browser, FFmpeg, Docker, auth, DB, storage).
+
 ## Baseline checks actually run
 
 - `python3 editorial-engine/pipeline/story-engine/test_story_gate.py`: **16 passed**.

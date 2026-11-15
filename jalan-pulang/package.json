@@ -24,7 +24,9 @@
     "studio:new": "node scripts/studio.mjs new",
     "test:studio": "node scripts/test-studio.mjs && node scripts/test-studio-three.mjs",
     "render:studio": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx ${STUDIO_COMPOSITION:-StudioUjiKamera} render/studio-${STUDIO_COMPOSITION:-StudioUjiKamera}.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
-    "test:studio:three": "node scripts/test-studio-three.mjs"
+    "test:studio:three": "node scripts/test-studio-three.mjs",
+  "qc:framing": "node scripts/qc-framing.mjs",
+  "qc:motion": "node scripts/qc-motion.mjs"
   },
   "license": "ISC",
   "dependencies": {

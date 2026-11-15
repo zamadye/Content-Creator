@@ -155,3 +155,31 @@ laju kaki saat menapak (walk 2,26 m/s, run 4,76 m/s pada `speed 1`, tanpa
 interpenetrasi lantai), dan skema aktor mendapat field `travel` (m/s) yang
 benar-benar menggeser aktor di dunia — lihat `duduk-sore.json` shot
 `duduk-05`.
+
+## QC framing shot (`scripts/qc-framing.mjs`)
+
+Framing sekarang **diukur**, bukan ditebak. Skrip memproyeksikan kepala dan dada
+setiap aktor (sudah termasuk geseran `travel`) ke NDC di lima titik waktu per
+shot, memakai `cameraSample()` yang sama dengan renderer, lalu melaporkan
+`ok` / `mepet` / `LUAR` / `kosong` beserta posisi NDC dan jarak kamera.
+
+Hasil pemeriksaan 22 shot di 4 cerita menemukan tiga shot bermasalah, semuanya
+diperbaiki:
+
+| shot | masalah | perbaikan |
+|---|---|---|
+| `warung-malam/keluar-03` | kamera mulai 0,37 m dari aktor — dada di NDC (−0,89, −1,55), kepala terpotong | kamera `from` z 1,2 → 3,3, `to` z 5,2 → 1,9 (dolly-in halus), target diturunkan; aktor kini `speed 0.42` + `travel 0.95` sehingga benar-benar berjalan pergi |
+| `warung-malam/masuk-01` | dolly-in berakhir 1,55 m dari Bu Sri, kepala di NDC y = 1,01 | `to` z 2,9 → 3,35, tinggi 1,52 |
+| `duduk-sore/duduk-03` | kepala `tetangga` keluar frame di u = 0,75 saat pan | kamera mundur (z 2,9 → 3,5) dan target dinaikkan |
+
+Sesudah perbaikan: **22 shot, 0 masalah**, jarak kamera terdekat 1,08 m
+(`warung-malam/duduk-02`, shot duduk dua orang) dan terjauh 9,4 m
+(`jalan-pulang-01/sosok-04`).
+
+Pemeriksaan ini juga masuk `npm run test:studio` (grup `framing`), jadi cerita
+baru tidak bisa lolos dengan kepala terpotong. Perintah: `npm run qc:framing`,
+`npm run qc:motion`.
+
+Batasnya tetap sama dan harus disebut: ini perhitungan proyeksi, bukan render.
+Ia menangkap framing dan jarak kamera, **tidak** menangkap oklusi (kamera di
+belakang dinding), clipping near/far, atau apakah pencahayaan benar.

@@ -200,3 +200,29 @@ Keduanya harus dikalikan ke angka yang sama: `walk` pada `speed 1` menyiratkan
 ```
 node scripts/qc-motion.mjs            # walk, run, idle
 ```
+
+## Cek framing sebelum render
+
+Framing tidak bisa ditebak dari angka `from`/`to`/`target` saja, apalagi kalau
+aktornya bergerak (`travel`). Ukur:
+
+```
+npm run qc:framing                       # semua cerita di stories/studio
+node scripts/qc-framing.mjs stories/studio/duduk-sore.json
+```
+
+Keluaran per shot: status, titik acuan, posisi NDC, dan jarak kamera.
+
+| status | arti |
+|---|---|
+| `ok` | kepala dan dada semua aktor di dalam frame, di 5 titik waktu (u = 0, ¼, ½, ¾, 1) |
+| `mepet` | ada kepala terpotong di salah satu titik, atau shot tanpa aktor tak punya isi set di frame |
+| `LUAR` | aktor tidak pernah masuk frame sepanjang shot |
+| `kosong` | shot tak punya aktor maupun properti untuk diperiksa |
+
+Kaki tidak diwajibkan masuk frame: medium shot normal memotong kaki. Yang dicari
+`mepet` adalah kepala terpotong (tidak sengaja) dan kamera yang menempel ke
+badan aktor.
+
+`npm run test:studio` menjalankan pemeriksaan yang sama untuk semua cerita, jadi
+cerita baru tidak bisa masuk dengan framing rusak.

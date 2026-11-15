@@ -40,6 +40,7 @@ npm run render:studio -- StudioJalanPulang
 | field tak dikenal = error | supaya typo ketahuan, bukan diabaikan |
 | matriks 4×4 untuk glTF **wajib** di-transpose sebelum flatten (`glb.py`) | glTF kolom-mayor, numpy baris-mayor; kalau lupa, IBM rusak dan semua vertex berputar di titik nol |
 | aktor dengan klip `walk`/`run` wajib punya `travel` ≈ `speed` × stride (walk 2,26 m/s, run 4,76 m/s) | klip lokomosi in-place; tanpa `travel` kaki meluncur |
+| setiap habis mengubah `camera`/`at`/`travel`, jalankan `npm run qc:framing` (dan `npm run qc:motion` kalau klip lokomosi berubah) | framing diukur, bukan ditebak; tanpa browser tidak ada cara lain melihat kepala terpotong |
 | offset pakaian per lapisan (kaus 0,062 · jaket 0,048 · celana 0,026) | kalau sama, celana menembus kaus dan muncul gerigi di hem |
 | translasi node = `p − parent.p` | `p` di rig adalah posisi absolut, bukan lokal |
 | `sit` mengasumsikan kursi 0,5 m; jangan taruh aktor duduk di lantai tanpa prop | pantat aktor berada di y≈0,50 saat `sit` |
@@ -52,6 +53,11 @@ npm run render:studio -- StudioJalanPulang
   meninggalkan (sepi), `crane-up` = menutup babak.
 * **Jangan taruh kamera di dalam geometri.** Jarak aman minimal 1.2 m dari aktor
   untuk fov 40, 2 m untuk fov 30.
+* **Ukur framing.** `node scripts/qc-framing.mjs [cerita.json]` memproyeksikan
+  kepala + dada aktor di 5 titik waktu sepanjang shot; `LUAR` berarti aktor tak
+  pernah masuk frame, `mepet` berarti kepala terpotong. Kaki boleh terpotong
+  (medium shot), jadi tidak diperingatkan. `npm run test:studio` ikut menjalankan
+  pemeriksaan ini untuk semua cerita.
 * **Satu sumber cahaya per adegan malam.** `light.preset: "lampu-teplok"` +
   `look.preset: "interior-lampu"` sudah cukup; menambah intensitas hanya
   membakar highlight.

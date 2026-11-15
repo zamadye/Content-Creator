@@ -121,7 +121,7 @@ Total: **26 selesai · 16 sebagian · 8 belum · 3 tidak berlaku**.
 | # | Langkah | Status | Bukti / catatan |
 |---|---|---|---|
 | 43 | Final scene assembly | ✅ | `src/studio/compile.js` merakit set, objek, aktor, kamera, cahaya, teks per shot |
-| 44 | Camera setup | ✅ | 10 preset (`camera.js`): static, dolly-in/out, pan, orbit, crane-up, low-angle, over-shoulder, handheld + fov/roll |
+| 44 | Camera setup | ✅ | 10 preset (`camera.js`): static, dolly-in/out, pan, orbit, crane-up, low-angle, over-shoulder, handheld + fov/roll. Sesi ini: `scripts/qc-framing.mjs` (dan grup `framing` di test) mengukur kepala/dada tiap aktor di 5 titik waktu per shot — 3 shot yang melanggar sudah diperbaiki |
 | 45 | Lighting setup | ✅ | 7 preset (`LIGHTS` di `renderer.js`) + 6 look preset (sky/fog/exposure) + lampu lokal |
 | 46 | Atmospheric effects | ◐ | `FogExp2` per look; tidak ada volumetrik/god ray |
 | 47 | Look development | ◐ | Preset look + ACES tone mapping + exposure; belum ada LUT/kalibrasi warna final |

@@ -14,6 +14,7 @@ import {registry, listAssets, clipsOf, asset} from '../src/studio/library.js';
 import {compileStory, summarize} from '../src/studio/compile.js';
 import {StoryError, normalizeStory, validateStory} from '../src/studio/schema.js';
 import {sampleCamera, facingYaw, EYE_HEIGHT} from '../src/studio/camera.js';
+import {framingIssues} from './qc-framing.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -213,6 +214,24 @@ ok('stories');
   silent.shots[0].actors[0].travel = 0;
   validateStory(silent, {registry}); // tidak boleh melempar
   ok('actor travel');
+}
+
+// --------------------------------------------------------------- 5c. framing shot
+{
+  // Setiap cerita yang dikirim harus menjaga kepala + dada aktornya di dalam
+  // frame sepanjang shot. Ini yang menangkap kamera yang menempel ke aktor atau
+  // dolly yang berakhir terlalu jauh — tanpa perlu render.
+  let shots = 0;
+  for (const file of storyFiles) {
+    const compiled = compileStory(readJson(path.join(studioDir, file)), {registry});
+    for (const row of framingIssues(compiled)) {
+      shots++;
+      assert.notEqual(row.status, 'LUAR', `${file} ${row.id}: ${row.issues.join('; ')}`);
+      assert.deepEqual(row.issues, [], `${file} ${row.id}: ${row.issues.join('; ')}`);
+    }
+  }
+  assert.ok(shots >= 20, `expected at least 20 shots to check, got ${shots}`);
+  ok('framing');
 }
 
 // --------------------------------------------------------------- 6. docs & catalogue

@@ -146,15 +146,62 @@ teplok).
 ## Audit pipeline 9 fase / 53 langkah
 
 `docs/PIPELINE-AUDIT.md` memetakan seluruh pipeline (pre-production sampai
-encoding) ke kondisi nyata repo: 26 selesai, 16 sebagian, 8 belum, 3 tidak
-berlaku. Lubang termahal tetap **belum ada render WebGL** — semua bukti visual
-berasal dari renderer perangkat lunak.
+encoding) ke kondisi nyata repo: **28 selesai, 16 sebagian, 7 belum, 2 tidak
+berlaku** (dihitung ulang otomatis, lihat di bawah). Lubang termahal tetap
+**belum ada render WebGL** — semua bukti visual berasal dari renderer
+perangkat lunak.
+
+Tabel ringkasan di audit tidak lagi ditulis tangan: `scripts/audit-count.mjs`
+menghitung ulang semua 53 baris dan `npm run test:studio` (grup
+`audit-summary`) menolak dokumen yang tabelnya tidak cocok dengan isinya.
+
+**Phase 1 kini 4/4 ✅.** Langkah 4 (scene planning) ditutup sesi ini dengan
+denah + pemeriksaan tata letak terukur — lihat bagian berikut.
 
 Sesi ini menutup langkah 41 (foot sliding): `scripts/qc-motion.mjs` mengukur
 laju kaki saat menapak (walk 2,26 m/s, run 4,76 m/s pada `speed 1`, tanpa
 interpenetrasi lantai), dan skema aktor mendapat field `travel` (m/s) yang
 benar-benar menggeser aktor di dunia — lihat `duduk-sore.json` shot
 `duduk-05`.
+
+## Denah (previs) + pemeriksaan tata letak — langkah 4
+
+Perencanaan komposisi tidak lagi manual. Dua alat, satu sumber angka:
+`docs/plans/*.json`.
+
+**`scripts/qc-plan.mjs`** memeriksa setiap shot cerita:
+
+| pemeriksaan | cara ukur | hasil sesi ini |
+|---|---|---|
+| kamera menembus geometri | jarak titik→**segitiga asli** aset (bukan kotak batas), dinilai di 9 sampel `u` per shot | 6.546 segitiga diperiksa, jarak terdekat **0,27 m** (`duduk-sore/duduk-01`, `uji-kamera/kamera-05`), batas 0,12 m |
+| dua aktor bertumpuk | jarak XZ di awal & akhir shot (ikut `travel`) | terdekat **1,52 m** (`warung-malam/duduk-02`), batas 0,45 m |
+| aktor berdiri di dalam properti | jarak dada (y+1,0 m) ke segitiga aset | 0 temuan; aktor dengan klip duduk/berbaring **dikecualikan** karena memang bersentuhan dengan bangku |
+
+Hasil: **23 shot · 0 masalah**. Keluaran `docs/plans/<cerita>.json` memuat kotak
+set/objek, jalur kamera 9 sampel beserta jarak terdekatnya, posisi awal–akhir
+aktor, dan `stats` ringkas.
+
+**`studio-forge/dev_plan.py`** menggambar JSON itu jadi PNG tampak atas
+(`docs/plans/*.png`, 3 kolom per cerita): kotak set berisi transparan, properti
+di atasnya, titik aktor + arah hadap + jalur `travel`, jalur kamera
+(awal biru → akhir magenta) dengan panah ke target, skala 1 m, dan label jarak
+kamera per shot.
+
+**`npm run test:plan`** (9 grup) bukan hanya memastikan "0 masalah", tapi
+membuktikan pemeriksaannya **bisa gagal**: tiga cerita rusak buatan —
+kamera tepat di permukaan geometri, kamera 5 cm dari dinding, aktor berdiri di
+dalam dinding — semuanya terdeteksi; satu kasus sah (aktor duduk di bangku)
+tidak dilaporkan. Titik dinding untuk tes diambil dari centroid segitiga aset,
+jadi tes tidak bergantung pada koordinat yang ditulis tangan.
+
+Perintah: `npm run qc:plan` (periksa + tulis JSON), `npm run qc:plan:png`
+(gambar denah), `npm run test:plan`.
+
+Batas yang jujur: segitiga yang diperiksa disaring per wilayah shot (pusat
+segitiga harus di dalam kotak sampel ±2,5 m) dan dibatasi 6.000 segitiga per
+mesh; aktor diperiksa sebagai titik dada, bukan tabung badan penuh; dan ini
+tetap perhitungan, **bukan render** — ia tidak menangkap oklusi visual,
+pencahayaan, atau clipping near/far.
 
 ## QC framing shot (`scripts/qc-framing.mjs`)
 

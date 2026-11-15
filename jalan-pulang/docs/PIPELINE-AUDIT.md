@@ -25,17 +25,18 @@ Baris yang bergantung pada GPU ditandai eksplisit.
 
 | # | Fase | ✅ | ◐ | ⛔ | — |
 |---|---|---|---|---|---|
-| 1 | Concept & pre-production | 2 | 2 | 0 | 0 |
+| 1 | Pre-production | 4 | 0 | 0 | 0 |
 | 2 | Procedural & blockout | 4 | 1 | 0 | 0 |
 | 3 | Real geometry & modeling | 3 | 1 | 1 | 1 |
-| 4 | UV & texture preparation | 1 | 2 | 1 | 0 |
+| 4 | UV & texture preparation | 2 | 2 | 1 | 0 |
 | 5 | PBR material & texturing | 6 | 2 | 1 | 0 |
-| 6 | Rigging & deformation | 4 | 0 | 2 | 0 |
-| 7 | Animation production | 4 | 2 | 0 | 1 |
+| 6 | Rigging & deformation | 4 | 1 | 1 | 0 |
+| 7 | Animation production | 2 | 3 | 1 | 1 |
 | 8 | Scene assembly & lighting | 3 | 2 | 0 | 0 |
 | 9 | Rendering & post-production | 0 | 4 | 2 | 0 |
+|  | **Total** | 28 | 16 | 7 | 2 |
 
-Total: **27 selesai · 18 sebagian · 6 belum · 3 tidak berlaku**.
+Total: 28 selesai · 16 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 
 ---
 
@@ -46,7 +47,7 @@ Total: **27 selesai · 18 sebagian · 6 belum · 3 tidak berlaku**.
 | 1 | Concept design | ✅ | `docs/ROADMAP-STUDIO-v2.md` (konsep, gaya, target), 6 karakter + 5 sosok + 41 aset lingkungan di `public/assets/registry.json` |
 | 2 | Reference gathering | ✅ | `docs/PROVENANCE-ASSETS.md`, `public/garments/PROVENANCE.md`, `public/makehuman/PROVENANCE.md` — semua sumber, lisensi, dan komit asal dicatat |
 | 3 | Technical specification | ✅ | Meter, +Y atas, +Z depan, `EYE_HEIGHT 1.62`, 30 fps, target tris per kategori di registry; engine three.js 0.187 + Remotion 4.0.543 |
-| 4 | Scene planning | ◐ | Cerita sudah data-driven (`studio.story/2`, 4 contoh), tapi perencanaan komposisi masih manual — belum ada tooling preview layout sebelum render |
+| 4 | Scene planning | ✅ | `scripts/qc-plan.mjs` mengukur tiap shot (23 shot × 9 sampel kamera) terhadap **segitiga asli** aset — 6.546 segitiga, jarak kamera terdekat 0,27 m (batas 0,12 m), jarak antar-aktor terdekat 1,52 m (batas 0,45 m), 0 masalah — lalu menulis `docs/plans/<cerita>.json`; `studio-forge/dev_plan.py` menggambar denah PNG `docs/plans/*.png`; `npm run test:plan` 9 grup, termasuk 3 kerusakan buatan (kamera tepat di permukaan geometri, kamera 5 cm dari dinding, aktor di dalam dinding) yang semuanya **terdeteksi** |
 
 ## Phase 2 — Procedural & blockout
 

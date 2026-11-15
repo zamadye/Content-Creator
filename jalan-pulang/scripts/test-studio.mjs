@@ -16,6 +16,7 @@ import {StoryError, normalizeStory, validateStory} from '../src/studio/schema.js
 import {sampleCamera, facingYaw, EYE_HEIGHT} from '../src/studio/camera.js';
 import {framingIssues} from './qc-framing.mjs';
 import {secondaryTurns} from '../src/studio/secondary.js';
+import {parseAudit, summaryTable, totalLine} from './lib/audit.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -383,7 +384,13 @@ assert.ok(catalogue.includes('KATALOG ASET'), 'catalogue header');
 assert.equal((catalogue.match(/^\| `/gm) ?? []).length, ids.length, 'catalogue rows must match registry');
 const storyDoc = fs.readFileSync(path.join(root, 'docs', 'STORY-FORMAT.md'), 'utf8');
 for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.includes(key), `STORY-FORMAT must document ${key}`);
-ok('docs');
+const auditMd = fs.readFileSync(path.join(root, 'docs', 'PIPELINE-AUDIT.md'), 'utf8');
+const audit = parseAudit(auditMd);
+assert.equal(audit.totals.total, 53, 'audit harus 53 langkah');
+assert.equal(audit.phases.length, 9, 'audit harus 9 fase');
+assert.ok(auditMd.includes(summaryTable(audit)), 'tabel ringkasan harus cocok dengan baris fase');
+assert.ok(auditMd.includes(totalLine(audit)), 'baris total harus cocok dengan baris fase');
+ok('audit-summary');
 
 console.log(`Studio tests passed — ${checks} assertions groups over ${ids.length} assets, ${storyFiles.length} stories`);
 assert.ok(clipsOf('char.male-dewasa-polo').includes('ride'));

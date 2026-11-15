@@ -22,11 +22,14 @@
     "studio:list": "node scripts/studio.mjs list",
     "studio:plan": "node scripts/studio.mjs plan",
     "studio:new": "node scripts/studio.mjs new",
-    "test:studio": "node scripts/test-studio.mjs && node scripts/test-studio-three.mjs",
+    "test:studio": "node scripts/test-studio.mjs && node scripts/test-studio-three.mjs && node scripts/test-plan.mjs",
     "render:studio": "LD_LIBRARY_PATH=\"$(pwd)/../.jalan-pulang-tools/al2023/lib:$(pwd)/../.jalan-pulang-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx ${STUDIO_COMPOSITION:-StudioUjiKamera} render/studio-${STUDIO_COMPOSITION:-StudioUjiKamera}.mp4 --browser-executable=../.jalan-pulang-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --scale=0.5",
     "test:studio:three": "node scripts/test-studio-three.mjs",
-  "qc:framing": "node scripts/qc-framing.mjs",
-  "qc:motion": "node scripts/qc-motion.mjs"
+    "qc:framing": "node scripts/qc-framing.mjs",
+    "qc:motion": "node scripts/qc-motion.mjs",
+    "qc:plan": "node scripts/qc-plan.mjs",
+    "qc:plan:png": "./.venv/bin/python studio-forge/dev_plan.py",
+    "test:plan": "node scripts/test-plan.mjs"
   },
   "license": "ISC",
   "dependencies": {

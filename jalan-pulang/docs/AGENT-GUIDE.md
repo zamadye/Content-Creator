@@ -22,6 +22,10 @@ node scripts/studio.mjs validate stories/studio/adegan-baru.json
 # 4. periksa biaya & struktur sebelum render
 node scripts/studio.mjs plan stories/studio/adegan-baru.json
 
+# 4b. periksa tata letak: kamera menembus geometri? aktor bertumpuk?
+npm run qc:plan            # ukur + tulis docs/plans/<cerita>.json
+npm run qc:plan:png        # gambar denah tampak atas -> docs/plans/<cerita>.png
+
 # 5. render (Remotion)
 npm run render:studio -- StudioJalanPulang
 ```
@@ -41,6 +45,8 @@ npm run render:studio -- StudioJalanPulang
 | matriks 4×4 untuk glTF **wajib** di-transpose sebelum flatten (`glb.py`) | glTF kolom-mayor, numpy baris-mayor; kalau lupa, IBM rusak dan semua vertex berputar di titik nol |
 | aktor dengan klip `walk`/`run` wajib punya `travel` ≈ `speed` × stride (walk 2,26 m/s, run 4,76 m/s) | klip lokomosi in-place; tanpa `travel` kaki meluncur |
 | setiap habis mengubah `camera`/`at`/`travel`, jalankan `npm run qc:framing` (dan `npm run qc:motion` kalau klip lokomosi berubah) | framing diukur, bukan ditebak; tanpa browser tidak ada cara lain melihat kepala terpotong |
+| setiap habis mengubah `set`/`objects`/`camera`, jalankan `npm run qc:plan` | mengukur jarak kamera ke segitiga asli + tabrakan aktor; angka, bukan dugaan |
+| jangan menambah status ✅ di `docs/PIPELINE-AUDIT.md` tanpa bukti yang bisa dijalankan | tabel ringkasan dihitung ulang oleh `node scripts/audit-count.mjs` dan dijaga tes `audit-summary` |
 | attachment memakai `anchor.*` (tangan/kaki/kepala/mata); posisinya absolut di ruang rig, bukan lokal tulang | bug lama: semuanya diekspor di (0,0,0) karena membaca `translation`, bukan `p` |
 | properti yang dibawa pakai `hold` (bukan `objects` terpisah) | `objects` statis tidak ikut tangan; `hold` menempel ke tulang metacarpal |
 | adegan dua orang: beri `lookAt` di kedua aktor | tanpa itu keduanya menatap lurus ke depan klip, percakapan terasa hampa |
@@ -58,7 +64,11 @@ npm run render:studio -- StudioJalanPulang
 * **Gerak kamera punya arah.** `dolly-in` = mendekat (intim), `dolly-out` =
   meninggalkan (sepi), `crane-up` = menutup babak.
 * **Jangan taruh kamera di dalam geometri.** Jarak aman minimal 1.2 m dari aktor
-  untuk fov 40, 2 m untuk fov 30.
+  untuk fov 40, 2 m untuk fov 30. Setelah mengubah `set`/`objects`/`camera`,
+  jalankan `npm run qc:plan` — skrip ini mengukur jarak kamera ke **segitiga
+  asli** aset di 9 titik per shot (batas 0,12 m) dan jarak antar-aktor
+  (batas 0,45 m). `docs/plans/<cerita>.png` memperlihatkan denahnya: kotak set,
+  properti, jalur kamera, dan arah hadap aktor.
 * **Ukur framing.** `node scripts/qc-framing.mjs [cerita.json]` memproyeksikan
   kepala + dada aktor di 5 titik waktu sepanjang shot; `LUAR` berarti aktor tak
   pernah masuk frame, `mepet` berarti kepala terpotong. Kaki boleh terpotong

@@ -22,5 +22,6 @@ Updated: 2026-11-01 UTC.
 ## Delivery log
 
 - `5dd7c42` (`build framework`) is the synchronized remote baseline, not this implementation's commit.
-- This task adds the initial P0 reports/ADRs only. It does not add UI, API, worker, renderer, database, or production integrations.
+- `7283fc4` records the initial P0 reports/ADRs on `arena/54cb36c6-content-creator`.
+- This task adds P0 evidence documents only. It does not add UI, API, worker, renderer, database, or production integrations.
 - Future progress updates must cite the commit SHA and exact test/evidence; statuses are scoped, not global quality claims.

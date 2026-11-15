@@ -280,3 +280,19 @@ membawa jerigen saat berjalan pulang).
 
 Batas: orientasi properti mengikuti sumbu tangan dan tidak ada rotasi per
 properti; jari tidak menggenggam (tidak ada pose genggam di klip).
+
+## Kamera mengikuti aktor (`preset: "follow"`)
+
+Preset ke-11 di `camera.js`. Kamera ditaruh di belakang arah hadap aktor pada
+jarak (`distance`, default 4,2 m) dan tinggi (`height`, default 1,45 m) tetap,
+lalu ikut bergerak bersama `travel` lewat `subjectAt(u)` yang disiapkan
+`compile.js`. Ini menutup masalah shot berjalan yang sebelumnya hanya bisa
+diakali dengan `dolly` yang kebetulan searah.
+
+Terukur: jarak kamera ke subjek tetap (selisih < 1 mm dari awal ke akhir shot),
+perpindahan kamera = perpindahan aktor (1,36 m/s × durasi), dan tanpa `travel`
+kamera diam. Contoh: `uji-kamera.json` shot `kamera-10`; `qc:framing` sekarang
+memeriksa 23 shot dengan 0 masalah.
+
+Batas: `follow` hanya mengikuti aktor pertama yang tidak `hidden`; dolly selama
+mengikuti (mis. menjauh perlahan) belum ada.

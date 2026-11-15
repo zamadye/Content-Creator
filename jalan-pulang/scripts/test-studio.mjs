@@ -193,6 +193,39 @@ for (const file of storyFiles) {
   const again = compileStory(raw, {registry});
   assert.equal(again.durationInFrames, c.durationInFrames, `${file}: compile must be deterministic`);
 }
+// follow: kamera berjalan bersama aktor yang bergerak (`travel`)
+{
+  const base = JSON.parse(fs.readFileSync(path.join(studioDir, 'uji-kamera.json'), 'utf8'));
+  const walk = JSON.parse(JSON.stringify(base));
+  walk.shots = [
+    {
+      id: 'ikut',
+      duration: 4,
+      actors: [{ref: Object.keys(base.cast)[0], at: [0, 0, 2], facing: '-Z', clip: 'walk', speed: 0.6, travel: 1.36}],
+      camera: {preset: 'follow', distance: 4.2, height: 1.45, fov: 40},
+    },
+  ];
+  const shot = compileStory(walk, {registry}).shots[0];
+  const a = shot.cameraSample(0);
+  const b = shot.cameraSample(1);
+  const sec = shot.durationInFrames / 30;
+  const dist = (cam, sub) => Math.hypot(cam.position[0] - sub[0], cam.position[1] - sub[1], cam.position[2] - sub[2]);
+  const subAt = (u) => [0, 0, 2 - 1.36 * sec * u];
+  assert.ok(Math.abs(dist(a, subAt(0)) - dist(b, subAt(1))) < 1e-3, 'follow keeps a constant distance');
+  const moved = Math.hypot(b.position[0] - a.position[0], b.position[2] - a.position[2]);
+  assert.ok(Math.abs(moved - 1.36 * sec) < 1e-3, `camera must travel with the actor (${moved.toFixed(2)} m vs ${(1.36 * sec).toFixed(2)} m)`);
+
+  const still = JSON.parse(JSON.stringify(walk));
+  still.shots[0].actors[0].travel = 0;
+  const s2 = compileStory(still, {registry}).shots[0];
+  assert.ok(Math.abs(s2.cameraSample(1).position[2] - s2.cameraSample(0).position[2]) < 1e-6, 'follow must stay put when the actor does');
+
+  const bad = JSON.parse(JSON.stringify(walk));
+  bad.shots[0].camera.distance = 40;
+  assert.throws(() => validateStory(bad, {registry}), /distance/, 'distance out of range must be rejected');
+}
+ok('camera follow');
+
 ok('stories');
 
 // -------------------------------------------------------------------- 5e. hold

@@ -531,6 +531,66 @@
     "style": "caption",
     "value": "handheld"
    }
+  },
+  {
+   "id": "kamera-10",
+   "title": "preset: follow (kamera berjalan bersama aktor)",
+   "duration": 4.0,
+   "set": [
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "road.prop.powerpole",
+     "at": [
+      2.2,
+      0,
+      -2.0
+     ],
+     "rot": 0.3
+    },
+    {
+     "asset": "nature.grass.patch",
+     "at": [
+      -2.6,
+      0,
+      1.4
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      2.0
+     ],
+     "facing": "-Z",
+     "clip": "walk",
+     "speed": 0.6,
+     "travel": 1.36
+    }
+   ],
+   "camera": {
+    "preset": "follow",
+    "distance": 4.2,
+    "height": 1.45,
+    "fov": 40
+   },
+   "light": {
+    "preset": "sore"
+   },
+   "text": {
+    "style": "subtitle",
+    "value": "Kamera berjalan bersama aktor, jarak tetap 4,2 m."
+   }
   }
  ]
 }

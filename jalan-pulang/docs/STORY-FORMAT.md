@@ -83,6 +83,7 @@ Semua kamera dihitung dari `subject` = aktor pertama yang tidak `hidden`
 | `low-angle` | dari bawah, melihat ke atas | `from`, `target` |
 | `over-shoulder` | dari belakang bahu | `from`, `target` |
 | `handheld` | diam + guncang halus | `shake` (0..3) |
+| `follow` | berjalan bersama subjek (untuk aktor `travel`) | `distance` (0,3..30 m), `height` (-2..20 m) |
 
 Umum untuk semua: `fov` (10..120), `roll` (radian), `shake` (0..3).
 
@@ -320,3 +321,19 @@ tangan kiri maupun kanan — lihat `node scripts/test-studio-three.mjs`.
 Batasnya: orientasi properti mengikuti sumbu tulang tangan. Kalau sebuah
 properti terlihat miring, koreksi lewat `holdOffset`; belum ada rotasi per
 properti, dan belum ada penyesuaian jari (tangan tidak menggenggam).
+
+## Kamera yang mengikuti: `preset: "follow"`
+
+Shot berjalan biasanya rusak karena aktor makin jauh dari kamera. `follow`
+menempatkan kamera di belakang arah hadap aktor pada jarak dan tinggi tetap, lalu
+**ikut bergerak bersama `travel`**:
+
+```json
+"actors": [{ "ref": "aku", "at": [0, 0, 2], "facing": "-Z", "clip": "walk", "speed": 0.6, "travel": 1.36 }],
+"camera": { "preset": "follow", "distance": 4.2, "height": 1.45, "fov": 40 }
+```
+
+Diuji: jarak kamera ke subjek tetap sepanjang shot (selisih < 1 mm) dan
+perpindahan kamera sama dengan perpindahan aktor (1,36 m/s × durasi). Kalau
+aktornya tidak punya `travel`, kamera diam — tidak ada gerak yang mengada-ada.
+Contoh hidup: `stories/studio/uji-kamera.json` shot `kamera-10`.

@@ -22,7 +22,7 @@ export const FIELDS = {
   set: ['asset', 'at', 'rot', 'scale', 'clip'],
   actor: ['ref', 'at', 'facing', 'clip', 'offset', 'speed', 'travel', 'loop', 'lookAt', 'hold', 'holdHand', 'holdOffset', 'hidden'],
   object: ['ref', 'at', 'rot', 'scale', 'hidden'],
-  camera: ['preset', 'from', 'to', 'target', 'fov', 'roll', 'shake', 'side', 'radius', 'startAngle', 'arc'],
+  camera: ['preset', 'from', 'to', 'target', 'fov', 'roll', 'shake', 'side', 'radius', 'startAngle', 'arc', 'distance', 'height'],
   light: ['preset', 'intensity', 'color'],
   audio: ['vo', 'ambience', 'music', 'sfx'],
   text: ['id', 'style', 'value'],
@@ -39,6 +39,7 @@ export const CAMERA_PRESETS = [
   'low-angle',
   'over-shoulder',
   'handheld',
+  'follow',
 ];
 
 export const LIGHT_PRESETS = ['siang', 'sore', 'malam', 'lampu-teplok', 'neon', 'bulan', 'fajar'];
@@ -206,6 +207,12 @@ export function validateStory(raw, {registry = null} = {}) {
     if (!CAMERA_PRESETS.includes(cam.preset)) problems.push(`${where}.camera.preset must be one of ${CAMERA_PRESETS.join('/')}`);
     for (const k of ['from', 'to', 'target']) if (cam[k] !== undefined) checkVec3(cam[k], `${where}.camera.${k}`, problems);
     if (!(cam.fov >= 10 && cam.fov <= 120)) problems.push(`${where}.camera.fov must be 10..120`);
+    if (cam.distance !== undefined && !(isNum(cam.distance) && cam.distance >= 0.3 && cam.distance <= 30)) {
+      problems.push(`${where}.camera.distance must be 0,3..30 m`);
+    }
+    if (cam.height !== undefined && !(isNum(cam.height) && cam.height >= -2 && cam.height <= 20)) {
+      problems.push(`${where}.camera.height must be -2..20 m`);
+    }
     if (cam.preset === 'over-shoulder' && cam.target === undefined) warnings.push(`${where}.camera: over-shoulder without target falls back to the subject's chest`);
 
     if (!(isNum(shot.secondary) && shot.secondary >= 0 && shot.secondary <= 2)) {

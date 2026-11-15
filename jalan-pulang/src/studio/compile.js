@@ -27,6 +27,19 @@ export function compileStory(raw, {registry = null} = {}) {
     const positions = {};
     for (const a of shot.actors) positions[a.ref] = a.at;
     const subject = shotSubject(shot, positions);
+    // Subjek yang bergerak (`travel`) untuk preset kamera `follow`, plus arah
+    // hadap aktor pertama supaya kamera bisa berjalan di belakangnya.
+    const seconds = timing.durationInFrames / (story.fps || 30);
+    const lead = shot.actors.find((a) => !a.hidden) ?? null;
+    const leadYaw = lead ? facingYaw(lead.facing) : 0;
+    const leadTravel = lead?.travel ?? 0;
+    const leadAt = lead?.at ?? [0, 0, 0];
+    const subjectAt = (u) => [
+      leadAt[0] + Math.sin(leadYaw) * leadTravel * seconds * u,
+      leadAt[1],
+      leadAt[2] + Math.cos(leadYaw) * leadTravel * seconds * u,
+    ];
+    const facing = lead ? facingVector(lead.facing) : [0, 0, 1];
     const cast = shot.actors.map((a) => ({
       ref: a.ref,
       assetId: story.cast[a.ref]?.asset,
@@ -60,7 +73,7 @@ export function compileStory(raw, {registry = null} = {}) {
       cast,
       objectPlacements: objects,
       secondary: shot.secondary ?? 1,
-      cameraSample: (u) => sampleCamera(shot, u, {subject, seed: i + 1}),
+      cameraSample: (u) => sampleCamera(shot, u, {subject, subjectAt, facing, seed: i + 1}),
     };
   });
 

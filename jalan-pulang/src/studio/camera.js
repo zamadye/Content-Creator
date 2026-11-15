@@ -37,7 +37,10 @@ export function handheldOffset(u, seed = 0, amount = 0.035) {
 /**
  * @param shot normalized shot (see schema.js)
  * @param u 0..1 progress inside the shot
- * @param ctx {subject:[x,y,z], seed:number}
+ * @param ctx {subject:[x,y,z], subjectAt?: (u) => [x,y,z], facing?: [x,y,z], seed:number}
+ *
+ * `subjectAt` dipakai preset `follow`: kamera mengikuti subjek yang bergerak
+ * (`travel`), bukan menunggu di satu titik.
  */
 export function sampleCamera(shot, u, ctx = {}) {
   const cam = shot.camera ?? {};
@@ -91,6 +94,19 @@ export function sampleCamera(shot, u, ctx = {}) {
       target = cam.target ?? add(subject, [0, 1.35, 2.4]);
       to = from;
       break;
+    case 'follow': {
+      // Kamera ikut berjalan: jarak dan tinggi tetap terhadap subjek yang
+      // bergerak, jadi ukuran aktor di frame tidak berubah sepanjang shot.
+      const distance = cam.distance ?? 4.2;
+      const height = cam.height ?? 1.45;
+      const at = (t2) => (ctx.subjectAt ? ctx.subjectAt(t2) : subject);
+      const here = at(u);
+      const dir = ctx.facing ?? [0, 0, 1];
+      from = add(add(here, mul(dir, -distance)), [0, height, 0]);
+      to = from;
+      target = cam.target ?? add(here, [0, 1.15, 0]);
+      break;
+    }
     case 'handheld':
     case 'static':
     default:

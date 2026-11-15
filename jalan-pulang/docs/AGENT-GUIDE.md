@@ -53,6 +53,8 @@ npm run render:studio -- StudioJalanPulang
 ## 3. Merancang shot yang enak ditonton
 
 * **Satu ide per shot.** Kalau perlu dua ide, pecah shot-nya.
+* **Aktor berjalan → `camera.preset: "follow"`.** `dolly-*` diam di tempat,
+  jadi aktor yang punya `travel` akan keluar frame atau mengecil.
 * **Gerak kamera punya arah.** `dolly-in` = mendekat (intim), `dolly-out` =
   meninggalkan (sepi), `crane-up` = menutup babak.
 * **Jangan taruh kamera di dalam geometri.** Jarak aman minimal 1.2 m dari aktor

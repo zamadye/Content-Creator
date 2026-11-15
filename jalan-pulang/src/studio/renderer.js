@@ -8,6 +8,8 @@ import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {clone as cloneSkeleton} from 'three/examples/jsm/utils/SkeletonUtils.js';
 import {asset} from './library.js';
+import {secondaryTurns, applySecondary, prepareSecondary, resetSecondary} from './secondary.js';
+import {createClipSampler} from './clip-sample.js';
 
 export const LOOKS = {
   'kampung-siang': {sky: 0x9fb6c4, fog: 0x8fa7b4, sun: 0xfff2dd, sunIntensity: 2.6, hemi: 1.1, exposure: 1.0},
@@ -29,6 +31,7 @@ export const LIGHTS = {
 };
 
 export const DEFAULT_BASE_URL = '/';
+
 
 /**
  * three.js sanitises node names for animation binding (dots are stripped), so
@@ -52,7 +55,7 @@ export class StudioRenderer {
     this.baseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
     this.onProgress = onProgress ?? (() => {});
     this.pixelRatio = pixelRatio;
-    this.instances = new Map(); // instanceKey -> {root, mixer, clipNames}
+    this.instances = new Map(); // instanceKey -> {root, sampler, clip, speed, ...}
     this.placements = new Map(); // shotIndex -> [instanceKey]
     this.templateCache = new Map();
     this.disposed = false;
@@ -136,15 +139,26 @@ export class StudioRenderer {
       root.scale.setScalar(scale);
       root.visible = false;
       this.scene.add(root);
-      let mixer = null;
+      // Tanpa AnimationMixer: sampler kita sendiri bersifat murni terhadap waktu,
+      // syarat mutlak karena Remotion merender frame secara acak dan paralel.
+      let sampler = null;
       if (clip && tpl.animations.length) {
         const found = THREE.AnimationClip.findByName(tpl.animations, clip) ?? tpl.animations[0];
-        mixer = new THREE.AnimationMixer(root);
-        const action = mixer.clipAction(found);
-        action.play();
-        action.setEffectiveWeight(1);
+        sampler = createClipSampler(root, found);
+        prepareSecondary(root, sampler.animatedNodes);
       }
-      this.instances.set(key, {root, mixer, assetId, clip: clip ?? null, speed, offset, at, yaw, travel});
+      this.instances.set(key, {
+        root,
+        sampler,
+        assetId,
+        clip: clip ?? null,
+        clipDuration: sampler?.duration ?? 0,
+        speed,
+        offset,
+        at,
+        yaw,
+        travel,
+      });
       keys.push(key);
     };
 
@@ -215,9 +229,22 @@ export class StudioRenderer {
         const inst = this.instances.get(key);
         if (!inst) continue;
         inst.root.visible = active;
-        if (!inst.mixer) continue;
+        if (!inst.sampler) continue;
         if (active) {
-          inst.mixer.setTime(seconds * inst.speed + inst.offset);
+          // pose = f(waktu lokal shot) — tidak ada state yang menumpuk
+          inst.sampler.apply(seconds * inst.speed + inst.offset);
+          // gerak sekunder: kepala & tangan terlambat dari dada, plus napas.
+          // Diterapkan setelah sampler menulis pose klip, supaya overlap ini
+          // menumpuk di atas animasi dan tidak dihapus frame berikutnya.
+          applySecondary(
+            inst.root,
+            secondaryTurns(seconds, {
+              clip: inst.clip,
+              duration: inst.clipDuration,
+              speed: inst.speed,
+              intensity: shot.secondary ?? 1,
+            }),
+          );
           // travel: world-space movement along `facing`. In-place locomotion
           // clips slide exactly as fast as the actor fails to move, so this is
           // the knob that stops foot sliding.
@@ -229,7 +256,8 @@ export class StudioRenderer {
             );
           }
         } else {
-          inst.mixer.setTime(0);
+          inst.sampler.apply(0);
+          resetSecondary(inst.root);
           inst.root.position.set(inst.at[0], inst.at[1], inst.at[2]);
         }
       }
@@ -257,7 +285,7 @@ export class StudioRenderer {
   dispose() {
     this.disposed = true;
     for (const inst of this.instances.values()) {
-      inst.mixer?.stopAllAction();
+      inst.sampler = null;
       this.scene?.remove(inst.root);
     }
     this.instances.clear();

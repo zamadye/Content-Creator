@@ -55,6 +55,7 @@ export function compileStory(raw, {registry = null} = {}) {
       subject,
       cast,
       objectPlacements: objects,
+      secondary: shot.secondary ?? 1,
       cameraSample: (u) => sampleCamera(shot, u, {subject, seed: i + 1}),
     };
   });

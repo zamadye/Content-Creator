@@ -31,11 +31,11 @@ Baris yang bergantung pada GPU ditandai eksplisit.
 | 4 | UV & texture preparation | 1 | 2 | 1 | 0 |
 | 5 | PBR material & texturing | 6 | 2 | 1 | 0 |
 | 6 | Rigging & deformation | 4 | 0 | 2 | 0 |
-| 7 | Animation production | 3 | 2 | 1 | 1 |
+| 7 | Animation production | 4 | 2 | 0 | 1 |
 | 8 | Scene assembly & lighting | 3 | 2 | 0 | 0 |
 | 9 | Rendering & post-production | 0 | 4 | 2 | 0 |
 
-Total: **26 selesai · 16 sebagian · 8 belum · 3 tidak berlaku**.
+Total: **27 selesai · 17 sebagian · 7 belum · 3 tidak berlaku**.
 
 ---
 
@@ -110,7 +110,7 @@ Total: **26 selesai · 16 sebagian · 8 belum · 3 tidak berlaku**.
 |---|---|---|---|
 | 36 | Animation blocking | ✅ | `human.py`: idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish |
 | 37 | Spline / motion refinement | ◐ | Kurva sinus/easing prosedural; belum ada editor kurva |
-| 38 | Secondary motion | ⛔ | Rambut dan kain tidak bergerak sekunder; shroud diikat ke tulang punggung saja |
+| 38 | Secondary motion | ◐ | Baru: `src/studio/secondary.js` menambah overlap napas/ayunan/kepala-tertinggal di atas klip (kepala bergeser 24,7 mm terukur di `test-studio-three`). Masih ⛔ untuk **rambut dan kain**: rig 163 tulang tidak punya tulang rambut/kain, shroud/veil diikat ke tulang punggung saja |
 | 39 | Procedural animation | ✅ | Pose dan root offset dihasilkan parameter waktu; `travel` (baru) menggeser aktor di dunia |
 | 40 | Physics simulation | ⛔ | Tidak ada cloth/rigid/soft body |
 | 41 | Animation cleanup | ◐ | Sesi ini: `scripts/qc-motion.mjs` mengukur laju kaki saat menapak (walk 2,26 m/s, run 4,76 m/s pada `speed 1`) dan interpenetrasi lantai (0 sampel). Foot sliding baru bisa *dihilangkan*, bukan hanya diukur, kalau cerita memakai `travel` |
@@ -146,8 +146,10 @@ Total: **26 selesai · 16 sebagian · 8 belum · 3 tidak berlaku**.
    (pass, compositing, grading, encoding) karena semuanya butuh frame nyata.
    Jalan keluarnya bukan kode baru, tapi menjalankan `npm run render:studio` di
    mesin dengan browser, lalu menyimpan satu still 1080p sebagai bukti.
-2. **Secondary motion & physics (38, 40).** Rambut dan kain masih kaku; ini yang
-   paling terasa kalau klip mulai dipakai berulang.
+2. **Secondary motion & physics (38, 40).** Overlap tubuh (napas, kepala
+   tertinggal, ayunan lengan) sekarang ada di `secondary.js`, tapi rambut dan
+   kain masih kaku: rig tidak punya tulang untuk keduanya, dan tidak ada
+   simulasi. Ini yang paling terasa kalau klip mulai dipakai berulang.
 3. **IK/FK & corrective shapes (33, 34).** Tanpa itu, pose ekstrem (jongkok
    dalam, memanjat) hanya bisa didekati dengan klip yang ditulis manual.
 
@@ -160,3 +162,15 @@ Total: **26 selesai · 16 sebagian · 8 belum · 3 tidak berlaku**.
 * Nomor stride dari pengukuran: `walk` pada `speed 1` menyiratkan **2,26 m/s**
   (pakai `speed 0,6` + `travel 1,36` untuk langkah manusia normal), `run`
   menyiratkan **4,76 m/s**.
+* **Framing shot (langkah 44).** `scripts/qc-framing.mjs` memproyeksikan kepala
+  dan dada aktor di lima titik waktu per shot; tiga shot yang melanggar sudah
+  diperbaiki.
+* **Gerak sekunder (langkah 38, sebagian).** `src/studio/secondary.js`:
+  napas 3,6 detik, ayunan langkah yang merambat dengan keterlambatan per tulang,
+  dan goyangan lambat 7,3 detik. Besar pengaruhnya diukur, bukan diklaim:
+  kepala bergeser maks 24,7 mm / rata-rata 14,9 mm, tangan 16,1 mm.
+* **Pose jadi fungsi waktu.** Saat memasang gerak sekunder ditemukan
+  `AnimationMixer.setTime()` tidak deterministik antar-urutan frame (menyimpang
+  13,8 cm pada `walk`), padahal Remotion merender frame secara acak dan paralel.
+  Mixer diganti `src/studio/clip-sample.js` (evaluasi interpolant sendiri);
+  kemurnian frame diuji di `test-studio-three` dan disimpan sebagai gerbang.

@@ -15,6 +15,7 @@ import {compileStory, summarize} from '../src/studio/compile.js';
 import {StoryError, normalizeStory, validateStory} from '../src/studio/schema.js';
 import {sampleCamera, facingYaw, EYE_HEIGHT} from '../src/studio/camera.js';
 import {framingIssues} from './qc-framing.mjs';
+import {secondaryTurns} from '../src/studio/secondary.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -193,6 +194,41 @@ for (const file of storyFiles) {
   assert.equal(again.durationInFrames, c.durationInFrames, `${file}: compile must be deterministic`);
 }
 ok('stories');
+
+// ------------------------------------------------------------ 5a. gerak sekunder
+{
+  const shot = {id: 'a', duration: 1, actors: [], camera: {preset: 'static'}};
+  const base = JSON.parse(fs.readFileSync(path.join(studioDir, 'uji-kamera.json'), 'utf8'));
+
+  // default 1, diteruskan compile, dan boleh dimatikan per shot
+  const on = JSON.parse(JSON.stringify(base));
+  on.shots = [shot];
+  assert.equal(compileStory(on, {registry}).shots[0].secondary, 1, 'secondary defaults to 1');
+
+  const off = JSON.parse(JSON.stringify(base));
+  off.shots = [{...shot, secondary: 0}];
+  assert.equal(compileStory(off, {registry}).shots[0].secondary, 0, 'secondary 0 must survive compile');
+
+  const loud = JSON.parse(JSON.stringify(base));
+  loud.shots = [{...shot, secondary: 1.5}];
+  assert.equal(compileStory(loud, {registry}).shots[0].secondary, 1.5);
+
+  const bad = JSON.parse(JSON.stringify(base));
+  bad.shots = [{...shot, secondary: 3}];
+  assert.throws(() => validateStory(bad, {registry}), /secondary/, 'secondary above 2 must be rejected');
+
+  // gerak sekunder: murni terhadap waktu, mati saat intensitas 0
+  const turns = secondaryTurns(0.4, {clip: 'walk', duration: 1.07, speed: 0.6, intensity: 1});
+  assert.ok(turns.length > 5, 'walk must produce overlap + breath + drift');
+  assert.deepEqual(secondaryTurns(0.4, {clip: 'walk', duration: 1.07, intensity: 0}), []);
+  assert.deepEqual(
+    secondaryTurns(0.4, {clip: 'walk', duration: 1.07, intensity: 1}),
+    secondaryTurns(0.4, {clip: 'walk', duration: 1.07, intensity: 1}),
+    'secondary turns must be a pure function of time',
+  );
+  for (const t of turns) assert.ok(Number.isFinite(t.angle) && Math.abs(t.angle) < 0.2, 'angles stay small');
+  ok('secondary');
+}
 
 // --------------------------------------------------------------- 5b. travel aktor
 {

@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {createClipSampler} from '../src/studio/clip-sample.js';
 
 const PUBLIC = new URL('../public/', import.meta.url).pathname;
 const REGISTRY = JSON.parse(fs.readFileSync(path.join(PUBLIC, 'assets/registry.json'), 'utf8'));
@@ -71,7 +72,6 @@ const SUBJECT = 'char.male-dewasa-polo';
 
 const gltf = await load(REGISTRY.assets[SUBJECT]);
 const scene = gltf.scene;
-const mixer = new THREE.AnimationMixer(scene);
 const findings = [];
 
 for (const clipName of CLIPS) {
@@ -80,14 +80,13 @@ for (const clipName of CLIPS) {
     console.log(`levati ${clipName}: tidak ada`);
     continue;
   }
-  const action = mixer.clipAction(clip);
-  action.play();
+  const sampler = createClipSampler(scene, clip);
   const samples = [];
   const step = 1 / 120;
   const left = scene.getObjectByName('footL') ?? scene.getObjectByName('foot.L');
   const right = scene.getObjectByName('footR') ?? scene.getObjectByName('foot.R');
   for (let t = 0; t <= clip.duration; t += step) {
-    mixer.setTime(t);
+    sampler.apply(t);
     scene.updateMatrixWorld(true);
     samples.push({
       t,
@@ -95,7 +94,6 @@ for (const clipName of CLIPS) {
       r: right.getWorldPosition(new THREE.Vector3()),
     });
   }
-  action.stop();
   const ys = samples.flatMap((s) => [s.l.y, s.r.y]);
   const floor = Math.min(...ys);
   const contactY = floor + 0.02;

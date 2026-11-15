@@ -226,3 +226,34 @@ badan aktor.
 
 `npm run test:studio` menjalankan pemeriksaan yang sama untuk semua cerita, jadi
 cerita baru tidak bisa masuk dengan framing rusak.
+
+## Gerak sekunder: `secondary`
+
+Setiap shot punya field `secondary` (0..2, default **1**) yang mengatur lapisan
+gerak tambahan di atas klip: napas, ayunan badan yang merambat dengan
+keterlambatan per tulang, dan goyangan berat badan yang lambat. Ini yang membuat
+pose diam tidak terasa seperti patung.
+
+| nilai | efek |
+|---|---|
+| `0` | mati — berguna untuk adegan beku atau saat figur harus terasa tidak hidup |
+| `1` | normal |
+| `1.5`–`2` | dilebihkan — untuk ketegangan atau kamera sangat dekat |
+
+```json
+"shots": [
+  { "id": "sosok-04", "duration": 4.5, "secondary": 0.35, "actors": [ ... ] },
+  { "id": "duduk-02", "duration": 5,   "secondary": 1.4,  "actors": [ ... ] }
+]
+```
+
+Catatan penting:
+
+* Lapisan ini **bukan** simulasi kain atau rambut. Rig `studio-humanoid-v1`
+  tidak punya tulang rambut/kain, jadi keduanya tetap kaku.
+* Besarnya diukur, bukan diklaim: pada `walk` kepala bergeser maksimum **24,7 mm**
+  (rata-rata 14,9 mm) dan tangan 16,1 mm — lihat keluaran
+  `node scripts/test-studio-three.mjs`.
+* Pose aktor adalah **fungsi murni dari waktu lokal shot** (tanpa mixer three.js),
+  jadi frame yang sama selalu menghasilkan pose yang sama walau Remotion
+  merendernya acak dan paralel.

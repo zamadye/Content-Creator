@@ -15,6 +15,8 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {clone as cloneSkeleton} from 'three/examples/jsm/utils/SkeletonUtils.js';
 import {registry} from '../src/studio/library.js';
 import {compileStory} from '../src/studio/compile.js';
+import {secondaryTurns, applySecondary, prepareSecondary, resetSecondary, SECONDARY_BONES} from '../src/studio/secondary.js';
+import {createClipSampler} from '../src/studio/clip-sample.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -120,14 +122,13 @@ for (const id of Object.keys(registry.assets)) {
   assert.notEqual(instance, scene);
 
   if (gltf.animations.length) {
-    const mixer = new THREE.AnimationMixer(instance);
     for (const clip of gltf.animations) {
       clips += 1;
       assert.ok(clip.duration > 0, `${id}/${clip.name}: zero duration`);
-      const action = mixer.clipAction(clip);
-      action.play();
+      const sampler = createClipSampler(instance, clip);
+      assert.ok(sampler.channels > 0, `${id}/${clip.name}: no channels bound`);
       for (const t of [0, clip.duration * 0.37, clip.duration * 0.93]) {
-        mixer.setTime(t);
+        sampler.apply(t);
         instance.updateMatrixWorld(true);
         instance.traverse((o) => {
           if (!o.isBone) return;
@@ -144,6 +145,10 @@ for (const id of Object.keys(registry.assets)) {
         });
       }
       // A skinned vertex must stay inside a believable human-sized box.
+      // Diukur pada t=0: klip `float` memang menerjemahkan akar ke atas (1,19 m),
+      // jadi posisi akhir sampel tidak boleh dipakai sebagai acuan.
+      sampler.apply(0);
+      instance.updateMatrixWorld(true);
       instance.traverse((o) => {
         if (!o.isSkinnedMesh) return;
         const attr = o.geometry.getAttribute('position');
@@ -167,7 +172,6 @@ for (const id of Object.keys(registry.assets)) {
           );
         }
       });
-      action.stop();
     }
     assert.ok(skinned > 0, `${id}: animated but not skinned`);
   }
@@ -191,6 +195,152 @@ for (const shot of compiled.shots) {
     assert.ok(allFinite([...cam.position, ...cam.target]), `${shot.id}: non-finite camera`);
     assert.ok(cam.fov >= 10 && cam.fov <= 120);
   }
+}
+
+// ------------------------------------------- pose murni terhadap waktu (render)
+{
+  // Remotion merender frame secara acak dan paralel: pose seekor aktor WAJIB
+  // hanya fungsi dari waktu lokal shot. Ini yang menangkap pemakaian
+  // AnimationMixer.setTime(), yang menyimpang sampai 13,8 cm pada `walk` antara
+  // "langsung ke t=2,0" dan "melangkah 120 frame lalu ke t=2,0".
+  const charId = 'char.male-muda-jaket';
+  const {json, bin} = splitGlb(fs.readFileSync(path.join(root, 'public', registry.assets[charId].uri)));
+  const gltf = await parse(buildGlb(json, bin));
+  const clip = THREE.AnimationClip.findByName(gltf.animations, 'walk');
+  const times = [0, 0.37, 1.0, 2.0, 3.31, 5.02];
+
+  const make = () => {
+    const inst = cloneSkeleton(gltf.scene);
+    inst.updateMatrixWorld(true);
+    const sampler = createClipSampler(inst, clip);
+    return {inst, sampler};
+  };
+  const probe = ({inst, sampler}, t) => {
+    sampler.apply(t);
+    inst.updateMatrixWorld(true);
+    return inst.getObjectByName('wristL').getWorldPosition(new THREE.Vector3());
+  };
+
+  // 1. instance segar untuk tiap waktu (cara render sesungguhnya)
+  const fresh = times.map((t) => probe(make(), t));
+  // 2. satu instance, waktu naik
+  const up = make();
+  const seq = times.map((t) => probe(up, t));
+  // 3. satu instance, urutan acak
+  const rnd = make();
+  const order = [4, 1, 5, 0, 3, 2];
+  const shuffled = [];
+  for (const i of order) shuffled[i] = probe(rnd, times[i]);
+  // 4. instance yang sempat melangkah 1/120 detik sampai t terakhir
+  const stepped = make();
+  for (let f = 0; f <= 3.31 * 120; f += 1) probe(stepped, f / 120);
+
+  let worst = 0;
+  for (let i = 0; i < times.length; i++) {
+    worst = Math.max(worst, seq[i].distanceTo(fresh[i]), shuffled[i].distanceTo(fresh[i]));
+  }
+  assert.ok(worst < 1e-9, `pose must be frame-pure (worst drift ${(worst * 1000).toFixed(3)} mm)`);
+  // setelah melangkah, waktu berikutnya tetap sama persis
+  const afterStep = probe(stepped, 2.0);
+  assert.ok(afterStep.distanceTo(fresh[3]) < 1e-9, 'stepping history must not change a later frame');
+
+  // klip berulang: t dan t+duration adalah pose yang sama
+  const smp = make();
+  const p0 = probe(smp, 0.8);
+  const pw = probe(smp, 0.8 + clip.duration);
+  assert.ok(p0.distanceTo(pw) < 1e-9, 'clip must loop seamlessly in the sampler');
+  console.log(`pose murni: ${times.length} waktu x 4 urutan, simpangan maks ${(worst * 1000).toFixed(4)} mm`);
+}
+
+// ------------------------------------------------- gerak sekunder (langkah 38)
+{
+  // Klip cuma punya satu lapis gerak; kepala dan tangan harus datang terlambat.
+  // Diukur pada dua salinan identik: satu dengan lapisan sekunder, satu tanpa.
+  const charId = 'char.male-muda-jaket';
+  const {json, bin} = splitGlb(fs.readFileSync(path.join(root, 'public', registry.assets[charId].uri)));
+  const gltf = await parse(buildGlb(json, bin));
+  const clip = THREE.AnimationClip.findByName(gltf.animations, 'walk');
+  assert.ok(clip && clip.duration > 0, 'walk clip must exist');
+
+  // semua tulang yang disebut harus benar-benar ada di rig
+  const probe = cloneSkeleton(gltf.scene);
+  for (const name of SECONDARY_BONES) {
+    const found = probe.getObjectByName(name) ?? probe.getObjectByName(name.replace(/[.[\]:/ ]/g, ''));
+    assert.ok(found, `secondary bone "${name}" must exist in the rig`);
+  }
+
+  const track = (intensity) => {
+    const inst = cloneSkeleton(gltf.scene);
+    inst.updateMatrixWorld(true);
+    const sampler = createClipSampler(inst, clip);
+    prepareSecondary(inst, sampler.animatedNodes);
+    const out = [];
+    for (let f = 0; f <= 120; f += 1) {
+      const t = f / 60;
+      sampler.apply(t * 0.6);
+      if (intensity > 0) {
+        applySecondary(inst, secondaryTurns(t, {clip: 'walk', duration: clip.duration, speed: 0.6, intensity}));
+      }
+      inst.updateMatrixWorld(true);
+      const head = inst.getObjectByName('head');
+      const hand = inst.getObjectByName('wristL') ?? inst.getObjectByName('wrist.L') ?? inst.getObjectByName('wristL');
+      out.push({
+        head: head.getWorldPosition(new THREE.Vector3()),
+        hand: hand ? hand.getWorldPosition(new THREE.Vector3()) : null,
+      });
+    }
+    return out;
+  };
+
+  const plain = track(0);
+  const moved = track(1);
+  let maxHead = 0;
+  let sumHead = 0;
+  let maxHand = 0;
+  for (let i = 0; i < plain.length; i++) {
+    const d = plain[i].head.distanceTo(moved[i].head);
+    maxHead = Math.max(maxHead, d);
+    sumHead += d;
+    if (plain[i].hand && moved[i].hand) {
+      maxHand = Math.max(maxHand, plain[i].hand.distanceTo(moved[i].hand));
+    }
+  }
+  const meanHead = sumHead / plain.length;
+  assert.ok(allFinite(moved.flatMap((m) => m.head.toArray())), 'secondary must not produce NaN');
+  assert.ok(maxHead > 0.004, `head must visibly lag the chest (max ${(maxHead * 1000).toFixed(1)} mm)`);
+  assert.ok(meanHead > 0.001, `mean head offset ${(meanHead * 1000).toFixed(2)} mm is too small to see`);
+  assert.ok(maxHand > 0.004, `hand follow-through must be visible (max ${(maxHand * 1000).toFixed(1)} mm)`);
+
+  // determinisme: waktu yang sama -> pose yang sama (Remotion merender frame
+  // secara acak/paralel, jadi tidak boleh ada state yang menumpuk)
+  const a = cloneSkeleton(gltf.scene);
+  const b = cloneSkeleton(gltf.scene);
+  for (const inst of [a, b]) {
+    const sampler = createClipSampler(inst, clip);
+    prepareSecondary(inst, sampler.animatedNodes);
+    sampler.apply(0.9);
+    applySecondary(inst, secondaryTurns(1.5, {clip: 'walk', duration: clip.duration, speed: 0.6, intensity: 1}));
+    inst.updateMatrixWorld(true);
+  }
+  const ha = a.getObjectByName('head').getWorldPosition(new THREE.Vector3());
+  const hb = b.getObjectByName('head').getWorldPosition(new THREE.Vector3());
+  assert.ok(ha.distanceTo(hb) < 1e-9, 'secondary must be a pure function of shot time');
+
+  // intensitas: 0 = mati, 2 = dua kali sudut
+  assert.deepEqual(secondaryTurns(1, {clip: 'walk', duration: 1, intensity: 0}), [], 'intensity 0 must be a no-op');
+  const one = secondaryTurns(0.4, {clip: 'walk', duration: 1.07, speed: 1, intensity: 1});
+  const two = secondaryTurns(0.4, {clip: 'walk', duration: 1.07, speed: 1, intensity: 2});
+  assert.equal(one.length, two.length);
+  for (let i = 0; i < one.length; i++) {
+    assert.ok(Math.abs(two[i].angle - 2 * one[i].angle) < 1e-12, 'intensity scales linearly');
+  }
+  // klip tanpa langkah hanya bernapas + goyang lambat
+  const idleTurns = secondaryTurns(0.4, {clip: 'idle', duration: 2, speed: 1, intensity: 1});
+  assert.ok(!idleTurns.some((o) => o.bone.startsWith('lowerarm')), 'no gait swing on idle');
+  console.log(
+    `gerak sekunder: kepala bergeser maks ${(maxHead * 1000).toFixed(1)} mm (rata-rata ${(meanHead * 1000).toFixed(2)} mm), ` +
+      `tangan ${(maxHand * 1000).toFixed(1)} mm, deterministik`,
+  );
 }
 
 assert.equal(problems.length, 0, `\n${problems.join('\n')}`);

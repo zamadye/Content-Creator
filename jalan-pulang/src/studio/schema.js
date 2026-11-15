@@ -18,7 +18,7 @@ export const FIELDS = {
   look: ['preset', 'fog', 'exposure', 'grain', 'vignette', 'sky'],
   cast: ['asset', 'clip', 'palette', 'scale', 'label', 'note'],
   objects: ['asset', 'scale', 'label'],
-  shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'note'],
+  shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'secondary', 'note'],
   set: ['asset', 'at', 'rot', 'scale', 'clip'],
   actor: ['ref', 'at', 'facing', 'clip', 'offset', 'speed', 'travel', 'loop', 'hidden'],
   object: ['ref', 'at', 'rot', 'scale', 'hidden'],
@@ -88,6 +88,8 @@ export function normalizeStory(raw) {
     out.objects = (shot.objects ?? []).map((o) => ({at: [0, 0, 0], rot: 0, scale: 1, hidden: false, ...o}));
     out.camera = {preset: 'static', fov: 40, roll: 0, shake: 0, ...(shot.camera ?? {})};
     out.light = {preset: 'siang', intensity: 1, ...(shot.light ?? {})};
+    // 1 = gerak sekunder normal, 0 = mati (mis. saat beku), 2 = dilebihkan
+    out.secondary = shot.secondary ?? 1;
     return out;
   });
   return s;
@@ -185,6 +187,10 @@ export function validateStory(raw, {registry = null} = {}) {
     for (const k of ['from', 'to', 'target']) if (cam[k] !== undefined) checkVec3(cam[k], `${where}.camera.${k}`, problems);
     if (!(cam.fov >= 10 && cam.fov <= 120)) problems.push(`${where}.camera.fov must be 10..120`);
     if (cam.preset === 'over-shoulder' && cam.target === undefined) warnings.push(`${where}.camera: over-shoulder without target falls back to the subject's chest`);
+
+    if (!(isNum(shot.secondary) && shot.secondary >= 0 && shot.secondary <= 2)) {
+      problems.push(`${where}.secondary must be 0..2 (0 = off, 1 = normal)`);
+    }
 
     checkFields(shot.light, FIELDS.light, `${where}.light`, problems);
     if (!LIGHT_PRESETS.includes(shot.light.preset)) problems.push(`${where}.light.preset must be one of ${LIGHT_PRESETS.join('/')}`);

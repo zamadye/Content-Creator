@@ -217,7 +217,8 @@
    "text": {
     "style": "subtitle",
     "value": "Aku cuma bisa mengangguk."
-   }
+   },
+   "secondary": 1.4
   },
   {
    "id": "keluar-03",

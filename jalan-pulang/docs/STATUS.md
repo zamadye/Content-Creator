@@ -183,3 +183,41 @@ baru tidak bisa lolos dengan kepala terpotong. Perintah: `npm run qc:framing`,
 Batasnya tetap sama dan harus disebut: ini perhitungan proyeksi, bukan render.
 Ia menangkap framing dan jarak kamera, **tidak** menangkap oklusi (kamera di
 belakang dinding), clipping near/far, atau apakah pencahayaan benar.
+
+## Gerak sekunder (langkah 38, sebagian)
+
+`src/studio/secondary.js` menambahkan satu lapis gerak di atas klip tanpa
+menyentuh GLB: napas 3,6 detik di tulang punggung dan klavikula, ayunan badan
+mengikuti irama klip dengan keterlambatan per tulang (spine02 → spine04 → neck02
+→ head, lengan mengayun menyusul), dan goyangan berat badan 7,3 detik. Semuanya
+fungsi murni dari waktu lokal shot — tidak ada integrator, karena Remotion
+merender frame secara acak.
+
+Diukur di `scripts/test-studio-three.mjs` pada `char.male-muda-jaket` + `walk`
+(`speed 0,6`): kepala bergeser maksimum **24,7 mm** (rata-rata 14,9 mm), tangan
+**16,1 mm**, tanpa NaN, dan dua instans dengan riwayat berbeda menghasilkan pose
+identik.
+
+Field baru per shot: `secondary` (0..2, default 1) — `0` mematikan lapisan ini
+(mis. adegan beku), `1,5`–`2` melebihkannya untuk kamera dekat. Cerita memakainya
+di `jalan-pulang-01/sosok-04` (`0,35`, ketegangan) dan `warung-malam/duduk-02`
+(`1,4`, percakapan dekat).
+
+**Batasnya jelas:** ini bukan simulasi. Rambut dan kain tetap kaku karena rig
+163 tulang tidak punya tulang untuk keduanya; langkah 40 (fisika) tetap ⛔.
+
+## Bug yang ditemukan sambil mengerjakan gerak sekunder
+
+`THREE.AnimationMixer.setTime()` **tidak murni terhadap waktu**: pose pada
+`t = 2,0` berbeda 13,8 cm antara "langsung ke 2,0" dan "melangkah 120 frame lalu
+ke 2,0" (penghitungan loop tersimpan di dalam mixer). Itu berarti selama ini
+frame yang sama bisa menghasilkan pose berbeda tergantung urutan render —
+persis yang tidak boleh terjadi pada Remotion yang merender paralel dan acak.
+
+Mixer sudah diganti `src/studio/clip-sample.js` (evaluasi interpolant klip
+sendiri, satu klip per aktor, tanpa fade/penimbangan). Kemurniannya sekarang
+diuji: 6 waktu × 4 urutan pemanggilan (segar, naik, acak, setelah melangkah
+1/120 detik) dengan simpangan maksimum **0,0000 mm**. `scripts/qc-motion.mjs`
+ikut memakai sampler yang sama dan menghasilkan angka identik (walk 2,26 m/s,
+run 4,76 m/s) — bukti sampler tidak mengubah animasi, hanya membuatnya
+deterministik.

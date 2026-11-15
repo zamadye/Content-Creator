@@ -1,0 +1,536 @@
+{
+ "schema": "studio.story/2",
+ "id": "uji-kamera",
+ "title": "Uji kosakata kamera",
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "look": {
+  "preset": "kampung-siang",
+  "fog": 0.02,
+  "exposure": 1.0,
+  "grain": 0.03
+ },
+ "cast": {
+  "aku": {
+   "asset": "char.male-dewasa-polo"
+  }
+ },
+ "objects": {},
+ "meta": {
+  "author": "studio-forge",
+  "notes": "Sembilan shot, satu per preset kamera. Pakai ini untuk QC framing.",
+  "tags": [
+   "uji",
+   "kamera"
+  ]
+ },
+ "shots": [
+  {
+   "id": "kamera-01",
+   "title": "preset: static",
+   "duration": 2.0,
+   "set": [
+    {
+     "asset": "road.asphalt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -3.2,
+      0,
+      2.4
+     ],
+     "rot": 0.7
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      2.6,
+      0,
+      1.8
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      0.6
+     ],
+     "facing": "+Z",
+     "clip": "idle"
+    }
+   ],
+   "camera": {
+    "preset": "static",
+    "fov": 38
+   },
+   "light": {
+    "preset": "siang"
+   },
+   "text": {
+    "style": "caption",
+    "value": "static"
+   }
+  },
+  {
+   "id": "kamera-02",
+   "title": "preset: dolly-in",
+   "duration": 2.0,
+   "set": [
+    {
+     "asset": "road.asphalt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -3.2,
+      0,
+      2.4
+     ],
+     "rot": 0.7
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      2.6,
+      0,
+      1.8
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      0.6
+     ],
+     "facing": "+Z",
+     "clip": "idle"
+    }
+   ],
+   "camera": {
+    "preset": "dolly-in",
+    "fov": 42
+   },
+   "light": {
+    "preset": "siang"
+   },
+   "text": {
+    "style": "caption",
+    "value": "dolly-in"
+   }
+  },
+  {
+   "id": "kamera-03",
+   "title": "preset: dolly-out",
+   "duration": 2.0,
+   "set": [
+    {
+     "asset": "road.asphalt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -3.2,
+      0,
+      2.4
+     ],
+     "rot": 0.7
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      2.6,
+      0,
+      1.8
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      0.6
+     ],
+     "facing": "+Z",
+     "clip": "idle"
+    }
+   ],
+   "camera": {
+    "preset": "dolly-out",
+    "fov": 46
+   },
+   "light": {
+    "preset": "siang"
+   },
+   "text": {
+    "style": "caption",
+    "value": "dolly-out"
+   }
+  },
+  {
+   "id": "kamera-04",
+   "title": "preset: pan",
+   "duration": 2.0,
+   "set": [
+    {
+     "asset": "road.asphalt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -3.2,
+      0,
+      2.4
+     ],
+     "rot": 0.7
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      2.6,
+      0,
+      1.8
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      0.6
+     ],
+     "facing": "+Z",
+     "clip": "idle"
+    }
+   ],
+   "camera": {
+    "preset": "pan",
+    "fov": 38
+   },
+   "light": {
+    "preset": "siang"
+   },
+   "text": {
+    "style": "caption",
+    "value": "pan"
+   }
+  },
+  {
+   "id": "kamera-05",
+   "title": "preset: orbit",
+   "duration": 2.0,
+   "set": [
+    {
+     "asset": "road.asphalt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -3.2,
+      0,
+      2.4
+     ],
+     "rot": 0.7
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      2.6,
+      0,
+      1.8
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      0.6
+     ],
+     "facing": "+Z",
+     "clip": "idle"
+    }
+   ],
+   "camera": {
+    "preset": "orbit",
+    "fov": 42,
+    "radius": 3.0,
+    "arc": 70
+   },
+   "light": {
+    "preset": "siang"
+   },
+   "text": {
+    "style": "caption",
+    "value": "orbit"
+   }
+  },
+  {
+   "id": "kamera-06",
+   "title": "preset: crane-up",
+   "duration": 2.0,
+   "set": [
+    {
+     "asset": "road.asphalt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -3.2,
+      0,
+      2.4
+     ],
+     "rot": 0.7
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      2.6,
+      0,
+      1.8
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      0.6
+     ],
+     "facing": "+Z",
+     "clip": "idle"
+    }
+   ],
+   "camera": {
+    "preset": "crane-up",
+    "fov": 46
+   },
+   "light": {
+    "preset": "siang"
+   },
+   "text": {
+    "style": "caption",
+    "value": "crane-up"
+   }
+  },
+  {
+   "id": "kamera-07",
+   "title": "preset: low-angle",
+   "duration": 2.0,
+   "set": [
+    {
+     "asset": "road.asphalt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -3.2,
+      0,
+      2.4
+     ],
+     "rot": 0.7
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      2.6,
+      0,
+      1.8
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      0.6
+     ],
+     "facing": "+Z",
+     "clip": "idle"
+    }
+   ],
+   "camera": {
+    "preset": "low-angle",
+    "fov": 38
+   },
+   "light": {
+    "preset": "siang"
+   },
+   "text": {
+    "style": "caption",
+    "value": "low-angle"
+   }
+  },
+  {
+   "id": "kamera-08",
+   "title": "preset: over-shoulder",
+   "duration": 2.0,
+   "set": [
+    {
+     "asset": "road.asphalt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -3.2,
+      0,
+      2.4
+     ],
+     "rot": 0.7
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      2.6,
+      0,
+      1.8
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      0.6
+     ],
+     "facing": "+Z",
+     "clip": "idle"
+    }
+   ],
+   "camera": {
+    "preset": "over-shoulder",
+    "fov": 42
+   },
+   "light": {
+    "preset": "siang"
+   },
+   "text": {
+    "style": "caption",
+    "value": "over-shoulder"
+   }
+  },
+  {
+   "id": "kamera-09",
+   "title": "preset: handheld",
+   "duration": 2.0,
+   "set": [
+    {
+     "asset": "road.asphalt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -3.2,
+      0,
+      2.4
+     ],
+     "rot": 0.7
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      2.6,
+      0,
+      1.8
+     ],
+     "scale": 1.2
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "at": [
+      0,
+      0,
+      0.6
+     ],
+     "facing": "+Z",
+     "clip": "idle"
+    }
+   ],
+   "camera": {
+    "preset": "handheld",
+    "fov": 46
+   },
+   "light": {
+    "preset": "siang"
+   },
+   "text": {
+    "style": "caption",
+    "value": "handheld"
+   }
+  }
+ ]
+}

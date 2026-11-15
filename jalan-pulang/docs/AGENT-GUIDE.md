@@ -1,0 +1,122 @@
+# PANDUAN AGEN — dari id aset ke film
+
+Dokumen ini untuk agen (atau manusia) yang membuat adegan tanpa menyentuh kode
+renderer. Semua yang dibutuhkan ada di dua tempat:
+
+* `public/assets/registry.json` — katalog (sumber kebenaran)
+* `docs/STORY-FORMAT.md` — bahasa cerita
+
+## 1. Alur kerja (5 langkah)
+
+```bash
+# 1. cari aset
+node scripts/studio.mjs list --category nature
+node scripts/studio.mjs list --query lampu --json
+
+# 2. lihat klip yang tersedia untuk aktor
+node scripts/studio.mjs clips char.male-dewasa-polo
+
+# 3. tulis cerita (JSON), lalu validasi
+node scripts/studio.mjs validate stories/studio/adegan-baru.json
+
+# 4. periksa biaya & struktur sebelum render
+node scripts/studio.mjs plan stories/studio/adegan-baru.json
+
+# 5. render (Remotion)
+npm run render:studio -- StudioJalanPulang
+```
+
+`studio.mjs new <id>` membuat kerangka cerita siap-validasi.
+
+## 2. Aturan yang tidak boleh dilanggar
+
+| aturan | kenapa |
+|---|---|
+| satuan **meter**, **+Y** atas, aset menghadap **+Z**, origin di **kaki** | kalau tidak, aktor mengambang/tertanam |
+| id aset hanya dari registry | GLB dimuat lewat `uri` di registry |
+| `clip` hanya yang ada di aset itu | mixer jatuh ke klip 0 kalau tidak ketemu |
+| jangan pakai `../` di `audio.vo` | validator menolak (keamanan path) |
+| shot 0.2..120 detik, total ≤ 900 detik | satu file = satu cerita |
+| field tak dikenal = error | supaya typo ketahuan, bukan diabaikan |
+
+## 3. Merancang shot yang enak ditonton
+
+* **Satu ide per shot.** Kalau perlu dua ide, pecah shot-nya.
+* **Gerak kamera punya arah.** `dolly-in` = mendekat (intim), `dolly-out` =
+  meninggalkan (sepi), `crane-up` = menutup babak.
+* **Jangan taruh kamera di dalam geometri.** Jarak aman minimal 1.2 m dari aktor
+  untuk fov 40, 2 m untuk fov 30.
+* **Satu sumber cahaya per adegan malam.** `light.preset: "lampu-teplok"` +
+  `look.preset: "interior-lampu"` sudah cukup; menambah intensitas hanya
+  membakar highlight.
+* **Durasi bicara**: ~2.4 kata/detik bahasa Indonesia. Subtitle 12 kata ≈ 5 detik.
+* **Waktu diam** (2–3 detik tanpa dialog) setelah beat emosional hampir selalu
+  memperkuat, bukan melemahkan.
+
+## 4. Menambah aset ke perpustakaan
+
+1. Tulis builder di `studio-forge/forge/env_<kategori>.py`:
+
+```python
+def bench_wood():
+    b, ms = Builder(), std_mats()
+    b.add_box("wood", (0, 0.42, 0), (1.4, 0.06, 0.34), 1.0)
+    ...
+    return b, ms
+
+ASSETS["prop.bench.wood"] = dict(build=bench_wood, title="Bangku kayu",
+                                 tags=["furniture"], category="prop")
+```
+
+2. Build + QC:
+
+```bash
+python studio-forge/build.py --only prop.bench.wood
+# lihat public/assets/prop/prop.bench.wood/thumbnail.png
+```
+
+3. Registry, katalog, dan modul JS (`src/studio/registry.generated.js`)
+   ikut ditulis ulang otomatis, lalu jalankan `npm run test:studio`.
+
+Aturan builder:
+
+* meter; aset berdiri di `y=0`; menghadap `+Z`; pusat di `x=z=0`.
+* material **wajib** punya `base` (sRGB) + `normal` + `orm` (R=AO, G=rough,
+  B=metal) — test akan gagal kalau tidak.
+* `ASSETS[id] = dict(build=<fn>, title=…, tags=[…], category=…)`;
+  builder mengembalikan `(builder, materials[, anchors])`.
+* hindari geometri degenerate (silinder dengan p0 == p1, torus tanpa radius):
+  normal jadi NaN dan bounding box meledak — ini pernah merusak satu kendaraan.
+
+## 5. Status jujur perpustakaan
+
+| kategori | jumlah | status | catatan |
+|---|---|---|---|
+| character | 6 | review | 163 tulang, 13 klip, PBR kulit/rambut/baju; jahitan lengan jaket masih terlihat |
+| entity | 5 | draft | siluet kafan/kerudung masih kasar, belum menyeramkan |
+| building | 9 | review | atap pelana benar; interior kosong (butuh prop) |
+| road | 7 | review | marka + trotoar; belum ada varian rusak/berlubang |
+| nature | 9 | review | daun masih kartu besar, bukan daun individual |
+| prop | 14 | review | siluet terbaca; teks papan sudah dicat |
+| vehicle | 2 | draft | motor bebek terbaca; pikap masih kotak-kotak |
+
+Status `draft` berarti **jangan dipakai untuk hero shot**, hanya untuk latar.
+
+## 6. Batas yang diketahui
+
+* Tidak ada Blender/`ffmpeg` di lingkungan ini: model dibuat prosedural di Python.
+* Renderer QC = path tracer sederhana di `studio-forge/forge/render.py`
+  (tanpa GI, tanpa AA agresif) — thumbnail bagus ≠ film bagus.
+* `StudioStory` (three.js) belum diverifikasi di browser pada sesi ini; jalur
+  yang **sudah** diuji adalah katalog, skema, kompilasi, dan validasi GLB.
+* Audio hanya metadata (`vo`/`ambience`); mixing tetap lewat `scripts/mix-story-guide.sh`.
+
+## 7. Kalau macet
+
+| gejala | cek |
+|---|---|
+| validator menolak field | `docs/STORY-FORMAT.md` §8 |
+| aset tidak muncul di render | `node scripts/studio.mjs plan <story>` → daftar aset & byte |
+| aktor mengambang | `at[1]` harus 0 (origin di kaki) |
+| aset terlihat gelap | `light.preset` + `look.exposure`; bukan masalah material |
+| GLB gagal dimuat | `node scripts/studio.mjs inspect <file.glb>` |

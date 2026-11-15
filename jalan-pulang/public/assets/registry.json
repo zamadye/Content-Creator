@@ -1,0 +1,2929 @@
+{
+ "schema": "studio.registry/2",
+ "units": "metre",
+ "up": "+Y",
+ "forward": "+Z",
+ "generatedBy": "studio-forge/build.py",
+ "notes": "Status draft/review/approved berlaku jujur. Lihat docs/ASSET-CATALOG.md dan PROVENANCE per kategori.",
+ "categories": [
+  "building",
+  "character",
+  "entity",
+  "nature",
+  "prop",
+  "road",
+  "vehicle"
+ ],
+ "assets": {
+  "char.male-dewasa-polo": {
+   "id": "char.male-dewasa-polo",
+   "title": "Pria dewasa — polo & celana kargo",
+   "category": "character",
+   "uri": "assets/characters/char.male-dewasa-polo/char.male-dewasa-polo.glb",
+   "thumbnail": "assets/characters/char.male-dewasa-polo/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.512,
+     -0.007,
+     -0.13
+    ],
+    "max": [
+     0.512,
+     1.725,
+     0.332
+    ],
+    "size": [
+     1.025,
+     1.733,
+     0.462
+    ]
+   },
+   "tris": 37118,
+   "bytes": 3652112,
+   "tags": [
+    "human",
+    "male",
+    "adult",
+    "rider",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 27
+   }
+  },
+  "char.male-muda-jaket": {
+   "id": "char.male-muda-jaket",
+   "title": "Pria muda — setelan kasual",
+   "category": "character",
+   "uri": "assets/characters/char.male-muda-jaket/char.male-muda-jaket.glb",
+   "thumbnail": "assets/characters/char.male-muda-jaket/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.489,
+     -0.007,
+     -0.136
+    ],
+    "max": [
+     0.489,
+     1.647,
+     0.316
+    ],
+    "size": [
+     0.977,
+     1.654,
+     0.453
+    ]
+   },
+   "tris": 38616,
+   "bytes": 3733532,
+   "tags": [
+    "human",
+    "male",
+    "teen",
+    "worker",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-male_casualsuit05",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 24
+   }
+  },
+  "char.male-lansia-kemeja": {
+   "id": "char.male-lansia-kemeja",
+   "title": "Pria lansia — polo lusuh",
+   "category": "character",
+   "uri": "assets/characters/char.male-lansia-kemeja/char.male-lansia-kemeja.glb",
+   "thumbnail": "assets/characters/char.male-lansia-kemeja/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.496,
+     -0.007,
+     -0.126
+    ],
+    "max": [
+     0.496,
+     1.67,
+     0.321
+    ],
+    "size": [
+     0.992,
+     1.677,
+     0.447
+    ]
+   },
+   "tris": 37060,
+   "bytes": 3774396,
+   "tags": [
+    "human",
+    "male",
+    "elder",
+    "father",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 27
+   }
+  },
+  "char.female-dewasa": {
+   "id": "char.female-dewasa",
+   "title": "Wanita dewasa — polo & kargo",
+   "category": "character",
+   "uri": "assets/characters/char.female-dewasa/char.female-dewasa.glb",
+   "thumbnail": "assets/characters/char.female-dewasa/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.478,
+     -0.007,
+     -0.121
+    ],
+    "max": [
+     0.478,
+     1.611,
+     0.31
+    ],
+    "size": [
+     0.956,
+     1.618,
+     0.431
+    ]
+   },
+   "tris": 37336,
+   "bytes": 3806620,
+   "tags": [
+    "human",
+    "female",
+    "adult",
+    "mother",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "hair-long",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 30
+   }
+  },
+  "char.female-lansia": {
+   "id": "char.female-lansia",
+   "title": "Wanita lansia — ibu",
+   "category": "character",
+   "uri": "assets/characters/char.female-lansia/char.female-lansia.glb",
+   "thumbnail": "assets/characters/char.female-lansia/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.46,
+     -0.007,
+     -0.117
+    ],
+    "max": [
+     0.46,
+     1.55,
+     0.298
+    ],
+    "size": [
+     0.921,
+     1.557,
+     0.415
+    ]
+   },
+   "tris": 37336,
+   "bytes": 3960460,
+   "tags": [
+    "human",
+    "female",
+    "elder",
+    "mother",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "hair-long",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 30
+   }
+  },
+  "char.male-pekerja": {
+   "id": "char.male-pekerja",
+   "title": "Pekerja gudang — setelan kerja",
+   "category": "character",
+   "uri": "assets/characters/char.male-pekerja/char.male-pekerja.glb",
+   "thumbnail": "assets/characters/char.male-pekerja/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.506,
+     -0.007,
+     -0.147
+    ],
+    "max": [
+     0.506,
+     1.705,
+     0.328
+    ],
+    "size": [
+     1.013,
+     1.712,
+     0.475
+    ]
+   },
+   "tris": 38616,
+   "bytes": 3713732,
+   "tags": [
+    "human",
+    "male",
+    "adult",
+    "worker",
+    "guard"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-male_casualsuit05",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 24
+   }
+  },
+  "entity.pale-standing": {
+   "id": "entity.pale-standing",
+   "title": "Sosok pucat — berdiri",
+   "category": "entity",
+   "uri": "assets/entities/entity.pale-standing/entity.pale-standing.glb",
+   "thumbnail": "assets/entities/entity.pale-standing/thumbnail.png",
+   "status": "draft",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.6,
+     0.0,
+     -0.33
+    ],
+    "max": [
+     0.634,
+     1.784,
+     0.362
+    ],
+    "size": [
+     1.234,
+     1.784,
+     0.692
+    ]
+   },
+   "tris": 30334,
+   "bytes": 3242396,
+   "tags": [
+    "ghost",
+    "humanoid",
+    "standing",
+    "pale"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Lapisan entitas: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · kafan/kerudung, tekstur, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "shroud",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 21
+   }
+  },
+  "entity.tall-limbs": {
+   "id": "entity.tall-limbs",
+   "title": "Sosok tinggi berlengan panjang",
+   "category": "entity",
+   "uri": "assets/entities/entity.tall-limbs/entity.tall-limbs.glb",
+   "thumbnail": "assets/entities/entity.tall-limbs/thumbnail.png",
+   "status": "draft",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.679,
+     0.0,
+     -0.39
+    ],
+    "max": [
+     0.71,
+     2.28,
+     0.44
+    ],
+    "size": [
+     1.389,
+     2.28,
+     0.83
+    ]
+   },
+   "tris": 29944,
+   "bytes": 2934276,
+   "tags": [
+    "ghost",
+    "humanoid",
+    "tall",
+    "long-limb"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Lapisan entitas: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · kafan/kerudung, tekstur, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "shroud",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 18
+   }
+  },
+  "entity.veiled-seated": {
+   "id": "entity.veiled-seated",
+   "title": "Sosok berkerudung — duduk",
+   "category": "entity",
+   "uri": "assets/entities/entity.veiled-seated/entity.veiled-seated.glb",
+   "thumbnail": "assets/entities/entity.veiled-seated/thumbnail.png",
+   "status": "draft",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.563,
+     0.0,
+     -0.317
+    ],
+    "max": [
+     0.596,
+     1.624,
+     0.347
+    ],
+    "size": [
+     1.159,
+     1.624,
+     0.664
+    ]
+   },
+   "tris": 30560,
+   "bytes": 3082172,
+   "tags": [
+    "ghost",
+    "humanoid",
+    "seated",
+    "veiled",
+    "female"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Lapisan entitas: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · kafan/kerudung, tekstur, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "shroud",
+    "skin",
+    "veil"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 21
+   }
+  },
+  "entity.child": {
+   "id": "entity.child",
+   "title": "Sosok anak",
+   "category": "entity",
+   "uri": "assets/entities/entity.child/entity.child.glb",
+   "thumbnail": "assets/entities/entity.child/thumbnail.png",
+   "status": "draft",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.393,
+     0.0,
+     -0.225
+    ],
+    "max": [
+     0.408,
+     1.223,
+     0.255
+    ],
+    "size": [
+     0.801,
+     1.223,
+     0.48
+    ]
+   },
+   "tris": 30392,
+   "bytes": 3232240,
+   "tags": [
+    "ghost",
+    "child",
+    "humanoid"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Lapisan entitas: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · kafan/kerudung, tekstur, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "shroud",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 21
+   }
+  },
+  "entity.shadow-crouch": {
+   "id": "entity.shadow-crouch",
+   "title": "Bayangan — jongkok",
+   "category": "entity",
+   "uri": "assets/entities/entity.shadow-crouch/entity.shadow-crouch.glb",
+   "thumbnail": "assets/entities/entity.shadow-crouch/thumbnail.png",
+   "status": "draft",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.559,
+     0.0,
+     -0.327
+    ],
+    "max": [
+     0.592,
+     1.66,
+     0.358
+    ],
+    "size": [
+     1.151,
+     1.66,
+     0.685
+    ]
+   },
+   "tris": 29944,
+   "bytes": 2897208,
+   "tags": [
+    "ghost",
+    "shadow",
+    "crouch",
+    "silhouette"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Lapisan entitas: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · kafan/kerudung, tekstur, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "shroud",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 18
+   }
+  },
+  "road.asphalt.straight": {
+   "id": "road.asphalt.straight",
+   "title": "Aspal lurus 4×10 m",
+   "category": "road",
+   "uri": "assets/road/road.asphalt.straight/road.asphalt.straight.glb",
+   "thumbnail": "assets/road/road.asphalt.straight/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.0,
+     -0.12,
+     -5.0
+    ],
+    "max": [
+     2.0,
+     0.006,
+     5.0
+    ],
+    "size": [
+     4.0,
+     0.126,
+     10.0
+    ]
+   },
+   "tris": 80,
+   "bytes": 548860,
+   "tags": [
+    "road",
+    "asphalt",
+    "straight"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur aspal/beton/tanah dibuat pipeline ini (prosedural deterministik)",
+   "notes": "",
+   "materials": [
+    "asphalt",
+    "paint"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "road.asphalt.wet": {
+   "id": "road.asphalt.wet",
+   "title": "Aspal basah lurus 4×10 m",
+   "category": "road",
+   "uri": "assets/road/road.asphalt.wet/road.asphalt.wet.glb",
+   "thumbnail": "assets/road/road.asphalt.wet/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.0,
+     -0.12,
+     -5.0
+    ],
+    "max": [
+     2.0,
+     0.0,
+     5.0
+    ],
+    "size": [
+     4.0,
+     0.12,
+     10.0
+    ]
+   },
+   "tris": 10,
+   "bytes": 409860,
+   "tags": [
+    "road",
+    "asphalt",
+    "wet",
+    "night"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur aspal/beton/tanah dibuat pipeline ini (prosedural deterministik)",
+   "notes": "",
+   "materials": [
+    "asphalt"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 3
+   }
+  },
+  "road.asphalt.curve": {
+   "id": "road.asphalt.curve",
+   "title": "Aspal tikungan 90° (R=8 m)",
+   "category": "road",
+   "uri": "assets/road/road.asphalt.curve/road.asphalt.curve.glb",
+   "thumbnail": "assets/road/road.asphalt.curve/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     0.0,
+     -0.12,
+     0.0
+    ],
+    "max": [
+     10.0,
+     0.004,
+     10.0
+    ],
+    "size": [
+     10.0,
+     0.124,
+     10.0
+    ]
+   },
+   "tris": 576,
+   "bytes": 561564,
+   "tags": [
+    "road",
+    "asphalt",
+    "curve"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur aspal/beton/tanah dibuat pipeline ini (prosedural deterministik)",
+   "notes": "",
+   "materials": [
+    "asphalt",
+    "paint"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "road.asphalt.tjunction": {
+   "id": "road.asphalt.tjunction",
+   "title": "Persimpangan T 10×10 m",
+   "category": "road",
+   "uri": "assets/road/road.asphalt.tjunction/road.asphalt.tjunction.glb",
+   "thumbnail": "assets/road/road.asphalt.tjunction/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -5.0,
+     -0.12,
+     -5.0
+    ],
+    "max": [
+     5.0,
+     0.006,
+     5.0
+    ],
+    "size": [
+     10.0,
+     0.126,
+     10.0
+    ]
+   },
+   "tris": 70,
+   "bytes": 547768,
+   "tags": [
+    "road",
+    "asphalt",
+    "junction"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur aspal/beton/tanah dibuat pipeline ini (prosedural deterministik)",
+   "notes": "",
+   "materials": [
+    "asphalt",
+    "paint"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "road.asphalt.cross": {
+   "id": "road.asphalt.cross",
+   "title": "Persimpangan + 12×12 m",
+   "category": "road",
+   "uri": "assets/road/road.asphalt.cross/road.asphalt.cross.glb",
+   "thumbnail": "assets/road/road.asphalt.cross/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -6.0,
+     -0.12,
+     -6.0
+    ],
+    "max": [
+     6.0,
+     0.006,
+     6.0
+    ],
+    "size": [
+     12.0,
+     0.126,
+     12.0
+    ]
+   },
+   "tris": 90,
+   "bytes": 549900,
+   "tags": [
+    "road",
+    "asphalt",
+    "junction"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur aspal/beton/tanah dibuat pipeline ini (prosedural deterministik)",
+   "notes": "",
+   "materials": [
+    "asphalt",
+    "paint"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "road.dirt.straight": {
+   "id": "road.dirt.straight",
+   "title": "Jalan tanah 3,6×10 m",
+   "category": "road",
+   "uri": "assets/road/road.dirt.straight/road.dirt.straight.glb",
+   "thumbnail": "assets/road/road.dirt.straight/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -1.8,
+     -0.05,
+     -5.0
+    ],
+    "max": [
+     1.8,
+     0.004,
+     5.0
+    ],
+    "size": [
+     3.6,
+     0.054,
+     10.0
+    ]
+   },
+   "tris": 30,
+   "bytes": 663860,
+   "tags": [
+    "road",
+    "dirt",
+    "village"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur aspal/beton/tanah dibuat pipeline ini (prosedural deterministik)",
+   "notes": "",
+   "materials": [
+    "asphalt",
+    "soil"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "road.sidewalk.segment": {
+   "id": "road.sidewalk.segment",
+   "title": "Trotoar + kerb 10 m",
+   "category": "road",
+   "uri": "assets/road/road.sidewalk.segment/road.sidewalk.segment.glb",
+   "thumbnail": "assets/road/road.sidewalk.segment/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.74,
+     -0.15,
+     -5.0
+    ],
+    "max": [
+     0.65,
+     0.12,
+     5.0
+    ],
+    "size": [
+     1.39,
+     0.27,
+     10.0
+    ]
+   },
+   "tris": 124,
+   "bytes": 153700,
+   "tags": [
+    "road",
+    "sidewalk",
+    "concrete"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur aspal/beton/tanah dibuat pipeline ini (prosedural deterministik)",
+   "notes": "",
+   "materials": [
+    "concrete"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 3
+   }
+  },
+  "road.prop.signpost": {
+   "id": "road.prop.signpost",
+   "title": "Papan nama desa + tiang",
+   "category": "prop",
+   "uri": "assets/prop/road.prop.signpost/road.prop.signpost.glb",
+   "thumbnail": "assets/prop/road.prop.signpost/thumbnail.png",
+   "status": "draft",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -1.14,
+     0.0,
+     -0.055
+    ],
+    "max": [
+     1.14,
+     2.786,
+     0.131
+    ],
+    "size": [
+     2.28,
+     2.786,
+     0.186
+    ]
+   },
+   "tris": 72,
+   "bytes": 132236,
+   "tags": [
+    "road",
+    "sign",
+    "prop"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "metal",
+    "sign-board",
+    "wood"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "road.prop.powerpole": {
+   "id": "road.prop.powerpole",
+   "title": "Tiang listrik + kabel",
+   "category": "prop",
+   "uri": "assets/prop/road.prop.powerpole/road.prop.powerpole.glb",
+   "thumbnail": "assets/prop/road.prop.powerpole/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -1.0,
+     -0.002,
+     -0.16
+    ],
+    "max": [
+     1.0,
+     8.001,
+     0.19
+    ],
+    "size": [
+     2.0,
+     8.004,
+     0.35
+    ]
+   },
+   "tris": 230,
+   "bytes": 140984,
+   "tags": [
+    "road",
+    "pole",
+    "prop"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "crossarm",
+    "insulator",
+    "pole"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "nature.tree.karet": {
+   "id": "nature.tree.karet",
+   "title": "Pohon karet",
+   "category": "nature",
+   "uri": "assets/nature/nature.tree.karet/nature.tree.karet.glb",
+   "thumbnail": "assets/nature/nature.tree.karet/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -4.99,
+     -0.008,
+     -5.649
+    ],
+    "max": [
+     5.014,
+     13.673,
+     4.864
+    ],
+    "size": [
+     10.003,
+     13.681,
+     10.513
+    ]
+   },
+   "tris": 2070,
+   "bytes": 452252,
+   "tags": [
+    "tree",
+    "rubber",
+    "tall",
+    "tropical"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kulit kayu/daun/rumput dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "bark",
+    "foliage-#3d5a30",
+    "foliage-#4a6a38"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "nature.tree.beringin": {
+   "id": "nature.tree.beringin",
+   "title": "Pohon beringin (akar gantung)",
+   "category": "nature",
+   "uri": "assets/nature/nature.tree.beringin/nature.tree.beringin.glb",
+   "thumbnail": "assets/nature/nature.tree.beringin/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -6.646,
+     -0.156,
+     -8.143
+    ],
+    "max": [
+     8.208,
+     10.542,
+     6.736
+    ],
+    "size": [
+     14.854,
+     10.698,
+     14.878
+    ]
+   },
+   "tris": 3144,
+   "bytes": 512640,
+   "tags": [
+    "tree",
+    "banyan",
+    "large",
+    "tropical"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kulit kayu/daun/rumput dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "bark",
+    "foliage-#2f4a2a",
+    "foliage-#3c5a30"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "nature.tree.palm": {
+   "id": "nature.tree.palm",
+   "title": "Pohon kelapa",
+   "category": "nature",
+   "uri": "assets/nature/nature.tree.palm/nature.tree.palm.glb",
+   "thumbnail": "assets/nature/nature.tree.palm/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.253,
+     -0.052,
+     -2.875
+    ],
+    "max": [
+     4.56,
+     10.492,
+     3.172
+    ],
+    "size": [
+     6.813,
+     10.544,
+     6.048
+    ]
+   },
+   "tris": 394,
+   "bytes": 377864,
+   "tags": [
+    "tree",
+    "palm",
+    "tropical"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kulit kayu/daun/rumput dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "bark",
+    "foliage-#3d5729",
+    "foliage-#47632f"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "nature.tree.banana": {
+   "id": "nature.tree.banana",
+   "title": "Pohon pisang",
+   "category": "nature",
+   "uri": "assets/nature/nature.tree.banana/nature.tree.banana.glb",
+   "thumbnail": "assets/nature/nature.tree.banana/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -1.908,
+     -0.015,
+     -1.846
+    ],
+    "max": [
+     1.855,
+     4.174,
+     1.906
+    ],
+    "size": [
+     3.763,
+     4.188,
+     3.752
+    ]
+   },
+   "tris": 142,
+   "bytes": 415980,
+   "tags": [
+    "tree",
+    "banana",
+    "village"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kulit kayu/daun/rumput dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "foliage-#4e6b2f",
+    "foliage-#5c7a38",
+    "stalk"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "nature.tree.dead": {
+   "id": "nature.tree.dead",
+   "title": "Pohon mati",
+   "category": "nature",
+   "uri": "assets/nature/nature.tree.dead/nature.tree.dead.glb",
+   "thumbnail": "assets/nature/nature.tree.dead/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -1.798,
+     -0.019,
+     -2.144
+    ],
+    "max": [
+     2.434,
+     7.156,
+     1.729
+    ],
+    "size": [
+     4.233,
+     7.175,
+     3.874
+    ]
+   },
+   "tris": 792,
+   "bytes": 122168,
+   "tags": [
+    "tree",
+    "dead",
+    "forest"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kulit kayu/daun/rumput dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "bark"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 3
+   }
+  },
+  "nature.bush.fern": {
+   "id": "nature.bush.fern",
+   "title": "Semak pakis",
+   "category": "nature",
+   "uri": "assets/nature/nature.bush.fern/nature.bush.fern.glb",
+   "thumbnail": "assets/nature/nature.bush.fern/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -1.126,
+     0.12,
+     -1.041
+    ],
+    "max": [
+     1.18,
+     1.451,
+     1.142
+    ],
+    "size": [
+     2.306,
+     1.331,
+     2.183
+    ]
+   },
+   "tris": 36,
+   "bytes": 291092,
+   "tags": [
+    "bush",
+    "fern",
+    "undergrowth"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kulit kayu/daun/rumput dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "foliage-#35502c",
+    "foliage-#43602f"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "nature.grass.patch": {
+   "id": "nature.grass.patch",
+   "title": "Rumpun rumput",
+   "category": "nature",
+   "uri": "assets/nature/nature.grass.patch/nature.grass.patch.glb",
+   "thumbnail": "assets/nature/nature.grass.patch/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.773,
+     0.02,
+     -1.001
+    ],
+    "max": [
+     1.322,
+     0.354,
+     1.405
+    ],
+    "size": [
+     2.095,
+     0.334,
+     2.406
+    ]
+   },
+   "tris": 52,
+   "bytes": 291656,
+   "tags": [
+    "grass",
+    "ground"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kulit kayu/daun/rumput dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "foliage-#425a2c",
+    "foliage-#4d6631"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "nature.rock.boulder": {
+   "id": "nature.rock.boulder",
+   "title": "Batu besar",
+   "category": "nature",
+   "uri": "assets/nature/nature.rock.boulder/nature.rock.boulder.glb",
+   "thumbnail": "assets/nature/nature.rock.boulder/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -1.326,
+     -0.05,
+     -0.952
+    ],
+    "max": [
+     1.187,
+     0.965,
+     1.126
+    ],
+    "size": [
+     2.513,
+     1.015,
+     2.078
+    ]
+   },
+   "tris": 560,
+   "bytes": 139404,
+   "tags": [
+    "rock",
+    "stone"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kulit kayu/daun/rumput dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "stone"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 3
+   }
+  },
+  "nature.log.fallen": {
+   "id": "nature.log.fallen",
+   "title": "Batang tumbang",
+   "category": "nature",
+   "uri": "assets/nature/nature.log.fallen/nature.log.fallen.glb",
+   "thumbnail": "assets/nature/nature.log.fallen/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.338,
+     0.009,
+     -2.435
+    ],
+    "max": [
+     0.78,
+     0.671,
+     2.429
+    ],
+    "size": [
+     1.118,
+     0.663,
+     4.864
+    ]
+   },
+   "tris": 140,
+   "bytes": 225384,
+   "tags": [
+    "log",
+    "forest",
+    "prop"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kulit kayu/daun/rumput dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "bark",
+    "cut-wood"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "building.house.village": {
+   "id": "building.house.village",
+   "title": "Rumah kampung papan",
+   "category": "building",
+   "uri": "assets/building/building.house.village/building.house.village.glb",
+   "thumbnail": "assets/building/building.house.village/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -3.5,
+     -0.3,
+     -4.275
+    ],
+    "max": [
+     3.5,
+     4.865,
+     7.35
+    ],
+    "size": [
+     7.0,
+     5.165,
+     11.625
+    ]
+   },
+   "tris": 532,
+   "bytes": 980608,
+   "tags": [
+    "house",
+    "village",
+    "wood",
+    "interior"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "beam-wood",
+    "cut-wood",
+    "floor",
+    "glass",
+    "roof",
+    "wall-wood"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 18
+   }
+  },
+  "building.house.old": {
+   "id": "building.house.old",
+   "title": "Rumah tua rusak",
+   "category": "building",
+   "uri": "assets/building/building.house.old/building.house.old.glb",
+   "thumbnail": "assets/building/building.house.old/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -3.9,
+     -0.3,
+     -4.675
+    ],
+    "max": [
+     3.9,
+     5.165,
+     4.675
+    ],
+    "size": [
+     7.8,
+     5.465,
+     9.35
+    ]
+   },
+   "tris": 400,
+   "bytes": 983264,
+   "tags": [
+    "house",
+    "old",
+    "decay",
+    "interior"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "brick",
+    "cut-wood",
+    "floor",
+    "glass",
+    "roof-tile",
+    "wall-plaster"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 18
+   }
+  },
+  "building.shop.warung": {
+   "id": "building.shop.warung",
+   "title": "Warung kelontong menyala",
+   "category": "building",
+   "uri": "assets/building/building.shop.warung/building.shop.warung.glb",
+   "thumbnail": "assets/building/building.shop.warung/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.35,
+     -0.24,
+     -2.875
+    ],
+    "max": [
+     2.35,
+     4.365,
+     3.875
+    ],
+    "size": [
+     4.7,
+     4.605,
+     6.75
+    ]
+   },
+   "tris": 592,
+   "bytes": 941252,
+   "tags": [
+    "shop",
+    "warung",
+    "interior",
+    "night"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "beam-wood",
+    "cut-wood",
+    "floor",
+    "lamp",
+    "roof",
+    "wall-wood"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": true,
+    "embeddedTextures": 19
+   }
+  },
+  "building.industrial.warehouse": {
+   "id": "building.industrial.warehouse",
+   "title": "Gudang industri",
+   "category": "building",
+   "uri": "assets/building/building.industrial.warehouse/building.industrial.warehouse.glb",
+   "thumbnail": "assets/building/building.industrial.warehouse/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -8.5,
+     -0.4,
+     -12.525
+    ],
+    "max": [
+     8.5,
+     8.565,
+     12.525
+    ],
+    "size": [
+     17.0,
+     8.965,
+     25.05
+    ]
+   },
+   "tris": 976,
+   "bytes": 454176,
+   "tags": [
+    "warehouse",
+    "industrial",
+    "interior"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "floor",
+    "roof",
+    "steel",
+    "wall-steel"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 12
+   }
+  },
+  "building.house.kos": {
+   "id": "building.house.kos",
+   "title": "Kamar kos",
+   "category": "building",
+   "uri": "assets/building/building.house.kos/building.house.kos.glb",
+   "thumbnail": "assets/building/building.house.kos/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.25,
+     -0.2,
+     -2.5
+    ],
+    "max": [
+     2.25,
+     2.92,
+     2.747
+    ],
+    "size": [
+     4.5,
+     3.12,
+     5.247
+    ]
+   },
+   "tris": 372,
+   "bytes": 975188,
+   "tags": [
+    "room",
+    "kos",
+    "interior"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "brick",
+    "cut-wood",
+    "floor",
+    "glass",
+    "lamp",
+    "roof",
+    "wall-plaster"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": true,
+    "embeddedTextures": 22
+   }
+  },
+  "kit.wall.plain": {
+   "id": "kit.wall.plain",
+   "title": "Modul dinding 4×3 m",
+   "category": "building",
+   "uri": "assets/building/kit.wall.plain/kit.wall.plain.glb",
+   "thumbnail": "assets/building/kit.wall.plain/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.0,
+     0.0,
+     -0.09
+    ],
+    "max": [
+     2.0,
+     3.0,
+     0.09
+    ],
+    "size": [
+     4.0,
+     3.0,
+     0.18
+    ]
+   },
+   "tris": 12,
+   "bytes": 379996,
+   "tags": [
+    "kit",
+    "wall"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "wall-wood"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 3
+   }
+  },
+  "kit.wall.door": {
+   "id": "kit.wall.door",
+   "title": "Modul dinding + pintu",
+   "category": "building",
+   "uri": "assets/building/kit.wall.door/kit.wall.door.glb",
+   "thumbnail": "assets/building/kit.wall.door/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.0,
+     0.0,
+     -0.09
+    ],
+    "max": [
+     2.0,
+     3.0,
+     0.09
+    ],
+    "size": [
+     4.0,
+     3.0,
+     0.18
+    ]
+   },
+   "tris": 60,
+   "bytes": 519928,
+   "tags": [
+    "kit",
+    "wall",
+    "door"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "cut-wood",
+    "wall-wood"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "kit.wall.window": {
+   "id": "kit.wall.window",
+   "title": "Modul dinding + jendela",
+   "category": "building",
+   "uri": "assets/building/kit.wall.window/kit.wall.window.glb",
+   "thumbnail": "assets/building/kit.wall.window/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.0,
+     0.0,
+     -0.09
+    ],
+    "max": [
+     2.0,
+     3.0,
+     0.09
+    ],
+    "size": [
+     4.0,
+     3.0,
+     0.18
+    ]
+   },
+   "tris": 120,
+   "bytes": 570880,
+   "tags": [
+    "kit",
+    "wall",
+    "window"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "beam-wood",
+    "glass",
+    "wall-wood"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "kit.floor.tile": {
+   "id": "kit.floor.tile",
+   "title": "Modul lantai 4×4 m",
+   "category": "building",
+   "uri": "assets/building/kit.floor.tile/kit.floor.tile.glb",
+   "thumbnail": "assets/building/kit.floor.tile/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.0,
+     -0.2,
+     -2.0
+    ],
+    "max": [
+     2.0,
+     0.0,
+     2.0
+    ],
+    "size": [
+     4.0,
+     0.2,
+     4.0
+    ]
+   },
+   "tris": 12,
+   "bytes": 142620,
+   "tags": [
+    "kit",
+    "floor"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "floor"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 3
+   }
+  },
+  "prop.table.wood": {
+   "id": "prop.table.wood",
+   "title": "Meja kayu",
+   "category": "prop",
+   "uri": "assets/prop/prop.table.wood/prop.table.wood.glb",
+   "thumbnail": "assets/prop/prop.table.wood/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.6,
+     0.0,
+     -0.4
+    ],
+    "max": [
+     0.6,
+     0.761,
+     0.4
+    ],
+    "size": [
+     1.2,
+     0.761,
+     0.8
+    ]
+   },
+   "tris": 144,
+   "bytes": 275356,
+   "tags": [
+    "furniture",
+    "table",
+    "interior"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "wood",
+    "wood-dark"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "prop.chair.wood": {
+   "id": "prop.chair.wood",
+   "title": "Kursi kayu",
+   "category": "prop",
+   "uri": "assets/prop/prop.chair.wood/prop.chair.wood.glb",
+   "thumbnail": "assets/prop/prop.chair.wood/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.21,
+     0.0,
+     -0.21
+    ],
+    "max": [
+     0.21,
+     0.938,
+     0.21
+    ],
+    "size": [
+     0.42,
+     0.938,
+     0.42
+    ]
+   },
+   "tris": 144,
+   "bytes": 275348,
+   "tags": [
+    "furniture",
+    "chair",
+    "interior"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "wood",
+    "wood-dark"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "prop.shelves.steel": {
+   "id": "prop.shelves.steel",
+   "title": "Rak besi",
+   "category": "prop",
+   "uri": "assets/prop/prop.shelves.steel/prop.shelves.steel.glb",
+   "thumbnail": "assets/prop/prop.shelves.steel/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.9,
+     0.0,
+     -0.3
+    ],
+    "max": [
+     0.9,
+     2.0,
+     0.3
+    ],
+    "size": [
+     1.8,
+     2.0,
+     0.6
+    ]
+   },
+   "tris": 228,
+   "bytes": 352656,
+   "tags": [
+    "furniture",
+    "shelf",
+    "warehouse"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "burlap",
+    "steel-bare",
+    "wood"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "prop.bed": {
+   "id": "prop.bed",
+   "title": "Kasur",
+   "category": "prop",
+   "uri": "assets/prop/prop.bed/prop.bed.glb",
+   "thumbnail": "assets/prop/prop.bed/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.475,
+     0.0,
+     -1.03
+    ],
+    "max": [
+     0.475,
+     0.77,
+     1.03
+    ],
+    "size": [
+     0.95,
+     0.77,
+     2.06
+    ]
+   },
+   "tris": 120,
+   "bytes": 417380,
+   "tags": [
+    "furniture",
+    "bed",
+    "interior"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "fabric",
+    "fabric-warm",
+    "wood-dark"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "prop.stove": {
+   "id": "prop.stove",
+   "title": "Kompor minyak",
+   "category": "prop",
+   "uri": "assets/prop/prop.stove/prop.stove.glb",
+   "thumbnail": "assets/prop/prop.stove/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.175,
+     0.0,
+     -0.212
+    ],
+    "max": [
+     0.238,
+     0.464,
+     0.175
+    ],
+    "size": [
+     0.413,
+     0.464,
+     0.387
+    ]
+   },
+   "tris": 762,
+   "bytes": 349784,
+   "tags": [
+    "kitchen",
+    "stove",
+    "interior"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "brass",
+    "metal",
+    "red-paint",
+    "rust",
+    "steel-bare"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 15
+   }
+  },
+  "prop.lamp.teplok": {
+   "id": "prop.lamp.teplok",
+   "title": "Lampu teplok",
+   "category": "prop",
+   "uri": "assets/prop/prop.lamp.teplok/prop.lamp.teplok.glb",
+   "thumbnail": "assets/prop/prop.lamp.teplok/thumbnail.png",
+   "status": "draft",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.095,
+     0.0,
+     -0.094
+    ],
+    "max": [
+     0.108,
+     0.315,
+     0.094
+    ],
+    "size": [
+     0.203,
+     0.315,
+     0.187
+    ]
+   },
+   "tris": 712,
+   "bytes": 157164,
+   "tags": [
+    "light",
+    "lamp",
+    "night"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "brass",
+    "glass-clear",
+    "lamp-glow",
+    "metal"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": true,
+    "embeddedTextures": 13
+   }
+  },
+  "prop.drum": {
+   "id": "prop.drum",
+   "title": "Drum besi",
+   "category": "prop",
+   "uri": "assets/prop/prop.drum/prop.drum.glb",
+   "thumbnail": "assets/prop/prop.drum/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.31,
+     0.0,
+     -0.31
+    ],
+    "max": [
+     0.31,
+     0.925,
+     0.31
+    ],
+    "size": [
+     0.62,
+     0.925,
+     0.62
+    ]
+   },
+   "tris": 512,
+   "bytes": 232128,
+   "tags": [
+    "container",
+    "drum",
+    "warehouse"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "metal",
+    "rust",
+    "steel-bare"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 9
+   }
+  },
+  "prop.sack": {
+   "id": "prop.sack",
+   "title": "Karung",
+   "category": "prop",
+   "uri": "assets/prop/prop.sack/prop.sack.glb",
+   "thumbnail": "assets/prop/prop.sack/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.25,
+     -0.003,
+     -0.25
+    ],
+    "max": [
+     0.25,
+     0.83,
+     0.25
+    ],
+    "size": [
+     0.5,
+     0.833,
+     0.5
+    ]
+   },
+   "tris": 1020,
+   "bytes": 230464,
+   "tags": [
+    "container",
+    "sack",
+    "warehouse"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "burlap",
+    "metal"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "prop.crate": {
+   "id": "prop.crate",
+   "title": "Peti kayu",
+   "category": "prop",
+   "uri": "assets/prop/prop.crate/prop.crate.glb",
+   "thumbnail": "assets/prop/prop.crate/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.365,
+     0.0,
+     -0.262
+    ],
+    "max": [
+     0.365,
+     0.5,
+     0.262
+    ],
+    "size": [
+     0.73,
+     0.5,
+     0.525
+    ]
+   },
+   "tris": 108,
+   "bytes": 271372,
+   "tags": [
+    "container",
+    "crate"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "wood",
+    "wood-dark"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "prop.jerrycan": {
+   "id": "prop.jerrycan",
+   "title": "Jeriken",
+   "category": "prop",
+   "uri": "assets/prop/prop.jerrycan/prop.jerrycan.glb",
+   "thumbnail": "assets/prop/prop.jerrycan/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.083,
+     0.0,
+     -0.176
+    ],
+    "max": [
+     0.083,
+     0.505,
+     0.176
+    ],
+    "size": [
+     0.167,
+     0.505,
+     0.352
+    ]
+   },
+   "tris": 200,
+   "bytes": 152604,
+   "tags": [
+    "container",
+    "can"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "metal",
+    "red-paint"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "prop.clothesline": {
+   "id": "prop.clothesline",
+   "title": "Jemuran",
+   "category": "prop",
+   "uri": "assets/prop/prop.clothesline/prop.clothesline.glb",
+   "thumbnail": "assets/prop/prop.clothesline/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -2.12,
+     0.0,
+     -0.12
+    ],
+    "max": [
+     2.12,
+     1.95,
+     0.12
+    ],
+    "size": [
+     4.24,
+     1.95,
+     0.24
+    ]
+   },
+   "tris": 296,
+   "bytes": 894924,
+   "tags": [
+    "home",
+    "clothesline",
+    "village"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "burlap",
+    "canvas",
+    "fabric-warm",
+    "rust",
+    "wood-dark"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 15
+   }
+  },
+  "prop.signboard": {
+   "id": "prop.signboard",
+   "title": "Papan warung",
+   "category": "prop",
+   "uri": "assets/prop/prop.signboard/prop.signboard.glb",
+   "thumbnail": "assets/prop/prop.signboard/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.9,
+     -1.0,
+     -0.15
+    ],
+    "max": [
+     0.9,
+     1.83,
+     0.15
+    ],
+    "size": [
+     1.8,
+     2.83,
+     0.3
+    ]
+   },
+   "tris": 100,
+   "bytes": 168880,
+   "tags": [
+    "sign",
+    "board"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "sign-board",
+    "wood-dark"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 6
+   }
+  },
+  "vehicle.motorcycle.bebek": {
+   "id": "vehicle.motorcycle.bebek",
+   "title": "Motor bebek + anchor duduk",
+   "category": "vehicle",
+   "uri": "assets/vehicle/vehicle.motorcycle.bebek/vehicle.motorcycle.bebek.glb",
+   "thumbnail": "assets/vehicle/vehicle.motorcycle.bebek/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.33,
+     0.0,
+     -0.91
+    ],
+    "max": [
+     0.352,
+     1.235,
+     0.97
+    ],
+    "size": [
+     0.682,
+     1.235,
+     1.88
+    ]
+   },
+   "tris": 2250,
+   "bytes": 403880,
+   "tags": [
+    "vehicle",
+    "motorcycle",
+    "ride"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini; bukan model Honda Supra terukur",
+   "notes": "",
+   "anchors": [
+    "anchor.seat",
+    "anchor.ride-foot.L",
+    "anchor.ride-foot.R",
+    "anchor.grip.L",
+    "anchor.grip.R",
+    "anchor.headlight",
+    "anchor.rear"
+   ],
+   "materials": [
+    "chrome",
+    "engine",
+    "frame",
+    "lamp-glass",
+    "paint",
+    "rubber",
+    "seat",
+    "tail-light"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": true,
+    "embeddedTextures": 25
+   }
+  },
+  "vehicle.pickup": {
+   "id": "vehicle.pickup",
+   "title": "Pikap tua",
+   "category": "vehicle",
+   "uri": "assets/vehicle/vehicle.pickup/vehicle.pickup.glb",
+   "thumbnail": "assets/vehicle/vehicle.pickup/thumbnail.png",
+   "status": "draft",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.905,
+     -0.002,
+     -2.315
+    ],
+    "max": [
+     0.905,
+     1.33,
+     2.4
+    ],
+    "size": [
+     1.811,
+     1.332,
+     4.715
+    ]
+   },
+   "tris": 2544,
+   "bytes": 303036,
+   "tags": [
+    "vehicle",
+    "truck",
+    "village"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur dibuat pipeline ini; bukan model Honda Supra terukur",
+   "notes": "",
+   "anchors": [
+    "anchor.door.L",
+    "anchor.door.R",
+    "anchor.bed",
+    "anchor.driver"
+   ],
+   "materials": [
+    "car-glass",
+    "chrome",
+    "paint",
+    "rubber",
+    "rust"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 15
+   }
+  }
+ }
+}

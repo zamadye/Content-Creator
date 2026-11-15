@@ -1,0 +1,164 @@
+# FORMAT CERITA — `studio.story/2`
+
+Kontrak data untuk agen. Satu cerita = satu file JSON. Tidak ada kode, tidak ada
+path ke kode: semua aset dirujuk lewat **id katalog** (`public/assets/registry.json`).
+
+```
+node scripts/studio.mjs validate stories/studio/*.json   # cek dulu, selalu
+node scripts/studio.mjs plan stories/studio/x.json       # lihat biaya aset
+npm run render:studio -- StudioJalanPulang               # render 705 frame
+```
+
+Validator bersifat **strict**: field tak dikenal = error. Ini disengaja — agen
+mendapat pesan yang menyebut field mana yang salah, bukan diam-diam diabaikan.
+
+---
+
+## 1. Kerangka
+
+```jsonc
+{
+  "schema": "studio.story/2",
+  "id": "jalan-pulang-01",          // slug a-z0-9._-
+  "title": "Jalan Pulang",
+  "fps": 30,                         // 24 | 25 | 30
+  "width": 1920, "height": 1080,     // genap, 256..4096
+  "look":  { "preset": "kampung-sore", "fog": 0.03, "exposure": 1.02, "grain": 0.045, "vignette": 0.25 },
+  "cast":    { "aku":   { "asset": "char.male-dewasa-polo", "label": "Aku" } },
+  "objects": { "motor": { "asset": "vehicle.motorcycle.bebek" } },
+  "meta":  { "author": "…", "notes": "…", "tags": ["…"] },
+  "shots": [ /* minimal satu */ ]
+}
+```
+
+| field | wajib | catatan |
+|---|---|---|
+| `schema` | ya | harus `studio.story/2` |
+| `id` | ya | slug, dipakai sebagai nama komposisi/preview |
+| `fps` | tidak | default 30 |
+| `width`/`height` | tidak | default 1920×1080 |
+| `look` | tidak | grading global (lihat §6) |
+| `cast` | kalau ada aktor | aktor yang bisa muncul di banyak shot |
+| `objects` | kalau ada objek | kendaraan/prop yang dipindah-pindah |
+| `shots` | ya | 1..400 shot, total ≤ 900 detik |
+
+## 2. Shot
+
+```jsonc
+{
+  "id": "jembatan-01",
+  "title": "Jalan kampung, sore",     // opsional, untuk manusia
+  "duration": 5,                       // detik, 0.2..120
+  "set":    [ { "asset": "road.asphalt.straight", "at": [0,0,0], "rot": 0, "scale": 1 } ],
+  "actors": [ { "ref": "aku", "at": [0,0,1.4], "facing": "-Z", "clip": "walk", "speed": 1 } ],
+  "objects":[ { "ref": "motor", "at": [-0.6,0,1.0], "rot": -0.1 } ],
+  "camera": { "preset": "dolly-in", "from": [0.6,1.5,-5.4], "to": [0.4,1.42,-2.2], "fov": 42 },
+  "light":  { "preset": "sore" },
+  "audio":  { "vo": "vo/ep1-01.mp3", "ambience": "amb-night" },
+  "text":   { "style": "subtitle", "value": "Sore itu aku pulang lewat jalan yang sama." }
+}
+```
+
+* **Satuan meter, +Y atas, aset menghadap +Z, origin di kaki.**
+* `set` = dekorasi statis untuk shot itu (dibangun ulang tiap shot; biaya GPU nol
+  karena hanya visibilitas yang di-toggle).
+* `actors[].ref` harus ada di `cast`; `objects[].ref` harus ada di `objects`.
+* `at` = posisi di lantai (y=0 untuk kaki). `facing` ∈ `+Z -Z +X -X`.
+* `clip` harus milik aset itu: `node scripts/studio.mjs clips <asset-id>`.
+* `speed` 0.1..4 (pemutaran klip), `offset` detik awal klip.
+
+## 3. Kosakata kamera
+
+Semua kamera dihitung dari `subject` = aktor pertama yang tidak `hidden`
+(pusat dadanya, y+1.15). Kamu boleh menimpa dengan `from` / `to` / `target`.
+
+| preset | gerak | parameter tambahan |
+|---|---|---|
+| `static` | diam | `from` (opsional) |
+| `dolly-in` | maju ke subjek | `from`, `to` |
+| `dolly-out` | mundur dari subjek | `from`, `to` |
+| `pan` | geser menyamping, target tetap | `from`, `to`, `target`, `side` (`+X`/`-X`) |
+| `orbit` | busur mengelilingi subjek | `radius`, `startAngle`, `arc` (derajat) |
+| `crane-up` | naik vertikal | `from`, `to` |
+| `low-angle` | dari bawah, melihat ke atas | `from`, `target` |
+| `over-shoulder` | dari belakang bahu | `from`, `target` |
+| `handheld` | diam + guncang halus | `shake` (0..3) |
+
+Umum untuk semua: `fov` (10..120), `roll` (radian), `shake` (0..3).
+
+Gerak memakai `smoothstep`, jadi awal/akhir shot tidak pernah "patah".
+Preset `static` dijamin **tidak bergerak sama sekali** (dites).
+
+## 4. Cast & objects
+
+```jsonc
+"cast": {
+  "aku":    { "asset": "char.male-dewasa-polo", "label": "Aku" },
+  "sosok":  { "asset": "entity.pale-standing",  "scale": 1.0 }
+}
+```
+
+Aset ber-rig (`character`, `entity`) membawa 13 klip:
+`idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish`.
+Non-loop: `sit, stand-up, collapse, vanish` — shot yang lebih panjang dari klipnya
+akan berhenti di frame terakhir klip (bukan melompat).
+
+**Anchor** untuk menempelkan props (node kosong di GLB):
+
+| aset | anchor |
+|---|---|
+| character/entity | `anchor.hand.L/R`, `anchor.head`, `anchor.eye.L/R`, `anchor.foot.L/R` |
+| vehicle.motorcycle.bebek | `anchor.seat`, `anchor.grip.L/R`, `anchor.ride-foot.L/R`, `anchor.headlight`, `anchor.rear` |
+| vehicle.pickup | `anchor.driver`, `anchor.door.L/R`, `anchor.bed` |
+
+## 5. Teks & audio
+
+`text.style`: `subtitle` (bawah, 46px), `title` (tengah, 96px), `caption`/`sign`
+(abu-abu kecil). `value` ≤ 240 karakter, satu shot satu teks.
+
+`audio.vo` harus path publik-relatif aman: `vo/<nama>.mp3|wav|m4a`.
+`ambience`/`music`/`sfx` hanya label untuk tahap mixing (belum diputar oleh
+renderer).
+
+## 6. Look & light
+
+`look.preset`: `kampung-siang`, `kampung-sore`, `kampung-malam`,
+`interior-lampu`, `hutan-pagi`, `industri`.
+`fog` 0..0.2 (eksponensial), `exposure` 0.5..2, `grain` 0..0.3, `vignette` 0..1.
+
+`light.preset`: `siang`, `sore`, `malam`, `lampu-teplok`, `neon`, `bulan`, `fajar`
+· `intensity` pengali (default 1) · `color` (opsional, hex string).
+
+## 7. Contoh minimal
+
+```json
+{
+ "schema": "studio.story/2",
+ "id": "contoh",
+ "fps": 30,
+ "cast": {"aku": {"asset": "char.male-dewasa-polo"}},
+ "shots": [{
+   "id": "s1", "duration": 4,
+   "set": [{"asset": "road.asphalt.straight", "at": [0, 0, 0]}],
+   "actors": [{"ref": "aku", "at": [0, 0, 1], "facing": "-Z", "clip": "walk"}],
+   "camera": {"preset": "dolly-in", "fov": 42},
+   "light": {"preset": "sore"},
+   "text": {"style": "subtitle", "value": "Aku pulang."}
+ }]
+}
+```
+
+## 8. Pesan error yang akan kamu temui
+
+| pesan | artinya |
+|---|---|
+| `unknown field "x"` | typo / field tak didukung — cek tabel di atas |
+| `unknown asset "…"` | id salah — `node scripts/studio.mjs list` |
+| `clip "…" not in <asset>` | pakai klip yang ada di aset itu |
+| `ref "…" is not in cast` | tambahkan dulu ke `cast` |
+| `duplicate id` | id shot unik |
+| `duration must be 0.2..120 s` | shot terlalu pendek/panjang |
+| `audio.vo must be a safe public-relative path` | jangan pakai `../` |
+
+Semua masalah dilaporkan sekaligus (`StoryError.problems`), jadi satu iterasi
+bisa memperbaiki semuanya.

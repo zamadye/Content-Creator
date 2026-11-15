@@ -14,6 +14,10 @@ import {RideTest} from './ride';
 import {SignDryWithVO, SignWetWithVO} from './sign-scene';
 import {EntityRigStudy} from './entity-rig';
 import {WarungWithVO, WarungFigureWithVO, ThirdLoopAssembly, StandingFigureWithVO, CallWithVO} from './vo-scene';
+import {StudioStory, studioMetadata} from './studio/StudioStory.jsx';
+import studioJalanPulang from '../stories/studio/jalan-pulang-01.json';
+import studioWarungMalam from '../stories/studio/warung-malam.json';
+import studioUjiKamera from '../stories/studio/uji-kamera.json';
 const Root = () => <>
   <Composition id="ModularStage" component={ModularStage} defaultProps={modularExample} calculateMetadata={stageMetadata} width={1920} height={1080} fps={30} durationInFrames={150} />
   <Composition id="ManifestStory" component={ManifestStory} defaultProps={example} calculateMetadata={manifestMetadata} width={1920} height={1080} fps={30} durationInFrames={270} />
@@ -43,5 +47,8 @@ const Root = () => <>
   <Composition id="WarungFigureDetail" component={RideTest} defaultProps={{warungScene: "seated", detailCamera: true}} width={1920} height={1080} fps={30} durationInFrames={180} />
   <Composition id="WarungFigure" component={RideTest} defaultProps={{warungScene: "seated"}} width={1920} height={1080} fps={30} durationInFrames={180} />
   <Composition id="PhoneCallTest" component={PhoneCallTest} width={1920} height={1080} fps={30} durationInFrames={120} />
+  <Composition id="StudioJalanPulang" component={StudioStory} defaultProps={{story: studioJalanPulang}} calculateMetadata={studioMetadata} width={1920} height={1080} fps={30} durationInFrames={705} />
+  <Composition id="StudioWarungMalam" component={StudioStory} defaultProps={{story: studioWarungMalam}} calculateMetadata={studioMetadata} width={1920} height={1080} fps={30} durationInFrames={450} />
+  <Composition id="StudioUjiKamera" component={StudioStory} defaultProps={{story: studioUjiKamera, hud: true}} calculateMetadata={studioMetadata} width={1920} height={1080} fps={30} durationInFrames={540} />
 </>;
 registerRoot(Root);

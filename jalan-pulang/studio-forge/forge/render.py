@@ -86,7 +86,7 @@ class Scene:
 
 def _gather(scene):
     """Return concatenated vertex arrays and per-triangle material indices."""
-    P, U, N, tris, tri_mat, tri_shadow = [], [], [], [], [], []
+    P, U, N, tris, tri_mat, tri_shadow, tri_ds = [], [], [], [], [], [], []
     off = 0
     for oi, o in enumerate(scene.objects):
         pos, idx, uv, nrm = o["pos"], o["idx"], o["uv"], o["nrm"]
@@ -97,6 +97,9 @@ def _gather(scene):
         tris.append(t)
         tri_mat.append(np.full(len(t), oi, np.int32))
         tri_shadow.append(np.full(len(t), bool(o["shadow"])))
+        _m = o["mat"]
+        _ds = bool(_m.get("double_sided")) if hasattr(_m, "get") else bool(getattr(_m, "double_sided", False))
+        tri_ds.append(np.full(len(t), _ds))
         off += len(pos)
     return (
         np.vstack(P),
@@ -105,6 +108,7 @@ def _gather(scene):
         np.vstack(tris),
         np.concatenate(tri_mat),
         np.concatenate(tri_shadow),
+        np.concatenate(tri_ds),
     )
 
 
@@ -212,7 +216,7 @@ def render(
         gs.add(gpos, np.array(idx), uv, np.tile([0, 1, 0], (len(gpos), 1)).astype(F), ground["mat"], cast_shadow=False)
         scene = gs
 
-    P, U, N, tris, tri_mat, tri_shadow = _gather(scene)
+    P, U, N, tris, tri_mat, tri_shadow, tri_ds = _gather(scene)
     v = P[tris]
     vn = N[tris]
     fn = np.cross(v[:, 1] - v[:, 0], v[:, 2] - v[:, 0])
@@ -228,10 +232,14 @@ def render(
     centroid = v.mean(1)
     front = np.sum(fn * (eye[None, :] - centroid), 1) > 0
     uvn = np.linalg.norm(fn, axis=1, keepdims=True)
-    keep = ok & (front | (uvn[:, 0] < 1e-9))
+    keep = ok & (front | (uvn[:, 0] < 1e-9) | tri_ds)
     if keep.sum() < 8:
         keep = ok
     v, vn, tri_mat, tri_shadow, w = v[keep], vn[keep], tri_mat[keep], tri_shadow[keep], w[keep]
+    # double-sided faces are lit from the side the viewer is on
+    if (~front[keep]).any():
+        flip = (~front[keep])[:, None, None]
+        vn = np.where(flip, -vn, vn)
 
     ndc = (v @ mvp[:3, :3].T + mvp[:3, 3]) / w[:, :, None]
     screen = np.stack([(ndc[:, :, 0] * 0.5 + 0.5) * W, (1 - (ndc[:, :, 1] * 0.5 + 0.5)) * H], 2)

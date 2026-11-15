@@ -71,6 +71,18 @@ terlihat oleh renderer perangkat lunak karena ia tidak pernah men-skin):
    bobot ditransfer dari vertex terdekat sehingga tulang lengan menarik sisi
    kain dan jubahnya terbuka. Lihat `docs/entity-poses.png`.
 
+5. **Pakaian berlubang & lengan menghilang** — tiga sebab sekaligus:
+   22,5% segitiga polo ter-winding terbalik (renderer front-face mencullnya,
+   jadi kain tampak berlubang), 66 celah kecil 4-vertex di jahitan, dan kaus +
+   celana memakai jarak offset yang sama (0,045) sehingga celana menembus kaus
+   dan tampak sebagai gerigi di hem. Perbaikan: `kit.orient_consistently`
+   (orientasi disebar lewat edge bersama, arah komponen dipilih lewat voting
+   ber-bobot luas), `kit.fill_small_holes` (fan pada loop ≤12 vertex, ekstensi
+   ≤1,2 unit), offset per lapisan (kaus 0,062 / celana 0,026 / jaket 0,048), dan
+   material kain `double_sided` supaya sisa panel terbalik tidak menghilang.
+   `forge/render.py` kini menghormati `double_sided`, jadi pratinjau QC tidak
+   lagi menyembunyikan bug ini.
+
 Penjaga baru supaya kelas bug ini tidak kembali:
 
 * `scripts/test-studio-three.mjs` — tiap tulang harus tetap di dalam kotak tubuh
@@ -93,7 +105,7 @@ Penjaga baru supaya kelas bug ini tidak kembali:
 
 | area | cacat |
 |---|---|
-| karakter | hem polo dan selangkangan celana berlubang (mesh pakaian low-poly: kargo hanya 130 tris); jahitan lengan jaket terlihat di siku; rambut masih "helm" halus, bukan helai; pergelangan kaki sedikit memutar saat `walk`; `sit` mengasumsikan kursi setinggi 0,5 m (tidak ada prop kursi di perpustakaan) |
+| karakter | celana kargo hanya 255 vertex / 392 tris (mesh hasil fitting lama), jadi paha tampak bersudut; tekstur jaket `male_casualsuit05` berwarna ramai (bawaan aset, bukan hoodie polos); rambut masih "helm" halus, bukan helai; pergelangan kaki sedikit memutar saat `walk`; `sit` mengasumsikan kursi setinggi 0,5 m (tidak ada prop kursi di perpustakaan) |
 | entitas | bentuk kafan/kerudung masih kasar (kerucut + kain), belum menyeramkan; status `draft` |
 | kendaraan | pikap masih kotak-kotak; motor bebek terbaca tapi panel samping datar |
 | alam | dedaunan memakai kartu besar, bukan daun individual; pohon beringin akar gantung belum ada |

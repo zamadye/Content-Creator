@@ -209,10 +209,32 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
             from .entity import shape_entity
 
             gp = shape_entity(gp, spec)
-        # loosen the fit so low-poly authored garments clear the body
-        if gname not in ("shoes01",):
+        # The fitting pass leaves hairline slits in some garments (62 holes in the
+        # polo alone); close the small ones before they are offset outwards.
+        from . import kit as _kit
+
+        gp, fixed_idx, fixed = _kit.fill_small_holes(
+            gp,
+            pack["indices"],
+            {"uv": pack["uv"], "skinIndex": pack["skinIndex"], "skinWeight": pack["skinWeight"]},
+            max_loop=12,
+            max_extent=1.2,
+        )
+        pack["indices"], pack["uv"] = fixed_idx, fixed["uv"]
+        pack["skinIndex"], pack["skinWeight"] = fixed["skinIndex"], fixed["skinWeight"]
+        # A fifth of the polo's triangles arrive wound backwards; a front-face
+        # renderer culls those patches and the cloth looks full of holes.
+        pack["indices"], _ = _kit.orient_consistently(
+            gp, pack["indices"], outward_from=(0.0, float(np.mean(gp[:, 1])), 0.0)
+        )
+        # Loosen the fit so low-poly authored garments clear the body. The gap has
+        # to differ per layer: a shirt and the trousers under it at the same
+        # offset poke through each other, which reads as notches along the hem.
+        fit = {"namuhekam_male_polo_shirt": 0.062, "cortu_cargo_pants": 0.026, "male_casualsuit05": 0.048}
+        off_g = fit.get(gname, 0.0)
+        if off_g:
             gn = human_normals(gp, pack["indices"])
-            gp = gp + gn * 0.045
+            gp = gp + gn * off_g
         garment_parts.append((gname, pack, gp))
 
     # Keep the whole body surface (removing covered triangles punches holes),
@@ -273,6 +295,9 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
                     roughness=1.0,
                     normal_scale=1.0,
                     base_color=(1, 1, 1, 1),
+                    # Cloth panels are thin and some arrive partially inverted;
+                    # two-sided keeps sleeves/hair cards from vanishing.
+                    double_sided=True,
                 ),
             }
         )

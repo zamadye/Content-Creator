@@ -23,12 +23,12 @@ Total: **52 aset**. Unit meter, +Y atas, aset menghadap +Z.
 
 | ID | Judul | Ukuran (m) | Tris | Tekstur | Rig/Klip | Status |
 |----|-------|-----------|------|---------|----------|--------|
-| `char.female-dewasa` | Wanita dewasa — polo & kargo | 0.956×1.618×0.431 | 37336 | 3/3 (+30 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.female-lansia` | Wanita lansia — ibu | 0.921×1.557×0.415 | 37336 | 3/3 (+30 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.male-dewasa-polo` | Pria dewasa — polo & celana kargo | 1.025×1.733×0.462 | 37118 | 3/3 (+27 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.male-lansia-kemeja` | Pria lansia — polo lusuh | 0.992×1.677×0.447 | 37060 | 3/3 (+27 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.male-muda-jaket` | Pria muda — setelan kasual | 0.977×1.654×0.453 | 38616 | 3/3 (+24 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.male-pekerja` | Pekerja gudang — setelan kerja | 1.013×1.712×0.475 | 38616 | 3/3 (+24 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.female-dewasa` | Wanita dewasa — polo & kargo | 0.956×1.618×0.432 | 38066 | 3/3 (+30 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.female-lansia` | Wanita lansia — ibu | 0.921×1.557×0.416 | 38066 | 3/3 (+30 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.male-dewasa-polo` | Pria dewasa — polo & celana kargo | 1.025×1.733×0.464 | 37848 | 3/3 (+27 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.male-lansia-kemeja` | Pria lansia — polo lusuh | 0.992×1.677×0.449 | 37790 | 3/3 (+27 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.male-muda-jaket` | Pria muda — setelan kasual | 0.977×1.654×0.453 | 39386 | 3/3 (+24 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.male-pekerja` | Pekerja gudang — setelan kerja | 1.013×1.712×0.476 | 39369 | 3/3 (+24 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 
 ## entity
 

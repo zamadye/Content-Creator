@@ -359,3 +359,149 @@ def compute_normals_welded(pos, idx, tol=2e-4):
     out = acc[inv]
     ln = np.linalg.norm(out, axis=1, keepdims=True)
     return (out / np.maximum(ln, 1e-9)).astype(F)
+
+
+# --------------------------------------------------------------- mesh repair
+def _boundary_loops(idx):
+    """Ordered boundary loops (list of vertex-index cycles) of a triangle mesh."""
+    from collections import defaultdict
+
+    I = np.asarray(idx, np.int64)
+    e = np.concatenate([I[:, [0, 1]], I[:, [1, 2]], I[:, [2, 0]]])
+    key = np.sort(e, axis=1)
+    uniq, counts = np.unique(key, axis=0, return_counts=True)
+    edges = [tuple(int(v) for v in x) for x in uniq[counts == 1]]
+    adj = defaultdict(list)
+    for a, b in edges:
+        adj[a].append(b)
+        adj[b].append(a)
+    seen = set()
+    loops = []
+    for start in adj:
+        if start in seen:
+            continue
+        loop, prev, cur = [start], None, start
+        seen.add(start)
+        while True:
+            nxt = [n for n in adj[cur] if n != prev]
+            if not nxt:
+                break
+            step = nxt[0]
+            if step == start:
+                break
+            if step in seen:
+                break
+            loop.append(step)
+            seen.add(step)
+            prev, cur = cur, step
+        loops.append(loop)
+    return loops
+
+
+def fill_small_holes(pos, idx, attrs=None, max_loop=12, max_extent=None):
+    """Close tiny holes (slits left by garment fitting) with a triangle fan.
+
+    Only loops with at most ``max_loop`` vertices (and, if given, a bbox extent
+    under ``max_extent``) are filled, so hems, cuffs and collars stay open.
+    ``attrs`` maps name -> per-vertex array; each new fan centre copies the
+    values of the first vertex of its loop.
+    """
+    P = np.asarray(pos, F).astype(np.float64)
+    I = np.asarray(idx, np.int64).copy()
+    attrs = {k: np.asarray(v) for k, v in (attrs or {}).items()}
+    out_I = [I]
+    newP = [P]
+    newA = {k: [v] for k, v in attrs.items()}
+    base = len(P)
+    face_of_edge = {}
+    for f in I:
+        for a, b in ((f[0], f[1]), (f[1], f[2]), (f[2], f[0])):
+            face_of_edge[(int(a), int(b))] = f
+    filled = 0
+    for loop in _boundary_loops(I):
+        if not (3 <= len(loop) <= max_loop):
+            continue
+        pts = P[loop]
+        if max_extent is not None and float(np.ptp(pts, axis=0).max()) > max_extent:
+            continue
+        c = pts.mean(0)
+        # winding: a boundary edge (a,b) that belongs to a face in that order
+        # means the patch must run (b,a) to keep the surface consistent
+        tris = []
+        n = len(loop)
+        for k in range(n):
+            a, b = loop[k], loop[(k + 1) % n]
+            if (a, b) in face_of_edge:
+                tris.append((b, a, base))
+            else:
+                tris.append((a, b, base))
+        out_I.append(np.array(tris, np.int64))
+        newP.append(c[None, :])
+        for key, v in attrs.items():
+            newA[key].append(v[loop[0]][None, ...])
+        base += 1
+        filled += 1
+    if not filled:
+        return np.asarray(pos, F), np.asarray(idx, np.int64), attrs
+    P2 = np.concatenate(newP).astype(F)
+    I2 = np.concatenate(out_I).astype(np.int64)
+    A2 = {k: np.concatenate(v) for k, v in newA.items()}
+    return P2, I2, A2
+
+
+def orient_consistently(pos, idx, outward_from=(0.0, 0.0, 0.0)):
+    """Flip triangles so a mesh is wound consistently and faces outwards.
+
+    Garment panels arrive stitched from different sources, so parts of the same
+    shirt are wound the wrong way; a front-face renderer then culls whole
+    patches and the body shows through the cloth. Orientation is propagated
+    across shared edges (two faces must traverse a shared edge in opposite
+    directions) and each component's seed is chosen to face away from
+    ``outward_from``.
+    """
+    P = np.asarray(pos, np.float64)
+    I = np.asarray(idx, np.int64).reshape(-1, 3).copy()
+    # edge -> list of (face, forward?) where forward means a->b in that face
+    edge_faces = {}
+    for f, (a, b, c) in enumerate(I):
+        for x, y in ((a, b), (b, c), (c, a)):
+            edge_faces.setdefault((min(x, y), max(x, y)), []).append((f, x < y))
+    flipped = np.zeros(len(I), bool)
+    seen = np.zeros(len(I), bool)
+    for seed in range(len(I)):
+        if seen[seed]:
+            continue
+        # component traversal
+        comp = []
+        stack = [seed]
+        seen[seed] = True
+        while stack:
+            f = stack.pop()
+            comp.append(f)
+            a, b, c = I[f]
+            for x, y in ((a, b), (b, c), (c, a)):
+                for (g, forward) in edge_faces[(min(x, y), max(x, y))]:
+                    if g == f or seen[g]:
+                        continue
+                    # same traversal direction as f means g is wound the other way
+                    want_flip = forward == (x < y)
+                    if want_flip:
+                        I[g] = I[g][::-1]
+                        flipped[g] = ~flipped[g]
+                    seen[g] = True
+                    stack.append(g)
+        # Orient the component outwards: area-weighted vote against the radial
+        # direction from the vertical axis (a single seed triangle is fragile —
+        # one stray panel at a sleeve tip flips the whole piece).
+        comp = np.array(comp)
+        tri = P[I[comp]]
+        fn = np.cross(tri[:, 1] - tri[:, 0], tri[:, 2] - tri[:, 0])
+        area = np.linalg.norm(fn, axis=1)
+        centre = tri.mean(1)
+        radial = centre - np.asarray(outward_from, np.float64)
+        radial[:, 1] = 0.0
+        vote = float(np.sum(area * np.sum(fn * radial, 1)))
+        if vote < 0:
+            I[comp] = I[comp][:, ::-1]
+            flipped[comp] = ~flipped[comp]
+    return I, flipped

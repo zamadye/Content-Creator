@@ -127,7 +127,7 @@ export class StudioRenderer {
 
   buildShot(shot) {
     const keys = [];
-    const add = (key, assetId, {at, yaw = 0, scale = 1, clip, speed = 1, offset = 0, rot = 0}) => {
+    const add = (key, assetId, {at, yaw = 0, scale = 1, clip, speed = 1, travel = 0, offset = 0, rot = 0}) => {
       const tpl = this.templateCache.get(assetId);
       if (!tpl) return;
       const root = cloneSkeleton(tpl.scene);
@@ -144,7 +144,7 @@ export class StudioRenderer {
         action.play();
         action.setEffectiveWeight(1);
       }
-      this.instances.set(key, {root, mixer, assetId, clip: clip ?? null, speed, offset});
+      this.instances.set(key, {root, mixer, assetId, clip: clip ?? null, speed, offset, at, yaw, travel});
       keys.push(key);
     };
 
@@ -159,7 +159,7 @@ export class StudioRenderer {
     }
     for (const c of shot.cast) {
       if (c.hidden) continue;
-      add(`cast:${shot.id}:${c.ref}`, c.assetId, {at: c.at, yaw: c.yaw, clip: c.clip, speed: c.speed, offset: c.offset});
+      add(`cast:${shot.id}:${c.ref}`, c.assetId, {at: c.at, yaw: c.yaw, clip: c.clip, speed: c.speed, travel: c.travel, offset: c.offset});
     }
     for (const o of shot.objectPlacements) {
       if (o.hidden) continue;
@@ -218,8 +218,19 @@ export class StudioRenderer {
         if (!inst.mixer) continue;
         if (active) {
           inst.mixer.setTime(seconds * inst.speed + inst.offset);
+          // travel: world-space movement along `facing`. In-place locomotion
+          // clips slide exactly as fast as the actor fails to move, so this is
+          // the knob that stops foot sliding.
+          if (inst.travel) {
+            inst.root.position.set(
+              inst.at[0] + Math.sin(inst.yaw) * inst.travel * seconds,
+              inst.at[1],
+              inst.at[2] + Math.cos(inst.yaw) * inst.travel * seconds,
+            );
+          }
         } else {
           inst.mixer.setTime(0);
+          inst.root.position.set(inst.at[0], inst.at[1], inst.at[2]);
         }
       }
     }

@@ -362,6 +362,79 @@
         "style": "subtitle",
         "value": "Lampu teplok menyala. Aku masih di situ."
       }
+    },
+    {
+      "id": "duduk-05",
+      "title": "Berjalan pergi (travel aktif)",
+      "duration": 3.0,
+      "set": [
+        {
+          "asset": "road.dirt.straight",
+          "at": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "asset": "building.house.village",
+          "at": [
+            0,
+            0,
+            -5.0
+          ],
+          "rot": 0
+        },
+        {
+          "asset": "nature.bush.fern",
+          "at": [
+            -2.4,
+            0,
+            2.0
+          ],
+          "scale": 1.1
+        }
+      ],
+      "actors": [
+        {
+          "ref": "aku",
+          "at": [
+            0,
+            0,
+            1.8
+          ],
+          "facing": "-Z",
+          "clip": "walk",
+          "speed": 0.6,
+          "travel": 1.36
+        }
+      ],
+      "camera": {
+        "preset": "pan",
+        "from": [
+          3.6,
+          1.5,
+          2.9
+        ],
+        "to": [
+          3.4,
+          1.45,
+          2.5
+        ],
+        "target": [
+          0,
+          1.0,
+          0.1
+        ],
+        "fov": 46
+      },
+      "light": {
+        "preset": "sore"
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "Aku berjalan pergi sebelum lampu padam."
+      }
     }
   ]
 }

@@ -20,7 +20,7 @@ export const FIELDS = {
   objects: ['asset', 'scale', 'label'],
   shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'note'],
   set: ['asset', 'at', 'rot', 'scale', 'clip'],
-  actor: ['ref', 'at', 'facing', 'clip', 'offset', 'speed', 'loop', 'hidden'],
+  actor: ['ref', 'at', 'facing', 'clip', 'offset', 'speed', 'travel', 'loop', 'hidden'],
   object: ['ref', 'at', 'rot', 'scale', 'hidden'],
   camera: ['preset', 'from', 'to', 'target', 'fov', 'roll', 'shake', 'side', 'radius', 'startAngle', 'arc'],
   light: ['preset', 'intensity', 'color'],
@@ -84,7 +84,7 @@ export function normalizeStory(raw) {
     out.id = shot.id ?? `shot-${String(i + 1).padStart(2, '0')}`;
     out.duration = shot.duration ?? 3;
     out.set = (shot.set ?? []).map((item) => ({at: [0, 0, 0], rot: 0, scale: 1, ...item}));
-    out.actors = (shot.actors ?? []).map((a) => ({facing: '+Z', clip: 'idle', speed: 1, offset: 0, hidden: false, ...a}));
+    out.actors = (shot.actors ?? []).map((a) => ({facing: '+Z', clip: 'idle', speed: 1, travel: 0, offset: 0, hidden: false, ...a}));
     out.objects = (shot.objects ?? []).map((o) => ({at: [0, 0, 0], rot: 0, scale: 1, hidden: false, ...o}));
     out.camera = {preset: 'static', fov: 40, roll: 0, shake: 0, ...(shot.camera ?? {})};
     out.light = {preset: 'siang', intensity: 1, ...(shot.light ?? {})};
@@ -164,6 +164,8 @@ export function validateStory(raw, {registry = null} = {}) {
       if (!FACINGS.includes(a.facing)) problems.push(`${w}.facing must be one of ${FACINGS.join(' ')}`);
       if (!isStr(a.clip)) problems.push(`${w}.clip must be a clip name`);
       if (a.speed !== undefined && !(a.speed > 0 && a.speed <= 4)) problems.push(`${w}.speed must be 0..4`);
+      // travel: world metres per second along `facing` (0 = berjalan di tempat)
+      if (a.travel !== undefined && !(a.travel >= 0 && a.travel <= 6)) problems.push(`${w}.travel must be 0..6`);
       const entry = knownAssets?.[s.cast[a.ref]?.asset];
       if (entry?.rig?.clips && isStr(a.clip) && !entry.rig.clips.includes(a.clip)) {
         problems.push(`${w}.clip "${a.clip}" not in ${s.cast[a.ref].asset} (has: ${entry.rig.clips.join(', ')})`);

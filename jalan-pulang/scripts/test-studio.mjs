@@ -193,6 +193,28 @@ for (const file of storyFiles) {
 }
 ok('stories');
 
+// --------------------------------------------------------------- 5b. travel aktor
+{
+  const base = JSON.parse(fs.readFileSync(path.join(studioDir, 'uji-kamera.json'), 'utf8'));
+  const walkShot = JSON.parse(JSON.stringify(base));
+  walkShot.id = 'uji-travel';
+  walkShot.shots = [walkShot.shots[0]];
+  walkShot.shots[0].actors = [{ref: Object.keys(base.cast)[0], at: [0, 0, 0], facing: '+Z', clip: 'walk', travel: 1.4, speed: 0.6}];
+  const compiled = compileStory(walkShot, {registry});
+  const cast = compiled.shots[0].cast[0];
+  assert.equal(cast.travel, 1.4, 'compile must pass actor travel through');
+  assert.equal(cast.speed, 0.6, 'compile must pass actor speed through');
+  assert.equal(compiled.shots[0].cast[0].facing.length, 3, 'facing vector');
+
+  const bad = JSON.parse(JSON.stringify(walkShot));
+  bad.shots[0].actors[0].travel = 9;
+  assert.throws(() => validateStory(bad, {registry}), /travel/, 'travel above 6 m/s must be rejected');
+  const silent = JSON.parse(JSON.stringify(walkShot));
+  silent.shots[0].actors[0].travel = 0;
+  validateStory(silent, {registry}); // tidak boleh melempar
+  ok('actor travel');
+}
+
 // --------------------------------------------------------------- 6. docs & catalogue
 const catalogue = fs.readFileSync(path.join(root, 'docs', 'ASSET-CATALOG.md'), 'utf8');
 assert.ok(catalogue.includes('KATALOG ASET'), 'catalogue header');

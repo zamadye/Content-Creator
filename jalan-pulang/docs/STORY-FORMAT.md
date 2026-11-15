@@ -181,3 +181,22 @@ dengan `rot: 0` dan `facing: "+Z"`:
 
 Contoh lengkap: `stories/studio/duduk-sore.json`; bukti visual (render software,
 tanpa engine): `docs/sit-chair-check.png`.
+
+## Aktor berjalan: `travel`
+
+`clip` lokomosi kita **in-place** (tidak ada translasi root ke depan). Supaya kaki
+tidak meluncur, geser aktornya sendiri dengan `travel` (meter/detik, 0..6):
+
+```json
+{ "ref": "aku", "at": [0, 0, 1.8], "facing": "-Z", "clip": "walk",
+  "speed": 0.6, "travel": 1.36 }
+```
+
+`speed` adalah **kecepatan pemutaran klip**, `travel` adalah **kecepatan dunia**.
+Keduanya harus dikalikan ke angka yang sama: `walk` pada `speed 1` menyiratkan
+2,26 m/s, jadi `speed 0,6` ⇒ `travel 1,36` m/s (langkah manusia normal), dan
+`run` pada `speed 1` menyiratkan 4,76 m/s. Ukur sendiri dengan:
+
+```
+node scripts/qc-motion.mjs            # walk, run, idle
+```

@@ -1,0 +1,162 @@
+# AUDIT PIPELINE 53 LANGKAH — Studio v2
+
+Dokumen ini memetakan pipeline produksi 3D 9 fase / 53 langkah ke kondisi nyata
+repositori ini. Tujuannya jujur, bukan promosi: setiap baris menyebut **di mana
+buktinya** (berkas atau perintah) atau **kenapa belum**.
+
+Legenda status:
+
+| status | arti |
+|---|---|
+| ✅ | selesai dan ada bukti yang bisa dijalankan |
+| ◐ | sebagian — jalan, tapi ada bagian yang belum |
+| ⛔ | belum dikerjakan |
+| — | tidak berlaku untuk alur kerja proyek ini |
+
+Batas verifikasi yang berlaku untuk seluruh dokumen: semua render QC berasal dari
+**renderer perangkat lunak** (`studio-forge/forge/render.py`) dan pengujian runtime
+memakai **three.js asli di Node** (`scripts/test-studio-three.mjs`). Tidak ada
+Chromium di sandbox ini, jadi **belum ada satu frame pun yang digambar WebGL**.
+Baris yang bergantung pada GPU ditandai eksplisit.
+
+---
+
+## Ringkasan per fase
+
+| # | Fase | ✅ | ◐ | ⛔ | — |
+|---|---|---|---|---|---|
+| 1 | Concept & pre-production | 2 | 2 | 0 | 0 |
+| 2 | Procedural & blockout | 4 | 1 | 0 | 0 |
+| 3 | Real geometry & modeling | 3 | 1 | 1 | 1 |
+| 4 | UV & texture preparation | 1 | 2 | 1 | 0 |
+| 5 | PBR material & texturing | 6 | 2 | 1 | 0 |
+| 6 | Rigging & deformation | 4 | 0 | 2 | 0 |
+| 7 | Animation production | 3 | 2 | 1 | 1 |
+| 8 | Scene assembly & lighting | 3 | 2 | 0 | 0 |
+| 9 | Rendering & post-production | 0 | 4 | 2 | 0 |
+
+Total: **26 selesai · 16 sebagian · 8 belum · 3 tidak berlaku**.
+
+---
+
+## Phase 1 — Pre-production
+
+| # | Langkah | Status | Bukti / catatan |
+|---|---|---|---|
+| 1 | Concept design | ✅ | `docs/ROADMAP-STUDIO-v2.md` (konsep, gaya, target), 6 karakter + 5 sosok + 41 aset lingkungan di `public/assets/registry.json` |
+| 2 | Reference gathering | ✅ | `docs/PROVENANCE-ASSETS.md`, `public/garments/PROVENANCE.md`, `public/makehuman/PROVENANCE.md` — semua sumber, lisensi, dan komit asal dicatat |
+| 3 | Technical specification | ✅ | Meter, +Y atas, +Z depan, `EYE_HEIGHT 1.62`, 30 fps, target tris per kategori di registry; engine three.js 0.187 + Remotion 4.0.543 |
+| 4 | Scene planning | ◐ | Cerita sudah data-driven (`studio.story/2`, 4 contoh), tapi perencanaan komposisi masih manual — belum ada tooling preview layout sebelum render |
+
+## Phase 2 — Procedural & blockout
+
+| # | Langkah | Status | Bukti / catatan |
+|---|---|---|---|
+| 5 | Procedural generation | ✅ | `studio-forge/forge/kit.py` (box/tube/lathe/extrude), `env_building.py`, `env_nature.py`, `env_prop.py`, `env_road.py`, `env_vehicle.py` |
+| 6 | Primitive blocking | ✅ | Seluruh aset lingkungan lahir dari primitif; `dev_sheet.py` menyusun blockout per kategori |
+| 7 | Layout blockout | ✅ | `stories/studio/*.json` (`set`, `objects`, `actors`) + `src/preview.jsx` 8 adegan |
+| 8 | Topology planning | ◐ | Keputusan detail-vs-statis ada di praktik (mis. pipa `add_tube` vs slab `add_box`), tapi belum ada dokumen rencana topologi per aset |
+| 9 | Blockout validation | ✅ | Thumbnail 512 per aset + `stories/studio/uji-kamera.json` (9 shot, satu per preset kamera) |
+
+## Phase 3 — Real geometry & modeling
+
+| # | Langkah | Status | Bukti / catatan |
+|---|---|---|---|
+| 10 | Base mesh construction | ✅ | Base MakeHuman + `character.py` (163 tulang, UV skin, garment fitting) |
+| 11 | High-poly modeling | ◐ | Detail prosedural (lipatan, jahitan, kusen) tanpa sculpt/subdivision adaptif |
+| 12 | Anatomical / structural refinement | ✅ | `shape()` di `character.py` (shoulder/chest/limb/jaw/neck), `entity.shape_entity` (limb_len, torso_len, neck_len) |
+| 13 | Retopology | — | Topologi base MakeHuman dipakai apa adanya; bukan pekerjaan yang dikerjakan ulang di sini |
+| 14 | Low-poly optimization | ✅ | Anggaran tris per kategori dijaga; total 232.658 vertex / 398k tris di registry |
+| 15 | LOD generation | ⛔ | Belum ada LOD. Belum mendesak karena targetnya klip pendek 1080p, bukan game |
+
+## Phase 4 — UV & texture preparation
+
+| # | Langkah | Status | Bukti / catatan |
+|---|---|---|---|
+| 16 | UV unwrapping | ✅ | UV base MakeHuman untuk karakter; UV generator untuk aset prosedural (`uvpaint.py`) |
+| 17 | UV packing | ◐ | Tidak ada packing/UDIM; UV dipepetkan ke 0..1 per aset, atlas per material |
+| 18 | High-to-low baking | ⛔ | Tidak ada high-poly sumber, jadi tidak ada yang bisa di-bake |
+| 19 | Texture baking | ◐ | Normal map & AO diproduksi prosedural (`tex.height_to_normal`, `tex.orm`), bukan hasil bake |
+| 20 | Texture set preparation | ✅ | 3 peta per aset (base/normal/ORM), 512–2048 px, satu set material per aset |
+
+## Phase 5 — PBR material & texturing
+
+| # | Langkah | Status | Bukti / catatan |
+|---|---|---|---|
+| 21 | Material definition | ✅ | `forge/tex.py` + `human.GARMENT_LUMA`; jenis: kulit, kain, kayu, logam, beton, kaca |
+| 22 | Base color / albedo | ✅ | `paint_skin`, `tex.fabric`, `uvpaint` untuk tiap kategori |
+| 23 | Roughness mapping | ✅ | Kanal G pada ORM |
+| 24 | Metallic mapping | ✅ | Kanal B pada ORM |
+| 25 | Normal mapping | ✅ | `tex.height_to_normal`, plus relief tenun pada kain |
+| 26 | Height / displacement | ◐ | Height → normal saja; tidak ada displacement/parallax nyata |
+| 27 | Subsurface scattering | ⛔ | Tidak ada SSS; three.js di sini memakai material standar tanpa transmission |
+| 28 | Emission mapping | ✅ | `prop.lamp.teplok`, lampu neon, `emissive` di material |
+| 29 | Material calibration | ◐ | Thumbnail & `docs/asset-catalog.png` memakai satu setup cahaya tetap; belum ada lembar kalibrasi cahaya netral per material |
+
+## Phase 6 — Rigging & deformation
+
+| # | Langkah | Status | Bukti / catatan |
+|---|---|---|---|
+| 30 | Skeleton creation | ✅ | `studio-humanoid-v1`, 163 tulang, 13 klip, 30 fps |
+| 31 | Joint placement | ✅ | Diperbaiki sesi ini: translasi node = `p − parent.p` (sebelumnya skeleton menumpuk 23 m) |
+| 32 | Skinning / weight painting | ✅ | Weight transfer + perbaikan IBM kolom-mayor; diverifikasi `applyBoneTransform` di 143 klip |
+| 33 | IK / FK setup | ⛔ | Tidak ada kontrol IK; semua gerak berasal dari klip yang dibangkitkan kode |
+| 34 | Corrective shape keys | ⛔ | Tidak ada blendshape koreksi deformasi ekstrem |
+| 35 | Rig validation | ✅ | `scripts/test-studio-three.mjs` (kotak tubuh tulang + vertex tak boleh melayang >1,1 m) dan `dev_pose.py` untuk tinjauan visual |
+
+## Phase 7 — Animation production
+
+| # | Langkah | Status | Bukti / catatan |
+|---|---|---|---|
+| 36 | Animation blocking | ✅ | `human.py`: idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish |
+| 37 | Spline / motion refinement | ◐ | Kurva sinus/easing prosedural; belum ada editor kurva |
+| 38 | Secondary motion | ⛔ | Rambut dan kain tidak bergerak sekunder; shroud diikat ke tulang punggung saja |
+| 39 | Procedural animation | ✅ | Pose dan root offset dihasilkan parameter waktu; `travel` (baru) menggeser aktor di dunia |
+| 40 | Physics simulation | ⛔ | Tidak ada cloth/rigid/soft body |
+| 41 | Animation cleanup | ◐ | Sesi ini: `scripts/qc-motion.mjs` mengukur laju kaki saat menapak (walk 2,26 m/s, run 4,76 m/s pada `speed 1`) dan interpenetrasi lantai (0 sampel). Foot sliding baru bisa *dihilangkan*, bukan hanya diukur, kalau cerita memakai `travel` |
+| 42 | Animation baking | — | Klip sudah berupa keyframe kuaternion yang dibangkitkan kode; tidak ada simulasi yang perlu di-bake |
+
+## Phase 8 — Scene assembly & lighting
+
+| # | Langkah | Status | Bukti / catatan |
+|---|---|---|---|
+| 43 | Final scene assembly | ✅ | `src/studio/compile.js` merakit set, objek, aktor, kamera, cahaya, teks per shot |
+| 44 | Camera setup | ✅ | 10 preset (`camera.js`): static, dolly-in/out, pan, orbit, crane-up, low-angle, over-shoulder, handheld + fov/roll |
+| 45 | Lighting setup | ✅ | 7 preset (`LIGHTS` di `renderer.js`) + 6 look preset (sky/fog/exposure) + lampu lokal |
+| 46 | Atmospheric effects | ◐ | `FogExp2` per look; tidak ada volumetrik/god ray |
+| 47 | Look development | ◐ | Preset look + ACES tone mapping + exposure; belum ada LUT/kalibrasi warna final |
+
+## Phase 9 — Rendering & post-production
+
+| # | Langkah | Status | Bukti / catatan |
+|---|---|---|---|
+| 48 | Render optimization | ◐ | PCFSoft shadow, ACES, `pixelRatio`; belum ada pengaturan sampling/denoise/anggaran memori |
+| 49 | Render passes / AOV | ⛔ | Belum ada pemisahan beauty/depth/normal/emission |
+| 50 | Final rendering | ◐ | Komposisi Remotion (`StudioStory`) siap, `npx vite build` lolos, **belum pernah digambar di browser** — tidak ada Chromium di sandbox |
+| 51 | Compositing | ⛔ | Belum ada compositing pass; teks subtitle digambar Remotion langsung |
+| 52 | Color grading | ◐ | Exposure + vignette + grain lewat `look`; belum ada grading per shot |
+| 53 | Final encoding | ◐ | Jalur `npm run render:studio` (Remotion, H.264) ada; parameter codec belum dikonfigurasi di kode dan belum pernah dijalankan |
+
+---
+
+## Tiga lubang termahal (dan urutannya)
+
+1. **Belum pernah ada render WebGL (langkah 50).** Semua bukti visual berasal dari
+   renderer perangkat lunak kita sendiri. Ini menutup sekaligus langkah 48–53
+   (pass, compositing, grading, encoding) karena semuanya butuh frame nyata.
+   Jalan keluarnya bukan kode baru, tapi menjalankan `npm run render:studio` di
+   mesin dengan browser, lalu menyimpan satu still 1080p sebagai bukti.
+2. **Secondary motion & physics (38, 40).** Rambut dan kain masih kaku; ini yang
+   paling terasa kalau klip mulai dipakai berulang.
+3. **IK/FK & corrective shapes (33, 34).** Tanpa itu, pose ekstrem (jongkok
+   dalam, memanjat) hanya bisa didekati dengan klip yang ditulis manual.
+
+## Yang ditutup sesi ini
+
+* **Foot sliding (langkah 41).** `scripts/qc-motion.mjs` mengukur kecepatan kaki
+  saat menapak; `travel` (m/s, 0..6) ditambahkan ke skema aktor, diteruskan
+  `compile.js`, dan dieksekusi `renderer.js` sebagai perpindahan dunia sepanjang
+  `facing`. Contoh pemakaian: `stories/studio/duduk-sore.json` shot `duduk-05`.
+* Nomor stride dari pengukuran: `walk` pada `speed 1` menyiratkan **2,26 m/s**
+  (pakai `speed 0,6` + `travel 1,36` untuk langkah manusia normal), `run`
+  menyiratkan **4,76 m/s**.

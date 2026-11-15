@@ -35,6 +35,7 @@ export function compileStory(raw, {registry = null} = {}) {
       facing: facingVector(a.facing),
       clip: a.clip,
       speed: a.speed ?? 1,
+      travel: a.travel ?? 0,
       offset: a.offset ?? 0,
       hidden: Boolean(a.hidden),
     }));

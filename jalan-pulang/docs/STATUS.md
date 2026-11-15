@@ -142,3 +142,16 @@ pelvis aktor y≈0,50 m, kaki di lantai (lihat `docs/sit-chair-check.png`).
 Cerita contoh baru `stories/studio/duduk-sore.json` (4 shot, 16 detik) memakai
 pasangan ini, plus `validate` bersih (satu peringatan status `draft` untuk lampu
 teplok).
+
+## Audit pipeline 9 fase / 53 langkah
+
+`docs/PIPELINE-AUDIT.md` memetakan seluruh pipeline (pre-production sampai
+encoding) ke kondisi nyata repo: 26 selesai, 16 sebagian, 8 belum, 3 tidak
+berlaku. Lubang termahal tetap **belum ada render WebGL** — semua bukti visual
+berasal dari renderer perangkat lunak.
+
+Sesi ini menutup langkah 41 (foot sliding): `scripts/qc-motion.mjs` mengukur
+laju kaki saat menapak (walk 2,26 m/s, run 4,76 m/s pada `speed 1`, tanpa
+interpenetrasi lantai), dan skema aktor mendapat field `travel` (m/s) yang
+benar-benar menggeser aktor di dunia — lihat `duduk-sore.json` shot
+`duduk-05`.

@@ -39,6 +39,7 @@ npm run render:studio -- StudioJalanPulang
 | shot 0.2..120 detik, total ≤ 900 detik | satu file = satu cerita |
 | field tak dikenal = error | supaya typo ketahuan, bukan diabaikan |
 | matriks 4×4 untuk glTF **wajib** di-transpose sebelum flatten (`glb.py`) | glTF kolom-mayor, numpy baris-mayor; kalau lupa, IBM rusak dan semua vertex berputar di titik nol |
+| aktor dengan klip `walk`/`run` wajib punya `travel` ≈ `speed` × stride (walk 2,26 m/s, run 4,76 m/s) | klip lokomosi in-place; tanpa `travel` kaki meluncur |
 | offset pakaian per lapisan (kaus 0,062 · jaket 0,048 · celana 0,026) | kalau sama, celana menembus kaus dan muncul gerigi di hem |
 | translasi node = `p − parent.p` | `p` di rig adalah posisi absolut, bukan lokal |
 | `sit` mengasumsikan kursi 0,5 m; jangan taruh aktor duduk di lantai tanpa prop | pantat aktor berada di y≈0,50 saat `sit` |

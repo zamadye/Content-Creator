@@ -112,6 +112,27 @@ def human_normals(pos, idx):
     return cw(np.asarray(pos, F), np.asarray(idx, np.int64))
 
 
+def _torso_weights(points, bones, keys=("pelvis", "spine", "chest", "neck", "head", "clavicle")):
+    """Blend cloth vertices between the two nearest torso bones.
+
+    Transferring weights from the nearest *body* vertex lets arm bones grab the
+    sides of a shroud, so the sleeves of cloth swing with the arms and the robe
+    tears open. Cloth should follow the spine only.
+    """
+    idx = [i for i, b in enumerate(bones) if any(k in b["name"] for k in keys)]
+    J = np.zeros((len(points), 4), np.int64)
+    W = np.zeros((len(points), 4), F)
+    bp = np.array([bones[i]["p"] for i in idx], dtype=np.float64)
+    for n, q in enumerate(points):
+        d = np.linalg.norm(bp - np.asarray(q, np.float64), axis=1)
+        order = np.argsort(d)[:2]
+        w = 1.0 / np.maximum(d[order], 1e-4)
+        w = w / w.sum()
+        J[n, 0], J[n, 1] = idx[order[0]], idx[order[1]]
+        W[n, 0], W[n, 1] = w[0], w[1]
+    return J, W
+
+
 def _nearest_weights(points, base, bones):
     """Transfer skin weights from the nearest body vertex (head-region only)."""
     P = base["pos"]
@@ -307,9 +328,24 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     if spec.get("shroud"):
         from .entity import shroud
 
-        cfg = spec["shroud"]
-        sp, suv, sidx = shroud(P, **cfg)
-        j, w = _nearest_weights(sp, b, bones)
+        # Shroud specs are authored on a 7.32-unit-tall body with 0 at the feet;
+        # the mesh is in raw MakeHuman units (feet at FEET_Y), so convert.
+        k = HEIGHT_UNITS / 7.32
+        cfg = dict(spec["shroud"])
+        cfg["y_top"] = FEET_Y + float(cfg.get("y_top", 5.6)) * k
+        cfg["y_bottom"] = FEET_Y + float(cfg.get("y_bottom", -0.6)) * k
+        # Follow the *torso* silhouette only: arms inflate a raw cross-section
+        # percentile into a cape, which is what made the old shrouds look like
+        # tutus.
+        dom = np.asarray(parts[0]["joints"])[:, 0]
+        torso = np.array(
+            [
+                any(k in bones[int(i)]["name"] for k in ("pelvis", "spine", "chest", "neck", "head", "clavicle", "breast"))
+                for i in dom
+            ]
+        )
+        sp, suv, sidx = shroud(P[torso], **cfg)
+        j, w = _torso_weights(to_m(sp), bones)
         cloth = tex.fabric(7, 512, (0.42, 0.44, 0.42), weave=200, folds=0.75)
         parts.append(
             {
@@ -326,7 +362,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         from .entity import veil
 
         vp_, vuv, vidx = veil(**spec["veil"])
-        j, w = _nearest_weights(vp_, b, bones)
+        j, w = _torso_weights(to_m(vp_), bones, keys=("head", "neck"))
         cloth2 = tex.fabric(9, 512, (0.50, 0.50, 0.48), weave=230, folds=0.6)
         parts.append(
             {

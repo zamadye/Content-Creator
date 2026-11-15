@@ -11,7 +11,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from forge import character, render, skin  # noqa: E402
+from forge import character, entity, render, skin  # noqa: E402
 from forge.assemble import inverse_bind_matrices, sample_clip  # noqa: E402
 from forge.skin import matrix_from, quat_from_euler  # noqa: E402
 
@@ -43,7 +43,7 @@ def posed_world(bones, quats, frame, root_offset=(0.0, 0.0, 0.0)):
 
 
 def main(asset_id, clip_name, frame, out):
-    spec = character.SPECS[asset_id]
+    spec = character.SPECS.get(asset_id) or entity.SPECS[asset_id]
     captured = {}
     orig = character.write_skinned_glb
 
@@ -87,11 +87,12 @@ def main(asset_id, clip_name, frame, out):
                 "double_sided": getattr(m, "double_sided", False),
             },
         )
+    h = float(spec.get("height", 1.75))
     img = render.render(
         sc,
         out,
-        eye=(1.5, 1.35, 3.1),
-        target=(0, 0.85, 0.1),
+        eye=(0.92 * h, 0.78 * h, 1.85 * h),
+        target=(0, 0.50 * h, 0.05 * h),
         fov=36,
         size=(420, 560),
         ground={"mat": {"base": None}, "y": -0.02, "radius": 6.0},

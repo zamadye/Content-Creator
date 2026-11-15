@@ -61,6 +61,15 @@ terlihat oleh renderer perangkat lunak karena ia tidak pernah men-skin):
 3. **Lengan masuk ke badan** — rig beristirahat dalam A-pose (~49° di bawah
    horizontal), tetapi `base_pose` menambah 1,30 rad lagi sehingga lengan
    menyilang ke dada. `arm_drop` sekarang tambahan dari A-pose (0,24–0,34).
+4. **Kain entity (shroud/veil) salah ruang koordinat** — spesifikasi shroud
+   ditulis dalam ruang "0 = telapak kaki, tinggi 7,32 unit", sedangkan mesh
+   memakai unit mentah MakeHuman (kaki di −8,168). Kain jadi selebar pinggang
+   ("tutu") alih-alih menutupi tubuh. Konversi dilakukan di `character.build`
+   (`FEET_Y + y·HEIGHT_UNITS/7.32`). Sekalian: kain sekarang berupa kerucut dari
+   bahu ke lantai (radius turunan torso, tumbuh monoton supaya tidak tertekuk ke
+   dalam tubuh), dan **bobotnya diikat ke tulang punggung saja** — sebelumnya
+   bobot ditransfer dari vertex terdekat sehingga tulang lengan menarik sisi
+   kain dan jubahnya terbuka. Lihat `docs/entity-poses.png`.
 
 Penjaga baru supaya kelas bug ini tidak kembali:
 

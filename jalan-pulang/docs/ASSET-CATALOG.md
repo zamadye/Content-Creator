@@ -34,11 +34,11 @@ Total: **52 aset**. Unit meter, +Y atas, aset menghadap +Z.
 
 | ID | Judul | Ukuran (m) | Tris | Tekstur | Rig/Klip | Status |
 |----|-------|-----------|------|---------|----------|--------|
-| `entity.child` | Sosok anak | 0.801×1.223×0.48 | 30392 | 3/3 (+21 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
-| `entity.pale-standing` | Sosok pucat — berdiri | 1.234×1.784×0.692 | 30334 | 3/3 (+21 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
-| `entity.shadow-crouch` | Bayangan — jongkok | 1.151×1.66×0.685 | 29944 | 3/3 (+18 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
-| `entity.tall-limbs` | Sosok tinggi berlengan panjang | 1.389×2.28×0.83 | 29944 | 3/3 (+18 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
-| `entity.veiled-seated` | Sosok berkerudung — duduk | 1.159×1.624×0.664 | 30560 | 3/3 (+21 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
+| `entity.child` | Sosok anak | 0.727×1.417×0.442 | 30392 | 3/3 (+21 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
+| `entity.pale-standing` | Sosok pucat — berdiri | 1.061×1.933×0.644 | 30334 | 3/3 (+21 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
+| `entity.shadow-crouch` | Bayangan — jongkok | 0.989×1.855×0.601 | 29944 | 3/3 (+18 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
+| `entity.tall-limbs` | Sosok tinggi berlengan panjang | 1.358×2.798×0.825 | 29944 | 3/3 (+18 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
+| `entity.veiled-seated` | Sosok berkerudung — duduk | 0.965×1.869×0.586 | 30560 | 3/3 (+21 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | draft |
 
 ## nature
 

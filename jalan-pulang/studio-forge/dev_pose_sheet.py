@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import dev_pose  # noqa: E402
 
-IDS = [
+CHARACTERS = [
     "char.male-dewasa-polo",
     "char.male-muda-jaket",
     "char.male-lansia-kemeja",
@@ -21,15 +21,24 @@ IDS = [
     "char.female-lansia",
     "char.male-pekerja",
 ]
+ENTITIES = [
+    "entity.pale-standing",
+    "entity.tall-limbs",
+    "entity.veiled-seated",
+    "entity.child",
+    "entity.shadow-crouch",
+]
 CLIPS = [("idle", 0), ("walk", 8), ("sit", 24)]
 W, H = 240, 330
 
 
-def main(out):
+def main(out, ids=None, clips=None):
+    ids = ids or CHARACTERS
+    clips = clips or CLIPS
     tiles = []
-    for cid in IDS:
+    for cid in ids:
         row = []
-        for clip, frame in CLIPS:
+        for clip, frame in clips:
             tmp = Path(f"/tmp/ps_{cid}_{clip}.png")
             try:
                 dev_pose.main(cid, clip, frame, str(tmp))
@@ -40,14 +49,14 @@ def main(out):
                 row.append(img)
         tiles.append(row)
 
-    sheet = Image.new("RGB", (W * len(CLIPS), H * len(IDS)), (18, 20, 24))
+    sheet = Image.new("RGB", (W * len(clips), H * len(ids)), (18, 20, 24))
     for r, row in enumerate(tiles):
         for c, img in enumerate(row):
             sheet.paste(img, (c * W, r * H))
     d = ImageDraw.Draw(sheet)
-    for c, (clip, frame) in enumerate(CLIPS):
+    for c, (clip, frame) in enumerate(clips):
         d.text((c * W + 8, 6), f"{clip} @ frame {frame}", fill=(235, 235, 235))
-    for r, cid in enumerate(IDS):
+    for r, cid in enumerate(ids):
         d.text((6, r * H + H - 16), cid, fill=(235, 235, 235))
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     sheet.save(out)
@@ -55,4 +64,8 @@ def main(out):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "docs/animation-poses.png")
+    which = sys.argv[2] if len(sys.argv) > 2 else "character"
+    if which == "entity":
+        main(sys.argv[1] if len(sys.argv) > 1 else "docs/entity-poses.png", ids=ENTITIES, clips=[("idle", 0), ("sit", 24)])
+    else:
+        main(sys.argv[1] if len(sys.argv) > 1 else "docs/animation-poses.png")

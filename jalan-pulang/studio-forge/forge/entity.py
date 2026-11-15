@@ -60,27 +60,32 @@ def shape_entity(P, spec):
 
 
 def shroud(P, y_top=5.6, y_bottom=-0.6, rows=22, cols=26, radius_scale=1.10, flare=1.35):
-    """Draped cloth from the shoulders down, following the body silhouette."""
+    """Long draped shroud: a cone from the shoulders to below the feet.
+
+    P must be the *torso* vertices only (arms would inflate the radius into a
+    cape) in raw MakeHuman units. The top radius is derived from the torso at
+    shoulder height and the hem from ``flare``; growing monotonically keeps the
+    cloth outside the body all the way down (body-derived radii pinched between
+    the thighs and let knees poke through).
+    """
     ys = np.linspace(y_top, y_bottom, rows)
+    ring = P[np.abs(P[:, 1] - y_top) < 0.7]
+    shoulder = float(np.percentile(np.abs(ring[:, 0]), 92)) if len(ring) >= 12 else 1.5
+    r_top = shoulder * radius_scale + 0.15
+    r_hem = max(r_top * flare, 3.0)
     pos, uvs, idx = [], [], []
     for i, yy in enumerate(ys):
         t = i / (rows - 1)
-        # body radius at that height from the mesh cross-section
-        ring = P[np.abs(P[:, 1] - yy) < 0.09]
-        if len(ring) < 8:
-            rx = rz = 0.55
-        else:
-            rx = np.percentile(np.abs(ring[:, 0]), 92) * radius_scale
-            rz = np.percentile(np.abs(ring[:, 2] - 0.15), 92) * radius_scale
-        rx = rx * (1 + (flare - 1) * smoothstep((t - 0.55) / 0.45))
-        rz = rz * (1 + (flare - 1) * smoothstep((t - 0.55) / 0.45))
+        r = r_top + (r_hem - r_top) * smoothstep(np.clip(t / 0.55, 0.0, 1.0))
+        rx = r
+        rz = r * 0.94
         for j in range(cols + 1):
             a = 2 * np.pi * j / cols
-            fold = 1 + 0.05 * np.sin(a * 7 + t * 4.0) * smoothstep(t * 1.4)
+            fold = 1 + 0.045 * np.sin(a * 7 + t * 4.0) * smoothstep(t * 1.4)
             x = np.sin(a) * rx * fold
-            z = np.cos(a) * rz * fold + 0.12
+            z = np.cos(a) * rz * fold + 0.10
             # hem irregularity
-            yj = yy - 0.10 * (0.5 + 0.5 * np.sin(a * 5 + 1.7)) * smoothstep((t - 0.85) / 0.15)
+            yj = yy - 0.14 * (0.5 + 0.5 * np.sin(a * 5 + 1.7)) * smoothstep((t - 0.85) / 0.15)
             pos.append([x, yj, z])
             uvs.append([j / cols * 2.0, 1 - t])
     for i in range(rows - 1):
@@ -127,7 +132,7 @@ SPECS = {
         "skin": dict(tone="#9aa098", red="#7c7f7a", lip="#6d6663", age=0.6, sex="male", stubble=0.0, pale=0.72, seed=71),
         "hair": dict(style="receding", color="#201c1a", thickness=0.022, long=0.0),
         "garments": [],
-        "shroud": dict(y_top=5.5, y_bottom=-0.55, radius_scale=1.06, flare=1.3),
+        "shroud": dict(y_top=5.5, y_bottom=-0.55, radius_scale=1.26, flare=1.55),
         "iris": "#1b1614",
     },
     "entity.tall-limbs": {
@@ -140,7 +145,7 @@ SPECS = {
         "skin": dict(tone="#8e9188", red="#6f7370", lip="#635c59", age=0.7, sex="male", stubble=0.0, pale=0.8, seed=83),
         "hair": dict(style="bald", color="#1a1716", thickness=0.02, long=0.0),
         "garments": [],
-        "shroud": dict(y_top=5.9, y_bottom=-1.6, radius_scale=0.98, flare=1.45),
+        "shroud": dict(y_top=5.9, y_bottom=-1.6, radius_scale=1.24, flare=1.55),
         "iris": "#161210",
     },
     "entity.veiled-seated": {
@@ -153,8 +158,8 @@ SPECS = {
         "skin": dict(tone="#a2a49c", red="#7f7b76", lip="#6b625f", age=0.65, sex="female", stubble=0.0, pale=0.75, seed=97),
         "hair": dict(style="bald", color="#141110", thickness=0.02, long=0.0),
         "garments": [],
-        "shroud": dict(y_top=5.5, y_bottom=-0.9, flare=1.5),
-        "veil": dict(drop=1.05, rx=1.02, ry=1.18),
+        "shroud": dict(y_top=5.5, y_bottom=-0.9, radius_scale=1.22, flare=1.5),
+        "veil": dict(drop=3.2, rx=1.52, ry=1.52, rz=1.46),
         "iris": "#201a18",
         "pose": "sit",
     },
@@ -168,7 +173,7 @@ SPECS = {
         "skin": dict(tone="#9c9d95", red="#7a7570", lip="#6a615e", age=0.2, sex="female", stubble=0.0, pale=0.7, seed=101),
         "hair": dict(style="short", color="#1a1614", thickness=0.024, long=0.0),
         "garments": [],
-        "shroud": dict(y_top=4.2, y_bottom=-1.1, radius_scale=1.08, flare=1.35),
+        "shroud": dict(y_top=6.0, y_bottom=-1.1, radius_scale=1.26, flare=1.5),
         "iris": "#1b1715",
     },
     "entity.shadow-crouch": {
@@ -182,7 +187,7 @@ SPECS = {
                      shadow=True),
         "hair": dict(style="bald", color="#0e0c0b", thickness=0.02, long=0.0),
         "garments": [],
-        "shroud": dict(y_top=5.4, y_bottom=-0.8, flare=1.3),
+        "shroud": dict(y_top=5.4, y_bottom=-0.8, radius_scale=1.26, flare=1.5),
         "iris": "#0c0a09",
         "pose": "crouch",
     },

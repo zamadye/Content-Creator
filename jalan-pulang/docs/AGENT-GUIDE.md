@@ -41,6 +41,7 @@ npm run render:studio -- StudioJalanPulang
 | matriks 4×4 untuk glTF **wajib** di-transpose sebelum flatten (`glb.py`) | glTF kolom-mayor, numpy baris-mayor; kalau lupa, IBM rusak dan semua vertex berputar di titik nol |
 | translasi node = `p − parent.p` | `p` di rig adalah posisi absolut, bukan lokal |
 | `sit` mengasumsikan kursi 0,5 m; jangan taruh aktor duduk di lantai tanpa prop | pantat aktor berada di y≈0,50 saat `sit` |
+| `spec["shroud"].y_top/y_bottom` memakai ruang "0 = kaki, tinggi 7,32 unit"; `spec["veil"]` memakai unit mentah MakeHuman | `character.build` mengonversi shroud, veil tidak — kalau tertukar, kain berhenti di pinggang |
 
 ## 3. Merancang shot yang enak ditonton
 

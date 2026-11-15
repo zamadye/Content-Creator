@@ -94,11 +94,13 @@ Penjaga baru supaya kelas bug ini tidak kembali:
 
 ## Yang **belum** terverifikasi
 
-* `StudioStory` belum pernah **menggambar** satu frame pun di browser: tidak ada
-  Chromium yang bisa dijalankan di sandbox ini (`@sparticuz/chromium` butuh
-  `libnss3`, tidak tersedia). Bundel Vite (`npx vite build`) lolos, jadi
-  sintaks/import aman, tetapi jalur WebGL belum dibuktikan.
-* Upload tekstur GLB (PNG/JPEG tertanam) ke GPU.
+* ~~WebGL di browser~~ **SUDAH** — Chromium 153 dari `@sparticuz/chromium`,
+  di-unpack manual lalu diverifikasi `npm run verify:chromium`:
+  `WebGL 2.0 (OpenGL ES 3.0 Chromium)` / `ANGLE (Google, Vulkan 1.3.0
+  (SwiftShader Device (Subzero)), SwiftShader driver)`, `readPixels` 8×8 hijau.
+  Enam frame sungguhan ada di `docs/webgl-shots/` (`npm run shots:webgl`).
+  Cara pasang yang benar (termasuk jebakan library di posisi salah):
+  `docs/CHROMIUM.md`.
 * Sinkronisasi audio/VO: belum ada.
 
 ## Cacat yang diketahui (jujur)
@@ -112,7 +114,24 @@ Penjaga baru supaya kelas bug ini tidak kembali:
 | bangunan | interior kosong; pintu/jendela belum bisa dibuka; belum ada varian rusak |
 | props | teks papan hanya ada di `prop.signboard`; `road.prop.signpost` masih kosong (draft) |
 | QC render | software preview menaikkan albedo gelap (ambient kuat) — celana 0,18 tampak lebih terang di thumbnail daripada di engine |
+| pakaian (ditemukan dari render WebGL pertama) | pada `StudioJalanPulang` detik 18 (kamera belakang), **badan menembus kemeja**: bercak kulit muncul di punggung dengan tepi bergerigi. Hanya terlihat di frame sungguhan, tidak di thumbnail/QC lama. Dugaan: badan dan kemeja adalah dua mesh terpisah yang di-fit berdekatan, lalu skinning `walk` mendorong badan keluar. Belum diperbaiki |
+| malam terlalu pekat | `StudioWarungMalam` f220: 93 % piksel < 0,05 luminans; `StudioJalanPulang` f350: 89 %. Masih terbaca di layar terang, tapi di ponsel akan jadi blok hitam |
 | thumbnail | kamera otomatis; beberapa aset datar (jalan) terlihat kecil di frame |
+
+## Render WebGL sungguhan (Chromium)
+
+```bash
+npm ci && npm run extract:chromium      # 210 MB ke ../.jalan-pulang-tools (git-ignored)
+npm run verify:chromium                 # WebGL2 + readPixels terbukti
+npm run shots:webgl                     # 6 still nyata → docs/webgl-shots/
+STUDIO_COMPOSITION=StudioJalanPulang npm run render:studio:h264
+```
+
+Hasil terakhir: `render/StudioJalanPulang-h264.mp4` — **23,50 s, 960×540,
+30 fps, H.264 High, yuv420p(tv, bt709), 3,5 MB**, 705 frame, ±6,5 menit di
+SwiftShader (CPU). Poster: `docs/studio-render-frames/`. Detail pemasangan
+Chromium (termasuk jebakan library SwiftShader yang harus di samping binary):
+`docs/CHROMIUM.md`.
 
 ## Cara membangun ulang (deterministik)
 
@@ -129,8 +148,9 @@ file identik antar-jalan (kecuali JPEG encoder sistem berubah).
 
 ## Bottleneck berikutnya
 
-1. **Verifikasi runtime di browser** (`npm i` + Chromium) — paling mendesak
-   karena seluruh pengalaman cerita bergantung padanya.
+1. ~~Verifikasi runtime di browser~~ **selesai**: Chromium + WebGL2 terbukti
+   menggambar (`docs/CHROMIUM.md`, `docs/webgl-shots/`). Sisa pekerjaan di area
+   ini adalah AOV (langkah 49) dan compositing (51), bukan lagi akses browser.
 2. Set interior siap pakai (kamar kos, gudang) supaya 9 modul `kit.*` terpakai.
 3. Entitas yang layak horor (siluet, bukan kostum).
 4. LOD + atlas tekstur: 12 aktor × 3,5 MB terlalu berat untuk satu adegan penuh.

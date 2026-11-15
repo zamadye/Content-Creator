@@ -474,6 +474,27 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
   ok('materials');
 }
 
+// --------------------------------------------------------------- 11. WebGL nyata
+{
+  const {execFileSync} = await import('node:child_process');
+  const tools = path.resolve(root, '..', '.jalan-pulang-tools');
+  const exe = path.join(tools, 'chromium');
+  if (!fs.existsSync(exe)) {
+    console.warn('  ! webgl: dilewati (Chromium belum di-unpack — lihat docs/CHROMIUM.md)');
+  } else {
+    const out = execFileSync(process.execPath, ['scripts/qc-webgl.mjs'], {cwd: root, encoding: 'utf8'});
+    assert.match(out, /WebGL 2\.0/, `WebGL2 tidak tersedia: ${out}`);
+    assert.match(out, /✓ warna terverifikasi/, `readPixels gagal: ${out}`);
+    assert.match(out, /SwiftShader/, `renderer bukan SwiftShader: ${out}`);
+  }
+  const shots = fs.readdirSync(path.join(root, 'docs', 'webgl-shots')).filter((f) => f.endsWith('.png'));
+  assert.ok(shots.length >= 6, `frame WebGL kurang: ${shots.length}`);
+  const doc = fs.readFileSync(path.join(root, 'docs', 'CHROMIUM.md'), 'utf8');
+  assert.match(doc, /libEGL\.so/, 'CHROMIUM.md harus menyebut penempatan library');
+  assert.match(doc, /enable-unsafe-swiftshader/, 'CHROMIUM.md harus menyebut flag wajib');
+  ok('webgl');
+}
+
 const auditMd = fs.readFileSync(path.join(root, 'docs', 'PIPELINE-AUDIT.md'), 'utf8');
 const audit = parseAudit(auditMd);
 assert.equal(audit.totals.total, 53, 'audit harus 53 langkah');

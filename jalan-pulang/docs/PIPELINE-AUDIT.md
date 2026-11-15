@@ -13,11 +13,22 @@ Legenda status:
 | ⛔ | belum dikerjakan |
 | — | tidak berlaku untuk alur kerja proyek ini |
 
-Batas verifikasi yang berlaku untuk seluruh dokumen: semua render QC berasal dari
-**renderer perangkat lunak** (`studio-forge/forge/render.py`) dan pengujian runtime
-memakai **three.js asli di Node** (`scripts/test-studio-three.mjs`). Tidak ada
-Chromium di sandbox ini, jadi **belum ada satu frame pun yang digambar WebGL**.
-Baris yang bergantung pada GPU ditandai eksplisit.
+Batas verifikasi yang berlaku untuk seluruh dokumen: sebagian besar render QC
+berasal dari **renderer perangkat lunak** (`studio-forge/forge/render.py`), dan
+pengujian runtime memakai **three.js asli di Node**
+(`scripts/test-studio-three.mjs`).
+
+Sejak langkah ini **Chromium berjalan dan WebGL2 hidup**: `@sparticuz/chromium`
+di-unpack manual (`npm run extract:chromium`, library SwiftShader diletakkan di
+samping binary) lalu diverifikasi `npm run verify:chromium`
+(`ANGLE … SwiftShader`, `readPixels` 8×8 hijau). `npm run shots:webgl`
+menghasilkan 6 frame WebGL sungguhan di `docs/webgl-shots/`. Rincian pemasangan:
+`docs/CHROMIUM.md`.
+
+Yang tetap berlaku: SwiftShader adalah **rasterizer CPU**, bukan GPU. Semua
+permukaan WebGL (shader, MRT, post-processing) tersedia dan sudah terbukti
+menggambar, tetapi angka performa di sini tidak mewakili mesin ber-GPU, dan
+tidak ada akselerasi hardware video.
 
 ---
 
@@ -33,10 +44,10 @@ Baris yang bergantung pada GPU ditandai eksplisit.
 | 6 | Rigging & deformation | 4 | 1 | 1 | 0 |
 | 7 | Animation production | 2 | 3 | 1 | 1 |
 | 8 | Scene assembly & lighting | 3 | 2 | 0 | 0 |
-| 9 | Rendering & post-production | 0 | 4 | 2 | 0 |
-|  | **Total** | 32 | 12 | 7 | 2 |
+| 9 | Rendering & post-production | 2 | 2 | 2 | 0 |
+|  | **Total** | 34 | 10 | 7 | 2 |
 
-Total: 32 selesai · 12 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
+Total: 34 selesai · 10 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 
 ---
 
@@ -90,7 +101,7 @@ Total: 32 selesai · 12 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 | 24 | Metallic mapping | ✅ | Kanal B pada ORM |
 | 25 | Normal mapping | ✅ | `tex.height_to_normal`, plus relief tenun pada kain |
 | 26 | Height / displacement | ◐ | Height → normal saja; tidak ada displacement/parallax nyata |
-| 27 | Subsurface scattering | ⛔ | Tidak ada SSS; three.js di sini memakai material standar tanpa transmission |
+| 27 | Subsurface scattering | ⛔ | Tidak ada SSS; three.js di sini memakai material standar tanpa transmission. **Blocker lamanya sudah hilang** (WebGL2 + Chromium jalan, lihat `docs/CHROMIUM.md`), jadi ini kini bisa dikerjakan — belum dikerjakan |
 | 28 | Emission mapping | ✅ | `prop.lamp.teplok`, lampu neon, `emissive` di material |
 | 29 | Material calibration | ✅ | `studio-forge/dev_materials.py` merender **209 material** sebagai bola di bawah cahaya netral (lampu netral, ambient abu, exposure 1,0, tanpa vignette/grading) lalu mengukur albedo (luminans Rec.709), roughness, metallic, dan luminans render dari isi GLB. Hasil: 204 `ok` · 5 `emisi` · **0 di luar rentang** (albedo 0,134–0,932; median 0,290). Bukti `docs/material-calibration.png`, dokumen `docs/MATERIAL-CALIBRATION.md`, pagar `npm run qc:materials` (`--check` membandingkan tabel dengan GLB) + grup tes `materials` yang juga menjalankan selftest batas verdict |
 
@@ -132,11 +143,11 @@ Total: 32 selesai · 12 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 | # | Langkah | Status | Bukti / catatan |
 |---|---|---|---|
 | 48 | Render optimization | ◐ | PCFSoft shadow, ACES, `pixelRatio`; belum ada pengaturan sampling/denoise/anggaran memori |
-| 49 | Render passes / AOV | ⛔ | Belum ada pemisahan beauty/depth/normal/emission |
-| 50 | Final rendering | ◐ | Komposisi Remotion (`StudioStory`) siap, `npx vite build` lolos, **belum pernah digambar di browser** — tidak ada Chromium di sandbox |
-| 51 | Compositing | ⛔ | Belum ada compositing pass; teks subtitle digambar Remotion langsung |
+| 49 | Render passes / AOV | ⛔ | Belum ada pemisahan beauty/depth/normal/emission. Multi-render-target WebGL2 sekarang tersedia (Chromium terbukti menggambar), jadi AOV layak dikerjakan — belum dikerjakan |
+| 50 | Final rendering | ✅ | `StudioJalanPulang` (705 frame) benar-benar dirender di Chromium+WebGL2: `npm run render:studio:h264` → `render/StudioJalanPulang-h264.mp4`, **23,50 s · 960×540 · 30 fps · H.264 High · yuv420p(tv, bt709) · 3,5 MB**. Poster frame bukti di `docs/studio-render-frames/` (2 s / 10 s / 18 s), diambil dengan ffmpeg dari MP4 hasil render — jadi bukan still terpisah. Pemanggungan, rig, subtitle, dan kamera terbukti sampai ke piksel |
+| 51 | Compositing | ⛔ | Belum ada compositing pass; teks subtitle digambar Remotion langsung. Compositing nyata (bloom/grain/vignette) kini mungkin karena frame WebGL sudah bisa dirender — belum dikerjakan |
 | 52 | Color grading | ◐ | Exposure + vignette + grain lewat `look`; belum ada grading per shot |
-| 53 | Final encoding | ◐ | Jalur `npm run render:studio` (Remotion, H.264) ada; parameter codec belum dikonfigurasi di kode dan belum pernah dijalankan |
+| 53 | Final encoding | ✅ | Parameter encode sekarang eksplisit di `package.json` (`render:studio:h264`): `--codec=h264 --crf=18 --pixel-format=yuv420p --color-space=bt709 --scale=0.5 --concurrency=1`, dan sudah dijalankan pada 705 frame. Diverifikasi `ffprobe`: `h264 (High) … yuv420p(tv, bt709), 960x540, 30 fps, 1194 kb/s`. Tanpa `--color-space=bt709` keluarannya `yuvj420p(pc)` (full range) — tidak layak siar; itu sebabnya flag tersebut wajib |
 
 ---
 

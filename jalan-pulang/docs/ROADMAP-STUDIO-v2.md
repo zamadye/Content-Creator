@@ -101,7 +101,8 @@ Keputusan yang mengubah rencana awal:
   `src/studio/registry.generated.js` (impor statis, aman di Node maupun bundler).
 * **Verifikasi**: yang diuji otomatis adalah katalog, header/chunk GLB, atribut
   primitif, skin/animasi, skema cerita, kompilasi waktu, dan determinisme kamera.
-  Render three.js di browser **belum** dijalankan di sesi ini (tidak ada Chromium).
+  Render three.js di browser **sudah** jalan: Chromium 153 + ANGLE/SwiftShader
+  (`docs/CHROMIUM.md`, bukti `docs/webgl-shots/`).
 
 Bottleneck berikutnya (berurutan): (a) verifikasi `StudioStory` di browser,
 (b) set interior siap pakai, (c) entitas yang benar-benar menyeramkan,

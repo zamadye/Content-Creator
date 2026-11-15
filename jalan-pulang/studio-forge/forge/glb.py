@@ -227,7 +227,12 @@ class GLBWriter:
             out = {k: v for k, v in skin.items() if k != "inverseBindMatrices"}
             ibm = skin.get("inverseBindMatrices")
             if isinstance(ibm, np.ndarray):
-                flat = np.ascontiguousarray(ibm.reshape(len(ibm), 16).astype(np.float32))
+                # glTF stores MAT4 column-major; numpy is row-major, so transpose
+                # each matrix before flattening (otherwise the translation lands in
+                # the bottom row and every skinned vertex pivots about the origin).
+                flat = np.ascontiguousarray(
+                    ibm.astype(np.float32).transpose(0, 2, 1).reshape(len(ibm), 16)
+                )
                 view = add_view(flat.tobytes())
                 accessors.append(
                     {

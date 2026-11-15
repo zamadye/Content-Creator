@@ -29,7 +29,12 @@ def joint_nodes(bones):
             roots.append(i)
     nodes = []
     for i, b in enumerate(bones):
-        node = {"name": b["name"], "translation": [float(x) for x in b["p"]]}
+        # b["p"] is an absolute rest position in metres; glTF node translation is
+        # relative to the parent, so subtract it (roots stay absolute).
+        p = np.asarray(b["p"], np.float64)
+        if b["parent"] >= 0:
+            p = p - np.asarray(bones[b["parent"]]["p"], np.float64)
+        node = {"name": b["name"], "translation": [float(x) for x in p]}
         if children[i]:
             node["children"] = children[i]
         nodes.append(node)

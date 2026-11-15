@@ -38,6 +38,9 @@ npm run render:studio -- StudioJalanPulang
 | jangan pakai `../` di `audio.vo` | validator menolak (keamanan path) |
 | shot 0.2..120 detik, total ≤ 900 detik | satu file = satu cerita |
 | field tak dikenal = error | supaya typo ketahuan, bukan diabaikan |
+| matriks 4×4 untuk glTF **wajib** di-transpose sebelum flatten (`glb.py`) | glTF kolom-mayor, numpy baris-mayor; kalau lupa, IBM rusak dan semua vertex berputar di titik nol |
+| translasi node = `p − parent.p` | `p` di rig adalah posisi absolut, bukan lokal |
+| `sit` mengasumsikan kursi 0,5 m; jangan taruh aktor duduk di lantai tanpa prop | pantat aktor berada di y≈0,50 saat `sit` |
 
 ## 3. Merancang shot yang enak ditonton
 

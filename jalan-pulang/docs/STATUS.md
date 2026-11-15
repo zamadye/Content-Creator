@@ -37,21 +37,54 @@ Per kategori: character 6 · entity 5 · building 9 · road 7 · nature 9 · pro
 
 52 thumbnail di `public/assets/index.html` (buka via Vite: `/assets/index.html`).
 
+## Yang terverifikasi di three.js nyata (Node, tanpa GPU)
+
+`node scripts/test-studio-three.mjs` — **52 GLB dimuat oleh `GLTFLoader` asli**:
+geometri, atribut, kulit, 143 klip animasi dievaluasi pada 3 titik waktu,
+setiap tulang diperiksa tetap di dalam kotak tubuh, tiap vertex ter-skin
+dipanggil lewat `applyBoneTransform` dan dicek finite + tidak lolos batas.
+Tekstur dilepas sebelum parsing (Node tidak punya Canvas2D), jadi **upload
+tekstur ke GPU tetap belum diuji**.
+
+Yang ditemukan dan diperbaiki berkat tes ini (tiga bug nyata, semuanya tak
+terlihat oleh renderer perangkat lunak karena ia tidak pernah men-skin):
+
+1. **Translasi tulang ganda** — `joint_nodes()` menulis posisi absolut sebagai
+   translasi lokal, jadi skeleton menumpuk sampai ~23 m dan setiap rotasi
+   berporos di titik yang salah. Diperbaiki di `assemble.joint_nodes` dan
+   `skin.world_matrices` (lokal = `p − parent.p`).
+2. **Inverse bind matrix ditulis baris-mayor** — glTF mewajibkan matriks
+   kolom-mayor; `glb.py` menulis apa adanya dari numpy, jadi seluruh translasi
+   IBM jatuh ke baris bawah dan setiap vertex ter-skin berputar mengelilingi
+   titik nol model. Paling parah di klip `sit` (vertex terbang 2,1 m). Diperbaiki
+   dengan `transpose(0, 2, 1)` sebelum flatten di `forge/glb.py`.
+3. **Lengan masuk ke badan** — rig beristirahat dalam A-pose (~49° di bawah
+   horizontal), tetapi `base_pose` menambah 1,30 rad lagi sehingga lengan
+   menyilang ke dada. `arm_drop` sekarang tambahan dari A-pose (0,24–0,34).
+
+Penjaga baru supaya kelas bug ini tidak kembali:
+
+* `scripts/test-studio-three.mjs` — tiap tulang harus tetap di dalam kotak tubuh
+  pada semua klip, dan tiap vertex ter-skin (sampel 60 titik per mesh) tidak
+  boleh bergerak lebih dari 1,1 m dari posisi istirahatnya.
+* `studio-forge/dev_pose.py` + `dev_pose_sheet.py` — render satu frame animasi
+  tanpa engine; hasilnya `docs/animation-poses.png` (6 karakter × idle/walk/sit,
+  720×1980). Jalankan ulang tiap kali pose/klip berubah.
+
 ## Yang **belum** terverifikasi
 
-* `StudioStory` (three.js) belum pernah dijalankan di browser pada sesi ini —
-  tidak ada Chromium di lingkungan dan `node_modules` belum dipasang.
-  Kode-nya selesai dan mengikuti pola `delayRender`/`continueRender` Remotion,
-  tapi **belum ada satu frame pun yang dirender**.
-* Pemuatan GLB oleh `GLTFLoader` (termasuk tekstur PNG/JPEG tertanam) belum diuji
-  di mesin nyata.
+* `StudioStory` belum pernah **menggambar** satu frame pun di browser: tidak ada
+  Chromium yang bisa dijalankan di sandbox ini (`@sparticuz/chromium` butuh
+  `libnss3`, tidak tersedia). Bundel Vite (`npx vite build`) lolos, jadi
+  sintaks/import aman, tetapi jalur WebGL belum dibuktikan.
+* Upload tekstur GLB (PNG/JPEG tertanam) ke GPU.
 * Sinkronisasi audio/VO: belum ada.
 
 ## Cacat yang diketahui (jujur)
 
 | area | cacat |
 |---|---|
-| karakter | jahitan lengan jaket (`male_casualsuit05`) terlihat di siku; hem polo berlubang kecil; celana kargo hanya 130 tris sehingga paha tampak datar; rambut masih "helm" halus, bukan helai |
+| karakter | hem polo dan selangkangan celana berlubang (mesh pakaian low-poly: kargo hanya 130 tris); jahitan lengan jaket terlihat di siku; rambut masih "helm" halus, bukan helai; pergelangan kaki sedikit memutar saat `walk`; `sit` mengasumsikan kursi setinggi 0,5 m (tidak ada prop kursi di perpustakaan) |
 | entitas | bentuk kafan/kerudung masih kasar (kerucut + kain), belum menyeramkan; status `draft` |
 | kendaraan | pikap masih kotak-kotak; motor bebek terbaca tapi panel samping datar |
 | alam | dedaunan memakai kartu besar, bukan daun individual; pohon beringin akar gantung belum ada |

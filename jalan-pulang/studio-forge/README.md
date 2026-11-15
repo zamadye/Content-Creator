@@ -37,7 +37,9 @@ Keluaran: `public/assets/<kategori>/<id>/<id>.glb` + `thumbnail.png`,
 | `forge/registry.py` | katalog, render thumbnail, status jujur, provenance |
 | `forge/validate.py` | inspeksi GLB (dipakai build + CI) |
 | `build.py` | CLI build |
-| `dev_sheet.py` | contact sheet QC ke `/tmp` |
+| `dev_sheet.py` | contact sheet QC ke `/tmp` (atau `docs/asset-catalog.png`) |
+| `dev_pose.py` | render satu frame animasi (cek skinning tanpa engine): `dev_pose.py char.male-dewasa-polo walk 12 /tmp/p.png` |
+| `dev_preview.py` | QC karakter 3 sudut |
 
 ## Konvensi aset
 

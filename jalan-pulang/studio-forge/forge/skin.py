@@ -35,14 +35,21 @@ def matrix_from(quat, translation):
 
 
 def world_matrices(bones, pose=None, root_offset=(0, 0, 0)):
-    """bones: list of {name, parent, p} in metres, rest = identity rotation."""
+    """bones: list of {name, parent, p} in metres, rest = identity rotation.
+
+    ``p`` is the absolute rest position, so the local translation of a child is
+    ``p - parent.p`` (otherwise the skeleton accumulates to ~23 m tall and every
+    rotation pivots around the wrong point).
+    """
     pose = pose or {}
     J = len(bones)
     locals_ = []
     for i, b in enumerate(bones):
         rx, ry, rz = pose.get(b["name"], (0.0, 0.0, 0.0))
         t = np.array(b["p"], dtype=np.float64)
-        if b["parent"] < 0:
+        if b["parent"] >= 0:
+            t = t - np.asarray(bones[b["parent"]]["p"], dtype=np.float64)
+        else:
             t = t + np.asarray(root_offset, dtype=np.float64)
         locals_.append(matrix_from(quat_from_euler(rx, ry, rz), t))
     world = [None] * J

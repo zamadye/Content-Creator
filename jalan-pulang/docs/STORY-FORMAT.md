@@ -111,6 +111,10 @@ akan berhenti di frame terakhir klip (bukan melompat).
 | vehicle.motorcycle.bebek | `anchor.seat`, `anchor.grip.L/R`, `anchor.ride-foot.L/R`, `anchor.headlight`, `anchor.rear` |
 | vehicle.pickup | `anchor.driver`, `anchor.door.L/R`, `anchor.bed` |
 
+Catatan: three.js membuang titik dari nama node untuk binding animasi
+(`anchor.hand.L` → `anchorhandL`). Pakai `findAnchor(root, 'anchor.hand.L')` dari
+`src/studio/renderer.js`, jangan `getObjectByName` dengan nama bertitik.
+
 ## 5. Teks & audio
 
 `text.style`: `subtitle` (bawah, 46px), `title` (tengah, 96px), `caption`/`sign`

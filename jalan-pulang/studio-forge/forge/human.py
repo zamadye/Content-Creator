@@ -288,7 +288,9 @@ def _pose(**kw):
     return {k.replace("__", "."): v for k, v in kw.items()}
 
 
-def base_pose(arm_drop=1.30, finger_curl=0.55, hands_forward=0.0):
+def base_pose(arm_drop=0.34, finger_curl=0.55, hands_forward=0.0):
+    # The authored rig rests in an A-pose (~49° below horizontal), so arm_drop is an
+    # *additional* drop from there. large values swing the arms across the torso.
     p = {}
     p["upperarm01.L"] = [hands_forward, 0, -arm_drop]
     p["upperarm01.R"] = [hands_forward, 0, arm_drop]
@@ -348,7 +350,7 @@ def _idle(t):
 
 @clip("walk", 32)
 def _walk(t):
-    p = base_pose(arm_drop=1.24, finger_curl=0.6)
+    p = base_pose(arm_drop=0.30, finger_curl=0.6)
     a = t * 2 * np.pi
     for side, s, ph in (("L", 1, 0.0), ("R", -1, np.pi)):
         swing = np.sin(a + ph)
@@ -369,7 +371,7 @@ def _walk(t):
 
 @clip("run", 24)
 def _run(t):
-    p = base_pose(arm_drop=1.05, finger_curl=0.8)
+    p = base_pose(arm_drop=0.24, finger_curl=0.8)
     a = t * 2 * np.pi
     for side, s, ph in (("L", 1, 0.0), ("R", -1, np.pi)):
         swing = np.sin(a + ph)
@@ -390,29 +392,31 @@ SIT_POSE = None
 
 
 def sit_pose(degree=1.0, hands="lap"):
-    p = base_pose(arm_drop=1.18, finger_curl=0.5)
+    p = base_pose(arm_drop=0.30, finger_curl=0.5)
     for side, s in (("L", 1), ("R", -1)):
         add(p, f"upperleg01.{side}", rx=-1.42 * degree)
-        add(p, f"lowerleg01.{side}", rx=1.38 * degree)
+        add(p, f"lowerleg01.{side}", rx=1.40 * degree)
         add(p, f"foot.{side}", rx=-0.12 * degree)
     add(p, "spine01", rx=0.10 * degree)
     add(p, "spine02", rx=0.06 * degree)
     add(p, "neck01", rx=0.05 * degree)
+    # Tangan: rz negatif menurunkan lengan kiri (lihat base_pose), rx negatif
+    # mengayun ke depan. Nilai di bawah menaruh telapak di paha (y≈0,60, z≈0,33).
     if hands == "lap":
-        add(p, "upperarm01.L", rx=-0.55, rz=0.16)
-        add(p, "upperarm01.R", rx=-0.55, rz=-0.16)
-        add(p, "lowerarm01.L", rx=-0.95, rz=0.15)
-        add(p, "lowerarm01.R", rx=-0.95, rz=-0.15)
+        add(p, "upperarm01.L", rx=-0.60, rz=-0.20)
+        add(p, "upperarm01.R", rx=-0.60, rz=0.20)
+        add(p, "lowerarm01.L", rx=0.80, rz=-0.10)
+        add(p, "lowerarm01.R", rx=0.80, rz=0.10)
     elif hands == "knees":
-        add(p, "upperarm01.L", rx=-0.75, rz=0.10)
-        add(p, "upperarm01.R", rx=-0.75, rz=-0.10)
-        add(p, "lowerarm01.L", rx=-0.75)
-        add(p, "lowerarm01.R", rx=-0.75)
+        add(p, "upperarm01.L", rx=-0.70, rz=-0.25)
+        add(p, "upperarm01.R", rx=-0.70, rz=0.25)
+        add(p, "lowerarm01.L", rx=0.45)
+        add(p, "lowerarm01.R", rx=0.45)
     elif hands == "grip":
-        add(p, "upperarm01.L", rx=-1.02, rz=0.42)
-        add(p, "upperarm01.R", rx=-1.02, rz=-0.42)
-        add(p, "lowerarm01.L", rx=-0.95, rz=0.20)
-        add(p, "lowerarm01.R", rx=-0.95, rz=-0.20)
+        add(p, "upperarm01.L", rx=-1.05, rz=-0.10)
+        add(p, "upperarm01.R", rx=-1.05, rz=0.10)
+        add(p, "lowerarm01.L", rx=0.55, rz=-0.10)
+        add(p, "lowerarm01.R", rx=0.55, rz=0.10)
         for side, s in (("L", 1), ("R", -1)):
             for f in ("finger1", "finger2", "finger3", "finger4", "finger5"):
                 handle = p.setdefault(f"{f}-1.{side}", [0, 0, 0])
@@ -513,7 +517,7 @@ def _collapse(t):
 
 @clip("float", 120)
 def _float(t):
-    p = base_pose(arm_drop=1.15)
+    p = base_pose(arm_drop=0.30)
     a = t * 2 * np.pi
     add(p, "spine01", rx=0.05 * np.sin(a))
     add(p, "neck01", rx=0.10 * np.sin(a + 1))

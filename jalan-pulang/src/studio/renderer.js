@@ -30,6 +30,21 @@ export const LIGHTS = {
 
 export const DEFAULT_BASE_URL = '/';
 
+/**
+ * three.js sanitises node names for animation binding (dots are stripped), so
+ * "anchor.hand.L" becomes "anchorhandL". Resolve anchors by sanitised name.
+ */
+export const sanitizeNodeName = (name) => String(name).replace(/[\[\]\.:/ ]/g, '');
+
+export function findAnchor(root, name) {
+  const want = sanitizeNodeName(name);
+  let found = null;
+  root.traverse((o) => {
+    if (!found && sanitizeNodeName(o.name) === want) found = o;
+  });
+  return found;
+}
+
 export class StudioRenderer {
   constructor({compiled, canvas, baseUrl = DEFAULT_BASE_URL, onProgress, pixelRatio = 1}) {
     this.compiled = compiled;

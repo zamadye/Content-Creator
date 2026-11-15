@@ -9,3 +9,6 @@ jalan-pulang/public/vo/
 jalan-pulang/build/
 jalan-pulang/dist/
 jalan-pulang/deliverables/
+# Python bytecode from studio-forge
+__pycache__/
+*.pyc

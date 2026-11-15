@@ -34,6 +34,7 @@
   },
   "private": true,
   "devDependencies": {
+    "gltf-validator": "^2.0.0-dev.3.10",
     "vite": "8.3.8"
   }
 }

@@ -23,3 +23,16 @@ Remotion `--props` mengharapkan objek props; file contoh membungkus manifest dal
 Edit `SHOT_TYPES` pada `src/shot-registry.js` dan switch `Shot` pada `src/story-assembly.jsx`, lalu tambahkan test. `from` pada adaptor diteruskan sebagai detik agar kompatibel dengan shot lama; nilai itu dapat memicu perilaku khusus Jalan Pulang. Variasi ini tidak berarti model dapat dipilih secara mandiri. Untuk migrasi ke asset registry dan tindakan bebas ikuti roadmap, jangan ubah arti format v1 diam-diam.
 
 Untuk agent: mulai dengan roadmap dan kontrak ini, jalankan `node scripts/test-manifest.mjs`, jangan mendeklarasikan aset final hanya karena file berhasil dimuat. Source of truth lisensi adalah provenance per aset, bukan nama kategori.
+
+## Modul lingkungan dan stage berbasis aset (draft)
+
+`src/asset-catalog.js` mendaftarkan tiga modul glTF: `road-straight-v1` (4 × 0,1 × 10 m), `wall-plain-v1` (4 × 3 × 0,2 m), dan `wall-door-v1` (4 × 3 × 0,2 m; bukaan 2 × 2,2 m). Titik origin horizontal ada di tengah dan di ketinggian tanah; jalan memiliki permukaan y=0. Mesh dan materialnya masih draft: repetisi tekstur dan model dinding sederhana belum memenuhi gerbang final. Lihat `public/library/PROVENANCE.md`, termasuk kewajiban memverifikasi asal peta. Semua dependensi glTF ada di `public/library` dan `public/pbr`.
+
+Komposisi `ModularStage` merupakan prototipe terpisah yang menempatkan instance aset katalog dengan `position` dalam meter, `rotationY` dalam radian dan `scale` positif, serta gerak kamera linear. Contoh dan formatnya di `stories/modular-stage.json`. Tidak ada karakter, animasi rig, narasi, efek atau sistem multi-shot di komposisi ini; belum terhubung ke `ManifestStory`. Dengan modul ini agent dapat menyusun lingkungan sederhana, belum dapat membuat film lengkap secara data-driven.
+
+```bash
+node scripts/test-modular-assets.mjs
+npx remotion render src/index.jsx ModularStage render/modular-stage.mp4 --props=stories/modular-stage.json
+```
+
+Generator mesh yang dapat diulang: `python3 scripts/build-modular-assets.py` (Python hanya dibutuhkan untuk membangun ulang mesh, bukan untuk render). Tes memeriksa schema, dependensi, material dasar dan glTF Validator; ini tidak menggantikan QC visual/anatomi maupun verifikasi lisensi. `status: draft` bukan persetujuan distribusi.

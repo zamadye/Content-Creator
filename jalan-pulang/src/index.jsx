@@ -1,5 +1,7 @@
 import React from 'react';
 import {registerRoot, Composition} from 'remotion';
+import {ModularStage, stageMetadata} from './modular-stage';
+import modularExample from '../stories/modular-stage.json';
 import {ManifestStory, manifestMetadata} from './manifest-story';
 import example from '../stories/example.json';
 import {FullStoryBlocking} from './full-story';
@@ -13,6 +15,7 @@ import {SignDryWithVO, SignWetWithVO} from './sign-scene';
 import {EntityRigStudy} from './entity-rig';
 import {WarungWithVO, WarungFigureWithVO, ThirdLoopAssembly, StandingFigureWithVO, CallWithVO} from './vo-scene';
 const Root = () => <>
+  <Composition id="ModularStage" component={ModularStage} defaultProps={modularExample} calculateMetadata={stageMetadata} width={1920} height={1080} fps={30} durationInFrames={150} />
   <Composition id="ManifestStory" component={ManifestStory} defaultProps={example} calculateMetadata={manifestMetadata} width={1920} height={1080} fps={30} durationInFrames={270} />
   <Composition id="FullStoryBlocking" component={FullStoryBlocking} width={1920} height={1080} fps={30} durationInFrames={20398} />
   <Composition id="HomeSceneStudy" component={HomeScene} width={1920} height={1080} fps={30} durationInFrames={3000} />

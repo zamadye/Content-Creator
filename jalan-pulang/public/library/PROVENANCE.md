@@ -1,0 +1,5 @@
+# Modular environment assets — draft 1.0
+
+`road-straight`, `wall-plain`, and `wall-door` are original project-authored box meshes generated reproducibly by `scripts/build-modular-assets.py` in metre units. They use existing PBR maps from `public/pbr`: street asphalt and dirty plaster. Their mirror identifies the maps as ambientCG CC0 but does not identify the original source asset IDs; see `public/pbr/PROVENANCE.md`. Verify the original maps and licences before publication. Meshes may be reused under CC0-1.0; this grant does not override source texture licences.
+
+Each glTF points to shared maps via relative URIs and contains UVs, normals, a base-color map, OpenGL normal map and roughness map; metallic factor is zero. The grayscale roughness map supplies glTF's green channel. Copy the entire `public/library` **and** `public/pbr` hierarchy when distributing these glTFs. These are simple architectural modules, not complete finished houses, intersections or character assets. Review appearance and seams in final lighting before approval.

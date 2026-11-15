@@ -33,7 +33,9 @@
     "qc:topology": "node scripts/qc-topology.mjs",
     "qc:uv": "node scripts/qc-uv.mjs",
     "qc:bake": "./.venv/bin/python studio-forge/dev_bake.py --verify docs/bake-baseline.json",
-    "bake:selftest": "./.venv/bin/python studio-forge/dev_bake.py --selftest"
+    "bake:selftest": "./.venv/bin/python studio-forge/dev_bake.py --selftest",
+    "qc:materials": "./.venv/bin/python studio-forge/dev_materials.py --check",
+    "calibrate:materials": "./.venv/bin/python studio-forge/dev_materials.py --write --sheet docs/material-calibration.png"
   },
   "license": "ISC",
   "dependencies": {

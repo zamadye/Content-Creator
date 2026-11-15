@@ -29,14 +29,14 @@ Baris yang bergantung pada GPU ditandai eksplisit.
 | 2 | Procedural & blockout | 5 | 0 | 0 | 0 |
 | 3 | Real geometry & modeling | 3 | 1 | 1 | 1 |
 | 4 | UV & texture preparation | 4 | 0 | 1 | 0 |
-| 5 | PBR material & texturing | 6 | 2 | 1 | 0 |
+| 5 | PBR material & texturing | 7 | 1 | 1 | 0 |
 | 6 | Rigging & deformation | 4 | 1 | 1 | 0 |
 | 7 | Animation production | 2 | 3 | 1 | 1 |
 | 8 | Scene assembly & lighting | 3 | 2 | 0 | 0 |
 | 9 | Rendering & post-production | 0 | 4 | 2 | 0 |
-|  | **Total** | 31 | 13 | 7 | 2 |
+|  | **Total** | 32 | 12 | 7 | 2 |
 
-Total: 31 selesai · 13 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
+Total: 32 selesai · 12 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 
 ---
 
@@ -92,7 +92,7 @@ Total: 31 selesai · 13 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 | 26 | Height / displacement | ◐ | Height → normal saja; tidak ada displacement/parallax nyata |
 | 27 | Subsurface scattering | ⛔ | Tidak ada SSS; three.js di sini memakai material standar tanpa transmission |
 | 28 | Emission mapping | ✅ | `prop.lamp.teplok`, lampu neon, `emissive` di material |
-| 29 | Material calibration | ◐ | Thumbnail & `docs/asset-catalog.png` memakai satu setup cahaya tetap; belum ada lembar kalibrasi cahaya netral per material |
+| 29 | Material calibration | ✅ | `studio-forge/dev_materials.py` merender **209 material** sebagai bola di bawah cahaya netral (lampu netral, ambient abu, exposure 1,0, tanpa vignette/grading) lalu mengukur albedo (luminans Rec.709), roughness, metallic, dan luminans render dari isi GLB. Hasil: 204 `ok` · 5 `emisi` · **0 di luar rentang** (albedo 0,134–0,932; median 0,290). Bukti `docs/material-calibration.png`, dokumen `docs/MATERIAL-CALIBRATION.md`, pagar `npm run qc:materials` (`--check` membandingkan tabel dengan GLB) + grup tes `materials` yang juga menjalankan selftest batas verdict |
 
 ## Phase 6 — Rigging & deformation
 

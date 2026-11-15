@@ -155,7 +155,7 @@ Tabel ringkasan di audit tidak lagi ditulis tangan: `scripts/audit-count.mjs`
 menghitung ulang semua 53 baris dan `npm run test:studio` (grup
 `audit-summary`) menolak dokumen yang tabelnya tidak cocok dengan isinya.
 
-**Phase 1 = 4/4 ✅, Phase 2 = 5/5 ✅, Phase 4 = 4 ✅ / 0 ◐ / 1 ⛔.** Langkah 4 (scene planning) ditutup
+**Phase 1 = 4/4 ✅ · Phase 2 = 5/5 ✅ · Phase 4 = 4 ✅ / 1 ⛔ · Phase 5 = 7 ✅ / 1 ◐ / 1 ⛔.** Langkah 4 (scene planning) ditutup
 dengan denah + pemeriksaan tata letak terukur, langkah 8 (topology planning)
 dengan rencana + anggaran yang ditegakkan tes — lihat dua bagian berikut.
 
@@ -281,6 +281,25 @@ Bukti visual: `docs/bake-ao-maps.png`, `docs/bake-before-after.png`. Pagar:
 `npm run qc:bake` (membandingkan dengan `docs/bake-baseline.json`) dan grup tes
 `bake` yang menjalankan selftest + verify. Langkah 18 (high→low) tetap ⛔ karena
 tidak ada sumber high-poly.
+
+## Kalibrasi material di cahaya netral — langkah 29
+
+Sebelumnya material hanya "diperiksa mata" lewat thumbnail katalog yang memakai
+cahaya hangat + ambient kebiruan — bagus untuk katalog, tidak bisa dipakai
+membandingkan material. Sekarang tiap material dirender sebagai **bola** di
+bawah cahaya netral dan diukur:
+
+| angka | hasil (209 material) |
+|---|---|
+| albedo (Rec.709) | 0,134 – 0,932, median 0,290 |
+| status | 204 `ok` · 5 `emisi` · **0 di luar rentang** (batas 0,035–0,90 untuk non-emisif) |
+| roughness / metallic | diambil dari kanal G/B tekstur ORM |
+| luminans render | diukur hanya pada piksel bola, bukan latar |
+
+Bukti: `docs/material-calibration.png` (grid 8 kolom, label per bola), dokumen
+`docs/MATERIAL-CALIBRATION.md`, pagar `npm run qc:materials`. Tes `materials`
+menjalankan selftest batas verdict (albedo 0,02 → "terlalu gelap", 0,95 →
+"terlalu terang") dan memastikan tabel dokumen tidak basi.
 
 ## QC framing shot (`scripts/qc-framing.mjs`)
 

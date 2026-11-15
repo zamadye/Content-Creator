@@ -451,6 +451,29 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
   ok('bake');
 }
 
+// --------------------------------------------------------------- 10. kalibrasi material
+{
+  const {execFileSync} = await import('node:child_process');
+  const py = ['./.venv/bin/python', 'python3'].find((p) => fs.existsSync(path.join(root, p))) ?? 'python3';
+  try {
+    const self = execFileSync(py, ['studio-forge/dev_materials.py', '--selftest'], {cwd: root, encoding: 'utf8'});
+    assert.match(self, /selftest kalibrasi lulus/, `selftest kalibrasi: ${self}`);
+    const chk = execFileSync(py, ['studio-forge/dev_materials.py', '--check'], {cwd: root, encoding: 'utf8'});
+    assert.match(chk, /0 di luar rentang/, `kalibrasi: ${chk}`);
+    assert.match(chk, /0 masalah tabel/, `tabel kalibrasi basi: ${chk}`);
+  } catch (err) {
+    if (/No module named 'numpy'|No module named 'PIL'|ENOENT/.test(String(err.stderr ?? err))) {
+      console.warn('  ! materials: dilewati (numpy/PIL tidak tersedia)');
+    } else {
+      throw err;
+    }
+  }
+  const doc = fs.readFileSync(path.join(root, 'docs', 'MATERIAL-CALIBRATION.md'), 'utf8');
+  assert.ok((doc.match(/^\| `/gm) ?? []).length >= 200, 'tabel kalibrasi harus memuat semua material');
+  assert.ok(fs.existsSync(path.join(root, 'docs', 'material-calibration.png')), 'lembar kalibrasi PNG harus ada');
+  ok('materials');
+}
+
 const auditMd = fs.readFileSync(path.join(root, 'docs', 'PIPELINE-AUDIT.md'), 'utf8');
 const audit = parseAudit(auditMd);
 assert.equal(audit.totals.total, 53, 'audit harus 53 langkah');

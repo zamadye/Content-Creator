@@ -7,6 +7,7 @@ google_drive/
 editorial-engine/deliverables/retensi-research/private/
 editorial-engine/deliverables/buffer-batch/private/
 .venv-research/
+editorial-engine/deliverables/gibran-mundur-2026/
 __pycache__/
 
 # Media produksi BARU disimpan di Drive privat, bukan repo publik.

@@ -1,71 +1,58 @@
 #!/usr/bin/env bash
-# One-command local OpenFilm setup/render for the 24-scene Gibran Mundur project.
+# Revised 24-scene master; the v3 archive supplies source media only.
 set -Eeuo pipefail
-
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-if ROOT_FROM_GIT="$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel 2>/dev/null)"; then
-  ROOT="$ROOT_FROM_GIT"
-else
-  ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-fi
-ZIP_DEFAULT="$ROOT/gibran-mundur-openfilm-full-project-v3.zip"
-ZIP_PATH="${OPENFILM_PROJECT_ZIP:-$ZIP_DEFAULT}"
-PROJECT="$ROOT/editorial-engine/deliverables/gibran-mundur-2026/openfilm-full"
+ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+PIPELINE="$ROOT/editorial-engine/pipeline/gibran-mundur-2026/openfilm-master"
 OUT_DIR="$ROOT/editorial-engine/deliverables/gibran-mundur-2026"
-WORKERS="${OPENFILM_WORKERS:-2}"
-
+PROJECT="${OPENFILM_PROJECT_DIR:-$OUT_DIR/openfilm-master-v6-hook}"
+WORKERS="${OPENFILM_WORKERS:-1}"
+MODE="${1:---render}"
 fail(){ printf '\nERROR: %s\n' "$*" >&2; exit 1; }
-
-if [[ ! -f "$ZIP_PATH" ]]; then
-  cat >&2 <<EOF
-Project ZIP belum ditemukan.
-
-1. Unduh ZIP OpenFilm dari Google Drive:
-   https://drive.google.com/file/d/1tmqfI5LlNRVFYZ6FFe41ZL5KzkGI99CO/view?usp=drivesdk
-2. Simpan tanpa diekstrak sebagai:
-   $ZIP_DEFAULT
-3. Jalankan lagi: bash scripts/render-gibran-openfilm.sh
-
-VO asli (vo.mp3) dan footage pembuka SC01 sudah ada DI DALAM ZIP; tidak perlu menaruhnya terpisah.
-EOF
-  exit 2
+if [[ "$MODE" == '--help' ]]; then
+  printf '%s\n' 'Usage: bash scripts/render-gibran-openfilm.sh [--prepare|--open|--render]'
+  printf '%s\n' '--prepare: build the revised master without rendering.' '--open: open it in Studio.' '--render (default): full MP4 and frame QA.'
+  exit 0
 fi
-
-command -v node >/dev/null 2>&1 || fail 'Node.js 22.18+ belum terpasang.'
-node -e 'const [a,b]=process.versions.node.split(".").map(Number); if(a<22||(a===22&&b<18)){console.error(`Perlu Node >=22.18; ditemukan ${process.versions.node}`);process.exit(1)}' || exit 2
-command -v ffmpeg >/dev/null 2>&1 || fail 'FFmpeg belum ada di PATH. Pasang FFmpeg, buka terminal baru, lalu jalankan ulang script.'
-command -v ffprobe >/dev/null 2>&1 || fail 'FFprobe belum ada di PATH (biasanya ikut paket FFmpeg).'
-command -v unzip >/dev/null 2>&1 || fail 'Perintah unzip tidak ditemukan.'
-[[ "$WORKERS" =~ ^[1-9][0-9]*$ ]] || fail 'OPENFILM_WORKERS harus berupa angka bulat positif.'
-
-# OpenFilm's audio timeline uses the `all` option of adelay; reject old FFmpeg before a long render.
-if ! ffmpeg -hide_banner -loglevel error -f lavfi -i 'anullsrc=r=48000:cl=mono' -af 'adelay=0:all=1' -t 0.02 -f null - >/dev/null 2>&1; then
-  fail 'FFmpeg terlalu lama atau tidak mendukung adelay=all. Pasang FFmpeg modern (6+) lalu coba lagi.'
+[[ "$MODE" == '--prepare' || "$MODE" == '--open' || "$MODE" == '--render' ]] || fail "Unknown mode: $MODE"
+command -v node >/dev/null || fail 'Node.js 22.18+ belum terpasang.'
+command -v python3 >/dev/null || fail 'Python 3 belum terpasang.'
+node -e 'const [a,b]=process.versions.node.split(".").map(Number);if(a<22||(a===22&&b<18))process.exit(1)' || fail 'Perlu Node.js 22.18+.'
+[[ "$WORKERS" =~ ^[1-9][0-9]*$ ]] || fail 'OPENFILM_WORKERS harus angka bulat positif.'
+# A render must not overwrite Studio edits or restore the obsolete v3 HTML.
+if [[ "$MODE" == '--prepare' || ! -s "$PROJECT/film.html" ]]; then
+  python3 "$PIPELINE/build.py" --out "$PROJECT"
 fi
-unzip -tq "$ZIP_PATH" >/dev/null || fail 'ZIP rusak atau tidak bisa dibaca.'
-
-STAGE="$(mktemp -d "${TMPDIR:-/tmp}/gibran-openfilm.XXXXXX")"
-trap 'rm -rf "$STAGE"' EXIT
-unzip -q "$ZIP_PATH" -d "$STAGE/project"
-SRC="$STAGE/project"
-[[ -s "$SRC/film.html" ]] || fail 'film.html tidak ada pada root ZIP; unduh ZIP OpenFilm project v3.'
-[[ -s "$SRC/assets/vo.mp3" ]] || fail 'VO assets/vo.mp3 tidak ada pada ZIP.'
-[[ -s "$SRC/assets/SC01.mp4" ]] || fail 'Footage pembuka assets/SC01.mp4 tidak ada pada ZIP.'
-PAGE_COUNT="$(find "$SRC" -maxdepth 1 -type f -name 'scene-[0-9][0-9].html' | wc -l | tr -d ' ')"
-[[ "$PAGE_COUNT" == 24 ]] || fail "ZIP perlu memiliki 24 halaman scene; ditemukan $PAGE_COUNT."
-
-mkdir -p "$PROJECT" "$OUT_DIR"
-# Install/update only project files from the archive; preserve OpenFilm's .film cache/history.
-cp -R "$SRC/." "$PROJECT/"
-OUTPUT="$OUT_DIR/gibran-mundur-openfilm-full-$(date +%Y%m%d-%H%M%S).mp4"
-
-printf '\nProject: %s\nScenes: 24 · 1920×1080 · 30 fps · 7:15\nWorkers: %s\n' "$PROJECT" "$WORKERS"
-printf 'First run may download OpenFilm and its Chromium browser (~100 MB). Keep this terminal open.\n\n'
-(
+[[ -s "$PROJECT/build-manifest.json" ]] || fail 'Project perlu build-manifest.json dari builder master revisi.'
+[[ -s "$PROJECT/assets/vo.mp3" ]] || fail 'VO asli tidak ditemukan.'
+[[ "$MODE" != '--prepare' ]] || exit 0
+export OPENFILM_BROWSER_CHANNEL="${OPENFILM_BROWSER_CHANNEL:-chrome}"
+export OPENFILM_HEADED="${OPENFILM_HEADED:-1}"
+CHROME_HOOK="$(node -e 'console.log(require("node:url").pathToFileURL(process.argv[1]).href)' "$SCRIPT_DIR/openfilm-local-chrome.mjs")"
+export NODE_OPTIONS="${NODE_OPTIONS:+$NODE_OPTIONS }--import=$CHROME_HOOK"
+if [[ -z "${OPENFILM_TOOL_BIN:-}" && -d "$ROOT/.scratch/openfilm/bin" ]]; then OPENFILM_TOOL_BIN="$ROOT/.scratch/openfilm/bin"; fi
+if [[ -n "${OPENFILM_TOOL_BIN:-}" ]]; then export PATH="$OPENFILM_TOOL_BIN:$PATH"; fi
+if [[ -z "${OPENFILM_CLI:-}" && -f "$ROOT/.scratch/openfilm/runtime/node_modules/openfilm/bin/openfilm.mjs" ]]; then
+  OPENFILM_CLI="$ROOT/.scratch/openfilm/runtime/node_modules/openfilm/bin/openfilm.mjs"
+fi
+run_openfilm(){
+  if [[ -n "${OPENFILM_CLI:-}" ]]; then node "$OPENFILM_CLI" "$@";
+  else npx --yes openfilm@0.3.2 "$@"; fi
+}
+if [[ "$MODE" == '--open' ]]; then
   cd "$PROJECT"
-  npx --yes openfilm@0.3.2 render --workers "$WORKERS" --loudness=-16 --out "$OUTPUT"
-  npx --yes openfilm@0.3.2 look "$OUTPUT" --full --loudness=-16
-)
-
-printf '\nRender selesai dan lolos pemeriksaan OpenFilm.\nFile: %s\n' "$OUTPUT"
-printf 'Catatan: source VO tetap, tetapi timing scene/caption dan footage publik masih perlu editorial QA.\n'
+  run_openfilm open .
+  exit 0
+fi
+command -v ffmpeg >/dev/null || fail 'FFmpeg belum ada di PATH; atur OPENFILM_TOOL_BIN jika memakai versi portabel.'
+command -v ffprobe >/dev/null || fail 'FFprobe belum ada di PATH.'
+ffmpeg -hide_banner -loglevel error -f lavfi -i 'anullsrc=r=48000:cl=mono' -af 'adelay=0:all=1' -t 0.02 -f null - >/dev/null 2>&1 || fail 'FFmpeg tidak mendukung filter yang diperlukan.'
+python3 "$PIPELINE/preflight.py" "$PROJECT"
+MASTER_VERSION="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["version"])' "$PROJECT/build-manifest.json")"
+OUTPUT="${OPENFILM_OUTPUT:-$OUT_DIR/gibran-mundur-master-v$MASTER_VERSION-$(date +%Y%m%d-%H%M%S).mp4}"
+printf '\nProject: %s\nBrowser: %s · GUI: %s\nWorkers: %s\n' "$PROJECT" "$OPENFILM_BROWSER_CHANNEL" "$OPENFILM_HEADED" "$WORKERS"
+cd "$PROJECT"
+run_openfilm render --workers "$WORKERS" --fps 30 --loudness=-16 --out "$OUTPUT"
+run_openfilm look "$OUTPUT" --full --loudness=-16
+printf '\nRender selesai: %s\n' "$OUTPUT"
+printf 'QA frame tidak menggantikan pemeriksaan editorial dan sinkronisasi ucapan.\n'

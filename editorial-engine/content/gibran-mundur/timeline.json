@@ -199,16 +199,18 @@
     {
       "n": 18,
       "start": 291,
-      "end": 310,
+      "end": 311,
       "section": "Analogi mobil",
       "visualType": "animation",
       "visual": "Mekanik mengganti komponen; mobil berjalan lalu overheat; close-up radiator/sistem pendingin.",
       "overlay": "Akar masalah tidak diperbaiki → kerusakan berulang",
-      "motion": "part replacement; temperature gauge rises; radiator pulses"
+      "motion": "291–298: part replacement and return to motion; from 298: reveal cooling fault and rising temperature; hold outgoing picture through 310–311 pause",
+      "phaseBoundary": 298,
+      "holdThroughTranscriptPause": true
     },
     {
       "n": 19,
-      "start": 310,
+      "start": 311,
       "end": 323,
       "section": "Analogi mobil",
       "visualType": "animation",
@@ -270,8 +272,8 @@
     }
   ],
   "notes": [
-    "All 24 scenes now cover the full audio interval without black gaps; the 9 one-second pauses between transcript blocks hold the outgoing visual until the next scene.",
-    "Storyboard's scene durations sum to 425 s because it omits 9 one-second transcript pauses; audio probes at 434.991 s. Scene 24 closes on the audio end.",
+    "All 24 scenes cover the full audio interval without black gaps; all 10 one-second pauses in the supplied DOCX hold the outgoing visual until the next scene.",
+    "The DOCX contains 25 non-empty intervals totalling 425 s, 10 one-second gaps, and an end rounded to 435 s. Audio probes at 434.991 s. Scene 24 closes on the exact audio end.",
     "Several source storyboard notes are conceptual; exact legal wording and UUD text must be checked to primary sources before export.",
     "All footage license checks and Flow clip generation remain open."
   ]

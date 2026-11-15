@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "sourceScene": 21,
+  "duration": 4.3,
+  "visualIn": 12.0,
+  "visualOut": 16.3,
+  "audioIn": 348.2,
+  "audioOut": 352.5,
+  "openingLine": "Apakah kita sedang melihat sebuah sistem yang sedang memperbaiki dirinya?",
+  "cutQuestion": "Sistemnya membaik, atau hanya satu komponen yang berganti?",
+  "keepOriginalScene": true,
+  "selectionReason": "The central question is visible in two contrasting mechanisms; its explanation follows in the original story and returns at SC21.",
+  "audioBoundaryMethod": "Local multilingual ASR on SC21, cross-checked with supplied DOCX; start padded 160 ms before first word, end padded 260 ms after last word and before Atau.",
+  "audioRegenerated": false,
+  "humanListenThroughVerified": false
+}

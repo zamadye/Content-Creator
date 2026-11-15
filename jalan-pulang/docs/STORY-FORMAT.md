@@ -289,3 +289,34 @@ Aturannya:
 
 Hasil terukur: galat pandang **0,0°** untuk target yang bisa dijangkau, dan
 target 91° di samping dipotong ke 60,2° — lihat `node scripts/test-studio-three.mjs`.
+
+## Membawa properti: `hold`
+
+Aktor bisa memegang properti dari `objects`. Properti itu ikut ayunan tangan,
+ikutserta saat aktor berjalan (`travel`), dan tidak perlu diletakkan di `set`:
+
+```json
+"objects": { "jerigen": { "asset": "prop.jerrycan", "label": "Jerigen" } },
+"shots": [{
+  "id": "jembatan-01", "duration": 3,
+  "actors": [{ "ref": "aku", "at": [0, 0, 1.4], "facing": "-Z", "clip": "walk", "hold": "jerigen" }]
+}]
+```
+
+| field | arti |
+|---|---|
+| `hold` | nama di `objects`; properti menempel di tengah telapak |
+| `holdHand` | `"R"` (default) atau `"L"` |
+| `holdOffset` | geseran `[x, y, z]` **di ruang tangan**, default `[0,0,0]`; pakai untuk menaruh gagang tepat di telapak |
+
+Cara kerjanya: properti ditempelkan ke tulang `metacarpal1` (cadangan `wrist`),
+bukan ke node `anchor.hand.*`. Anchor posisinya benar tetapi statis — properti
+yang ditempel ke sana akan melayang saat tangan bergerak.
+
+Terukur: properti menempel tepat di tulang (0,000 mm meleset) di sepanjang
+ayunan, ikut berpindah 1,36 m saat akar aktor digeser, dan bisa dipasang di
+tangan kiri maupun kanan — lihat `node scripts/test-studio-three.mjs`.
+
+Batasnya: orientasi properti mengikuti sumbu tulang tangan. Kalau sebuah
+properti terlihat miring, koreksi lewat `holdOffset`; belum ada rotasi per
+properti, dan belum ada penyesuaian jari (tangan tidak menggenggam).

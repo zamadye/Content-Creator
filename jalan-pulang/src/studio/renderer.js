@@ -11,6 +11,7 @@ import {asset} from './library.js';
 import {secondaryTurns, applySecondary, prepareSecondary, resetSecondary} from './secondary.js';
 import {createClipSampler} from './clip-sample.js';
 import {aimGaze} from './ik.js';
+import {attachToHand} from './attach.js';
 
 export const LOOKS = {
   'kampung-siang': {sky: 0x9fb6c4, fog: 0x8fa7b4, sun: 0xfff2dd, sunIntensity: 2.6, hemi: 1.1, exposure: 1.0},
@@ -131,7 +132,11 @@ export class StudioRenderer {
 
   buildShot(shot) {
     const keys = [];
-    const add = (key, assetId, {at, yaw = 0, scale = 1, clip, speed = 1, travel = 0, offset = 0, rot = 0}) => {
+    const add = (
+      key,
+      assetId,
+      {at, yaw = 0, scale = 1, clip, speed = 1, travel = 0, offset = 0, rot = 0, hold = null, holdHand = 'R', holdOffset = [0, 0, 0]},
+    ) => {
       const tpl = this.templateCache.get(assetId);
       if (!tpl) return;
       const root = cloneSkeleton(tpl.scene);
@@ -155,6 +160,10 @@ export class StudioRenderer {
         clip: clip ?? null,
         clipDuration: sampler?.duration ?? 0,
         ref: key.split(':').pop(),
+        hold,
+        holdHand,
+        holdOffset,
+        heldRoot: null,
         speed,
         offset,
         at,
@@ -175,13 +184,46 @@ export class StudioRenderer {
     }
     for (const c of shot.cast) {
       if (c.hidden) continue;
-      add(`cast:${shot.id}:${c.ref}`, c.assetId, {at: c.at, yaw: c.yaw, clip: c.clip, speed: c.speed, travel: c.travel, offset: c.offset});
+      const heldAsset = c.hold ? this.compiled.objects[c.hold]?.asset : null;
+      const key = `cast:${shot.id}:${c.ref}`;
+      add(key, c.assetId, {
+        at: c.at,
+        yaw: c.yaw,
+        clip: c.clip,
+        speed: c.speed,
+        travel: c.travel,
+        offset: c.offset,
+        hold: heldAsset ?? null,
+        holdHand: c.holdHand,
+        holdOffset: c.holdOffset ?? [0, 0, 0],
+      });
+      const inst = this.instances.get(key);
+      if (inst) {
+        inst.holdAsset = heldAsset;
+        this.attachHeld(inst);
+      }
     }
     for (const o of shot.objectPlacements) {
       if (o.hidden) continue;
       add(`obj:${shot.id}:${o.ref}`, o.assetId, {at: o.at, rot: o.rot, scale: o.scale});
     }
     this.placements.set(shot.index, keys);
+  }
+
+  /**
+   * Tempelkan properti ke tangan aktor (lihat `attach.js`).
+   *
+   * Sebelumnya tidak mungkin: `anchor.hand.*` diekspor di titik nol. Anchor
+   * sekarang benar, tapi tetap node statis, jadi properti ditempelkan ke tulang
+   * `metacarpal1` supaya ikut animasi lengan.
+   */
+  attachHeld(inst) {
+    if (!inst?.hold) return null;
+    const tpl = this.templateCache.get(inst.holdAsset);
+    if (!tpl) return null;
+    const prop = cloneSkeleton(tpl.scene);
+    inst.heldRoot = attachToHand(inst.root, prop, inst.holdHand, inst.holdOffset ?? [0, 0, 0]);
+    return inst.heldRoot;
   }
 
   applyLook(look) {

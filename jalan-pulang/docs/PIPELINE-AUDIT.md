@@ -171,6 +171,10 @@ Total: **27 selesai · 18 sebagian · 6 belum · 3 tidak berlaku**.
   napas 3,6 detik, ayunan langkah yang merambat dengan keterlambatan per tulang,
   dan goyangan lambat 7,3 detik. Besar pengaruhnya diukur, bukan diklaim:
   kepala bergeser maks 24,7 mm / rata-rata 14,9 mm, tangan 16,1 mm.
+* **Properti di tangan (langkah 43).** Field `hold`/`holdHand`/`holdOffset`:
+  properti menempel ke tulang metacarpal, ikut ayunan dan `travel` (0,000 mm
+  meleset di sepanjang siklus `walk`). Ini baru mungkin setelah bug anchor
+  di bawah diperbaiki — dan sengaja memakai tulang, bukan anchor statis.
 * **Anchor aset (langkah 43).** `anchor.*` dulu diekspor di titik nol karena
   membaca `translation` (lokal) alih-alih `p` (absolut). Diperbaiki, 11 aset
   dibangun ulang, dan test kini memeriksa posisinya, bukan hanya jumlahnya.

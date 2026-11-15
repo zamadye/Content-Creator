@@ -18,6 +18,7 @@ import {compileStory} from '../src/studio/compile.js';
 import {secondaryTurns, applySecondary, prepareSecondary, resetSecondary, SECONDARY_BONES} from '../src/studio/secondary.js';
 import {createClipSampler} from '../src/studio/clip-sample.js';
 import {aimGaze, gazeDirection, gazeOrigin} from '../src/studio/ik.js';
+import {attachToHand, handBone} from '../src/studio/attach.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -276,6 +277,84 @@ for (const shot of compiled.shots) {
   const pw = probe(smp, 0.8 + clip.duration);
   assert.ok(p0.distanceTo(pw) < 1e-9, 'clip must loop seamlessly in the sampler');
   console.log(`pose murni: ${times.length} waktu x 4 urutan, simpangan maks ${(worst * 1000).toFixed(4)} mm`);
+}
+
+// -------------------------------------------- properti di tangan (field `hold`)
+{
+  // Lampu teplok dipegang saat berjalan: harus ikut ayunan tangan dan ikut
+  // `travel`, bukan melayang di tempat seperti kalau ditempel ke node anchor.
+  const charId = 'char.male-muda-jaket';
+  const propId = 'prop.lamp.teplok';
+  const charGlb = splitGlb(fs.readFileSync(path.join(root, 'public', registry.assets[charId].uri)));
+  const propGlb = splitGlb(fs.readFileSync(path.join(root, 'public', registry.assets[propId].uri)));
+  const gltf = await parse(buildGlb(charGlb.json, charGlb.bin));
+  const propGltf = await parse(buildGlb(propGlb.json, propGlb.bin));
+  const clip = THREE.AnimationClip.findByName(gltf.animations, 'walk');
+
+  const setup = (hand = 'R') => {
+    const inst = cloneSkeleton(gltf.scene);
+    inst.updateMatrixWorld(true);
+    const sampler = createClipSampler(inst, clip);
+    const prop = cloneSkeleton(propGltf.scene);
+    const held = attachToHand(inst, prop, hand);
+    assert.ok(held, `attachToHand must find the ${hand} hand`);
+    assert.equal(held.parent, handBone(inst, hand), 'prop must be a child of the hand bone');
+    return {inst, sampler, prop};
+  };
+
+  const world = (o) => {
+    o.updateMatrixWorld(true);
+    return o.getWorldPosition(new THREE.Vector3());
+  };
+
+  const {inst, sampler, prop} = setup('R');
+  sampler.apply(0.3);
+  inst.updateMatrixWorld(true);
+  const bonePos = world(handBone(inst, 'R'));
+  const propPos = world(prop);
+  assert.ok(propPos.distanceTo(bonePos) < 1e-9, 'prop origin must sit exactly on the hand bone');
+
+  // ayunan tangan: properti ikut bergerak
+  let maxSwing = 0;
+  const first = propPos.clone();
+  for (const t of [0.05, 0.2, 0.35, 0.5, 0.65, 0.8]) {
+    sampler.apply(t);
+    inst.updateMatrixWorld(true);
+    maxSwing = Math.max(maxSwing, world(prop).distanceTo(world(handBone(inst, 'R'))));
+    assert.ok(world(prop).distanceTo(propPos) > 0.002, `prop must move with the swing at t=${t}`);
+  }
+  assert.ok(maxSwing < 1e-9, 'prop must stay glued to the hand at every frame');
+
+  // travel: seluruh aktor bergeser, properti ikut
+  sampler.apply(0.2);
+  inst.updateMatrixWorld(true);
+  const before = world(prop).clone();
+  inst.position.set(0, 0, 1.36);
+  inst.updateMatrixWorld(true);
+  const after = world(prop);
+  assert.ok(Math.abs(after.z - before.z - 1.36) < 1e-9, 'prop must follow the actor root (travel/between shots)');
+  inst.position.set(0, 0, 0);
+
+  // geseran di ruang tangan: properti bisa diletakkan pas di telapak
+  const off = setup('R');
+  const moved = attachToHand(off.inst, off.prop, 'R', [0, -0.1, 0]);
+  off.inst.updateMatrixWorld(true);
+  assert.ok(moved, 'reattach with offset must work');
+  const gap = world(moved).distanceTo(world(handBone(off.inst, 'R')));
+  assert.ok(Math.abs(gap - 0.1) < 1e-9, `holdOffset must move the prop in hand space (gap ${gap.toFixed(3)} m)`);
+
+  // tangan kiri tersedia juga
+  const left = setup('L');
+  assert.equal(left.prop.parent, handBone(left.inst, 'L'), 'prop must follow the requested hand');
+
+  // tanpa tulang tangan -> null, bukan crash
+  const lonely = new THREE.Object3D();
+  assert.equal(attachToHand(lonely, new THREE.Object3D(), 'R'), null, 'missing hand bone must return null');
+
+  console.log(
+    `properti di tangan: menempel tepat di tulang, ikut ayunan (${(maxSwing * 1000).toFixed(3)} mm meleset), ` +
+      `ikut travel 1,36 m, tangan L/R tersedia`,
+  );
 }
 
 // ------------------------------------------------ menoleh / aim gaze (langkah 33)

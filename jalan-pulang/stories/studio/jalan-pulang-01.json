@@ -11,7 +11,8 @@
   "sosok": {"asset": "entity.pale-standing", "label": "Sosok"}
  },
  "objects": {
-  "motor": {"asset": "vehicle.motorcycle.bebek", "label": "Motor bebek"}
+  "motor": {"asset": "vehicle.motorcycle.bebek", "label": "Motor bebek"},
+  "jerigen": {"asset": "prop.jerrycan", "label": "Jerigen"}
  },
  "meta": {"author": "studio-forge", "notes": "Contoh cerita yang memakai semua kategori aset.", "tags": ["contoh", "uji"]},
  "shots": [
@@ -27,7 +28,7 @@
     {"asset": "building.house.village", "at": [-6.2, 0, -3.5], "rot": 1.57},
     {"asset": "road.prop.powerpole", "at": [2.6, 0, -1.0], "rot": 0.2}
    ],
-   "actors": [{"ref": "aku", "at": [0, 0, 1.4], "facing": "-Z", "clip": "walk"}],
+   "actors": [{"ref": "aku", "at": [0, 0, 1.4], "facing": "-Z", "clip": "walk", "hold": "jerigen"}],
    "camera": {"preset": "dolly-in", "from": [0.6, 1.5, -5.4], "to": [0.4, 1.42, -2.2], "fov": 42},
    "light": {"preset": "sore"},
    "text": {"style": "subtitle", "value": "Sore itu aku pulang lewat jalan yang sama."}

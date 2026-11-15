@@ -38,6 +38,9 @@ export function compileStory(raw, {registry = null} = {}) {
       travel: a.travel ?? 0,
       offset: a.offset ?? 0,
       lookAt: a.lookAt ?? null,
+      hold: a.hold ?? null,
+      holdHand: a.holdHand ?? 'R',
+      holdOffset: a.holdOffset ?? [0, 0, 0],
       hidden: Boolean(a.hidden),
     }));
     const objects = shot.objects.map((o) => ({
@@ -63,7 +66,12 @@ export function compileStory(raw, {registry = null} = {}) {
 
   const assets = new Map();
   for (const shot of shots) {
-    for (const c of shot.cast) assets.set(c.assetId, true);
+    for (const c of shot.cast) {
+      assets.set(c.assetId, true);
+      // properti yang dipegang ikut dimuat walau tidak diletakkan di set
+      const held = c.hold ? story.objects[c.hold]?.asset : null;
+      if (held) assets.set(held, true);
+    }
     for (const o of shot.objectPlacements) assets.set(o.assetId, true);
     for (const s of shot.set) assets.set(s.asset, true);
   }

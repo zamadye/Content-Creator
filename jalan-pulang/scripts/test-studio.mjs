@@ -195,6 +195,39 @@ for (const file of storyFiles) {
 }
 ok('stories');
 
+// -------------------------------------------------------------------- 5e. hold
+{
+  const src = JSON.parse(fs.readFileSync(path.join(studioDir, 'warung-malam.json'), 'utf8'));
+  const base = JSON.parse(JSON.stringify(src));
+  base.objects = {lampu: {asset: 'prop.lamp.teplok'}};
+  base.shots = [
+    {
+      id: 'bawa',
+      duration: 2,
+      actors: [{ref: 'ibu', at: [0, 0, 0], facing: '+Z', clip: 'walk', hold: 'lampu'}],
+      camera: {preset: 'static'},
+    },
+  ];
+  const compiled = compileStory(base, {registry});
+  const cast = compiled.shots[0].cast[0];
+  assert.equal(cast.hold, 'lampu', 'hold ref must survive compile');
+  assert.equal(cast.holdHand, 'R', 'holdHand defaults to the right hand');
+  assert.ok(compiled.assetIds.includes('prop.lamp.teplok'), 'held prop must be loaded even when not placed in the set');
+
+  const left = JSON.parse(JSON.stringify(base));
+  left.shots[0].actors[0].holdHand = 'L';
+  assert.equal(compileStory(left, {registry}).shots[0].cast[0].holdHand, 'L');
+
+  const unknown = JSON.parse(JSON.stringify(base));
+  unknown.shots[0].actors[0].hold = 'parang';
+  assert.throws(() => validateStory(unknown, {registry}), /not in objects/, 'unknown hold ref must be rejected');
+
+  const badHand = JSON.parse(JSON.stringify(base));
+  badHand.shots[0].actors[0].holdHand = 'tengah';
+  assert.throws(() => validateStory(badHand, {registry}), /holdHand/, 'holdHand must be L or R');
+  ok('hold');
+}
+
 // ------------------------------------------------------------------ 5d. lookAt
 {
   const src = JSON.parse(fs.readFileSync(path.join(studioDir, 'warung-malam.json'), 'utf8'));

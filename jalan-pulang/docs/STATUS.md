@@ -263,3 +263,20 @@ Test sekarang memeriksa **posisi**, bukan hanya jumlah node: anchor tidak boleh
 di titik nol, `anchor.head` harus 0,8–1,02 × tinggi aset, kaki di bawah
 0,16 × tinggi, tangan di 0,45–0,85 × tinggi, dan jarak kiri-kanan tidak boleh
 runtuh. Ambangnya relatif karena entitas jauh lebih tinggi daripada manusia.
+
+## Properti di tangan (`hold`)
+
+Field aktor `hold` (ref ke `objects`) + `holdHand` (`L`/`R`) + `holdOffset`
+(`[x,y,z]` di ruang tangan). Properti ditempelkan ke tulang `metacarpal1`
+(cadangan `wrist`), jadi ikut ayunan lengan dan `travel`; properti juga otomatis
+ikut dimuat walau tidak diletakkan di `set` (`assetIds` di `compile.js`).
+
+Diukur di `scripts/test-studio-three.mjs`: asal properti berimpit dengan tulang
+tangan (**0,000 mm** selisih) di sepanjang ayunan `walk`, ikut berpindah 1,36 m
+saat akar aktor digeser, `holdOffset` menggeser tepat 0,1 m di ruang tangan,
+tangan kiri/kanan sama-sama jalan, dan tulang yang tidak ada menghasilkan `null`
+alih-alih crash. Cerita yang memakainya: `jalan-pulang-01/jembatan-01` (aku
+membawa jerigen saat berjalan pulang).
+
+Batas: orientasi properti mengikuti sumbu tangan dan tidak ada rotasi per
+properti; jari tidak menggenggam (tidak ada pose genggam di klip).

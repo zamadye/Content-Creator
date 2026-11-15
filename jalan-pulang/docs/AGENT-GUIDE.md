@@ -41,6 +41,7 @@ npm run render:studio -- StudioJalanPulang
 | matriks 4×4 untuk glTF **wajib** di-transpose sebelum flatten (`glb.py`) | glTF kolom-mayor, numpy baris-mayor; kalau lupa, IBM rusak dan semua vertex berputar di titik nol |
 | aktor dengan klip `walk`/`run` wajib punya `travel` ≈ `speed` × stride (walk 2,26 m/s, run 4,76 m/s) | klip lokomosi in-place; tanpa `travel` kaki meluncur |
 | setiap habis mengubah `camera`/`at`/`travel`, jalankan `npm run qc:framing` (dan `npm run qc:motion` kalau klip lokomosi berubah) | framing diukur, bukan ditebak; tanpa browser tidak ada cara lain melihat kepala terpotong |
+| attachment memakai `anchor.*` (tangan/kaki/kepala/mata); posisinya absolut di ruang rig, bukan lokal tulang | bug lama: semuanya diekspor di (0,0,0) karena membaca `translation`, bukan `p` |
 | adegan dua orang: beri `lookAt` di kedua aktor | tanpa itu keduanya menatap lurus ke depan klip, percakapan terasa hampa |
 | jangan pernah memakai `THREE.AnimationMixer.setTime()` di renderer; pakai `createClipSampler` | `setTime` bergantung pada riwayat pemanggilan (menyimpang 13,8 cm pada `walk`), sedangkan Remotion merender frame acak/paralel — pose wajib fungsi dari waktu |
 | offset pakaian per lapisan (kaus 0,062 · jaket 0,048 · celana 0,026) | kalau sama, celana menembus kaus dan muncul gerigi di hem |

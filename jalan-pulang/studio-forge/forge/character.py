@@ -479,8 +479,14 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
 
 
 def _anchor_nodes(bones):
-    """Attachment points other assets can be parented to (props, cameras, gaze)."""
-    rest = {b["name"]: np.asarray(b.get("translation", [0, 0, 0]), float) for b in bones}
+    """Attachment points other assets can be parented to (props, cameras, gaze).
+
+    Posisi rest tulang disimpan di kunci "p" (meter, absolut terhadap rig);
+    "translation" baru dibuat saat penulisan node glTF (lokal terhadap induk).
+    Membaca "translation" di sini membuat semua anchor jatuh di titik nol —
+    bug yang membuat properti tidak bisa ditempelkan ke tangan/kepala.
+    """
+    rest = {b["name"]: np.asarray(b.get("p", b.get("translation", [0, 0, 0])), float) for b in bones}
     pairs = (
         ("anchor.hand.L", "metacarpal1.L"),
         ("anchor.hand.R", "metacarpal1.R"),

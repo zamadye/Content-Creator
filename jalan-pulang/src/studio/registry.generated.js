@@ -43,7 +43,7 @@ export default {
     ]
    },
    "tris": 37848,
-   "bytes": 3671384,
+   "bytes": 3671456,
    "tags": [
     "human",
     "male",
@@ -129,7 +129,7 @@ export default {
     ]
    },
    "tris": 39386,
-   "bytes": 3753692,
+   "bytes": 3753756,
    "tags": [
     "human",
     "male",
@@ -214,7 +214,7 @@ export default {
     ]
    },
    "tris": 37790,
-   "bytes": 3793696,
+   "bytes": 3793760,
    "tags": [
     "human",
     "male",
@@ -300,7 +300,7 @@ export default {
     ]
    },
    "tris": 38066,
-   "bytes": 3825872,
+   "bytes": 3825936,
    "tags": [
     "human",
     "female",
@@ -387,7 +387,7 @@ export default {
     ]
    },
    "tris": 38066,
-   "bytes": 3979728,
+   "bytes": 3979792,
    "tags": [
     "human",
     "female",
@@ -474,7 +474,7 @@ export default {
     ]
    },
    "tris": 39369,
-   "bytes": 3733512,
+   "bytes": 3733572,
    "tags": [
     "human",
     "male",
@@ -559,7 +559,7 @@ export default {
     ]
    },
    "tris": 30334,
-   "bytes": 3242824,
+   "bytes": 3242884,
    "tags": [
     "ghost",
     "humanoid",
@@ -642,7 +642,7 @@ export default {
     ]
    },
    "tris": 29944,
-   "bytes": 2934780,
+   "bytes": 2934844,
    "tags": [
     "ghost",
     "humanoid",
@@ -724,7 +724,7 @@ export default {
     ]
    },
    "tris": 30560,
-   "bytes": 3082604,
+   "bytes": 3082664,
    "tags": [
     "ghost",
     "humanoid",
@@ -808,7 +808,7 @@ export default {
     ]
    },
    "tris": 30392,
-   "bytes": 3232748,
+   "bytes": 3232812,
    "tags": [
     "ghost",
     "child",
@@ -890,7 +890,7 @@ export default {
     ]
    },
    "tris": 29944,
-   "bytes": 2897628,
+   "bytes": 2897692,
    "tags": [
     "ghost",
     "shadow",

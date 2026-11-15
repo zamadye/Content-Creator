@@ -176,13 +176,38 @@ for (const id of Object.keys(registry.assets)) {
     }
     assert.ok(skinned > 0, `${id}: animated but not skinned`);
   }
-  // anchors
+  // anchors: jumlah DAN posisi. Anchor yang menumpuk di (0,0,0) pernah lolos
+  // karena test lama hanya menghitung node — lihat catatan di STATUS.md.
   const anchors = [];
   scene.traverse((o) => {
     if (String(o.name).startsWith('anchor')) anchors.push(o.name);
   });
   if (registry.assets[id].anchors?.length) {
     assert.equal(anchors.length, registry.assets[id].anchors.length, `${id}: anchor node count`);
+    const at = {};
+    for (const name of registry.assets[id].anchors) {
+      const node = scene.getObjectByName(name) ?? scene.getObjectByName(name.replace(/[.[\]:/ ]/g, ''));
+      assert.ok(node, `${id}: anchor ${name} missing`);
+      const p = node.getWorldPosition(new THREE.Vector3());
+      assert.ok(allFinite(p.toArray()), `${id}: anchor ${name} not finite`);
+      assert.ok(p.length() > 0.05, `${id}: anchor ${name} sits at the origin (broken anchor export)`);
+      at[name] = p;
+    }
+    // ambang relatif terhadap tinggi aset: entitas jauh lebih tinggi dari manusia
+    const h = registry.assets[id].bounds.max[1];
+    if (at['anchor.head']) {
+      const y = at['anchor.head'].y;
+      assert.ok(y > 0.8 * h && y < 1.02 * h, `${id}: anchor.head ${y.toFixed(2)} m for a ${h.toFixed(2)} m asset`);
+    }
+    if (at['anchor.foot.L']) {
+      assert.ok(at['anchor.foot.L'].y < 0.16 * h, `${id}: anchor.foot.L at ${at['anchor.foot.L'].y.toFixed(2)} m (above the knee?)`);
+      assert.ok(at['anchor.foot.L'].distanceTo(at['anchor.foot.R']) > 0.2, `${id}: feet anchors collapsed`);
+    }
+    if (at['anchor.hand.L']) {
+      assert.ok(at['anchor.hand.L'].distanceTo(at['anchor.hand.R']) > 0.4, `${id}: hand anchors collapsed`);
+      const y = at['anchor.hand.L'].y;
+      assert.ok(y > 0.45 * h && y < 0.85 * h, `${id}: anchor.hand.L ${y.toFixed(2)} m for a ${h.toFixed(2)} m asset`);
+    }
   }
 }
 

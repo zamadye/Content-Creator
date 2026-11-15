@@ -243,17 +243,23 @@ IK tangan/kaki** — menaruh tangan di meja masih dikerjakan dengan menggeser
 seluruh aktor. Cerita yang memakainya: `warung-malam/duduk-02` (Bu Sri dan aku
 saling memandang) dan `duduk-sore/duduk-03` (tetangga menoleh).
 
-## Temuan yang belum diperbaiki: anchor aset ada di titik nol
+## Bug yang diperbaiki: anchor aset dulu menumpuk di titik nol
 
-Saat mencari arah pandang, ketahuan `anchor.hand.L`, `anchor.foot.*`,
-`anchor.head`, dan `anchor.eye.*` **semua berada di (0, 0, 0)** — tujuh node di
-setiap karakter. Penyebabnya `studio-forge/forge/character.py::_anchor_nodes`
-membaca `b.get("translation")`, padahal rig menyimpan posisi absolut di kunci
-`p`; `translation` baru dibuat saat penulisan node. Akibatnya anchor tidak bisa
-dipakai untuk menempelkan properti ke tangan atau kamera ke kepala.
+Ketujuh `anchor.*` (tangan, kaki, kepala, mata) di **setiap** karakter dan
+entitas pernah diekspor di `(0, 0, 0)`, sehingga tidak bisa dipakai untuk
+menempelkan properti ke tangan atau kamera ke kepala. Penyebabnya
+`character.py::_anchor_nodes` membaca `b["translation"]`, padahal rig menyimpan
+posisi rest absolut di `b["p"]`; `translation` baru dibuat saat node glTF ditulis.
 
-Belum diperbaiki karena memperbaiki berarti membangun ulang 6 karakter (butuh
-`.venv` + numpy/Pillow, yang hilang saat sandbox di-reset). Sementara itu
-`ik.js` sengaja memakai sumbu +Z tulang kepala, bukan anchor mata. Test sekarang
-tetap menghitung jumlah anchor; menambah pemeriksaan posisi harus dilakukan
-bersamaan dengan perbaikan forge-nya.
+Sekarang dibaca dari `b["p"]`, dan 11 aset dibangun ulang
+(`--category character --skin-size 2048`, `--category entity`). Hasilnya:
+
+| aset | anchor.head | anchor.hand.L | anchor.foot.L |
+|---|---|---|---|
+| `char.male-muda-jaket` | 1,491 m | 0,422 / 1,023 / 0,194 | 0,216 / 0,071 / −0,001 |
+| `entity.pale-standing` | 1,618 m | 0,459 / 1,111 / 0,210 | 0,235 / 0,077 / −0,001 |
+
+Test sekarang memeriksa **posisi**, bukan hanya jumlah node: anchor tidak boleh
+di titik nol, `anchor.head` harus 0,8–1,02 × tinggi aset, kaki di bawah
+0,16 × tinggi, tangan di 0,45–0,85 × tinggi, dan jarak kiri-kanan tidak boleh
+runtuh. Ambangnya relatif karena entitas jauh lebih tinggi daripada manusia.

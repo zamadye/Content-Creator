@@ -171,6 +171,9 @@ Total: **27 selesai · 18 sebagian · 6 belum · 3 tidak berlaku**.
   napas 3,6 detik, ayunan langkah yang merambat dengan keterlambatan per tulang,
   dan goyangan lambat 7,3 detik. Besar pengaruhnya diukur, bukan diklaim:
   kepala bergeser maks 24,7 mm / rata-rata 14,9 mm, tangan 16,1 mm.
+* **Anchor aset (langkah 43).** `anchor.*` dulu diekspor di titik nol karena
+  membaca `translation` (lokal) alih-alih `p` (absolut). Diperbaiki, 11 aset
+  dibangun ulang, dan test kini memeriksa posisinya, bukan hanya jumlahnya.
 * **Menoleh (langkah 33, sebagian).** `src/studio/ik.js`: arah pandang dihitung
   dari sumbu +Z tulang kepala, selisihnya dibagi ke neck02/neck03/head dengan
   batas 60° dan pitch ±29°. Diuji: galat 20,9° → 0,00°, target 91° di samping

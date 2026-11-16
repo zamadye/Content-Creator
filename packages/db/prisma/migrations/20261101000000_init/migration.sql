@@ -126,3 +126,16 @@ CREATE TABLE "AuditEvent" (
   CONSTRAINT "AuditEvent_workspaceId_fkey" FOREIGN KEY ("workspaceId") REFERENCES "Workspace"("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 CREATE INDEX "AuditEvent_workspaceId_createdAt_idx" ON "AuditEvent"("workspaceId", "createdAt");
+
+-- These tables are accessed by the trusted Studio API via PostgreSQL, never by
+-- anon/authenticated clients through PostgREST. Keep REST access closed by default.
+ALTER TABLE "Workspace" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Membership" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Project" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "ProjectRevision" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Asset" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "Job" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "JobAttempt" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "OutboxEvent" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "AuditEvent" ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE "Workspace", "Membership", "Project", "ProjectRevision", "Asset", "Job", "JobAttempt", "OutboxEvent", "AuditEvent" FROM anon, authenticated;

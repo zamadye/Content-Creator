@@ -13,7 +13,7 @@ This is an evidence index, not a readiness badge. Updated 2026-11-01 UTC.
 | Existing story gate tests | PASS | `test_story_gate.py`: 16/16. |
 | Existing script audit tests | PASS | `test-audit.py`: 7/7. |
 | Renderer benchmark | NOT TESTED (comparative spike only) | Prior OpenFilm v7 full render and all-frame QA, plus v8 VO mux, are proven in session evidence. The three-engine synthetic comparison, seek/cancel/recovery matrix is still unrun. PATH absence was not capability evidence. |
-| DB/auth/queue/storage | NOT TESTED | No service config or credentials; no integration was attempted. |
+| Supabase database schema | PARTIAL / LIVE MIGRATION APPLIED | New `Content Studio` project `ryceszwjligderxteaus` in `ap-southeast-1`; Supabase migration history records `content_studio_initial_schema` (version `20261116143545`). Catalog query found all 9 expected tables and confirmed RLS enabled on each. This used the Supabase migration connector, not Prisma CLI; reconcile its migration ledger with local Prisma before `pnpm db:migrate`. App-level DATABASE_URL persistence/restart, auth, queue, storage and API integration remain NOT TESTED. |
 | Real user/media/provider behavior | NOT TESTED | Only public repo metadata and synthetic/local checks used. |
 | Production deployment | NOT TESTED | No container runtime/domain/storage/auth configuration. |
 | Editorial/video quality | NOT TESTED | No Content Studio render exists in this P0 pass. |

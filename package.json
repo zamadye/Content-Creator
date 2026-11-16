@@ -14,6 +14,9 @@
     "typecheck": "corepack pnpm -r --if-present typecheck",
     "lint": "corepack pnpm -r --if-present lint",
     "build": "corepack pnpm -r --if-present build",
-    "api:dev": "corepack pnpm --filter @content-studio/api dev"
+    "api:dev": "corepack pnpm --filter @content-studio/api dev",
+    "db:validate": "corepack pnpm --filter @content-studio/db db:validate",
+    "db:generate": "corepack pnpm --filter @content-studio/db db:generate",
+    "db:migrate": "corepack pnpm --filter @content-studio/db db:migrate"
   }
 }

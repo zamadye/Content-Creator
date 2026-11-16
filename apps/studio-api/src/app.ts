@@ -1,6 +1,8 @@
 import Fastify, { type FastifyInstance } from "fastify";
 import { randomUUID } from "node:crypto";
 import secureSession from "@fastify/secure-session";
+import { z } from "zod";
+import { AccessDeniedError, type ProjectRepository } from "@content-studio/db";
 import {
   authorizationCodeGrant,
   buildAuthorizationUrl,
@@ -28,6 +30,9 @@ export type AppOptions = {
   sessionKey: Buffer;
   oidc?: OidcSettings | undefined;
   production?: boolean;
+  projects?: ProjectRepository;
+  checkDatabase?: () => Promise<void>;
+  allowedWebOrigin?: string;
 };
 
 function errorBody(requestId: string, code: string, message: string, retryable = false) {
@@ -36,6 +41,9 @@ function errorBody(requestId: string, code: string, message: string, retryable =
 
 export async function createApp(options: AppOptions): Promise<FastifyInstance> {
   if (options.sessionKey.byteLength !== 32) throw new Error("SESSION_KEY_HEX must decode to exactly 32 bytes");
+  if (options.production && (!options.allowedWebOrigin || new URL(options.allowedWebOrigin).protocol !== "https:")) {
+    throw new Error("Production requires an HTTPS allowedWebOrigin");
+  }
   const app = Fastify({ logger: false, bodyLimit: 1_048_576, genReqId: () => randomUUID() });
   await app.register(secureSession, {
     key: options.sessionKey,
@@ -57,9 +65,15 @@ export async function createApp(options: AppOptions): Promise<FastifyInstance> {
   }
 
   app.get("/health/live", async () => ({ status: "ok" }));
-  app.get("/health/ready", async (_request, reply) => {
-    if (!oidc) return reply.code(503).send(errorBody(_request.id, "OIDC_NOT_CONFIGURED", "Login belum dikonfigurasi."));
-    return { status: "ready", auth: "oidc" };
+  app.get("/health/ready", async (request, reply) => {
+    if (!oidc) return reply.code(503).send(errorBody(request.id, "OIDC_NOT_CONFIGURED", "Login belum dikonfigurasi."));
+    if (!options.checkDatabase) return reply.code(503).send(errorBody(request.id, "DATABASE_NOT_CONFIGURED", "Database belum dikonfigurasi."));
+    try {
+      await options.checkDatabase();
+    } catch {
+      return reply.code(503).send(errorBody(request.id, "DATABASE_UNAVAILABLE", "Database belum siap.", true));
+    }
+    return { status: "ready", auth: "oidc", database: "ok" };
   });
 
   app.get("/auth/session", async (request) => {
@@ -116,9 +130,45 @@ export async function createApp(options: AppOptions): Promise<FastifyInstance> {
     }
   });
 
+  const originAllowed = (origin: string | undefined): boolean => {
+    if (!origin || !options.allowedWebOrigin) return false;
+    try { return new URL(origin).origin === options.allowedWebOrigin; } catch { return false; }
+  };
+
   app.post("/auth/logout", async (request, reply) => {
+    if (!originAllowed(request.headers.origin)) return reply.code(403).send(errorBody(request.id, "CSRF_REJECTED", "Asal permintaan tidak diizinkan."));
     request.session.delete();
     return reply.code(204).send();
+  });
+
+  app.get("/api/projects", async (request, reply) => {
+    const user = (request.session as SessionAccess).get("user") as AuthUser | undefined;
+    if (!user) return reply.code(401).send(errorBody(request.id, "UNAUTHENTICATED", "Silakan masuk untuk melihat proyek."));
+    if (!options.projects) return reply.code(503).send(errorBody(request.id, "DATABASE_NOT_CONFIGURED", "Penyimpanan proyek belum siap.", true));
+    try {
+      const projects = await options.projects.listProjects(`${user.issuer}|${user.subject}`);
+      return reply.header("cache-control", "no-store").send({ projects });
+    } catch {
+      return reply.code(503).send(errorBody(request.id, "PROJECTS_UNAVAILABLE", "Daftar proyek belum dapat dimuat.", true));
+    }
+  });
+
+  app.post("/api/projects", async (request, reply) => {
+    if (!originAllowed(request.headers.origin)) return reply.code(403).send(errorBody(request.id, "CSRF_REJECTED", "Asal permintaan tidak diizinkan."));
+    const user = (request.session as SessionAccess).get("user") as AuthUser | undefined;
+    if (!user) return reply.code(401).send(errorBody(request.id, "UNAUTHENTICATED", "Silakan masuk untuk membuat proyek."));
+    if (!options.projects) return reply.code(503).send(errorBody(request.id, "DATABASE_NOT_CONFIGURED", "Penyimpanan proyek belum siap.", true));
+    const parsed = z.strictObject({ title: z.string().trim().min(1).max(120) }).safeParse(request.body);
+    if (!parsed.success) return reply.code(422).send({
+      error: { code: "VALIDATION_ERROR", message: "Periksa nama proyek.", retryable: false, requestId: request.id, fieldErrors: parsed.error.issues.map((issue) => ({ path: issue.path, message: issue.message })) },
+    });
+    try {
+      const project = await options.projects.createProject(`${user.issuer}|${user.subject}`, parsed.data.title);
+      return reply.code(201).header("cache-control", "no-store").header("etag", `\"${project.id}\"`).send({ project });
+    } catch (error) {
+      if (error instanceof AccessDeniedError) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Proyek atau workspace tidak ditemukan."));
+      return reply.code(503).send(errorBody(request.id, "PROJECT_CREATE_FAILED", "Proyek belum dapat disimpan.", true));
+    }
   });
 
   app.setNotFoundHandler((request, reply) => {

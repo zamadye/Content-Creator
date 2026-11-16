@@ -3,15 +3,23 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "exports": { ".": { "types": "./src/index.ts", "import": "./dist/index.js" } },
   "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "tsc --noEmit -p tsconfig.json",
     "db:validate": "prisma validate --schema prisma/schema.prisma",
     "db:generate": "prisma generate --schema prisma/schema.prisma",
     "db:migrate": "prisma migrate deploy --schema prisma/schema.prisma"
   },
   "dependencies": {
-    "@prisma/client": "6.19.0"
+    "@prisma/client": "6.19.0",
+    "pg": "8.16.3"
   },
   "devDependencies": {
-    "prisma": "6.19.0"
+    "prisma": "6.19.0",
+    "@types/node": "22.19.11",
+    "@types/pg": "8.23.1",
+    "typescript": "5.9.3"
   }
 }

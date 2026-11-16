@@ -105,7 +105,8 @@ export async function createApp(options: AppOptions): Promise<FastifyInstance> {
     const stored = (request.session as SessionAccess).get("oidc") as SessionState["oidc"];
     if (!stored) return reply.code(400).send(errorBody(request.id, "LOGIN_STATE_MISSING", "Sesi login kedaluwarsa. Silakan mulai lagi."));
     try {
-      const currentUrl = new URL(request.url, options.oidc.redirectUri);
+      const currentUrl = new URL(options.oidc.redirectUri);
+      currentUrl.search = new URL(request.url, options.oidc.redirectUri).search;
       const tokens = await authorizationCodeGrant(oidc, currentUrl, {
         pkceCodeVerifier: stored.verifier,
         expectedState: stored.state,

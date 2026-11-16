@@ -17,6 +17,10 @@
     "api:dev": "corepack pnpm --filter @content-studio/api dev",
     "db:validate": "corepack pnpm --filter @content-studio/db db:validate",
     "db:generate": "corepack pnpm --filter @content-studio/db db:generate",
-    "db:migrate": "corepack pnpm --filter @content-studio/db db:migrate"
+    "db:migrate": "corepack pnpm --filter @content-studio/db db:migrate",
+    "dev": "corepack pnpm --filter @content-studio/db build && concurrently --kill-others-on-fail \"corepack pnpm --filter @content-studio/api dev\" \"corepack pnpm --filter @content-studio/web dev\""
+  },
+  "devDependencies": {
+    "concurrently": "9.2.1"
   }
 }

@@ -1,14 +1,14 @@
 .venv/
 node_modules/
-.jalan-pulang-tools/
-jalan-pulang/assets/
-jalan-pulang/render/
+.studio-tools/
+studio/assets/
+studio/render/
 google_drive/
-jalan-pulang/public/vo/
+studio/public/vo/
 # Generated bundles, intermediate videos and locally rendered deliverables
-jalan-pulang/build/
-jalan-pulang/dist/
-jalan-pulang/deliverables/
+studio/build/
+studio/dist/
+studio/deliverables/
 # Python bytecode from studio-forge
 __pycache__/
 *.pyc

@@ -1,0 +1,3973 @@
+{
+ "schema": "studio.library/1",
+ "note": "Properti CC0 dari Kenney. Karakter tetap dibuat pipeline sendiri.",
+ "license": "CC0-1.0",
+ "source": "https://github.com/shorepine/kenney",
+ "count": 102,
+ "props": [
+  {
+   "id": "kenney.food.bottle-ketchup",
+   "kit": "food",
+   "name": "bottle-ketchup",
+   "title": "food · bottle-ketchup",
+   "path": "library/food/bottle-ketchup.glb",
+   "thumbnail": "library/food/bottle-ketchup.png",
+   "tris": 96,
+   "verts": 156,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.032,
+     0.0,
+     -0.037
+    ],
+    "max": [
+     0.032,
+     0.177,
+     0.037
+    ],
+    "size": [
+     0.065,
+     0.177,
+     0.075
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/bottle-ketchup"
+  },
+  {
+   "id": "kenney.food.bottle-oil",
+   "kit": "food",
+   "name": "bottle-oil",
+   "title": "food · bottle-oil",
+   "path": "library/food/bottle-oil.glb",
+   "thumbnail": "library/food/bottle-oil.png",
+   "tris": 96,
+   "verts": 176,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.032,
+     0.0,
+     -0.032
+    ],
+    "max": [
+     0.032,
+     0.28,
+     0.032
+    ],
+    "size": [
+     0.063,
+     0.28,
+     0.063
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/bottle-oil"
+  },
+  {
+   "id": "kenney.food.bowl",
+   "kit": "food",
+   "name": "bowl",
+   "title": "food · bowl",
+   "path": "library/food/bowl.glb",
+   "thumbnail": "library/food/bowl.png",
+   "tris": 84,
+   "verts": 90,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.113,
+     0.0,
+     -0.13
+    ],
+    "max": [
+     0.113,
+     0.096,
+     0.13
+    ],
+    "size": [
+     0.226,
+     0.096,
+     0.261
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/bowl"
+  },
+  {
+   "id": "kenney.food.bowl-cereal",
+   "kit": "food",
+   "name": "bowl-cereal",
+   "title": "food · bowl-cereal",
+   "path": "library/food/bowl-cereal.glb",
+   "thumbnail": "library/food/bowl-cereal.png",
+   "tris": 120,
+   "verts": 214,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.113,
+     0.0,
+     -0.143
+    ],
+    "max": [
+     0.113,
+     0.189,
+     0.143
+    ],
+    "size": [
+     0.226,
+     0.189,
+     0.286
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     -0.012
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/bowl-cereal"
+  },
+  {
+   "id": "kenney.food.bowl-soup",
+   "kit": "food",
+   "name": "bowl-soup",
+   "title": "food · bowl-soup",
+   "path": "library/food/bowl-soup.glb",
+   "thumbnail": "library/food/bowl-soup.png",
+   "tris": 132,
+   "verts": 188,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.113,
+     0.0,
+     -0.13
+    ],
+    "max": [
+     0.113,
+     0.096,
+     0.13
+    ],
+    "size": [
+     0.226,
+     0.096,
+     0.261
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/bowl-soup"
+  },
+  {
+   "id": "kenney.food.bread",
+   "kit": "food",
+   "name": "bread",
+   "title": "food · bread",
+   "path": "library/food/bread.glb",
+   "thumbnail": "library/food/bread.png",
+   "tris": 116,
+   "verts": 154,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.1,
+     0.0,
+     -0.082
+    ],
+    "max": [
+     0.1,
+     0.018,
+     0.082
+    ],
+    "size": [
+     0.199,
+     0.018,
+     0.165
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/bread"
+  },
+  {
+   "id": "kenney.food.burger",
+   "kit": "food",
+   "name": "burger",
+   "title": "food · burger",
+   "path": "library/food/burger.glb",
+   "thumbnail": "library/food/burger.png",
+   "tris": 294,
+   "verts": 524,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.091,
+     0.0,
+     -0.091
+    ],
+    "max": [
+     0.091,
+     0.131,
+     0.091
+    ],
+    "size": [
+     0.182,
+     0.131,
+     0.182
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/burger"
+  },
+  {
+   "id": "kenney.food.can",
+   "kit": "food",
+   "name": "can",
+   "title": "food · can",
+   "path": "library/food/can.glb",
+   "thumbnail": "library/food/can.png",
+   "tris": 156,
+   "verts": 240,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.068,
+     0.0,
+     -0.068
+    ],
+    "max": [
+     0.068,
+     0.144,
+     0.068
+    ],
+    "size": [
+     0.135,
+     0.144,
+     0.135
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/can"
+  },
+  {
+   "id": "kenney.food.can-small",
+   "kit": "food",
+   "name": "can-small",
+   "title": "food · can-small",
+   "path": "library/food/can-small.glb",
+   "thumbnail": "library/food/can-small.png",
+   "tris": 154,
+   "verts": 258,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.068,
+     0.0,
+     -0.068
+    ],
+    "max": [
+     0.068,
+     0.073,
+     0.068
+    ],
+    "size": [
+     0.135,
+     0.073,
+     0.135
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/can-small"
+  },
+  {
+   "id": "kenney.food.cup-coffee",
+   "kit": "food",
+   "name": "cup-coffee",
+   "title": "food · cup-coffee",
+   "path": "library/food/cup-coffee.glb",
+   "thumbnail": "library/food/cup-coffee.png",
+   "tris": 108,
+   "verts": 120,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.049,
+     0.0,
+     -0.064
+    ],
+    "max": [
+     0.049,
+     0.063,
+     0.064
+    ],
+    "size": [
+     0.097,
+     0.063,
+     0.129
+    ],
+    "pivot_shift": [
+     0.0,
+     -0.0,
+     -0.009
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/cup-coffee"
+  },
+  {
+   "id": "kenney.food.cup-tea",
+   "kit": "food",
+   "name": "cup-tea",
+   "title": "food · cup-tea",
+   "path": "library/food/cup-tea.glb",
+   "thumbnail": "library/food/cup-tea.png",
+   "tris": 144,
+   "verts": 158,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.053,
+     0.0,
+     -0.066
+    ],
+    "max": [
+     0.053,
+     0.09,
+     0.066
+    ],
+    "size": [
+     0.107,
+     0.09,
+     0.131
+    ],
+    "pivot_shift": [
+     0.002,
+     0.0,
+     -0.014
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/cup-tea"
+  },
+  {
+   "id": "kenney.food.cutting-board",
+   "kit": "food",
+   "name": "cutting-board",
+   "title": "food · cutting-board",
+   "path": "library/food/cutting-board.glb",
+   "thumbnail": "library/food/cutting-board.png",
+   "tris": 120,
+   "verts": 178,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.13,
+     0.0,
+     -0.185
+    ],
+    "max": [
+     0.13,
+     0.027,
+     0.185
+    ],
+    "size": [
+     0.261,
+     0.027,
+     0.369
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/cutting-board"
+  },
+  {
+   "id": "kenney.food.fries",
+   "kit": "food",
+   "name": "fries",
+   "title": "food · fries",
+   "path": "library/food/fries.glb",
+   "thumbnail": "library/food/fries.png",
+   "tris": 564,
+   "verts": 1104,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.041,
+     0.0,
+     -0.06
+    ],
+    "max": [
+     0.041,
+     0.179,
+     0.06
+    ],
+    "size": [
+     0.082,
+     0.179,
+     0.119
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/fries"
+  },
+  {
+   "id": "kenney.food.mug",
+   "kit": "food",
+   "name": "mug",
+   "title": "food · mug",
+   "path": "library/food/mug.glb",
+   "thumbnail": "library/food/mug.png",
+   "tris": 232,
+   "verts": 356,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.077,
+     0.0,
+     -0.064
+    ],
+    "max": [
+     0.077,
+     0.123,
+     0.064
+    ],
+    "size": [
+     0.155,
+     0.123,
+     0.128
+    ],
+    "pivot_shift": [
+     0.022,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/mug"
+  },
+  {
+   "id": "kenney.food.plate",
+   "kit": "food",
+   "name": "plate",
+   "title": "food · plate",
+   "path": "library/food/plate.glb",
+   "thumbnail": "library/food/plate.png",
+   "tris": 140,
+   "verts": 132,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.201,
+     0.0,
+     -0.201
+    ],
+    "max": [
+     0.201,
+     0.04,
+     0.201
+    ],
+    "size": [
+     0.401,
+     0.04,
+     0.401
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:food/plate"
+  },
+  {
+   "id": "kenney.furniture.bathroomSink",
+   "kit": "furniture",
+   "name": "bathroomSink",
+   "title": "furniture · bathroomSink",
+   "path": "library/furniture/bathroomSink.glb",
+   "thumbnail": "library/furniture/bathroomSink.png",
+   "tris": 316,
+   "verts": 1545,
+   "materials": [
+    "_defaultMat",
+    "carpetWhite",
+    "metalLight"
+   ],
+   "bounds": {
+    "min": [
+     -0.272,
+     0.0,
+     -0.232
+    ],
+    "max": [
+     0.272,
+     0.896,
+     0.232
+    ],
+    "size": [
+     0.544,
+     0.896,
+     0.464
+    ],
+    "pivot_shift": [
+     0.272,
+     -0.64,
+     -0.232
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/bathroomSink"
+  },
+  {
+   "id": "kenney.furniture.bathtub",
+   "kit": "furniture",
+   "name": "bathtub",
+   "title": "furniture · bathtub",
+   "path": "library/furniture/bathtub.glb",
+   "thumbnail": "library/furniture/bathtub.png",
+   "tris": 602,
+   "verts": 2436,
+   "materials": [
+    "carpetWhite",
+    "metalDark",
+    "metalLight"
+   ],
+   "bounds": {
+    "min": [
+     -0.952,
+     0.0,
+     -0.448
+    ],
+    "max": [
+     0.952,
+     0.672,
+     0.448
+    ],
+    "size": [
+     1.904,
+     0.672,
+     0.896
+    ],
+    "pivot_shift": [
+     0.952,
+     -0.0,
+     -0.448
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/bathtub"
+  },
+  {
+   "id": "kenney.furniture.bedBunk",
+   "kit": "furniture",
+   "name": "bedBunk",
+   "title": "furniture · bedBunk",
+   "path": "library/furniture/bedBunk.glb",
+   "thumbnail": "library/furniture/bedBunk.png",
+   "tris": 580,
+   "verts": 1512,
+   "materials": [
+    "carpet",
+    "carpetWhite",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.457,
+     0.0,
+     -0.876
+    ],
+    "max": [
+     0.457,
+     1.36,
+     0.876
+    ],
+    "size": [
+     0.914,
+     1.36,
+     1.752
+    ],
+    "pivot_shift": [
+     0.457,
+     0.0,
+     -0.876
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/bedBunk"
+  },
+  {
+   "id": "kenney.furniture.bedDouble",
+   "kit": "furniture",
+   "name": "bedDouble",
+   "title": "furniture · bedDouble",
+   "path": "library/furniture/bedDouble.glb",
+   "thumbnail": "library/furniture/bedDouble.png",
+   "tris": 264,
+   "verts": 866,
+   "materials": [
+    "carpet",
+    "carpetWhite",
+    "metal",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.765,
+     0.0,
+     -0.9
+    ],
+    "max": [
+     0.765,
+     0.6,
+     0.9
+    ],
+    "size": [
+     1.53,
+     0.6,
+     1.8
+    ],
+    "pivot_shift": [
+     0.765,
+     0.0,
+     -0.9
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/bedDouble"
+  },
+  {
+   "id": "kenney.furniture.bedSingle",
+   "kit": "furniture",
+   "name": "bedSingle",
+   "title": "furniture · bedSingle",
+   "path": "library/furniture/bedSingle.glb",
+   "thumbnail": "library/furniture/bedSingle.png",
+   "tris": 214,
+   "verts": 768,
+   "materials": [
+    "carpet",
+    "carpetWhite",
+    "metal",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.457,
+     0.0,
+     -0.9
+    ],
+    "max": [
+     0.457,
+     0.6,
+     0.9
+    ],
+    "size": [
+     0.914,
+     0.6,
+     1.8
+    ],
+    "pivot_shift": [
+     1.073,
+     0.0,
+     -0.9
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/bedSingle"
+  },
+  {
+   "id": "kenney.furniture.bench",
+   "kit": "furniture",
+   "name": "bench",
+   "title": "furniture · bench",
+   "path": "library/furniture/bench.glb",
+   "thumbnail": "library/furniture/bench.png",
+   "tris": 170,
+   "verts": 230,
+   "materials": [
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.32,
+     0.0,
+     -0.16
+    ],
+    "max": [
+     0.32,
+     0.752,
+     0.16
+    ],
+    "size": [
+     0.64,
+     0.752,
+     0.32
+    ],
+    "pivot_shift": [
+     0.32,
+     0.0,
+     -0.16
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/bench"
+  },
+  {
+   "id": "kenney.furniture.bookcaseClosed",
+   "kit": "furniture",
+   "name": "bookcaseClosed",
+   "title": "furniture · bookcaseClosed",
+   "path": "library/furniture/bookcaseClosed.glb",
+   "thumbnail": "library/furniture/bookcaseClosed.png",
+   "tris": 372,
+   "verts": 540,
+   "materials": [
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.32,
+     0.0,
+     -0.2
+    ],
+    "max": [
+     0.32,
+     1.36,
+     0.2
+    ],
+    "size": [
+     0.64,
+     1.36,
+     0.4
+    ],
+    "pivot_shift": [
+     0.32,
+     0.0,
+     -0.2
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/bookcaseClosed"
+  },
+  {
+   "id": "kenney.furniture.bookcaseClosedWide",
+   "kit": "furniture",
+   "name": "bookcaseClosedWide",
+   "title": "furniture · bookcaseClosedWide",
+   "path": "library/furniture/bookcaseClosedWide.glb",
+   "thumbnail": "library/furniture/bookcaseClosedWide.png",
+   "tris": 372,
+   "verts": 540,
+   "materials": [
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.64,
+     0.0,
+     -0.2
+    ],
+    "max": [
+     0.64,
+     1.264,
+     0.2
+    ],
+    "size": [
+     1.28,
+     1.264,
+     0.4
+    ],
+    "pivot_shift": [
+     0.64,
+     0.0,
+     -0.2
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/bookcaseClosedWide"
+  },
+  {
+   "id": "kenney.furniture.bookcaseOpen",
+   "kit": "furniture",
+   "name": "bookcaseOpen",
+   "title": "furniture · bookcaseOpen",
+   "path": "library/furniture/bookcaseOpen.glb",
+   "thumbnail": "library/furniture/bookcaseOpen.png",
+   "tris": 320,
+   "verts": 400,
+   "materials": [
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.32,
+     0.0,
+     -0.2
+    ],
+    "max": [
+     0.32,
+     1.408,
+     0.2
+    ],
+    "size": [
+     0.64,
+     1.408,
+     0.4
+    ],
+    "pivot_shift": [
+     0.32,
+     0.0,
+     -0.2
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/bookcaseOpen"
+  },
+  {
+   "id": "kenney.furniture.books",
+   "kit": "furniture",
+   "name": "books",
+   "title": "furniture · books",
+   "path": "library/furniture/books.glb",
+   "thumbnail": "library/furniture/books.png",
+   "tris": 62,
+   "verts": 424,
+   "materials": [
+    "carpetDarker",
+    "carpetWhite",
+    "metal",
+    "plant"
+   ],
+   "bounds": {
+    "min": [
+     -0.12,
+     0.0,
+     -0.076
+    ],
+    "max": [
+     0.12,
+     0.166,
+     0.076
+    ],
+    "size": [
+     0.241,
+     0.166,
+     0.151
+    ],
+    "pivot_shift": [
+     0.12,
+     0.0,
+     -0.076
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/books"
+  },
+  {
+   "id": "kenney.furniture.cabinetTelevision",
+   "kit": "furniture",
+   "name": "cabinetTelevision",
+   "title": "furniture · cabinetTelevision",
+   "path": "library/furniture/cabinetTelevision.glb",
+   "thumbnail": "library/furniture/cabinetTelevision.png",
+   "tris": 154,
+   "verts": 228,
+   "materials": [
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.64,
+     0.0,
+     -0.2
+    ],
+    "max": [
+     0.64,
+     0.496,
+     0.2
+    ],
+    "size": [
+     1.28,
+     0.496,
+     0.4
+    ],
+    "pivot_shift": [
+     0.64,
+     0.0,
+     -0.2
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/cabinetTelevision"
+  },
+  {
+   "id": "kenney.furniture.cardboardBoxClosed",
+   "kit": "furniture",
+   "name": "cardboardBoxClosed",
+   "title": "furniture · cardboardBoxClosed",
+   "path": "library/furniture/cardboardBoxClosed.glb",
+   "thumbnail": "library/furniture/cardboardBoxClosed.png",
+   "tris": 60,
+   "verts": 176,
+   "materials": [
+    "wood",
+    "woodDark"
+   ],
+   "bounds": {
+    "min": [
+     -0.17,
+     0.0,
+     -0.17
+    ],
+    "max": [
+     0.17,
+     0.45,
+     0.17
+    ],
+    "size": [
+     0.34,
+     0.45,
+     0.34
+    ],
+    "pivot_shift": [
+     0.17,
+     0.0,
+     -0.17
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/cardboardBoxClosed"
+  },
+  {
+   "id": "kenney.furniture.cardboardBoxOpen",
+   "kit": "furniture",
+   "name": "cardboardBoxOpen",
+   "title": "furniture · cardboardBoxOpen",
+   "path": "library/furniture/cardboardBoxOpen.glb",
+   "thumbnail": "library/furniture/cardboardBoxOpen.png",
+   "tris": 60,
+   "verts": 176,
+   "materials": [
+    "wood",
+    "woodDark"
+   ],
+   "bounds": {
+    "min": [
+     -0.297,
+     0.0,
+     -0.17
+    ],
+    "max": [
+     0.297,
+     0.45,
+     0.17
+    ],
+    "size": [
+     0.595,
+     0.45,
+     0.34
+    ],
+    "pivot_shift": [
+     0.17,
+     0.0,
+     -0.17
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/cardboardBoxOpen"
+  },
+  {
+   "id": "kenney.furniture.chair",
+   "kit": "furniture",
+   "name": "chair",
+   "title": "furniture · chair",
+   "path": "library/furniture/chair.glb",
+   "thumbnail": "library/furniture/chair.png",
+   "tris": 170,
+   "verts": 230,
+   "materials": [
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.16,
+     0.0,
+     -0.16
+    ],
+    "max": [
+     0.16,
+     0.752,
+     0.16
+    ],
+    "size": [
+     0.32,
+     0.752,
+     0.32
+    ],
+    "pivot_shift": [
+     0.16,
+     0.0,
+     -0.16
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/chair"
+  },
+  {
+   "id": "kenney.furniture.chairDesk",
+   "kit": "furniture",
+   "name": "chairDesk",
+   "title": "furniture · chairDesk",
+   "path": "library/furniture/chairDesk.glb",
+   "thumbnail": "library/furniture/chairDesk.png",
+   "tris": 588,
+   "verts": 1698,
+   "materials": [
+    "carpet",
+    "metalMedium"
+   ],
+   "bounds": {
+    "min": [
+     -0.268,
+     0.0,
+     -0.251
+    ],
+    "max": [
+     0.268,
+     0.972,
+     0.251
+    ],
+    "size": [
+     0.536,
+     0.972,
+     0.503
+    ],
+    "pivot_shift": [
+     0.268,
+     0.0,
+     -0.251
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/chairDesk"
+  },
+  {
+   "id": "kenney.furniture.chairRounded",
+   "kit": "furniture",
+   "name": "chairRounded",
+   "title": "furniture · chairRounded",
+   "path": "library/furniture/chairRounded.glb",
+   "thumbnail": "library/furniture/chairRounded.png",
+   "tris": 280,
+   "verts": 388,
+   "materials": [
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.16,
+     0.0,
+     -0.16
+    ],
+    "max": [
+     0.16,
+     0.728,
+     0.16
+    ],
+    "size": [
+     0.32,
+     0.728,
+     0.32
+    ],
+    "pivot_shift": [
+     0.16,
+     0.0,
+     -0.16
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/chairRounded"
+  },
+  {
+   "id": "kenney.furniture.coatRack",
+   "kit": "furniture",
+   "name": "coatRack",
+   "title": "furniture · coatRack",
+   "path": "library/furniture/coatRack.glb",
+   "thumbnail": "library/furniture/coatRack.png",
+   "tris": 132,
+   "verts": 408,
+   "materials": [
+    "metalMedium",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.358,
+     0.0,
+     -0.108
+    ],
+    "max": [
+     0.358,
+     0.448,
+     0.108
+    ],
+    "size": [
+     0.717,
+     0.448,
+     0.215
+    ],
+    "pivot_shift": [
+     0.358,
+     0.0,
+     -0.108
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/coatRack"
+  },
+  {
+   "id": "kenney.furniture.desk",
+   "kit": "furniture",
+   "name": "desk",
+   "title": "furniture · desk",
+   "path": "library/furniture/desk.glb",
+   "thumbnail": "library/furniture/desk.png",
+   "tris": 198,
+   "verts": 380,
+   "materials": [
+    "metal",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.588,
+     0.0,
+     -0.314
+    ],
+    "max": [
+     0.588,
+     0.615,
+     0.314
+    ],
+    "size": [
+     1.175,
+     0.615,
+     0.628
+    ],
+    "pivot_shift": [
+     0.572,
+     0.0,
+     -0.294
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/desk"
+  },
+  {
+   "id": "kenney.furniture.deskCorner",
+   "kit": "furniture",
+   "name": "deskCorner",
+   "title": "furniture · deskCorner",
+   "path": "library/furniture/deskCorner.glb",
+   "thumbnail": "library/furniture/deskCorner.png",
+   "tris": 250,
+   "verts": 452,
+   "materials": [
+    "metal",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.78,
+     0.0,
+     -0.78
+    ],
+    "max": [
+     0.78,
+     0.615,
+     0.78
+    ],
+    "size": [
+     1.559,
+     0.615,
+     1.559
+    ],
+    "pivot_shift": [
+     0.78,
+     0.0,
+     -0.78
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/deskCorner"
+  },
+  {
+   "id": "kenney.furniture.doorwayFront",
+   "kit": "furniture",
+   "name": "doorwayFront",
+   "title": "furniture · doorwayFront",
+   "path": "library/furniture/doorwayFront.glb",
+   "thumbnail": "library/furniture/doorwayFront.png",
+   "tris": 156,
+   "verts": 624,
+   "materials": [
+    "carpetWhite",
+    "glass",
+    "metal",
+    "metalDark"
+   ],
+   "bounds": {
+    "min": [
+     -0.389,
+     0.0,
+     -0.091
+    ],
+    "max": [
+     0.389,
+     1.615,
+     0.091
+    ],
+    "size": [
+     0.778,
+     1.615,
+     0.181
+    ],
+    "pivot_shift": [
+     0.389,
+     0.0,
+     -0.071
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/doorwayFront"
+  },
+  {
+   "id": "kenney.furniture.doorwayOpen",
+   "kit": "furniture",
+   "name": "doorwayOpen",
+   "title": "furniture · doorwayOpen",
+   "path": "library/furniture/doorwayOpen.glb",
+   "thumbnail": "library/furniture/doorwayOpen.png",
+   "tris": 28,
+   "verts": 48,
+   "materials": [
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.389,
+     0.0,
+     -0.071
+    ],
+    "max": [
+     0.389,
+     1.615,
+     0.071
+    ],
+    "size": [
+     0.778,
+     1.615,
+     0.143
+    ],
+    "pivot_shift": [
+     0.389,
+     0.0,
+     -0.071
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/doorwayOpen"
+  },
+  {
+   "id": "kenney.furniture.floorFull",
+   "kit": "furniture",
+   "name": "floorFull",
+   "title": "furniture · floorFull",
+   "path": "library/furniture/floorFull.glb",
+   "thumbnail": "library/furniture/floorFull.png",
+   "tris": 12,
+   "verts": 24,
+   "materials": [
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.8,
+     0.0,
+     -0.8
+    ],
+    "max": [
+     0.8,
+     0.08,
+     0.8
+    ],
+    "size": [
+     1.6,
+     0.08,
+     1.6
+    ],
+    "pivot_shift": [
+     0.8,
+     0.0,
+     -0.8
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/floorFull"
+  },
+  {
+   "id": "kenney.furniture.kitchenBar",
+   "kit": "furniture",
+   "name": "kitchenBar",
+   "title": "furniture · kitchenBar",
+   "path": "library/furniture/kitchenBar.glb",
+   "thumbnail": "library/furniture/kitchenBar.png",
+   "tris": 76,
+   "verts": 264,
+   "materials": [
+    "metal",
+    "wood",
+    "woodDark"
+   ],
+   "bounds": {
+    "min": [
+     -0.344,
+     0.0,
+     -0.168
+    ],
+    "max": [
+     0.344,
+     0.672,
+     0.168
+    ],
+    "size": [
+     0.688,
+     0.672,
+     0.336
+    ],
+    "pivot_shift": [
+     0.344,
+     0.0,
+     -0.168
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/kitchenBar"
+  },
+  {
+   "id": "kenney.furniture.kitchenCabinet",
+   "kit": "furniture",
+   "name": "kitchenCabinet",
+   "title": "furniture · kitchenCabinet",
+   "path": "library/furniture/kitchenCabinet.glb",
+   "thumbnail": "library/furniture/kitchenCabinet.png",
+   "tris": 114,
+   "verts": 406,
+   "materials": [
+    "metal",
+    "wood",
+    "woodDark"
+   ],
+   "bounds": {
+    "min": [
+     -0.344,
+     0.0,
+     -0.36
+    ],
+    "max": [
+     0.344,
+     0.72,
+     0.36
+    ],
+    "size": [
+     0.688,
+     0.72,
+     0.72
+    ],
+    "pivot_shift": [
+     0.344,
+     0.0,
+     -0.36
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/kitchenCabinet"
+  },
+  {
+   "id": "kenney.furniture.kitchenFridge",
+   "kit": "furniture",
+   "name": "kitchenFridge",
+   "title": "furniture · kitchenFridge",
+   "path": "library/furniture/kitchenFridge.glb",
+   "thumbnail": "library/furniture/kitchenFridge.png",
+   "tris": 250,
+   "verts": 976,
+   "materials": [
+    "glass",
+    "metal",
+    "metalDark",
+    "metalLight"
+   ],
+   "bounds": {
+    "min": [
+     -0.344,
+     0.0,
+     -0.234
+    ],
+    "max": [
+     0.344,
+     1.472,
+     0.234
+    ],
+    "size": [
+     0.688,
+     1.472,
+     0.467
+    ],
+    "pivot_shift": [
+     0.344,
+     0.0,
+     -0.218
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/kitchenFridge"
+  },
+  {
+   "id": "kenney.furniture.kitchenSink",
+   "kit": "furniture",
+   "name": "kitchenSink",
+   "title": "furniture · kitchenSink",
+   "path": "library/furniture/kitchenSink.glb",
+   "thumbnail": "library/furniture/kitchenSink.png",
+   "tris": 318,
+   "verts": 2194,
+   "materials": [
+    "_defaultMat",
+    "metal",
+    "metalDark",
+    "metalLight",
+    "wood",
+    "woodDark"
+   ],
+   "bounds": {
+    "min": [
+     -0.344,
+     0.0,
+     -0.36
+    ],
+    "max": [
+     0.344,
+     0.784,
+     0.36
+    ],
+    "size": [
+     0.688,
+     0.784,
+     0.72
+    ],
+    "pivot_shift": [
+     0.344,
+     0.0,
+     -0.36
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/kitchenSink"
+  },
+  {
+   "id": "kenney.furniture.kitchenStove",
+   "kit": "furniture",
+   "name": "kitchenStove",
+   "title": "furniture · kitchenStove",
+   "path": "library/furniture/kitchenStove.glb",
+   "thumbnail": "library/furniture/kitchenStove.png",
+   "tris": 830,
+   "verts": 4860,
+   "materials": [
+    "carpetWhite",
+    "glass",
+    "metal",
+    "metalDark",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.344,
+     0.0,
+     -0.36
+    ],
+    "max": [
+     0.344,
+     0.72,
+     0.36
+    ],
+    "size": [
+     0.688,
+     0.72,
+     0.72
+    ],
+    "pivot_shift": [
+     0.344,
+     0.0,
+     -0.36
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/kitchenStove"
+  },
+  {
+   "id": "kenney.furniture.lampRoundFloor",
+   "kit": "furniture",
+   "name": "lampRoundFloor",
+   "title": "furniture · lampRoundFloor",
+   "path": "library/furniture/lampRoundFloor.glb",
+   "thumbnail": "library/furniture/lampRoundFloor.png",
+   "tris": 76,
+   "verts": 240,
+   "materials": [
+    "lamp",
+    "metal"
+   ],
+   "bounds": {
+    "min": [
+     -0.122,
+     0.0,
+     -0.14
+    ],
+    "max": [
+     0.122,
+     1.376,
+     0.14
+    ],
+    "size": [
+     0.243,
+     1.376,
+     0.281
+    ],
+    "pivot_shift": [
+     0.096,
+     0.0,
+     -0.096
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/lampRoundFloor"
+  },
+  {
+   "id": "kenney.furniture.lampRoundTable",
+   "kit": "furniture",
+   "name": "lampRoundTable",
+   "title": "furniture · lampRoundTable",
+   "path": "library/furniture/lampRoundTable.glb",
+   "thumbnail": "library/furniture/lampRoundTable.png",
+   "tris": 76,
+   "verts": 240,
+   "materials": [
+    "lamp",
+    "metal"
+   ],
+   "bounds": {
+    "min": [
+     -0.122,
+     0.0,
+     -0.14
+    ],
+    "max": [
+     0.122,
+     0.503,
+     0.14
+    ],
+    "size": [
+     0.243,
+     0.503,
+     0.281
+    ],
+    "pivot_shift": [
+     0.096,
+     0.0,
+     -0.096
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/lampRoundTable"
+  },
+  {
+   "id": "kenney.furniture.lampSquareFloor",
+   "kit": "furniture",
+   "name": "lampSquareFloor",
+   "title": "furniture · lampSquareFloor",
+   "path": "library/furniture/lampSquareFloor.glb",
+   "thumbnail": "library/furniture/lampSquareFloor.png",
+   "tris": 60,
+   "verts": 192,
+   "materials": [
+    "lamp",
+    "metal"
+   ],
+   "bounds": {
+    "min": [
+     -0.096,
+     0.0,
+     -0.096
+    ],
+    "max": [
+     0.096,
+     1.376,
+     0.096
+    ],
+    "size": [
+     0.192,
+     1.376,
+     0.192
+    ],
+    "pivot_shift": [
+     0.096,
+     0.0,
+     -0.096
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/lampSquareFloor"
+  },
+  {
+   "id": "kenney.furniture.loungeChair",
+   "kit": "furniture",
+   "name": "loungeChair",
+   "title": "furniture · loungeChair",
+   "path": "library/furniture/loungeChair.glb",
+   "thumbnail": "library/furniture/loungeChair.png",
+   "tris": 128,
+   "verts": 392,
+   "materials": [
+    "carpet",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.392,
+     0.0,
+     -0.328
+    ],
+    "max": [
+     0.392,
+     0.736,
+     0.328
+    ],
+    "size": [
+     0.784,
+     0.736,
+     0.656
+    ],
+    "pivot_shift": [
+     0.392,
+     0.0,
+     -0.328
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/loungeChair"
+  },
+  {
+   "id": "kenney.furniture.loungeSofa",
+   "kit": "furniture",
+   "name": "loungeSofa",
+   "title": "furniture · loungeSofa",
+   "path": "library/furniture/loungeSofa.glb",
+   "thumbnail": "library/furniture/loungeSofa.png",
+   "tris": 128,
+   "verts": 392,
+   "materials": [
+    "carpet",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.784,
+     0.0,
+     -0.328
+    ],
+    "max": [
+     0.784,
+     0.736,
+     0.328
+    ],
+    "size": [
+     1.568,
+     0.736,
+     0.656
+    ],
+    "pivot_shift": [
+     0.784,
+     0.0,
+     -0.328
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/loungeSofa"
+  },
+  {
+   "id": "kenney.furniture.pillow",
+   "kit": "furniture",
+   "name": "pillow",
+   "title": "furniture · pillow",
+   "path": "library/furniture/pillow.glb",
+   "thumbnail": "library/furniture/pillow.png",
+   "tris": 50,
+   "verts": 96,
+   "materials": [
+    "carpet"
+   ],
+   "bounds": {
+    "min": [
+     -0.184,
+     0.0,
+     -0.071
+    ],
+    "max": [
+     0.184,
+     0.355,
+     0.071
+    ],
+    "size": [
+     0.368,
+     0.355,
+     0.142
+    ],
+    "pivot_shift": [
+     0.184,
+     0.0,
+     -0.071
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/pillow"
+  },
+  {
+   "id": "kenney.furniture.plantSmall1",
+   "kit": "furniture",
+   "name": "plantSmall1",
+   "title": "furniture · plantSmall1",
+   "path": "library/furniture/plantSmall1.glb",
+   "thumbnail": "library/furniture/plantSmall1.png",
+   "tris": 102,
+   "verts": 320,
+   "materials": [
+    "plant",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.076,
+     0.0,
+     -0.076
+    ],
+    "max": [
+     0.076,
+     0.224,
+     0.076
+    ],
+    "size": [
+     0.151,
+     0.224,
+     0.151
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/plantSmall1"
+  },
+  {
+   "id": "kenney.furniture.plantSmall2",
+   "kit": "furniture",
+   "name": "plantSmall2",
+   "title": "furniture · plantSmall2",
+   "path": "library/furniture/plantSmall2.glb",
+   "thumbnail": "library/furniture/plantSmall2.png",
+   "tris": 158,
+   "verts": 576,
+   "materials": [
+    "plant",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.076,
+     0.0,
+     -0.076
+    ],
+    "max": [
+     0.076,
+     0.224,
+     0.076
+    ],
+    "size": [
+     0.151,
+     0.224,
+     0.151
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/plantSmall2"
+  },
+  {
+   "id": "kenney.furniture.pottedPlant",
+   "kit": "furniture",
+   "name": "pottedPlant",
+   "title": "furniture · pottedPlant",
+   "path": "library/furniture/pottedPlant.glb",
+   "thumbnail": "library/furniture/pottedPlant.png",
+   "tris": 60,
+   "verts": 192,
+   "materials": [
+    "plant",
+    "wood",
+    "woodDark"
+   ],
+   "bounds": {
+    "min": [
+     -0.17,
+     0.0,
+     -0.193
+    ],
+    "max": [
+     0.17,
+     1.046,
+     0.193
+    ],
+    "size": [
+     0.339,
+     1.046,
+     0.386
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/pottedPlant"
+  },
+  {
+   "id": "kenney.furniture.radio",
+   "kit": "furniture",
+   "name": "radio",
+   "title": "furniture · radio",
+   "path": "library/furniture/radio.glb",
+   "thumbnail": "library/furniture/radio.png",
+   "tris": 432,
+   "verts": 1644,
+   "materials": [
+    "metal",
+    "metalMedium",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.252,
+     0.0,
+     -0.078
+    ],
+    "max": [
+     0.252,
+     0.365,
+     0.078
+    ],
+    "size": [
+     0.504,
+     0.365,
+     0.156
+    ],
+    "pivot_shift": [
+     0.252,
+     0.0,
+     -0.078
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:furniture/radio"
+  },
+  {
+   "id": "kenney.modular-buildings.building-corner-window",
+   "kit": "modular-buildings",
+   "name": "building-corner-window",
+   "title": "modular-buildings · building-corner-window",
+   "path": "library/modular-buildings/building-corner-window.glb",
+   "thumbnail": "library/modular-buildings/building-corner-window.png",
+   "tris": 32,
+   "verts": 54,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.625,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.625,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:modular-buildings/building-corner-window"
+  },
+  {
+   "id": "kenney.modular-buildings.building-steps-narrow",
+   "kit": "modular-buildings",
+   "name": "building-steps-narrow",
+   "title": "modular-buildings · building-steps-narrow",
+   "path": "library/modular-buildings/building-steps-narrow.glb",
+   "thumbnail": "library/modular-buildings/building-steps-narrow.png",
+   "tris": 74,
+   "verts": 124,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.6
+    ],
+    "max": [
+     0.5,
+     0.837,
+     0.6
+    ],
+    "size": [
+     1.0,
+     0.837,
+     1.2
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.1
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:modular-buildings/building-steps-narrow"
+  },
+  {
+   "id": "kenney.modular-buildings.building-steps-wide",
+   "kit": "modular-buildings",
+   "name": "building-steps-wide",
+   "title": "modular-buildings · building-steps-wide",
+   "path": "library/modular-buildings/building-steps-wide.glb",
+   "thumbnail": "library/modular-buildings/building-steps-wide.png",
+   "tris": 82,
+   "verts": 136,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.6
+    ],
+    "max": [
+     0.5,
+     0.837,
+     0.6
+    ],
+    "size": [
+     1.0,
+     0.837,
+     1.2
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:modular-buildings/building-steps-wide"
+  },
+  {
+   "id": "kenney.modular-buildings.building-window",
+   "kit": "modular-buildings",
+   "name": "building-window",
+   "title": "modular-buildings · building-window",
+   "path": "library/modular-buildings/building-window.glb",
+   "thumbnail": "library/modular-buildings/building-window.png",
+   "tris": 28,
+   "verts": 48,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.625,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.625,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:modular-buildings/building-window"
+  },
+  {
+   "id": "kenney.modular-buildings.building-window-large",
+   "kit": "modular-buildings",
+   "name": "building-window-large",
+   "title": "modular-buildings · building-window-large",
+   "path": "library/modular-buildings/building-window-large.glb",
+   "thumbnail": "library/modular-buildings/building-window-large.png",
+   "tris": 28,
+   "verts": 48,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.625,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.625,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:modular-buildings/building-window-large"
+  },
+  {
+   "id": "kenney.modular-buildings.door-brown",
+   "kit": "modular-buildings",
+   "name": "door-brown",
+   "title": "modular-buildings · door-brown",
+   "path": "library/modular-buildings/door-brown.glb",
+   "thumbnail": "library/modular-buildings/door-brown.png",
+   "tris": 28,
+   "verts": 48,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.125,
+     0.0,
+     -0.025
+    ],
+    "max": [
+     0.125,
+     0.5,
+     0.025
+    ],
+    "size": [
+     0.25,
+     0.5,
+     0.05
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:modular-buildings/door-brown"
+  },
+  {
+   "id": "kenney.modular-buildings.door-white",
+   "kit": "modular-buildings",
+   "name": "door-white",
+   "title": "modular-buildings · door-white",
+   "path": "library/modular-buildings/door-white.glb",
+   "thumbnail": "library/modular-buildings/door-white.png",
+   "tris": 28,
+   "verts": 48,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.125,
+     0.0,
+     -0.025
+    ],
+    "max": [
+     0.125,
+     0.5,
+     0.025
+    ],
+    "size": [
+     0.25,
+     0.5,
+     0.05
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.025
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:modular-buildings/door-white"
+  },
+  {
+   "id": "kenney.modular-buildings.roof-flat-center",
+   "kit": "modular-buildings",
+   "name": "roof-flat-center",
+   "title": "modular-buildings · roof-flat-center",
+   "path": "library/modular-buildings/roof-flat-center.glb",
+   "thumbnail": "library/modular-buildings/roof-flat-center.png",
+   "tris": 12,
+   "verts": 24,
+   "materials": [
+    "colormap"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.106,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.106,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:modular-buildings/roof-flat-center"
+  },
+  {
+   "id": "kenney.nature.bridge_wood",
+   "kit": "nature",
+   "name": "bridge_wood",
+   "title": "nature · bridge_wood",
+   "path": "library/nature/bridge_wood.glb",
+   "thumbnail": "library/nature/bridge_wood.png",
+   "tris": 220,
+   "verts": 1008,
+   "materials": [
+    "stone",
+    "wood",
+    "woodBark"
+   ],
+   "bounds": {
+    "min": [
+     -0.52,
+     0.0,
+     -0.52
+    ],
+    "max": [
+     0.52,
+     0.4,
+     0.52
+    ],
+    "size": [
+     1.04,
+     0.4,
+     1.04
+    ],
+    "pivot_shift": [
+     0.0,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/bridge_wood"
+  },
+  {
+   "id": "kenney.nature.campfire_logs",
+   "kit": "nature",
+   "name": "campfire_logs",
+   "title": "nature · campfire_logs",
+   "path": "library/nature/campfire_logs.glb",
+   "thumbnail": "library/nature/campfire_logs.png",
+   "tris": 112,
+   "verts": 376,
+   "materials": [
+    "wood",
+    "woodDark"
+   ],
+   "bounds": {
+    "min": [
+     -0.146,
+     0.0,
+     -0.146
+    ],
+    "max": [
+     0.146,
+     0.063,
+     0.146
+    ],
+    "size": [
+     0.292,
+     0.063,
+     0.292
+    ],
+    "pivot_shift": [
+     0.0,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/campfire_logs"
+  },
+  {
+   "id": "kenney.nature.canoe",
+   "kit": "nature",
+   "name": "canoe",
+   "title": "nature · canoe",
+   "path": "library/nature/canoe.glb",
+   "thumbnail": "library/nature/canoe.png",
+   "tris": 200,
+   "verts": 720,
+   "materials": [
+    "leafsFall",
+    "wood"
+   ],
+   "bounds": {
+    "min": [
+     -0.15,
+     0.0,
+     -0.575
+    ],
+    "max": [
+     0.15,
+     0.183,
+     0.575
+    ],
+    "size": [
+     0.3,
+     0.183,
+     1.15
+    ],
+    "pivot_shift": [
+     0.0,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/canoe"
+  },
+  {
+   "id": "kenney.nature.flower_redA",
+   "kit": "nature",
+   "name": "flower_redA",
+   "title": "nature · flower_redA",
+   "path": "library/nature/flower_redA.glb",
+   "thumbnail": "library/nature/flower_redA.png",
+   "tris": 76,
+   "verts": 268,
+   "materials": [
+    "colorRed",
+    "grass"
+   ],
+   "bounds": {
+    "min": [
+     -0.08,
+     0.0,
+     -0.091
+    ],
+    "max": [
+     0.08,
+     0.292,
+     0.091
+    ],
+    "size": [
+     0.159,
+     0.292,
+     0.181
+    ],
+    "pivot_shift": [
+     -0.025,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/flower_redA"
+  },
+  {
+   "id": "kenney.nature.grass_large",
+   "kit": "nature",
+   "name": "grass_large",
+   "title": "nature · grass_large",
+   "path": "library/nature/grass_large.glb",
+   "thumbnail": "library/nature/grass_large.png",
+   "tris": 224,
+   "verts": 448,
+   "materials": [
+    "grass"
+   ],
+   "bounds": {
+    "min": [
+     -0.204,
+     0.0,
+     -0.204
+    ],
+    "max": [
+     0.204,
+     0.254,
+     0.204
+    ],
+    "size": [
+     0.409,
+     0.254,
+     0.408
+    ],
+    "pivot_shift": [
+     0.005,
+     -0.05,
+     -0.008
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/grass_large"
+  },
+  {
+   "id": "kenney.nature.log",
+   "kit": "nature",
+   "name": "log",
+   "title": "nature · log",
+   "path": "library/nature/log.glb",
+   "thumbnail": "library/nature/log.png",
+   "tris": 200,
+   "verts": 624,
+   "materials": [
+    "woodBark",
+    "woodInner"
+   ],
+   "bounds": {
+    "min": [
+     -0.117,
+     0.0,
+     -0.355
+    ],
+    "max": [
+     0.117,
+     0.173,
+     0.355
+    ],
+    "size": [
+     0.234,
+     0.173,
+     0.71
+    ],
+    "pivot_shift": [
+     0.008,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/log"
+  },
+  {
+   "id": "kenney.nature.log_large",
+   "kit": "nature",
+   "name": "log_large",
+   "title": "nature · log_large",
+   "path": "library/nature/log_large.glb",
+   "thumbnail": "library/nature/log_large.png",
+   "tris": 96,
+   "verts": 304,
+   "materials": [
+    "woodBark",
+    "woodInner"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.275
+    ],
+    "max": [
+     0.5,
+     0.417,
+     0.275
+    ],
+    "size": [
+     1.0,
+     0.417,
+     0.549
+    ],
+    "pivot_shift": [
+     0.0,
+     -0.05,
+     0.022
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/log_large"
+  },
+  {
+   "id": "kenney.nature.log_stack",
+   "kit": "nature",
+   "name": "log_stack",
+   "title": "nature · log_stack",
+   "path": "library/nature/log_stack.glb",
+   "thumbnail": "library/nature/log_stack.png",
+   "tris": 184,
+   "verts": 424,
+   "materials": [
+    "woodBark",
+    "woodInner"
+   ],
+   "bounds": {
+    "min": [
+     -0.212,
+     0.0,
+     -0.355
+    ],
+    "max": [
+     0.212,
+     0.346,
+     0.355
+    ],
+    "size": [
+     0.425,
+     0.346,
+     0.71
+    ],
+    "pivot_shift": [
+     -0.012,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/log_stack"
+  },
+  {
+   "id": "kenney.nature.mushroom_red",
+   "kit": "nature",
+   "name": "mushroom_red",
+   "title": "nature · mushroom_red",
+   "path": "library/nature/mushroom_red.glb",
+   "thumbnail": "library/nature/mushroom_red.png",
+   "tris": 48,
+   "verts": 244,
+   "materials": [
+    "_defaultMat",
+    "colorRed"
+   ],
+   "bounds": {
+    "min": [
+     -0.087,
+     0.0,
+     -0.1
+    ],
+    "max": [
+     0.087,
+     0.203,
+     0.1
+    ],
+    "size": [
+     0.174,
+     0.203,
+     0.201
+    ],
+    "pivot_shift": [
+     0.001,
+     -0.05,
+     0.005
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/mushroom_red"
+  },
+  {
+   "id": "kenney.nature.plant_bushLarge",
+   "kit": "nature",
+   "name": "plant_bushLarge",
+   "title": "nature · plant_bushLarge",
+   "path": "library/nature/plant_bushLarge.glb",
+   "thumbnail": "library/nature/plant_bushLarge.png",
+   "tris": 60,
+   "verts": 132,
+   "materials": [
+    "grass"
+   ],
+   "bounds": {
+    "min": [
+     -0.187,
+     0.0,
+     -0.168
+    ],
+    "max": [
+     0.187,
+     0.243,
+     0.168
+    ],
+    "size": [
+     0.374,
+     0.243,
+     0.336
+    ],
+    "pivot_shift": [
+     0.0,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/plant_bushLarge"
+  },
+  {
+   "id": "kenney.nature.rock_largeA",
+   "kit": "nature",
+   "name": "rock_largeA",
+   "title": "nature · rock_largeA",
+   "path": "library/nature/rock_largeA.glb",
+   "thumbnail": "library/nature/rock_largeA.png",
+   "tris": 80,
+   "verts": 292,
+   "materials": [
+    "dirt",
+    "grass"
+   ],
+   "bounds": {
+    "min": [
+     -0.392,
+     0.0,
+     -0.508
+    ],
+    "max": [
+     0.392,
+     0.26,
+     0.508
+    ],
+    "size": [
+     0.785,
+     0.26,
+     1.015
+    ],
+    "pivot_shift": [
+     0.0,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/rock_largeA"
+  },
+  {
+   "id": "kenney.nature.rock_largeC",
+   "kit": "nature",
+   "name": "rock_largeC",
+   "title": "nature · rock_largeC",
+   "path": "library/nature/rock_largeC.glb",
+   "thumbnail": "library/nature/rock_largeC.png",
+   "tris": 72,
+   "verts": 264,
+   "materials": [
+    "dirt",
+    "grass"
+   ],
+   "bounds": {
+    "min": [
+     -0.532,
+     0.0,
+     -0.508
+    ],
+    "max": [
+     0.532,
+     0.321,
+     0.508
+    ],
+    "size": [
+     1.064,
+     0.321,
+     1.016
+    ],
+    "pivot_shift": [
+     0.0,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/rock_largeC"
+  },
+  {
+   "id": "kenney.nature.rock_smallA",
+   "kit": "nature",
+   "name": "rock_smallA",
+   "title": "nature · rock_smallA",
+   "path": "library/nature/rock_smallA.glb",
+   "thumbnail": "library/nature/rock_smallA.png",
+   "tris": 16,
+   "verts": 60,
+   "materials": [
+    "dirt",
+    "grass"
+   ],
+   "bounds": {
+    "min": [
+     -0.18,
+     0.0,
+     -0.18
+    ],
+    "max": [
+     0.18,
+     0.191,
+     0.18
+    ],
+    "size": [
+     0.361,
+     0.191,
+     0.361
+    ],
+    "pivot_shift": [
+     0.0,
+     -0.05,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:nature/rock_smallA"
+  },
+  {
+   "id": "kenney.retro-urban.detail-awning-small",
+   "kit": "retro-urban",
+   "name": "detail-awning-small",
+   "title": "retro-urban · detail-awning-small",
+   "path": "library/retro-urban/detail-awning-small.glb",
+   "thumbnail": "library/retro-urban/detail-awning-small.png",
+   "tris": 24,
+   "verts": 44,
+   "materials": [
+    "roof"
+   ],
+   "bounds": {
+    "min": [
+     -0.299,
+     0.0,
+     -0.15
+    ],
+    "max": [
+     0.299,
+     0.281,
+     0.15
+    ],
+    "size": [
+     0.598,
+     0.281,
+     0.3
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/detail-awning-small"
+  },
+  {
+   "id": "kenney.retro-urban.detail-awning-wide",
+   "kit": "retro-urban",
+   "name": "detail-awning-wide",
+   "title": "retro-urban · detail-awning-wide",
+   "path": "library/retro-urban/detail-awning-wide.glb",
+   "thumbnail": "library/retro-urban/detail-awning-wide.png",
+   "tris": 24,
+   "verts": 44,
+   "materials": [
+    "roof"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.15
+    ],
+    "max": [
+     0.5,
+     0.281,
+     0.15
+    ],
+    "size": [
+     1.0,
+     0.281,
+     0.3
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/detail-awning-wide"
+  },
+  {
+   "id": "kenney.retro-urban.detail-barrier-type-a",
+   "kit": "retro-urban",
+   "name": "detail-barrier-type-a",
+   "title": "retro-urban · detail-barrier-type-a",
+   "path": "library/retro-urban/detail-barrier-type-a.glb",
+   "thumbnail": "library/retro-urban/detail-barrier-type-a.png",
+   "tris": 44,
+   "verts": 144,
+   "materials": [
+    "metal",
+    "signs"
+   ],
+   "bounds": {
+    "min": [
+     -0.217,
+     0.0,
+     -0.067
+    ],
+    "max": [
+     0.217,
+     0.4,
+     0.067
+    ],
+    "size": [
+     0.433,
+     0.4,
+     0.134
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/detail-barrier-type-a"
+  },
+  {
+   "id": "kenney.retro-urban.detail-bench",
+   "kit": "retro-urban",
+   "name": "detail-bench",
+   "title": "retro-urban · detail-bench",
+   "path": "library/retro-urban/detail-bench.glb",
+   "thumbnail": "library/retro-urban/detail-bench.png",
+   "tris": 84,
+   "verts": 320,
+   "materials": [
+    "metal",
+    "planks"
+   ],
+   "bounds": {
+    "min": [
+     -0.302,
+     0.0,
+     -0.161
+    ],
+    "max": [
+     0.302,
+     0.409,
+     0.161
+    ],
+    "size": [
+     0.604,
+     0.409,
+     0.322
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/detail-bench"
+  },
+  {
+   "id": "kenney.retro-urban.detail-dumpster-closed",
+   "kit": "retro-urban",
+   "name": "detail-dumpster-closed",
+   "title": "retro-urban · detail-dumpster-closed",
+   "path": "library/retro-urban/detail-dumpster-closed.glb",
+   "thumbnail": "library/retro-urban/detail-dumpster-closed.png",
+   "tris": 22,
+   "verts": 132,
+   "materials": [
+    "roof",
+    "wall",
+    "wall_metal"
+   ],
+   "bounds": {
+    "min": [
+     -0.3,
+     0.0,
+     -0.227
+    ],
+    "max": [
+     0.3,
+     0.545,
+     0.227
+    ],
+    "size": [
+     0.6,
+     0.545,
+     0.454
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     -0.027
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/detail-dumpster-closed"
+  },
+  {
+   "id": "kenney.retro-urban.detail-dumpster-open",
+   "kit": "retro-urban",
+   "name": "detail-dumpster-open",
+   "title": "retro-urban · detail-dumpster-open",
+   "path": "library/retro-urban/detail-dumpster-open.glb",
+   "thumbnail": "library/retro-urban/detail-dumpster-open.png",
+   "tris": 24,
+   "verts": 192,
+   "materials": [
+    "dirt",
+    "roof",
+    "wall",
+    "wall_metal"
+   ],
+   "bounds": {
+    "min": [
+     -0.3,
+     0.0,
+     -0.242
+    ],
+    "max": [
+     0.3,
+     0.55,
+     0.242
+    ],
+    "size": [
+     0.6,
+     0.55,
+     0.485
+    ],
+    "pivot_shift": [
+     -0.023,
+     0.0,
+     -0.019
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/detail-dumpster-open"
+  },
+  {
+   "id": "kenney.retro-urban.detail-light-double",
+   "kit": "retro-urban",
+   "name": "detail-light-double",
+   "title": "retro-urban · detail-light-double",
+   "path": "library/retro-urban/detail-light-double.glb",
+   "thumbnail": "library/retro-urban/detail-light-double.png",
+   "tris": 96,
+   "verts": 150,
+   "materials": [
+    "metal"
+   ],
+   "bounds": {
+    "min": [
+     -0.043,
+     0.0,
+     -0.221
+    ],
+    "max": [
+     0.043,
+     0.96,
+     0.221
+    ],
+    "size": [
+     0.086,
+     0.96,
+     0.442
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/detail-light-double"
+  },
+  {
+   "id": "kenney.retro-urban.detail-light-single",
+   "kit": "retro-urban",
+   "name": "detail-light-single",
+   "title": "retro-urban · detail-light-single",
+   "path": "library/retro-urban/detail-light-single.glb",
+   "thumbnail": "library/retro-urban/detail-light-single.png",
+   "tris": 68,
+   "verts": 104,
+   "materials": [
+    "metal"
+   ],
+   "bounds": {
+    "min": [
+     -0.043,
+     0.0,
+     -0.132
+    ],
+    "max": [
+     0.043,
+     0.96,
+     0.132
+    ],
+    "size": [
+     0.086,
+     0.96,
+     0.264
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     -0.089
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/detail-light-single"
+  },
+  {
+   "id": "kenney.retro-urban.detail-light-traffic",
+   "kit": "retro-urban",
+   "name": "detail-light-traffic",
+   "title": "retro-urban · detail-light-traffic",
+   "path": "library/retro-urban/detail-light-traffic.glb",
+   "thumbnail": "library/retro-urban/detail-light-traffic.png",
+   "tris": 114,
+   "verts": 360,
+   "materials": [
+    "metal",
+    "roof"
+   ],
+   "bounds": {
+    "min": [
+     -0.078,
+     0.0,
+     -0.292
+    ],
+    "max": [
+     0.078,
+     1.04,
+     0.292
+    ],
+    "size": [
+     0.156,
+     1.04,
+     0.584
+    ],
+    "pivot_shift": [
+     -0.035,
+     0.0,
+     -0.249
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/detail-light-traffic"
+  },
+  {
+   "id": "kenney.retro-urban.door-type-a",
+   "kit": "retro-urban",
+   "name": "door-type-a",
+   "title": "retro-urban · door-type-a",
+   "path": "library/retro-urban/door-type-a.glb",
+   "thumbnail": "library/retro-urban/door-type-a.png",
+   "tris": 26,
+   "verts": 88,
+   "materials": [
+    "doors",
+    "metal"
+   ],
+   "bounds": {
+    "min": [
+     -0.199,
+     0.0,
+     -0.025
+    ],
+    "max": [
+     0.199,
+     0.628,
+     0.025
+    ],
+    "size": [
+     0.398,
+     0.628,
+     0.05
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/door-type-a"
+  },
+  {
+   "id": "kenney.retro-urban.grass",
+   "kit": "retro-urban",
+   "name": "grass",
+   "title": "retro-urban · grass",
+   "path": "library/retro-urban/grass.glb",
+   "thumbnail": "library/retro-urban/grass.png",
+   "tris": 2,
+   "verts": 4,
+   "materials": [
+    "grass"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.0,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.0,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": true,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/grass"
+  },
+  {
+   "id": "kenney.retro-urban.grass-hill",
+   "kit": "retro-urban",
+   "name": "grass-hill",
+   "title": "retro-urban · grass-hill",
+   "path": "library/retro-urban/grass-hill.glb",
+   "thumbnail": "library/retro-urban/grass-hill.png",
+   "tris": 2,
+   "verts": 4,
+   "materials": [
+    "grass"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.5,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/grass-hill"
+  },
+  {
+   "id": "kenney.retro-urban.pallet",
+   "kit": "retro-urban",
+   "name": "pallet",
+   "title": "retro-urban · pallet",
+   "path": "library/retro-urban/pallet.glb",
+   "thumbnail": "library/retro-urban/pallet.png",
+   "tris": 84,
+   "verts": 168,
+   "materials": [
+    "planks"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.15,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.15,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/pallet"
+  },
+  {
+   "id": "kenney.retro-urban.pallet-small",
+   "kit": "retro-urban",
+   "name": "pallet-small",
+   "title": "retro-urban · pallet-small",
+   "path": "library/retro-urban/pallet-small.glb",
+   "thumbnail": "library/retro-urban/pallet-small.png",
+   "tris": 60,
+   "verts": 120,
+   "materials": [
+    "planks"
+   ],
+   "bounds": {
+    "min": [
+     -0.25,
+     0.0,
+     -0.288
+    ],
+    "max": [
+     0.25,
+     0.15,
+     0.288
+    ],
+    "size": [
+     0.5,
+     0.15,
+     0.575
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     -0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/pallet-small"
+  },
+  {
+   "id": "kenney.retro-urban.planks",
+   "kit": "retro-urban",
+   "name": "planks",
+   "title": "retro-urban · planks",
+   "path": "library/retro-urban/planks.glb",
+   "thumbnail": "library/retro-urban/planks.png",
+   "tris": 36,
+   "verts": 72,
+   "materials": [
+    "planks"
+   ],
+   "bounds": {
+    "min": [
+     -0.565,
+     0.0,
+     -0.285
+    ],
+    "max": [
+     0.565,
+     0.1,
+     0.285
+    ],
+    "size": [
+     1.13,
+     0.1,
+     0.57
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/planks"
+  },
+  {
+   "id": "kenney.retro-urban.road-asphalt-corner",
+   "kit": "retro-urban",
+   "name": "road-asphalt-corner",
+   "title": "retro-urban · road-asphalt-corner",
+   "path": "library/retro-urban/road-asphalt-corner.glb",
+   "thumbnail": "library/retro-urban/road-asphalt-corner.png",
+   "tris": 50,
+   "verts": 144,
+   "materials": [
+    "asphalt",
+    "concreteSmooth"
+   ],
+   "bounds": {
+    "min": [
+     -1.0,
+     0.0,
+     -1.0
+    ],
+    "max": [
+     1.0,
+     0.05,
+     1.0
+    ],
+    "size": [
+     2.0,
+     0.05,
+     2.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/road-asphalt-corner"
+  },
+  {
+   "id": "kenney.retro-urban.road-asphalt-damaged",
+   "kit": "retro-urban",
+   "name": "road-asphalt-damaged",
+   "title": "retro-urban · road-asphalt-damaged",
+   "path": "library/retro-urban/road-asphalt-damaged.glb",
+   "thumbnail": "library/retro-urban/road-asphalt-damaged.png",
+   "tris": 24,
+   "verts": 76,
+   "materials": [
+    "asphalt",
+    "concreteSmooth"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.05,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.05,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/road-asphalt-damaged"
+  },
+  {
+   "id": "kenney.retro-urban.road-asphalt-side",
+   "kit": "retro-urban",
+   "name": "road-asphalt-side",
+   "title": "retro-urban · road-asphalt-side",
+   "path": "library/retro-urban/road-asphalt-side.glb",
+   "thumbnail": "library/retro-urban/road-asphalt-side.png",
+   "tris": 12,
+   "verts": 48,
+   "materials": [
+    "asphalt",
+    "concreteSmooth"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.05,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.05,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/road-asphalt-side"
+  },
+  {
+   "id": "kenney.retro-urban.road-asphalt-straight",
+   "kit": "retro-urban",
+   "name": "road-asphalt-straight",
+   "title": "retro-urban · road-asphalt-straight",
+   "path": "library/retro-urban/road-asphalt-straight.glb",
+   "thumbnail": "library/retro-urban/road-asphalt-straight.png",
+   "tris": 22,
+   "verts": 88,
+   "materials": [
+    "asphalt",
+    "concreteSmooth"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -1.0
+    ],
+    "max": [
+     0.5,
+     0.05,
+     1.0
+    ],
+    "size": [
+     1.0,
+     0.05,
+     2.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/road-asphalt-straight"
+  },
+  {
+   "id": "kenney.retro-urban.road-dirt-corner",
+   "kit": "retro-urban",
+   "name": "road-dirt-corner",
+   "title": "retro-urban · road-dirt-corner",
+   "path": "library/retro-urban/road-dirt-corner.glb",
+   "thumbnail": "library/retro-urban/road-dirt-corner.png",
+   "tris": 50,
+   "verts": 216,
+   "materials": [
+    "concrete",
+    "concreteSmooth",
+    "dirt"
+   ],
+   "bounds": {
+    "min": [
+     -1.0,
+     0.0,
+     -1.0
+    ],
+    "max": [
+     1.0,
+     0.05,
+     1.0
+    ],
+    "size": [
+     2.0,
+     0.05,
+     2.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/road-dirt-corner"
+  },
+  {
+   "id": "kenney.retro-urban.road-dirt-damaged",
+   "kit": "retro-urban",
+   "name": "road-dirt-damaged",
+   "title": "retro-urban · road-dirt-damaged",
+   "path": "library/retro-urban/road-dirt-damaged.glb",
+   "thumbnail": "library/retro-urban/road-dirt-damaged.png",
+   "tris": 24,
+   "verts": 76,
+   "materials": [
+    "concrete",
+    "dirt"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.05,
+     0.5
+    ],
+    "size": [
+     1.0,
+     0.05,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/road-dirt-damaged"
+  },
+  {
+   "id": "kenney.retro-urban.road-dirt-straight",
+   "kit": "retro-urban",
+   "name": "road-dirt-straight",
+   "title": "retro-urban · road-dirt-straight",
+   "path": "library/retro-urban/road-dirt-straight.glb",
+   "thumbnail": "library/retro-urban/road-dirt-straight.png",
+   "tris": 22,
+   "verts": 88,
+   "materials": [
+    "concrete",
+    "dirt"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -1.0
+    ],
+    "max": [
+     0.5,
+     0.05,
+     1.0
+    ],
+    "size": [
+     1.0,
+     0.05,
+     2.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/road-dirt-straight"
+  },
+  {
+   "id": "kenney.retro-urban.tree-large",
+   "kit": "retro-urban",
+   "name": "tree-large",
+   "title": "retro-urban · tree-large",
+   "path": "library/retro-urban/tree-large.glb",
+   "thumbnail": "library/retro-urban/tree-large.png",
+   "tris": 16,
+   "verts": 24,
+   "materials": [
+    "treeA"
+   ],
+   "bounds": {
+    "min": [
+     -0.65,
+     0.0,
+     -0.65
+    ],
+    "max": [
+     0.65,
+     1.7,
+     0.65
+    ],
+    "size": [
+     1.3,
+     1.7,
+     1.3
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/tree-large"
+  },
+  {
+   "id": "kenney.retro-urban.tree-park-large",
+   "kit": "retro-urban",
+   "name": "tree-park-large",
+   "title": "retro-urban · tree-park-large",
+   "path": "library/retro-urban/tree-park-large.glb",
+   "thumbnail": "library/retro-urban/tree-park-large.png",
+   "tris": 76,
+   "verts": 306,
+   "materials": [
+    "concreteSmooth",
+    "dirt",
+    "treeA"
+   ],
+   "bounds": {
+    "min": [
+     -0.52,
+     0.0,
+     -0.52
+    ],
+    "max": [
+     0.52,
+     1.46,
+     0.52
+    ],
+    "size": [
+     1.04,
+     1.46,
+     1.04
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/tree-park-large"
+  },
+  {
+   "id": "kenney.retro-urban.tree-shrub",
+   "kit": "retro-urban",
+   "name": "tree-shrub",
+   "title": "retro-urban · tree-shrub",
+   "path": "library/retro-urban/tree-shrub.glb",
+   "thumbnail": "library/retro-urban/tree-shrub.png",
+   "tris": 32,
+   "verts": 48,
+   "materials": [
+    "treeA"
+   ],
+   "bounds": {
+    "min": [
+     -0.39,
+     0.0,
+     -0.39
+    ],
+    "max": [
+     0.39,
+     0.3,
+     0.39
+    ],
+    "size": [
+     0.78,
+     0.3,
+     0.78
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/tree-shrub"
+  },
+  {
+   "id": "kenney.retro-urban.tree-small",
+   "kit": "retro-urban",
+   "name": "tree-small",
+   "title": "retro-urban · tree-small",
+   "path": "library/retro-urban/tree-small.glb",
+   "thumbnail": "library/retro-urban/tree-small.png",
+   "tris": 16,
+   "verts": 24,
+   "materials": [
+    "treeA"
+   ],
+   "bounds": {
+    "min": [
+     -0.39,
+     0.0,
+     -0.39
+    ],
+    "max": [
+     0.39,
+     0.3,
+     0.39
+    ],
+    "size": [
+     0.78,
+     0.3,
+     0.78
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/tree-small"
+  },
+  {
+   "id": "kenney.retro-urban.wall-a-door",
+   "kit": "retro-urban",
+   "name": "wall-a-door",
+   "title": "retro-urban · wall-a-door",
+   "path": "library/retro-urban/wall-a-door.glb",
+   "thumbnail": "library/retro-urban/wall-a-door.png",
+   "tris": 36,
+   "verts": 232,
+   "materials": [
+    "concrete",
+    "doors",
+    "metal",
+    "wall_lines"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     1.0,
+     0.5
+    ],
+    "size": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/wall-a-door"
+  },
+  {
+   "id": "kenney.retro-urban.wall-a-flat",
+   "kit": "retro-urban",
+   "name": "wall-a-flat",
+   "title": "retro-urban · wall-a-flat",
+   "path": "library/retro-urban/wall-a-flat.glb",
+   "thumbnail": "library/retro-urban/wall-a-flat.png",
+   "tris": 2,
+   "verts": 4,
+   "materials": [
+    "wall_lines"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     0.0
+    ],
+    "max": [
+     0.5,
+     1.0,
+     0.0
+    ],
+    "size": [
+     1.0,
+     1.0,
+     0.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/wall-a-flat"
+  },
+  {
+   "id": "kenney.retro-urban.wall-a-window",
+   "kit": "retro-urban",
+   "name": "wall-a-window",
+   "title": "retro-urban · wall-a-window",
+   "path": "library/retro-urban/wall-a-window.glb",
+   "thumbnail": "library/retro-urban/wall-a-window.png",
+   "tris": 36,
+   "verts": 224,
+   "materials": [
+    "concrete",
+    "metal",
+    "wall_lines",
+    "windows"
+   ],
+   "bounds": {
+    "min": [
+     -0.5,
+     0.0,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     1.0,
+     0.5
+    ],
+    "size": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "pivot_shift": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "flat": false,
+   "license": "CC0-1.0",
+   "source": "kenney:retro-urban/wall-a-window"
+  }
+ ]
+}

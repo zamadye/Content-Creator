@@ -1,4 +1,4 @@
-import { createPostgresPool, PostgresProjectRepository, bootstrapOwnerWorkspace } from "@content-studio/db";
+import { cancelJob, createPostgresPool, enqueueJob, PostgresProjectRepository, bootstrapOwnerWorkspace } from "@content-studio/db";
 import { createApp, type OidcSettings } from "./app.js";
 
 function required(name: string): string {
@@ -44,6 +44,10 @@ const app = await createApp({
   production,
   allowedWebOrigin: parsedWebUrl.origin,
   projects,
+  jobs: {
+    enqueue: (input) => enqueueJob(pool, input),
+    cancel: (input) => cancelJob(pool, input),
+  },
   checkDatabase: async () => { await pool.query("SELECT 1"); },
 });
 await app.listen({ port, host: "0.0.0.0" });

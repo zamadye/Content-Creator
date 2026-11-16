@@ -13,6 +13,7 @@
     "db:migrate": "prisma migrate deploy --schema prisma/schema.prisma"
   },
   "dependencies": {
+    "@content-studio/domain": "workspace:*",
     "@prisma/client": "6.19.0",
     "pg": "8.16.3"
   },

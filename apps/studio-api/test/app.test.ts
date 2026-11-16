@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createApp } from "../src/app.js";
-import type { ProjectRepository, ProjectSummary } from "@content-studio/db";
+import type { JobRecord, ProjectRepository, ProjectSummary } from "@content-studio/db";
 
 const project: ProjectSummary = {
   id: "33333333-3333-4333-8333-333333333333",
@@ -23,6 +23,22 @@ function fakeProjects(): ProjectRepository {
     async createProject(subject, title) {
       assert.equal(subject, `${user.issuer}|${user.subject}`);
       return { ...project, title };
+    },
+  };
+}
+
+const job: JobRecord = { id: "55555555-5555-4555-8555-555555555555", projectId: project.id, operation: "system.health-check", state: "queued", stage: "queued", progress: 0, createdAt: "2026-11-01T00:00:00.000Z" };
+function fakeJobs() {
+  return {
+    async enqueue(input: { subject: string; projectId: string; operation: string; idempotencyKey: string; payload: Record<string, unknown> }) {
+      assert.equal(input.subject, `${user.issuer}|${user.subject}`);
+      assert.equal(input.projectId, project.id);
+      assert.equal(input.operation, "system.health-check");
+      return { job, created: true };
+    },
+    async cancel(input: { subject: string; jobId: string }) {
+      assert.equal(input.subject, `${user.issuer}|${user.subject}`);
+      return input.jobId === job.id;
     },
   };
 }
@@ -82,6 +98,24 @@ test("project list and create require session identity and validate strict paylo
     assert.equal(invalid.json().error.code, "VALIDATION_ERROR");
     assert.equal(csrf.statusCode, 403);
     assert.equal(csrf.json().error.code, "CSRF_REJECTED");
+  } finally {
+    await app.close();
+  }
+});
+
+test("job enqueue enforces idempotency key, operation allowlist, owner identity and CSRF", async () => {
+  const app = await createApp({ sessionKey: key, jobs: fakeJobs(), allowedWebOrigin: webOrigin });
+  await addTestIdentity(app);
+  try {
+    const headers = { origin: webOrigin, "idempotency-key": "request-0001" };
+    const accepted = await app.inject({ method: "POST", url: `/api/projects/${project.id}/jobs`, headers, payload: { operation: "system.health-check", payload: {} } });
+    assert.equal(accepted.statusCode, 202);
+    assert.equal(accepted.json().job.id, job.id);
+    const invalid = await app.inject({ method: "POST", url: `/api/projects/${project.id}/jobs`, headers, payload: { operation: "project.render" } });
+    assert.equal(invalid.statusCode, 422);
+    const cancelled = await app.inject({ method: "POST", url: `/api/jobs/${job.id}/cancel`, headers: { origin: webOrigin } });
+    assert.equal(cancelled.statusCode, 202);
+    assert.equal(cancelled.json().state, "cancelled");
   } finally {
     await app.close();
   }

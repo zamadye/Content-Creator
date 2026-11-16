@@ -2,7 +2,7 @@ import Fastify, { type FastifyInstance } from "fastify";
 import { randomUUID } from "node:crypto";
 import secureSession from "@fastify/secure-session";
 import { z } from "zod";
-import { AccessDeniedError, type ProjectRepository } from "@content-studio/db";
+import { AccessDeniedError, type JobRecord, type ProjectRepository } from "@content-studio/db";
 import {
   authorizationCodeGrant,
   buildAuthorizationUrl,
@@ -26,11 +26,17 @@ type AuthUser = { subject: string; issuer: string; email?: string };
 type SessionState = { user?: AuthUser; oidc?: { state: string; nonce: string; verifier: string } };
 type SessionAccess = { get(key: string): unknown; set(key: string, value: unknown): void; delete(): void; regenerate(): void };
 
+export type JobService = {
+  enqueue(input: { subject: string; projectId: string; operation: string; idempotencyKey: string; payload: Record<string, unknown> }): Promise<{ job: JobRecord; created: boolean }>;
+  cancel(input: { subject: string; jobId: string }): Promise<boolean>;
+};
+
 export type AppOptions = {
   sessionKey: Buffer;
   oidc?: OidcSettings | undefined;
   production?: boolean;
   projects?: ProjectRepository;
+  jobs?: JobService;
   checkDatabase?: () => Promise<void>;
   allowedWebOrigin?: string;
 };
@@ -169,6 +175,44 @@ export async function createApp(options: AppOptions): Promise<FastifyInstance> {
     } catch (error) {
       if (error instanceof AccessDeniedError) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Proyek atau workspace tidak ditemukan."));
       return reply.code(503).send(errorBody(request.id, "PROJECT_CREATE_FAILED", "Proyek belum dapat disimpan.", true));
+    }
+  });
+
+  app.post("/api/projects/:projectId/jobs", async (request, reply) => {
+    if (!originAllowed(request.headers.origin)) return reply.code(403).send(errorBody(request.id, "CSRF_REJECTED", "Asal permintaan tidak diizinkan."));
+    const user = (request.session as SessionAccess).get("user") as AuthUser | undefined;
+    if (!user) return reply.code(401).send(errorBody(request.id, "UNAUTHENTICATED", "Silakan masuk untuk membuat tugas."));
+    if (!options.jobs) return reply.code(503).send(errorBody(request.id, "QUEUE_NOT_CONFIGURED", "Antrean tugas belum siap.", true));
+    const params = z.strictObject({ projectId: z.string().uuid() }).safeParse(request.params);
+    const body = z.strictObject({ operation: z.literal("system.health-check"), payload: z.strictObject({}).optional() }).safeParse(request.body);
+    const idempotencyKey = request.headers["idempotency-key"];
+    if (!params.success || !body.success || typeof idempotencyKey !== "string" || idempotencyKey.length < 8 || idempotencyKey.length > 160) {
+      return reply.code(422).send(errorBody(request.id, "VALIDATION_ERROR", "Tugas atau kunci idempotensi tidak valid."));
+    }
+    try {
+      const result = await options.jobs.enqueue({ subject: `${user.issuer}|${user.subject}`, projectId: params.data.projectId, operation: body.data.operation, idempotencyKey, payload: body.data.payload ?? {} });
+      return reply.code(result.created ? 202 : 200).header("cache-control", "no-store").send(result);
+    } catch (error) {
+      if (error instanceof AccessDeniedError || (error instanceof Error && error.message === "RESOURCE_NOT_FOUND")) {
+        return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Proyek atau workspace tidak ditemukan."));
+      }
+      return reply.code(503).send(errorBody(request.id, "JOB_ENQUEUE_FAILED", "Tugas belum dapat dimasukkan ke antrean.", true));
+    }
+  });
+
+  app.post("/api/jobs/:jobId/cancel", async (request, reply) => {
+    if (!originAllowed(request.headers.origin)) return reply.code(403).send(errorBody(request.id, "CSRF_REJECTED", "Asal permintaan tidak diizinkan."));
+    const user = (request.session as SessionAccess).get("user") as AuthUser | undefined;
+    if (!user) return reply.code(401).send(errorBody(request.id, "UNAUTHENTICATED", "Silakan masuk untuk membatalkan tugas."));
+    if (!options.jobs) return reply.code(503).send(errorBody(request.id, "QUEUE_NOT_CONFIGURED", "Antrean tugas belum siap.", true));
+    const params = z.strictObject({ jobId: z.string().uuid() }).safeParse(request.params);
+    if (!params.success) return reply.code(422).send(errorBody(request.id, "VALIDATION_ERROR", "ID tugas tidak valid."));
+    try {
+      const cancelled = await options.jobs.cancel({ subject: `${user.issuer}|${user.subject}`, jobId: params.data.jobId });
+      if (!cancelled) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Tugas tidak ditemukan atau sudah selesai."));
+      return reply.code(202).send({ jobId: params.data.jobId, state: "cancelled" });
+    } catch {
+      return reply.code(503).send(errorBody(request.id, "JOB_CANCEL_FAILED", "Tugas belum dapat dibatalkan.", true));
     }
   });
 

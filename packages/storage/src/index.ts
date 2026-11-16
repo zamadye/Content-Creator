@@ -32,6 +32,9 @@ function validWorkspaceId(value: string): string {
 }
 
 /** Private local adapter. Keys are server-generated and always scoped to a workspace. */
+export { S3CompatiblePrivateStorage } from "./s3.js";
+export type { S3PrivateStorageConfig, UploadIntent, CompleteUpload } from "./s3.js";
+
 export class LocalPrivateStorage implements PrivateStorage {
   readonly root: string;
   readonly maxBytes: number;

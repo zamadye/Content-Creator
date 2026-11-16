@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { Pool } from "pg";
 
 export function createPostgresPool(connectionString: string): Pool {
@@ -9,6 +9,7 @@ export type ProjectSummary = {
   id: string;
   title: string;
   currentRevisionId: string | null;
+  etag: string | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -32,8 +33,10 @@ export async function bootstrapOwnerWorkspace(pool: Pool, input: {
   ownerSubject: string;
 }): Promise<void> {
   const client = await pool.connect();
+  let transactionStarted = false;
   try {
     await client.query("BEGIN");
+    transactionStarted = true;
     await client.query(
       'INSERT INTO "Workspace" ("id", "name") VALUES ($1, $2) ON CONFLICT ("id") DO NOTHING',
       [input.workspaceId, input.workspaceName],
@@ -43,8 +46,9 @@ export async function bootstrapOwnerWorkspace(pool: Pool, input: {
       [randomUUID(), input.workspaceId, input.ownerSubject],
     );
     await client.query("COMMIT");
+    transactionStarted = false;
   } catch (error) {
-    await client.query("ROLLBACK");
+    if (transactionStarted) await client.query("ROLLBACK").catch(() => undefined);
     throw error;
   } finally {
     client.release();
@@ -56,7 +60,7 @@ export class PostgresProjectRepository implements ProjectRepository {
 
   async listProjects(subject: string): Promise<ProjectSummary[]> {
     const result = await this.pool.query<ProjectSummary>(
-      'SELECT p."id", p."title", p."currentRevisionId", p."createdAt", p."updatedAt" FROM "Project" p INNER JOIN "Membership" m ON m."workspaceId" = p."workspaceId" WHERE m."subject" = $1 ORDER BY p."updatedAt" DESC LIMIT 200',
+      'SELECT p."id", p."title", p."currentRevisionId", r."etag", p."createdAt", p."updatedAt" FROM "Project" p INNER JOIN "Membership" m ON m."workspaceId" = p."workspaceId" LEFT JOIN "ProjectRevision" r ON r."id" = p."currentRevisionId" AND r."projectId" = p."id" WHERE m."subject" = $1 ORDER BY p."updatedAt" DESC LIMIT 200',
       [subject],
     );
     return result.rows.map((row) => ({ ...row, createdAt: new Date(row.createdAt).toISOString(), updatedAt: new Date(row.updatedAt).toISOString() }));
@@ -64,27 +68,56 @@ export class PostgresProjectRepository implements ProjectRepository {
 
   async createProject(subject: string, title: string): Promise<ProjectSummary> {
     const client = await this.pool.connect();
+    let transactionStarted = false;
     try {
       await client.query("BEGIN");
+      transactionStarted = true;
       const membership = await client.query<{ workspaceId: string }>(
         'SELECT "workspaceId" FROM "Membership" WHERE "subject" = $1 ORDER BY "createdAt" LIMIT 1 FOR SHARE',
         [subject],
       );
       const workspaceId = membership.rows[0]?.workspaceId;
       if (!workspaceId) throw new AccessDeniedError();
-      const result = await client.query<ProjectSummary>(
-        'INSERT INTO "Project" ("id", "workspaceId", "title", "updatedAt") VALUES ($1, $2, $3, CURRENT_TIMESTAMP) RETURNING "id", "title", "currentRevisionId", "createdAt", "updatedAt"',
-        [randomUUID(), workspaceId, title],
+
+      const projectId = randomUUID();
+      const revisionId = randomUUID();
+      const snapshot = {
+        schemaVersion: "1.0",
+        projectId,
+        revisionId,
+        parentRevisionId: null,
+        title,
+        state: "empty-draft",
+      };
+      const etag = createHash("sha256").update(JSON.stringify(snapshot)).digest("hex");
+      const inserted = await client.query<ProjectSummary>(
+        'INSERT INTO "Project" ("id", "workspaceId", "title", "updatedAt") VALUES ($1,$2,$3,CURRENT_TIMESTAMP) RETURNING "id", "title", "currentRevisionId", "createdAt", "updatedAt"',
+        [projectId, workspaceId, title],
+      );
+      const row = inserted.rows[0]!;
+      await client.query(
+        'INSERT INTO "ProjectRevision" ("id", "projectId", "parentId", "schemaVersion", "revision", "etag", "snapshot") VALUES ($1,$2,NULL,\'1.0\',1,$3,$4::jsonb)',
+        [revisionId, projectId, etag, JSON.stringify(snapshot)],
       );
       await client.query(
-        'INSERT INTO "AuditEvent" ("id", "workspaceId", "actor", "resource", "action", "metadata") VALUES ($1, $2, $3, $4, $5, $6::jsonb)',
-        [randomUUID(), workspaceId, subject, result.rows[0]!.id, "project.created", JSON.stringify({ title })],
+        'UPDATE "Project" SET "currentRevisionId" = $2, "updatedAt" = CURRENT_TIMESTAMP WHERE "id" = $1',
+        [projectId, revisionId],
+      );
+      await client.query(
+        'INSERT INTO "AuditEvent" ("id", "workspaceId", "actor", "resource", "action", "metadata") VALUES ($1,$2,$3,$4,$5,$6::jsonb)',
+        [randomUUID(), workspaceId, subject, projectId, "project.created", JSON.stringify({ revisionId, etag })],
       );
       await client.query("COMMIT");
-      const row = result.rows[0]!;
-      return { ...row, createdAt: new Date(row.createdAt).toISOString(), updatedAt: new Date(row.updatedAt).toISOString() };
+      transactionStarted = false;
+      return {
+        ...row,
+        currentRevisionId: revisionId,
+        etag,
+        createdAt: new Date(row.createdAt).toISOString(),
+        updatedAt: new Date(row.updatedAt).toISOString(),
+      };
     } catch (error) {
-      await client.query("ROLLBACK");
+      if (transactionStarted) await client.query("ROLLBACK").catch(() => undefined);
       throw error;
     } finally {
       client.release();

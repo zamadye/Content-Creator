@@ -171,7 +171,7 @@ export async function createApp(options: AppOptions): Promise<FastifyInstance> {
     });
     try {
       const project = await options.projects.createProject(`${user.issuer}|${user.subject}`, parsed.data.title);
-      return reply.code(201).header("cache-control", "no-store").header("etag", `\"${project.id}\"`).send({ project });
+      return reply.code(201).header("cache-control", "no-store").header("etag", `\"${project.etag}\"`).send({ project });
     } catch (error) {
       if (error instanceof AccessDeniedError) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Proyek atau workspace tidak ditemukan."));
       return reply.code(503).send(errorBody(request.id, "PROJECT_CREATE_FAILED", "Proyek belum dapat disimpan.", true));

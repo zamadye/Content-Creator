@@ -4,7 +4,7 @@ import { FormEvent, useCallback, useEffect, useState } from "react";
 import styles from "./studio.module.css";
 
 type User = { subject: string; email?: string };
-type Project = { id: string; title: string; currentRevisionId: string | null; createdAt: string; updatedAt: string };
+type Project = { id: string; title: string; currentRevisionId: string | null; etag: string | null; createdAt: string; updatedAt: string };
 type SessionResponse = { authenticated: boolean; user?: User };
 type ProjectsResponse = { projects: Project[] };
 

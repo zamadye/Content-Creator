@@ -6,7 +6,8 @@ import type { JobRecord, ProjectRepository, ProjectSummary } from "@content-stud
 const project: ProjectSummary = {
   id: "33333333-3333-4333-8333-333333333333",
   title: "Proyek sintetis",
-  currentRevisionId: null,
+  currentRevisionId: "66666666-6666-4666-8666-666666666666",
+  etag: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   createdAt: "2026-11-01T00:00:00.000Z",
   updatedAt: "2026-11-01T00:00:00.000Z",
 };
@@ -90,7 +91,7 @@ test("project list and create require session identity and validate strict paylo
     const created = await app.inject({ method: "POST", url: "/api/projects", headers: { origin: webOrigin }, payload: { title: "  Proyek sintetis  " } });
     assert.equal(created.statusCode, 201);
     assert.equal(created.json().project.title, "Proyek sintetis");
-    assert.match(created.headers.etag!, /^"[0-9a-f-]+"$/i);
+    assert.match(created.headers.etag!, /^"[a-f0-9]{64}"$/i);
 
     const invalid = await app.inject({ method: "POST", url: "/api/projects", headers: { origin: webOrigin }, payload: { title: "x", workspaceId: "attacker" } });
     const csrf = await app.inject({ method: "POST", url: "/api/projects", headers: { origin: "https://attacker.example" }, payload: { title: "forged" } });

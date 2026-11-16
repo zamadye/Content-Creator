@@ -17,6 +17,7 @@ node_modules/
 dist/
 coverage/
 .turbo/
+*.tsbuildinfo
 
 # Media produksi BARU disimpan di Drive privat, bukan repo publik.
 # Aturan ignore tidak membatalkan tracking file lama dan bisa di-bypass `git add -f`;

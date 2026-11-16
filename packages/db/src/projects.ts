@@ -17,12 +17,20 @@ export type ProjectSummary = {
 export interface ProjectRepository {
   listProjects(subject: string): Promise<ProjectSummary[]>;
   createProject(subject: string, title: string): Promise<ProjectSummary>;
+  updateProjectTitle(subject: string, projectId: string, title: string, ifMatch: string): Promise<ProjectSummary>;
 }
 
 export class AccessDeniedError extends Error {
   constructor() {
     super("RESOURCE_NOT_FOUND");
     this.name = "AccessDeniedError";
+  }
+}
+
+export class RevisionConflictError extends Error {
+  constructor() {
+    super("REVISION_CONFLICT");
+    this.name = "RevisionConflictError";
   }
 }
 
@@ -116,6 +124,48 @@ export class PostgresProjectRepository implements ProjectRepository {
         createdAt: new Date(row.createdAt).toISOString(),
         updatedAt: new Date(row.updatedAt).toISOString(),
       };
+    } catch (error) {
+      if (transactionStarted) await client.query("ROLLBACK").catch(() => undefined);
+      throw error;
+    } finally {
+      client.release();
+    }
+  }
+
+  async updateProjectTitle(subject: string, projectId: string, title: string, ifMatch: string): Promise<ProjectSummary> {
+    const client = await this.pool.connect();
+    let transactionStarted = false;
+    try {
+      await client.query("BEGIN");
+      transactionStarted = true;
+      const selected = await client.query<{
+        workspaceId: string; currentRevisionId: string; revision: number; etag: string; snapshot: Record<string, unknown> | string; createdAt: Date;
+      }>(
+        'SELECT p."workspaceId", p."currentRevisionId", r."revision", r."etag", r."snapshot", p."createdAt" FROM "Project" p INNER JOIN "Membership" m ON m."workspaceId" = p."workspaceId" INNER JOIN "ProjectRevision" r ON r."id" = p."currentRevisionId" AND r."projectId" = p."id" WHERE p."id" = $1 AND m."subject" = $2 FOR UPDATE OF p, r',
+        [projectId, subject],
+      );
+      const current = selected.rows[0];
+      if (!current) throw new AccessDeniedError();
+      if (current.etag !== ifMatch) throw new RevisionConflictError();
+      const priorSnapshot = typeof current.snapshot === "string" ? JSON.parse(current.snapshot) as Record<string, unknown> : current.snapshot;
+      const revisionId = randomUUID();
+      const snapshot = { ...priorSnapshot, revisionId, parentRevisionId: current.currentRevisionId, title };
+      const etag = createHash("sha256").update(JSON.stringify(snapshot)).digest("hex");
+      await client.query(
+        'INSERT INTO "ProjectRevision" ("id", "projectId", "parentId", "schemaVersion", "revision", "etag", "snapshot") VALUES ($1,$2,$3,\'1.0\',$4,$5,$6::jsonb)',
+        [revisionId, projectId, current.currentRevisionId, current.revision + 1, etag, JSON.stringify(snapshot)],
+      );
+      const updated = await client.query<{ updatedAt: Date }>(
+        'UPDATE "Project" SET "title" = $2, "currentRevisionId" = $3, "updatedAt" = CURRENT_TIMESTAMP WHERE "id" = $1 RETURNING "updatedAt"',
+        [projectId, title, revisionId],
+      );
+      await client.query(
+        'INSERT INTO "AuditEvent" ("id", "workspaceId", "actor", "resource", "action", "metadata") VALUES ($1,$2,$3,$4,$5,$6::jsonb)',
+        [randomUUID(), current.workspaceId, subject, projectId, "project.title.updated", JSON.stringify({ revisionId, etag })],
+      );
+      await client.query("COMMIT");
+      transactionStarted = false;
+      return { id: projectId, title, currentRevisionId: revisionId, etag, createdAt: new Date(current.createdAt).toISOString(), updatedAt: new Date(updated.rows[0]!.updatedAt).toISOString() };
     } catch (error) {
       if (transactionStarted) await client.query("ROLLBACK").catch(() => undefined);
       throw error;

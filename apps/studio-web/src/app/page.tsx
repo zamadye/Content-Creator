@@ -23,6 +23,9 @@ export default function StudioHome() {
   const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editTitle, setEditTitle] = useState("");
+  const [updateSaving, setUpdateSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
@@ -65,6 +68,26 @@ export default function StudioHome() {
       setError(cause instanceof Error ? cause.message : "Proyek belum tersimpan.");
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function updateTitle(event: FormEvent<HTMLFormElement>, project: Project) {
+    event.preventDefault();
+    if (!project.etag) { setError("Proyek ini belum memiliki ETag revisi. Muat ulang dan coba lagi."); return; }
+    setUpdateSaving(true);
+    setError(null);
+    try {
+      await readJson(await fetch(`/studio-api/api/projects/${project.id}`, {
+        method: "PATCH",
+        headers: { "content-type": "application/json", "if-match": `\"${project.etag}\"` },
+        body: JSON.stringify({ title: editTitle.trim() }),
+      }));
+      setEditingId(null);
+      await load();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Revisi belum tersimpan. Muat ulang proyek jika ada konflik.");
+    } finally {
+      setUpdateSaving(false);
     }
   }
 
@@ -120,7 +143,13 @@ export default function StudioHome() {
               {projects.map((project) => <article className={styles.projectCard} key={project.id}>
                 <div className={styles.cardArtwork} aria-hidden="true"><span /><span /><span /></div>
                 <div className={styles.cardMeta}><span>PROYEK</span><time dateTime={project.updatedAt}>Diperbarui {new Date(project.updatedAt).toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" })}</time></div>
-                <h3>{project.title}</h3>
+                {editingId === project.id ? (
+                  <form className={styles.renameForm} onSubmit={(event) => void updateTitle(event, project)}>
+                    <label className={styles.visuallyHidden} htmlFor={`rename-${project.id}`}>Nama proyek</label>
+                    <input id={`rename-${project.id}`} maxLength={120} value={editTitle} onChange={(event) => setEditTitle(event.target.value)} required />
+                    <div><button className={styles.primary} disabled={updateSaving || !editTitle.trim()}>{updateSaving ? "Menyimpan…" : "Simpan revisi"}</button><button className={styles.textButton} type="button" onClick={() => setEditingId(null)}>Batal</button></div>
+                  </form>
+                ) : <><h3>{project.title}</h3><button className={styles.textButton} onClick={() => { setEditingId(project.id); setEditTitle(project.title); }}>Ubah nama</button></>}
                 <p>{project.currentRevisionId ? "Revisi tersedia" : "Belum ada revisi"}</p>
               </article>)}
             </div>

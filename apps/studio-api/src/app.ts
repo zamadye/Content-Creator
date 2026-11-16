@@ -2,7 +2,7 @@ import Fastify, { type FastifyInstance } from "fastify";
 import { randomUUID } from "node:crypto";
 import secureSession from "@fastify/secure-session";
 import { z } from "zod";
-import { AccessDeniedError, type JobRecord, type ProjectRepository } from "@content-studio/db";
+import { AccessDeniedError, RevisionConflictError, type JobRecord, type ProjectRepository } from "@content-studio/db";
 import {
   authorizationCodeGrant,
   buildAuthorizationUrl,
@@ -175,6 +175,26 @@ export async function createApp(options: AppOptions): Promise<FastifyInstance> {
     } catch (error) {
       if (error instanceof AccessDeniedError) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Proyek atau workspace tidak ditemukan."));
       return reply.code(503).send(errorBody(request.id, "PROJECT_CREATE_FAILED", "Proyek belum dapat disimpan.", true));
+    }
+  });
+
+  app.patch("/api/projects/:projectId", async (request, reply) => {
+    if (!originAllowed(request.headers.origin)) return reply.code(403).send(errorBody(request.id, "CSRF_REJECTED", "Asal permintaan tidak diizinkan."));
+    const user = (request.session as SessionAccess).get("user") as AuthUser | undefined;
+    if (!user) return reply.code(401).send(errorBody(request.id, "UNAUTHENTICATED", "Silakan masuk untuk mengubah proyek."));
+    if (!options.projects) return reply.code(503).send(errorBody(request.id, "DATABASE_NOT_CONFIGURED", "Penyimpanan proyek belum siap.", true));
+    const params = z.strictObject({ projectId: z.string().uuid() }).safeParse(request.params);
+    const body = z.strictObject({ title: z.string().trim().min(1).max(120) }).safeParse(request.body);
+    const ifMatch = request.headers["if-match"];
+    const etag = typeof ifMatch === "string" ? /^\"([a-f0-9]{64})\"$/i.exec(ifMatch)?.[1] : undefined;
+    if (!params.success || !body.success || !etag) return reply.code(422).send(errorBody(request.id, "VALIDATION_ERROR", "Kirim nama proyek dan ETag revisi yang valid."));
+    try {
+      const project = await options.projects.updateProjectTitle(`${user.issuer}|${user.subject}`, params.data.projectId, body.data.title, etag);
+      return reply.code(200).header("cache-control", "no-store").header("etag", `\"${project.etag}\"`).send({ project });
+    } catch (error) {
+      if (error instanceof AccessDeniedError) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Proyek atau workspace tidak ditemukan."));
+      if (error instanceof RevisionConflictError) return reply.code(409).send(errorBody(request.id, "REVISION_CONFLICT", "Proyek berubah. Muat ulang sebelum menyimpan."));
+      return reply.code(503).send(errorBody(request.id, "PROJECT_UPDATE_FAILED", "Perubahan proyek belum dapat disimpan.", true));
     }
   });
 

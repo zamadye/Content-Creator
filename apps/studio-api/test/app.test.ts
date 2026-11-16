@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createApp } from "../src/app.js";
-import type { JobRecord, ProjectRepository, ProjectSummary } from "@content-studio/db";
+import { RevisionConflictError, type JobRecord, type ProjectRepository, type ProjectSummary } from "@content-studio/db";
 
 const project: ProjectSummary = {
   id: "33333333-3333-4333-8333-333333333333",
@@ -24,6 +24,12 @@ function fakeProjects(): ProjectRepository {
     async createProject(subject, title) {
       assert.equal(subject, `${user.issuer}|${user.subject}`);
       return { ...project, title };
+    },
+    async updateProjectTitle(subject, projectId, title, ifMatch) {
+      assert.equal(subject, `${user.issuer}|${user.subject}`);
+      assert.equal(projectId, project.id);
+      if (ifMatch !== project.etag) throw new RevisionConflictError();
+      return { ...project, title, etag: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" };
     },
   };
 }
@@ -92,6 +98,12 @@ test("project list and create require session identity and validate strict paylo
     assert.equal(created.statusCode, 201);
     assert.equal(created.json().project.title, "Proyek sintetis");
     assert.match(created.headers.etag!, /^"[a-f0-9]{64}"$/i);
+    const updated = await app.inject({ method: "PATCH", url: `/api/projects/${project.id}`, headers: { origin: webOrigin, "if-match": `"${project.etag}"` }, payload: { title: "Judul revisi" } });
+    assert.equal(updated.statusCode, 200);
+    assert.equal(updated.json().project.title, "Judul revisi");
+    const stale = await app.inject({ method: "PATCH", url: `/api/projects/${project.id}`, headers: { origin: webOrigin, "if-match": `"${"0".repeat(64)}"` }, payload: { title: "Stale" } });
+    assert.equal(stale.statusCode, 409);
+    assert.equal(stale.json().error.code, "REVISION_CONFLICT");
 
     const invalid = await app.inject({ method: "POST", url: "/api/projects", headers: { origin: webOrigin }, payload: { title: "x", workspaceId: "attacker" } });
     const csrf = await app.inject({ method: "POST", url: "/api/projects", headers: { origin: "https://attacker.example" }, payload: { title: "forged" } });

@@ -13,6 +13,7 @@
     "test": "corepack pnpm -r --if-present test",
     "typecheck": "corepack pnpm -r --if-present typecheck",
     "lint": "corepack pnpm -r --if-present lint",
-    "build": "corepack pnpm -r --if-present build"
+    "build": "corepack pnpm -r --if-present build",
+    "api:dev": "corepack pnpm --filter @content-studio/api dev"
   }
 }

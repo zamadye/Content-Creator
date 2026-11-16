@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Workspace {
+  id          String       @id @default(uuid()) @db.Uuid
+  name        String       @db.VarChar(120)
+  createdAt   DateTime     @default(now()) @db.Timestamptz(6)
+  memberships Membership[]
+  projects    Project[]
+  assets      Asset[]
+  jobs        Job[]
+  outbox      OutboxEvent[]
+  auditEvents AuditEvent[]
+}
+
+model Membership {
+  id          String    @id @default(uuid()) @db.Uuid
+  workspaceId String    @db.Uuid
+  subject     String    @db.VarChar(255)
+  role        String    @default("owner") @db.VarChar(20)
+  createdAt   DateTime  @default(now()) @db.Timestamptz(6)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@unique([workspaceId, subject])
+  @@index([subject])
+}
+
+model Project {
+  id                String             @id @default(uuid()) @db.Uuid
+  workspaceId       String             @db.Uuid
+  title             String             @db.VarChar(200)
+  currentRevisionId String?            @db.Uuid
+  createdAt         DateTime           @default(now()) @db.Timestamptz(6)
+  updatedAt         DateTime           @updatedAt @db.Timestamptz(6)
+  workspace         Workspace          @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
+  revisions         ProjectRevision[]  @relation("ProjectRevisions")
+  currentRevision   ProjectRevision?   @relation("CurrentRevision", fields: [currentRevisionId], references: [id], onDelete: SetNull)
+  jobs              Job[]
+
+  @@unique([workspaceId, id])
+  @@index([workspaceId, updatedAt])
+}
+
+model ProjectRevision {
+  id          String    @id @default(uuid()) @db.Uuid
+  projectId   String    @db.Uuid
+  parentId    String?   @db.Uuid
+  schemaVersion String  @db.VarChar(20)
+  revision    Int
+  etag        String    @db.VarChar(80)
+  snapshot    Json
+  createdAt   DateTime  @default(now()) @db.Timestamptz(6)
+  project     Project            @relation("ProjectRevisions", fields: [projectId], references: [id], onDelete: Cascade)
+  parent      ProjectRevision?  @relation("RevisionTree", fields: [parentId], references: [id], onDelete: Restrict)
+  children    ProjectRevision[] @relation("RevisionTree")
+  currentFor  Project?           @relation("CurrentRevision")
+
+  @@unique([projectId, id])
+  @@unique([projectId, revision])
+  @@index([projectId, createdAt])
+}
+
+model Asset {
+  id          String    @id @default(uuid()) @db.Uuid
+  workspaceId String    @db.Uuid
+  kind        String    @db.VarChar(40)
+  storageKey  String    @db.VarChar(512)
+  sha256      String    @db.Char(64)
+  bytes       BigInt
+  mime        String    @db.VarChar(127)
+  metadata    Json      @default("{}")
+  createdAt   DateTime  @default(now()) @db.Timestamptz(6)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
+
+  @@unique([workspaceId, storageKey])
+  @@index([workspaceId, sha256])
+}
+
+model Job {
+  id             String       @id @default(uuid()) @db.Uuid
+  workspaceId    String       @db.Uuid
+  projectId      String       @db.Uuid
+  operation      String       @db.VarChar(80)
+  idempotencyKey String       @db.VarChar(160)
+  state          String       @default("queued") @db.VarChar(20)
+  stage          String       @default("queued") @db.VarChar(80)
+  progress       Int          @default(0)
+  leaseExpiresAt DateTime?    @db.Timestamptz(6)
+  createdAt      DateTime     @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime     @updatedAt @db.Timestamptz(6)
+  workspace      Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
+  project        Project      @relation(fields: [projectId], references: [id], onDelete: Restrict)
+  attempts       JobAttempt[]
+
+  @@unique([workspaceId, operation, idempotencyKey])
+  @@index([state, leaseExpiresAt])
+  @@index([projectId, createdAt])
+}
+
+model JobAttempt {
+  id        String   @id @default(uuid()) @db.Uuid
+  jobId     String   @db.Uuid
+  attempt   Int
+  state     String   @db.VarChar(20)
+  startedAt DateTime? @db.Timestamptz(6)
+  endedAt   DateTime? @db.Timestamptz(6)
+  errorCode String?  @db.VarChar(80)
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@unique([jobId, attempt])
+}
+
+model OutboxEvent {
+  id          String    @id @default(uuid()) @db.Uuid
+  workspaceId String    @db.Uuid
+  eventType   String    @db.VarChar(100)
+  aggregateId String    @db.Uuid
+  payload     Json
+  createdAt   DateTime  @default(now()) @db.Timestamptz(6)
+  publishedAt DateTime? @db.Timestamptz(6)
+  retryAt     DateTime? @db.Timestamptz(6)
+  attempts    Int       @default(0)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
+
+  @@index([publishedAt, retryAt, createdAt])
+}
+
+model AuditEvent {
+  id          String    @id @default(uuid()) @db.Uuid
+  workspaceId String    @db.Uuid
+  actor       String    @db.VarChar(255)
+  resource    String    @db.VarChar(120)
+  action      String    @db.VarChar(80)
+  metadata    Json      @default("{}")
+  createdAt   DateTime  @default(now()) @db.Timestamptz(6)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict)
+
+  @@index([workspaceId, createdAt])
+}

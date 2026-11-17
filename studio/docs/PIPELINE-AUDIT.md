@@ -83,7 +83,7 @@ Total: 34 selesai · 10 sebagian ·  7 belum ·  2 tidak berlaku · 53 langkah.
 | 11 | High-poly modeling | ◐ | Detail prosedural (lipatan, jahitan, kusen) ada, tapi **tidak ada high-poly**: tanpa sculpt/subdivision dan tanpa sumber bake. Blokirnya keputusan toolchain, bukan lupa: anggaran tri karakter sudah 97 % (`docs/TOPOLOGY-PLAN.md`), jadi high-poly hanya berguna kalau ada jalur bake ke low-poly (langkah 18, ⛔). Sementara itu detail halus dibangkitkan prosedural di peta normal (langkah 19) |
 | 12 | Anatomical / structural refinement | ✅ | `shape()` di `character.py` (shoulder/chest/limb/jaw/neck), `entity.shape_entity` (limb_len, torso_len, neck_len) |
 | 13 | Retopology | — | Topologi base MakeHuman dipakai apa adanya; bukan pekerjaan yang dikerjakan ulang di sini |
-| 14 | Low-poly optimization | ✅ | Anggaran per kategori di `docs/TOPOLOGY-PLAN.md` (character 46k · entity 34k · nature 4k · building 3k · vehicle 3k · prop 1,5k · road 1,5k) dan anggaran shot 120k **ditegakkan** oleh `npm run qc:topology`; pemakaian terbesar character 97 % (44.721 tri), shot terberat 79.044 tri = 66 % anggaran; total 429.460 vertex di 60 GLB |
+| 14 | Low-poly optimization | ✅ | Anggaran per kategori di `docs/TOPOLOGY-PLAN.md` (character 46k · entity 34k · nature 4k · building 3k · vehicle 3k · prop 1,5k · road 1,5k) dan anggaran shot 120k **ditegakkan** oleh `npm run qc:topology`; pemakaian terbesar character 92 % (42.407 tri), shot terberat 79.044 tri = 66 % anggaran; total 421.236 vertex di 60 GLB |
 | 15 | LOD generation | ⛔ | Belum ada LOD. Belum mendesak karena targetnya klip pendek 1080p, bukan game |
 
 ## Phase 4 — UV & texture preparation

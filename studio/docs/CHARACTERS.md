@@ -228,6 +228,25 @@ Daster semula `#e0a1a9` (pink pucat). Di shot lebar, tokoh berbaju itu terbaca
 ketat. Sekarang `#bf5a72`/`#b0546a` (rose tua) dan lengannya sampai siku
 (`sleeve` 2,40), jadi jelas memakai baju tanpa perlu mengubah bentuk.
 
+### Ruang koordinat kain (dan kenapa kerah balita dulu menutup mulut)
+
+Kain dipotong pada mesh yang **sudah diproporsi** (`apply_proportions`). Karena
+itu semua angka yang ikut menentukan potongan harus melewati kurva proporsi yang
+sama, bukan angka unit MH mentah:
+
+| angka | dipakai untuk | dulu |
+| --- | --- | --- |
+| `PIECES[..]["y"]` | bidang potong atas/bawah | mentah (6,20) |
+| `PIECES[..]["buttons"]` | tinggi kancing | mentah (4,75 …) |
+| `neck_y` = 5,55 | lingkaran kerah | mentah |
+| posisi tulang (`b_cloth`) | sumbu radial + kendala `sleeve`/`reach` | tulang mentah |
+
+Untuk dewasa kurva proporsi hampir identitas (kaki 0,527 vs 0,527 unit,
+torso 0,321 vs 0,321, kepala 0,152 vs 0,153), jadi salah ruang tidak terlihat.
+Untuk balita kurva memetakan 6,20 → 4,81: garis leher mentah jatuh **di dagu**,
+dan hasilnya kerah menutupi mulut. Sekarang potongan, kancing, kerah, dan tulang
+acuan semuanya dipetakan lewat `_f_y()` / `proportion_bones()`.
+
 ### Kerah dan kancing
 
 Dua detail yang membuat kain terbaca sebagai baju, bukan bodysuit:
@@ -307,8 +326,18 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
 2. **Jahitan garis & saku belum ada.** Kerah dan kancing sudah ada (lihat §3),
    tetapi belum ada jahitan garis, saku, atau kancing manset. Kelim dan manset
    pemilik lengan masih berupa tepi potongan (lurus, tanpa ketebalan).
-3. **Wajah anak masih wajah dewasa yang diperkecil.** Proporsi kepala/leher
-   sudah benar, tetapi mata, hidung, dan pipi belum punya morph khusus balita.
+3. **Wajah anak masih wajah dewasa yang diperkecil.** Terukur: kepala
+   0,141 × 0,099 m (rasio lebar/tinggi 0,70) pada balita 0,94 m, yaitu rasio
+   kepala/tubuh **0,15 — sama dengan dewasa (0,14)**, padahal anak sungguhan
+   0,18–0,20. Selain itu alis yang dilukis `skinpaint.py` tampil lebih tebal
+   dan bergerigi pada anak, dan tepi bawah rambut (fringe) jatuh tepat di garis
+   alis. Percobaan menambah `head_k` (skala kepala seragam, 1,28 untuk balita,
+   + fraksi kepala 0,314 dengan kaki/torso dikecilkan) sempat dicoba: rasio
+   kepala membaik, tapi bola mata tenggelam di dalam rongga dan muncul garis
+   sambung di dahi, jadi dibatalkan sebelum build. Yang perlu dikerjakan
+   bersama: skala kepala seragam **plus** radius/kedalaman bola mata menurut
+   ukuran kepala, ambang fitur wajah yang memakai ruang pra-proporsi, dan posisi
+   fringe rambut menurut profil.
 4. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`
    belum benar-benar dua ekor; hanya panel di belakang kepala.
 5. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) dan belum ada

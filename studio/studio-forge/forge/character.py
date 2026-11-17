@@ -272,9 +272,23 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     # menghadap ke dalam, dan tidak ada badan menembus kain. Sepatu tetap dari
     # paket kain jadi — bentuknya sudah benar.
     Nbody = compute_normals_welded(P, idx)
+    # Kain dipotong pada mesh yang **sudah diproporsi**. Karena itu bidang potong,
+    # tinggi kancing, dan posisi tulang acuan (sendi bahu, panggul, leher) harus
+    # berada di ruang yang sama — yaitu lewat kurva proporsi yang sama. Dulu
+    # ketiganya memakai angka unit MH mentah: pada balita garis leher y = 6,20
+    # jatuh di dagu (kerah menutup mulut) sementara dewasa nyaris tidak terlihat
+    # bedanya.
+    _pc = human.proportion_curve(profile)
+
+    def _f_y(v):
+        return float(_pc(np.array([v], human.F))[0][0])
+
+    b_cloth = {**b, "bones": human.proportion_bones(b["bones"], profile)}
     garment_parts = []
     for piece_name, color in spec.get("cloth", []):
-        piece = human.body_cloth(b, P, Nbody, idx, uv, human.PIECES[piece_name])
+        raw_piece = human.PIECES[piece_name]
+        piece_spec = dict(raw_piece, y=(_f_y(raw_piece["y"][0]), _f_y(raw_piece["y"][1])))
+        piece = human.body_cloth(b_cloth, P, Nbody, idx, uv, piece_spec)
         if piece is None:
             continue
         piece["tex"] = human.fabric_texture(color, seed=abs(hash(piece_name + color)) % 997)
@@ -296,7 +310,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
 
         # Kerah + kancing: dua detail yang membuat kain terbaca sebagai baju,
         # bukan bodysuit. Keduanya bagian terpisah dengan bahan lebih tua.
-        neck_y = 5.55  # di bawah dagu (neck01.y = 5,89 unit MH)
+        neck_y = _f_y(5.55)  # di bawah dagu (neck01.y = 5,89 unit MH)
         extras = []
         collar = human.collar_ring(
             piece["pos"], piece["indices"], piece["skinIndex"], piece["skinWeight"],
@@ -306,7 +320,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
             extras.append(collar)
         btn = human.buttons(
             piece["pos"], piece["indices"], piece["normals"],
-            human.PIECES[piece_name].get("buttons", ()),
+            [_f_y(h) for h in raw_piece.get("buttons", ())],
         )
         if btn is not None:
             src = btn["src"]

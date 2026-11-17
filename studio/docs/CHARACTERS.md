@@ -323,10 +323,16 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
    tersendiri (pola potong + loft/simulasi), bukan deformasi badan. Percobaan
    3 cm + flare 1,2 cm membuat bahu berlubang (manset terangkat dari lengan),
    jadi 2 cm dipilih sebagai titik seimbang.
-2. **Jahitan garis & saku belum ada.** Kerah dan kancing sudah ada (lihat §3),
+2. **Kain belum berlapis.** Dua lapis kain yang bertumpuk (kemeja di atas
+   celana) memakai kelonggaran yang sama, jadi menaikkan `offset` celana
+   (`pants` 0,16 → 0,24 dicoba) membuat pinggang celana menembus kemeja —
+   terlihat sebagai bercak warna celana di pinggang. Kain di bawah kain butuh
+   offset bertingkat per lapis (lapis luar = lapis dalam + tebal), bukan angka
+   tunggal per potongan. Percobaan itu dibatalkan sebelum build.
+3. **Jahitan garis & saku belum ada.** Kerah dan kancing sudah ada (lihat §3),
    tetapi belum ada jahitan garis, saku, atau kancing manset. Kelim dan manset
    pemilik lengan masih berupa tepi potongan (lurus, tanpa ketebalan).
-3. **Wajah anak masih wajah dewasa yang diperkecil.** Terukur: kepala
+4. **Wajah anak masih wajah dewasa yang diperkecil.** Terukur: kepala
    0,141 × 0,099 m (rasio lebar/tinggi 0,70) pada balita 0,94 m, yaitu rasio
    kepala/tubuh **0,15 — sama dengan dewasa (0,14)**, padahal anak sungguhan
    0,18–0,20. Selain itu alis yang dilukis `skinpaint.py` tampil lebih tebal
@@ -338,12 +344,12 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
    bersama: skala kepala seragam **plus** radius/kedalaman bola mata menurut
    ukuran kepala, ambang fitur wajah yang memakai ruang pra-proporsi, dan posisi
    fringe rambut menurut profil.
-4. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`
+5. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`
    belum benar-benar dua ekor; hanya panel di belakang kepala.
-5. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) dan belum ada
+6. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) dan belum ada
    pakaian adat/seragam sekolah khas Indonesia.
-6. **`anak-besar`** (8–12 th) profil tersedia tetapi belum ada tokohnya.
-7. **Sepatu** masih memakai paket kain jadi `shoes01`; yang lain prosedural.
+7. **`anak-besar`** (8–12 th) profil tersedia tetapi belum ada tokohnya.
+8. **Sepatu** masih memakai paket kain jadi `shoes01`; yang lain prosedural.
 
 Riwayat perbaikan penting: alpha rambut dulu dipanggang dari `scalp_weight`
 lalu diblur 12 px di atlas 512², sehingga nilai di ubun-ubun turun di bawah

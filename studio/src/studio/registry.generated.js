@@ -28,8 +28,8 @@ export default {
    "bounds": {
     "min": [
      -0.512,
-     -0.007,
-     -0.132
+     -0.008,
+     -0.109
     ],
     "max": [
      0.512,
@@ -39,11 +39,11 @@ export default {
     "size": [
      1.025,
      1.733,
-     0.464
+     0.441
     ]
    },
-   "tris": 38222,
-   "bytes": 3732796,
+   "tris": 40695,
+   "bytes": 4075556,
    "tags": [
     "human",
     "male",
@@ -85,8 +85,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
+    "cloth-pants",
+    "cloth-shirt-short",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -120,8 +120,8 @@ export default {
    "bounds": {
     "min": [
      -0.478,
-     -0.007,
-     -0.123
+     -0.008,
+     -0.102
     ],
     "max": [
      0.478,
@@ -130,12 +130,12 @@ export default {
     ],
     "size": [
      0.956,
-     1.618,
-     0.432
+     1.619,
+     0.412
     ]
    },
-   "tris": 38448,
-   "bytes": 3888552,
+   "tris": 40921,
+   "bytes": 4231716,
    "tags": [
     "human",
     "female",
@@ -177,8 +177,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
+    "cloth-pants",
+    "cloth-shirt-short",
     "cloth-shoes01",
     "hair",
     "hair-long",
@@ -213,8 +213,8 @@ export default {
    "bounds": {
     "min": [
      -0.489,
-     -0.007,
-     -0.137
+     -0.008,
+     -0.104
     ],
     "max": [
      0.489,
@@ -223,12 +223,12 @@ export default {
     ],
     "size": [
      0.977,
-     1.654,
-     0.453
+     1.655,
+     0.421
     ]
    },
-   "tris": 39764,
-   "bytes": 3790092,
+   "tris": 41764,
+   "bytes": 4041524,
    "tags": [
     "human",
     "male",
@@ -270,7 +270,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-male_casualsuit05",
+    "cloth-pants",
+    "cloth-shirt-long",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -284,7 +285,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 24
+    "embeddedTextures": 27
    },
    "profile": "dewasa",
    "outfit": "jaket"
@@ -300,8 +301,8 @@ export default {
    "bounds": {
     "min": [
      -0.506,
-     -0.007,
-     -0.147
+     -0.008,
+     -0.108
     ],
     "max": [
      0.506,
@@ -310,12 +311,12 @@ export default {
     ],
     "size": [
      1.013,
-     1.712,
-     0.476
+     1.713,
+     0.436
     ]
    },
-   "tris": 39747,
-   "bytes": 3776672,
+   "tris": 41709,
+   "bytes": 4048056,
    "tags": [
     "human",
     "male",
@@ -357,7 +358,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-male_casualsuit05",
+    "cloth-pants",
+    "cloth-shirt-long",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -371,7 +373,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 24
+    "embeddedTextures": 27
    },
    "profile": "dewasa",
    "outfit": "kerja"
@@ -387,8 +389,8 @@ export default {
    "bounds": {
     "min": [
      -0.496,
-     -0.007,
-     -0.141
+     -0.008,
+     -0.106
     ],
     "max": [
      0.496,
@@ -398,11 +400,11 @@ export default {
     "size": [
      0.992,
      1.677,
-     0.462
+     0.427
     ]
    },
-   "tris": 39446,
-   "bytes": 3920600,
+   "tris": 42545,
+   "bytes": 4240348,
    "tags": [
     "human",
     "male",
@@ -444,7 +446,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-male_casualsuit05",
+    "cloth-pants",
+    "cloth-shirt-long",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -458,7 +461,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 24
+    "embeddedTextures": 27
    },
    "profile": "lansia",
    "outfit": "kemeja-kasual"
@@ -474,8 +477,8 @@ export default {
    "bounds": {
     "min": [
      -0.46,
-     -0.006,
-     -0.118
+     -0.007,
+     -0.099
     ],
     "max": [
      0.46,
@@ -484,12 +487,12 @@ export default {
     ],
     "size": [
      0.921,
-     1.556,
-     0.416
+     1.557,
+     0.397
     ]
    },
-   "tris": 38194,
-   "bytes": 4031432,
+   "tris": 41138,
+   "bytes": 4403860,
    "tags": [
     "human",
     "female",
@@ -531,9 +534,9 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
     "cloth-shoes01",
+    "cloth-shorts",
+    "cloth-tunic",
     "hair",
     "hair-long",
     "iris-L",
@@ -563,8 +566,8 @@ export default {
    "bounds": {
     "min": [
      -0.446,
-     -0.006,
-     -0.115
+     -0.007,
+     -0.095
     ],
     "max": [
      0.446,
@@ -573,12 +576,12 @@ export default {
     ],
     "size": [
      0.892,
-     1.572,
-     0.404
+     1.573,
+     0.384
     ]
    },
-   "tris": 38329,
-   "bytes": 3717852,
+   "tris": 42008,
+   "bytes": 4111608,
    "tags": [
     "human",
     "male",
@@ -620,8 +623,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
+    "cloth-pants",
+    "cloth-shirt-short",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -651,8 +654,8 @@ export default {
    "bounds": {
     "min": [
      -0.429,
-     -0.006,
-     -0.11
+     -0.007,
+     -0.092
     ],
     "max": [
      0.429,
@@ -662,11 +665,11 @@ export default {
     "size": [
      0.858,
      1.512,
-     0.388
+     0.369
     ]
    },
-   "tris": 38229,
-   "bytes": 3878708,
+   "tris": 41908,
+   "bytes": 4272132,
    "tags": [
     "human",
     "female",
@@ -708,8 +711,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
+    "cloth-pants",
+    "cloth-shirt-short",
     "cloth-shoes01",
     "hair",
     "hair-long",
@@ -740,8 +743,8 @@ export default {
    "bounds": {
     "min": [
      -0.308,
-     -0.004,
-     -0.079
+     -0.005,
+     -0.065
     ],
     "max": [
      0.308,
@@ -751,11 +754,11 @@ export default {
     "size": [
      0.617,
      1.158,
-     0.279
+     0.265
     ]
    },
-   "tris": 39545,
-   "bytes": 3799676,
+   "tris": 45260,
+   "bytes": 4298636,
    "tags": [
     "human",
     "male",
@@ -797,8 +800,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
+    "cloth-pants",
+    "cloth-shirt-short",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -828,8 +831,8 @@ export default {
    "bounds": {
     "min": [
      -0.3,
-     -0.004,
-     -0.077
+     -0.005,
+     -0.064
     ],
     "max": [
      0.3,
@@ -839,11 +842,11 @@ export default {
     "size": [
      0.601,
      1.128,
-     0.272
+     0.258
     ]
    },
-   "tris": 37941,
-   "bytes": 3853224,
+   "tris": 43031,
+   "bytes": 4335016,
    "tags": [
     "human",
     "female",
@@ -885,9 +888,9 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
     "cloth-shoes01",
+    "cloth-shorts",
+    "cloth-tunic",
     "hair",
     "hair-long",
     "iris-L",
@@ -917,8 +920,8 @@ export default {
    "bounds": {
     "min": [
      -0.241,
-     -0.003,
-     -0.062
+     -0.004,
+     -0.05
     ],
     "max": [
      0.241,
@@ -928,11 +931,11 @@ export default {
     "size": [
      0.482,
      0.946,
-     0.218
+     0.206
     ]
    },
-   "tris": 37831,
-   "bytes": 3698864,
+   "tris": 44022,
+   "bytes": 4223480,
    "tags": [
     "human",
     "male",
@@ -974,8 +977,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
+    "cloth-pants",
+    "cloth-shirt-short",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -1005,8 +1008,8 @@ export default {
    "bounds": {
     "min": [
      -0.233,
-     -0.003,
-     -0.06
+     -0.004,
+     -0.049
     ],
     "max": [
      0.233,
@@ -1016,11 +1019,11 @@ export default {
     "size": [
      0.466,
      0.916,
-     0.211
+     0.2
     ]
    },
-   "tris": 37861,
-   "bytes": 3846360,
+   "tris": 43140,
+   "bytes": 4339356,
    "tags": [
     "human",
     "female",
@@ -1062,9 +1065,9 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
     "cloth-shoes01",
+    "cloth-shorts",
+    "cloth-tunic",
     "hair",
     "hair-long",
     "iris-L",
@@ -1094,8 +1097,8 @@ export default {
    "bounds": {
     "min": [
      -0.512,
-     -0.007,
-     -0.146
+     -0.008,
+     -0.109
     ],
     "max": [
      0.512,
@@ -1105,11 +1108,11 @@ export default {
     "size": [
      1.025,
      1.733,
-     0.478
+     0.441
     ]
    },
-   "tris": 39751,
-   "bytes": 3808964,
+   "tris": 41726,
+   "bytes": 4064124,
    "tags": [
     "human",
     "male",
@@ -1150,7 +1153,8 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-male_casualsuit05",
+    "cloth-pants",
+    "cloth-shirt-long",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -1164,7 +1168,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 24
+    "embeddedTextures": 27
    },
    "profile": "dewasa",
    "outfit": "kemeja-kasual",
@@ -1181,8 +1185,8 @@ export default {
    "bounds": {
     "min": [
      -0.478,
-     -0.007,
-     -0.123
+     -0.008,
+     -0.103
     ],
     "max": [
      0.478,
@@ -1191,12 +1195,12 @@ export default {
     ],
     "size": [
      0.956,
-     1.618,
-     0.432
+     1.619,
+     0.413
     ]
    },
-   "tris": 38448,
-   "bytes": 3890612,
+   "tris": 40021,
+   "bytes": 4186724,
    "tags": [
     "human",
     "female",
@@ -1237,9 +1241,9 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
     "cloth-shoes01",
+    "cloth-shorts",
+    "cloth-tunic",
     "hair",
     "hair-long",
     "iris-L",

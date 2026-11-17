@@ -88,24 +88,51 @@ Lembar kontak: `docs/character-lineup.png`.
 
 ## 3. Pakaian sebagai data (`WARDROBE`)
 
-Pakaian **tidak** tertanam di mesh. Satu outfit = kombinasi paket kain +
-tint, dan tokoh hanya menyebut id outfit:
+Pakaian **tidak** tertanam di mesh. Satu outfit = daftar potongan kain +
+warna, dan tokoh hanya menyebut id outfit:
 
 ```python
 WARDROBE = {
-  "polo-kargo":   {"garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"], "tint": [1.00, 1.00, 1.00]},
-  "kemeja-kasual":{"garments": ["male_casualsuit05", "shoes01"],                            "tint": [0.95, 0.98, 1.02]},
-  "jaket":        {"garments": ["male_casualsuit05", "shoes01"],                            "tint": [0.62, 0.66, 0.74]},
-  "seragam":      {"garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"], "tint": [0.86, 0.94, 1.18]},
-  "daster":       {"garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"], "tint": [1.18, 0.92, 0.88]},
-  "kerja":        {"garments": ["male_casualsuit05", "shoes01"],                            "tint": [0.80, 0.83, 0.78]},
+  "polo-kargo":   {"cloth": [("shirt-short", "#d9dee4"), ("pants", "#9aa98a")], "shoes": "shoes01"},
+  "kemeja-kasual":{"cloth": [("shirt-long",  "#46536b"), ("pants", "#37414f")], "shoes": "shoes01"},
+  "jaket":        {"cloth": [("shirt-long",  "#2f343d"), ("pants", "#262a31")], "shoes": "shoes01"},
+  "seragam":      {"cloth": [("shirt-short", "#93b8e6"), ("pants", "#5d7ea8")], "shoes": "shoes01"},
+  "daster":       {"cloth": [("tunic",       "#e0a1a9"), ("shorts", "#e0a1a9")], "shoes": "shoes01"},
+  "kerja":        {"cloth": [("shirt-long",  "#6f7a5b"), ("pants", "#414a3a")], "shoes": "shoes01"},
 }
 ```
 
-Paket kainnya ada di `public/garments/` (4 potong: polo, celana kargo, setelan
-kasual, sepatu) — lihat `public/garments/PROVENANCE.md`. Karena hanya ada 4
-potong kain, variasi outfit saat ini datang dari **kombinasi + tint**, bukan
-dari 20 model baju baru.
+### Kain diturunkan dari tubuh, bukan model kain jadi
+
+Potongan kain (`human.PIECES`) dibuat dengan **memotong permukaan tubuh
+sendiri** lalu mendorongnya keluar 4–6 cm:
+
+| potongan | cakupan |
+|---|---|
+| `shirt-short` | torso sampai lengan atas (manset 1,45 unit dari sendi bahu) |
+| `shirt-long` | torso + lengan sampai pergelangan (3,3 unit) |
+| `tunic` | torso diperpanjang sampai pertengahan paha |
+| `pants` | pinggang sampai mata kaki |
+| `shorts` | pinggang sampai pertengahan paha |
+
+Karena kain dan badan adalah permukaan yang sama, **tidak ada badan menembus
+kain, tidak ada lubang crotch, dan tidak ada segitiga yang menghadap ke
+dalam** — tiga cacat yang dulu muncul karena memakai model kain jadi
+(`cortu_cargo_pants` ternyata dua tabung tanpa crotch; seperlima segitiga polo
+menghadap ke dalam). Offset-nya **radial dari tulang terdekat**, bukan
+sepanjang normal: di lipatan (crotch, ketiak) normal menunjuk ke dalam sehingga
+offset normal justru menenggelamkan kain ke badan.
+
+Tekstur kain prosedural (`human.fabric_texture`): tenunan + lipatan + warna per
+outfit, 512². Tidak ada tekstur kain yang perlu diunduh atau dilisensikan.
+Sepatu tetap memakai paket kain jadi `shoes01` (bentuknya sudah benar).
+
+### Batas kain
+
+Kelim dan manset diratakan: vertex yang jaraknya < 0,22 unit dari bidang potong
+ditarik tepat ke bidang itu, jadi ujungnya lurus, bukan bergerigi. Bagian tepi
+terbuka (bawah kemeja, manset) tampil sebagai kain dua sisi — tidak ada lubang
+tembus pandang.
 
 ### Menukar kostum dari naskah
 
@@ -140,9 +167,9 @@ Bukti: `stories/uji-karakter/story.json` — shot `karakter-04` memakai
 
 | langkah | waktu |
 |---|---|
-| satu tokoh penuh (2048² kulit, 13 klip, thumbnail) | **≈ 21 s** |
-| 14 tokoh sekaligus | **≈ 5 menit** (297 s untuk build pertama) |
-| ukuran per tokoh | 3,5–3,9 MB (27–30 tekstur), 13.900–14.500 tris |
+| satu tokoh penuh (2048² kulit, 5 potong kain, 13 klip, thumbnail) | **≈ 28 s** |
+| 14 tokoh sekaligus | **≈ 6,5 menit** (391 s terukur) |
+| ukuran per tokoh | 3,9–4,2 MB (27–30 tekstur), 14.700–16.500 tris |
 
 Tidak ada bake high→low per tokoh, tidak ada rigging ulang: animasi dibuat
 prosedural dari `CLIPS` sekali, lalu disalin ke setiap varian. Karena itu
@@ -152,18 +179,22 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
 
 ## 5. Cacat yang masih terbuka (jujur)
 
-1. **Jahitan pakaian kasar.** Paket kain ditulis untuk tubuh dewasa lalu
-   di-offset per potong; di saku/paha celana kargo masih ada bercak gelap
-   (interior kain terlihat) dan ujung lengan bergerigi.
-2. **Wajah anak masih wajah dewasa yang diperkecil.** Proporsi kepala/leher
+1. **Siluet pakaian masih ketat ("bodysuit").** Kain mengikuti permukaan badan
+   dengan kelonggaran 4–6 cm, jadi kemeja masih mencetak bentuk dada dan
+   pinggang. Kain yang benar-benar longgar butuh permukaan kain tersendiri
+   (simulasi/loft), bukan offset dari badan.
+2. **Ketiak dan garis leher masih berupa tepi terbuka.** Manset lengan dan
+   kerah belum punya lapisan/jahitan penutup; dari sudut tertentu terlihat
+   sisi dalam kain (dua sisi, jadi tidak tembus pandang).
+3. **Wajah anak masih wajah dewasa yang diperkecil.** Proporsi kepala/leher
    sudah benar, tetapi mata, hidung, dan pipi belum punya morph khusus balita.
-3. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`
+4. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`
    belum benar-benar dua ekor; hanya panel di belakang kepala.
-4. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) dan belum ada
-   pakaian adat/ seragam sekolah Indonesia yang spesifik.
-5. **`anak-besar`** profil tersedia tetapi belum ada tokohnya.
-6. Varian outfit baru membuktikan mekanisme tukar-kostum, belum kekayaan
-   desain: hanya 4 potong kain.
+5. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) dan belum ada
+   pakaian adat/seragam sekolah Indonesia yang spesifik.
+6. **`anak-besar`** profil tersedia tetapi belum ada tokohnya.
+7. **Sepatu** masih memakai paket kain jadi `shoes01`; yang lain sudah
+   prosedural.
 
 Riwayat perbaikan penting: alpha rambut dulu dipanggang dari `scalp_weight`
 lalu diblur 12 px di atlas 512², sehingga nilai di ubun-ubun turun di bawah

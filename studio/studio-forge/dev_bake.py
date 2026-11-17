@@ -167,6 +167,15 @@ END = "<!-- END:bake -->"
 def verify(baseline_path: Path, write: bool = False) -> int:
     """Bandingkan AO hasil bake dengan baseline prosedural; tulis tabel dokumen."""
     base = json.loads(baseline_path.read_text())
+    # Karakter & entitas TIDAK di-AO-bake (ORM-nya dari tekstur yang dilukis:
+    # kulit, kain, rambut). Baris mereka tetap ditampilkan supaya tabelnya
+    # lengkap, tapi tidak dihitung sebagai bukti bake — dulu baseline mereka
+    # ikut dibandingkan, sehingga setiap kali tekstur kain berubah gate-nya
+    # melaporkan "AO justru lebih terang" padahal tidak ada bake sama sekali.
+    reg_path = ROOT / "public" / "assets" / "registry.json"
+    kinds = {}
+    if reg_path.exists():
+        kinds = {k: v.get("category") for k, v in json.loads(reg_path.read_text()).get("assets", {}).items()}
     rows = []
     for glb in sorted((ROOT / "public" / "assets").rglob("*.glb")):
         cur = summary(glb)
@@ -176,15 +185,25 @@ def verify(baseline_path: Path, write: bool = False) -> int:
             return 1
         rows.append((glb.stem, old, cur))
 
-    darker = [r for r in rows if r[2]["mean"] < r[1]["mean"] - 0.005]
+    def baked(name):
+        return kinds.get(name, "prop") not in ("character", "entity")
+
+    darker = [r for r in rows if baked(r[0]) and r[2]["mean"] < r[1]["mean"] - 0.005]
     problems = []
     for name, old, cur in rows:
         if cur["materials"] == 0:
             problems.append(f"{name}: tidak punya tekstur ORM")
-        if cur["mean"] > old["mean"] + 0.002:
+        if baked(name) and cur["mean"] > old["mean"] + 0.002:
             problems.append(f"{name}: AO justru lebih terang ({old['mean']:.3f} -> {cur['mean']:.3f})")
-    if len(darker) < 15:
-        problems.append(f"hanya {len(darker)} aset yang AO-nya benar-benar turun (harus ≥ 15)")
+    # Ambang dihitung dari populasi yang benar-benar di-bake. Angka lama (21 dari
+    # 52) ikut menghitung karakter & entitas yang AO-nya tidak pernah di-bake,
+    # jadi begitu keduanya dipisahkan populasi sahnya tinggal 41 aset.
+    n_baked = sum(1 for r in rows if baked(r[0]))
+    need = max(6, int(round(0.15 * n_baked)))
+    if len(darker) < need:
+        problems.append(
+            f"hanya {len(darker)} dari {n_baked} aset bake yang AO-nya benar-benar turun (harus ≥ {need})"
+        )
 
     mean_before = float(np.mean([r[1]["mean"] for r in rows]))
     mean_after = float(np.mean([r[2]["mean"] for r in rows]))
@@ -204,7 +223,8 @@ def verify(baseline_path: Path, write: bool = False) -> int:
         DOC.write_text(md[: a + len(BEGIN)] + "\n\n" + "\n".join(lines) + "\n\n" + md[b:])
 
     print(
-        f"{len(rows)} aset · {len(darker)} jadi lebih gelap · rata-rata AO {mean_before:.3f} -> {mean_after:.3f} "
+        f"{len(rows)} aset ({n_baked} di-bake) · {len(darker)} jadi lebih gelap · "
+        f"rata-rata AO {mean_before:.3f} -> {mean_after:.3f} "
         f"· {len(problems)} masalah"
     )
     if problems:

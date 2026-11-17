@@ -9,8 +9,8 @@ Terakhir diperbarui: sesi build ini. Angka diambil langsung dari
 | | |
 |---|---|
 | Aset | **60** GLB + 60 thumbnail + registry + galeri HTML + pustaka 102 properti |
-| Ukuran | **± 82,0 MB** (character 50,9 MB · entity 14,8 MB · building 5,7 MB · prop 3,9 MB · road 3,3 MB · nature 2,7 MB · vehicle 0,7 MB) |
-| Geometri | ± 709.500 tris total |
+| Ukuran | **± 87,2 MB** (character 56,1 MB · entity 14,8 MB · building 5,7 MB · prop 3,9 MB · road 3,3 MB · nature 2,7 MB · vehicle 0,7 MB) |
+| Geometri | ± 761.900 tris total |
 | Rig | 163 tulang, 13 klip, 30 fps, `inverseBindMatrices` per klip |
 | Status | 52 `review`, 8 `draft` |
 | Kontrak | `studio.registry/2`, `studio.story/2`, `studio-humanoid-v1` |
@@ -25,8 +25,10 @@ rambut, dan outfit. Semuanya memakai 163 tulang & 13 klip yang sama.
 
 * Cakupan: 4 dewasa, 2 lansia, 2 remaja, 2 anak 5–6 th, 2 balita 2–3 th —
   masing-masing laki-laki & perempuan; plus 2 varian outfit.
-* Pakaian = data (`WARDROBE`: 6 outfit dari 4 paket kain + tint), bisa ditukar
-  dari naskah lewat `cast.<ref>.outfit`.
+* Pakaian = data (`WARDROBE`: 6 outfit dari 5 potongan kain prosedural +
+  warna), bisa ditukar dari naskah lewat `cast.<ref>.outfit`. Kain dipotong
+  dari permukaan tubuh sendiri, jadi tidak ada lubang crotch / badan menembus
+  kain / segitiga menghadap ke dalam.
 * Proporsi umur dijaga kurva pita (kepala/torso/kaki), bukan skala seragam:
   balita 0,95 m dengan rasio kepala 0,245 (dewasa 0,152).
 * Kamera preset ikut tinggi aktor (dada 0,67 H, mata 0,94 H), jadi bocil tidak
@@ -311,8 +313,8 @@ Isinya dipakai — bukan pajangan:
 `npm run qc-topology` (`scripts/qc-topology.mjs`) memeriksa tiga hal sekaligus:
 tidak ada aset melewati anggaran, jumlah tri di GLB **sama** dengan registry, dan
 tabel di dokumen tidak basi (`--write` untuk menyegarkan). Hasil sekarang:
-60 aset, 0 pelanggaran; pemakaian tertinggi `char.male-muda-jaket` 39.764 tri =
-**95 %**; shot terberat `warung-malam/duduk-02` 79.044 tri = **66 %** anggaran.
+60 aset, 0 pelanggaran; pemakaian tertinggi `char.anak-laki` 45.260 tri =
+**98 %** dari anggaran karakter 46.000; shot terberat `warung-malam/duduk-02` 79.044 tri = **66 %** anggaran.
 
 Grup tes `topology` di `npm run test:studio` juga membuktikan pagarnya **bisa
 gagal**: aset karangan 50.000 tri + tekstur 4096 px langsung dilaporkan sebagai
@@ -359,7 +361,7 @@ Bukti bahwa ini bake, bukan "dibuat lebih gelap":
 | geometri sintetis (pelat + kotak melayang) | AO **0,488** di bawah kotak vs **1,000** di pojok terbuka |
 | pelat datar tanpa penghalang | AO **1,000** (tidak ada penggelapan palsu) |
 | determinisme | dua kali bake → array identik |
-| 60 aset | **21 menjadi lebih gelap**, rata-rata 0,950 → 0,924 (52 aset lama; 14 tokoh tidak di-bake) |
+| 60 aset (41 di-bake) | **10 dari 41 aset bake menjadi lebih gelap**, rata-rata 0,942 → 0,930; 14 tokoh + 5 entitas tidak di-bake |
 | paling terpengaruh | `entity.tall-limbs` 0,817 · `char.male-pekerja` 0,822 · `nature.tree.palm` 0,827 |
 
 Keputusan penting: material dengan **UV tiling** dilewati. Percobaan pertama

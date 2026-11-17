@@ -15,7 +15,7 @@ import numpy as np
 
 from . import tex, uvpaint
 from .glb import GLBWriter, Material, MeshDef, Primitive, COMP_FLOAT
-from .kit import Builder, compute_normals, compute_tangents
+from .kit import Builder, compute_normals, compute_normals_welded, compute_tangents
 from .skin import quat_from_euler, world_matrices
 from .uvpaint import smoothstep
 from .skinpaint import paint_skin
@@ -257,6 +257,130 @@ GARMENT_LUMA = {
     "cortu_cargo_pants": 0.17,
     "shoes01": 0.11,
 }
+
+
+# ------------------------------------------------------------ cloth from body
+# Pakaian tidak lagi diambil dari model kain jadi (dua di antaranya: celana
+# kargo berupa dua tabung tanpa crotch, dan 20% segitiga polo menghadap ke
+# dalam). Kain sekarang diturunkan dari permukaan tubuh sendiri: pilih
+# segitiga berdasarkan tulang yang mendominasi + batas tinggi, lalu dorong
+# keluar sepanjang normal. Hasilnya selalu menutup rapat, tidak pernah
+# menembus badan, dan otomatis ikut semua varian umur.
+PIECES = {
+    # Potongan kain didefinisikan dengan *mengecualikan* bagian tubuh, bukan
+    # memilih tulang: kalau memilih, bagian di antara dua tulang (ketiak, bahu)
+    # terlewat dan kain berlubang. Dengan pengecualian, kain selalu menutup
+    # penuh dan hanya punya batas di kelim, manset, dan garis leher.
+    #   y        : rentang tinggi (unit MakeHuman, kaki -8.17, kepala 8.49)
+    #   exclude  : awalan nama tulang yang tidak boleh tertutup kain
+    #   sleeve   : panjang lengan dari sendi bahu (unit); 0 = tanpa batas
+    #   offset   : kelonggaran kain dari permukaan badan (unit ≈ 1 cm)
+    "shirt-short": dict(
+        y=(-0.62, 6.42), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
+        sleeve=1.45, offset=0.052,
+    ),
+    "shirt-long": dict(
+        y=(-0.62, 6.42), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
+        sleeve=3.30, offset=0.052,
+    ),
+    "tunic": dict(
+        y=(-2.05, 6.42), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot", "lowerleg"),
+        sleeve=1.45, offset=0.060,
+    ),
+    "pants": dict(
+        y=(-7.00, 1.74), exclude=("hand", "finger", "thumb", "head", "jaw", "eye"), sleeve=0.0, offset=0.044,
+    ),
+    "shorts": dict(
+        y=(-2.60, 1.74), exclude=("hand", "finger", "thumb", "head", "jaw", "eye"), sleeve=0.0, offset=0.044,
+    ),
+}
+
+
+def body_cloth(b, P, N, idx, uv, piece, snap_band=0.22):
+    """Potong pakaian dari permukaan tubuh (lihat PIECES).
+
+    Mengembalikan dict dengan pos/indices/uv/skinIndex/skinWeight/normals,
+    atau None bila potongan itu kosong untuk tubuh ini.
+    """
+    names = np.array([bn["name"] for bn in b["bones"]])
+    dom = names[b["skinIndex"][:, 0].astype(np.int64)]
+    y = P[:, 1]
+    lo, hi = piece["y"]
+
+    mask = (y >= lo) & (y <= hi)
+    for pre in piece.get("exclude", ()):
+        mask &= ~np.char.startswith(dom, pre)
+    if piece.get("sleeve", 0):
+        shoulder = np.array(
+            [bn["p"] for bn in b["bones"] if bn["name"].startswith("upperarm01")], F
+        ).mean(0)
+        arm = np.zeros(len(P), bool)
+        for pre in ("upperarm", "lowerarm"):
+            arm |= np.char.startswith(dom, pre)
+        arm &= np.linalg.norm(P - shoulder, axis=1) > piece["sleeve"]
+        mask &= ~arm
+
+    # Dilasi 2 ring: segitiga yang terlewat karena tulang tetangga (mis. bagian
+    # bahu yang didominasi tulang leher) ikut tertutup, jadi tidak ada lubang
+    # kecil di tengah kain.
+    edges_all = np.concatenate([idx[:, [0, 1]], idx[:, [1, 2]], idx[:, [2, 0]]])
+    for _ in range(2):
+        grown = mask.copy()
+        grown[edges_all[:, 0]] |= mask[edges_all[:, 1]]
+        grown[edges_all[:, 1]] |= mask[edges_all[:, 0]]
+        mask = grown
+    mask &= (y >= lo) & (y <= hi)
+
+    keep = mask[idx].all(1)
+    if keep.sum() < 8:
+        return None
+    tris = idx[keep]
+    used = np.unique(tris)
+    remap = np.full(len(P), -1, np.int64)
+    remap[used] = np.arange(len(used), dtype=np.int64)
+
+    # Catatan: penghalusan Laplacian sempat dicoba dan gagal — pada lengan dan
+    # paha ia menyusutkan siluet sehingga kulit menembus kain di bercak-bercak.
+    # Offset seragam sepanjang normal selalu berada di luar permukaan, jadi itu
+    # yang dipakai; kelonggaran kain diatur lewat `offset` per potongan.
+    # Offset radial dari tulang terdekat, bukan sepanjang normal: di lipatan
+    # (crotch, ketiak) normal menunjuk ke dalam sehingga kain lama-lama masuk ke
+    # badan. Dengan radius dari sumbu tulang, kain selalu di luar dan sisi yang
+    # bertemu di lipatan saling menutup karena bahannya sama.
+    # Sumbu = tulang yang mendominasi vertex itu sendiri (bukan tulang terdekat):
+    # di ketiak, tulang terdekat bisa tulang punggung sehingga lengan kain justru
+    # didorong masuk ke badan dan muncul lubang di bawah ketiak.
+    axis_all = np.array([bn["p"] for bn in b["bones"]], F)
+    dirs = P[used] - axis_all[b["skinIndex"][used][:, 0].astype(np.int64)]
+    dist = np.linalg.norm(dirs, axis=1, keepdims=True)
+    radial = dirs / np.maximum(dist, 1e-4)
+    pos = P[used] + radial * piece["offset"]
+    # Ratakan kelim bawah: vertex yang dekat bidang potong ditarik ke bidang itu.
+    if np.isfinite(lo) and lo > -50:
+        near = np.abs(pos[:, 1] - lo) < snap_band
+        if near.any():
+            pos[near, 1] = lo
+
+    local = remap[tris]
+    return {
+        "pos": pos,
+        "indices": local,
+        "uv": uv[used],
+        "skinIndex": b["skinIndex"][used],
+        "skinWeight": b["skinWeight"][used],
+        "normals": compute_normals_welded(pos, local),
+        "verts": len(used),
+        "tris": int(keep.sum()),
+    }
+
+
+def fabric_texture(color="#cfd6dd", seed=7, size=512):
+    """Tekstur kain prosedural: tenunan halus + lipatan, warna per outfit."""
+    from . import tex
+
+    rgb = tex.hexc(color.lstrip("#"))
+    f = tex.fabric(seed, size, rgb, weave=140, folds=0.35)
+    return {"base": f["base"], "normal": f["normal"], "orm": f["orm"]}
 
 
 def garment_pack(name, weave_seed):

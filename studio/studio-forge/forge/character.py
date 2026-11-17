@@ -21,15 +21,16 @@ HEIGHT_UNITS = 16.659
 FEET_Y = -8.168
 
 # ------------------------------------------------------------------ wardrobe
-# Satu set pakaian = kombinasi paket kain + tint. Id outfit dipakai di SPECS
-# (`outfit`) dan bisa dipakai cerita untuk memilih varian tokoh.
+# Satu set pakaian = daftar potongan kain prosedural (human.PIECES) + warna.
+# Potongan dipotong dari permukaan tubuh, jadi otomatis pas di semua umur.
+# Id outfit dipakai di SPECS (`outfit`) dan dipilih cerita untuk tukar kostum.
 WARDROBE = {
-    "polo-kargo": {"garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"], "tint": [1.0, 1.0, 1.0]},
-    "kemeja-kasual": {"garments": ["male_casualsuit05", "shoes01"], "tint": [0.95, 0.98, 1.02]},
-    "jaket": {"garments": ["male_casualsuit05", "shoes01"], "tint": [0.78, 0.82, 0.88]},
-    "seragam": {"garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"], "tint": [0.86, 0.94, 1.18]},
-    "daster": {"garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"], "tint": [1.18, 0.92, 0.88]},
-    "kerja": {"garments": ["male_casualsuit05", "shoes01"], "tint": [0.80, 0.83, 0.78]},
+    "polo-kargo": {"cloth": [("shirt-short", "#d9dee4"), ("pants", "#9aa98a")], "shoes": "shoes01"},
+    "kemeja-kasual": {"cloth": [("shirt-long", "#46536b"), ("pants", "#37414f")], "shoes": "shoes01"},
+    "jaket": {"cloth": [("shirt-long", "#2f343d"), ("pants", "#262a31")], "shoes": "shoes01"},
+    "seragam": {"cloth": [("shirt-short", "#93b8e6"), ("pants", "#5d7ea8")], "shoes": "shoes01"},
+    "daster": {"cloth": [("tunic", "#e0a1a9"), ("shorts", "#e0a1a9")], "shoes": "shoes01"},
+    "kerja": {"cloth": [("shirt-long", "#6f7a5b"), ("pants", "#414a3a")], "shoes": "shoes01"},
 }
 
 DEFAULT_SKIN = dict(tone="#b98a63", red="#ad5f4c", lip="#8c4a44", age=0.32, sex="male", stubble=0.4, seed=11)
@@ -47,8 +48,8 @@ def _char(title, tags, profile, height, shape_, skin, hair, outfit, **kw):
         "shape": shape_,
         "skin": skin,
         "hair": hair,
-        "garments": WARDROBE[outfit]["garments"],
-        "tint": WARDROBE[outfit]["tint"],
+        "cloth": [list(pc) for pc in WARDROBE[outfit]["cloth"]],
+        "shoes": WARDROBE[outfit].get("shoes"),
         "outfit": outfit,
     }
     spec.update(kw)
@@ -257,18 +258,41 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     skin_maps = paint_skin(filled, nrm_map, mask, size, skin_spec)
 
     # ------------------------------------------------------------ garments
-    hidden = set()
+    # Kain diturunkan dari permukaan tubuh (human.body_cloth): potongan mengikuti
+    # tulang yang mendominasi, jadi tidak ada lubang crotch, tidak ada segitiga
+    # menghadap ke dalam, dan tidak ada badan menembus kain. Sepatu tetap dari
+    # paket kain jadi — bentuknya sudah benar.
+    Nbody = compute_normals_welded(P, idx)
     garment_parts = []
-    for gname in spec.get("garments", []):
+    for piece_name, color in spec.get("cloth", []):
+        piece = human.body_cloth(b, P, Nbody, idx, uv, human.PIECES[piece_name])
+        if piece is None:
+            continue
+        piece["tex"] = human.fabric_texture(color, seed=abs(hash(piece_name + color)) % 997)
+        # Lubang kecil di garis leher/bahu (segitiga yang tulangnya beda) ditutup.
+        from . import kit as _kit
+
+        gp2, fixed_idx, fixed = _kit.fill_small_holes(
+            piece["pos"],
+            piece["indices"],
+            {"uv": piece["uv"], "skinIndex": piece["skinIndex"], "skinWeight": piece["skinWeight"]},
+            max_loop=14,
+            max_extent=0.6,
+        )
+        piece["pos"] = gp2
+        piece["indices"] = fixed_idx
+        piece["uv"], piece["skinIndex"], piece["skinWeight"] = fixed["uv"], fixed["skinIndex"], fixed["skinWeight"]
+        piece["normals"] = compute_normals_welded(gp2, fixed_idx)
+        garment_parts.append((piece_name, piece, piece["pos"]))
+
+    if spec.get("shoes"):
+        gname = spec["shoes"]
         pack = human.garment_pack(gname, hash(gname) % 1000)
-        hidden |= pack["hidden"]
         gp = human.apply_proportions(shape(pack["positions"], shape_spec), profile)
         if entities:
             from .entity import shape_entity
 
-            gp = shape_entity(gp, spec)
-        # The fitting pass leaves hairline slits in some garments (62 holes in the
-        # polo alone); close the small ones before they are offset outwards.
+            gp = shape_entity(P, spec)
         from . import kit as _kit
 
         gp, fixed_idx, fixed = _kit.fill_small_holes(
@@ -280,29 +304,14 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         )
         pack["indices"], pack["uv"] = fixed_idx, fixed["uv"]
         pack["skinIndex"], pack["skinWeight"] = fixed["skinIndex"], fixed["skinWeight"]
-        # A fifth of the polo's triangles arrive wound backwards; a front-face
-        # renderer culls those patches and the cloth looks full of holes.
         pack["indices"], _ = _kit.orient_consistently(
             gp, pack["indices"], outward_from=(0.0, float(np.mean(gp[:, 1])), 0.0)
         )
-        # Loosen the fit so low-poly authored garments clear the body. The gap has
-        # to differ per layer: a shirt and the trousers under it at the same
-        # offset poke through each other, which reads as notches along the hem.
-        fit = {"namuhekam_male_polo_shirt": 0.062, "cortu_cargo_pants": 0.026, "male_casualsuit05": 0.048}
-        off_g = fit.get(gname, 0.0)
-        if off_g:
-            gn = human_normals(gp, pack["indices"])
-            gp = gp + gn * off_g
+        gn = human_normals(gp, pack["indices"])
+        gp = gp + gn * 0.012
         garment_parts.append((gname, pack, gp))
 
-    # Keep the whole body surface (removing covered triangles punches holes),
-    # and sink the covered area ~9 mm under the cloth instead.
     body_idx = idx
-    body_nrm_raw = compute_normals_welded(P, idx)
-    if hidden:
-        hid = np.isin(b["source"], list(hidden)).astype(F)
-        P = P - body_nrm_raw * (hid[:, None] * 0.035)
-
     bones, S, off = _metres(human.proportion_bones(b["bones"], profile), spec["height"])
     # Rantai tulang kain untuk shroud/veil. Sudah ada sejak awal supaya indeks
     # sendi di mesh bisa menunjuk ke sini; tanpa tulang, kain hanya bisa ikut
@@ -337,9 +346,10 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
 
     for gname, pack, gp in garment_parts:
         mp = to_m(gp)
-        nrm = compute_normals_welded(mp, pack["indices"])
+        nrm = pack.get("normals")
+        if nrm is None or len(nrm) != len(mp):
+            nrm = compute_normals_welded(mp, pack["indices"])
         t = pack["tex"]
-        tint = spec.get("tint", [1, 1, 1])
         parts.append(
             {
                 "pos": mp,
@@ -350,7 +360,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
                 "weights": pack["skinWeight"],
                 "mat": Material(
                     name=f"cloth-{gname}",
-                    base=np.clip(t["base"] * np.asarray(tint, F)[None, None, :], 0, 1),
+                    base=t["base"],
                     normal=t["normal"],
                     orm=t["orm"],
                     metallic=1.0,

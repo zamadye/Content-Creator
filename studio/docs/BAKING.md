@@ -72,7 +72,7 @@ Gambar-gambar: `docs/bake-ao-maps.png` (peta AO per material satu rumah) dan
 | `char.anak-besar-laki` | 12 | 0.905 | 0.905 | +0.000 | 0.00 | 23.8% |
 | `char.anak-besar-perempuan` | 13 | 0.905 | 0.905 | +0.000 | 0.00 | 23.3% |
 | `char.anak-laki` | 12 | 0.877 | 0.911 | +0.034 | 0.00 | 20.8% |
-| `char.anak-perempuan` | 12 | 0.880 | 0.902 | +0.022 | 0.00 | 22.8% |
+| `char.anak-perempuan` | 12 | 0.880 | 0.902 | +0.022 | 0.00 | 22.7% |
 | `char.balita-laki` | 12 | 0.885 | 0.916 | +0.031 | 0.00 | 18.4% |
 | `char.balita-perempuan` | 12 | 0.886 | 0.907 | +0.021 | 0.00 | 20.8% |
 | `char.female-dewasa` | 13 | 0.866 | 0.895 | +0.029 | 0.00 | 25.6% |

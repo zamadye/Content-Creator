@@ -43,7 +43,7 @@ export default {
     ]
    },
    "tris": 41491,
-   "bytes": 3904484,
+   "bytes": 3904260,
    "tags": [
     "human",
     "male",
@@ -138,7 +138,7 @@ export default {
     ]
    },
    "tris": 41707,
-   "bytes": 4058228,
+   "bytes": 4058424,
    "tags": [
     "human",
     "female",
@@ -234,7 +234,7 @@ export default {
     ]
    },
    "tris": 42516,
-   "bytes": 3901388,
+   "bytes": 3900332,
    "tags": [
     "human",
     "male",
@@ -325,7 +325,7 @@ export default {
     ]
    },
    "tris": 42501,
-   "bytes": 3901656,
+   "bytes": 3899756,
    "tags": [
     "human",
     "male",
@@ -416,7 +416,7 @@ export default {
     ]
    },
    "tris": 42222,
-   "bytes": 4036788,
+   "bytes": 4034888,
    "tags": [
     "human",
     "male",
@@ -507,7 +507,7 @@ export default {
     ]
    },
    "tris": 39916,
-   "bytes": 4109260,
+   "bytes": 4107840,
    "tags": [
     "human",
     "female",
@@ -598,7 +598,7 @@ export default {
     ]
    },
    "tris": 41609,
-   "bytes": 3885144,
+   "bytes": 3884344,
    "tags": [
     "human",
     "male",
@@ -689,7 +689,7 @@ export default {
     ]
    },
    "tris": 41509,
-   "bytes": 4044652,
+   "bytes": 4043468,
    "tags": [
     "human",
     "female",
@@ -781,7 +781,7 @@ export default {
     ]
    },
    "tris": 42813,
-   "bytes": 3968524,
+   "bytes": 3967796,
    "tags": [
     "human",
     "male",
@@ -872,7 +872,7 @@ export default {
     ]
    },
    "tris": 39637,
-   "bytes": 3932896,
+   "bytes": 3931852,
    "tags": [
     "human",
     "female",
@@ -963,7 +963,7 @@ export default {
     ]
    },
    "tris": 41099,
-   "bytes": 3869476,
+   "bytes": 3868752,
    "tags": [
     "human",
     "male",
@@ -1054,7 +1054,7 @@ export default {
     ]
    },
    "tris": 39574,
-   "bytes": 3927748,
+   "bytes": 3926684,
    "tags": [
     "human",
     "female",
@@ -1145,7 +1145,7 @@ export default {
     ]
    },
    "tris": 41611,
-   "bytes": 3908340,
+   "bytes": 3907384,
    "tags": [
     "human",
     "male",
@@ -1236,7 +1236,7 @@ export default {
     ]
    },
    "tris": 41247,
-   "bytes": 4021692,
+   "bytes": 4020756,
    "tags": [
     "human",
     "female",
@@ -1328,7 +1328,7 @@ export default {
     ]
    },
    "tris": 42505,
-   "bytes": 3923984,
+   "bytes": 3922476,
    "tags": [
     "human",
     "male",
@@ -1419,7 +1419,7 @@ export default {
     ]
    },
    "tris": 40138,
-   "bytes": 3967348,
+   "bytes": 3966048,
    "tags": [
     "human",
     "female",

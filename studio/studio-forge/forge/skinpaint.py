@@ -180,8 +180,11 @@ def paint_skin(P, N, M, size, spec):
     lip_mask = np.maximum(lip_mask, lips)
     edge = np.clip(vermilion - lips, 0, 1) * 0.55
     # lip creases
-    creases = (np.sin(x * 150) * 0.5 + 0.5) ** 3 * lips
-    height += lips * 0.35 - lip_line * 0.9 + creases * 0.18
+    # Kerut bibir dibuat jauh lebih halus: frekuensi 150 dan amplitudo 0,18 di
+    # atlas 1024 tampil sebagai garis-garis tebal yang terbaca seperti jahitan,
+    # dan tonjolan 0,35 membuat bibir atas tampak seperti lempeng terpisah.
+    creases = (np.sin(x * 70 + 0.6) * 0.5 + 0.5) ** 3 * lips
+    height += lips * 0.16 - lip_line * 0.55 + creases * 0.05
     fw = np.maximum(fw, lip_line * 0.6)
     upper_lip = lips * (y > LIP[1] + 0.005)
     lower_lip = lips * (y <= LIP[1] + 0.005)
@@ -214,13 +217,16 @@ def paint_skin(P, N, M, size, spec):
 
     # ---- stubble / beard shadow
     if stubble > 0:
+        # Batas atas 6,85 (bukan 6,95): 6,95 sudah di pipi atas, sehingga bercak
+        # cambang tampil sebagai noda gelap di tulang pipi. Titiknya juga dibuat
+        # lebih kecil dan lebih rapat supaya terbaca sebagai tekstur, bukan noda.
         beard = (
-            band(y, 6.10, 6.95, 0.25) * band(ax, 0.0, 0.72, 0.25) * (front > 0.35) * is_head
+            band(y, 6.10, 6.85, 0.18) * band(ax, 0.0, 0.66, 0.22) * (front > 0.35) * is_head
         )
-        dots = speckle(size, size, 55, 9000, (1, 2), (0.0, 1.0)).reshape(-1)[sel]
-        beard = beard * (0.25 + 0.75 * (dots > 0.6))
-        fw = np.maximum(fw, beard * stubble * 0.85)
-        height += beard * stubble * 0.10
+        dots = speckle(size, size, 95, 15000, (1, 2), (0.0, 1.0)).reshape(-1)[sel]
+        beard = beard * (0.30 + 0.70 * (dots > 0.65))
+        fw = np.maximum(fw, beard * stubble * 0.70)
+        height += beard * stubble * 0.06
 
     # ---- body details: nipples, navel, nails, knuckles
     for side in (1, -1):

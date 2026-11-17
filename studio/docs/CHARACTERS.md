@@ -231,6 +231,19 @@ dewasa yang diperkecil. Sekarang radius memakai **tinggi kepala**
 anak memang beririsan lebih besar. Ini perubahan kecil yang tidak menyentuh
 geometri kepala, jadi tidak menimbulkan jahitan baru.
 
+### Wajah: kerut bibir dan bercak cambang
+
+Dua cacat tekstur wajah yang paling terlihat di close-up:
+
+* **Kerut bibir** digambar dengan `sin(x·150)` amplitudo 0,18 di peta tinggi.
+  Di atlas 1024 itu menjadi garis-garis tebal yang terbaca seperti **jahitan**,
+  dan tonjolan `lips·0,35` membuat bibir atas tampak lempeng terpisah. Sekarang
+  frekuensi 70, amplitudo 0,05, tonjolan 0,16.
+* **Cambang** (`stubble`) memakai `band(y, 6,10, 6,95)` — batas atas 6,95 ada di
+  pipi atas, jadi bercak cambang muncul sebagai noda gelap di tulang pipi. Batas
+  diturunkan ke 6,85, titik diperkecil (95/15000 vs 55/9000), dan intensitas
+  fitur 0,85 → 0,70.
+
 ### Warna kain jauh dari warna kulit
 
 Daster semula `#e0a1a9` (pink pucat). Di shot lebar, tokoh berbaju itu terbaca
@@ -321,20 +334,26 @@ dulu dipakai membuat kerah dan kancing nyaris hitam; sekarang 0,55.
 
 Dua detail yang membuat kain terbaca sebagai baju, bukan bodysuit:
 
-* **Kerah** (`human.collar_ring`): pita lipatan setinggi 1 cm di tepi lubang
-  leher, menonjol 4 mm, dengan bahan **30 % lebih tua**. Lebar pita mengikuti
-  normal permukaan tiap vertex — bukan satu sumbu rata-rata, karena garis leher
-  tidak sebidang (lebih tinggi di belakang) dan pita dengan satu sumbu tampak
-  terpilin.
+* **Kerah** (`human.collar_ring`): pita **tegak** setinggi 7,5 mm di tepi lubang
+  leher, menonjol 8 mm ke luar, bahan 82 % terang (sedikit lebih tua dari kain).
+  Pita naik sepanjang **+y**, bukan sepanjang normal permukaan: normal di garis
+  leher sangat bervariasi antar vertex (menghadap ke atas di depan, ke samping
+  di bahu), sehingga pita yang mengikuti normal zigzag dan di layar tampak
+  sebagai **gigi putih di leher**. Pita vertikal selalu mulus, dan normalnya
+  sendiri dihitung sebagai arah radial keluar (tegak lurus garis tepi × sumbu y).
+
+  Urutan vertex tepi diambil dengan **mengurutkan sudut** mengelilingi sumbu
+  leher. Lubang leher berbentuk bintang terhadap sumbu itu, jadi urutan sudut
+  selalu benar; penelusuran sisi kadang melompat dan menghasilkan pita
+  bergerigi.
 * **Kancing** (`human.buttons`): bulatan radius 5,5 mm di tengah depan. Tinggi
   kancing ada di data potongan (`PIECES[...]["buttons"]`): polo 3 buah, kemeja
   9 buah. Posisi depannya dicari dari vertex kain dengan `z` terbesar di tinggi
   itu.
 
-Urutan vertex tepi dicari dengan menelusuri sisi, dan kalau penelusuran tidak
-menutup, diganti urutan sudut mengelilingi pusat (`human._ring`). Urutan sudut
-saja pernah dipakai untuk semua: hasilnya pita raksasa yang terpilin, karena
-satu vertex bisa dipakai dua loop.
+Catatan riwayat: untuk kelim dan manset, penelusuran sisi (`human._ring`) masih
+dipakai dan aman karena loop-nya sederhana. Untuk kerah, urutan sudut wajib
+(lihat di atas).
 
 UV pita kerah dan kancing sengaja **satu titik** (`0.5, 0.5`): bahannya rata dan
 tidak butuh wilayah atlas. Memakai UV kain membuat texel pita menumpuk di
@@ -376,7 +395,7 @@ Bukti: `stories/uji-karakter/story.json` — shot `karakter-04` memakai
 | langkah | waktu |
 |---|---|
 | satu tokoh penuh (2048² kulit, 5 potong kain, 13 klip, thumbnail) | **≈ 28 s** |
-| 16 tokoh sekaligus | **≈ 8,3 menit** (499 s terukur) |
+| 16 tokoh sekaligus | **≈ 7,2 menit** (429 s terukur) |
 | ukuran per tokoh | 3,9–4,2 MB (27–30 tekstur), 14.700–16.500 tris |
 
 Tidak ada bake high→low per tokoh, tidak ada rigging ulang: animasi dibuat

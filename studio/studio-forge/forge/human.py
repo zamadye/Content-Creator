@@ -734,7 +734,7 @@ def _band(pos, ring, normals, height, proud=0.004):
     return verts, np.array(tris, np.int64), np.concatenate([ring, ring])
 
 
-def collar_ring(pos, tris, skin_index, skin_weight, uv, normals, neck_y, height=0.10):
+def collar_ring(pos, tris, skin_index, skin_weight, uv, normals, neck_y, height=0.075):
     """Kerah crew-neck: pita lipatan di tepi lubang leher.
 
     Hanya loop leher yang diambil (`higher than neck_y` dan radius kecil),
@@ -749,19 +749,41 @@ def collar_ring(pos, tris, skin_index, skin_weight, uv, normals, neck_y, height=
     sel = verts[(P[:, 1] > neck_y) & (r < 1.0)]
     if len(sel) < 10:
         return None
-    ring = _ring(be, sel, pos)
-    if ring is None:
-        return None
-    band, band_tris, band_src = _band(pos, ring, normals, height)
-    n_ring = (normals[ring] if normals is not None else np.tile(np.array([0, 0, 1], F), (len(ring), 1)))
-    n_ring = n_ring / np.maximum(np.linalg.norm(n_ring, axis=1, keepdims=True), 1e-6)
+    # Urutkan menurut sudut mengelilingi sumbu leher, **bukan** dengan menelusuri
+    # tepi: lubang leher berbentuk bintang terhadap sumbu itu, jadi urutan sudut
+    # selalu benar, sedangkan penelusuran tepi kadang melompat (dulu hasilnya
+    # pita kerah bergerigi seperti gigi di leher).
+    C = pos[sel]
+    cx = 0.0
+    cz = float(np.mean(C[:, 2]))
+    ang = np.arctan2(C[:, 2] - cz, C[:, 0] - cx)
+    ring = sel[np.argsort(ang)]
+    # Pita kerah dibuat **vertikal** (naik sepanjang +y), bukan sepanjang normal
+    # permukaan. Normal di garis leher sangat bervariasi antar vertex (menghadap
+    # ke atas di depan, ke samping di bahu), jadi pita yang mengikuti normal
+    # zigzag dan tampil sebagai gigi putih di leher. Pita vertikal selalu mulus:
+    # bidang singgungnya = garis tepi × sumbu y, normalnya = arah radial keluar.
+    C = pos[ring]
+    cz = float(np.mean(C[:, 2]))
+    rad = np.stack([C[:, 0], np.zeros(len(ring), F), C[:, 2] - cz], 1)
+    rad /= np.maximum(np.linalg.norm(rad, axis=1, keepdims=True), 1e-6)
+    up = np.array([0.0, height, 0.0], F)
+    top = C + up + rad * 0.008
+    bot = C + rad * 0.008
+    verts = np.concatenate([top, bot])
+    n_ring = len(ring)
+    tris = []
+    for k in range(n_ring):
+        k2 = (k + 1) % n_ring
+        tris.append([k, k2, n_ring + k2])
+        tris.append([k, n_ring + k2, n_ring + k])
     return {
-        "pos": band,
-        "indices": band_tris,
+        "pos": verts,
+        "indices": np.array(tris, np.int64),
         "uv": np.concatenate([uv[ring], uv[ring]]),
         "skinIndex": np.concatenate([skin_index[ring], skin_index[ring]]),
         "skinWeight": np.concatenate([skin_weight[ring], skin_weight[ring]]),
-        "normals": np.concatenate([n_ring, n_ring]),
+        "normals": np.concatenate([rad, rad]),
     }
 
 

@@ -6,10 +6,12 @@ import {splitGlb} from './glb.mjs';
 
 /** Anggaran per kategori. Plafon = aset terbesar yang ada + ruang ~5–10 %. */
 export const BUDGETS = {
-  // 46k: kain sekarang dipotong dari permukaan tubuh sendiri (human.body_cloth),
-  // jadi tiap potongan memakai resolusi mesh badan — itu harga dari kain yang
-  // tidak berlubang dan tidak menembus badan. Terukur tertinggi 45.260 tri
-  // (char.anak-laki); anggaran shot tetap 120.000.
+  // 46k: kain dipotong dari permukaan tubuh sendiri (human.body_cloth) dan
+  // memakai resolusi mesh badan — itu harga dari kain yang tidak berlubang dan
+  // tidak menembus badan. Pita penutup tepi sudah dilepas (tepi kini lurus
+  // karena komponen y offset dimatikan di dekat batas potong), jadi terukur
+  // turun ke 44.389 tri (char.anak-laki). Anggaran shot tetap 120.000, jadi
+  // dua tokoh masih muat dalam satu shot.
   character: {tris: 46000, tex: 2048, why: 'silhouette halus untuk medium shot; base MakeHuman + kain dari tubuh'},
   entity: {tris: 34000, tex: 2048, why: 'sosok berkain, butuh lipatan & tudung'},
   building: {tris: 3000, tex: 1024, why: 'latar statis, detail lewat tekstur'},

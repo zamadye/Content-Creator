@@ -105,34 +105,78 @@ WARDROBE = {
 ### Kain diturunkan dari tubuh, bukan model kain jadi
 
 Potongan kain (`human.PIECES`) dibuat dengan **memotong permukaan tubuh
-sendiri** lalu mendorongnya keluar 4–6 cm:
+sendiri** lalu mendorongnya keluar, dengan kelonggaran yang bertambah ke arah
+kelim:
 
-| potongan | cakupan |
-|---|---|
-| `shirt-short` | torso sampai lengan atas (manset 1,45 unit dari sendi bahu) |
-| `shirt-long` | torso + lengan sampai pergelangan (3,3 unit) |
-| `tunic` | torso diperpanjang sampai pertengahan paha |
-| `pants` | pinggang sampai mata kaki |
-| `shorts` | pinggang sampai pertengahan paha |
+| potongan | cakupan | kelonggaran | tambahan di kelim (`flare`) |
+|---|---|---|---|
+| `shirt-short` | torso sampai lengan atas (manset 1,45 unit dari sendi bahu) | 2,0 cm | +1,0 cm |
+| `shirt-long` | torso + lengan sampai pergelangan (3,3 unit) | 2,0 cm | +0,9 cm |
+| `tunic` | torso diperpanjang sampai pertengahan paha | 2,2 cm | +2,1 cm |
+| `pants` | pinggang sampai mata kaki | 1,6 cm | +1,1 cm |
+| `shorts` | pinggang sampai pertengahan paha | 1,7 cm | +1,1 cm |
+
+Satuan internal MakeHuman: 1 unit ≈ 0,103 m pada tinggi 1,72 m. (Offset lama
+0,05 unit ternyata hanya **5 mm** — itu sebabnya versi pertama kain terbaca
+seperti spandeks. Angka di tabel ini sudah dalam cm.)
 
 Karena kain dan badan adalah permukaan yang sama, **tidak ada badan menembus
 kain, tidak ada lubang crotch, dan tidak ada segitiga yang menghadap ke
 dalam** — tiga cacat yang dulu muncul karena memakai model kain jadi
 (`cortu_cargo_pants` ternyata dua tabung tanpa crotch; seperlima segitiga polo
-menghadap ke dalam). Offset-nya **radial dari tulang terdekat**, bukan
-sepanjang normal: di lipatan (crotch, ketiak) normal menunjuk ke dalam sehingga
-offset normal justru menenggelamkan kain ke badan.
+menghadap ke dalam). Offset-nya **radial dari tulang dominan vertex itu**,
+bukan sepanjang normal: di lipatan (crotch, ketiak) normal menunjuk ke dalam
+sehingga offset normal justru menenggelamkan kain ke badan.
 
 Tekstur kain prosedural (`human.fabric_texture`): tenunan + lipatan + warna per
-outfit, 512². Tidak ada tekstur kain yang perlu diunduh atau dilisensikan.
+outfit, 512². Tenunan 140 ulir di atlas 512 px sempat terbaca sebagai
+kotak-kotak besar di layar (UV kain hanya memakai sebagian atlas) sehingga kain
+tampak seperti jaring bodysuit; sekarang relief tenunan dilembutkan dan
+kontrasnya diturunkan — warnanya tetap, polanya hilang. Tidak ada tekstur kain
+yang perlu diunduh atau dilisensikan.
 Sepatu tetap memakai paket kain jadi `shoes01` (bentuknya sudah benar).
 
-### Batas kain
+### Batas kain: dipotong, bukan dipilih
 
-Kelim dan manset diratakan: vertex yang jaraknya < 0,22 unit dari bidang potong
-ditarik tepat ke bidang itu, jadi ujungnya lurus, bukan bergerigi. Bagian tepi
-terbuka (bawah kemeja, manset) tampil sebagai kain dua sisi — tidak ada lubang
-tembus pandang.
+Batas kain (kelim, manset, garis leher) dipotong dengan **bidang implisit**
+(`human.slice_by_field`): segitiga yang memotong batas dibelah dan titik
+potongnya diinterpolasi, jadi tepinya lurus. Memilih segitiga utuh (cara
+pertama) memberi tepi bergerigi sebesar satu segitiga — terlihat seperti kain
+robek. Tiga kendala yang dipakai:
+
+| kendala | dipakai oleh | kenapa |
+|---|---|---|
+| rentang `y` | semua | kelim bawah dan atap potongan |
+| jarak dari sendi bahu per sisi | atasan | lengan pose-A miring; bidang datar memberi panjang beda kiri–kanan |
+| jangkauan dari panggul | celana, rok, daster | tangan ada di ketinggian pinggang saat pose-A, jadi tanpa ini celana menutupi telapak tangan |
+| lingkaran leher (r 0,62 unit) | atasan | bidang datar memotong di bawah puncak bahu (bahu telanjang) atau di tengah leher (turtleneck) |
+
+Urutan percobaan kerah yang gagal, supaya tidak diulang: potongan datar di
+6,05 (bahu telanjang) → 6,42 (turtleneck) → 7,30 + lingkaran 0,62 (kain
+menutupi wajah karena tengkorak juga beradius > 0,62) → **6,34 + lingkaran
+0,62** (kerah crew-neck, bahu tertutup, wajah bersih).
+
+Kendala jarak **hanya** berlaku untuk vertex bertulang lengan (daftar awalan
+mencakup `metacarpal` dan `wrist`): kalau diterapkan ke semua vertex, dada yang
+hanya 1,7 unit dari bahu ikut terpotong.
+
+**Kelim harus lurus.** Offset kain diarahkan radial dari tulang dominan, jadi
+arahnya punya komponen `y`. Komponen itu membuat vertex tepat di bawah garis
+potong ikut terangkat melewati batas, dan tepi kain tampil bergerigi. Karena
+itu komponen `y` offset dimatikan dengan bobot yang naik halus dari batas
+potong: 0 di tepi → 1 setelah ±0,25 unit (±2,5 cm). Bobotnya dihitung dari
+`_cloth_field` yang sama dengan yang dipakai memotong mesh, jadi kedua
+pemakaian tidak pernah berbeda.
+
+Normal kain diambil dari **normal badan** (diinterpolasi di titik potong),
+bukan dihitung ulang dari mesh kain: mesh kain terbuka di tepi, sehingga normal
+hasil hitung ulang membelok ke dalam di baris terakhir dan tepinya tampil
+sebagai gigi hitam. Itu masalah pencahayaan, bukan geometri.
+
+Pita penutup tepi (`_close_rim`) sudah **tidak dipakai** (tebal 0): sumber
+gerigi ternyata komponen `y` offset di atas, dan pita itu sendiri menambah
+baris segitiga yang tampak sebagai rumbai gelap di kelim. Fungsi tetap ada
+kalau nanti kain diberi ketebalan sungguhan.
 
 ### Menukar kostum dari naskah
 
@@ -179,22 +223,23 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
 
 ## 5. Cacat yang masih terbuka (jujur)
 
-1. **Siluet pakaian masih ketat ("bodysuit").** Kain mengikuti permukaan badan
-   dengan kelonggaran 4–6 cm, jadi kemeja masih mencetak bentuk dada dan
-   pinggang. Kain yang benar-benar longgar butuh permukaan kain tersendiri
-   (simulasi/loft), bukan offset dari badan.
-2. **Ketiak dan garis leher masih berupa tepi terbuka.** Manset lengan dan
-   kerah belum punya lapisan/jahitan penutup; dari sudut tertentu terlihat
-   sisi dalam kain (dua sisi, jadi tidak tembus pandang).
+1. **Siluet masih ketat.** Kain mengikuti badan dengan kelonggaran 1,6–2,2 cm
+   (dari 1,0–1,5 cm), jadi kemeja masih mencetak bentuk dada dan pinggang walau
+   sudah tidak seperti spandeks. Kain yang benar-benar longgar butuh permukaan
+   kain tersendiri (loft/simulasi), bukan offset dari badan. Percobaan 3 cm +
+   flare 1,2 cm membuat bahu berlubang (manset terangkat dari lengan) dan
+   kerah terlihat lepas, jadi 2 cm dipilih sebagai titik seimbang.
+2. **Jahitan belum ada.** Tidak ada jahitan, kancing, kerah, atau saku. Kelim
+   dan manset masih berupa tepi potongan (lurus, tanpa ketebalan); pita
+   penutup tepi 1,3 mm sudah dilepas karena tampak sebagai rumbai gelap.
 3. **Wajah anak masih wajah dewasa yang diperkecil.** Proporsi kepala/leher
    sudah benar, tetapi mata, hidung, dan pipi belum punya morph khusus balita.
 4. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`
    belum benar-benar dua ekor; hanya panel di belakang kepala.
 5. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) dan belum ada
-   pakaian adat/seragam sekolah Indonesia yang spesifik.
-6. **`anak-besar`** profil tersedia tetapi belum ada tokohnya.
-7. **Sepatu** masih memakai paket kain jadi `shoes01`; yang lain sudah
-   prosedural.
+   pakaian adat/seragam sekolah khas Indonesia.
+6. **`anak-besar`** (8–12 th) profil tersedia tetapi belum ada tokohnya.
+7. **Sepatu** masih memakai paket kain jadi `shoes01`; yang lain prosedural.
 
 Riwayat perbaikan penting: alpha rambut dulu dipanggang dari `scalp_weight`
 lalu diblur 12 px di atlas 512², sehingga nilai di ubun-ubun turun di bawah
@@ -217,4 +262,5 @@ python3 studio-forge/build.py --registry-only           # tulis ulang registry
 node scripts/test-studio.mjs                            # termasuk grup characters & outfits
 node scripts/studio.mjs validate stories/uji-karakter/story.json
 node scripts/qc-webgl-shots.mjs --only=StudioUjiKarakter
+./.venv/bin/python studio-forge/dev_lineup.py docs/character-lineup.png   # lembar kontak
 ```

@@ -9,8 +9,8 @@ Terakhir diperbarui: sesi build ini. Angka diambil langsung dari
 | | |
 |---|---|
 | Aset | **60** GLB + 60 thumbnail + registry + galeri HTML + pustaka 102 properti |
-| Ukuran | **± 87,2 MB** (character 56,1 MB · entity 14,8 MB · building 5,7 MB · prop 3,9 MB · road 3,3 MB · nature 2,7 MB · vehicle 0,7 MB) |
-| Geometri | ± 761.900 tris total |
+| Ukuran | **± 88,1 MB** (character 55,5 MB · entity 15,5 MB · building 6,0 MB · prop 4,1 MB · road 3,4 MB · nature 2,9 MB · vehicle 0,7 MB) |
+| Geometri | ± 757.900 tris total |
 | Rig | 163 tulang, 13 klip, 30 fps, `inverseBindMatrices` per klip |
 | Status | 52 `review`, 8 `draft` |
 | Kontrak | `studio.registry/2`, `studio.story/2`, `studio-humanoid-v1` |
@@ -28,13 +28,17 @@ rambut, dan outfit. Semuanya memakai 163 tulang & 13 klip yang sama.
 * Pakaian = data (`WARDROBE`: 6 outfit dari 5 potongan kain prosedural +
   warna), bisa ditukar dari naskah lewat `cast.<ref>.outfit`. Kain dipotong
   dari permukaan tubuh sendiri, jadi tidak ada lubang crotch / badan menembus
-  kain / segitiga menghadap ke dalam.
+  kain / segitiga menghadap ke dalam. Kelonggaran 1,6–2,2 cm dengan tambahan
+  ke arah kelim; kelim, manset, dan kerah lurus (komponen `y` offset dimatikan
+  berangsur di dekat batas potong); normal kain memakai normal badan sehingga
+  tepi tidak tampil sebagai gigi hitam.
 * Proporsi umur dijaga kurva pita (kepala/torso/kaki), bukan skala seragam:
   balita 0,95 m dengan rasio kepala 0,245 (dewasa 0,152).
 * Kamera preset ikut tinggi aktor (dada 0,67 H, mata 0,94 H), jadi bocil tidak
   lagi dibidik di atas kepalanya.
-* Biaya: ≈ 21 s per tokoh, 14 tokoh ≈ 5 menit.
-* Bukti rupa: `docs/character-lineup.png`, `docs/webgl-shots/StudioUjiKarakter-f*.png`,
+* Biaya: ≈ 31 s per tokoh, 14 tokoh ≈ 7 menit (432 s terukur).
+* Bukti rupa: `docs/character-lineup.png` (dibuat ulang dengan
+  `studio-forge/dev_lineup.py`, membaca GLB yang ada), `docs/webgl-shots/StudioUjiKarakter-f*.png`,
   cerita `stories/uji-karakter/story.json` (6 shot, dua kostum untuk tokoh sama).
 * Cacat terbuka & riwayat perbaikan alpha rambut: `docs/CHARACTERS.md`.
 
@@ -307,14 +311,14 @@ Isinya dipakai — bukan pajangan:
 | prinsip | bentuk besar = geometri, detail kecil = tekstur; silhouette dulu; statis = murah |
 | strategi per kategori | menunjuk fungsi aslinya (mis. daun = kartu alpha `add_leaf_card`, batang = `add_tube`; roda = `add_lathe`) |
 | keputusan yang ditolak | LOD, high→low bake, atlasing lintas aset — beserta alasan |
-| anggaran | character 42k · entity 34k · nature 4k · building 3k · vehicle 3k · prop 1,5k · road 1,5k tri; tekstur 512–2048 px; **shot 120k tri** |
+| anggaran | character 46k · entity 34k · nature 4k · building 3k · vehicle 3k · prop 1,5k · road 1,5k tri; tekstur 512–2048 px; **shot 120k tri** |
 | tabel 60 aset | tri, vertex, primitif, material, tekstur, tulang, % pemakaian — **diukur dari GLB** |
 
 `npm run qc-topology` (`scripts/qc-topology.mjs`) memeriksa tiga hal sekaligus:
 tidak ada aset melewati anggaran, jumlah tri di GLB **sama** dengan registry, dan
 tabel di dokumen tidak basi (`--write` untuk menyegarkan). Hasil sekarang:
-60 aset, 0 pelanggaran; pemakaian tertinggi `char.anak-laki` 45.260 tri =
-**98 %** dari anggaran karakter 46.000; shot terberat `warung-malam/duduk-02` 79.044 tri = **66 %** anggaran.
+60 aset, 0 pelanggaran; pemakaian tertinggi `char.anak-laki` 44.389 tri =
+**97 %** dari anggaran karakter 46.000; shot terberat `warung-malam/duduk-02` 79.044 tri = **66 %** anggaran.
 
 Grup tes `topology` di `npm run test:studio` juga membuktikan pagarnya **bisa
 gagal**: aset karangan 50.000 tri + tekstur 4096 px langsung dilaporkan sebagai

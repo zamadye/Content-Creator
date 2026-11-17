@@ -276,111 +276,283 @@ PIECES = {
     #   sleeve   : panjang lengan dari sendi bahu (unit); 0 = tanpa batas
     #   offset   : kelonggaran kain dari permukaan badan (unit ≈ 1 cm)
     "shirt-short": dict(
-        y=(-0.62, 6.42), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
-        sleeve=1.45, offset=0.052,
+        y=(-0.62, 6.34), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
+        sleeve=1.45, neck=0.62, offset=0.190, flare=0.100,
     ),
     "shirt-long": dict(
-        y=(-0.62, 6.42), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
-        sleeve=3.30, offset=0.052,
+        y=(-0.62, 6.34), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
+        sleeve=3.30, neck=0.62, offset=0.190, flare=0.090,
     ),
     "tunic": dict(
-        y=(-2.05, 6.42), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot", "lowerleg"),
-        sleeve=1.45, offset=0.060,
+        y=(-2.05, 6.34), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot", "lowerleg"),
+        sleeve=1.45, reach=1.95, neck=0.62, offset=0.210, flare=0.200,
     ),
     "pants": dict(
-        y=(-7.00, 1.74), exclude=("hand", "finger", "thumb", "head", "jaw", "eye"), sleeve=0.0, offset=0.044,
+        y=(-7.00, 1.74), exclude=("hand", "finger", "thumb", "head", "jaw", "eye"), sleeve=0.0,
+        reach=1.75, offset=0.160, flare=0.110,
     ),
     "shorts": dict(
-        y=(-2.60, 1.74), exclude=("hand", "finger", "thumb", "head", "jaw", "eye"), sleeve=0.0, offset=0.044,
+        y=(-2.60, 1.74), exclude=("hand", "finger", "thumb", "head", "jaw", "eye"), sleeve=0.0,
+        reach=1.75, offset=0.165, flare=0.110,
     ),
 }
 
 
-def body_cloth(b, P, N, idx, uv, piece, snap_band=0.22):
+def slice_by_field(P, idx, uv, skin_index, skin_weight, field, N=None):
+    """Potong mesh dengan bidang implisit `field` (positif = dipertahankan).
+
+    Memilih segitiga utuh (cara sebelumnya) menghasilkan tepi bergerigi sebesar
+    satu segitiga; di kelim dan manset itu terlihat seperti kain robek. Di sini
+    segitiga yang memotong bidang dibelah dan titik potongnya diinterpolasi,
+    jadi tepinya lurus.
+    """
+    f = np.asarray(field, F)
+    signs = f[idx] >= 0
+    n = signs.sum(1)
+
+    new_pos = list(P)
+    new_uv = list(uv)
+    new_si = list(skin_index)
+    new_sw = list(skin_weight)
+    new_n = list(N) if N is not None else None
+    cache = {}
+
+    def cut(i, j):
+        key = (i, j) if i < j else (j, i)
+        got = cache.get(key)
+        if got is not None:
+            return got
+        d = f[i] - f[j]
+        t = float(f[i] / d) if abs(d) > 1e-9 else 0.5
+        t = min(max(t, 0.0), 1.0)
+        k = len(new_pos)
+        new_pos.append(P[i] + (P[j] - P[i]) * t)
+        new_uv.append(uv[i] + (uv[j] - uv[i]) * t)
+        if new_n is not None:
+            new_n.append(N[i] + (N[j] - N[i]) * t)
+        # Bobot kulit ikut diinterpolasi; indeks tulang diambil dari sisi yang
+        # dipertahankan supaya titik potong tetap terikat ke tulang yang benar.
+        # Titik potong mewarisi *seluruh* bobot dari sisi yang dipertahankan.
+        # Menginterpolasi bobot sambil mengambil indeks tulang dari satu sisi
+        # membuat kain terikat ke tulang yang salah (kain sampai menempel di
+        # tangan) — ini yang terjadi sebelumnya.
+        src = i if f[i] >= 0 else j
+        new_si.append(skin_index[src])
+        new_sw.append(skin_weight[src])
+        cache[key] = k
+        return k
+
+    out = []
+    for tri, k, keep in zip(idx, n, signs):
+        if k == 3:
+            out.append(tri)
+            continue
+        if k == 0:
+            continue
+        above = [int(v) for v, kp in zip(tri, keep) if kp]
+        below = [int(v) for v, kp in zip(tri, keep) if not kp]
+        if k == 1:
+            a = above[0]
+            out.append([a, cut(a, below[0]), cut(a, below[1])])
+        else:
+            b = below[0]
+            p1, p2 = cut(above[0], b), cut(above[1], b)
+            out.append([above[0], above[1], p2])
+            out.append([above[0], p2, p1])
+
+    if new_n is not None:
+        return (
+            np.array(new_pos, F),
+            np.array(out, np.int64),
+            np.array(new_uv, F),
+            np.array(new_si, np.int64),
+            np.array(new_sw, F),
+            np.array(new_n, F),
+        )
+
+    return (
+        np.array(new_pos, F),
+        np.array(out, np.int64),
+        np.array(new_uv, F),
+        np.array(new_si, np.int64),
+        np.array(new_sw, F),
+    )
+
+
+def _cloth_field(b, P, first_bone, piece):
+    """Nilai bidang potong untuk sembarang titik (positif = dipertahankan).
+
+    Dipakai dua kali: sekali untuk memotong mesh badan, sekali lagi untuk
+    mengukur jarak tiap vertex kain ke batas potong (lihat `margin` di
+    `body_cloth`). Satu fungsi supaya kedua pemakaian tidak pernah berbeda.
+    """
+    lo, hi = piece["y"]
+    y = P[:, 1]
+    field = np.minimum(y - lo, hi - y).astype(F)
+
+    names = np.array([bn["name"] for bn in b["bones"]])
+    dom = names[first_bone.astype(np.int64)]
+    arm = np.zeros(len(P), bool)
+    for pre in ("upperarm", "lowerarm", "hand", "finger", "thumb", "metacarpal", "wrist"):
+        arm |= np.char.startswith(dom, pre)
+
+    # Lengan dipotong menurut jarak dari sendi bahu sisi masing-masing (lengan
+    # pose-A miring, jadi bidang datar memberi panjang berbeda kiri-kanan).
+    # Kendala jarak hanya berlaku untuk vertex lengan: kalau diterapkan ke semua
+    # vertex, dada (1,7 unit dari bahu) ikut terpotong.
+    sleeve = piece.get("sleeve", 0.0)
+    if sleeve:
+        sh = {bn["name"][-1]: np.asarray(bn["p"], F) for bn in b["bones"] if bn["name"].startswith("upperarm01")}
+        side = np.where(np.char.endswith(dom, ".L"), "L", "R")
+        dist = np.linalg.norm(P - np.stack([sh[s_] for s_ in side]), axis=1)
+        field = np.where(arm, np.minimum(field, sleeve - dist), field)
+
+    # Lubang leher: potong lingkaran di sekitar sumbu leher, bukan bidang datar.
+    # Bidang datar memotong di bawah puncak bahu (bahu jadi telanjang) atau di
+    # tengah leher (jadi turtleneck); lingkaran memberi kerah crew-neck yang
+    # menutup bahu dan hanya menyisakan leher.
+    neck = piece.get("neck", 0.0)
+    if neck:
+        neck_bone = np.array([bn["p"] for bn in b["bones"] if bn["name"] == "neck01"][0], F)
+        above = y > (neck_bone[1] - 0.35)
+        rxy = np.linalg.norm(P[:, [0, 2]] - neck_bone[[0, 2]], axis=1)
+        field = np.where(above, np.minimum(field, rxy - neck), field)
+
+    # Jangkauan dari panggul: tangan ikut berada di ketinggian pinggang saat
+    # pose-A, jadi tanpa kendala ini celana panjang menutupi telapak tangan.
+    reach = piece.get("reach", 0.0)
+    if reach:
+        pelv = np.array([bn["p"] for bn in b["bones"] if bn["name"].startswith("pelvis")], F).mean(0)
+        field = np.where(arm, np.minimum(field, reach - np.linalg.norm(P - pelv, axis=1)), field)
+
+    return field
+
+
+def body_cloth(b, P, N, idx, uv, piece):
     """Potong pakaian dari permukaan tubuh (lihat PIECES).
 
     Mengembalikan dict dengan pos/indices/uv/skinIndex/skinWeight/normals,
     atau None bila potongan itu kosong untuk tubuh ini.
     """
-    names = np.array([bn["name"] for bn in b["bones"]])
-    dom = names[b["skinIndex"][:, 0].astype(np.int64)]
-    y = P[:, 1]
     lo, hi = piece["y"]
+    field = _cloth_field(b, P, b["skinIndex"][:, 0], piece)
 
-    mask = (y >= lo) & (y <= hi)
-    for pre in piece.get("exclude", ()):
-        mask &= ~np.char.startswith(dom, pre)
-    if piece.get("sleeve", 0):
-        shoulder = np.array(
-            [bn["p"] for bn in b["bones"] if bn["name"].startswith("upperarm01")], F
-        ).mean(0)
-        arm = np.zeros(len(P), bool)
-        for pre in ("upperarm", "lowerarm"):
-            arm |= np.char.startswith(dom, pre)
-        arm &= np.linalg.norm(P - shoulder, axis=1) > piece["sleeve"]
-        mask &= ~arm
-
-    # Dilasi 2 ring: segitiga yang terlewat karena tulang tetangga (mis. bagian
-    # bahu yang didominasi tulang leher) ikut tertutup, jadi tidak ada lubang
-    # kecil di tengah kain.
-    edges_all = np.concatenate([idx[:, [0, 1]], idx[:, [1, 2]], idx[:, [2, 0]]])
-    for _ in range(2):
-        grown = mask.copy()
-        grown[edges_all[:, 0]] |= mask[edges_all[:, 1]]
-        grown[edges_all[:, 1]] |= mask[edges_all[:, 0]]
-        mask = grown
-    mask &= (y >= lo) & (y <= hi)
-
-    keep = mask[idx].all(1)
-    if keep.sum() < 8:
+    if (field >= 0).sum() < 24:
         return None
-    tris = idx[keep]
-    used = np.unique(tris)
-    remap = np.full(len(P), -1, np.int64)
-    remap[used] = np.arange(len(used), dtype=np.int64)
 
-    # Catatan: penghalusan Laplacian sempat dicoba dan gagal — pada lengan dan
-    # paha ia menyusutkan siluet sehingga kulit menembus kain di bercak-bercak.
-    # Offset seragam sepanjang normal selalu berada di luar permukaan, jadi itu
-    # yang dipakai; kelonggaran kain diatur lewat `offset` per potongan.
-    # Offset radial dari tulang terdekat, bukan sepanjang normal: di lipatan
-    # (crotch, ketiak) normal menunjuk ke dalam sehingga kain lama-lama masuk ke
-    # badan. Dengan radius dari sumbu tulang, kain selalu di luar dan sisi yang
-    # bertemu di lipatan saling menutup karena bahannya sama.
-    # Sumbu = tulang yang mendominasi vertex itu sendiri (bukan tulang terdekat):
-    # di ketiak, tulang terdekat bisa tulang punggung sehingga lengan kain justru
-    # didorong masuk ke badan dan muncul lubang di bawah ketiak.
+    # Normal kain diambil dari normal badan (diinterpolasi di titik potong),
+    # bukan dihitung ulang dari mesh kain. Mesh kain terbuka di tepi, jadi
+    # normal hasil hitung ulang membelok ke dalam di baris terakhir dan tepinya
+    # tampil sebagai gigi hitam — bukan masalah geometri, tapi pencahayaan.
+    P2, tris, uv2, si2, sw2, n2 = slice_by_field(
+        P, idx, uv, b["skinIndex"], b["skinWeight"], field, np.asarray(N, F)
+    )
+    used = np.unique(tris)
+    remap = np.full(len(P2), -1, np.int64)
+    remap[used] = np.arange(len(used), dtype=np.int64)
+    pos = P2[used]
+    nrm = n2[used]
+    uvs = uv2[used]
+    si = si2[used]
+    sw = sw2[used]
+    local = remap[tris]
+
+    # Offset radial dari tulang dominan (bukan sepanjang normal, dan bukan tulang
+    # terdekat): di lipatan normal menunjuk ke dalam, dan di ketiak tulang
+    # terdekat bisa tulang punggung — dua-duanya membuat kain masuk ke badan.
+    # Kelonggaran bertambah ke arah kelim (`flare`) supaya kemeja tidak mencetak
+    # bentuk badan.
     axis_all = np.array([bn["p"] for bn in b["bones"]], F)
-    dirs = P[used] - axis_all[b["skinIndex"][used][:, 0].astype(np.int64)]
+    dirs = pos - axis_all[si[:, 0].astype(np.int64)]
     dist = np.linalg.norm(dirs, axis=1, keepdims=True)
     radial = dirs / np.maximum(dist, 1e-4)
-    pos = P[used] + radial * piece["offset"]
-    # Ratakan kelim bawah: vertex yang dekat bidang potong ditarik ke bidang itu.
-    if np.isfinite(lo) and lo > -50:
-        near = np.abs(pos[:, 1] - lo) < snap_band
-        if near.any():
-            pos[near, 1] = lo
+    offset = np.full((len(pos), 1), piece["offset"], F)
+    flare = piece.get("flare", 0.0)
+    if flare:
+        span = max(1e-3, float(pos[:, 1].max()) - lo)
+        t = np.clip((float(pos[:, 1].max()) - pos[:, 1]) / span, 0, 1)[:, None]
+        offset = offset + flare * (t ** 1.4)
+    disp = radial * offset
 
-    local = remap[tris]
+    # Tepi potong (kelim, manset, kerah) harus lurus. Offset radial punya
+    # komponen y; kalau dipakai apa adanya, vertex tepat di bawah tepi ikut
+    # terangkat melewati garis potong dan siluet kain jadi bergerigi. Komponen y
+    # dimatikan dengan bobot yang naik halus dari batas potong (0 di tepi → 1
+    # setelah ±0,25 unit ≈ 2,5 cm), jadi kelim tetap datar tapi badan kain
+    # memakai offset penuh.
+    margin = _cloth_field(b, pos, si[:, 0], piece)
+    w = np.clip(margin / 0.25, 0.0, 1.0)[:, None]
+    disp[:, 1] = disp[:, 1] * w[:, 0]
+    pos = pos + disp
+
+    pos, uvs, si, sw, radial, local = _close_rim(pos, uvs, si, sw, radial, local)
     return {
         "pos": pos,
         "indices": local,
-        "uv": uv[used],
-        "skinIndex": b["skinIndex"][used],
-        "skinWeight": b["skinWeight"][used],
-        "normals": compute_normals_welded(pos, local),
-        "verts": len(used),
-        "tris": int(keep.sum()),
+        "uv": uvs,
+        "skinIndex": si,
+        "skinWeight": sw,
+        "normals": nrm,
+        "verts": len(pos),
+        "tris": int(len(local)),
     }
 
 
+def _close_rim(pos, uv, skin_index, skin_weight, radial, tris, thickness=0.0):
+    """Tutup tepi terbuka kain dengan pita tipis ke arah dalam (opsional).
+
+    Pita ini sempat dipakai untuk menutupi tepi yang bergerigi, tapi sumber
+    gerigi itu komponen y dari offset radial (sudah diperbaiki di body_cloth),
+    jadi sekarang tidak dipakai: tebal 0 berarti tepi dibiarkan apa adanya.
+    Kalau nanti kain diberi ketebalan sungguhan, pita ini bisa dihidupkan lagi.
+    """
+    if thickness <= 0:
+        return pos, uv, skin_index, skin_weight, radial, tris
+    e = np.concatenate([tris[:, [0, 1]], tris[:, [1, 2]], tris[:, [2, 0]]])
+    e = np.sort(e, axis=1)
+    uniq, inv, counts = np.unique(e, axis=0, return_inverse=True, return_counts=True)
+    boundary = uniq[counts == 1]
+    if len(boundary) == 0:
+        return pos, uv, skin_index, skin_weight, radial, tris
+
+    verts = np.unique(boundary)
+    inner = np.full(len(pos), -1, np.int64)
+    inner[verts] = len(pos) + np.arange(len(verts))
+
+    new_pos = np.concatenate([pos, pos[verts] - radial[verts] * thickness])
+    new_uv = np.concatenate([uv, uv[verts]])
+    new_si = np.concatenate([skin_index, skin_index[verts]])
+    new_sw = np.concatenate([skin_weight, skin_weight[verts]])
+    new_radial = np.concatenate([radial, radial[verts]])
+
+    rim = []
+    for a, c in boundary:
+        ai, ci = inner[a], inner[c]
+        # dua segitiga per sisi; arah hadap tidak dijaga karena kain dua sisi
+        rim.append([a, c, ci])
+        rim.append([a, ci, ai])
+    new_tris = np.concatenate([tris, np.array(rim, np.int64)])
+    return new_pos, new_uv, new_si, new_sw, new_radial, new_tris
+
+
 def fabric_texture(color="#cfd6dd", seed=7, size=512):
-    """Tekstur kain prosedural: tenunan halus + lipatan, warna per outfit."""
+    """Tekstur kain prosedural: tenunan halus + lipatan, warna per outfit.
+
+    Tenunan 140 ulir di atlas 512 px terbaca sebagai kotak-kotak besar di layar
+    (UV kain hanya memakai sebagian atlas), sehingga kain tampak seperti jaring
+    bodysuit. Relief tenunan di sini dilembutkan dan kontrasnya diturunkan:
+    warnanya tetap, polanya hilang.
+    """
     from . import tex
 
     rgb = tex.hexc(color.lstrip("#"))
-    f = tex.fabric(seed, size, rgb, weave=140, folds=0.35)
-    return {"base": f["base"], "normal": f["normal"], "orm": f["orm"]}
+    f = tex.fabric(seed, size, rgb, weave=150, folds=0.35)
+    base = np.clip(tex.blur(f["base"], 3) * 0.65 + f["base"] * 0.35, 0, 1)
+    height = tex.blur(base.mean(-1), 2)
+    normal = tex.height_to_normal(height, 0.45)
+    rough = np.clip(0.92 + (height - 0.5) * 0.10, 0.5, 1.0)
+    ao = np.clip(1.0 - (tex.blur(height, 6) - height) * 1.2, 0.55, 1.0)
+    return {"base": base, "normal": normal, "orm": tex.orm(ao, rough, np.zeros((size, size), F))}
 
 
 def garment_pack(name, weave_seed):

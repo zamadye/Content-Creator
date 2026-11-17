@@ -10,7 +10,7 @@
  "stats": {
   "shots": 5,
   "cameraSamples": 45,
-  "triangles": 2746,
+  "triangles": 2653,
   "nearestCamera": {
    "clearance": 0.34,
    "u": 0,
@@ -604,11 +604,8 @@
   },
   {
    "id": "warung-03",
-   "triangles": 93,
-   "nearestCamera": {
-    "clearance": 1.56,
-    "u": 0.25
-   },
+   "triangles": 0,
+   "nearestCamera": null,
    "minActorGap": null,
    "index": 2,
    "durationInFrames": 150,
@@ -622,6 +619,66 @@
       0
      ],
      "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      -1.8,
+      0,
+      1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      1.8,
+      0,
+      1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      0,
+      -0.01,
+      7
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      0,
+      -0.02,
+      10.4
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      -3.1,
+      0,
+      3.4
+     ],
+     "rot": 0.6,
+     "scale": 1
+    },
+    {
+     "asset": "nature.bush.fern",
+     "at": [
+      3,
+      0,
+      4.2
+     ],
+     "rot": 2.2,
      "scale": 1
     },
     {
@@ -673,6 +730,26 @@
      ],
      "rot": -0.3,
      "scale": 1
+    },
+    {
+     "asset": "nature.tree.palm",
+     "at": [
+      -5.2,
+      0,
+      4.6
+     ],
+     "rot": 0.9,
+     "scale": 1
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      4.9,
+      0,
+      6.2
+     ],
+     "rot": 2.3,
+     "scale": 1
     }
    ],
    "objects": [],
@@ -691,6 +768,40 @@
      "d": 6.75,
      "h": 4.605,
      "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.bush.fern",
+     "at": [
+      -3.1,
+      0,
+      3.4
+     ],
+     "scale": 1,
+     "cx": -3.073,
+     "cz": 3.4505,
+     "w": 2.306,
+     "d": 2.183,
+     "h": 1.331,
+     "rot": 0.6,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.bush.fern",
+     "at": [
+      3,
+      0,
+      4.2
+     ],
+     "scale": 1,
+     "cx": 3.027,
+     "cz": 4.250500000000001,
+     "w": 2.306,
+     "d": 2.183,
+     "h": 1.331,
+     "rot": 2.2,
      "floor": false,
      "kind": "set"
     },
@@ -744,6 +855,40 @@
      "rot": 0.8,
      "floor": false,
      "kind": "set"
+    },
+    {
+     "assetId": "nature.tree.palm",
+     "at": [
+      -5.2,
+      0,
+      4.6
+     ],
+     "scale": 1,
+     "cx": -4.0465,
+     "cz": 4.7485,
+     "w": 6.813,
+     "d": 6.048,
+     "h": 10.544,
+     "rot": 0.9,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.tree.karet",
+     "at": [
+      4.9,
+      0,
+      6.2
+     ],
+     "scale": 1,
+     "cx": 4.912000000000001,
+     "cz": 5.8075,
+     "w": 10.003,
+     "d": 10.513,
+     "h": 13.681,
+     "rot": 2.3,
+     "floor": false,
+     "kind": "set"
     }
    ],
    "actors": [],
@@ -751,137 +896,137 @@
     {
      "u": 0,
      "position": [
-      2.8879,
-      1.622,
-      4.4151
+      1.4879,
+      2.002,
+      11.0151
      ],
      "target": [
-      0.2,
-      1.6,
-      0.6
+      0.25,
+      1.35,
+      1.6
      ],
-     "fov": 40,
-     "clearance": 1.59
+     "fov": 38,
+     "clearance": null
     },
     {
      "u": 0.125,
      "position": [
-      2.8895,
-      1.6473,
-      4.4004
+      1.4895,
+      2.0273,
+      11.0004
      ],
      "target": [
-      0.2,
-      1.6,
-      0.6
+      0.25,
+      1.35,
+      1.6
      ],
-     "fov": 40,
-     "clearance": 1.61
+     "fov": 38,
+     "clearance": null
     },
     {
      "u": 0.25,
      "position": [
-      2.8741,
-      1.5995,
-      4.3852
+      1.4741,
+      1.9795,
+      10.9852
      ],
      "target": [
-      0.2,
-      1.6,
-      0.6
+      0.25,
+      1.35,
+      1.6
      ],
-     "fov": 40,
-     "clearance": 1.56
+     "fov": 38,
+     "clearance": null
     },
     {
      "u": 0.375,
      "position": [
-      2.9165,
-      1.6141,
-      4.3842
+      1.5165,
+      1.9941,
+      10.9842
      ],
      "target": [
-      0.2,
-      1.6,
-      0.6
+      0.25,
+      1.35,
+      1.6
      ],
-     "fov": 40,
-     "clearance": 1.58
+     "fov": 38,
+     "clearance": null
     },
     {
      "u": 0.5,
      "position": [
-      2.9393,
-      1.6288,
-      4.3983
+      1.5393,
+      2.0088,
+      10.9983
      ],
      "target": [
-      0.2,
-      1.6,
-      0.6
+      0.25,
+      1.35,
+      1.6
      ],
-     "fov": 40,
-     "clearance": 1.61
+     "fov": 38,
+     "clearance": null
     },
     {
      "u": 0.625,
      "position": [
-      2.8752,
-      1.6345,
-      4.414
+      1.4752,
+      2.0145,
+      11.014
      ],
      "target": [
-      0.2,
-      1.6,
-      0.6
+      0.25,
+      1.35,
+      1.6
      ],
-     "fov": 40,
-     "clearance": 1.6
+     "fov": 38,
+     "clearance": null
     },
     {
      "u": 0.75,
      "position": [
-      2.884,
-      1.597,
-      4.4163
+      1.484,
+      1.977,
+      11.0163
      ],
      "target": [
-      0.2,
-      1.6,
-      0.6
+      0.25,
+      1.35,
+      1.6
      ],
-     "fov": 40,
-     "clearance": 1.57
+     "fov": 38,
+     "clearance": null
     },
     {
      "u": 0.875,
      "position": [
-      2.891,
-      1.616,
-      4.4031
+      1.491,
+      1.996,
+      11.0031
      ],
      "target": [
-      0.2,
-      1.6,
-      0.6
+      0.25,
+      1.35,
+      1.6
      ],
-     "fov": 40,
-     "clearance": 1.58
+     "fov": 38,
+     "clearance": null
     },
     {
      "u": 1,
      "position": [
-      2.917,
-      1.6526,
-      4.3869
+      1.517,
+      2.0326,
+      10.9869
      ],
      "target": [
-      0.2,
-      1.6,
-      0.6
+      0.25,
+      1.35,
+      1.6
      ],
-     "fov": 40,
-     "clearance": 1.61
+     "fov": 38,
+     "clearance": null
     }
    ],
    "text": "Lampu teplok masih menyala di beranda."

@@ -96,6 +96,17 @@ def shape(P, v):
     P[:, 1] -= _w(P, (0, 6.52, 1.55), (0.30, 0.12, 0.25)) * v.get("lip_full", 0.0) * 0.06
     P[:, 2] += _w(P, (0, 6.52, 1.56), (0.30, 0.12, 0.25)) * v.get("lip_fwd", 0.0) * 0.05
     P[:, 0] += sx * _w(P, (0.80, 7.17, 0.76), (0.30, 0.35, 0.35)) * v.get("ear", 0.0) * 0.10
+    # Payudara. Mesh dasar MakeHuman yang dipakai adalah bentuk perempuan, jadi
+    # setiap tokoh pria tampil berdada sampai ada deformer ini — `chest` dan
+    # `shoulder` hanya melebarkan tulang rusuk, tidak meratakan kelenjar.
+    bust = v.get("bust", 0.0)
+    if bust:
+        # Kontraksi ke bidang rusuk (z = 1,02) dengan bobot yang hanya bergantung
+        # pada y. Bobot per payudara (Gauss pada x juga) membuat lipatan keras di
+        # tepi atas: permukaan ditarik ke dalam di satu sisi dan tidak di sisi
+        # sebelahnya. Kalau bobotnya seragam sepanjang x, dadanya rata tanpa kerut.
+        wy = np.exp(-(((P[:, 1] - 4.05) / 0.62) ** 2))
+        P[:, 2] -= (P[:, 2] - 1.02) * (wy * 0.55 * min(float(bust), 1.2))
     # age: hollow cheeks, dropped jowls, thinner lips
     P[:, 2] -= _w(P, (0.50, 6.78, 1.32), (0.24, 0.22, 0.22)) * v.get("hollow", 0.0) * 0.10
     P[:, 1] -= _w(P, (0.34, 6.34, 1.35), (0.28, 0.16, 0.22)) * v.get("jowl", 0.0) * 0.08
@@ -284,7 +295,7 @@ PIECES = {
     # bawah dagu, jadi hasilnya kerah crew-neck yang bersih.
     "shirt-short": dict(
         y=(-0.62, 6.20), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
-        sleeve=1.45, offset=0.190, flare=0.100, buttons=(4.75, 4.30, 3.85),
+        sleeve=1.45, offset=0.190, flare=0.100, buttons=(4.75, 4.30, 3.85)
     ),
     "shirt-long": dict(
         y=(-0.62, 6.20), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
@@ -577,7 +588,10 @@ def body_cloth(b, P, N, idx, uv, piece):
     if relax:
         e, deg = _adjacency(local, len(pos))
         floor = piece.get("min_clear", 0.11)
-        edge = margin < 1e-3
+        # Tepi potong = apa pun yang jaraknya ke batas potong < 3 mm. Ambang 1e-3
+        # dulu terlalu ketat: beberapa vertex kelim lolos dan ikut bergerak,
+        # jadi garis kelim tampak bergerigi.
+        edge = margin < 0.03
         for _ in range(relax):
             lap = _tangential(pos, e, deg) * 0.45
             if edge.any():
@@ -593,6 +607,13 @@ def body_cloth(b, P, N, idx, uv, piece):
         # lurus.
         if edge.any():
             pos[edge] = pinned[edge]
+
+    # Tepi potong mendatar harus lurus. Offset radial punya komponen y, jadi
+    # vertex di dekat kelim bisa melewati garis potong dan kelim tampak
+    # bergerigi (spike 6 mm diukur pada polo). Karena potongan atas dan bawah
+    # memang bidang datar, mengunci y ke rentang potongan tidak mengubah bentuk
+    # lain — hanya merapikan tepinya.
+    pos[:, 1] = np.clip(pos[:, 1], lo, hi)
 
     pos, uvs, si, sw, radial, local = _close_rim(pos, uvs, si, sw, radial, local)
     return {
@@ -790,6 +811,70 @@ def buttons(pos, tris, normals, heights, radius=0.055, thickness=0.012, sides=10
     return {"pos": np.array(out_pos, F), "indices": np.array(out_tris, np.int64), "src": np.array(out_src, np.int64)}
 
 
+def _inward(pos, tris, verts):
+    """Arah ke dalam permukaan untuk vertex tepi (rata-rata tetangga 1-ring)."""
+    e = np.concatenate([tris[:, [0, 1]], tris[:, [1, 2]], tris[:, [2, 0]]])
+    e = np.concatenate([e, e[:, ::-1]])
+    deg = np.maximum(np.bincount(e[:, 0], minlength=len(pos)).astype(F), 1.0)
+    acc = np.stack(
+        [np.bincount(e[:, 0], weights=pos[e[:, 1], k], minlength=len(pos)) for k in range(3)], 1
+    )
+    return acc / deg[:, None]
+
+
+def hem_stitch(pos, tris, uv, skin_index, skin_weight, normals, exclude_above,
+               inset=0.055, width=0.030, lift=0.010, band=0.12):
+    """Jahitan garis (topstitch) di dalam kelim bawah.
+
+    Hanya kelim bawah yang diberi garis: di situlah jahitan terbaca di shot
+    cerita, dan tri-nya murah (± 2 segitiga per sisi tepi). Titik tepi diambil
+    menurut tinggi (`y < y_min + band`), bukan dengan menelusuri loop — tepi kain
+    ini sering menyatu dalam satu loop besar (kelim + manset bertemu di ketiak),
+    jadi penelusuran loop melewatkannya.
+
+    Arah "ke dalam kain" diambil dari rata-rata tetangga 1-ring tiap vertex tepi,
+    bukan dari urutan loop; arah itu diproyeksikan ke bidang singgung lalu
+    diangkat `lift` sepanjang normal supaya tidak berkelahi z dengan kain.
+    """
+    be = _boundary_edges(tris)
+    bverts = np.unique(be)
+    ymin = float(pos[bverts][:, 1].min())
+    sel = bverts[(pos[bverts][:, 1] < ymin + band) & (pos[bverts][:, 1] < exclude_above)]
+    if len(sel) < 6:
+        return None
+    N = normals if normals is not None else np.tile(np.array([0, 0, 1], F), (len(pos), 1))
+    n = N / np.maximum(np.linalg.norm(N, axis=1, keepdims=True), 1e-6)
+    inner_pt = _inward(pos, tris, sel)
+    d = inner_pt[sel] - pos[sel]
+    d -= n[sel] * (d * n[sel]).sum(1, keepdims=True)  # buang komponen normal
+    d /= np.maximum(np.linalg.norm(d, axis=1, keepdims=True), 1e-6)
+
+    lookup = {int(v): i for i, v in enumerate(sel)}
+    a = pos[sel] + d * inset + n[sel] * lift
+    b = pos[sel] + d * (inset + width) + n[sel] * lift
+    k = len(sel)
+    verts = np.concatenate([a, b])
+    uv2 = np.concatenate([uv[sel], uv[sel]])
+    si2 = np.concatenate([skin_index[sel], skin_index[sel]])
+    sw2 = np.concatenate([skin_weight[sel], skin_weight[sel]])
+    out_tris = []
+    for u_, v_ in be:
+        i, j = lookup.get(int(u_)), lookup.get(int(v_))
+        if i is None or j is None:
+            continue
+        out_tris.append([i, j, k + j])
+        out_tris.append([i, k + j, k + i])
+    if not out_tris:
+        return None
+    return {
+        "pos": verts,
+        "indices": np.array(out_tris, np.int64),
+        "uv": uv2,
+        "skinIndex": si2,
+        "skinWeight": sw2,
+    }
+
+
 def fabric_texture(color="#cfd6dd", seed=7, size=512):
     """Tekstur kain prosedural: tenunan halus + lipatan, warna per outfit.
 
@@ -807,6 +892,29 @@ def fabric_texture(color="#cfd6dd", seed=7, size=512):
     normal = tex.height_to_normal(height, 0.45)
     rough = np.clip(0.92 + (height - 0.5) * 0.10, 0.5, 1.0)
     ao = np.clip(1.0 - (tex.blur(height, 6) - height) * 1.2, 0.55, 1.0)
+    return {"base": base, "normal": normal, "orm": tex.orm(ao, rough, np.zeros((size, size), F))}
+
+
+def flat_fabric(color="#cfd6dd", size=64):
+    """Bahan warna rata untuk detail ber-UV satu titik.
+
+    Kerah, kancing, saku, dan jahitan memakai UV satu titik (luas nol) supaya
+    `qc-uv` bersih. Akibatnya tidak ada satu pun pola yang bisa terbaca, dan
+    memakai `fabric_texture` hanya mengambil satu texel tenunan — yang kebetulan
+    jatuh di benang gelap, sehingga kancing dan saku tampil hampir hitam.
+    Di sini albedonya warna rata dengan variasi sangat halus.
+    """
+    from . import tex
+
+    rgb = tex.hexc(color.lstrip("#"))
+    base = np.tile(rgb, (size, size, 1))
+    rng = np.random.default_rng(5)
+    base *= 1.0 + (rng.random((size, size, 1)).astype(F) - 0.5) * 0.03
+    base = np.clip(base, 0, 1)
+    normal = np.zeros((size, size, 3), F)
+    normal[..., 2] = 1.0
+    rough = np.full((size, size), 0.92, F)
+    ao = np.ones((size, size), F)
     return {"base": base, "normal": normal, "orm": tex.orm(ao, rough, np.zeros((size, size), F))}
 
 

@@ -40,7 +40,9 @@ DEFAULT_HAIR = dict(style="short", color="#151110", thickness=0.030, long=0.0)
 
 
 def darker(color: str, factor: float) -> str:
-    """Warna hex yang digelapkan (untuk pita jahitan)."""
+    """Warna hex yang digelapkan; `factor` adalah **pengali kecerahan** (0,8 =
+    80 % terang), bukan jumlah yang dikurangi. Dulu nilai 0,30 untuk kerah dan
+    kancing membuatnya tampil hampir hitam."""
     c = color.lstrip("#")
     r, g, b = (int(c[i : i + 2], 16) for i in (0, 2, 4))
     return "#%02x%02x%02x" % (int(r * factor), int(g * factor), int(b * factor))
@@ -247,7 +249,17 @@ def _sphere(center, radius, segs=28, rings=18):
 
 def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     b = human.base()
-    shape_spec = spec.get("shape", {})
+    shape_spec = dict(spec.get("shape", {}))
+    # Mesh dasar = bentuk perempuan; tokoh pria diratakan dadanya. Ditaruh di
+    # sini (bukan di setiap spec) supaya tidak ada pria baru yang lupa diisi.
+    if spec.get("skin", {}).get("sex") == "male":
+        # Mesh dasar = bentuk perempuan: dada, pinggang ramping, panggul lebar.
+        # Tanpa koreksi ini tokoh pria terbaca sebagai pria berwajah pria dengan
+        # tubuh perempuan (pinggang 0,35 lebih sempit dari panggul).
+        shape_spec.setdefault("bust", 1.0)
+        shape_spec.setdefault("waist", -0.60)  # negatif = melebar (pria)
+        shape_spec.setdefault("hip", -0.80)
+        shape_spec.setdefault("glute", -0.60)
     profile = human.PROFILES.get(spec.get("profile", "dewasa"), human.PROFILES["dewasa"])
     # Proporsi umur diterapkan pada mesh, pakaian, dan tulang dengan kurva yang
     # sama; tanpa ini "anak" hanya orang dewasa yang diperkecil (kepala kecil,
@@ -318,6 +330,14 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         )
         if collar is not None:
             extras.append(collar)
+        # Jahitan garis di dalam kelim dan manset: satu garis tipis 9 mm.
+        stitch = human.hem_stitch(
+            piece["pos"], piece["indices"], piece["uv"],
+            piece["skinIndex"], piece["skinWeight"], piece["normals"],
+            exclude_above=float(piece_spec["y"][1]) - 0.35,
+        )
+        if stitch is not None:
+            extras.append({k: stitch[k] for k in ("pos", "indices", "uv", "skinIndex", "skinWeight")})
         btn = human.buttons(
             piece["pos"], piece["indices"], piece["normals"],
             [_f_y(h) for h in raw_piece.get("buttons", ())],
@@ -353,9 +373,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
             # pun tetap bertumpuk karena 206 segitiga tidak mungkin dipetakan
             # tanpa tumpang tindih ke kotak sekecil itu. UV titik = luas nol.
             trim["uv"] = np.tile(np.array([0.5, 0.5], F), (len(trim["pos"]), 1))
-            trim["tex"] = human.fabric_texture(
-                darker(color, 0.30), seed=(abs(hash(piece_name + color)) % 997) + 1
-            )
+            trim["tex"] = human.flat_fabric(darker(color, 0.55))
             trim["normals"] = compute_normals_welded(trim["pos"], trim["indices"])
             garment_parts.append((f"{piece_name}-trim", trim, trim["pos"]))
 

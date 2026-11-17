@@ -247,6 +247,45 @@ Untuk balita kurva memetakan 6,20 → 4,81: garis leher mentah jatuh **di dagu**
 dan hasilnya kerah menutupi mulut. Sekarang potongan, kancing, kerah, dan tulang
 acuan semuanya dipetakan lewat `_f_y()` / `proportion_bones()`.
 
+### Jahitan garis di kelim
+
+`hem_stitch()` menambahkan satu garis tipis (lebar 3 mm, 5 mm di dalam tepi,
+diangkat 0,4 mm) mengikuti **kelim bawah** tiap potongan. Manset dan kerah
+dilewati: kerah sudah punya pita lipatan, manset terlalu kecil untuk terbaca.
+
+Dua hal yang membuat ini gagal di percobaan pertama:
+
+* **Satuan.** Angka di `PIECES` dan fungsi kain memakai unit MH (1 unit ≈ 9,6 cm).
+  Lebar 0,011 yang dimaksud "11 mm" ternyata 1 mm — garisnya tidak terlihat.
+  Sekarang `inset` 0,055 (≈5 mm) dan `width` 0,030 (≈3 mm).
+* **Pemilihan titik tepi.** Versi pertama menelusuri loop tepi, tetapi kelim dan
+  kedua manset sering menyatu dalam **satu** loop (mereka bertemu di ketiak),
+  jadi penelusuran melewatkannya. Sekarang titik tepi dipilih menurut tinggi
+  (`y < y_min + 0,12`) dan arah "ke dalam kain" diambil dari rata-rata tetangga
+  1-ring, bukan dari urutan loop.
+
+Segitiganya murah: ± 2 segitiga per sisi tepi (≈ 240 tri untuk kemeja).
+
+### Kelim lurus: y dikunci ke rentang potongan
+
+Offset radial punya komponen y, jadi vertex di dekat kelim bisa melewati garis
+potong (diukur: spike 6 mm di bawah kelim polo) dan tepinya tampak bergerigi.
+Karena potongan atas dan bawah memang bidang datar, `body_cloth` sekarang
+mengunci `y = clip(y, lo, hi)` setelah offset dan relaksasi. Tepi potong juga
+dikunci lebih lebar (`margin < 0,03` ≈ 3 mm, dulu 0,1 mm) supaya tidak ada
+vertex tepi yang ikut bergerak.
+
+### Bahan warna rata untuk detail ber-UV titik
+
+Kerah, kancing, dan jahitan memakai UV satu titik (luas nol → `qc-uv` bersih).
+Memakai `fabric_texture` untuk mereka hanya mengambil **satu texel** tenunan,
+yang kebetulan jatuh di benang gelap: kancing dan saku tampil hampir hitam.
+`flat_fabric()` memberi albedo warna rata untuk semua detail itu.
+
+Perhatikan juga arti `darker(color, factor)`: `factor` adalah **pengali
+kecerahan** (0,55 = 55 % terang), bukan jumlah yang dikurangi. Nilai 0,30 yang
+dulu dipakai membuat kerah dan kancing nyaris hitam; sekarang 0,55.
+
 ### Kerah dan kancing
 
 Dua detail yang membuat kain terbaca sebagai baju, bukan bodysuit:
@@ -329,9 +368,13 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
    terlihat sebagai bercak warna celana di pinggang. Kain di bawah kain butuh
    offset bertingkat per lapis (lapis luar = lapis dalam + tebal), bukan angka
    tunggal per potongan. Percobaan itu dibatalkan sebelum build.
-3. **Jahitan garis & saku belum ada.** Kerah dan kancing sudah ada (lihat §3),
-   tetapi belum ada jahitan garis, saku, atau kancing manset. Kelim dan manset
-   pemilik lengan masih berupa tepi potongan (lurus, tanpa ketebalan).
+3. **Saku belum ada, jahitan baru di kelim.** Jahitan garis di kelim sudah jadi
+   (lihat §3). Saku tempel sempat dibuat dua kali dan dibuang: bidang yang
+   di-fitting kuadratik ke lengkung kain melayang di tepinya dan, karena bahannya
+   lebih tua, terbaca sebagai **lubang** di dada. Saku perlu dibangun dari
+   sub-mesh kain itu sendiri (salin vertex kain di dalam kotak saku, dorong
+   keluar 3 mm, tutup tepinya) supaya benar-benar menempel. Kancing manset dan
+   ketebalan tepi kain juga belum ada.
 4. **Wajah anak masih wajah dewasa yang diperkecil.** Terukur: kepala
    0,141 × 0,099 m (rasio lebar/tinggi 0,70) pada balita 0,94 m, yaitu rasio
    kepala/tubuh **0,15 — sama dengan dewasa (0,14)**, padahal anak sungguhan
@@ -344,12 +387,19 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
    bersama: skala kepala seragam **plus** radius/kedalaman bola mata menurut
    ukuran kepala, ambang fitur wajah yang memakai ruang pra-proporsi, dan posisi
    fringe rambut menurut profil.
-5. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`
+5. **Tubuh pria masih condong feminin.** Mesh dasar MakeHuman yang dipakai
+   berbentuk perempuan; pria sekarang diratakan dadanya (kontraksi z ke bidang
+   rusuk dengan bobot yang hanya bergantung pada y, 55 %), pinggang dilebarkan,
+   dan panggul dipersempit. Hasilnya tidak lagi berdada, tetapi lipatan bawah
+   dada dan panggul masih terbaca. Percobaan bobot per payudara (Gauss pada x)
+   membuat kerut keras di tepi atas dada, jadi dipakai bobot y saja. Solusi
+   bersih: mesh dasar pria, atau deformer berbasis permukaan.
+6. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`
    belum benar-benar dua ekor; hanya panel di belakang kepala.
-6. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) dan belum ada
+7. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) dan belum ada
    pakaian adat/seragam sekolah khas Indonesia.
-7. **`anak-besar`** (8–12 th) profil tersedia tetapi belum ada tokohnya.
-8. **Sepatu** masih memakai paket kain jadi `shoes01`; yang lain prosedural.
+8. **`anak-besar`** (8–12 th) profil tersedia tetapi belum ada tokohnya.
+9. **Sepatu** masih memakai paket kain jadi `shoes01`; yang lain prosedural.
 
 Riwayat perbaikan penting: alpha rambut dulu dipanggang dari `scalp_weight`
 lalu diblur 12 px di atlas 512², sehingga nilai di ubun-ubun turun di bawah

@@ -304,6 +304,13 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         if piece is None:
             continue
         piece["tex"] = human.fabric_texture(color, seed=abs(hash(piece_name + color)) % 997)
+        # Saku digambar ke albedo (bukan geometri): lihat `human.paint_pocket`.
+        if human.PIECES[piece_name].get("pocket"):
+            px, py = human.PIECES[piece_name]["pocket"]
+            pmap, _, pmask = uvpaint.rasterize_uv(piece["pos"], piece["uv"], piece["indices"], 512)
+            piece["tex"]["base"] = human.paint_pocket(
+                piece["tex"]["base"], pmap, pmask, (float(px), _f_y(float(py)))
+            )
         # Lubang kecil di garis leher/bahu (segitiga yang tulangnya beda) ditutup.
         from . import kit as _kit
 
@@ -337,25 +344,17 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
             exclude_above=float(piece_spec["y"][1]) - 0.35,
         )
         if stitch is not None:
-            extras.append({k: stitch[k] for k in ("pos", "indices", "uv", "skinIndex", "skinWeight")})
+            extras.append({k: stitch[k] for k in ("pos", "indices", "uv", "skinIndex", "skinWeight", "normals")})
         btn = human.buttons(
             piece["pos"], piece["indices"], piece["normals"],
             [_f_y(h) for h in raw_piece.get("buttons", ())],
         )
-        if btn is not None:
-            src = btn["src"]
-            extras.append(
-                {
-                    "pos": btn["pos"],
-                    "indices": btn["indices"],
-                    "uv": piece["uv"][src],
-                    "skinIndex": piece["skinIndex"][src],
-                    "skinWeight": piece["skinWeight"][src],
-                }
-            )
         if extras:
             trim = {
                 "pos": np.concatenate([x["pos"] for x in extras]),
+                "normals": np.concatenate(
+                    [x.get("normals") if x.get("normals") is not None else np.zeros((len(x["pos"]), 3), F) for x in extras]
+                ),
                 "indices": np.concatenate(
                     [x["indices"] + sum(len(y["pos"]) for y in extras[:k]) for k, x in enumerate(extras)]
                 ),
@@ -373,9 +372,28 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
             # pun tetap bertumpuk karena 206 segitiga tidak mungkin dipetakan
             # tanpa tumpang tindih ke kotak sekecil itu. UV titik = luas nol.
             trim["uv"] = np.tile(np.array([0.5, 0.5], F), (len(trim["pos"]), 1))
-            trim["tex"] = human.flat_fabric(darker(color, 0.55))
-            trim["normals"] = compute_normals_welded(trim["pos"], trim["indices"])
+            trim["tex"] = human.flat_fabric(darker(color, 0.82))
+            # Normal diambil dari kain asalnya (lihat `normals` tiap bagian).
+            # `compute_normals_welded` pada gabungan kerah+jahitan+tepi bisa
+            # membalik normal di tepi dan bagian itu tampil hitam di WebGL.
+            if not np.any(trim["normals"]):
+                trim["normals"] = compute_normals_welded(trim["pos"], trim["indices"])
             garment_parts.append((f"{piece_name}-trim", trim, trim["pos"]))
+
+        # Kancing bahan sendiri (plastik gelap), bukan kain: kalau digabung dengan
+        # kerah dan jahitan, warnanya harus sama dan kancingnya jadi tak terlihat.
+        if btn is not None:
+            src = btn["src"]
+            btn_part = {
+                "pos": btn["pos"],
+                "indices": btn["indices"],
+                "uv": np.tile(np.array([0.5, 0.5], F), (len(btn["pos"]), 1)),
+                "skinIndex": piece["skinIndex"][src],
+                "skinWeight": piece["skinWeight"][src],
+                "tex": human.flat_fabric(darker(color, 0.20)),
+                "normals": btn["normals"],
+            }
+            garment_parts.append((f"{piece_name}-buttons", btn_part, btn_part["pos"]))
 
     if spec.get("shoes"):
         gname = spec["shoes"]

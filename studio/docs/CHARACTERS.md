@@ -282,6 +282,27 @@ Memakai `fabric_texture` untuk mereka hanya mengambil **satu texel** tenunan,
 yang kebetulan jatuh di benang gelap: kancing dan saku tampil hampir hitam.
 `flat_fabric()` memberi albedo warna rata untuk semua detail itu.
 
+Bug yang menyertainya: `flat_fabric` semula mengembalikan peta normal `(0,0,1)`,
+padahal peta normal glTF **dienkode 0..1** (0,5 = datar, seperti keluaran
+`tex.height_to_normal`). Normal (0,0,1) terbaca sebagai permukaan miring 45°
+sehingga kerah, kancing, dan saku tampil nyaris hitam selama beberapa putaran.
+Sekarang `(0,5, 0,5, 1,0)`.
+
+Kancing dipisah jadi bagian sendiri (`…-buttons`, bahan plastik gelap 0,20).
+Sebelumnya kancing menumpang bahan kerah, jadi warnanya harus sama dan
+kancingnya tak terlihat.
+
+### Saku: digambar ke tekstur, bukan geometri
+
+Saku geometris dicoba dua kali — bidang hasil fitting kuadratik dan sub-mesh
+kain sendiri yang didorong 3 mm keluar. Keduanya **tampil hitam di WebGL**
+walaupun warnanya benar di renderer perangkat lunak (albedo diperiksa langsung
+dari atlas GLB: rata-rata 0,49 abu-abu), dan penyebabnya tidak ditemukan sebelum
+tenggat. Solusi yang dipakai: `paint_pocket()` menggelapkan texel albedo kain di
+kotak saku + garis tepi lebih gelap, memakai peta posisi dari
+`uvpaint.rasterize_uv` (jadi bentuknya mengikuti UV kain yang sebenarnya).
+Aman di semua renderer, tanpa tri tambahan, dan atlas UV tidak berubah.
+
 Perhatikan juga arti `darker(color, factor)`: `factor` adalah **pengali
 kecerahan** (0,55 = 55 % terang), bukan jumlah yang dikurangi. Nilai 0,30 yang
 dulu dipakai membuat kerah dan kancing nyaris hitam; sekarang 0,55.
@@ -368,13 +389,11 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
    terlihat sebagai bercak warna celana di pinggang. Kain di bawah kain butuh
    offset bertingkat per lapis (lapis luar = lapis dalam + tebal), bukan angka
    tunggal per potongan. Percobaan itu dibatalkan sebelum build.
-3. **Saku belum ada, jahitan baru di kelim.** Jahitan garis di kelim sudah jadi
-   (lihat §3). Saku tempel sempat dibuat dua kali dan dibuang: bidang yang
-   di-fitting kuadratik ke lengkung kain melayang di tepinya dan, karena bahannya
-   lebih tua, terbaca sebagai **lubang** di dada. Saku perlu dibangun dari
-   sub-mesh kain itu sendiri (salin vertex kain di dalam kotak saku, dorong
-   keluar 3 mm, tutup tepinya) supaya benar-benar menempel. Kancing manset dan
-   ketebalan tepi kain juga belum ada.
+3. **Saku masih datar (digambar ke tekstur), jahitan baru di kelim.** Saku
+   geometris belum berhasil: dua percobaannya tampil hitam di WebGL meski albedo
+   atlasnya benar (lihat §3). Yang dipakai sekarang saku yang digambar ke
+   albedo, jadi tidak ada bayangan tepi dan saku tidak berubah bentuk saat
+   pose. Kancing manset dan ketebalan tepi kain juga belum ada.
 4. **Wajah anak masih wajah dewasa yang diperkecil.** Terukur: kepala
    0,141 × 0,099 m (rasio lebar/tinggi 0,70) pada balita 0,94 m, yaitu rasio
    kepala/tubuh **0,15 — sama dengan dewasa (0,14)**, padahal anak sungguhan

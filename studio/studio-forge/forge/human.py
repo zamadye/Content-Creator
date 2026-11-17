@@ -295,12 +295,12 @@ PIECES = {
     # bawah dagu, jadi hasilnya kerah crew-neck yang bersih.
     "shirt-short": dict(
         y=(-0.62, 6.20), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
-        sleeve=1.45, offset=0.190, flare=0.100, buttons=(4.75, 4.30, 3.85)
+        sleeve=1.45, offset=0.190, flare=0.100, buttons=(4.75, 4.30, 3.85), pocket=(0.90, 4.60)
     ),
     "shirt-long": dict(
         y=(-0.62, 6.20), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
         sleeve=3.30, offset=0.190, flare=0.090,
-        buttons=(5.05, 4.45, 3.85, 3.25, 2.65, 2.05, 1.45, 0.85, 0.25),
+        buttons=(5.05, 4.45, 3.85, 3.25, 2.65, 2.05, 1.45, 0.85, 0.25), pocket=(0.90, 4.75),
     ),
     "tunic": dict(
         y=(-2.05, 6.20), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot", "lowerleg"),
@@ -753,12 +753,15 @@ def collar_ring(pos, tris, skin_index, skin_weight, uv, normals, neck_y, height=
     if ring is None:
         return None
     band, band_tris, band_src = _band(pos, ring, normals, height)
+    n_ring = (normals[ring] if normals is not None else np.tile(np.array([0, 0, 1], F), (len(ring), 1)))
+    n_ring = n_ring / np.maximum(np.linalg.norm(n_ring, axis=1, keepdims=True), 1e-6)
     return {
         "pos": band,
         "indices": band_tris,
         "uv": np.concatenate([uv[ring], uv[ring]]),
         "skinIndex": np.concatenate([skin_index[ring], skin_index[ring]]),
         "skinWeight": np.concatenate([skin_weight[ring], skin_weight[ring]]),
+        "normals": np.concatenate([n_ring, n_ring]),
     }
 
 
@@ -770,7 +773,7 @@ def buttons(pos, tris, normals, heights, radius=0.055, thickness=0.012, sides=10
     """
     verts = np.unique(tris)
     P = pos[verts]
-    out_pos, out_src, out_tris = [], [], []
+    out_pos, out_src, out_tris, out_nrm = [], [], [], []
     base = 0
     for h in heights:
         band = np.abs(P[:, 1] - h) < 0.06
@@ -798,6 +801,7 @@ def buttons(pos, tris, normals, heights, radius=0.055, thickness=0.012, sides=10
         out_pos.extend(ring)
         out_pos.extend(top)
         out_src.extend([verts[i]] * (2 * sides))
+        out_nrm.extend([n] * (2 * sides))
         for k in range(sides):
             k2 = (k + 1) % sides
             out_tris.append([start + k, start + k2, start + sides + k2])
@@ -808,7 +812,12 @@ def buttons(pos, tris, normals, heights, radius=0.055, thickness=0.012, sides=10
         base += 2 * sides
     if not out_pos:
         return None
-    return {"pos": np.array(out_pos, F), "indices": np.array(out_tris, np.int64), "src": np.array(out_src, np.int64)}
+    return {
+        "pos": np.array(out_pos, F),
+        "indices": np.array(out_tris, np.int64),
+        "src": np.array(out_src, np.int64),
+        "normals": np.array(out_nrm, F),
+    }
 
 
 def _inward(pos, tris, verts):
@@ -872,7 +881,35 @@ def hem_stitch(pos, tris, uv, skin_index, skin_weight, normals, exclude_above,
         "uv": uv2,
         "skinIndex": si2,
         "skinWeight": sw2,
+        "normals": np.concatenate([n[sel], n[sel]]),
     }
+
+
+def paint_pocket(base, pos_map, mask, target, half_u=0.42, half_v=0.50,
+                 dark=0.80, line=0.55, band=0.045):
+    """Gambar saku langsung ke albedo kain (tanpa geometri baru).
+
+    Saku geometris (bidang di-fitting maupun sub-mesh) tampil hitam di WebGL
+    meskipun warnanya benar di renderer perangkat lunak — persoalan material/UV
+    satu titik yang tidak terselesaikan sebelum tenggat. Versi ini hanya
+    menggelapkan texel: aman di semua renderer, tanpa tri tambahan, dan tidak
+    menyentuh atlas UV (tidak ada tabrakan baru).
+
+    `pos_map`/`mask` = hasil `uvpaint.rasterize_uv` untuk potongan kain ini,
+    `target` = (x, y) di ruang kain, satuannya sama dengan posisi kain.
+    """
+    P = pos_map.reshape(-1, 3)
+    flat = mask.reshape(-1)
+    s_ = P[:, 0] - float(target[0])
+    t_ = P[:, 1] - float(target[1])
+    inside = (np.abs(s_) <= half_u) & (np.abs(t_) <= half_v) & flat & (P[:, 2] > 0.0)
+    if inside.sum() < 40:
+        return base
+    edge = inside & ((np.abs(s_) > half_u - band) | (np.abs(t_) > half_v - band))
+    out = base.reshape(-1, 3).copy()
+    out[inside] *= dark
+    out[edge] *= line
+    return out.reshape(base.shape)
 
 
 def fabric_texture(color="#cfd6dd", seed=7, size=512):
@@ -911,7 +948,10 @@ def flat_fabric(color="#cfd6dd", size=64):
     rng = np.random.default_rng(5)
     base *= 1.0 + (rng.random((size, size, 1)).astype(F) - 0.5) * 0.03
     base = np.clip(base, 0, 1)
-    normal = np.zeros((size, size, 3), F)
+    # Peta normal dienkode ke 0..1 (0,5 = datar), sama seperti keluaran
+    # `tex.height_to_normal`. Nilai (0,0,1) yang dipakai semula terbaca sebagai
+    # normal miring 45 derajat sehingga seluruh detail tampil nyaris hitam.
+    normal = np.full((size, size, 3), 0.5, F)
     normal[..., 2] = 1.0
     rough = np.full((size, size), 0.92, F)
     ao = np.ones((size, size), F)

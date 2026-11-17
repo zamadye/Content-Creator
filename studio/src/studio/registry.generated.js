@@ -43,7 +43,7 @@ export default {
     ]
    },
    "tris": 41491,
-   "bytes": 3900204,
+   "bytes": 3905272,
    "tags": [
     "human",
     "male",
@@ -88,6 +88,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-short",
+    "cloth-shirt-short-buttons",
     "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
@@ -102,7 +103,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 33
+    "embeddedTextures": 36
    },
    "profile": "dewasa",
    "outfit": "polo-kargo",
@@ -137,7 +138,7 @@ export default {
     ]
    },
    "tris": 41707,
-   "bytes": 4054208,
+   "bytes": 4059012,
    "tags": [
     "human",
     "female",
@@ -182,6 +183,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-short",
+    "cloth-shirt-short-buttons",
     "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
@@ -197,7 +199,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 36
+    "embeddedTextures": 39
    },
    "profile": "dewasa",
    "outfit": "polo-kargo",
@@ -232,7 +234,7 @@ export default {
     ]
    },
    "tris": 42516,
-   "bytes": 3897872,
+   "bytes": 3901252,
    "tags": [
     "human",
     "male",
@@ -277,6 +279,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-long",
+    "cloth-shirt-long-buttons",
     "cloth-shirt-long-trim",
     "cloth-shoes01",
     "hair",
@@ -291,7 +294,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 33
+    "embeddedTextures": 36
    },
    "profile": "dewasa",
    "outfit": "jaket"
@@ -322,7 +325,7 @@ export default {
     ]
    },
    "tris": 42501,
-   "bytes": 3897296,
+   "bytes": 3900904,
    "tags": [
     "human",
     "male",
@@ -367,6 +370,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-long",
+    "cloth-shirt-long-buttons",
     "cloth-shirt-long-trim",
     "cloth-shoes01",
     "hair",
@@ -381,7 +385,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 33
+    "embeddedTextures": 36
    },
    "profile": "dewasa",
    "outfit": "kerja"
@@ -412,7 +416,7 @@ export default {
     ]
    },
    "tris": 42222,
-   "bytes": 4032628,
+   "bytes": 4035320,
    "tags": [
     "human",
     "male",
@@ -457,6 +461,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-long",
+    "cloth-shirt-long-buttons",
     "cloth-shirt-long-trim",
     "cloth-shoes01",
     "hair",
@@ -471,7 +476,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 33
+    "embeddedTextures": 36
    },
    "profile": "lansia",
    "outfit": "kemeja-kasual"
@@ -502,7 +507,7 @@ export default {
     ]
    },
    "tris": 39916,
-   "bytes": 4109720,
+   "bytes": 4109020,
    "tags": [
     "human",
     "female",
@@ -593,7 +598,7 @@ export default {
     ]
    },
    "tris": 41609,
-   "bytes": 3879512,
+   "bytes": 3884156,
    "tags": [
     "human",
     "male",
@@ -638,6 +643,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-short",
+    "cloth-shirt-short-buttons",
     "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
@@ -652,7 +658,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 33
+    "embeddedTextures": 36
    },
    "profile": "remaja",
    "outfit": "seragam"
@@ -683,7 +689,7 @@ export default {
     ]
    },
    "tris": 41509,
-   "bytes": 4039264,
+   "bytes": 4043508,
    "tags": [
     "human",
     "female",
@@ -728,6 +734,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-short",
+    "cloth-shirt-short-buttons",
     "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
@@ -743,7 +750,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 36
+    "embeddedTextures": 39
    },
    "profile": "remaja",
    "outfit": "seragam"
@@ -774,7 +781,7 @@ export default {
     ]
    },
    "tris": 42813,
-   "bytes": 3961812,
+   "bytes": 3966548,
    "tags": [
     "human",
     "male",
@@ -819,6 +826,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-short",
+    "cloth-shirt-short-buttons",
     "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
@@ -833,7 +841,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 33
+    "embeddedTextures": 36
    },
    "profile": "anak",
    "outfit": "seragam"
@@ -864,7 +872,7 @@ export default {
     ]
    },
    "tris": 39637,
-   "bytes": 3931216,
+   "bytes": 3930532,
    "tags": [
     "human",
     "female",
@@ -955,7 +963,7 @@ export default {
     ]
    },
    "tris": 41099,
-   "bytes": 3862516,
+   "bytes": 3867432,
    "tags": [
     "human",
     "male",
@@ -1000,6 +1008,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-short",
+    "cloth-shirt-short-buttons",
     "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
@@ -1014,7 +1023,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 33
+    "embeddedTextures": 36
    },
    "profile": "balita",
    "outfit": "seragam"
@@ -1045,7 +1054,7 @@ export default {
     ]
    },
    "tris": 39574,
-   "bytes": 3925828,
+   "bytes": 3925080,
    "tags": [
     "human",
     "female",
@@ -1136,7 +1145,7 @@ export default {
     ]
    },
    "tris": 42505,
-   "bytes": 3919732,
+   "bytes": 3922400,
    "tags": [
     "human",
     "male",
@@ -1180,6 +1189,7 @@ export default {
     "cloth-pants",
     "cloth-pants-trim",
     "cloth-shirt-long",
+    "cloth-shirt-long-buttons",
     "cloth-shirt-long-trim",
     "cloth-shoes01",
     "hair",
@@ -1194,7 +1204,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 33
+    "embeddedTextures": 36
    },
    "profile": "dewasa",
    "outfit": "kemeja-kasual",
@@ -1226,7 +1236,7 @@ export default {
     ]
    },
    "tris": 40138,
-   "bytes": 3967596,
+   "bytes": 3966896,
    "tags": [
     "human",
     "female",

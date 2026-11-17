@@ -244,6 +244,45 @@ Dua cacat tekstur wajah yang paling terlihat di close-up:
   diturunkan ke 6,85, titik diperkecil (95/15000 vs 55/9000), dan intensitas
   fitur 0,85 → 0,70.
 
+### Garis rambut: dilukis di tekstur, bukan dipotong di geometri
+
+Keluhan yang paling lama menggantung: "di atas dahi hitam bergerigi". Ternyata
+dua cacat bertumpuk, dan keduanya berasal dari asumsi yang salah.
+
+1. **Garis rambut lama ada di bawah alis.** `scalp_line` dulu
+   `6,80 + 0,22·(z−0,15)` → 7,02 di dahi, sementara alis 7,47 dan mata 7,29.
+   Jadi topi rambut sebenarnya **menutupi seluruh wajah**, dan yang tampil
+   sebagai "garis rambut" adalah perpotongan cangkang rambut dengan kulit wajah
+   — dua permukaan yang nyaris berimpit (offset 1,5 mm, galat faset kepala
+   1–2 mm). Perpotongan dua bidang nyaris sebidang selalu bergerigi. Sekarang
+   garis rambut memakai sudut keliling kepala (`f = (cos θ + 1)/2`,
+   `line = 6,98 + 0,85·f^1,6`): dahi **7,83**, pelipis 7,71, samping 7,26,
+   tengkuk 6,98 — semuanya di atas alis, di atas puncak telinga (7,45) di
+   x = 0,80.
+2. **Kulit di bawah rambut kini dicat warna rambut.** `paint_skin` menggelapkan
+   kulit kepala 13 mm di atas garis rambut (transisi 10 mm, mulai 11 mm di bawah
+   garis), persis warna `hair.color`. Jadi tepi geometri topi rambut — seburuk
+   apa pun bentuknya — jatuh di area yang sudah gelap: **gelap di atas gelap**,
+   tidak terlihat. Garis rambut yang terlihat sekarang adalah batas lukisan yang
+   mulus di atlas 1024 (± 0,4 mm/texel di dahi), bukan lagi potongan segitiga.
+
+Topi rambutnya sendiri tetap cangkang hasil salin-permukaan (offset
+`0,18–1,15 × thickness`, ubun-ubun dilengkungkan 0,55 × thickness, disapu ke
+belakang 0,12 × thickness) dan dipotong per segitiga dengan ambang
+`scalp_weight > 0,13` memakai `.all()` — bukan `.any()` — supaya tidak ada
+segitiga yang menjulur ke bawah melewati pita gelap itu.
+
+Bukti sebelum/sesudah: `docs/character-hairline.png` (kiri: gerigi 8–10 px di
+dahi; kanan: garis rambut mulus dengan pita bayangan 13 mm di bawahnya).
+
+Sisa cacat yang jujur: di pelipis, ± 1,5 cm di atas telinga, masih ada 2–3
+takik segitiga pada tepi topi rambut yang terlihat saat kamera 16° (close-up
+ekstrem, 700 px untuk area 10 cm); di jarak potret normal (0,62 m, 30°) dan di
+render WebGL `docs/webgl-shots/StudioUjiKarakter-f300.png` garis rambutnya
+mulus. Penyebabnya faset mesh kepala (~1 cm per edge): potongan per segitiga
+selalu menuruni faset, jadi takik itu baru hilang kalau kepala di-retopo lebih
+rapat di area pelipis.
+
 ### Warna kain jauh dari warna kulit
 
 Daster semula `#e0a1a9` (pink pucat). Di shot lebar, tokoh berbaju itu terbaca
@@ -427,8 +466,10 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
    0,141 × 0,099 m (rasio lebar/tinggi 0,70) pada balita 0,94 m, yaitu rasio
    kepala/tubuh **0,15 — sama dengan dewasa (0,14)**, padahal anak sungguhan
    0,18–0,20. Selain itu alis yang dilukis `skinpaint.py` tampil lebih tebal
-   dan bergerigi pada anak, dan tepi bawah rambut (fringe) jatuh tepat di garis
-   alis. Percobaan menambah `head_k` (skala kepala seragam, 1,28 untuk balita,
+   dan bergerigi pada anak. (Tepi bawah rambut yang dulu jatuh di garis alis
+   sudah tidak berlaku: garis rambut sekarang 7,83 di dahi dan 7,53 untuk
+   potongan `bowl` anak — lihat §"Garis rambut: dilukis di tekstur".)
+   Percobaan menambah `head_k` (skala kepala seragam, 1,28 untuk balita,
    + fraksi kepala 0,314 dengan kaki/torso dikecilkan) sempat dicoba: rasio
    kepala membaik, tapi bola mata tenggelam di dalam rongga dan muncul garis
    sambung di dahi, jadi dibatalkan sebelum build. Yang perlu dikerjakan

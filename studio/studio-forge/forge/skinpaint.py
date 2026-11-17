@@ -26,6 +26,46 @@ EYE_IN = 0.10
 EYE_OUT = 0.55
 
 
+def scalp_line(x, z, style="short"):
+    """Tinggi garis rambut (model unit) sebagai fungsi x/z saja.
+
+    Dulu garis ini hanya 6,80 + 0,22*(z) di dahi, yaitu **di bawah** alis
+    (7,47) dan mata (7,29). Topi rambut karena itu menutupi seluruh wajah dan
+    yang tampak sebagai "garis rambut" sebenarnya adalah perpotongan topi
+    dengan kulit wajah — bidang yang nyaris berimpit, sehingga muncul sebagai
+    gerigi hitam 8-10 px di dahi. Sekarang garis rambut memakai sudut keliling
+    kepala: dahi 7,78 · pelipis ~7,55 · atas telinga ~7,45 · tengkuk 7,10,
+    jadi topi rambut berhenti di kulit kepala dan tepinya = isoline mulus.
+    Sisi 7,49 dibuat di atas puncak telinga 7,45; dulu 7,36 sehingga ujung
+    telinga menembus topi dan tampil sebagai bercak terang di pelipis.
+    """
+    ax = np.abs(x)
+    cz = 0.15
+    r = np.sqrt(ax * ax + (z - cz) ** 2) + 1e-6
+    c = np.clip((z - cz) / r, -1, 1)          # 1 = depan, -1 = belakang
+    f = 0.5 * (c + 1)
+    # Sisi (f=0,5) sengaja 7,49: di atas puncak telinga (7,45) supaya cuping/tulang
+    # rawan telinga tidak menembus topi rambut dan tampil sebagai bercak terang.
+    line = 6.98 + 0.85 * f ** 1.60
+    if style == "receding":
+        # pelipis mundur: garis naik di sisi depan
+        line = line + 0.26 * np.clip((ax - 0.18) / 0.45, 0, 1) * f
+    elif style == "bowl":
+        # potongan mangkuk: garis rambut turun rata (khas anak)
+        line = line - 0.30
+    elif style == "fringe":
+        # poni: bagian depan turun, samping tetap
+        line = line - 0.22 * f
+    elif style == "messy":
+        pass
+    # gelombang garis rambut: panjang ~6 cm, amplitudo 2-3 mm
+    irregular = 0.030 * np.sin(ax * 11.0 + 1.3) + 0.020 * np.sin(z * 9.0 + 2.1) + 0.008 * np.sin(ax * 17.0 + 0.4)
+    return line + irregular
+
+
+HAIRLINE_RIM = 0.126
+
+
 def _fill(img_flat, sel, value):
     img_flat[sel] = img_flat[sel] * (1 - value[..., :1]) + value if isinstance(value, np.ndarray) and value.ndim == 2 else value
 
@@ -295,6 +335,30 @@ def paint_skin(P, N, M, size, spec):
     if pale > 0:  # entity
         pale_col = np.array([0.80, 0.82, 0.80], F)
         base = base * (1 - pale) + pale_col * pale
+
+    # ------------------------------------------------- kulit kepala di bawah rambut
+    # Topi rambut adalah cangkang yang dipotong per segitiga di garis rambut.
+    # Di mesh kepala yang kasar potongan itu tidak bisa mulus: tepinya menuruni
+    # faset ~1 cm. Karena itu **garis rambut yang terlihat dilukis di sini**:
+    # kulit kepala di atas garis rambut dicat warna `hair_color` dengan
+    # transisi 10 mm, jadi tepi geometri seburuk apa pun jatuh di area gelap
+    # (gelap di atas gelap) dan yang terbaca sebagai garis rambut adalah batas
+    # lukisan yang mulus (± 0,4 mm/texel di dahi pada atlas 1024).
+    hair_style = spec.get("hair_style", "short")
+    if hair_style != "bald":
+        hair_col = srgb_hex(spec.get("hair_color", "#151110"))
+        line = scalp_line(x, z, hair_style) + HAIRLINE_RIM
+        # Pita gelap mulai 11 mm di bawah garis rambut (cukup menutup takik
+        # tepi geometri) dan penuh 13 mm di atasnya.
+        under = smoothstep((y - (line - 0.11)) / 0.13) * is_head
+        # Telinga tidak perlu mask sendiri: di x telinga (0,80) garis rambut
+        # sudah 7,58, di atas puncak telinga 7,45. Mask telinga di sini malah
+        # memotong pita gelap di pelipis sehingga gerigi tepi rambut terlihat.
+        shade = np.clip((y - (line - 0.16)) / 0.16, 0, 1) * is_head * 0.28
+        mix = np.clip(np.maximum(under * 0.95, shade), 0, 1)
+        base = base * (1 - mix[..., None]) + hair_col * mix[..., None]
+        rough = np.where(under > 0.5, 0.60, rough)
+        ao = np.where(under > 0.5, np.minimum(ao, 0.92), ao)
 
     base = np.clip(base, 0, 1)
 

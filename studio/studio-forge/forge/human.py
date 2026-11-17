@@ -18,7 +18,7 @@ from .glb import GLBWriter, Material, MeshDef, Primitive, COMP_FLOAT
 from .kit import Builder, compute_normals, compute_normals_welded, compute_tangents
 from .skin import quat_from_euler, world_matrices
 from .uvpaint import smoothstep
-from .skinpaint import paint_skin
+from .skinpaint import HAIRLINE_RIM, paint_skin, scalp_line
 
 F = np.float32
 EYE_BONE = {"L": "eye.L", "R": "eye.R"}
@@ -119,59 +119,75 @@ def to_metres(P, height):
 
 
 # ------------------------------------------------------------------ hair/eyes
-def scalp_weight(P, style="short"):
-    """Soft hairline mask in model units; 1 = scalp."""
-    x, y, z = P[:, 0], P[:, 1], P[:, 2]
+def scalp_weight_at(x, y, z, style="short"):
+    """Nilai mask garis rambut di satu titik (atau array titik)."""
     ax = np.abs(x)
-    # hairline: high on the forehead, lower at the sides and back
-    front = np.clip((z - 0.15) / 0.9, 0, 1)
-    # Garis rambut: dulu 7.28 (hanya 33% ubun-ubun) sehingga rambut tampak
-    # seperti kopiah. Sekarang ~59% tinggi kepala, turun di pelipis dan belakang.
-    line = 6.80 + 0.22 * front - 0.12 * np.clip((ax - 0.45) / 0.4, 0, 1)
-    line -= 0.42 * np.clip((-z - 0.1) / 0.6, 0, 1)
-    if style == "receding":
-        line += 0.20 * np.clip((ax - 0.16) / 0.40, 0, 1) * front
-    elif style == "bowl":
-        # potongan mangkuk: garis rambut turun rata (khas anak)
-        line -= 0.30
-    elif style == "fringe":
-        # poni: bagian depan turun, samping tetap
-        line -= 0.16 * front
-    # irregular hairline (widow's peaks, temple recession)
-    irregular = 0.045 * np.sin(ax * 11.0 + 1.3) + 0.028 * np.sin(z * 9.0 + 2.1) + 0.02 * np.sin(ax * 23.0)
-    line += irregular
+    line = scalp_line(x, z, style)
     w = smoothstep((y - line) / 0.30)
-    # keep ears and face clear
-    ear = np.sqrt(((ax - 0.80) / 0.26) ** 2 + ((y - 7.16) / 0.30) ** 2) < 1.0
-    face = (z > 1.15) & (y < 7.62)
-    w = np.where(ear, 0.0, w)
-    w = np.where(face & (np.abs(y - 7.4) < 0.35) & (ax < 0.55), 0.0, w)
+    # keep ears and face clear. Lubang telinga dibuat melengkung (bukan `where`
+    # biner): tepi lubang yang keras membuat potongan isoline bertekuk, dan itu
+    # yang dulu tampil sebagai gerigi di pelipis. Lubangnya juga dikecilkan
+    # (ry 0,20) karena garis rambut samping 7,49 sudah di atas puncak telinga.
+    ear_d = np.sqrt(((ax - 0.80) / 0.34) ** 2 + ((y - 7.16) / 0.30) ** 2)
+    w = w * (1.0 - np.clip(1.15 - ear_d, 0, 1))
+    face = (z > 1.15) & (y < 7.72)
+    w = np.where(face & (np.abs(y - 7.42) < 0.30) & (ax < 0.55), 0.0, w)
     return w.astype(F)
 
 
-def build_hair_shell(P, N, idx, style, thickness):
-    """Copy scalp triangles outward along normals; returns (pos, uv, idx, vmap)."""
+def scalp_weight(P, style="short"):
+    """Soft hairline mask in model units; 1 = scalp."""
+    return scalp_weight_at(P[:, 0], P[:, 1], P[:, 2], style)
+
+
+def _hair_offset(w, thickness):
+    """Tebal + lengkung ubun-ubun sebagai fungsi `scalp_weight` (skalar/array)."""
+    thick = thickness * (0.18 + 0.97 * smoothstep((w - 0.10) / 0.62))
+    crown = smoothstep((w - 0.45) / 0.55)
+    return thick, crown
+
+
+def _hair_surface(P, idx, style, thickness):
+    """Posisi topi rambut per vertex kepala (sebelum dipotong di garis rambut)."""
     w = scalp_weight(P, style)
-    keep = (w[idx] > 0.25).all(1)
+    nrm = compute_normals(P, idx)
+    thick, crown = _hair_offset(w, thickness)
+    pos = P + nrm * thick[:, None]
+    pos[:, 1] += crown * thickness * 0.55
+    pos[:, 2] -= thick * 0.12 + crown * 0.02
+    return pos, w, nrm
+
+
+def _hair_uv(pos):
+    """UV silinder mengelilingi kepala supaya serat rambut jatuh vertikal."""
+    cx, cz = 0.0, 0.15
+    u = np.arctan2(pos[:, 0] - cx, pos[:, 2] - cz) / (2 * np.pi) + 0.5
+    v = np.clip((pos[:, 1] - 6.30) / 1.55, 0, 1)
+    return np.stack([u, v], 1).astype(F)
+
+
+def build_hair_shell(P, N, idx, style, thickness, thr=0.13):
+    """Copy scalp triangles outward along normals; returns (pos, uv, idx, vmap, w).
+
+    Topi rambut **tidak** dipotong rapi di garis rambut. Potongan isoline pada
+    mesh kepala yang kasar (edge ~1 cm) selalu menyisakan segitiga jarum dan
+    celah di pelipis — itu sumber "dahi hitam bergerigi". Cara yang dipakai:
+    cangkang dipotong kasar (`thr` 0,13 = potongan tepat di garis rambut) dan
+    tipis di tepinya, lalu **garis rambut yang terlihat dilukis di tekstur
+    kulit** (`paint_skin`, transisi 10 mm). Tepi geometri yang bergerigi
+    (dalam ~12 mm di bawah potongan) karena itu jatuh di dalam area kulit yang
+    sudah dicat warna rambut: gelap-di-atas-gelap, tak terlihat.
+    """
+    op, w, _ = _hair_surface(P, idx, style, thickness)
+    # `.all` (bukan `.any`): tepi potong jatuh di atas isoline, jadi tidak ada
+    # segitiga yang menjulur ke bawah melewati pita gelap di kulit.
+    keep = (w[idx] > thr).all(1)
     tris = idx[keep]
     if len(tris) == 0:
         return None
     used, inv = np.unique(tris.ravel(), return_inverse=True)
-    nrm = compute_normals(P, idx)
-    # thin at the hairline, full volume on the crown; swept slightly back
-    ww = w[used]
-    thick = thickness * (0.05 + 1.10 * smoothstep((ww - 0.10) / 0.62))
-    pos = P[used] + nrm[used] * thick[:, None]
-    # crown volume: lift and sweep back
-    crown = smoothstep((ww - 0.45) / 0.55)
-    pos[:, 1] += crown * thickness * 0.55
-    pos[:, 2] -= thick * 0.45 + crown * 0.02
-    # cylindrical UV around the head so strand textures run vertically
-    cx, cz = 0.0, 0.15
-    u = np.arctan2(pos[:, 0] - cx, pos[:, 2] - cz) / (2 * np.pi) + 0.5
-    v = np.clip((pos[:, 1] - 6.30) / 1.55, 0, 1)
-    uv = np.stack([u, v], 1)
-    return pos, uv, inv.reshape(-1, 3), used, w[used]
+    pos = op[used]
+    return pos, _hair_uv(pos), inv.reshape(-1, 3), used, w[used]
 
 
 def build_long_hair(P, style, thickness, length=0.42):

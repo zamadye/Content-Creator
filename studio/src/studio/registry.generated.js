@@ -42,8 +42,8 @@ export default {
      0.454
     ]
    },
-   "tris": 41491,
-   "bytes": 3904260,
+   "tris": 41039,
+   "bytes": 3876192,
    "tags": [
     "human",
     "male",
@@ -137,8 +137,8 @@ export default {
      0.423
     ]
    },
-   "tris": 41707,
-   "bytes": 4058424,
+   "tris": 41245,
+   "bytes": 4029424,
    "tags": [
     "human",
     "female",
@@ -233,8 +233,8 @@ export default {
      0.432
     ]
    },
-   "tris": 42516,
-   "bytes": 3900332,
+   "tris": 42060,
+   "bytes": 3871220,
    "tags": [
     "human",
     "male",
@@ -324,8 +324,8 @@ export default {
      0.449
     ]
    },
-   "tris": 42501,
-   "bytes": 3899756,
+   "tris": 42045,
+   "bytes": 3872440,
    "tags": [
     "human",
     "male",
@@ -415,8 +415,8 @@ export default {
      0.439
     ]
    },
-   "tris": 42222,
-   "bytes": 4034888,
+   "tris": 41952,
+   "bytes": 4018764,
    "tags": [
     "human",
     "male",
@@ -506,8 +506,8 @@ export default {
      0.412
     ]
    },
-   "tris": 39916,
-   "bytes": 4107840,
+   "tris": 39634,
+   "bytes": 4090012,
    "tags": [
     "human",
     "female",
@@ -597,8 +597,8 @@ export default {
      0.396
     ]
    },
-   "tris": 41609,
-   "bytes": 3884344,
+   "tris": 41073,
+   "bytes": 3848376,
    "tags": [
     "human",
     "male",
@@ -688,8 +688,8 @@ export default {
      0.381
     ]
    },
-   "tris": 41509,
-   "bytes": 4043468,
+   "tris": 41201,
+   "bytes": 4022656,
    "tags": [
     "human",
     "female",
@@ -780,8 +780,8 @@ export default {
      0.274
     ]
    },
-   "tris": 42813,
-   "bytes": 3967796,
+   "tris": 40995,
+   "bytes": 3867012,
    "tags": [
     "human",
     "male",
@@ -871,8 +871,8 @@ export default {
      0.272
     ]
    },
-   "tris": 39637,
-   "bytes": 3931852,
+   "tris": 39527,
+   "bytes": 3923020,
    "tags": [
     "human",
     "female",
@@ -962,8 +962,8 @@ export default {
      0.215
     ]
    },
-   "tris": 41099,
-   "bytes": 3868752,
+   "tris": 40921,
+   "bytes": 3851824,
    "tags": [
     "human",
     "male",
@@ -1053,8 +1053,8 @@ export default {
      0.212
     ]
    },
-   "tris": 39574,
-   "bytes": 3926684,
+   "tris": 39500,
+   "bytes": 3921256,
    "tags": [
     "human",
     "female",
@@ -1144,8 +1144,8 @@ export default {
      0.335
     ]
    },
-   "tris": 41611,
-   "bytes": 3907384,
+   "tris": 40981,
+   "bytes": 3864908,
    "tags": [
     "human",
     "male",
@@ -1235,8 +1235,8 @@ export default {
      0.328
     ]
    },
-   "tris": 41247,
-   "bytes": 4020756,
+   "tris": 41131,
+   "bytes": 4010168,
    "tags": [
     "human",
     "female",
@@ -1327,8 +1327,8 @@ export default {
      0.454
     ]
    },
-   "tris": 42505,
-   "bytes": 3922476,
+   "tris": 42053,
+   "bytes": 3894640,
    "tags": [
     "human",
     "male",
@@ -1418,8 +1418,8 @@ export default {
      0.429
     ]
    },
-   "tris": 40138,
-   "bytes": 3966048,
+   "tris": 39676,
+   "bytes": 3937328,
    "tags": [
     "human",
     "female",

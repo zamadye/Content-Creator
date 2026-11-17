@@ -303,6 +303,9 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     pos_map, nrm_map, mask = uvpaint.rasterize_uv(P, uv, idx, size)
     filled, _ = uvpaint.fill_holes(pos_map, mask, 2)
     skin_spec = dict(spec["skin"])
+    # Kulit kepala di bawah rambut dicat warna rambut (lihat paint_skin).
+    skin_spec.setdefault("hair_style", spec.get("hair", {}).get("style", "short"))
+    skin_spec.setdefault("hair_color", spec.get("hair", {}).get("color", "#151110"))
     skin_maps = paint_skin(filled, nrm_map, mask, size, skin_spec)
 
     # ------------------------------------------------------------ garments

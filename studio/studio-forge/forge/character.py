@@ -37,6 +37,13 @@ DEFAULT_SKIN = dict(tone="#b98a63", red="#ad5f4c", lip="#8c4a44", age=0.32, sex=
 DEFAULT_HAIR = dict(style="short", color="#151110", thickness=0.030, long=0.0)
 
 
+def darker(color: str, factor: float) -> str:
+    """Warna hex yang digelapkan (untuk pita jahitan)."""
+    c = color.lstrip("#")
+    r, g, b = (int(c[i : i + 2], 16) for i in (0, 2, 4))
+    return "#%02x%02x%02x" % (int(r * factor), int(g * factor), int(b * factor))
+
+
 def _char(title, tags, profile, height, shape_, skin, hair, outfit, **kw):
     """Satu baris per tokoh: profil umur + tinggi + bentuk + kulit + rambut + outfit."""
     spec = {
@@ -284,6 +291,57 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         piece["uv"], piece["skinIndex"], piece["skinWeight"] = fixed["uv"], fixed["skinIndex"], fixed["skinWeight"]
         piece["normals"] = compute_normals_welded(gp2, fixed_idx)
         garment_parts.append((piece_name, piece, piece["pos"]))
+
+        # Kerah + kancing: dua detail yang membuat kain terbaca sebagai baju,
+        # bukan bodysuit. Keduanya bagian terpisah dengan bahan lebih tua.
+        neck_y = 5.55  # di bawah dagu (neck01.y = 5,89 unit MH)
+        extras = []
+        collar = human.collar_ring(
+            piece["pos"], piece["indices"], piece["skinIndex"], piece["skinWeight"],
+            piece["uv"], piece["normals"], neck_y,
+        )
+        if collar is not None:
+            extras.append(collar)
+        btn = human.buttons(
+            piece["pos"], piece["indices"], piece["normals"],
+            human.PIECES[piece_name].get("buttons", ()),
+        )
+        if btn is not None:
+            src = btn["src"]
+            extras.append(
+                {
+                    "pos": btn["pos"],
+                    "indices": btn["indices"],
+                    "uv": piece["uv"][src],
+                    "skinIndex": piece["skinIndex"][src],
+                    "skinWeight": piece["skinWeight"][src],
+                }
+            )
+        if extras:
+            trim = {
+                "pos": np.concatenate([x["pos"] for x in extras]),
+                "indices": np.concatenate(
+                    [x["indices"] + sum(len(y["pos"]) for y in extras[:k]) for k, x in enumerate(extras)]
+                ),
+                "uv": np.concatenate([x["uv"] for x in extras]),
+                "skinIndex": np.concatenate([x["skinIndex"] for x in extras]),
+                "skinWeight": np.concatenate([x["skinWeight"] for x in extras]),
+            }
+            # UV trim = satu titik di tengah atlas: pita kerah dan kancing
+            # berwarna rata, jadi tidak butuh area UV sendiri. Memakai UV kain
+            # akan menumpuk di wilayah yang sama dan dilaporkan qc-uv sebagai
+            # tumpang tindih tak sengaja.
+            # UV trim = satu titik: pita kerah dan kancing berwarna rata, jadi
+            # tidak punya wilayah UV sendiri. Memakai UV kain membuat texel pita
+            # menumpuk di wilayah body (qc-uv: tabrakan), sedangkan kotak kecil
+            # pun tetap bertumpuk karena 206 segitiga tidak mungkin dipetakan
+            # tanpa tumpang tindih ke kotak sekecil itu. UV titik = luas nol.
+            trim["uv"] = np.tile(np.array([0.5, 0.5], F), (len(trim["pos"]), 1))
+            trim["tex"] = human.fabric_texture(
+                darker(color, 0.30), seed=(abs(hash(piece_name + color)) % 997) + 1
+            )
+            trim["normals"] = compute_normals_welded(trim["pos"], trim["indices"])
+            garment_parts.append((f"{piece_name}-trim", trim, trim["pos"]))
 
     if spec.get("shoes"):
         gname = spec["shoes"]

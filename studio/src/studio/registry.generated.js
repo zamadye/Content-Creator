@@ -29,7 +29,7 @@ export default {
     "min": [
      -0.512,
      -0.008,
-     -0.129
+     -0.131
     ],
     "max": [
      0.512,
@@ -39,11 +39,11 @@ export default {
     "size": [
      1.025,
      1.733,
-     0.461
+     0.463
     ]
    },
-   "tris": 40948,
-   "bytes": 3854036,
+   "tris": 41076,
+   "bytes": 3885912,
    "tags": [
     "human",
     "male",
@@ -87,6 +87,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-short",
+    "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -100,7 +101,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 27
+    "embeddedTextures": 30
    },
    "profile": "dewasa",
    "outfit": "polo-kargo",
@@ -121,7 +122,7 @@ export default {
     "min": [
      -0.478,
      -0.008,
-     -0.12
+     -0.122
     ],
     "max": [
      0.478,
@@ -131,11 +132,11 @@ export default {
     "size": [
      0.956,
      1.619,
-     0.43
+     0.432
     ]
    },
-   "tris": 41162,
-   "bytes": 4009336,
+   "tris": 41281,
+   "bytes": 4040108,
    "tags": [
     "human",
     "female",
@@ -179,6 +180,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-short",
+    "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
     "hair-long",
@@ -193,7 +195,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 30
+    "embeddedTextures": 33
    },
    "profile": "dewasa",
    "outfit": "polo-kargo",
@@ -214,7 +216,7 @@ export default {
     "min": [
      -0.489,
      -0.008,
-     -0.122
+     -0.124
     ],
     "max": [
      0.489,
@@ -224,11 +226,11 @@ export default {
     "size": [
      0.977,
      1.655,
-     0.438
+     0.44
     ]
    },
-   "tris": 41878,
-   "bytes": 3846760,
+   "tris": 42032,
+   "bytes": 3865532,
    "tags": [
     "human",
     "male",
@@ -272,6 +274,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-long",
+    "cloth-shirt-long-trim",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -285,7 +288,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 27
+    "embeddedTextures": 30
    },
    "profile": "dewasa",
    "outfit": "jaket"
@@ -302,7 +305,7 @@ export default {
     "min": [
      -0.506,
      -0.008,
-     -0.126
+     -0.128
     ],
     "max": [
      0.506,
@@ -312,11 +315,11 @@ export default {
     "size": [
      1.013,
      1.713,
-     0.454
+     0.457
     ]
    },
-   "tris": 41860,
-   "bytes": 3846272,
+   "tris": 42015,
+   "bytes": 3871792,
    "tags": [
     "human",
     "male",
@@ -360,6 +363,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-long",
+    "cloth-shirt-long-trim",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -373,7 +377,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 27
+    "embeddedTextures": 30
    },
    "profile": "dewasa",
    "outfit": "kerja"
@@ -390,7 +394,7 @@ export default {
     "min": [
      -0.496,
      -0.008,
-     -0.123
+     -0.125
     ],
     "max": [
      0.496,
@@ -400,11 +404,11 @@ export default {
     "size": [
      0.992,
      1.677,
-     0.445
+     0.446
     ]
    },
-   "tris": 42147,
-   "bytes": 4009284,
+   "tris": 42365,
+   "bytes": 4037580,
    "tags": [
     "human",
     "male",
@@ -448,6 +452,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-long",
+    "cloth-shirt-long-trim",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -461,7 +466,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 27
+    "embeddedTextures": 30
    },
    "profile": "lansia",
    "outfit": "kemeja-kasual"
@@ -478,7 +483,7 @@ export default {
     "min": [
      -0.46,
      -0.007,
-     -0.12
+     -0.122
     ],
     "max": [
      0.46,
@@ -488,11 +493,11 @@ export default {
     "size": [
      0.921,
      1.557,
-     0.418
+     0.42
     ]
    },
-   "tris": 40043,
-   "bytes": 4112268,
+   "tris": 40003,
+   "bytes": 4135872,
    "tags": [
     "human",
     "female",
@@ -537,6 +542,7 @@ export default {
     "cloth-shoes01",
     "cloth-shorts",
     "cloth-tunic",
+    "cloth-tunic-trim",
     "hair",
     "hair-long",
     "iris-L",
@@ -550,7 +556,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 30
+    "embeddedTextures": 33
    },
    "profile": "lansia",
    "outfit": "daster"
@@ -567,7 +573,7 @@ export default {
     "min": [
      -0.446,
      -0.007,
-     -0.112
+     -0.114
     ],
     "max": [
      0.446,
@@ -577,11 +583,11 @@ export default {
     "size": [
      0.892,
      1.573,
-     0.401
+     0.403
     ]
    },
-   "tris": 41473,
-   "bytes": 3853892,
+   "tris": 41522,
+   "bytes": 3878684,
    "tags": [
     "human",
     "male",
@@ -625,6 +631,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-short",
+    "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -638,7 +645,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 27
+    "embeddedTextures": 30
    },
    "profile": "remaja",
    "outfit": "seragam"
@@ -655,7 +662,7 @@ export default {
     "min": [
      -0.429,
      -0.007,
-     -0.108
+     -0.109
     ],
     "max": [
      0.429,
@@ -665,11 +672,11 @@ export default {
     "size": [
      0.858,
      1.512,
-     0.386
+     0.387
     ]
    },
-   "tris": 41401,
-   "bytes": 4016036,
+   "tris": 41430,
+   "bytes": 4040076,
    "tags": [
     "human",
     "female",
@@ -713,6 +720,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-short",
+    "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
     "hair-long",
@@ -727,7 +735,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 30
+    "embeddedTextures": 33
    },
    "profile": "remaja",
    "outfit": "seragam"
@@ -744,7 +752,7 @@ export default {
     "min": [
      -0.308,
      -0.005,
-     -0.074
+     -0.073
     ],
     "max": [
      0.308,
@@ -757,8 +765,8 @@ export default {
      0.273
     ]
    },
-   "tris": 44389,
-   "bytes": 4020396,
+   "tris": 44509,
+   "bytes": 4062144,
    "tags": [
     "human",
     "male",
@@ -802,6 +810,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-short",
+    "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -815,7 +824,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 27
+    "embeddedTextures": 30
    },
    "profile": "anak",
    "outfit": "seragam"
@@ -832,7 +841,7 @@ export default {
     "min": [
      -0.3,
      -0.005,
-     -0.075
+     -0.076
     ],
     "max": [
      0.3,
@@ -845,8 +854,8 @@ export default {
      0.27
     ]
    },
-   "tris": 41881,
-   "bytes": 4035204,
+   "tris": 41916,
+   "bytes": 4071516,
    "tags": [
     "human",
     "female",
@@ -891,6 +900,7 @@ export default {
     "cloth-shoes01",
     "cloth-shorts",
     "cloth-tunic",
+    "cloth-tunic-trim",
     "hair",
     "hair-long",
     "iris-L",
@@ -904,7 +914,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 30
+    "embeddedTextures": 33
    },
    "profile": "anak",
    "outfit": "daster"
@@ -934,8 +944,8 @@ export default {
      0.21
     ]
    },
-   "tris": 44113,
-   "bytes": 3994192,
+   "tris": 43651,
+   "bytes": 3993760,
    "tags": [
     "human",
     "male",
@@ -979,6 +989,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-short",
+    "cloth-shirt-short-trim",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -992,7 +1003,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 27
+    "embeddedTextures": 30
    },
    "profile": "balita",
    "outfit": "seragam"
@@ -1022,8 +1033,8 @@ export default {
      0.208
     ]
    },
-   "tris": 43221,
-   "bytes": 4100936,
+   "tris": 42703,
+   "bytes": 4097700,
    "tags": [
     "human",
     "female",
@@ -1068,6 +1079,7 @@ export default {
     "cloth-shoes01",
     "cloth-shorts",
     "cloth-tunic",
+    "cloth-tunic-trim",
     "hair",
     "hair-long",
     "iris-L",
@@ -1081,7 +1093,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 30
+    "embeddedTextures": 33
    },
    "profile": "balita",
    "outfit": "daster"
@@ -1098,7 +1110,7 @@ export default {
     "min": [
      -0.512,
      -0.008,
-     -0.128
+     -0.13
     ],
     "max": [
      0.512,
@@ -1108,11 +1120,11 @@ export default {
     "size": [
      1.025,
      1.733,
-     0.46
+     0.462
     ]
    },
-   "tris": 41864,
-   "bytes": 3868148,
+   "tris": 42020,
+   "bytes": 3888224,
    "tags": [
     "human",
     "male",
@@ -1155,6 +1167,7 @@ export default {
    "materials": [
     "cloth-pants",
     "cloth-shirt-long",
+    "cloth-shirt-long-trim",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -1168,7 +1181,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 27
+    "embeddedTextures": 30
    },
    "profile": "dewasa",
    "outfit": "kemeja-kasual",
@@ -1186,7 +1199,7 @@ export default {
     "min": [
      -0.478,
      -0.008,
-     -0.125
+     -0.127
     ],
     "max": [
      0.478,
@@ -1196,11 +1209,11 @@ export default {
     "size": [
      0.956,
      1.619,
-     0.435
+     0.437
     ]
    },
-   "tris": 39502,
-   "bytes": 3932100,
+   "tris": 39557,
+   "bytes": 3956676,
    "tags": [
     "human",
     "female",
@@ -1244,6 +1257,7 @@ export default {
     "cloth-shoes01",
     "cloth-shorts",
     "cloth-tunic",
+    "cloth-tunic-trim",
     "hair",
     "hair-long",
     "iris-L",
@@ -1257,7 +1271,7 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 30
+    "embeddedTextures": 33
    },
    "profile": "dewasa",
    "outfit": "daster",

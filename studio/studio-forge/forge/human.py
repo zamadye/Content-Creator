@@ -275,17 +275,25 @@ PIECES = {
     #   exclude  : awalan nama tulang yang tidak boleh tertutup kain
     #   sleeve   : panjang lengan dari sendi bahu (unit); 0 = tanpa batas
     #   offset   : kelonggaran kain dari permukaan badan (unit ≈ 1 cm)
+    #   buttons  : tinggi kancing di tengah depan (unit MH); kosong = tanpa kancing
+    #
+    # Garis leher memakai bidang datar y = 6,20, bukan lingkaran radius 0,62:
+    # bidang datar memotong leher secara melintang, sedangkan lingkaran memotong
+    # nyaris sejajar permukaan bahu sehingga tepinya bergerigi dan berlubang
+    # (beberapa vertex masuk, tetangganya keluar). 6,20 ada di atas bahu dan di
+    # bawah dagu, jadi hasilnya kerah crew-neck yang bersih.
     "shirt-short": dict(
-        y=(-0.62, 6.34), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
-        sleeve=1.45, neck=0.62, offset=0.190, flare=0.100,
+        y=(-0.62, 6.20), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
+        sleeve=1.45, offset=0.190, flare=0.100, buttons=(4.75, 4.30, 3.85),
     ),
     "shirt-long": dict(
-        y=(-0.62, 6.34), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
-        sleeve=3.30, neck=0.62, offset=0.190, flare=0.090,
+        y=(-0.62, 6.20), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot"),
+        sleeve=3.30, offset=0.190, flare=0.090,
+        buttons=(5.05, 4.45, 3.85, 3.25, 2.65, 2.05, 1.45, 0.85, 0.25),
     ),
     "tunic": dict(
-        y=(-2.05, 6.34), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot", "lowerleg"),
-        sleeve=1.45, reach=1.95, neck=0.62, offset=0.210, flare=0.200,
+        y=(-2.05, 6.20), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot", "lowerleg"),
+        sleeve=1.45, reach=1.95, offset=0.210, flare=0.200,
     ),
     "pants": dict(
         y=(-7.00, 1.74), exclude=("hand", "finger", "thumb", "head", "jaw", "eye"), sleeve=0.0,
@@ -428,6 +436,40 @@ def _cloth_field(b, P, first_bone, piece):
     return field
 
 
+def _clean_slivers(pos, tris, uv, si, sw, min_height=1.2e-3):
+    """Buang segitiga sisir hasil pemotongan (tanpa mengelepatkan vertex).
+
+    Pemotongan bidang menghasilkan segitiga yang sangat tipis di dekat batas
+    (tingginya beberapa persepuluh milimeter). Setelah didorong keluar 2 cm,
+    sisir itu berubah jadi duri yang menonjol di sekitar kerah dan bahu.
+
+    Vertex **tidak** dilekatkan berdasarkan posisi saja: vertex di jahitan UV
+    punya posisi sama tetapi UV berbeda, dan melekatkannya membuat segitiga
+    melompati seluruh atlas (tumpang tindih UV 13 % → 22 %).
+    """
+    tri = pos[tris]
+    e1 = tri[:, 1] - tri[:, 0]
+    e2 = tri[:, 2] - tri[:, 0]
+    area2 = np.linalg.norm(np.cross(e1, e2), axis=1)
+    longest = np.maximum.reduce(
+        [
+            np.linalg.norm(tri[:, 1] - tri[:, 0], axis=1),
+            np.linalg.norm(tri[:, 2] - tri[:, 1], axis=1),
+            np.linalg.norm(tri[:, 0] - tri[:, 2], axis=1),
+        ]
+    )
+    height = area2 / np.maximum(longest, 1e-9)
+    keep = (tris[:, 0] != tris[:, 1]) & (tris[:, 1] != tris[:, 2]) & (tris[:, 2] != tris[:, 0])
+    keep &= height > min_height
+    tris = tris[keep]
+    if len(tris) == 0:
+        return None
+    used = np.unique(tris)
+    remap = np.full(len(pos), -1, np.int64)
+    remap[used] = np.arange(len(used), dtype=np.int64)
+    return pos[used], remap[tris], uv[used], si[used], sw[used]
+
+
 def body_cloth(b, P, N, idx, uv, piece):
     """Potong pakaian dari permukaan tubuh (lihat PIECES).
 
@@ -457,13 +499,26 @@ def body_cloth(b, P, N, idx, uv, piece):
     sw = sw2[used]
     local = remap[tris]
 
+    cleaned = _clean_slivers(pos, local, uvs, si, sw)
+    if cleaned is None:
+        return None
+    pos, local, uvs, si, sw = cleaned
+
     # Offset radial dari tulang dominan (bukan sepanjang normal, dan bukan tulang
     # terdekat): di lipatan normal menunjuk ke dalam, dan di ketiak tulang
     # terdekat bisa tulang punggung — dua-duanya membuat kain masuk ke badan.
     # Kelonggaran bertambah ke arah kelim (`flare`) supaya kemeja tidak mencetak
     # bentuk badan.
     axis_all = np.array([bn["p"] for bn in b["bones"]], F)
-    dirs = pos - axis_all[si[:, 0].astype(np.int64)]
+    # Titik acuan radial = posisi tulang **terbobot**, bukan tulang dominan.
+    # Tulang dominan berubah mendadak antar vertex (di bahu: clavicle →
+    # spine03), dan karena radius diukur dari titik acuan itu, kain sobek tepat
+    # di batas perubahan: duri bergerigi di garis leher dan jahitan bahu.
+    # Rata-rata terbobot memakai bobot skin yang sudah halus di seluruh mesh.
+    wsum = sw.sum(1, keepdims=True)
+    blend = sw / np.maximum(wsum, 1e-6)
+    axis = np.einsum("nk,nkj->nj", blend, axis_all[si.astype(np.int64)])
+    dirs = pos - axis
     dist = np.linalg.norm(dirs, axis=1, keepdims=True)
     radial = dirs / np.maximum(dist, 1e-4)
     offset = np.full((len(pos), 1), piece["offset"], F)
@@ -533,6 +588,152 @@ def _close_rim(pos, uv, skin_index, skin_weight, radial, tris, thickness=0.0):
         rim.append([a, ci, ai])
     new_tris = np.concatenate([tris, np.array(rim, np.int64)])
     return new_pos, new_uv, new_si, new_sw, new_radial, new_tris
+
+
+def _boundary_edges(tris):
+    """Tepi terbuka: sisi yang hanya dipakai satu segitiga."""
+    e = np.concatenate([tris[:, [0, 1]], tris[:, [1, 2]], tris[:, [2, 0]]])
+    e = np.sort(e, axis=1)
+    uniq, counts = np.unique(e, axis=0, return_counts=True)
+    return uniq[counts == 1]
+
+
+def _ring(be, verts, pos):
+    """Urutkan vertex tepi jadi cincin.
+
+    Ditelusuri lewat sisi yang kedua ujungnya ada di `verts`, jadi cincin tidak
+    pernah melompat ke loop lain (kelim atau manset) — itu yang dulu membuat
+    pita kerah berupa lembaran raksasa. Kalau penelusuran tidak menutup rapi
+    (loop bercabang karena tepi nyaris sejajar permukaan), urutannya diganti
+    urutan sudut mengelilingi pusat: kerah, kelim, dan manset semuanya
+    melingkupi satu sumbu, jadi urutan sudut selalu benar untuk kasus itu.
+    """
+    sel = set(int(v) for v in verts)
+    nb = {}
+    for a, b in be:
+        a, b = int(a), int(b)
+        if a in sel and b in sel:
+            nb.setdefault(a, []).append(b)
+            nb.setdefault(b, []).append(a)
+    if not nb:
+        return None
+    start_v = next(iter(nb))
+    ring = [start_v]
+    prev, cur = None, start_v
+    while True:
+        nxt = [v for v in nb.get(cur, []) if v != prev]
+        if not nxt:
+            break
+        step = nxt[0]
+        if step == ring[0]:
+            break
+        if step in ring:
+            break
+        ring.append(step)
+        prev, cur = cur, step
+        if len(ring) > len(nb):
+            break
+    if len(ring) == len(nb):
+        return np.array(ring, np.int64)
+    idx = np.array(sorted(nb), np.int64)
+    P = pos[idx]
+    c = P.mean(0)
+    ang = np.arctan2(P[:, 2] - c[2], P[:, 0] - c[0])
+    return idx[np.argsort(ang)]
+
+
+def _band(pos, ring, normals, height, proud=0.004):
+    """Pita lipatan sepanjang cincin tepi; sumbu lebar = normal permukaan."""
+    P = pos[ring]
+    ax = normals[ring]
+    ax = ax / np.maximum(np.linalg.norm(ax, axis=1, keepdims=True), 1e-6)
+    a = P + ax * (height / 2) + ax * proud
+    b = P - ax * (height / 2) + ax * proud
+    n = len(ring)
+    verts = np.concatenate([a, b])
+    tris = []
+    for k in range(n):
+        k2 = (k + 1) % n
+        tris.append([k, k2, n + k2])
+        tris.append([k, n + k2, n + k])
+    return verts, np.array(tris, np.int64), np.concatenate([ring, ring])
+
+
+def collar_ring(pos, tris, skin_index, skin_weight, uv, normals, neck_y, height=0.10):
+    """Kerah crew-neck: pita lipatan di tepi lubang leher.
+
+    Hanya loop leher yang diambil (`higher than neck_y` dan radius kecil),
+    karena kelim dan manset tidak perlu pita — di sana lipatan kain tidak
+    terbaca pada jarak kamera cerita dan tri-nya lebih baik dipakai untuk
+    detail yang benar-benar terlihat (kancing, saku).
+    """
+    be = _boundary_edges(tris)
+    verts = np.unique(be)
+    P = pos[verts]
+    r = np.linalg.norm(P[:, [0, 2]], axis=1)
+    sel = verts[(P[:, 1] > neck_y) & (r < 1.0)]
+    if len(sel) < 10:
+        return None
+    ring = _ring(be, sel, pos)
+    if ring is None:
+        return None
+    band, band_tris, band_src = _band(pos, ring, normals, height)
+    return {
+        "pos": band,
+        "indices": band_tris,
+        "uv": np.concatenate([uv[ring], uv[ring]]),
+        "skinIndex": np.concatenate([skin_index[ring], skin_index[ring]]),
+        "skinWeight": np.concatenate([skin_weight[ring], skin_weight[ring]]),
+    }
+
+
+def buttons(pos, tris, normals, heights, radius=0.055, thickness=0.012, sides=10):
+    """Kancing bulat kecil di tengah depan, find ciri kain terdepan di tiap tinggi.
+
+    Untuk tiap tinggi dicari vertex kain dengan |x| kecil dan z terbesar (paling
+    depan); kancing diletakkan di sana, sedikit menonjol sepanjang normal.
+    """
+    verts = np.unique(tris)
+    P = pos[verts]
+    out_pos, out_src, out_tris = [], [], []
+    base = 0
+    for h in heights:
+        band = np.abs(P[:, 1] - h) < 0.06
+        front = np.where(P[:, 2] > 0.0, P[:, 2], -1.0)
+        cand = np.where(band & (np.abs(P[:, 0]) < 0.16), front, -1.0)
+        if cand.max() <= 0:
+            continue
+        i = int(np.argmax(cand))
+        c = P[i]
+        n = normals[verts[i]] if normals is not None else np.array([0, 0, 1], F)
+        n = n / max(float(np.linalg.norm(n)), 1e-6)
+        # Bingkai lokal: u tegak lurus n (horizontal), v = n x u.
+        u = np.cross(np.array([0, 0, 1], F), n)
+        if np.linalg.norm(u) < 1e-5:
+            u = np.cross(np.array([1, 0, 0], F), n)
+        u /= np.linalg.norm(u)
+        v = np.cross(n, u)
+        c = c + n * 0.004
+        ring = []
+        for k in range(sides):
+            a = 2 * np.pi * k / sides
+            ring.append(c + u * (np.cos(a) * radius) + v * (np.sin(a) * radius))
+        top = [p + n * thickness for p in ring]
+        start = base
+        out_pos.extend(ring)
+        out_pos.extend(top)
+        out_src.extend([verts[i]] * (2 * sides))
+        for k in range(sides):
+            k2 = (k + 1) % sides
+            out_tris.append([start + k, start + k2, start + sides + k2])
+            out_tris.append([start + k, start + sides + k2, start + sides + k])
+        # Tutup atas kancing.
+        for k in range(1, sides - 1):
+            out_tris.append([start + sides, start + sides + k, start + sides + k + 1])
+        base += 2 * sides
+    if not out_pos:
+        return None
+    return {"pos": np.array(out_pos, F), "indices": np.array(out_tris, np.int64), "src": np.array(out_src, np.int64)}
 
 
 def fabric_texture(color="#cfd6dd", seed=7, size=512):

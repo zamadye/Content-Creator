@@ -149,12 +149,19 @@ robek. Tiga kendala yang dipakai:
 | rentang `y` | semua | kelim bawah dan atap potongan |
 | jarak dari sendi bahu per sisi | atasan | lengan pose-A miring; bidang datar memberi panjang beda kiri–kanan |
 | jangkauan dari panggul | celana, rok, daster | tangan ada di ketinggian pinggang saat pose-A, jadi tanpa ini celana menutupi telapak tangan |
-| lingkaran leher (r 0,62 unit) | atasan | bidang datar memotong di bawah puncak bahu (bahu telanjang) atau di tengah leher (turtleneck) |
+| bidang leher `y = 6,20` | atasan | di atas puncak bahu, di bawah dagu → kerah crew-neck (lihat catatan di bawah) |
 
-Urutan percobaan kerah yang gagal, supaya tidak diulang: potongan datar di
-6,05 (bahu telanjang) → 6,42 (turtleneck) → 7,30 + lingkaran 0,62 (kain
-menutupi wajah karena tengkorak juga beradius > 0,62) → **6,34 + lingkaran
-0,62** (kerah crew-neck, bahu tertutup, wajah bersih).
+Riwayat kerah, supaya tidak diulang: potongan datar 6,05 (bahu telanjang) →
+6,42 (turtleneck) → 7,30 + lingkaran radius 0,62 (kain menutupi wajah) →
+6,34 + lingkaran 0,62 (bertahan satu putaran, **tetapi tepinya bergerigi dan
+berlubang**) → **bidang datar 6,20 saja** (sekarang).
+
+Kenapa lingkaran radius itu dilepas: ia memotong **nyaris sejajar** permukaan
+bahu, jadi vertex yang bersebelahan bisa jatuh di sisi berlawanan (masuk/keluar)
+dan tepinya jadi gerigi dengan celah. Bidang datar memotong leher melintang,
+sehingga garis potongnya bersih dan hasilnya kerah crew-neck yang rata. Pelajaran
+umumnya: pilih bidang potong yang memotong permukaan **melintang**, bukan yang
+menyinggungnya.
 
 Kendala jarak **hanya** berlaku untuk vertex bertulang lengan (daftar awalan
 mencakup `metacarpal` dan `wrist`): kalau diterapkan ke semua vertex, dada yang
@@ -177,6 +184,43 @@ Pita penutup tepi (`_close_rim`) sudah **tidak dipakai** (tebal 0): sumber
 gerigi ternyata komponen `y` offset di atas, dan pita itu sendiri menambah
 baris segitiga yang tampak sebagai rumbai gelap di kelim. Fungsi tetap ada
 kalau nanti kain diberi ketebalan sungguhan.
+
+Segitiga **sisir** (tinggi < 0,12 unit) hasil pemotongan dibuang
+(`_clean_slivers`). Setelah didorong keluar 2 cm, sisir setipis 0,1 mm berubah
+jadi duri di sekitar kerah dan bahu. Vertex **tidak** dilekatkan berdasarkan
+posisi saja: vertex di jahitan UV punya posisi sama tetapi UV berbeda, dan
+melekatkannya membuat segitiga melompati seluruh atlas (tumpang tindih UV
+13 % → 22 %).
+
+Titik acuan offset = posisi tulang **terbobot** (`Σ bobot skin × posisi tulang`),
+bukan tulang dominan. Tulang dominan berubah mendadak antar vertex (di bahu:
+`clavicle` → `spine03`); karena radius diukur dari titik itu, kain sobek tepat
+di batas perubahan.
+
+### Kerah dan kancing
+
+Dua detail yang membuat kain terbaca sebagai baju, bukan bodysuit:
+
+* **Kerah** (`human.collar_ring`): pita lipatan setinggi 1 cm di tepi lubang
+  leher, menonjol 4 mm, dengan bahan **30 % lebih tua**. Lebar pita mengikuti
+  normal permukaan tiap vertex — bukan satu sumbu rata-rata, karena garis leher
+  tidak sebidang (lebih tinggi di belakang) dan pita dengan satu sumbu tampak
+  terpilin.
+* **Kancing** (`human.buttons`): bulatan radius 5,5 mm di tengah depan. Tinggi
+  kancing ada di data potongan (`PIECES[...]["buttons"]`): polo 3 buah, kemeja
+  9 buah. Posisi depannya dicari dari vertex kain dengan `z` terbesar di tinggi
+  itu.
+
+Urutan vertex tepi dicari dengan menelusuri sisi, dan kalau penelusuran tidak
+menutup, diganti urutan sudut mengelilingi pusat (`human._ring`). Urutan sudut
+saja pernah dipakai untuk semua: hasilnya pita raksasa yang terpilin, karena
+satu vertex bisa dipakai dua loop.
+
+UV pita kerah dan kancing sengaja **satu titik** (`0.5, 0.5`): bahannya rata dan
+tidak butuh wilayah atlas. Memakai UV kain membuat texel pita menumpuk di
+wilayah body dan `qc-uv` melaporkannya sebagai tabrakan; kotak kecil pun tetap
+bertumpuk karena 206 segitiga tidak mungkin dipetakan tanpa tumpang tindih ke
+kotak sekecil itu.
 
 ### Menukar kostum dari naskah
 
@@ -229,9 +273,9 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
    kain tersendiri (loft/simulasi), bukan offset dari badan. Percobaan 3 cm +
    flare 1,2 cm membuat bahu berlubang (manset terangkat dari lengan) dan
    kerah terlihat lepas, jadi 2 cm dipilih sebagai titik seimbang.
-2. **Jahitan belum ada.** Tidak ada jahitan, kancing, kerah, atau saku. Kelim
-   dan manset masih berupa tepi potongan (lurus, tanpa ketebalan); pita
-   penutup tepi 1,3 mm sudah dilepas karena tampak sebagai rumbai gelap.
+2. **Jahitan garis & saku belum ada.** Kerah dan kancing sudah ada (lihat §3),
+   tetapi belum ada jahitan garis, saku, atau kancing manset. Kelim dan manset
+   pemilik lengan masih berupa tepi potongan (lurus, tanpa ketebalan).
 3. **Wajah anak masih wajah dewasa yang diperkecil.** Proporsi kepala/leher
    sudah benar, tetapi mata, hidung, dan pipi belum punya morph khusus balita.
 4. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`

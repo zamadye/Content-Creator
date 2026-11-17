@@ -8,14 +8,33 @@ Terakhir diperbarui: sesi build ini. Angka diambil langsung dari
 
 | | |
 |---|---|
-| Aset | **52** GLB + 52 thumbnail + registry + galeri HTML |
-| Ukuran | **± 52,6 MB** (character 21,7 MB · entity 14,7 MB · building 5,7 MB · prop 3,9 MB · road 3,3 MB · nature 2,7 MB · vehicle 0,7 MB) |
-| Geometri | ± 398.000 tris total |
+| Aset | **60** GLB + 60 thumbnail + registry + galeri HTML + pustaka 102 properti |
+| Ukuran | **± 82,0 MB** (character 50,9 MB · entity 14,8 MB · building 5,7 MB · prop 3,9 MB · road 3,3 MB · nature 2,7 MB · vehicle 0,7 MB) |
+| Geometri | ± 709.500 tris total |
 | Rig | 163 tulang, 13 klip, 30 fps, `inverseBindMatrices` per klip |
-| Status | 44 `review`, 8 `draft` |
+| Status | 52 `review`, 8 `draft` |
 | Kontrak | `studio.registry/2`, `studio.story/2`, `studio-humanoid-v1` |
 
-Per kategori: character 6 · entity 5 · building 9 · road 7 · nature 9 · prop 14 · vehicle 2.
+Per kategori: character **14** · entity 5 · building 9 · road 7 · nature 9 · prop 14 · vehicle 2.
+
+## Karakter (14 tokoh, satu rig)
+
+Semua tokoh = satu mesh MakeHuman yang di-copy lalu di-parameteri: profil umur
+(`dewasa`, `lansia`, `remaja`, `anak`, `balita`), morph bentuk tubuh, kulit,
+rambut, dan outfit. Semuanya memakai 163 tulang & 13 klip yang sama.
+
+* Cakupan: 4 dewasa, 2 lansia, 2 remaja, 2 anak 5–6 th, 2 balita 2–3 th —
+  masing-masing laki-laki & perempuan; plus 2 varian outfit.
+* Pakaian = data (`WARDROBE`: 6 outfit dari 4 paket kain + tint), bisa ditukar
+  dari naskah lewat `cast.<ref>.outfit`.
+* Proporsi umur dijaga kurva pita (kepala/torso/kaki), bukan skala seragam:
+  balita 0,95 m dengan rasio kepala 0,245 (dewasa 0,152).
+* Kamera preset ikut tinggi aktor (dada 0,67 H, mata 0,94 H), jadi bocil tidak
+  lagi dibidik di atas kepalanya.
+* Biaya: ≈ 21 s per tokoh, 14 tokoh ≈ 5 menit.
+* Bukti rupa: `docs/character-lineup.png`, `docs/webgl-shots/StudioUjiKarakter-f*.png`,
+  cerita `stories/uji-karakter/story.json` (6 shot, dua kostum untuk tokoh sama).
+* Cacat terbuka & riwayat perbaikan alpha rambut: `docs/CHARACTERS.md`.
 
 ## Yang sudah terverifikasi otomatis
 
@@ -188,7 +207,7 @@ Chromium (termasuk jebakan library SwiftShader yang harus di samping binary):
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r studio-forge/requirements.txt
-.venv/bin/python studio-forge/build.py --all            # ±7 menit, 52 aset
+.venv/bin/python studio-forge/build.py --all            # ±9 menit, 60 aset
 .venv/bin/python studio-forge/build.py --only prop.drum # satu aset
 npm run studio:validate                                  # validasi cerita
 npm run test:studio                                      # gerbang mutu
@@ -287,13 +306,13 @@ Isinya dipakai — bukan pajangan:
 | strategi per kategori | menunjuk fungsi aslinya (mis. daun = kartu alpha `add_leaf_card`, batang = `add_tube`; roda = `add_lathe`) |
 | keputusan yang ditolak | LOD, high→low bake, atlasing lintas aset — beserta alasan |
 | anggaran | character 42k · entity 34k · nature 4k · building 3k · vehicle 3k · prop 1,5k · road 1,5k tri; tekstur 512–2048 px; **shot 120k tri** |
-| tabel 52 aset | tri, vertex, primitif, material, tekstur, tulang, % pemakaian — **diukur dari GLB** |
+| tabel 60 aset | tri, vertex, primitif, material, tekstur, tulang, % pemakaian — **diukur dari GLB** |
 
 `npm run qc-topology` (`scripts/qc-topology.mjs`) memeriksa tiga hal sekaligus:
 tidak ada aset melewati anggaran, jumlah tri di GLB **sama** dengan registry, dan
 tabel di dokumen tidak basi (`--write` untuk menyegarkan). Hasil sekarang:
-52 aset, 0 pelanggaran; pemakaian tertinggi `char.male-muda-jaket` 39.386 tri =
-**94 %**; shot terberat `warung-malam/duduk-02` 79.044 tri = **66 %** anggaran.
+60 aset, 0 pelanggaran; pemakaian tertinggi `char.male-muda-jaket` 39.764 tri =
+**95 %**; shot terberat `warung-malam/duduk-02` 79.044 tri = **66 %** anggaran.
 
 Grup tes `topology` di `npm run test:studio` juga membuktikan pagarnya **bisa
 gagal**: aset karangan 50.000 tri + tekstur 4096 px langsung dilaporkan sebagai
@@ -340,7 +359,7 @@ Bukti bahwa ini bake, bukan "dibuat lebih gelap":
 | geometri sintetis (pelat + kotak melayang) | AO **0,488** di bawah kotak vs **1,000** di pojok terbuka |
 | pelat datar tanpa penghalang | AO **1,000** (tidak ada penggelapan palsu) |
 | determinisme | dua kali bake → array identik |
-| 52 aset | **21 menjadi lebih gelap**, rata-rata 0,965 → 0,936 |
+| 60 aset | **21 menjadi lebih gelap**, rata-rata 0,950 → 0,924 (52 aset lama; 14 tokoh tidak di-bake) |
 | paling terpengaruh | `entity.tall-limbs` 0,817 · `char.male-pekerja` 0,822 · `nature.tree.palm` 0,827 |
 
 Keputusan penting: material dengan **UV tiling** dilewati. Percobaan pertama

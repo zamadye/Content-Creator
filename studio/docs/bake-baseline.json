@@ -29,16 +29,52 @@
   "mean": 0.9753,
   "min": 0.6314
  },
+ "char.anak-laki": {
+  "dark": 0.374,
+  "materials": 9,
+  "mean": 0.861,
+  "min": 0.0
+ },
+ "char.anak-perempuan": {
+  "dark": 0.3559,
+  "materials": 10,
+  "mean": 0.8652,
+  "min": 0.0
+ },
+ "char.balita-laki": {
+  "dark": 0.3329,
+  "materials": 9,
+  "mean": 0.8709,
+  "min": 0.0
+ },
+ "char.balita-perempuan": {
+  "dark": 0.3263,
+  "materials": 10,
+  "mean": 0.8728,
+  "min": 0.0
+ },
  "char.female-dewasa": {
   "dark": 0.168,
   "materials": 10,
   "mean": 0.9081,
   "min": 0.0
  },
+ "char.female-dewasa-daster": {
+  "dark": 0.4061,
+  "materials": 10,
+  "mean": 0.8482,
+  "min": 0.0
+ },
  "char.female-lansia": {
   "dark": 0.168,
   "materials": 10,
   "mean": 0.9081,
+  "min": 0.0
+ },
+ "char.male-dewasa-kemeja": {
+  "dark": 0.4825,
+  "materials": 8,
+  "mean": 0.8194,
   "min": 0.0
  },
  "char.male-dewasa-polo": {
@@ -63,6 +99,18 @@
   "dark": 0.1745,
   "materials": 8,
   "mean": 0.8971,
+  "min": 0.0
+ },
+ "char.remaja-laki": {
+  "dark": 0.4264,
+  "materials": 9,
+  "mean": 0.8451,
+  "min": 0.0
+ },
+ "char.remaja-perempuan": {
+  "dark": 0.3995,
+  "materials": 10,
+  "mean": 0.8521,
   "min": 0.0
  },
  "entity.child": {

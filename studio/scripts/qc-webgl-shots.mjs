@@ -42,6 +42,11 @@ const SHOTS = [
   ['StudioWarungMalam', 220],
   ['WarungLit', 90],
   ['EntityRigStudy', 60],
+  // Uji karakter: anak berjalan, dua kostum tokoh yang sama, ibu + bocil.
+  ['StudioUjiKarakter', 45],
+  ['StudioUjiKarakter', 300],
+  ['StudioUjiKarakter', 400],
+  ['StudioUjiKarakter', 480],
 ];
 
 fs.mkdirSync(outDir, {recursive: true});
@@ -65,6 +70,7 @@ function renderStill(id, frame) {
 }
 
 const t0 = Date.now();
+const only = process.argv.find((a) => a.startsWith('--only='))?.split('=')[1] ?? '';
 const shots = process.argv.includes('--all')
   ? execFileSync('npx', ['remotion', 'compositions', 'src/index.jsx', '--browser-executable=' + exe, '--gl=angle', '--log=error'], {
       cwd: root,
@@ -77,8 +83,8 @@ const shots = process.argv.includes('--all')
       .map((c) => [c[0], Math.floor(Number(c[3]) / 2)])
   : SHOTS;
 
-for (const [id, frame] of shots) {
+for (const [id, frame] of shots.filter((s) => !only || s[0].includes(only))) {
   const out = renderStill(id, frame);
   console.log(`✓ ${id} frame ${frame} → ${path.relative(root, out)} (${(fs.statSync(out).size / 1024).toFixed(0)} kB)`);
 }
-console.log(`${shots.length} shot WebGL dalam ${((Date.now() - t0) / 1000).toFixed(1)} s · skala ${scale}`);
+console.log(`${shots.filter((s) => !only || s[0].includes(only)).length} shot WebGL dalam ${((Date.now() - t0) / 1000).toFixed(1)} s · skala ${scale}`);

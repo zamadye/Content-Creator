@@ -47,8 +47,11 @@ export function sampleCamera(shot, u, ctx = {}) {
   const subject = ctx.subject ?? [0, 0, 0];
   const seed = ctx.seed ?? 0;
   const preset = cam.preset ?? 'static';
-  const chest = add(subject, [0, 1.15, 0]);
-  const eye = add(subject, [0, EYE_HEIGHT, 0]);
+  // Tinggi subjek penting: kamera yang dipatok 1,15 m membidik di atas kepala
+  // anak 1,1 m. Semua jarak dada/eye diskalakan ke tinggi aktor (default dewasa).
+  const h = ctx.subjectHeight ?? EYE_HEIGHT / 0.94;
+  const chest = add(subject, [0, 0.668 * h, 0]);
+  const eye = add(subject, [0, 0.94 * h, 0]);
   const t = smoothstep(u);
 
   let from;
@@ -98,13 +101,13 @@ export function sampleCamera(shot, u, ctx = {}) {
       // Kamera ikut berjalan: jarak dan tinggi tetap terhadap subjek yang
       // bergerak, jadi ukuran aktor di frame tidak berubah sepanjang shot.
       const distance = cam.distance ?? 4.2;
-      const height = cam.height ?? 1.45;
+      const height = cam.height ?? 0.845 * h;
       const at = (t2) => (ctx.subjectAt ? ctx.subjectAt(t2) : subject);
       const here = at(u);
       const dir = ctx.facing ?? [0, 0, 1];
       from = add(add(here, mul(dir, -distance)), [0, height, 0]);
       to = from;
-      target = cam.target ?? add(here, [0, 1.15, 0]);
+      target = cam.target ?? add(here, [0, 0.668 * h, 0]);
       break;
     }
     case 'handheld':

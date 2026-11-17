@@ -3,7 +3,7 @@
  * The renderer and the CLI both consume this, so what an agent validates is
  * literally what gets rendered.
  */
-import {normalizeStory, validateStory, FIELDS, StoryError} from './schema.js';
+import {normalizeStory, validateStory, resolveOutfits, FIELDS, StoryError} from './schema.js';
 import {sampleCamera, shotSubject, facingVector, facingYaw} from './camera.js';
 
 /** Frame timing per shot, with the rounded frame boundaries kept consistent. */
@@ -20,6 +20,9 @@ export function shotTimings(shots, fps) {
 export function compileStory(raw, {registry = null} = {}) {
   const story = normalizeStory(raw);
   const {warnings, durationInFrames} = validateStory(story, {registry});
+  // Setelah validasi (outfit dicek terhadap daftar varian), cast bisa ditukar
+  // ke asset varian yang benar-benar memakai kostum itu.
+  resolveOutfits(story, {registry});
   const timings = shotTimings(story.shots, story.fps);
 
   const shots = story.shots.map((shot, i) => {
@@ -73,7 +76,18 @@ export function compileStory(raw, {registry = null} = {}) {
       cast,
       objectPlacements: objects,
       secondary: shot.secondary ?? 1,
-      cameraSample: (u) => sampleCamera(shot, u, {subject, subjectAt, facing, seed: i + 1}),
+      cameraSample: (u) =>
+        sampleCamera(shot, u, {
+          subject,
+          subjectAt,
+          facing,
+          subjectHeight: lead
+            ? registry?.assets?.[story.cast[lead.ref]?.asset]?.bounds?.size?.[1] ??
+              registry?.props?.[story.cast[lead.ref]?.asset]?.bounds?.size?.[1] ??
+              null
+            : null,
+          seed: i + 1,
+        }),
     };
   });
 

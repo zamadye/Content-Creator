@@ -6,7 +6,7 @@ dibangun sendiri secara prosedural dan properti pendukung dari pustaka CC0.
 ```
 studio/            kerangka + toolchain (React/Remotion/three.js + Python forge)
   stories/         paket cerita: satu folder = satu cerita
-  public/assets/   52 aset katalog buatan sendiri (registry.json)
+  public/assets/   60 aset katalog buatan sendiri (registry.json)
   public/library/  102 properti Kenney CC0 (index.json)
   docs/            FRAMEWORK, STORY-FORMAT, LIBRARY, CHROMIUM, PIPELINE-AUDIT, STATUS
 *.md               catatan pengetahuan produksi (storytelling, editing, audio, dst.)

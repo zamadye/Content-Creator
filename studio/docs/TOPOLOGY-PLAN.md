@@ -88,12 +88,20 @@ tidak cocok dengan isi GLB. `vert` = jumlah POSITION, `prim` = jumlah primitif,
 | `building.house.village` | building | 532 | 1064 | 6 | 6 | 1024 | — | 3000 | 18% |
 | `building.industrial.warehouse` | building | 976 | 1952 | 4 | 4 | 512 | — | 3000 | 33% |
 | `building.shop.warung` | building | 592 | 1124 | 6 | 6 | 1024 | — | 3000 | 20% |
-| `char.female-dewasa` | character | 38066 | 21005 | 10 | 10 | 2048 | 163 | 42000 | 91% |
-| `char.female-lansia` | character | 38066 | 21005 | 10 | 10 | 2048 | 163 | 42000 | 91% |
-| `char.male-dewasa-polo` | character | 37848 | 20860 | 9 | 9 | 2048 | 163 | 42000 | 90% |
-| `char.male-lansia-kemeja` | character | 37790 | 20832 | 9 | 9 | 2048 | 163 | 42000 | 90% |
-| `char.male-muda-jaket` | character | 39386 | 21909 | 8 | 8 | 2048 | 163 | 42000 | 94% |
-| `char.male-pekerja` | character | 39369 | 21906 | 8 | 8 | 2048 | 163 | 42000 | 94% |
+| `char.anak-laki` | character | 39545 | 21869 | 9 | 9 | 2048 | 163 | 42000 | 94% |
+| `char.anak-perempuan` | character | 37941 | 20937 | 10 | 10 | 2048 | 163 | 42000 | 90% |
+| `char.balita-laki` | character | 37831 | 20897 | 9 | 9 | 2048 | 163 | 42000 | 90% |
+| `char.balita-perempuan` | character | 37861 | 20888 | 10 | 10 | 2048 | 163 | 42000 | 90% |
+| `char.female-dewasa` | character | 38448 | 21245 | 10 | 10 | 2048 | 163 | 42000 | 92% |
+| `char.female-dewasa-daster` | character | 38448 | 21245 | 10 | 10 | 2048 | 163 | 42000 | 92% |
+| `char.female-lansia` | character | 38194 | 21099 | 10 | 10 | 2048 | 163 | 42000 | 91% |
+| `char.male-dewasa-kemeja` | character | 39751 | 22144 | 8 | 8 | 2048 | 163 | 42000 | 95% |
+| `char.male-dewasa-polo` | character | 38222 | 21096 | 9 | 9 | 2048 | 163 | 42000 | 91% |
+| `char.male-lansia-kemeja` | character | 39446 | 21963 | 8 | 8 | 2048 | 163 | 42000 | 94% |
+| `char.male-muda-jaket` | character | 39764 | 22147 | 8 | 8 | 2048 | 163 | 42000 | 95% |
+| `char.male-pekerja` | character | 39747 | 22144 | 8 | 8 | 2048 | 163 | 42000 | 95% |
+| `char.remaja-laki` | character | 38329 | 21198 | 9 | 9 | 2048 | 163 | 42000 | 91% |
+| `char.remaja-perempuan` | character | 38229 | 21121 | 10 | 10 | 2048 | 163 | 42000 | 91% |
 | `entity.child` | entity | 30392 | 16574 | 7 | 7 | 2048 | 166 | 34000 | 89% |
 | `entity.pale-standing` | entity | 30334 | 16546 | 7 | 7 | 2048 | 166 | 34000 | 89% |
 | `entity.shadow-crouch` | entity | 29944 | 16309 | 6 | 6 | 2048 | 166 | 34000 | 88% |
@@ -143,7 +151,7 @@ tidak cocok dengan isi GLB. `vert` = jumlah POSITION, `prim` = jumlah primitif,
 ```bash
 npm run qc:topology          # periksa anggaran + kesegaran tabel (keluar 1 bila melanggar)
 npm run qc:topology -- --write   # tulis ulang tabel di bagian 5
-npm run test:studio          # grup topology: 52 aset, 0 pelanggaran, dokumen sinkron
+npm run test:studio          # grup topology: 60 aset, 0 pelanggaran, dokumen sinkron
 ```
 
 Menambah aset baru: ukur dulu dengan `--write`, lihat persen pemakaian. Kalau

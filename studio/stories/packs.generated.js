@@ -6,6 +6,7 @@ import story_duduk_sore from './duduk-sore/story.json';
 import story_jalan_pulang from './jalan-pulang/story.json';
 import story_jalan_pulang_compositions from './jalan-pulang/compositions.jsx';
 import story_uji_kamera from './uji-kamera/story.json';
+import story_uji_karakter from './uji-karakter/story.json';
 import story_warung_malam from './warung-malam/story.json';
 
 export const storyPacks = [
@@ -14,6 +15,7 @@ export const storyPacks = [
   {dir: "duduk-sore", compositionId: "StudioDudukSore", story: story_duduk_sore, compositions: []},
   {dir: "jalan-pulang", compositionId: "StudioJalanPulang", story: story_jalan_pulang, compositions: story_jalan_pulang_compositions},
   {dir: "uji-kamera", compositionId: "StudioUjiKamera", story: story_uji_kamera, compositions: []},
+  {dir: "uji-karakter", compositionId: "StudioUjiKarakter", story: story_uji_karakter, compositions: []},
   {dir: "warung-malam", compositionId: "StudioWarungMalam", story: story_warung_malam, compositions: []},
 ];
 

@@ -42,8 +42,8 @@ export default {
      0.464
     ]
    },
-   "tris": 37848,
-   "bytes": 3726280,
+   "tris": 38222,
+   "bytes": 3732796,
    "tags": [
     "human",
     "male",
@@ -101,6 +101,105 @@ export default {
     "metallicRoughness": true,
     "emissive": false,
     "embeddedTextures": 27
+   },
+   "profile": "dewasa",
+   "outfit": "polo-kargo",
+   "outfits": {
+    "polo-kargo": "char.male-dewasa-polo",
+    "kemeja-kasual": "char.male-dewasa-kemeja"
+   }
+  },
+  "char.female-dewasa": {
+   "id": "char.female-dewasa",
+   "title": "Wanita dewasa — polo & kargo",
+   "category": "character",
+   "uri": "assets/characters/char.female-dewasa/char.female-dewasa.glb",
+   "thumbnail": "assets/characters/char.female-dewasa/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.478,
+     -0.007,
+     -0.123
+    ],
+    "max": [
+     0.478,
+     1.611,
+     0.31
+    ],
+    "size": [
+     0.956,
+     1.618,
+     0.432
+    ]
+   },
+   "tris": 38448,
+   "bytes": 3888552,
+   "tags": [
+    "human",
+    "female",
+    "adult",
+    "mother",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "hair-long",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 30
+   },
+   "profile": "dewasa",
+   "outfit": "polo-kargo",
+   "outfits": {
+    "polo-kargo": "char.female-dewasa",
+    "daster": "char.female-dewasa-daster"
    }
   },
   "char.male-muda-jaket": {
@@ -128,8 +227,8 @@ export default {
      0.453
     ]
    },
-   "tris": 39386,
-   "bytes": 3790252,
+   "tris": 39764,
+   "bytes": 3790092,
    "tags": [
     "human",
     "male",
@@ -186,267 +285,9 @@ export default {
     "metallicRoughness": true,
     "emissive": false,
     "embeddedTextures": 24
-   }
-  },
-  "char.male-lansia-kemeja": {
-   "id": "char.male-lansia-kemeja",
-   "title": "Pria lansia — polo lusuh",
-   "category": "character",
-   "uri": "assets/characters/char.male-lansia-kemeja/char.male-lansia-kemeja.glb",
-   "thumbnail": "assets/characters/char.male-lansia-kemeja/thumbnail.png",
-   "status": "review",
-   "version": 1,
-   "bounds": {
-    "min": [
-     -0.496,
-     -0.007,
-     -0.128
-    ],
-    "max": [
-     0.496,
-     1.67,
-     0.321
-    ],
-    "size": [
-     0.992,
-     1.677,
-     0.449
-    ]
    },
-   "tris": 37790,
-   "bytes": 3848172,
-   "tags": [
-    "human",
-    "male",
-    "elder",
-    "father",
-    "indonesian"
-   ],
-   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
-   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
-   "notes": "",
-   "rig": {
-    "skeleton": "studio-humanoid-v1",
-    "bones": 163,
-    "clips": [
-     "idle",
-     "walk",
-     "run",
-     "sit",
-     "ride",
-     "stand-up",
-     "talk",
-     "look",
-     "point",
-     "reach",
-     "collapse",
-     "float",
-     "vanish"
-    ],
-    "restFacing": "+Z",
-    "height": null
-   },
-   "anchors": [
-    "anchor.hand.L",
-    "anchor.hand.R",
-    "anchor.foot.L",
-    "anchor.foot.R",
-    "anchor.head",
-    "anchor.eye.L",
-    "anchor.eye.R"
-   ],
-   "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
-    "cloth-shoes01",
-    "hair",
-    "iris-L",
-    "iris-R",
-    "sclera-L",
-    "sclera-R",
-    "skin"
-   ],
-   "pbr": {
-    "baseColor": true,
-    "normal": true,
-    "metallicRoughness": true,
-    "emissive": false,
-    "embeddedTextures": 27
-   }
-  },
-  "char.female-dewasa": {
-   "id": "char.female-dewasa",
-   "title": "Wanita dewasa — polo & kargo",
-   "category": "character",
-   "uri": "assets/characters/char.female-dewasa/char.female-dewasa.glb",
-   "thumbnail": "assets/characters/char.female-dewasa/thumbnail.png",
-   "status": "review",
-   "version": 1,
-   "bounds": {
-    "min": [
-     -0.478,
-     -0.007,
-     -0.123
-    ],
-    "max": [
-     0.478,
-     1.611,
-     0.31
-    ],
-    "size": [
-     0.956,
-     1.618,
-     0.432
-    ]
-   },
-   "tris": 38066,
-   "bytes": 3879720,
-   "tags": [
-    "human",
-    "female",
-    "adult",
-    "mother",
-    "indonesian"
-   ],
-   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
-   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
-   "notes": "",
-   "rig": {
-    "skeleton": "studio-humanoid-v1",
-    "bones": 163,
-    "clips": [
-     "idle",
-     "walk",
-     "run",
-     "sit",
-     "ride",
-     "stand-up",
-     "talk",
-     "look",
-     "point",
-     "reach",
-     "collapse",
-     "float",
-     "vanish"
-    ],
-    "restFacing": "+Z",
-    "height": null
-   },
-   "anchors": [
-    "anchor.hand.L",
-    "anchor.hand.R",
-    "anchor.foot.L",
-    "anchor.foot.R",
-    "anchor.head",
-    "anchor.eye.L",
-    "anchor.eye.R"
-   ],
-   "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
-    "cloth-shoes01",
-    "hair",
-    "hair-long",
-    "iris-L",
-    "iris-R",
-    "sclera-L",
-    "sclera-R",
-    "skin"
-   ],
-   "pbr": {
-    "baseColor": true,
-    "normal": true,
-    "metallicRoughness": true,
-    "emissive": false,
-    "embeddedTextures": 30
-   }
-  },
-  "char.female-lansia": {
-   "id": "char.female-lansia",
-   "title": "Wanita lansia — ibu",
-   "category": "character",
-   "uri": "assets/characters/char.female-lansia/char.female-lansia.glb",
-   "thumbnail": "assets/characters/char.female-lansia/thumbnail.png",
-   "status": "review",
-   "version": 1,
-   "bounds": {
-    "min": [
-     -0.46,
-     -0.007,
-     -0.118
-    ],
-    "max": [
-     0.46,
-     1.55,
-     0.298
-    ],
-    "size": [
-     0.921,
-     1.557,
-     0.416
-    ]
-   },
-   "tris": 38066,
-   "bytes": 4033260,
-   "tags": [
-    "human",
-    "female",
-    "elder",
-    "mother",
-    "indonesian"
-   ],
-   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
-   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
-   "notes": "",
-   "rig": {
-    "skeleton": "studio-humanoid-v1",
-    "bones": 163,
-    "clips": [
-     "idle",
-     "walk",
-     "run",
-     "sit",
-     "ride",
-     "stand-up",
-     "talk",
-     "look",
-     "point",
-     "reach",
-     "collapse",
-     "float",
-     "vanish"
-    ],
-    "restFacing": "+Z",
-    "height": null
-   },
-   "anchors": [
-    "anchor.hand.L",
-    "anchor.hand.R",
-    "anchor.foot.L",
-    "anchor.foot.R",
-    "anchor.head",
-    "anchor.eye.L",
-    "anchor.eye.R"
-   ],
-   "materials": [
-    "cloth-cortu_cargo_pants",
-    "cloth-namuhekam_male_polo_shirt",
-    "cloth-shoes01",
-    "hair",
-    "hair-long",
-    "iris-L",
-    "iris-R",
-    "sclera-L",
-    "sclera-R",
-    "skin"
-   ],
-   "pbr": {
-    "baseColor": true,
-    "normal": true,
-    "metallicRoughness": true,
-    "emissive": false,
-    "embeddedTextures": 30
-   }
+   "profile": "dewasa",
+   "outfit": "jaket"
   },
   "char.male-pekerja": {
    "id": "char.male-pekerja",
@@ -473,8 +314,8 @@ export default {
      0.476
     ]
    },
-   "tris": 39369,
-   "bytes": 3770452,
+   "tris": 39747,
+   "bytes": 3776672,
    "tags": [
     "human",
     "male",
@@ -531,7 +372,892 @@ export default {
     "metallicRoughness": true,
     "emissive": false,
     "embeddedTextures": 24
-   }
+   },
+   "profile": "dewasa",
+   "outfit": "kerja"
+  },
+  "char.male-lansia-kemeja": {
+   "id": "char.male-lansia-kemeja",
+   "title": "Pria lansia — kemeja lusuh",
+   "category": "character",
+   "uri": "assets/characters/char.male-lansia-kemeja/char.male-lansia-kemeja.glb",
+   "thumbnail": "assets/characters/char.male-lansia-kemeja/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.496,
+     -0.007,
+     -0.141
+    ],
+    "max": [
+     0.496,
+     1.67,
+     0.321
+    ],
+    "size": [
+     0.992,
+     1.677,
+     0.462
+    ]
+   },
+   "tris": 39446,
+   "bytes": 3920600,
+   "tags": [
+    "human",
+    "male",
+    "elder",
+    "father",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-male_casualsuit05",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 24
+   },
+   "profile": "lansia",
+   "outfit": "kemeja-kasual"
+  },
+  "char.female-lansia": {
+   "id": "char.female-lansia",
+   "title": "Wanita lansia — ibu",
+   "category": "character",
+   "uri": "assets/characters/char.female-lansia/char.female-lansia.glb",
+   "thumbnail": "assets/characters/char.female-lansia/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.46,
+     -0.006,
+     -0.118
+    ],
+    "max": [
+     0.46,
+     1.55,
+     0.298
+    ],
+    "size": [
+     0.921,
+     1.556,
+     0.416
+    ]
+   },
+   "tris": 38194,
+   "bytes": 4031432,
+   "tags": [
+    "human",
+    "female",
+    "elder",
+    "mother",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "hair-long",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 30
+   },
+   "profile": "lansia",
+   "outfit": "daster"
+  },
+  "char.remaja-laki": {
+   "id": "char.remaja-laki",
+   "title": "Remaja laki-laki — seragam",
+   "category": "character",
+   "uri": "assets/characters/char.remaja-laki/char.remaja-laki.glb",
+   "thumbnail": "assets/characters/char.remaja-laki/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.446,
+     -0.006,
+     -0.115
+    ],
+    "max": [
+     0.446,
+     1.566,
+     0.289
+    ],
+    "size": [
+     0.892,
+     1.572,
+     0.404
+    ]
+   },
+   "tris": 38329,
+   "bytes": 3717852,
+   "tags": [
+    "human",
+    "male",
+    "teen",
+    "student",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 27
+   },
+   "profile": "remaja",
+   "outfit": "seragam"
+  },
+  "char.remaja-perempuan": {
+   "id": "char.remaja-perempuan",
+   "title": "Remaja perempuan — seragam",
+   "category": "character",
+   "uri": "assets/characters/char.remaja-perempuan/char.remaja-perempuan.glb",
+   "thumbnail": "assets/characters/char.remaja-perempuan/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.429,
+     -0.006,
+     -0.11
+    ],
+    "max": [
+     0.429,
+     1.506,
+     0.278
+    ],
+    "size": [
+     0.858,
+     1.512,
+     0.388
+    ]
+   },
+   "tris": 38229,
+   "bytes": 3878708,
+   "tags": [
+    "human",
+    "female",
+    "teen",
+    "student",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "hair-long",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 30
+   },
+   "profile": "remaja",
+   "outfit": "seragam"
+  },
+  "char.anak-laki": {
+   "id": "char.anak-laki",
+   "title": "Anak laki-laki (5–6 tahun) — kaos",
+   "category": "character",
+   "uri": "assets/characters/char.anak-laki/char.anak-laki.glb",
+   "thumbnail": "assets/characters/char.anak-laki/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.308,
+     -0.004,
+     -0.079
+    ],
+    "max": [
+     0.308,
+     1.154,
+     0.2
+    ],
+    "size": [
+     0.617,
+     1.158,
+     0.279
+    ]
+   },
+   "tris": 39545,
+   "bytes": 3799676,
+   "tags": [
+    "human",
+    "male",
+    "child",
+    "kid",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 27
+   },
+   "profile": "anak",
+   "outfit": "seragam"
+  },
+  "char.anak-perempuan": {
+   "id": "char.anak-perempuan",
+   "title": "Anak perempuan (5–6 tahun) — kaos",
+   "category": "character",
+   "uri": "assets/characters/char.anak-perempuan/char.anak-perempuan.glb",
+   "thumbnail": "assets/characters/char.anak-perempuan/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.3,
+     -0.004,
+     -0.077
+    ],
+    "max": [
+     0.3,
+     1.124,
+     0.195
+    ],
+    "size": [
+     0.601,
+     1.128,
+     0.272
+    ]
+   },
+   "tris": 37941,
+   "bytes": 3853224,
+   "tags": [
+    "human",
+    "female",
+    "child",
+    "kid",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "hair-long",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 30
+   },
+   "profile": "anak",
+   "outfit": "daster"
+  },
+  "char.balita-laki": {
+   "id": "char.balita-laki",
+   "title": "Balita laki-laki (2–3 tahun)",
+   "category": "character",
+   "uri": "assets/characters/char.balita-laki/char.balita-laki.glb",
+   "thumbnail": "assets/characters/char.balita-laki/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.241,
+     -0.003,
+     -0.062
+    ],
+    "max": [
+     0.241,
+     0.943,
+     0.156
+    ],
+    "size": [
+     0.482,
+     0.946,
+     0.218
+    ]
+   },
+   "tris": 37831,
+   "bytes": 3698864,
+   "tags": [
+    "human",
+    "male",
+    "toddler",
+    "kid",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 27
+   },
+   "profile": "balita",
+   "outfit": "seragam"
+  },
+  "char.balita-perempuan": {
+   "id": "char.balita-perempuan",
+   "title": "Balita perempuan (2–3 tahun)",
+   "category": "character",
+   "uri": "assets/characters/char.balita-perempuan/char.balita-perempuan.glb",
+   "thumbnail": "assets/characters/char.balita-perempuan/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.233,
+     -0.003,
+     -0.06
+    ],
+    "max": [
+     0.233,
+     0.913,
+     0.151
+    ],
+    "size": [
+     0.466,
+     0.916,
+     0.211
+    ]
+   },
+   "tris": 37861,
+   "bytes": 3846360,
+   "tags": [
+    "human",
+    "female",
+    "toddler",
+    "kid",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "hair-long",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 30
+   },
+   "profile": "balita",
+   "outfit": "daster"
+  },
+  "char.male-dewasa-kemeja": {
+   "id": "char.male-dewasa-kemeja",
+   "title": "Pria dewasa — kemeja (varian outfit)",
+   "category": "character",
+   "uri": "assets/characters/char.male-dewasa-kemeja/char.male-dewasa-kemeja.glb",
+   "thumbnail": "assets/characters/char.male-dewasa-kemeja/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.512,
+     -0.007,
+     -0.146
+    ],
+    "max": [
+     0.512,
+     1.725,
+     0.332
+    ],
+    "size": [
+     1.025,
+     1.733,
+     0.478
+    ]
+   },
+   "tris": 39751,
+   "bytes": 3808964,
+   "tags": [
+    "human",
+    "male",
+    "adult",
+    "variant"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-male_casualsuit05",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 24
+   },
+   "profile": "dewasa",
+   "outfit": "kemeja-kasual",
+   "variantOf": "char.male-dewasa-polo"
+  },
+  "char.female-dewasa-daster": {
+   "id": "char.female-dewasa-daster",
+   "title": "Wanita dewasa — daster (varian outfit)",
+   "category": "character",
+   "uri": "assets/characters/char.female-dewasa-daster/char.female-dewasa-daster.glb",
+   "thumbnail": "assets/characters/char.female-dewasa-daster/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.478,
+     -0.007,
+     -0.123
+    ],
+    "max": [
+     0.478,
+     1.611,
+     0.31
+    ],
+    "size": [
+     0.956,
+     1.618,
+     0.432
+    ]
+   },
+   "tris": 38448,
+   "bytes": 3890612,
+   "tags": [
+    "human",
+    "female",
+    "adult",
+    "variant"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-cortu_cargo_pants",
+    "cloth-namuhekam_male_polo_shirt",
+    "cloth-shoes01",
+    "hair",
+    "hair-long",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 30
+   },
+   "profile": "dewasa",
+   "outfit": "daster",
+   "variantOf": "char.female-dewasa"
   },
   "entity.pale-standing": {
    "id": "entity.pale-standing",

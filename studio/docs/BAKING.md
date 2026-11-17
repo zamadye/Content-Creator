@@ -31,7 +31,7 @@ datar + kotak melayang 0,2 m di atasnya.
 * pelat datar tanpa penghalang: AO **1,000** (tidak ada penggelapan palsu);
 * dua kali bake pada aset sama → array identik (deterministik).
 
-## 3. Hasil pada 52 aset
+## 3. Hasil pada 60 aset (52 aset lama + 14 tokoh tanpa bake)
 
 | metrik | hasil |
 |---|---|

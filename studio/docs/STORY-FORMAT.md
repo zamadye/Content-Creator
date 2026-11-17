@@ -74,8 +74,11 @@ mendapat pesan yang menyebut field mana yang salah, bukan diam-diam diabaikan.
 
 ## 3. Kosakata kamera
 
-Semua kamera dihitung dari `subject` = aktor pertama yang tidak `hidden`
-(pusat dadanya, y+1.15). Kamu boleh menimpa dengan `from` / `to` / `target`.
+Semua kamera dihitung dari `subject` = aktor pertama yang tidak `hidden`.
+Tinggi acuan (dada 0,67×tinggi, mata 0,94×tinggi) **diskalakan ke tinggi aset
+aktor** dari registry, jadi kamera preset otomatis ikut turun untuk bocil
+1,16 m atau balita 0,95 m. Kamu boleh menimpa dengan `from` / `to` / `target`
+(koordinat itu absolut, tidak ikut diskalakan).
 
 | preset | gerak | parameter tambahan |
 |---|---|---|
@@ -129,6 +132,24 @@ Catatan: three.js membuang titik dari nama node untuk binding animasi
 `audio.vo` harus path publik-relatif aman: `vo/<nama>.mp3|wav|m4a`.
 `ambience`/`music`/`sfx` hanya label untuk tahap mixing (belum diputar oleh
 renderer).
+
+## 5a-bis. Kostum tokoh (`cast.<ref>.outfit`)
+
+Tokoh bisa memakai kostum lain tanpa membangun mesh baru: `outfit` memilih
+varian yang sudah dibangun untuk asset itu.
+
+```jsonc
+"cast": {
+  "aku":        { "asset": "char.male-dewasa-polo" },                        // polo-kargo (default)
+  "aku-kemeja": { "asset": "char.male-dewasa-polo", "outfit": "kemeja-kasual" }
+}
+```
+
+Varian yang tersedia tercatat di `public/assets/registry.json` pada
+`assets.<id>.outfits`. `outfit` yang tidak dibangun = **error** dengan daftar
+pilihan. Pemetaan terjadi setelah validasi, jadi `clip` tetap divalidasi
+terhadap rig aset asal (semua varian memakai rig & klip yang sama). Daftar
+tokoh dan cara menambah varian: `docs/CHARACTERS.md`.
 
 ## 5b. Properti pustaka (Kenney)
 

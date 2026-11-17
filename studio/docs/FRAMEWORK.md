@@ -20,7 +20,7 @@ studio/                     kerangka: tidak tahu cerita apa pun
 │   ├── contoh-naskah/      contoh hasil impor naskah markdown
 │   └── contoh-kenney/      contoh pakai properti pustaka (Kenney CC0)
 ├── public/
-│   ├── assets/             katalog 52 aset buatan sendiri (registry.json)
+│   ├── assets/             katalog 60 aset buatan sendiri (registry.json)
 │   └── library/            pustaka 102 properti Kenney (index.json, CC0)
 ├── studio-forge/           generator aset (Python): karakter, env, tekstur, UV, bake, impor Kenney
 ├── scripts/                CLI + QC (Node): studio.mjs, qc-*, sync-*, naskah-import
@@ -31,6 +31,7 @@ studio/                     kerangka: tidak tahu cerita apa pun
 
 | jalur | masuk | keluar |
 |---|---|---|
+| **karakter** | `docs/CHARACTERS.md` (satu rig + profil umur + outfit) | `char.*` varian, `cast.<ref>.outfit` menukar kostum |
 | **naskah → video** | `stories/<id>/naskah/*.md` → `npm run naskah:import` | `stories/<id>/story.json` → komposisi `Studio<Id>` → MP4 |
 | **cerita manual** | `stories/<id>/story.json` ditulis tangan | sama |
 | **adegan bebas** | `stories/<id>/compositions.jsx` | komposisi Remotion tambahan (studi kamera, versi VO, dsb.) |
@@ -50,7 +51,7 @@ STUDIO_COMPOSITION=StudioCeritaBaru npm run render:studio:h264
 
 | kelas | lokasi | siapa yang membuat | aturan |
 |---|---|---|---|
-| **katalog** `char.*`, `entity.*`, `road.*`, `nature.*`, `building.*`, `prop.*`, `vehicle.*` | `public/assets/` + `registry.json` | pipeline sendiri (`studio-forge/`) | 52 aset, anggaran poligon + QC UV/topologi/tekstur ditegakkan |
+| **katalog** `char.*`, `entity.*`, `road.*`, `nature.*`, `building.*`, `prop.*`, `vehicle.*` | `public/assets/` + `registry.json` | pipeline sendiri (`studio-forge/`) | 60 aset (14 tokoh), anggaran poligon + QC UV/topologi/tekstur ditegakkan |
 | **pustaka** `kenney.<kit>.<nama>` | `public/library/` + `index.json` | pihak ketiga, CC0-1.0 | 102 properti, tidak ikut anggaran katalog |
 
 Keputusan yang disengaja: **karakter selalu buatan sendiri** (itu identitas

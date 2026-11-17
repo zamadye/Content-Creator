@@ -16,7 +16,7 @@ export const FPS_CHOICES = [24, 25, 30];
 export const FIELDS = {
   story: ['schema', 'id', 'title', 'fps', 'width', 'height', 'look', 'cast', 'objects', 'shots', 'meta'],
   look: ['preset', 'fog', 'exposure', 'grain', 'vignette', 'sky'],
-  cast: ['asset', 'clip', 'palette', 'scale', 'label', 'note'],
+  cast: ['asset', 'clip', 'palette', 'scale', 'label', 'note', 'outfit'],
   objects: ['asset', 'scale', 'label'],
   shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'secondary', 'note'],
   set: ['asset', 'at', 'rot', 'scale', 'clip'],
@@ -100,6 +100,22 @@ export function normalizeStory(raw) {
  * Validate a story against the schema and (optionally) the asset catalogue.
  * Throws StoryError with every problem found; returns warnings.
  */
+/**
+ * Ganti asset cast dengan varian outfit yang sudah dibangun (registry
+ * `assets[id].outfits[outfit]`). Satu rig, satu set klip; yang berubah hanya
+ * pakaian, jadi cerita bisa memilih kostum tanpa membangun tokoh baru.
+ */
+export function resolveOutfits(story, {registry = null} = {}) {
+  const assets = registry?.assets ?? null;
+  if (!assets) return story;
+  for (const [name, c] of Object.entries(story.cast ?? {})) {
+    if (!c.outfit) continue;
+    const variant = assets[c.asset]?.outfits?.[c.outfit];
+    if (variant && assets[variant]) c.asset = variant;
+  }
+  return story;
+}
+
 export function validateStory(raw, {registry = null} = {}) {
   const problems = [];
   const warnings = [];
@@ -129,6 +145,18 @@ export function validateStory(raw, {registry = null} = {}) {
   for (const [name, c] of Object.entries(s.cast)) {
     checkFields(c, FIELDS.cast, `cast.${name}`, problems);
     assetOk(c.asset, `cast.${name}`);
+    if (c.outfit !== undefined) {
+      if (!isStr(c.outfit) || !/^[a-z0-9-]+$/.test(c.outfit)) {
+        problems.push(`cast.${name}.outfit must be a slug`);
+      } else if (knownAssets && knownAssets[c.asset]) {
+        const map = knownAssets[c.asset].outfits ?? {};
+        if (!map[c.outfit]) {
+          problems.push(
+            `cast.${name}.outfit "${c.outfit}" not built for ${c.asset} (has: ${Object.keys(map).join(', ') || 'none'})`,
+          );
+        }
+      }
+    }
     if (c.palette && !/^[a-z0-9-]+$/.test(c.palette)) problems.push(`cast.${name}.palette must be a slug`);
     if (c.scale !== undefined && !(c.scale > 0.02 && c.scale < 20)) problems.push(`cast.${name}.scale out of range`);
   }

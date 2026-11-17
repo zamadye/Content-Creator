@@ -1,0 +1,1514 @@
+{
+ "schema": "studio.plan/1",
+ "story": {
+  "id": "uji-karakter",
+  "title": "Uji karakter & tukar kostum",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080
+ },
+ "stats": {
+  "shots": 6,
+  "cameraSamples": 54,
+  "triangles": 0,
+  "nearestCamera": null,
+  "minActorGap": 0.76
+ },
+ "shots": [
+  {
+   "id": "karakter-01",
+   "triangles": 0,
+   "nearestCamera": null,
+   "minActorGap": null,
+   "index": 0,
+   "durationInFrames": 90,
+   "cameraPreset": "follow",
+   "set": [
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "rot": 0,
+     "scale": 1.1
+    },
+    {
+     "asset": "nature.grass.patch",
+     "at": [
+      3.2,
+      0,
+      1
+     ],
+     "rot": 0,
+     "scale": 1.3
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "scale": 1,
+     "cx": -6,
+     "cz": -6.4625,
+     "w": 7,
+     "d": 11.625,
+     "h": 5.165,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "scale": 1.1,
+     "cx": -4.586799999999999,
+     "cz": -4.031750000000001,
+     "w": 11.003300000000001,
+     "d": 11.564300000000001,
+     "h": 15.049100000000001,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "anak",
+     "assetId": "char.anak-laki",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0,
+      0,
+      1.6500000000000001
+     ],
+     "yaw": 0,
+     "clip": "walk",
+     "radius": 0.28,
+     "clearance": null
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0,
+      0.9785,
+      -3.4
+     ],
+     "target": [
+      0,
+      0.7735,
+      0
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0,
+      0.9785,
+      -3.1938
+     ],
+     "target": [
+      0,
+      0.7735,
+      0.2063
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0,
+      0.9785,
+      -2.9875
+     ],
+     "target": [
+      0,
+      0.7735,
+      0.4125
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0,
+      0.9785,
+      -2.7813
+     ],
+     "target": [
+      0,
+      0.7735,
+      0.6188
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0,
+      0.9785,
+      -2.575
+     ],
+     "target": [
+      0,
+      0.7735,
+      0.825
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0,
+      0.9785,
+      -2.3687
+     ],
+     "target": [
+      0,
+      0.7735,
+      1.0313
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0,
+      0.9785,
+      -2.1625
+     ],
+     "target": [
+      0,
+      0.7735,
+      1.2375
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0,
+      0.9785,
+      -1.9562
+     ],
+     "target": [
+      0,
+      0.7735,
+      1.4438
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 1,
+     "position": [
+      0,
+      0.9785,
+      -1.75
+     ],
+     "target": [
+      0,
+      0.7735,
+      1.65
+     ],
+     "fov": 42,
+     "clearance": null
+    }
+   ],
+   "text": "Bocil pulang sendiri."
+  },
+  {
+   "id": "karakter-02",
+   "triangles": 0,
+   "nearestCamera": null,
+   "minActorGap": null,
+   "index": 1,
+   "durationInFrames": 90,
+   "cameraPreset": "dolly-in",
+   "set": [
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "rot": 0,
+     "scale": 1.1
+    },
+    {
+     "asset": "nature.grass.patch",
+     "at": [
+      3.2,
+      0,
+      1
+     ],
+     "rot": 0,
+     "scale": 1.3
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "scale": 1,
+     "cx": -6,
+     "cz": -6.4625,
+     "w": 7,
+     "d": 11.625,
+     "h": 5.165,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "scale": 1.1,
+     "cx": -4.586799999999999,
+     "cz": -4.031750000000001,
+     "w": 11.003300000000001,
+     "d": 11.564300000000001,
+     "h": 15.049100000000001,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "remaja",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0,
+      0,
+      0
+     ],
+     "yaw": 3.141592653589793,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": null
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      -0.4,
+      1.35,
+      2.9
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.125,
+     "position": [
+      -0.3914,
+      1.3457,
+      2.8441
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.25,
+     "position": [
+      -0.3688,
+      1.3344,
+      2.6969
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.375,
+     "position": [
+      -0.3367,
+      1.3184,
+      2.4887
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.5,
+     "position": [
+      -0.3,
+      1.3,
+      2.25
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.625,
+     "position": [
+      -0.2633,
+      1.2816,
+      2.0113
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.75,
+     "position": [
+      -0.2313,
+      1.2656,
+      1.8031
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.875,
+     "position": [
+      -0.2086,
+      1.2543,
+      1.6559
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 1,
+     "position": [
+      -0.2,
+      1.25,
+      1.6
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    }
+   ],
+   "text": "Remaja menunggu di halaman."
+  },
+  {
+   "id": "karakter-03",
+   "triangles": 0,
+   "nearestCamera": null,
+   "minActorGap": null,
+   "index": 2,
+   "durationInFrames": 90,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "rot": 0,
+     "scale": 1.1
+    },
+    {
+     "asset": "nature.grass.patch",
+     "at": [
+      3.2,
+      0,
+      1
+     ],
+     "rot": 0,
+     "scale": 1.3
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "scale": 1,
+     "cx": -6,
+     "cz": -6.4625,
+     "w": 7,
+     "d": 11.625,
+     "h": 5.165,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "scale": 1.1,
+     "cx": -4.586799999999999,
+     "cz": -4.031750000000001,
+     "w": 11.003300000000001,
+     "d": 11.564300000000001,
+     "h": 15.049100000000001,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "ibu",
+     "assetId": "char.female-lansia",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0,
+      0,
+      0
+     ],
+     "yaw": 0,
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": null
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.6,
+      1.35,
+      2.7
+     ],
+     "target": [
+      0,
+      1.05,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.6,
+      1.35,
+      2.7
+     ],
+     "target": [
+      0,
+      1.05,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.6,
+      1.35,
+      2.7
+     ],
+     "target": [
+      0,
+      1.05,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.6,
+      1.35,
+      2.7
+     ],
+     "target": [
+      0,
+      1.05,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.6,
+      1.35,
+      2.7
+     ],
+     "target": [
+      0,
+      1.05,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.6,
+      1.35,
+      2.7
+     ],
+     "target": [
+      0,
+      1.05,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.6,
+      1.35,
+      2.7
+     ],
+     "target": [
+      0,
+      1.05,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.6,
+      1.35,
+      2.7
+     ],
+     "target": [
+      0,
+      1.05,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 1,
+     "position": [
+      0.6,
+      1.35,
+      2.7
+     ],
+     "target": [
+      0,
+      1.05,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    }
+   ],
+   "text": "Ibu menunggu di teras."
+  },
+  {
+   "id": "karakter-04",
+   "triangles": 0,
+   "nearestCamera": null,
+   "minActorGap": null,
+   "index": 3,
+   "durationInFrames": 90,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "rot": 0,
+     "scale": 1.1
+    },
+    {
+     "asset": "nature.grass.patch",
+     "at": [
+      3.2,
+      0,
+      1
+     ],
+     "rot": 0,
+     "scale": 1.3
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "scale": 1,
+     "cx": -6,
+     "cz": -6.4625,
+     "w": 7,
+     "d": 11.625,
+     "h": 5.165,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "scale": 1.1,
+     "cx": -4.586799999999999,
+     "cz": -4.031750000000001,
+     "w": 11.003300000000001,
+     "d": 11.564300000000001,
+     "h": 15.049100000000001,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku",
+     "assetId": "char.male-dewasa-polo",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0,
+      0,
+      0
+     ],
+     "yaw": 0,
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": null
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.2,
+      1.45,
+      3.2
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.2,
+      1.45,
+      3.2
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.2,
+      1.45,
+      3.2
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.2,
+      1.45,
+      3.2
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.2,
+      1.45,
+      3.2
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.2,
+      1.45,
+      3.2
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.2,
+      1.45,
+      3.2
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.2,
+      1.45,
+      3.2
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    },
+    {
+     "u": 1,
+     "position": [
+      0.2,
+      1.45,
+      3.2
+     ],
+     "target": [
+      0,
+      1.15,
+      0
+     ],
+     "fov": 40,
+     "clearance": null
+    }
+   ],
+   "text": "Aku, polo dan celana kargo."
+  },
+  {
+   "id": "karakter-05",
+   "triangles": 0,
+   "nearestCamera": null,
+   "minActorGap": null,
+   "index": 4,
+   "durationInFrames": 90,
+   "cameraPreset": "follow",
+   "set": [
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "rot": 0,
+     "scale": 1.1
+    },
+    {
+     "asset": "nature.grass.patch",
+     "at": [
+      3.2,
+      0,
+      1
+     ],
+     "rot": 0,
+     "scale": 1.3
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "scale": 1,
+     "cx": -6,
+     "cz": -6.4625,
+     "w": 7,
+     "d": 11.625,
+     "h": 5.165,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "scale": 1.1,
+     "cx": -4.586799999999999,
+     "cz": -4.031750000000001,
+     "w": 11.003300000000001,
+     "d": 11.564300000000001,
+     "h": 15.049100000000001,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "aku-kemeja",
+     "assetId": "char.male-dewasa-kemeja",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "end": [
+      0,
+      0,
+      1.2000000000000002
+     ],
+     "yaw": 0,
+     "clip": "walk",
+     "radius": 0.28,
+     "clearance": null
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0,
+      1.4644,
+      -3.6
+     ],
+     "target": [
+      0,
+      1.1576,
+      0
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0,
+      1.4644,
+      -3.45
+     ],
+     "target": [
+      0,
+      1.1576,
+      0.15
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0,
+      1.4644,
+      -3.3
+     ],
+     "target": [
+      0,
+      1.1576,
+      0.3
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0,
+      1.4644,
+      -3.15
+     ],
+     "target": [
+      0,
+      1.1576,
+      0.45
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0,
+      1.4644,
+      -3
+     ],
+     "target": [
+      0,
+      1.1576,
+      0.6
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0,
+      1.4644,
+      -2.85
+     ],
+     "target": [
+      0,
+      1.1576,
+      0.75
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0,
+      1.4644,
+      -2.7
+     ],
+     "target": [
+      0,
+      1.1576,
+      0.9
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0,
+      1.4644,
+      -2.55
+     ],
+     "target": [
+      0,
+      1.1576,
+      1.05
+     ],
+     "fov": 42,
+     "clearance": null
+    },
+    {
+     "u": 1,
+     "position": [
+      0,
+      1.4644,
+      -2.4
+     ],
+     "target": [
+      0,
+      1.1576,
+      1.2
+     ],
+     "fov": 42,
+     "clearance": null
+    }
+   ],
+   "text": "Aku, setelan kemeja — tokoh sama, kostum lain."
+  },
+  {
+   "id": "karakter-06",
+   "triangles": 0,
+   "nearestCamera": null,
+   "minActorGap": 0.76,
+   "index": 5,
+   "durationInFrames": 105,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "road.dirt.straight",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "rot": 0,
+     "scale": 1.1
+    },
+    {
+     "asset": "nature.grass.patch",
+     "at": [
+      3.2,
+      0,
+      1
+     ],
+     "rot": 0,
+     "scale": 1.3
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.house.village",
+     "at": [
+      -6,
+      0,
+      -8
+     ],
+     "scale": 1,
+     "cx": -6,
+     "cz": -6.4625,
+     "w": 7,
+     "d": 11.625,
+     "h": 5.165,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.tree.karet",
+     "at": [
+      -4.6,
+      0,
+      -3.6
+     ],
+     "scale": 1.1,
+     "cx": -4.586799999999999,
+     "cz": -4.031750000000001,
+     "w": 11.003300000000001,
+     "d": 11.564300000000001,
+     "h": 15.049100000000001,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "ibu",
+     "assetId": "char.female-lansia",
+     "at": [
+      0.4,
+      0,
+      0
+     ],
+     "end": [
+      0.4,
+      0,
+      1.4000000000000001
+     ],
+     "yaw": 0,
+     "clip": "walk",
+     "radius": 0.28,
+     "clearance": null
+    },
+    {
+     "ref": "anak",
+     "assetId": "char.anak-laki",
+     "at": [
+      -0.35,
+      0,
+      -0.15
+     ],
+     "end": [
+      -0.35,
+      0,
+      1.2500000000000002
+     ],
+     "yaw": 0,
+     "clip": "walk",
+     "radius": 0.28,
+     "clearance": null
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.3,
+      1.5,
+      4.4
+     ],
+     "target": [
+      0,
+      1,
+      0
+     ],
+     "fov": 52,
+     "clearance": null
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.3,
+      1.5,
+      4.4
+     ],
+     "target": [
+      0,
+      1,
+      0
+     ],
+     "fov": 52,
+     "clearance": null
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.3,
+      1.5,
+      4.4
+     ],
+     "target": [
+      0,
+      1,
+      0
+     ],
+     "fov": 52,
+     "clearance": null
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.3,
+      1.5,
+      4.4
+     ],
+     "target": [
+      0,
+      1,
+      0
+     ],
+     "fov": 52,
+     "clearance": null
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.3,
+      1.5,
+      4.4
+     ],
+     "target": [
+      0,
+      1,
+      0
+     ],
+     "fov": 52,
+     "clearance": null
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.3,
+      1.5,
+      4.4
+     ],
+     "target": [
+      0,
+      1,
+      0
+     ],
+     "fov": 52,
+     "clearance": null
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.3,
+      1.5,
+      4.4
+     ],
+     "target": [
+      0,
+      1,
+      0
+     ],
+     "fov": 52,
+     "clearance": null
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.3,
+      1.5,
+      4.4
+     ],
+     "target": [
+      0,
+      1,
+      0
+     ],
+     "fov": 52,
+     "clearance": null
+    },
+    {
+     "u": 1,
+     "position": [
+      0.3,
+      1.5,
+      4.4
+     ],
+     "target": [
+      0,
+      1,
+      0
+     ],
+     "fov": 52,
+     "clearance": null
+    }
+   ],
+   "text": "Ibu dan bocil pulang bersama."
+  }
+ ],
+ "problems": []
+}

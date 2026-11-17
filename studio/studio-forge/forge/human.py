@@ -114,10 +114,18 @@ def scalp_weight(P, style="short"):
     ax = np.abs(x)
     # hairline: high on the forehead, lower at the sides and back
     front = np.clip((z - 0.15) / 0.9, 0, 1)
-    line = 7.28 + 0.36 * front - 0.12 * np.clip((ax - 0.45) / 0.4, 0, 1)
-    line -= 0.34 * np.clip((-z - 0.1) / 0.6, 0, 1)
+    # Garis rambut: dulu 7.28 (hanya 33% ubun-ubun) sehingga rambut tampak
+    # seperti kopiah. Sekarang ~59% tinggi kepala, turun di pelipis dan belakang.
+    line = 6.80 + 0.22 * front - 0.12 * np.clip((ax - 0.45) / 0.4, 0, 1)
+    line -= 0.42 * np.clip((-z - 0.1) / 0.6, 0, 1)
     if style == "receding":
         line += 0.20 * np.clip((ax - 0.16) / 0.40, 0, 1) * front
+    elif style == "bowl":
+        # potongan mangkuk: garis rambut turun rata (khas anak)
+        line -= 0.30
+    elif style == "fringe":
+        # poni: bagian depan turun, samping tetap
+        line -= 0.16 * front
     # irregular hairline (widow's peaks, temple recession)
     irregular = 0.045 * np.sin(ax * 11.0 + 1.3) + 0.028 * np.sin(z * 9.0 + 2.1) + 0.02 * np.sin(ax * 23.0)
     line += irregular
@@ -133,7 +141,7 @@ def scalp_weight(P, style="short"):
 def build_hair_shell(P, N, idx, style, thickness):
     """Copy scalp triangles outward along normals; returns (pos, uv, idx, vmap)."""
     w = scalp_weight(P, style)
-    keep = (w[idx] > 0.04).all(1)
+    keep = (w[idx] > 0.25).all(1)
     tris = idx[keep]
     if len(tris) == 0:
         return None
@@ -286,6 +294,81 @@ def garment_pack(name, weave_seed):
 # --------------------------------------------------------------------- poses
 def _pose(**kw):
     return {k.replace("__", "."): v for k, v in kw.items()}
+
+
+# --------------------------------------------------------------- proportions
+# Landmark MakeHuman (satuan unit, alas kaki di -8.168, ubun-ubun 8.49).
+Y_FEET, Y_HIP, Y_NECK, Y_TOP = -8.168, 0.60, 5.95, 8.49
+TOTAL = Y_TOP - Y_FEET
+
+# Profil proporsi = (paha+kaki, torso, kepala) sebagai fraksi tinggi badan,
+# plus faktor radial untuk badan (anak-anak lebih ramping, kepala tidak menyusut).
+PROFILES = {
+    "dewasa":  (0.527, 0.321, 0.152, 1.00),
+    "lansia":  (0.510, 0.318, 0.172, 1.00),
+    "remaja":  (0.505, 0.325, 0.170, 0.96),
+    "anak":    (0.450, 0.340, 0.210, 0.90),
+    "anak-besar": (0.470, 0.335, 0.195, 0.93),
+    "balita":  (0.415, 0.340, 0.245, 0.86),
+}
+
+
+def _band_scales(profile):
+    leg_f, torso_f, head_f, radial = profile
+    s_leg = leg_f * TOTAL / (Y_HIP - Y_FEET)
+    s_torso = torso_f * TOTAL / (Y_NECK - Y_HIP)
+    s_head = head_f * TOTAL / (Y_TOP - Y_NECK)
+    return s_leg, s_torso, s_head, radial
+
+
+def proportion_curve(profile):
+    """Kurva y → (y', radial) yang sama untuk mesh, pakaian, dan tulang."""
+    s_leg, s_torso, s_head, radial = _band_scales(profile)
+    leg_len = (Y_NECK - Y_HIP)  # untuk normalisasi transisi radial
+
+    def fn(y):
+        y = np.asarray(y, F)
+        out = np.where(
+            y <= Y_HIP,
+            Y_FEET + (y - Y_FEET) * s_leg,
+            np.where(
+                y <= Y_NECK,
+                Y_FEET + (Y_HIP - Y_FEET) * s_leg + (y - Y_HIP) * s_torso,
+                Y_FEET
+                + (Y_HIP - Y_FEET) * s_leg
+                + (Y_NECK - Y_HIP) * s_torso
+                + (y - Y_NECK) * s_head,
+            ),
+        )
+        # radial: badan mengikuti profil, kepala penuh (anak = kepala besar)
+        t = np.clip((y - (Y_NECK - 0.9)) / 0.9, 0, 1)
+        r = radial + (1.0 - radial) * t
+        return out.astype(F), r.astype(F)
+
+    return fn
+
+
+def apply_proportions(P, profile):
+    """Regangkan pita vertikal (kaki/torso/kepala) pada mesh atau pakaian."""
+    fn = proportion_curve(profile)
+    P = np.asarray(P, F)
+    y2, r = fn(P[:, 1])
+    out = P.copy()
+    out[:, 1] = y2
+    out[:, 0] *= r
+    out[:, 2] *= r
+    return out
+
+
+def proportion_bones(bones, profile):
+    fn = proportion_curve(profile)
+    out = []
+    for b in bones:
+        p = np.asarray(b["p"], F)
+        y2, r = fn(np.array([p[1]], F))
+        q = np.array([p[0] * float(r[0]), float(y2[0]), p[2] * float(r[0])], F)
+        out.append({**b, "p": q})
+    return out
 
 
 def base_pose(arm_drop=0.34, finger_curl=0.55, hands_forward=0.0):

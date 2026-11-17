@@ -57,7 +57,13 @@ def _img(js, bn, tex_info):
     bv = js["bufferViews"][js["images"][img]["bufferView"]]
     start = bv.get("byteOffset", 0)
     data = bn[start : start + bv["byteLength"]]
-    return np.asarray(Image.open(io.BytesIO(data)).convert("RGB"), F) / 255.0
+    # Tekstur karakter 2048² × 60 aset tidak muat di RAM kalau disimpan penuh
+    # (prosesnya kena OOM). Untuk mengukur warna/kekasaran cukup 256 px, jadi
+    # turunkan resolusi saat memuat.
+    im = Image.open(io.BytesIO(data)).convert("RGB")
+    if max(im.size) > 256:
+        im.thumbnail((256, 256), Image.BILINEAR)
+    return np.asarray(im, F) / 255.0
 
 
 def luminance(rgb: np.ndarray) -> float:

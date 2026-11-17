@@ -147,6 +147,15 @@ def write_registry(rebuild_entries=False):
             "emissive": any("emissiveFactor" in m for m in _gltf(glb).get("materials", [])),
             "embeddedTextures": len(_gltf(glb).get("images", [])),
         }
+        if kind == "character":
+            # Tokoh: profil umur, outfit yang dipakai, dan peta varian outfit
+            # supaya cerita bisa menukar kostum tanpa asset baru.
+            for key, spec_key in (("profile", "profile"), ("outfit", "outfit"), ("variantOf", "variant_of")):
+                if spec.get(spec_key):
+                    e[key] = spec[spec_key]
+            variants = character.OUTFIT_VARIANTS.get(aid)
+            if variants:
+                e["outfits"] = dict(variants)
         if rep["problems"]:
             e["status"] = "draft"
             e["problems"] = rep["problems"]

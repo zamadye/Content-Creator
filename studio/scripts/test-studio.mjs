@@ -546,6 +546,76 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
   ok('story packs');
 }
 
+// ------------------------------------------------------- 14. karakter & outfit
+{
+  const chars = Object.entries(registry.assets).filter(([, a]) => a.category === 'character');
+  assert.ok(chars.length >= 10, `karakter kurang dari 10: ${chars.length}`);
+
+  // Satu rig untuk semua: tulang & klip identik, hanya parameter yang berbeda.
+  const ref = registry.assets['char.male-dewasa-polo'];
+  assert.ok(ref, 'char.male-dewasa-polo wajib ada sebagai acuan rig');
+  const refClips = ref.rig.clips.join(',');
+  for (const [id, a] of chars) {
+    assert.ok(a.rig, `${id}: tidak punya rig`);
+    assert.equal(a.rig.skeleton, 'studio-humanoid-v1', `${id}: skeleton beda`);
+    assert.equal(a.rig.bones, ref.rig.bones, `${id}: jumlah tulang beda (${a.rig.bones})`);
+    assert.equal(a.rig.clips.join(','), refClips, `${id}: daftar klip beda`);
+    assert.ok(a.profile, `${id}: profil umur tidak tercatat di registry`);
+  }
+
+  // Cakupan umur yang diminta: dewasa, lansia, remaja, anak, balita — pria & wanita.
+  const profiles = new Set(chars.map(([, a]) => a.profile));
+  for (const want of ['dewasa', 'lansia', 'remaja', 'anak', 'balita']) {
+    assert.ok(profiles.has(want), `profil "${want}" belum ada`);
+  }
+  const females = chars.filter(([id, a]) => a.tags.includes('female') || id.startsWith('char.female'));
+  assert.ok(females.length >= 4, `tokoh perempuan kurang: ${females.length}`);
+
+  // Tinggi harus masuk akal per kelompok umur (bukti proporsi benar-benar dipakai).
+  const bands = {balita: [0.8, 1.05], anak: [1.0, 1.3], remaja: [1.35, 1.7], dewasa: [1.5, 1.85], lansia: [1.45, 1.8]};
+  for (const [id, a] of chars) {
+    const h = a.bounds.size[1];
+    const [lo, hi] = bands[a.profile] ?? [0.5, 2.0];
+    assert.ok(h > lo && h < hi, `${id}: tinggi ${h.toFixed(2)} m di luar rentang ${a.profile} (${lo}–${hi})`);
+  }
+  // Urutan umur harus monoton: balita < anak < remaja < dewasa.
+  assert.ok(registry.assets['char.balita-laki'].bounds.size[1] < registry.assets['char.anak-laki'].bounds.size[1]);
+  assert.ok(registry.assets['char.anak-laki'].bounds.size[1] < registry.assets['char.remaja-laki'].bounds.size[1]);
+  assert.ok(registry.assets['char.remaja-laki'].bounds.size[1] < registry.assets['char.male-dewasa-polo'].bounds.size[1]);
+
+  // Outfit bisa ditukar lewat data cerita: base + outfit -> asset varian.
+  const base = registry.assets['char.male-dewasa-polo'];
+  assert.ok(base.outfits?.['kemeja-kasual'], 'varian kemeja belum terdaftar di registry');
+  const variantId = base.outfits['kemeja-kasual'];
+  const variant = registry.assets[variantId];
+  assert.ok(variant, `varian ${variantId} tidak ada`);
+  assert.equal(variant.outfit, 'kemeja-kasual', 'varian salah kostum');
+  assert.equal(variant.rig.bones, base.rig.bones, 'varian outfit harus memakai rig yang sama');
+  assert.equal(variant.meta?.profile ?? variant.profile, base.profile, 'varian outfit harus sama tubuhnya');
+
+  const swapStory = JSON.parse(fs.readFileSync(path.join(root, 'stories', 'uji-karakter', 'story.json'), 'utf8'));
+  const compiled = compileStory(swapStory, {registry});
+  const ids2 = new Set(compiled.shots.flatMap((s) => s.cast.map((c) => c.assetId)));
+  assert.ok(ids2.has('char.male-dewasa-polo') && ids2.has(variantId), 'cerita uji harus memakai dua kostum tokoh yang sama');
+  const outs = [registry.assets['char.male-dewasa-polo'].outfit, variant.outfit];
+  assert.equal(new Set(outs).size, 2, 'dua shot harus memakai outfit berbeda');
+  // Cerita lain tetap memakai outfit aslinya (bukan varian).
+  assert.ok(fs.existsSync(path.join(root, 'docs', 'character-lineup.png')), 'lembar kontak karakter belum dibuat');
+
+  // Outfit yang tidak dibangun harus ditolak, bukan diam-diam diabaikan.
+  const bad = JSON.parse(JSON.stringify(swapStory));
+  bad.cast.aku.outfit = 'kostum-tidak-ada';
+  let rejected = false;
+  try {
+    validateStory(bad, {registry});
+  } catch (err) {
+    rejected = /outfit/.test(String(err));
+  }
+  assert.ok(rejected, 'outfit tak dikenal harus ditolak');
+
+  ok('characters & outfits');
+}
+
 const auditMd = fs.readFileSync(path.join(root, 'docs', 'PIPELINE-AUDIT.md'), 'utf8');
 const audit = parseAudit(auditMd);
 assert.equal(audit.totals.total, 53, 'audit harus 53 langkah');

@@ -20,80 +20,134 @@ PUBLIC = ROOT / "public"
 HEIGHT_UNITS = 16.659
 FEET_Y = -8.168
 
+# ------------------------------------------------------------------ wardrobe
+# Satu set pakaian = kombinasi paket kain + tint. Id outfit dipakai di SPECS
+# (`outfit`) dan bisa dipakai cerita untuk memilih varian tokoh.
+WARDROBE = {
+    "polo-kargo": {"garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"], "tint": [1.0, 1.0, 1.0]},
+    "kemeja-kasual": {"garments": ["male_casualsuit05", "shoes01"], "tint": [0.95, 0.98, 1.02]},
+    "jaket": {"garments": ["male_casualsuit05", "shoes01"], "tint": [0.78, 0.82, 0.88]},
+    "seragam": {"garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"], "tint": [0.86, 0.94, 1.18]},
+    "daster": {"garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"], "tint": [1.18, 0.92, 0.88]},
+    "kerja": {"garments": ["male_casualsuit05", "shoes01"], "tint": [0.80, 0.83, 0.78]},
+}
+
+DEFAULT_SKIN = dict(tone="#b98a63", red="#ad5f4c", lip="#8c4a44", age=0.32, sex="male", stubble=0.4, seed=11)
+DEFAULT_HAIR = dict(style="short", color="#151110", thickness=0.030, long=0.0)
+
+
+def _char(title, tags, profile, height, shape_, skin, hair, outfit, **kw):
+    """Satu baris per tokoh: profil umur + tinggi + bentuk + kulit + rambut + outfit."""
+    spec = {
+        "title": title,
+        "category": "character",
+        "tags": tags,
+        "profile": profile,
+        "height": height,
+        "shape": shape_,
+        "skin": skin,
+        "hair": hair,
+        "garments": WARDROBE[outfit]["garments"],
+        "tint": WARDROBE[outfit]["tint"],
+        "outfit": outfit,
+    }
+    spec.update(kw)
+    return spec
+
+
+_CHILD_SHAPE = dict(shoulder=-0.55, chest=-0.35, waist=0.0, limb=-0.45, jaw_w=-0.45, brow=-0.1, cheek=0.35, nose_w=-0.2)
+_TEEN_SHAPE = dict(shoulder=-0.35, chest=-0.15, waist=0.05, limb=-0.25, jaw_w=-0.25, cheek=0.15)
+
 SPECS = {
-    "char.male-dewasa-polo": {
-        "title": "Pria dewasa — polo & celana kargo",
-        "category": "character",
-        "tags": ["human", "male", "adult", "rider", "indonesian"],
-        "height": 1.72,
-        "shape": dict(shoulder=0.35, chest=0.25, waist=0.05, jaw_w=0.35, brow=0.35, chin_fwd=0.3, cheek=0.1, neck=0.1),
-        "skin": dict(tone="#b98a63", red="#ad5f4c", lip="#8c4a44", age=0.32, sex="male", stubble=0.5, seed=11),
-        "hair": dict(style="short", color="#151110", thickness=0.030, long=0.0),
-        "garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"],
-        "tint": [1.0, 1.0, 1.0],
-    },
-    "char.male-muda-jaket": {
-        "title": "Pria muda — setelan kasual",
-        "category": "character",
-        "tags": ["human", "male", "teen", "worker", "indonesian"],
-        "height": 1.64,
-        "shape": dict(shoulder=-0.2, chest=-0.1, waist=0.15, limb=-0.25, jaw_w=-0.15, chin_drop=0.1, nose_w=-0.1),
-        "skin": dict(tone="#c1936b", red="#b06552", lip="#95504a", age=0.15, sex="male", stubble=0.15, seed=23),
-        "hair": dict(style="messy", color="#100d0b", thickness=0.042, long=0.0),
-        "garments": ["male_casualsuit05", "shoes01"],
-        "tint": [0.95, 0.98, 1.0],
-    },
-    "char.male-lansia-kemeja": {
-        "title": "Pria lansia — polo lusuh",
-        "category": "character",
-        "tags": ["human", "male", "elder", "father", "indonesian"],
-        "height": 1.665,
-        "shape": dict(shoulder=-0.1, chest=0.1, belly=0.45, waist=-0.1, jaw_w=0.1, hollow=0.7, jowl=0.8,
-                      chin_drop=0.25, lip_full=-0.4, neck=0.1, neck_fwd=0.35, ear=0.25),
-        "skin": dict(tone="#b98f6c", red="#a95c4c", lip="#84514b", age=0.95, sex="male", stubble=0.75,
-                     freckles=0.5, seed=37),
-        "hair": dict(style="receding", color="#8d8880", thickness=0.028, long=0.0),
-        "garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"],
-        "tint": [0.88, 0.86, 0.80],
-    },
-    "char.female-dewasa": {
-        "title": "Wanita dewasa — polo & kargo",
-        "category": "character",
-        "tags": ["human", "female", "adult", "mother", "indonesian"],
-        "height": 1.605,
-        "shape": dict(shoulder=-0.55, chest=-0.15, waist=0.55, hip=0.85, glute=0.4, limb=-0.35,
-                      jaw_w=-0.45, brow=-0.2, cheek=0.35, lip_full=0.6, lip_fwd=0.3, chin_drop=-0.15,
-                      nose_w=-0.25, neck=-0.2, skull_w=-0.15),
-        "skin": dict(tone="#c69a74", red="#b0604f", lip="#a05a54", age=0.4, sex="female", stubble=0.0, seed=41),
-        "hair": dict(style="long", color="#17120f", thickness=0.036, long=1.0),
-        "garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"],
-        "tint": [0.92, 0.94, 0.99],
-    },
-    "char.female-lansia": {
-        "title": "Wanita lansia — ibu",
-        "category": "character",
-        "tags": ["human", "female", "elder", "mother", "indonesian"],
-        "height": 1.545,
-        "shape": dict(shoulder=-0.45, chest=-0.1, belly=0.3, waist=0.4, hip=0.6, limb=-0.45, hollow=0.75,
-                      jowl=0.85, jaw_w=-0.4, lip_full=-0.3, neck=-0.15, neck_fwd=0.3, ear=0.2, skull_w=-0.1),
-        "skin": dict(tone="#bd9270", red="#a65a4b", lip="#8a544e", age=1.0, sex="female", stubble=0.0,
-                     freckles=0.4, seed=53),
-        "hair": dict(style="bun", color="#9a958c", thickness=0.032, long=0.55),
-        "garments": ["namuhekam_male_polo_shirt", "cortu_cargo_pants", "shoes01"],
-        "tint": [0.86, 0.84, 0.78],
-    },
-    "char.male-pekerja": {
-        "title": "Pekerja gudang — setelan kerja",
-        "category": "character",
-        "tags": ["human", "male", "adult", "worker", "guard"],
-        "height": 1.70,
-        "shape": dict(shoulder=0.55, chest=0.45, belly=0.25, limb=0.35, jaw_w=0.55, brow=0.55, neck=0.3),
-        "skin": dict(tone="#a87a56", red="#a35847", lip="#82463f", age=0.45, sex="male", stubble=0.85,
-                     dirt=0.25, seed=67),
-        "hair": dict(style="short", color="#0f0c0a", thickness=0.026, long=0.0),
-        "garments": ["male_casualsuit05", "shoes01"],
-        "tint": [0.82, 0.84, 0.80],
-    },
+    # ---------------------------------------------------------------- dewasa
+    "char.male-dewasa-polo": _char(
+        "Pria dewasa — polo & celana kargo", ["human", "male", "adult", "rider", "indonesian"], "dewasa", 1.72,
+        dict(shoulder=0.35, chest=0.25, waist=0.05, jaw_w=0.35, brow=0.35, chin_fwd=0.3, cheek=0.1, neck=0.1),
+        dict(tone="#b98a63", red="#ad5f4c", lip="#8c4a44", age=0.32, sex="male", stubble=0.5, seed=11),
+        dict(style="short", color="#151110", thickness=0.030, long=0.0), "polo-kargo"),
+    "char.female-dewasa": _char(
+        "Wanita dewasa — polo & kargo", ["human", "female", "adult", "mother", "indonesian"], "dewasa", 1.605,
+        dict(shoulder=-0.55, chest=-0.15, waist=0.55, hip=0.85, glute=0.4, limb=-0.35, jaw_w=-0.45, brow=-0.2,
+             cheek=0.35, lip_full=0.6, lip_fwd=0.3, chin_drop=-0.15, nose_w=-0.25, neck=-0.2, skull_w=-0.15),
+        dict(tone="#c69a74", red="#b0604f", lip="#a05a54", age=0.4, sex="female", stubble=0.0, seed=41),
+        dict(style="long", color="#17120f", thickness=0.036, long=1.0), "polo-kargo"),
+    "char.male-muda-jaket": _char(
+        "Pria muda — setelan kasual", ["human", "male", "teen", "worker", "indonesian"], "dewasa", 1.64,
+        dict(shoulder=-0.2, chest=-0.1, waist=0.15, limb=-0.25, jaw_w=-0.15, chin_drop=0.1, nose_w=-0.1),
+        dict(tone="#c1936b", red="#b06552", lip="#95504a", age=0.15, sex="male", stubble=0.15, seed=23),
+        dict(style="messy", color="#100d0b", thickness=0.042, long=0.0), "jaket"),
+    "char.male-pekerja": _char(
+        "Pekerja gudang — setelan kerja", ["human", "male", "adult", "worker", "guard"], "dewasa", 1.70,
+        dict(shoulder=0.55, chest=0.45, belly=0.25, limb=0.35, jaw_w=0.55, brow=0.55, neck=0.3),
+        dict(tone="#a87a56", red="#a35847", lip="#82463f", age=0.45, sex="male", stubble=0.85, dirt=0.25, seed=67),
+        dict(style="short", color="#0f0c0a", thickness=0.026, long=0.0), "kerja"),
+    # ---------------------------------------------------------------- lansia
+    "char.male-lansia-kemeja": _char(
+        "Pria lansia — kemeja lusuh", ["human", "male", "elder", "father", "indonesian"], "lansia", 1.665,
+        dict(shoulder=-0.1, chest=0.1, belly=0.45, waist=-0.1, jaw_w=0.1, hollow=0.7, jowl=0.8, chin_drop=0.25,
+             lip_full=-0.4, neck=0.1, neck_fwd=0.35, ear=0.25),
+        dict(tone="#b98f6c", red="#a95c4c", lip="#84514b", age=0.95, sex="male", stubble=0.75, freckles=0.5, seed=37),
+        dict(style="receding", color="#8d8880", thickness=0.028, long=0.0), "kemeja-kasual"),
+    "char.female-lansia": _char(
+        "Wanita lansia — ibu", ["human", "female", "elder", "mother", "indonesian"], "lansia", 1.545,
+        dict(shoulder=-0.45, chest=-0.1, belly=0.3, waist=0.4, hip=0.6, limb=-0.45, hollow=0.75, jowl=0.85,
+             jaw_w=-0.4, lip_full=-0.3, neck=-0.15, neck_fwd=0.3, ear=0.2, skull_w=-0.1),
+        dict(tone="#bd9270", red="#a65a4b", lip="#8a544e", age=1.0, sex="female", stubble=0.0, freckles=0.4, seed=53),
+        dict(style="bun", color="#9a958c", thickness=0.032, long=0.55), "daster"),
+    # ---------------------------------------------------------------- remaja
+    "char.remaja-laki": _char(
+        "Remaja laki-laki — seragam", ["human", "male", "teen", "student", "indonesian"], "remaja", 1.56,
+        dict(_TEEN_SHAPE, jaw_w=-0.1, brow=0.15, neck=0.05),
+        dict(tone="#c39268", red="#b2604d", lip="#94504a", age=0.12, sex="male", stubble=0.05, seed=71),
+        dict(style="fringe", color="#141010", thickness=0.038, long=0.0), "seragam"),
+    "char.remaja-perempuan": _char(
+        "Remaja perempuan — seragam", ["human", "female", "teen", "student", "indonesian"], "remaja", 1.50,
+        dict(_TEEN_SHAPE, shoulder=-0.5, waist=0.45, hip=0.55, jaw_w=-0.5, cheek=0.4, lip_full=0.5),
+        dict(tone="#c99b76", red="#b2614f", lip="#a55a53", age=0.15, sex="female", stubble=0.0, seed=73),
+        dict(style="ponytail", color="#171210", thickness=0.036, long=0.75), "seragam"),
+    # ---------------------------------------------------------------- anak
+    "char.anak-laki": _char(
+        "Anak laki-laki (5–6 tahun) — kaos", ["human", "male", "child", "kid", "indonesian"], "anak", 1.15,
+        dict(_CHILD_SHAPE, belly=0.35, cheek=0.5),
+        dict(tone="#c99a6f", red="#b3624f", lip="#9a544c", age=0.08, sex="male", stubble=0.0, seed=81),
+        dict(style="bowl", color="#120f0d", thickness=0.030, long=0.0), "seragam"),
+    "char.anak-perempuan": _char(
+        "Anak perempuan (5–6 tahun) — kaos", ["human", "female", "child", "kid", "indonesian"], "anak", 1.12,
+        dict(_CHILD_SHAPE, belly=0.3, hip=0.2, jaw_w=-0.55, cheek=0.55, lip_full=0.45),
+        dict(tone="#cfa17b", red="#b46350", lip="#a95e56", age=0.08, sex="female", stubble=0.0, seed=83),
+        dict(style="twin-tails", color="#150f0d", thickness=0.032, long=0.6), "daster"),
+    # ---------------------------------------------------------------- balita
+    "char.balita-laki": _char(
+        "Balita laki-laki (2–3 tahun)", ["human", "male", "toddler", "kid", "indonesian"], "balita", 0.94,
+        dict(_CHILD_SHAPE, belly=0.5, shoulder=-0.6, cheek=0.6, jaw_w=-0.55),
+        dict(tone="#cb9a72", red="#b76450", lip="#9c564d", age=0.05, sex="male", stubble=0.0, seed=91),
+        dict(style="bowl", color="#100d0b", thickness=0.028, long=0.0), "seragam"),
+    "char.balita-perempuan": _char(
+        "Balita perempuan (2–3 tahun)", ["human", "female", "toddler", "kid", "indonesian"], "balita", 0.91,
+        dict(_CHILD_SHAPE, belly=0.45, hip=0.15, shoulder=-0.62, jaw_w=-0.6, cheek=0.65, lip_full=0.5),
+        dict(tone="#d0a27c", red="#b76552", lip="#aa6058", age=0.05, sex="female", stubble=0.0, seed=93),
+        dict(style="twin-tails", color="#160f0d", thickness=0.030, long=0.45), "daster"),
+    # --------------------------------------------------- varian pakaian (buktikan swap)
+    "char.male-dewasa-kemeja": _char(
+        "Pria dewasa — kemeja (varian outfit)", ["human", "male", "adult", "variant"], "dewasa", 1.72,
+        dict(shoulder=0.35, chest=0.25, waist=0.05, jaw_w=0.35, brow=0.35, chin_fwd=0.3, cheek=0.1, neck=0.1),
+        dict(tone="#b98a63", red="#ad5f4c", lip="#8c4a44", age=0.32, sex="male", stubble=0.5, seed=11),
+        dict(style="short", color="#151110", thickness=0.030, long=0.0), "kemeja-kasual",
+        variant_of="char.male-dewasa-polo"),
+    "char.female-dewasa-daster": _char(
+        "Wanita dewasa — daster (varian outfit)", ["human", "female", "adult", "variant"], "dewasa", 1.605,
+        dict(shoulder=-0.55, chest=-0.15, waist=0.55, hip=0.85, glute=0.4, limb=-0.35, jaw_w=-0.45, brow=-0.2,
+             cheek=0.35, lip_full=0.6, lip_fwd=0.3, chin_drop=-0.15, nose_w=-0.25, neck=-0.2, skull_w=-0.15),
+        dict(tone="#c69a74", red="#b0604f", lip="#a05a54", age=0.4, sex="female", stubble=0.0, seed=41),
+        dict(style="long", color="#17120f", thickness=0.036, long=1.0), "daster",
+        variant_of="char.female-dewasa"),
+}
+
+# Peta varian outfit: asset asal → {outfit: asset varian}. Dipakai cerita lewat
+# `cast.<nama>.outfit` (lihat docs/STORY-FORMAT.md §5c).
+OUTFIT_VARIANTS = {
+    "char.male-dewasa-polo": {"polo-kargo": "char.male-dewasa-polo", "kemeja-kasual": "char.male-dewasa-kemeja"},
+    "char.female-dewasa": {"polo-kargo": "char.female-dewasa", "daster": "char.female-dewasa-daster"},
 }
 
 
@@ -184,7 +238,11 @@ def _sphere(center, radius, segs=28, rings=18):
 def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     b = human.base()
     shape_spec = spec.get("shape", {})
-    P = shape(b["pos"], shape_spec)
+    profile = human.PROFILES.get(spec.get("profile", "dewasa"), human.PROFILES["dewasa"])
+    # Proporsi umur diterapkan pada mesh, pakaian, dan tulang dengan kurva yang
+    # sama; tanpa ini "anak" hanya orang dewasa yang diperkecil (kepala kecil,
+    # kaki panjang) dan klipnya jadi aneh.
+    P = human.apply_proportions(shape(b["pos"], shape_spec), profile)
     if entities:
         from .entity import shape_entity
 
@@ -204,7 +262,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     for gname in spec.get("garments", []):
         pack = human.garment_pack(gname, hash(gname) % 1000)
         hidden |= pack["hidden"]
-        gp = shape(pack["positions"], shape_spec)
+        gp = human.apply_proportions(shape(pack["positions"], shape_spec), profile)
         if entities:
             from .entity import shape_entity
 
@@ -245,7 +303,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         hid = np.isin(b["source"], list(hidden)).astype(F)
         P = P - body_nrm_raw * (hid[:, None] * 0.035)
 
-    bones, S, off = _metres(b["bones"], spec["height"])
+    bones, S, off = _metres(human.proportion_bones(b["bones"], profile), spec["height"])
     # Rantai tulang kain untuk shroud/veil. Sudah ada sejak awal supaya indeks
     # sendi di mesh bisa menunjuk ke sini; tanpa tulang, kain hanya bisa ikut
     # punggung dan mustahil berayun.
@@ -569,24 +627,16 @@ def _anchor_nodes(bones):
 
 
 def _hair_alpha_hairline(hpos, huvs, hidx, style, size=512):
-    """Bake a soft irregular hairline into the hair texture's alpha channel:
-    rasterise the per-vertex scalp weight in hair-UV space."""
-    from .human import scalp_weight
-    from .uvpaint import rasterize_uv, smoothstep
+    """Alpha rambut = 1 di seluruh pulau UV rambut.
 
-    w = scalp_weight(hpos, style)
-    tmp = np.zeros_like(hpos)
-    tmp[:, 0] = w
-    from .tex import blur
-
-    baked, _, mask = rasterize_uv(tmp, huvs, hidx, size)
-    wmap = blur(np.where(mask, baked[..., 0], 0.0), max(1, size // 40))
-    noise = tex.fbm(size, size, 40, 3, 0.55, 21)
-    wmap = wmap + (noise - 0.5) * 0.10
-    alpha = smoothstep((wmap - 0.36) / 0.34)
-    alpha = blur(alpha, 2)
-    alpha[~mask] = 0.0
-    return alpha
+    Dulu di sini ada alpha yang dipanggang dari `scalp_weight` lalu diblur
+    (radius 12 px di atlas 512). Akibatnya nilai alpha di ubun-ubun ikut
+    terdilusi dan di bawah ambang `alphaCutoff` 0.45: di WebGL rambut hanya
+    tersisa dua jepit di pelipis, kepala tampak botak. Bentuk garis rambut
+    sekarang ditentukan *geometri* (segitiga di atas hairline saja), jadi
+    tekstur tidak perlu memotong apa pun lagi.
+    """
+    return np.ones((size, size), F)
 
 
 def _down(img, size):

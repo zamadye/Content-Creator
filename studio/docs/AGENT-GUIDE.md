@@ -153,3 +153,13 @@ Status `draft` berarti **jangan dipakai untuk hero shot**, hanya untuk latar.
 | aktor mengambang | `at[1]` harus 0 (origin di kaki) |
 | aset terlihat gelap | `light.preset` + `look.exposure`; bukan masalah material |
 | GLB gagal dimuat | `node scripts/studio.mjs inspect <file.glb>` |
+
+## Karakter
+
+Semua tokoh manusia berasal dari satu mesh + satu rig (`docs/CHARACTERS.md`).
+Jangan menulis tokoh baru dari nol: tambah satu baris di `SPECS`
+(`studio-forge/forge/character.py`) dengan `profile` umur (`dewasa`, `lansia`,
+`remaja`, `anak`, `balita`), tinggi, morph, kulit, rambut, dan `outfit`.
+Kostum ditukar dari naskah lewat `cast.<ref>.outfit` — bukan dengan membuat GLB
+baru.
+

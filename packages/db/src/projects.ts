@@ -1,10 +1,6 @@
 import { createHash, randomUUID } from "node:crypto";
 import { Pool } from "pg";
 
-export function createPostgresPool(connectionString: string): Pool {
-  return new Pool({ connectionString, max: 5, idleTimeoutMillis: 30_000, connectionTimeoutMillis: 5_000 });
-}
-
 export type ProjectSummary = {
   id: string;
   title: string;

@@ -9,15 +9,15 @@ Terakhir diperbarui: sesi build ini. Angka diambil langsung dari
 | | |
 |---|---|
 | Aset | **60** GLB + 60 thumbnail + registry + galeri HTML + pustaka 102 properti |
-| Ukuran | **± 88,0 MB** (character 55,4 MB · entity 15,5 MB · building 6,0 MB · prop 4,1 MB · road 3,4 MB · nature 2,9 MB · vehicle 0,7 MB) |
-| Geometri | ± 751.200 tris total |
+| Ukuran | **± 95,9 MB** (character 63,4 MB · entity 15,5 MB · building 6,0 MB · prop 4,1 MB · road 3,4 MB · nature 2,9 MB · vehicle 0,7 MB) |
+| Geometri | ± 834.100 tris total |
 | Rig | 163 tulang, 13 klip, 30 fps, `inverseBindMatrices` per klip |
 | Status | 52 `review`, 8 `draft` |
 | Kontrak | `studio.registry/2`, `studio.story/2`, `studio-humanoid-v1` |
 
 Per kategori: character **14** · entity 5 · building 9 · road 7 · nature 9 · prop 14 · vehicle 2.
 
-## Karakter (14 tokoh, satu rig)
+## Karakter (16 tokoh, satu rig)
 
 Semua tokoh = satu mesh MakeHuman yang di-copy lalu di-parameteri: profil umur
 (`dewasa`, `lansia`, `remaja`, `anak`, `balita`), morph bentuk tubuh, kulit,
@@ -39,7 +39,7 @@ rambut, dan outfit. Semuanya memakai 163 tulang & 13 klip yang sama.
   balita 0,95 m dengan rasio kepala 0,245 (dewasa 0,152).
 * Kamera preset ikut tinggi aktor (dada 0,67 H, mata 0,94 H), jadi bocil tidak
   lagi dibidik di atas kepalanya.
-* Biaya: ≈ 32 s per tokoh, 14 tokoh ≈ 6,5 menit (382 s terukur).
+* Biaya: ≈ 31 s per tokoh, 16 tokoh ≈ 8,3 menit (499 s terukur).
 * Bukti rupa: `docs/character-lineup.png` (dibuat ulang dengan
   `studio-forge/dev_lineup.py`, membaca GLB yang ada), `docs/webgl-shots/StudioUjiKarakter-f*.png`,
   cerita `stories/uji-karakter/story.json` (6 shot, dua kostum untuk tokoh sama).
@@ -368,7 +368,7 @@ Bukti bahwa ini bake, bukan "dibuat lebih gelap":
 | geometri sintetis (pelat + kotak melayang) | AO **0,488** di bawah kotak vs **1,000** di pojok terbuka |
 | pelat datar tanpa penghalang | AO **1,000** (tidak ada penggelapan palsu) |
 | determinisme | dua kali bake → array identik |
-| 60 aset (41 di-bake) | **10 dari 41 aset bake menjadi lebih gelap**, rata-rata 0,942 → 0,930; 14 tokoh + 5 entitas tidak di-bake |
+| 62 aset (41 di-bake) | **10 dari 41 aset bake menjadi lebih gelap**, rata-rata 0,941 → 0,936; 16 tokoh + 5 entitas tidak di-bake |
 | paling terpengaruh | `entity.tall-limbs` 0,817 · `char.male-pekerja` 0,822 · `nature.tree.palm` 0,827 |
 
 Keputusan penting: material dengan **UV tiling** dilewati. Percobaan pertama

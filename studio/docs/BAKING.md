@@ -33,7 +33,7 @@ datar + kotak melayang 0,2 m di atasnya.
 
 ## 3. Hasil pada 60 aset — 41 di antaranya di-bake
 
-Karakter (14 tokoh) dan entitas (5) **tidak** di-AO-bake: ORM mereka berasal dari
+Karakter (16 tokoh) dan entitas (5) **tidak** di-AO-bake: ORM mereka berasal dari
 tekstur yang dilukis (kulit, kain prosedural, rambut). Baris mereka tetap
 muncul di tabel di bawah agar lengkap, tetapi tidak dihitung sebagai bukti bake.
 
@@ -69,20 +69,22 @@ Gambar-gambar: `docs/bake-ao-maps.png` (peta AO per material satu rumah) dan
 | `kit.wall.door` | 2 | 0.977 | 0.977 | +0.000 | 0.63 | 5.4% |
 | `kit.wall.plain` | 1 | 0.981 | 0.981 | +0.000 | 0.76 | 4.1% |
 | `kit.wall.window` | 3 | 0.953 | 0.953 | +0.000 | 0.73 | 3.3% |
-| `char.anak-laki` | 9 | 0.877 | 0.877 | +0.000 | 0.00 | 28.3% |
-| `char.anak-perempuan` | 10 | 0.880 | 0.880 | +0.000 | 0.00 | 26.9% |
-| `char.balita-laki` | 9 | 0.885 | 0.885 | +0.000 | 0.00 | 24.5% |
-| `char.balita-perempuan` | 10 | 0.886 | 0.886 | +0.000 | 0.00 | 24.4% |
-| `char.female-dewasa` | 10 | 0.866 | 0.866 | +0.000 | 0.00 | 32.2% |
-| `char.female-dewasa-daster` | 10 | 0.866 | 0.866 | +0.000 | 0.00 | 32.2% |
-| `char.female-lansia` | 10 | 0.866 | 0.866 | +0.000 | 0.00 | 32.2% |
-| `char.male-dewasa-kemeja` | 9 | 0.857 | 0.857 | +0.000 | 0.00 | 34.7% |
-| `char.male-dewasa-polo` | 9 | 0.857 | 0.857 | +0.000 | 0.00 | 34.5% |
-| `char.male-lansia-kemeja` | 9 | 0.857 | 0.857 | +0.000 | 0.00 | 34.6% |
-| `char.male-muda-jaket` | 9 | 0.859 | 0.859 | +0.000 | 0.00 | 34.4% |
-| `char.male-pekerja` | 9 | 0.858 | 0.858 | +0.000 | 0.00 | 34.6% |
-| `char.remaja-laki` | 9 | 0.863 | 0.863 | +0.000 | 0.00 | 33.6% |
-| `char.remaja-perempuan` | 10 | 0.867 | 0.867 | +0.000 | 0.00 | 31.8% |
+| `char.anak-besar-laki` | 12 | 0.905 | 0.905 | +0.000 | 0.00 | 23.8% |
+| `char.anak-besar-perempuan` | 13 | 0.905 | 0.905 | +0.000 | 0.00 | 23.3% |
+| `char.anak-laki` | 12 | 0.877 | 0.911 | +0.034 | 0.00 | 20.8% |
+| `char.anak-perempuan` | 12 | 0.880 | 0.902 | +0.022 | 0.00 | 22.8% |
+| `char.balita-laki` | 12 | 0.885 | 0.916 | +0.031 | 0.00 | 18.4% |
+| `char.balita-perempuan` | 12 | 0.886 | 0.907 | +0.021 | 0.00 | 20.8% |
+| `char.female-dewasa` | 13 | 0.866 | 0.895 | +0.029 | 0.00 | 25.6% |
+| `char.female-dewasa-daster` | 12 | 0.866 | 0.889 | +0.022 | 0.00 | 27.7% |
+| `char.female-lansia` | 12 | 0.866 | 0.891 | +0.024 | 0.00 | 27.1% |
+| `char.male-dewasa-kemeja` | 12 | 0.857 | 0.891 | +0.035 | 0.00 | 26.5% |
+| `char.male-dewasa-polo` | 12 | 0.857 | 0.891 | +0.034 | 0.00 | 26.6% |
+| `char.male-lansia-kemeja` | 12 | 0.857 | 0.893 | +0.036 | 0.00 | 26.4% |
+| `char.male-muda-jaket` | 12 | 0.859 | 0.894 | +0.035 | 0.00 | 26.2% |
+| `char.male-pekerja` | 12 | 0.858 | 0.892 | +0.035 | 0.00 | 26.5% |
+| `char.remaja-laki` | 12 | 0.863 | 0.900 | +0.037 | 0.00 | 25.3% |
+| `char.remaja-perempuan` | 13 | 0.867 | 0.901 | +0.033 | 0.00 | 24.7% |
 | `entity.child` | 7 | 0.857 | 0.857 | +0.000 | 0.00 | 33.6% |
 | `entity.pale-standing` | 7 | 0.839 | 0.839 | +0.000 | 0.00 | 37.5% |
 | `entity.shadow-crouch` | 6 | 0.839 | 0.839 | +0.000 | 0.00 | 38.6% |

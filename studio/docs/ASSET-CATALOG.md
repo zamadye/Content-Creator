@@ -3,7 +3,7 @@
 Jangan edit manual: jalankan `python3 studio-forge/build.py --all`.
 Sumber kebenaran runtime adalah `public/assets/registry.json`.
 
-Total: **60 aset**. Unit meter, +Y atas, aset menghadap +Z.
+Total: **62 aset**. Unit meter, +Y atas, aset menghadap +Z.
 
 ## building
 
@@ -23,6 +23,8 @@ Total: **60 aset**. Unit meter, +Y atas, aset menghadap +Z.
 
 | ID | Judul | Ukuran (m) | Tris | Tekstur | Rig/Klip | Status |
 |----|-------|-----------|------|---------|----------|--------|
+| `char.anak-besar-laki` | Anak besar laki-laki (9–10 tahun) — seragam | 0.754×1.37×0.335 | 41611 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.anak-besar-perempuan` | Anak besar perempuan (9–10 tahun) — seragam | 0.737×1.34×0.328 | 41247 | 3/3 (+39 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.anak-laki` | Anak laki-laki (5–6 tahun) — kaos | 0.617×1.158×0.274 | 42813 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.anak-perempuan` | Anak perempuan (5–6 tahun) — kaos | 0.601×1.128×0.272 | 39637 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.balita-laki` | Balita laki-laki (2–3 tahun) | 0.482×0.946×0.215 | 41099 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |

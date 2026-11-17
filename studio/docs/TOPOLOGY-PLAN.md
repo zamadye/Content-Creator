@@ -88,6 +88,8 @@ tidak cocok dengan isi GLB. `vert` = jumlah POSITION, `prim` = jumlah primitif,
 | `building.house.village` | building | 532 | 1064 | 6 | 6 | 1024 | — | 3000 | 18% |
 | `building.industrial.warehouse` | building | 976 | 1952 | 4 | 4 | 512 | — | 3000 | 33% |
 | `building.shop.warung` | building | 592 | 1124 | 6 | 6 | 1024 | — | 3000 | 20% |
+| `char.anak-besar-laki` | character | 41611 | 23170 | 12 | 12 | 2048 | 163 | 46000 | 90% |
+| `char.anak-besar-perempuan` | character | 41247 | 22895 | 13 | 13 | 2048 | 163 | 46000 | 90% |
 | `char.anak-laki` | character | 42813 | 23800 | 12 | 12 | 2048 | 163 | 46000 | 93% |
 | `char.anak-perempuan` | character | 39637 | 22023 | 12 | 12 | 2048 | 163 | 46000 | 86% |
 | `char.balita-laki` | character | 41099 | 22828 | 12 | 12 | 2048 | 163 | 46000 | 89% |

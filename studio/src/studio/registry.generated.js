@@ -43,7 +43,7 @@ export default {
     ]
    },
    "tris": 41491,
-   "bytes": 3905272,
+   "bytes": 3904484,
    "tags": [
     "human",
     "male",
@@ -138,7 +138,7 @@ export default {
     ]
    },
    "tris": 41707,
-   "bytes": 4059012,
+   "bytes": 4058228,
    "tags": [
     "human",
     "female",
@@ -234,7 +234,7 @@ export default {
     ]
    },
    "tris": 42516,
-   "bytes": 3901252,
+   "bytes": 3901388,
    "tags": [
     "human",
     "male",
@@ -325,7 +325,7 @@ export default {
     ]
    },
    "tris": 42501,
-   "bytes": 3900904,
+   "bytes": 3901656,
    "tags": [
     "human",
     "male",
@@ -416,7 +416,7 @@ export default {
     ]
    },
    "tris": 42222,
-   "bytes": 4035320,
+   "bytes": 4036788,
    "tags": [
     "human",
     "male",
@@ -507,7 +507,7 @@ export default {
     ]
    },
    "tris": 39916,
-   "bytes": 4109020,
+   "bytes": 4109260,
    "tags": [
     "human",
     "female",
@@ -598,7 +598,7 @@ export default {
     ]
    },
    "tris": 41609,
-   "bytes": 3884156,
+   "bytes": 3885144,
    "tags": [
     "human",
     "male",
@@ -689,7 +689,7 @@ export default {
     ]
    },
    "tris": 41509,
-   "bytes": 4043508,
+   "bytes": 4044652,
    "tags": [
     "human",
     "female",
@@ -781,7 +781,7 @@ export default {
     ]
    },
    "tris": 42813,
-   "bytes": 3966548,
+   "bytes": 3968524,
    "tags": [
     "human",
     "male",
@@ -872,7 +872,7 @@ export default {
     ]
    },
    "tris": 39637,
-   "bytes": 3930532,
+   "bytes": 3932896,
    "tags": [
     "human",
     "female",
@@ -963,7 +963,7 @@ export default {
     ]
    },
    "tris": 41099,
-   "bytes": 3867432,
+   "bytes": 3869476,
    "tags": [
     "human",
     "male",
@@ -1054,7 +1054,7 @@ export default {
     ]
    },
    "tris": 39574,
-   "bytes": 3925080,
+   "bytes": 3927748,
    "tags": [
     "human",
     "female",
@@ -1119,6 +1119,189 @@ export default {
    "profile": "balita",
    "outfit": "daster"
   },
+  "char.anak-besar-laki": {
+   "id": "char.anak-besar-laki",
+   "title": "Anak besar laki-laki (9–10 tahun) — seragam",
+   "category": "character",
+   "uri": "assets/characters/char.anak-besar-laki/char.anak-besar-laki.glb",
+   "thumbnail": "assets/characters/char.anak-besar-laki/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.377,
+     -0.006,
+     -0.091
+    ],
+    "max": [
+     0.377,
+     1.365,
+     0.244
+    ],
+    "size": [
+     0.754,
+     1.37,
+     0.335
+    ]
+   },
+   "tris": 41611,
+   "bytes": 3908340,
+   "tags": [
+    "human",
+    "male",
+    "child",
+    "student",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-pants",
+    "cloth-pants-trim",
+    "cloth-shirt-short",
+    "cloth-shirt-short-buttons",
+    "cloth-shirt-short-trim",
+    "cloth-shoes01",
+    "hair",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 36
+   },
+   "profile": "anak-besar",
+   "outfit": "seragam"
+  },
+  "char.anak-besar-perempuan": {
+   "id": "char.anak-besar-perempuan",
+   "title": "Anak besar perempuan (9–10 tahun) — seragam",
+   "category": "character",
+   "uri": "assets/characters/char.anak-besar-perempuan/char.anak-besar-perempuan.glb",
+   "thumbnail": "assets/characters/char.anak-besar-perempuan/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -0.368,
+     -0.006,
+     -0.089
+    ],
+    "max": [
+     0.368,
+     1.335,
+     0.239
+    ],
+    "size": [
+     0.737,
+     1.34,
+     0.328
+    ]
+   },
+   "tris": 41247,
+   "bytes": 4021692,
+   "tags": [
+    "human",
+    "female",
+    "child",
+    "student",
+    "indonesian"
+   ],
+   "license": "Mesh & skeleton: CC0-1.0 (MakeHuman). Tekstur/rig-layer/animasi: proyek ini (CC0-1.0).",
+   "provenance": "public/makehuman/PROVENANCE.md (mesh+skeleton CC0) · tekstur kulit, mata, rambut, klip: dibuat pipeline ini",
+   "notes": "",
+   "rig": {
+    "skeleton": "studio-humanoid-v1",
+    "bones": 163,
+    "clips": [
+     "idle",
+     "walk",
+     "run",
+     "sit",
+     "ride",
+     "stand-up",
+     "talk",
+     "look",
+     "point",
+     "reach",
+     "collapse",
+     "float",
+     "vanish"
+    ],
+    "restFacing": "+Z",
+    "height": null
+   },
+   "anchors": [
+    "anchor.hand.L",
+    "anchor.hand.R",
+    "anchor.foot.L",
+    "anchor.foot.R",
+    "anchor.head",
+    "anchor.eye.L",
+    "anchor.eye.R"
+   ],
+   "materials": [
+    "cloth-pants",
+    "cloth-pants-trim",
+    "cloth-shirt-short",
+    "cloth-shirt-short-buttons",
+    "cloth-shirt-short-trim",
+    "cloth-shoes01",
+    "hair",
+    "hair-long",
+    "iris-L",
+    "iris-R",
+    "sclera-L",
+    "sclera-R",
+    "skin"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 39
+   },
+   "profile": "anak-besar",
+   "outfit": "seragam"
+  },
   "char.male-dewasa-kemeja": {
    "id": "char.male-dewasa-kemeja",
    "title": "Pria dewasa — kemeja (varian outfit)",
@@ -1145,7 +1328,7 @@ export default {
     ]
    },
    "tris": 42505,
-   "bytes": 3922400,
+   "bytes": 3923984,
    "tags": [
     "human",
     "male",
@@ -1236,7 +1419,7 @@ export default {
     ]
    },
    "tris": 40138,
-   "bytes": 3966896,
+   "bytes": 3967348,
    "tags": [
     "human",
     "female",

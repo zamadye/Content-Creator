@@ -11,7 +11,7 @@ public/assets/characters/<asset-id>/
   thumbnail.png       # render 384² (renderer perangkat lunak studio-forge)
 ```
 
-Bukti rupa: `docs/character-lineup.png` (14 tokoh berjejer) dan still WebGL
+Bukti rupa: `docs/character-lineup.png` (16 tokoh berjejer) dan still WebGL
 sungguhan di `docs/webgl-shots/StudioUjiKarakter-f*.png`.
 
 ---
@@ -28,7 +28,7 @@ forge/human.py
   proportion_bones()    # kurva yang sama untuk tulang → animasi tetap benar
 forge/character.py
   WARDROBE              # 6 set pakaian = paket kain + tint
-  SPECS                 # 14 tokoh, satu baris per tokoh
+  SPECS                 # 16 tokoh, satu baris per tokoh
   build(asset_id, spec) # copy base → proporsi → morph → kulit → pakaian → klip
 ```
 
@@ -221,6 +221,16 @@ bukan tulang dominan. Tulang dominan berubah mendadak antar vertex (di bahu:
 `clavicle` → `spine03`); karena radius diukur dari titik itu, kain sobek tepat
 di batas perubahan.
 
+### Ukuran mata mengikuti kepala, bukan tinggi badan
+
+Radius bola mata dulu `0,0116 · (tinggi / 1,70)`, sehingga mata balita hanya
+55 % mata dewasa padahal kepalanya 87 % — wajah anak terbaca sebagai orang
+dewasa yang diperkecil. Sekarang radius memakai **tinggi kepala**
+(`PROFILES[profile][2] · tinggi`), dan rasio iris dinaikkan menurut umur
+(`IRIS_RATIO`: dewasa 0,476 · remaja 0,50 · anak 0,56 · balita 0,60) karena mata
+anak memang beririsan lebih besar. Ini perubahan kecil yang tidak menyentuh
+geometri kepala, jadi tidak menimbulkan jahitan baru.
+
 ### Warna kain jauh dari warna kulit
 
 Daster semula `#e0a1a9` (pink pucat). Di shot lebar, tokoh berbaju itu terbaca
@@ -366,7 +376,7 @@ Bukti: `stories/uji-karakter/story.json` — shot `karakter-04` memakai
 | langkah | waktu |
 |---|---|
 | satu tokoh penuh (2048² kulit, 5 potong kain, 13 klip, thumbnail) | **≈ 28 s** |
-| 14 tokoh sekaligus | **≈ 6,5 menit** (391 s terukur) |
+| 16 tokoh sekaligus | **≈ 8,3 menit** (499 s terukur) |
 | ukuran per tokoh | 3,9–4,2 MB (27–30 tekstur), 14.700–16.500 tris |
 
 Tidak ada bake high→low per tokoh, tidak ada rigging ulang: animasi dibuat

@@ -29,6 +29,18 @@
   "mean": 0.9753,
   "min": 0.6314
  },
+ "char.anak-besar-laki": {
+  "dark": 0.2376,
+  "materials": 12,
+  "mean": 0.9053,
+  "min": 0.0
+ },
+ "char.anak-besar-perempuan": {
+  "dark": 0.2329,
+  "materials": 13,
+  "mean": 0.9046,
+  "min": 0.0
+ },
  "char.anak-laki": {
   "dark": 0.2829,
   "materials": 9,

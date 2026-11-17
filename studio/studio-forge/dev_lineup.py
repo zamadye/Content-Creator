@@ -39,6 +39,8 @@ ORDER = [
     "char.female-lansia",
     "char.remaja-laki",
     "char.remaja-perempuan",
+    "char.anak-besar-laki",
+    "char.anak-besar-perempuan",
     "char.anak-laki",
     "char.anak-perempuan",
     "char.balita-laki",

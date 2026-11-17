@@ -48,6 +48,17 @@ def darker(color: str, factor: float) -> str:
     return "#%02x%02x%02x" % (int(r * factor), int(g * factor), int(b * factor))
 
 
+# Rasio diameter iris / diameter bola mata menurut profil umur.
+IRIS_RATIO = {
+    "dewasa": 0.476,
+    "lansia": 0.470,
+    "remaja": 0.500,
+    "anak": 0.560,
+    "anak-besar": 0.535,
+    "balita": 0.600,
+}
+
+
 def _char(title, tags, profile, height, shape_, skin, hair, outfit, **kw):
     """Satu baris per tokoh: profil umur + tinggi + bentuk + kulit + rambut + outfit."""
     spec = {
@@ -139,6 +150,22 @@ SPECS = {
         dict(_CHILD_SHAPE, belly=0.45, hip=0.15, shoulder=-0.62, jaw_w=-0.6, cheek=0.65, lip_full=0.5),
         dict(tone="#d0a27c", red="#b76552", lip="#aa6058", age=0.05, sex="female", stubble=0.0, seed=93),
         dict(style="twin-tails", color="#160f0d", thickness=0.030, long=0.45), "daster"),
+    # ------------------------------------------------------------ anak besar
+    # Profil "anak-besar" (8–12 th) sudah ada di PROFILES sejak awal tetapi belum
+    # ada tokohnya, jadi katalog punya lubang di antara balita dan remaja.
+    "char.anak-besar-laki": _char(
+        "Anak besar laki-laki (9–10 tahun) — seragam", ["human", "male", "child", "student", "indonesian"],
+        "anak-besar", 1.36,
+        dict(_CHILD_SHAPE, belly=0.1, shoulder=-0.2, chest=-0.1, limb=-0.1, cheek=0.2, jaw_w=-0.3),
+        dict(tone="#c39066", red="#b3604d", lip="#935049", age=0.1, sex="male", stubble=0.0, seed=85),
+        dict(style="fringe", color="#120f0d", thickness=0.033, long=0.0), "seragam"),
+    "char.anak-besar-perempuan": _char(
+        "Anak besar perempuan (9–10 tahun) — seragam", ["human", "female", "child", "student", "indonesian"],
+        "anak-besar", 1.33,
+        dict(_CHILD_SHAPE, belly=0.05, shoulder=-0.45, jaw_w=-0.5, cheek=0.4, lip_full=0.3),
+        dict(tone="#c99b76", red="#b4624f", lip="#a55a53", age=0.1, sex="female", stubble=0.0, seed=87),
+        dict(style="twin-tails", color="#150f0d", thickness=0.034, long=0.7), "seragam"),
+
     # --------------------------------------------------- varian pakaian (buktikan swap)
     "char.male-dewasa-kemeja": _char(
         "Pria dewasa — kemeja (varian outfit)", ["human", "male", "adult", "variant"], "dewasa", 1.72,
@@ -490,7 +517,12 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     for side in ("L", "R"):
         bone = bones[name_to_i[human.EYE_BONE[side]]]
         c = np.asarray(bone["p"], F)
-        R = 0.0116 * (spec["height"] / 1.70)
+        # Radius bola mata mengikuti **ukuran kepala**, bukan tinggi badan.
+        # Dengan `height/1.70`, mata balita hanya 55 % mata dewasa (kepalanya
+        # 87 %), sehingga wajah anak terbaca sebagai orang dewasa yang
+        # diperkecil. Rasio kepala = PROFILES[profile][2] · tinggi.
+        head_m = profile[2] * spec["height"]
+        R = 0.0116 * (head_m / (0.152 * 1.73))
         c = c + np.array([0, 0, -0.0065], F)
         verts, uvs, iix = _sphere(c, R, 24, 16)
         parts.append(
@@ -510,7 +542,9 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
                 ),
             }
         )
-        iris_r = R * 0.476
+        # Iris anak relatif lebih besar terhadap bola mata (mata bayi ~60 %,
+        # dewasa ~48 %). Ini yang membuat wajah anak terasa anak, bukan miniatur.
+        iris_r = R * IRIS_RATIO.get(spec.get("profile", "dewasa"), 0.476)
         dv, duv2, dix = _dome(c, R * 1.004, iris_r, 28, 5)
         parts.append(
             {

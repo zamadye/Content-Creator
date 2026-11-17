@@ -51,7 +51,7 @@ STUDIO_COMPOSITION=StudioCeritaBaru npm run render:studio:h264
 
 | kelas | lokasi | siapa yang membuat | aturan |
 |---|---|---|---|
-| **katalog** `char.*`, `entity.*`, `road.*`, `nature.*`, `building.*`, `prop.*`, `vehicle.*` | `public/assets/` + `registry.json` | pipeline sendiri (`studio-forge/`) | 60 aset (14 tokoh), anggaran poligon + QC UV/topologi/tekstur ditegakkan |
+| **katalog** `char.*`, `entity.*`, `road.*`, `nature.*`, `building.*`, `prop.*`, `vehicle.*` | `public/assets/` + `registry.json` | pipeline sendiri (`studio-forge/`) | 62 aset (16 tokoh), anggaran poligon + QC UV/topologi/tekstur ditegakkan |
 | **pustaka** `kenney.<kit>.<nama>` | `public/library/` + `index.json` | pihak ketiga, CC0-1.0 | 102 properti, tidak ikut anggaran katalog |
 
 Keputusan yang disengaja: **karakter selalu buatan sendiri** (itu identitas

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@content-studio/db": "workspace:*",
+    "@content-studio/storage": "workspace:*",
     "@fastify/secure-session": "8.4.2",
     "fastify": "5.12.8",
     "openid-client": "6.9.0",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "22.19.11",
+    "@types/pg": "8.23.1",
     "tsx": "4.20.6",
     "typescript": "5.9.3"
   }

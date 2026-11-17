@@ -17,6 +17,9 @@ importers:
       '@content-studio/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@content-studio/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
       '@fastify/secure-session':
         specifier: 8.4.2
         version: 8.4.2(bare-events@2.9.2)
@@ -33,6 +36,9 @@ importers:
       '@types/node':
         specifier: 22.19.11
         version: 22.19.11
+      '@types/pg':
+        specifier: 8.23.1
+        version: 8.23.1
       tsx:
         specifier: 4.20.6
         version: 4.20.6

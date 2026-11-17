@@ -50,6 +50,23 @@ function fakeJobs() {
   };
 }
 
+function fakeUploads() {
+  const calls: Array<{ action: string; input: Record<string, unknown> }> = [];
+  return {
+    calls,
+    service: {
+      async createIntent(input: { subject: string; projectId: string; mime: string; bytes: number }) {
+        calls.push({ action: "intent", input });
+        return { intentId: "77777777-7777-4777-8777-777777777777", uploadUrl: "https://storage.example.test/signed", mime: input.mime, maxBytes: 1024, expiresInSeconds: 300 };
+      },
+      async complete(input: { subject: string; projectId: string; intentId: string; mime: string; bytes: number }) {
+        calls.push({ action: "complete", input });
+        return { assetId: "88888888-8888-4888-8888-888888888888", projectId: input.projectId, storageKey: `${input.projectId}/ab/${"ab".repeat(32)}`, sha256: "ab".repeat(32), bytes: input.bytes, mime: input.mime };
+      },
+    },
+  };
+}
+
 async function addTestIdentity(app: Awaited<ReturnType<typeof createApp>>) {
   app.addHook("preHandler", async (request) => {
     (request.session as unknown as { set(key: string, value: unknown): void }).set("user", user);

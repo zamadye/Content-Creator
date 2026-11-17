@@ -23,11 +23,11 @@ The API starts only with `DATABASE_URL`, `SESSION_KEY_HEX`, `STUDIO_OWNER_SUBJEC
 
 - `/` — API-connected login/session/project list/create shell (real database/OIDC acceptance still requires configured services).
 - `/settings` — read-only service readiness and configuration guidance; provider secret write-only settings are not implemented.
-- API health `/health/live`, `/health/ready`; auth `/auth/login`, `/auth/callback`, `/auth/session`, `/auth/logout`; projects `GET/POST /api/projects`; jobs `POST /api/projects/:projectId/jobs` (allowlisted `system.health-check` fixture only) and `POST /api/jobs/:jobId/cancel`.
+- API health `/health/live`, `/health/ready`; auth `/auth/login`, `/auth/callback`, `/auth/session`, `/auth/logout`; projects `GET/POST /api/projects` and `PATCH /api/projects/:projectId`; jobs `POST /api/projects/:projectId/jobs` (allowlisted `system.health-check` fixture only) and `POST /api/jobs/:jobId/cancel`. When `STORAGE_DRIVER=s3` and its required S3 settings are configured, upload routes are `POST /api/projects/:projectId/uploads` (signed intent), `POST /api/projects/:projectId/uploads/:intentId/complete` (verify and persist metadata), and `POST /api/projects/:projectId/assets/:assetId/download` (120-second signed URL after project-membership check).
 
 ## Known limits
 
 - No UI E2E/browser run, real OIDC provider test, live PostgreSQL migration test, or Redis worker test has been performed here.
 - Project API tests use an injected fake repository. The SQL repository and schema were typechecked but not executed against PostgreSQL.
-- Jobs/outbox now have transactional enqueue + idempotency, BullMQ outbox dispatch, a worker with heartbeat/state/attempt records, cooperative DB cancellation, retry/backoff, and a health-check fixture handler. These operations have unit/injection tests only, not Redis/Postgres recovery tests. Upload intent/completion, signed URLs, S3 adapter, and provider settings UI do not exist.
+- Jobs/outbox now have transactional enqueue + idempotency, BullMQ outbox dispatch, a worker with heartbeat/state/attempt records, cooperative DB cancellation, retry/backoff, and a health-check fixture handler. These operations have unit/injection tests only, not Redis/Postgres recovery tests. S3 signed upload intent/completion routes now enforce session, CSRF origin, strict MIME/size and project membership at the service boundary; they are not live-service tested, and provider settings UI does not exist.
 - For production, use HTTPS, an owner-controlled OIDC provider, durable private storage and independently managed Postgres/Redis. Do not expose the development Compose ports publicly.

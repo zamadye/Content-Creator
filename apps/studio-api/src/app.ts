@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import secureSession from "@fastify/secure-session";
 import { z } from "zod";
 import { AccessDeniedError, RevisionConflictError, type JobRecord, type ProjectRepository } from "@content-studio/db";
+import type { UploadIntent } from "@content-studio/storage";
 import {
   authorizationCodeGrant,
   buildAuthorizationUrl,
@@ -31,12 +32,28 @@ export type JobService = {
   cancel(input: { subject: string; jobId: string }): Promise<boolean>;
 };
 
+export type UploadAssetSummary = {
+  assetId: string;
+  projectId: string;
+  storageKey: string;
+  sha256: string;
+  bytes: number;
+  mime: string;
+};
+
+export type UploadService = {
+  createIntent(input: { subject: string; projectId: string; mime: string; bytes: number }): Promise<UploadIntent>;
+  complete(input: { subject: string; projectId: string; intentId: string; mime: string; bytes: number }): Promise<UploadAssetSummary>;
+  createDownloadUrl(input: { subject: string; projectId: string; assetId: string }): Promise<{ url: string; expiresInSeconds: number }>;
+};
+
 export type AppOptions = {
   sessionKey: Buffer;
   oidc?: OidcSettings | undefined;
   production?: boolean;
   projects?: ProjectRepository;
   jobs?: JobService;
+  uploads?: UploadService;
   checkDatabase?: () => Promise<void>;
   allowedWebOrigin?: string;
 };
@@ -195,6 +212,61 @@ export async function createApp(options: AppOptions): Promise<FastifyInstance> {
       if (error instanceof AccessDeniedError) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Proyek atau workspace tidak ditemukan."));
       if (error instanceof RevisionConflictError) return reply.code(409).send(errorBody(request.id, "REVISION_CONFLICT", "Proyek berubah. Muat ulang sebelum menyimpan."));
       return reply.code(503).send(errorBody(request.id, "PROJECT_UPDATE_FAILED", "Perubahan proyek belum dapat disimpan.", true));
+    }
+  });
+
+  const uploadMime = z.enum(["audio/wav", "audio/x-wav", "audio/mpeg", "audio/mp4", "image/png", "image/jpeg", "image/webp"]);
+  const uploadBytes = z.number().int().positive().max(512 * 1024 * 1024);
+
+  app.post("/api/projects/:projectId/uploads", async (request, reply) => {
+    if (!originAllowed(request.headers.origin)) return reply.code(403).send(errorBody(request.id, "CSRF_REJECTED", "Asal permintaan tidak diizinkan."));
+    const user = (request.session as SessionAccess).get("user") as AuthUser | undefined;
+    if (!user) return reply.code(401).send(errorBody(request.id, "UNAUTHENTICATED", "Silakan masuk untuk mengunggah aset."));
+    if (!options.uploads) return reply.code(503).send(errorBody(request.id, "STORAGE_NOT_CONFIGURED", "Penyimpanan upload belum siap.", true));
+    const params = z.strictObject({ projectId: z.string().uuid() }).safeParse(request.params);
+    const body = z.strictObject({ mime: uploadMime, bytes: uploadBytes }).safeParse(request.body);
+    if (!params.success || !body.success) return reply.code(422).send(errorBody(request.id, "VALIDATION_ERROR", "Jenis media atau ukuran berkas tidak valid."));
+    try {
+      const intent = await options.uploads.createIntent({ subject: `${user.issuer}|${user.subject}`, projectId: params.data.projectId, mime: body.data.mime, bytes: body.data.bytes });
+      return reply.code(201).header("cache-control", "no-store").send({ upload: intent });
+    } catch (error) {
+      if (error instanceof AccessDeniedError) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Proyek atau workspace tidak ditemukan."));
+      if (error instanceof TypeError || error instanceof RangeError) return reply.code(422).send(errorBody(request.id, "UPLOAD_REJECTED", "Jenis atau ukuran upload tidak diizinkan."));
+      return reply.code(503).send(errorBody(request.id, "UPLOAD_UNAVAILABLE", "Upload belum dapat dimulai.", true));
+    }
+  });
+
+  app.post("/api/projects/:projectId/uploads/:intentId/complete", async (request, reply) => {
+    if (!originAllowed(request.headers.origin)) return reply.code(403).send(errorBody(request.id, "CSRF_REJECTED", "Asal permintaan tidak diizinkan."));
+    const user = (request.session as SessionAccess).get("user") as AuthUser | undefined;
+    if (!user) return reply.code(401).send(errorBody(request.id, "UNAUTHENTICATED", "Silakan masuk untuk menyelesaikan upload."));
+    if (!options.uploads) return reply.code(503).send(errorBody(request.id, "STORAGE_NOT_CONFIGURED", "Penyimpanan upload belum siap.", true));
+    const params = z.strictObject({ projectId: z.string().uuid(), intentId: z.string().uuid() }).safeParse(request.params);
+    const body = z.strictObject({ mime: uploadMime, bytes: uploadBytes }).safeParse(request.body);
+    if (!params.success || !body.success) return reply.code(422).send(errorBody(request.id, "VALIDATION_ERROR", "Upload atau metadata berkas tidak valid."));
+    try {
+      const asset = await options.uploads.complete({ subject: `${user.issuer}|${user.subject}`, projectId: params.data.projectId, intentId: params.data.intentId, mime: body.data.mime, bytes: body.data.bytes });
+      return reply.code(201).header("cache-control", "no-store").send({ asset });
+    } catch (error) {
+      if (error instanceof AccessDeniedError) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Proyek atau workspace tidak ditemukan."));
+      if (error instanceof TypeError || error instanceof RangeError) return reply.code(422).send(errorBody(request.id, "UPLOAD_REJECTED", "Jenis atau ukuran upload tidak diizinkan."));
+      return reply.code(503).send(errorBody(request.id, "UPLOAD_COMPLETE_FAILED", "Upload belum dapat diselesaikan.", true));
+    }
+  });
+
+  app.post("/api/projects/:projectId/assets/:assetId/download", async (request, reply) => {
+    if (!originAllowed(request.headers.origin)) return reply.code(403).send(errorBody(request.id, "CSRF_REJECTED", "Asal permintaan tidak diizinkan."));
+    const user = (request.session as SessionAccess).get("user") as AuthUser | undefined;
+    if (!user) return reply.code(401).send(errorBody(request.id, "UNAUTHENTICATED", "Silakan masuk untuk mengunduh aset."));
+    if (!options.uploads) return reply.code(503).send(errorBody(request.id, "STORAGE_NOT_CONFIGURED", "Penyimpanan aset belum siap.", true));
+    const params = z.strictObject({ projectId: z.string().uuid(), assetId: z.string().uuid() }).safeParse(request.params);
+    if (!params.success) return reply.code(422).send(errorBody(request.id, "VALIDATION_ERROR", "ID proyek atau aset tidak valid."));
+    try {
+      const download = await options.uploads.createDownloadUrl({ subject: `${user.issuer}|${user.subject}`, projectId: params.data.projectId, assetId: params.data.assetId });
+      return reply.header("cache-control", "no-store").send({ download });
+    } catch (error) {
+      if (error instanceof AccessDeniedError) return reply.code(404).send(errorBody(request.id, "NOT_FOUND", "Aset atau workspace tidak ditemukan."));
+      return reply.code(503).send(errorBody(request.id, "DOWNLOAD_UNAVAILABLE", "Tautan unduh belum dapat dibuat.", true));
     }
   });
 

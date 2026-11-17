@@ -1,5 +1,7 @@
 import { cancelJob, createPostgresPool, enqueueJob, PostgresProjectRepository, bootstrapOwnerWorkspace } from "@content-studio/db";
+import { S3CompatiblePrivateStorage } from "@content-studio/storage";
 import { createApp, type OidcSettings } from "./app.js";
+import { createPostgresUploadService } from "./uploads.js";
 
 function required(name: string): string {
   const value = process.env[name]?.trim();
@@ -38,12 +40,29 @@ const workspaceName = process.env.STUDIO_WORKSPACE_NAME?.trim() || "Studio priba
 const pool = createPostgresPool(databaseUrl);
 await bootstrapOwnerWorkspace(pool, { workspaceId, workspaceName, ownerSubject });
 const projects = new PostgresProjectRepository(pool);
+const storageDriver = (process.env.STORAGE_DRIVER ?? "local").trim().toLowerCase();
+if (storageDriver !== "local" && storageDriver !== "s3") throw new Error("STORAGE_DRIVER must be local or s3");
+let uploads: ReturnType<typeof createPostgresUploadService> | undefined;
+if (storageDriver === "s3") {
+  const maxBytes = Number(process.env.STORAGE_MAX_BYTES ?? 512 * 1024 * 1024);
+  if (!Number.isSafeInteger(maxBytes) || maxBytes <= 0) throw new Error("STORAGE_MAX_BYTES must be a positive integer");
+  const storage = new S3CompatiblePrivateStorage({
+    bucket: required("S3_BUCKET"),
+    region: required("S3_REGION"),
+    endpoint: required("S3_ENDPOINT"),
+    accessKeyId: required("S3_ACCESS_KEY_ID"),
+    secretAccessKey: required("S3_SECRET_ACCESS_KEY"),
+    maxBytes,
+  });
+  uploads = createPostgresUploadService(pool, storage);
+}
 const app = await createApp({
   sessionKey: Buffer.from(keyHex, "hex"),
   oidc,
   production,
   allowedWebOrigin: parsedWebUrl.origin,
   projects,
+  ...(uploads ? { uploads } : {}),
   jobs: {
     enqueue: (input) => enqueueJob(pool, input),
     cancel: (input) => cancelJob(pool, input),

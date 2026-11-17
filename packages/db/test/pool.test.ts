@@ -8,7 +8,8 @@ test("Supabase PostgreSQL URLs must require TLS", () => {
   assert.throws(() => postgresPoolConfig(`${base}?sslmode=disable`), /sslmode=require/);
   for (const mode of ["require", "verify-ca", "verify-full"]) {
     const config = postgresPoolConfig(`${base}?sslmode=${mode}`);
-    assert.equal(config.connectionString, `${base}?sslmode=${mode}`);
+    assert.equal(config.connectionString, base);
+    assert.deepEqual(config.ssl, { rejectUnauthorized: true });
     assert.equal(config.max, 5);
   }
 });

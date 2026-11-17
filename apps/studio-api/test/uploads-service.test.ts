@@ -16,14 +16,22 @@ const object = {
 
 test("upload service scopes signed intents and persisted assets through project membership", async () => {
   const statements: Array<{ sql: string; values?: unknown[] }> = [];
+  const client = {
+    async query(sql: string, values?: unknown[]) {
+      statements.push({ sql, values });
+      if (sql.includes("INSERT INTO \"Asset\"")) return { rows: [{ id: "88888888-8888-4888-8888-888888888888", projectId }], rowCount: 1 };
+      return { rows: [], rowCount: 1 };
+    },
+    release() {},
+  };
   const pool = {
     async query(sql: string, values?: unknown[]) {
       statements.push({ sql, values });
       if (sql.includes("SELECT p.\"workspaceId\"")) return { rows: [{ workspaceId }], rowCount: 1 };
       if (sql.includes("SELECT a.\"workspaceId\"")) return { rows: [{ workspaceId, storageKey: object.storageKey }], rowCount: 1 };
-      if (sql.includes("INSERT INTO \"Asset\"")) return { rows: [{ id: "88888888-8888-4888-8888-888888888888", projectId }], rowCount: 1 };
       throw new Error("unexpected SQL");
     },
+    async connect() { return client; },
   } as unknown as Pool;
   const storageCalls: Array<{ method: string; input: Record<string, unknown> }> = [];
   const storage = {
@@ -52,7 +60,9 @@ test("upload service scopes signed intents and persisted assets through project 
   assert.equal(storageCalls[0]!.input.workspaceId, workspaceId);
   assert.equal(storageCalls[2]!.input.storageKey, object.storageKey);
   assert.deepEqual(statements[0]!.values, [projectId, subject]);
-  assert.deepEqual(statements[2]!.values?.slice(1, 4), [projectId, subject, "audio"]);
+  const assetInsert = statements.find((statement) => statement.sql.includes('INSERT INTO "Asset"'));
+  assert.deepEqual(assetInsert?.values?.slice(1, 4), [projectId, subject, "audio"]);
+  assert.ok(statements.some((statement) => statement.sql.includes('INSERT INTO "AuditEvent"')));
 });
 
 test("upload service conceals projects outside the caller workspace before contacting storage", async () => {

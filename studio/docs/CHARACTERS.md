@@ -97,7 +97,7 @@ WARDROBE = {
   "kemeja-kasual":{"cloth": [("shirt-long",  "#46536b"), ("pants", "#37414f")], "shoes": "shoes01"},
   "jaket":        {"cloth": [("shirt-long",  "#2f343d"), ("pants", "#262a31")], "shoes": "shoes01"},
   "seragam":      {"cloth": [("shirt-short", "#93b8e6"), ("pants", "#5d7ea8")], "shoes": "shoes01"},
-  "daster":       {"cloth": [("tunic",       "#e0a1a9"), ("shorts", "#e0a1a9")], "shoes": "shoes01"},
+  "daster":       {"cloth": [("tunic",       "#bf5a72"), ("shorts", "#b0546a")], "shoes": "shoes01"},
   "kerja":        {"cloth": [("shirt-long",  "#6f7a5b"), ("pants", "#414a3a")], "shoes": "shoes01"},
 }
 ```
@@ -112,7 +112,7 @@ kelim:
 |---|---|---|---|
 | `shirt-short` | torso sampai lengan atas (manset 1,45 unit dari sendi bahu) | 2,0 cm | +1,0 cm |
 | `shirt-long` | torso + lengan sampai pergelangan (3,3 unit) | 2,0 cm | +0,9 cm |
-| `tunic` | torso diperpanjang sampai pertengahan paha | 2,2 cm | +2,1 cm |
+| `tunic` | torso diperpanjang sampai pertengahan paha, lengan sampai siku (2,4 unit) | 2,2 cm | +2,1 cm |
 | `pants` | pinggang sampai mata kaki | 1,6 cm | +1,1 cm |
 | `shorts` | pinggang sampai pertengahan paha | 1,7 cm | +1,1 cm |
 
@@ -163,9 +163,15 @@ sehingga garis potongnya bersih dan hasilnya kerah crew-neck yang rata. Pelajara
 umumnya: pilih bidang potong yang memotong permukaan **melintang**, bukan yang
 menyinggungnya.
 
-Kendala jarak **hanya** berlaku untuk vertex bertulang lengan (daftar awalan
-mencakup `metacarpal` dan `wrist`): kalau diterapkan ke semua vertex, dada yang
-hanya 1,7 unit dari bahu ikut terpotong.
+Kendala jarak lengan diterapkan **terbobot**: bobot skin pada tulang lengan
+(0 = badan, 1 = lengan penuh) dipakai sebagai pengali, dan sisa bobotnya
+memakai nilai besar (kendala tidak aktif). Daftar awalan tulang lengan mencakup
+`metacarpal` dan `wrist`.
+
+Dulu dipakai mask biner "tulang dominan lengan atau bukan". Nilai bidang potong
+melompat di batas lengan↔bahu, dan lompatan itu menjadi garis potong yang tidak
+menerus — terlihat sebagai **sobekan di jahitan bahu**, paling parah di daster
+yang memakai dua kendala sekaligus (`sleeve` + `reach`).
 
 **Kelim harus lurus.** Offset kain diarahkan radial dari tulang dominan, jadi
 arahnya punya komponen `y`. Komponen itu membuat vertex tepat di bawah garis
@@ -192,10 +198,35 @@ posisi saja: vertex di jahitan UV punya posisi sama tetapi UV berbeda, dan
 melekatkannya membuat segitiga melompati seluruh atlas (tumpang tindih UV
 13 % → 22 %).
 
+### Relaksasi: kain tidak mencetak badan
+
+Offset saja tetap membuat kain mengikuti tonjolan badan (dada, pusar, bokong,
+tempurung lutut). Setelah didorong keluar, permukaan kain **dihaluskan**
+(Laplacian tangensial, 4 putaran, bobot 0,45) lalu tiap vertex ditarik kembali
+keluar sepanjang arah offset semula sampai jaraknya ke badan ≥ **1,1 cm**
+(`min_clear`). Hasilnya siluet rata tanpa kain menembus badan.
+
+Dua jebakan yang sempat dicoba dan ditolak:
+
+* **meratakan radius dari sumbu tulang** (radius per vertex dihaluskan lalu
+  dipakai ulang) — permukaan jadi bergelombang seperti lilin meleleh, karena
+  sumbu acuan tiap vertex berbeda (tulang berbeda);
+* **menghaluskan posisi tanpa lantai** — kain menyusut dan badan menembus.
+
+Vertex di tepi potong (kelim, kerah, manset) dikecualikan dari penghalusan dan
+dikembalikan persis ke posisi hasil offset, supaya garis tepinya tetap lurus.
+
 Titik acuan offset = posisi tulang **terbobot** (`Σ bobot skin × posisi tulang`),
 bukan tulang dominan. Tulang dominan berubah mendadak antar vertex (di bahu:
 `clavicle` → `spine03`); karena radius diukur dari titik itu, kain sobek tepat
 di batas perubahan.
+
+### Warna kain jauh dari warna kulit
+
+Daster semula `#e0a1a9` (pink pucat). Di shot lebar, tokoh berbaju itu terbaca
+**seperti telanjang** karena warnanya nyaris sama dengan kulit dan siluetnya
+ketat. Sekarang `#bf5a72`/`#b0546a` (rose tua) dan lengannya sampai siku
+(`sleeve` 2,40), jadi jelas memakai baju tanpa perlu mengubah bentuk.
 
 ### Kerah dan kancing
 
@@ -267,12 +298,12 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
 
 ## 5. Cacat yang masih terbuka (jujur)
 
-1. **Siluet masih ketat.** Kain mengikuti badan dengan kelonggaran 1,6–2,2 cm
-   (dari 1,0–1,5 cm), jadi kemeja masih mencetak bentuk dada dan pinggang walau
-   sudah tidak seperti spandeks. Kain yang benar-benar longgar butuh permukaan
-   kain tersendiri (loft/simulasi), bukan offset dari badan. Percobaan 3 cm +
-   flare 1,2 cm membuat bahu berlubang (manset terangkat dari lengan) dan
-   kerah terlihat lepas, jadi 2 cm dipilih sebagai titik seimbang.
+1. **Siluet masih ketat.** Setelah relaksasi, relief badan sudah tidak tercetak
+   (dada/pusar tinggal bayangan tipis), tapi kain tetap menempel dengan
+   kelonggaran 1,1–2,2 cm. Kain yang benar-benar longgar butuh permukaan kain
+   tersendiri (pola potong + loft/simulasi), bukan deformasi badan. Percobaan
+   3 cm + flare 1,2 cm membuat bahu berlubang (manset terangkat dari lengan),
+   jadi 2 cm dipilih sebagai titik seimbang.
 2. **Jahitan garis & saku belum ada.** Kerah dan kancing sudah ada (lihat §3),
    tetapi belum ada jahitan garis, saku, atau kancing manset. Kelim dan manset
    pemilik lengan masih berupa tepi potongan (lurus, tanpa ketebalan).

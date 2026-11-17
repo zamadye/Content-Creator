@@ -9,8 +9,8 @@ Terakhir diperbarui: sesi build ini. Angka diambil langsung dari
 | | |
 |---|---|
 | Aset | **60** GLB + 60 thumbnail + registry + galeri HTML + pustaka 102 properti |
-| Ukuran | **± 88,4 MB** (character 55,8 MB · entity 15,5 MB · building 6,0 MB · prop 4,1 MB · road 3,4 MB · nature 2,9 MB · vehicle 0,7 MB) |
-| Geometri | ± 758.100 tris total |
+| Ukuran | **± 88,4 MB** (character 55,9 MB · entity 15,5 MB · building 6,0 MB · prop 4,1 MB · road 3,4 MB · nature 2,9 MB · vehicle 0,7 MB) |
+| Geometri | ± 760.100 tris total |
 | Rig | 163 tulang, 13 klip, 30 fps, `inverseBindMatrices` per klip |
 | Status | 52 `review`, 8 `draft` |
 | Kontrak | `studio.registry/2`, `studio.story/2`, `studio-humanoid-v1` |
@@ -32,12 +32,14 @@ rambut, dan outfit. Semuanya memakai 163 tulang & 13 klip yang sama.
   ke arah kelim; kelim, manset, dan kerah lurus (komponen `y` offset dimatikan
   berangsur di dekat batas potong); normal kain memakai normal badan sehingga
   tepi tidak tampil sebagai gigi hitam. Ada kerah (pita lipatan 1 cm) dan
-  kancing (polo 3, kemeja 9) dengan bahan 30 % lebih tua.
+  kancing (polo 3, kemeja 9) dengan bahan 30 % lebih tua. Permukaan kain
+  direlaksasi (Laplacian + lantai 1,1 cm dari badan), jadi tonjolan badan tidak
+  tercetak di kain.
 * Proporsi umur dijaga kurva pita (kepala/torso/kaki), bukan skala seragam:
   balita 0,95 m dengan rasio kepala 0,245 (dewasa 0,152).
 * Kamera preset ikut tinggi aktor (dada 0,67 H, mata 0,94 H), jadi bocil tidak
   lagi dibidik di atas kepalanya.
-* Biaya: ≈ 32 s per tokoh, 14 tokoh ≈ 8 menit (448 s terukur).
+* Biaya: ≈ 32 s per tokoh, 14 tokoh ≈ 8 menit (456 s terukur).
 * Bukti rupa: `docs/character-lineup.png` (dibuat ulang dengan
   `studio-forge/dev_lineup.py`, membaca GLB yang ada), `docs/webgl-shots/StudioUjiKarakter-f*.png`,
   cerita `stories/uji-karakter/story.json` (6 shot, dua kostum untuk tokoh sama).
@@ -318,7 +320,7 @@ Isinya dipakai — bukan pajangan:
 `npm run qc-topology` (`scripts/qc-topology.mjs`) memeriksa tiga hal sekaligus:
 tidak ada aset melewati anggaran, jumlah tri di GLB **sama** dengan registry, dan
 tabel di dokumen tidak basi (`--write` untuk menyegarkan). Hasil sekarang:
-60 aset, 0 pelanggaran; pemakaian tertinggi `char.anak-laki` 44.509 tri =
+60 aset, 0 pelanggaran; pemakaian tertinggi `char.anak-laki` 44.721 tri =
 **97 %** dari anggaran karakter 46.000; shot terberat `warung-malam/duduk-02` 79.044 tri = **66 %** anggaran.
 
 Grup tes `topology` di `npm run test:studio` juga membuktikan pagarnya **bisa

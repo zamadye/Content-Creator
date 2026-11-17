@@ -29,7 +29,9 @@ WARDROBE = {
     "kemeja-kasual": {"cloth": [("shirt-long", "#46536b"), ("pants", "#37414f")], "shoes": "shoes01"},
     "jaket": {"cloth": [("shirt-long", "#2f343d"), ("pants", "#262a31")], "shoes": "shoes01"},
     "seragam": {"cloth": [("shirt-short", "#93b8e6"), ("pants", "#5d7ea8")], "shoes": "shoes01"},
-    "daster": {"cloth": [("tunic", "#e0a1a9"), ("shorts", "#e0a1a9")], "shoes": "shoes01"},
+    # Warna daster sengaja jauh dari warna kulit: dengan #e0a1a9 (pink pucat)
+    # tokoh terbaca seperti telanjang di shot lebar, bukan memakai baju.
+    "daster": {"cloth": [("tunic", "#bf5a72"), ("shorts", "#b0546a")], "shoes": "shoes01"},
     "kerja": {"cloth": [("shirt-long", "#6f7a5b"), ("pants", "#414a3a")], "shoes": "shoes01"},
 }
 

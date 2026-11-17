@@ -293,7 +293,7 @@ PIECES = {
     ),
     "tunic": dict(
         y=(-2.05, 6.20), exclude=("hand", "finger", "thumb", "head", "jaw", "eye", "toe", "foot", "lowerleg"),
-        sleeve=1.45, reach=1.95, offset=0.210, flare=0.200,
+        sleeve=2.40, reach=1.95, offset=0.210, flare=0.200,
     ),
     "pants": dict(
         y=(-7.00, 1.74), exclude=("hand", "finger", "thumb", "head", "jaw", "eye"), sleeve=0.0,
@@ -387,51 +387,75 @@ def slice_by_field(P, idx, uv, skin_index, skin_weight, field, N=None):
     )
 
 
-def _cloth_field(b, P, first_bone, piece):
+def _adjacency(tris, n):
+    """Sisi dua arah + derajat tiap vertex, untuk operasi halus di mesh kain."""
+    e = np.concatenate([tris[:, [0, 1]], tris[:, [1, 2]], tris[:, [2, 0]]])
+    e = np.concatenate([e, e[:, ::-1]])
+    deg = np.maximum(np.bincount(e[:, 0], minlength=n).astype(F), 1.0)
+    return e, deg
+
+
+def _tangential(pos, e, deg):
+    """Rata-rata tetangga dikurangi posisi sendiri (Laplacian di permukaan)."""
+    out = np.empty_like(pos)
+    for k in range(3):
+        acc = np.bincount(e[:, 0], weights=pos[e[:, 1], k], minlength=len(pos))
+        out[:, k] = acc / deg - pos[:, k]
+    return out
+
+
+def _cloth_field(b, P, si, sw, piece):
     """Nilai bidang potong untuk sembarang titik (positif = dipertahankan).
 
     Dipakai dua kali: sekali untuk memotong mesh badan, sekali lagi untuk
     mengukur jarak tiap vertex kain ke batas potong (lihat `margin` di
     `body_cloth`). Satu fungsi supaya kedua pemakaian tidak pernah berbeda.
+
+    "Ini vertex lengan atau bukan" dihitung dari **bobot skin**, bukan dari
+    tulang dominan. Mask biner membuat nilai bidang melompat di batas lengan↔bahu;
+    lompatan itu menjadi garis potong yang tidak menerus, dan hasilnya terlihat
+    sebagai sobekan di jahitan bahu (paling parah di daster yang memakai dua
+    kendala sekaligus).
     """
     lo, hi = piece["y"]
     y = P[:, 1]
     field = np.minimum(y - lo, hi - y).astype(F)
 
     names = np.array([bn["name"] for bn in b["bones"]])
-    dom = names[first_bone.astype(np.int64)]
-    arm = np.zeros(len(P), bool)
+    dom = names[si[:, 0].astype(np.int64)]
+    armset = np.zeros(len(names), bool)
     for pre in ("upperarm", "lowerarm", "hand", "finger", "thumb", "metacarpal", "wrist"):
-        arm |= np.char.startswith(dom, pre)
+        armset |= np.char.startswith(names, pre)
+    wsum = np.maximum(sw.sum(1), 1e-6)
+    arm_w = (sw * armset[si]).sum(1) / wsum  # 0 = badan, 1 = lengan penuh
 
     # Lengan dipotong menurut jarak dari sendi bahu sisi masing-masing (lengan
     # pose-A miring, jadi bidang datar memberi panjang berbeda kiri-kanan).
-    # Kendala jarak hanya berlaku untuk vertex lengan: kalau diterapkan ke semua
-    # vertex, dada (1,7 unit dari bahu) ikut terpotong.
+    # Kendala jarak hanya berlaku di lengan: kalau diterapkan ke semua vertex,
+    # dada (1,7 unit dari bahu) ikut terpotong.
     sleeve = piece.get("sleeve", 0.0)
     if sleeve:
         sh = {bn["name"][-1]: np.asarray(bn["p"], F) for bn in b["bones"] if bn["name"].startswith("upperarm01")}
         side = np.where(np.char.endswith(dom, ".L"), "L", "R")
         dist = np.linalg.norm(P - np.stack([sh[s_] for s_ in side]), axis=1)
-        field = np.where(arm, np.minimum(field, sleeve - dist), field)
+        field = np.minimum(field, arm_w * (sleeve - dist) + (1 - arm_w) * 10.0)
 
-    # Lubang leher: potong lingkaran di sekitar sumbu leher, bukan bidang datar.
-    # Bidang datar memotong di bawah puncak bahu (bahu jadi telanjang) atau di
-    # tengah leher (jadi turtleneck); lingkaran memberi kerah crew-neck yang
-    # menutup bahu dan hanya menyisakan leher.
+    # Lubang leher: potong lingkaran di sekitar sumbu leher (dipakai hanya kalau
+    # potongan menyetel `neck`; potongan sekarang memakai bidang datar y = hi).
     neck = piece.get("neck", 0.0)
     if neck:
         neck_bone = np.array([bn["p"] for bn in b["bones"] if bn["name"] == "neck01"][0], F)
-        above = y > (neck_bone[1] - 0.35)
+        above = np.clip((y - (neck_bone[1] - 0.35)) / 0.15, 0, 1)
         rxy = np.linalg.norm(P[:, [0, 2]] - neck_bone[[0, 2]], axis=1)
-        field = np.where(above, np.minimum(field, rxy - neck), field)
+        field = np.minimum(field, above * (rxy - neck) + (1 - above) * 10.0)
 
     # Jangkauan dari panggul: tangan ikut berada di ketinggian pinggang saat
     # pose-A, jadi tanpa kendala ini celana panjang menutupi telapak tangan.
     reach = piece.get("reach", 0.0)
     if reach:
         pelv = np.array([bn["p"] for bn in b["bones"] if bn["name"].startswith("pelvis")], F).mean(0)
-        field = np.where(arm, np.minimum(field, reach - np.linalg.norm(P - pelv, axis=1)), field)
+        dist2 = np.linalg.norm(P - pelv, axis=1)
+        field = np.minimum(field, arm_w * (reach - dist2) + (1 - arm_w) * 10.0)
 
     return field
 
@@ -477,7 +501,7 @@ def body_cloth(b, P, N, idx, uv, piece):
     atau None bila potongan itu kosong untuk tubuh ini.
     """
     lo, hi = piece["y"]
-    field = _cloth_field(b, P, b["skinIndex"][:, 0], piece)
+    field = _cloth_field(b, P, b["skinIndex"], b["skinWeight"], piece)
 
     if (field >= 0).sum() < 24:
         return None
@@ -535,10 +559,40 @@ def body_cloth(b, P, N, idx, uv, piece):
     # dimatikan dengan bobot yang naik halus dari batas potong (0 di tepi → 1
     # setelah ±0,25 unit ≈ 2,5 cm), jadi kelim tetap datar tapi badan kain
     # memakai offset penuh.
-    margin = _cloth_field(b, pos, si[:, 0], piece)
+    margin = _cloth_field(b, pos, si, sw, piece)
     w = np.clip(margin / 0.25, 0.0, 1.0)[:, None]
     disp[:, 1] = disp[:, 1] * w[:, 0]
+    base = pos.copy()
     pos = pos + disp
+    pinned = pos.copy()
+
+    # Relaksasi: kain yang hanya di-offset tetap mencetak tonjolan badan (dada,
+    # pusar, tempurung lutut, bokong). Di sini permukaan kain dihaluskan
+    # (Laplacian tangensial), lalu tiap vertex ditarik kembali keluar sepanjang
+    # arah offset semula sampai jaraknya ke badan tidak kurang dari `min_clear`.
+    # Siluetnya jadi rata tanpa kain menembus badan. Ini tidak memakai kerangka
+    # acuan per tulang — percobaan dengan radius dari sumbu tulang justru
+    # membuat permukaan bergelombang karena sumbu tiap vertex berbeda.
+    relax = int(piece.get("relax", 4))
+    if relax:
+        e, deg = _adjacency(local, len(pos))
+        floor = piece.get("min_clear", 0.11)
+        edge = margin < 1e-3
+        for _ in range(relax):
+            lap = _tangential(pos, e, deg) * 0.45
+            if edge.any():
+                lap[edge] = 0.0
+            pos = pos + lap
+            delta = pos - base
+            d = np.linalg.norm(delta, axis=1)
+            short = d < floor
+            if short.any():
+                pos[short] = base[short] + radial[short] * floor
+        # Tepi potong dikembalikan persis ke posisi hasil offset: relaksasi di
+        # sekitarnya boleh bergerak, tapi garis kelim/kerah/manset harus tetap
+        # lurus.
+        if edge.any():
+            pos[edge] = pinned[edge]
 
     pos, uvs, si, sw, radial, local = _close_rim(pos, uvs, si, sw, radial, local)
     return {

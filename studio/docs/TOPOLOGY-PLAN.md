@@ -60,7 +60,7 @@ melewatinya akan menggagalkan `npm run qc:topology` dan `npm run test:studio`.
 
 | kategori | anggaran tri | anggaran tekstur | alasan |
 |---|---|---|---|
-| `character` | 46.000 | 2048 px | wajah & siluet dibaca di medium shot; kain dipotong dari mesh badan sehingga memakai resolusi badan; aset terbesar sekarang 44.509 (97 %) |
+| `character` | 46.000 | 2048 px | wajah & siluet dibaca di medium shot; kain dipotong dari mesh badan sehingga memakai resolusi badan; aset terbesar sekarang 44.721 (97 %) |
 | `entity` | 34.000 | 2048 px | sosok berkain, lipatan harus terbaca; terbesar 30.560 |
 | `building` | 3.000 | 1024 px | latar statis; terbesar 976 |
 | `road` | 1.500 | 1024 px | permukaan datar; terbesar 576 |
@@ -88,20 +88,20 @@ tidak cocok dengan isi GLB. `vert` = jumlah POSITION, `prim` = jumlah primitif,
 | `building.house.village` | building | 532 | 1064 | 6 | 6 | 1024 | — | 3000 | 18% |
 | `building.industrial.warehouse` | building | 976 | 1952 | 4 | 4 | 512 | — | 3000 | 33% |
 | `building.shop.warung` | building | 592 | 1124 | 6 | 6 | 1024 | — | 3000 | 20% |
-| `char.anak-laki` | character | 44509 | 24734 | 10 | 10 | 2048 | 163 | 46000 | 97% |
-| `char.anak-perempuan` | character | 41916 | 23275 | 11 | 11 | 2048 | 163 | 46000 | 91% |
-| `char.balita-laki` | character | 43651 | 24066 | 10 | 10 | 2048 | 163 | 46000 | 95% |
-| `char.balita-perempuan` | character | 42703 | 23546 | 11 | 11 | 2048 | 163 | 46000 | 93% |
-| `char.female-dewasa` | character | 41281 | 22736 | 11 | 11 | 2048 | 163 | 46000 | 90% |
-| `char.female-dewasa-daster` | character | 39557 | 21858 | 11 | 11 | 2048 | 163 | 46000 | 86% |
-| `char.female-lansia` | character | 40003 | 22150 | 11 | 11 | 2048 | 163 | 46000 | 87% |
-| `char.male-dewasa-kemeja` | character | 42020 | 23103 | 10 | 10 | 2048 | 163 | 46000 | 91% |
-| `char.male-dewasa-polo` | character | 41076 | 22601 | 10 | 10 | 2048 | 163 | 46000 | 89% |
-| `char.male-lansia-kemeja` | character | 42365 | 23360 | 10 | 10 | 2048 | 163 | 46000 | 92% |
-| `char.male-muda-jaket` | character | 42032 | 23111 | 10 | 10 | 2048 | 163 | 46000 | 91% |
-| `char.male-pekerja` | character | 42015 | 23101 | 10 | 10 | 2048 | 163 | 46000 | 91% |
-| `char.remaja-laki` | character | 41522 | 22899 | 10 | 10 | 2048 | 163 | 46000 | 90% |
-| `char.remaja-perempuan` | character | 41430 | 22827 | 11 | 11 | 2048 | 163 | 46000 | 90% |
+| `char.anak-laki` | character | 44721 | 24813 | 10 | 10 | 2048 | 163 | 46000 | 97% |
+| `char.anak-perempuan` | character | 42184 | 23387 | 11 | 11 | 2048 | 163 | 46000 | 92% |
+| `char.balita-laki` | character | 44045 | 24253 | 10 | 10 | 2048 | 163 | 46000 | 96% |
+| `char.balita-perempuan` | character | 43071 | 23718 | 11 | 11 | 2048 | 163 | 46000 | 94% |
+| `char.female-dewasa` | character | 41309 | 22756 | 11 | 11 | 2048 | 163 | 46000 | 90% |
+| `char.female-dewasa-daster` | character | 39783 | 21954 | 11 | 11 | 2048 | 163 | 46000 | 86% |
+| `char.female-lansia` | character | 40253 | 22260 | 11 | 11 | 2048 | 163 | 46000 | 88% |
+| `char.male-dewasa-kemeja` | character | 42076 | 23143 | 10 | 10 | 2048 | 163 | 46000 | 91% |
+| `char.male-dewasa-polo` | character | 41104 | 22621 | 10 | 10 | 2048 | 163 | 46000 | 89% |
+| `char.male-lansia-kemeja` | character | 42313 | 23324 | 10 | 10 | 2048 | 163 | 46000 | 92% |
+| `char.male-muda-jaket` | character | 42088 | 23151 | 10 | 10 | 2048 | 163 | 46000 | 91% |
+| `char.male-pekerja` | character | 42071 | 23141 | 10 | 10 | 2048 | 163 | 46000 | 91% |
+| `char.remaja-laki` | character | 41574 | 22935 | 10 | 10 | 2048 | 163 | 46000 | 90% |
+| `char.remaja-perempuan` | character | 41482 | 22863 | 11 | 11 | 2048 | 163 | 46000 | 90% |
 | `entity.child` | entity | 30392 | 16574 | 7 | 7 | 2048 | 166 | 34000 | 89% |
 | `entity.pale-standing` | entity | 30334 | 16546 | 7 | 7 | 2048 | 166 | 34000 | 89% |
 | `entity.shadow-crouch` | entity | 29944 | 16309 | 6 | 6 | 2048 | 166 | 34000 | 88% |

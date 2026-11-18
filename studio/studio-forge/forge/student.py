@@ -178,8 +178,8 @@ def eye_paint():
 
 def eye(model, mats, face, side, boy, bones):
     sign = 1 if side == "L" else -1
-    cx, cy = sign * 0.049, 1.382
-    w, h = (0.034, 0.018) if boy else (0.037, 0.020)
+    cx, cy = sign * (0.047 if boy else 0.052), 1.382
+    w, h = (0.034, 0.0145) if boy else (0.0355, 0.021)
     bone = "eye." + side
     # Scaling around the centre closes the drawn eye against solid cheek geometry.
     bones[model.joints[bone]]["p"] = np.array((cx, cy, surface(face, cx, cy)), F) * model.scale
@@ -208,14 +208,14 @@ def eye(model, mats, face, side, boy, bones):
         bone,
     )
     eyebrow = [
-        (sign * x, y + (0.003 if boy else 0))
+        (sign * x, y + (0.003 + 0.003 * sign if boy else 0))
         for x, y in [
             (0.014, 1.415),
             (0.036, 1.429),
             (0.061, 1.430),
             (0.083, 1.419),
-            (0.059, 1.424),
-            (0.038, 1.423),
+            (0.059, 1.419 if boy else 1.424),
+            (0.038, 1.419 if boy else 1.423),
         ]
     ]
     brow_bone = "oculi01." + side
@@ -271,9 +271,9 @@ def portrait(model, mats, bones, boy):
     for row in range(5):
         for j in range(25):
             u, v = j / 24, row / 4
-            x = (2 * u - 1) * 0.033
+            x = (2 * u - 1) * (0.037 if boy else 0.029)
             arch = 0.015 + 0.985 * math.sin(math.pi * u)
-            y = mouth_y + 0.004 * (2 * u - 1) ** 2 + arch * (0.006 - 0.023 * v)
+            y = mouth_y + 0.004 * (2 * u - 1) ** 2 + arch * (0.006 - (0.018 if boy else 0.023) * v)
             pos.append((x, y, surface(face, x, y) + 0.003))
             uv.append((u, v))
             if row and j:
@@ -320,6 +320,9 @@ def portrait(model, mats, bones, boy):
         for t in np.linspace(0, 1, 13):
             x = tip_x + (root_x - tip_x) * t
             y = tip_y + (1.508 - tip_y) * t
+            if boy:
+                x = -x
+                y += 0.013 * (1-t)  # short fringe opens over Bayu's left eyebrow
             r = math.sqrt(max(0.01, 1 - ((y - 1.406) / 0.138) ** 2))
             z = 0.020 + 0.131 * r * math.sqrt(max(0.03, 1 - (x / (0.128 * width * r)) ** 2))
             w = half * (0.04 + 0.96 * math.sin(math.pi * t * 0.92) ** 0.8)

@@ -8,10 +8,24 @@ pada rig yang sama.
 ```
 public/assets/characters/<asset-id>/
   <asset-id>.glb      # mesh + rig + 13 klip animasi
-  thumbnail.png       # render 384² (renderer perangkat lunak studio-forge)
+  thumbnail.png       # badan utuh, 384²
+  portrait.jpg        # wajah GLB dalam pencahayaan netral, hanya pada model utama
 ```
 
-Bukti rupa: `docs/character-lineup.png` (16 tokoh berjejer) dan still WebGL
+Katalog dibuka lewat `#karakter` dan menampilkan 14 manusia dan 5 entitas horor.
+Dimas dan Ratih masing-masing punya dua kostum. Tautan ke kostum langsung membuka
+model itu dan memperlihatkan bio tokoh yang sama. Nama, peran, dan bio ada di
+`data/character-identities.json`. Profil pahatan kepala dan detail seperti
+kacamata Pak Harun ada di `studio-forge/forge/portrait.py`.
+
+Sesudah membangun GLB, jalankan preview, lalu
+`node scripts/cast-portraits.mjs http://localhost:4173/` untuk mengambil potret
+dari penampil WebGL. Tambahkan ID aset sebagai argumen untuk memotret ulang
+satu tokoh. Perbarui registry dengan `python3 studio-forge/build.py --registry-only`.
+
+Potret dan bio seluruh tokoh tersedia di [Potret dan Bio](Potret-dan-Bio.pdf). Untuk melihat revisi delapan wajah dari kamera yang sama, buka [perbandingan sebelum dan sesudah](Perbandingan-Wajah.jpg).
+
+Bukti rupa: `docs/character-lineup.png` (16 model manusia berjejer) dan still WebGL
 sungguhan di `docs/webgl-shots/StudioUjiKarakter-f*.png`.
 
 Di *Bel Terakhir*, bentuk wajah, rambut dan pola seragam Nisa serta Bayu

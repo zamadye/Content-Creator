@@ -7,7 +7,7 @@ from pathlib import Path
 
 import numpy as np
 
-from . import human, student, tex, uvpaint
+from . import human, portrait, student, tex, uvpaint
 from .assemble import write_skinned_glb
 from .glb import Material
 from .human import CLIPS, build_hair_shell, build_long_hair, shape, to_metres
@@ -722,6 +722,8 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         parts = student.build(spec, bones)
     else:
         parts, bones = _human_parts(spec, size, entities)
+
+    portrait.apply(spec.get("variant_of", asset_id), spec, parts, bones)
 
     clips = {}
     for cname, cinfo in CLIPS.items():

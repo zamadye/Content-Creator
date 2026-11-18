@@ -114,6 +114,7 @@ def main(argv=None):
 def write_registry(rebuild_entries=False):
     every = registry.all_assets()
     entries = {}
+    identities = json.loads((HERE.parent / "data/character-identities.json").read_text())
     reviews = json.loads((HERE.parent / "data/character-reviews.json").read_text())
     for aid, info in every.items():
         spec = info["spec"]
@@ -159,11 +160,17 @@ def write_registry(rebuild_entries=False):
             if variants:
                 e["outfits"] = dict(variants)
         if kind in ("character", "entity"):
+            identity = spec.get("variant_of", aid)
+            if identity not in identities:
+                raise ValueError(f"Missing character biography: {identity}")
+            e["identityId"] = identity
             review = reviews.get(aid, {})
             digest = hashlib.sha256(glb.read_bytes()).hexdigest()
             if review.get("sha256") == digest and review.get("status") in ("review", "draft", "approved"):
                 e["review"] = {"sha256": digest, "note": review["note"]}
                 e["status"] = review["status"]
+                if identity == aid and (folder / "portrait.jpg").exists():
+                    e["portrait"] = (folder / "portrait.jpg").relative_to(HERE.parent / "public").as_posix()
         if rep["problems"]:
             e["status"] = "draft"
             e["problems"] = rep["problems"]
@@ -177,6 +184,7 @@ def write_registry(rebuild_entries=False):
         "generatedBy": "studio-forge/build.py",
         "notes": "Status draft/review/approved berlaku jujur. Lihat docs/ASSET-CATALOG.md dan PROVENANCE per kategori.",
         "categories": sorted({e["category"] for e in entries.values()}),
+        "identities": identities,
         "assets": entries,
     }
     js_out = HERE.parent / "src" / "studio" / "registry.generated.js"

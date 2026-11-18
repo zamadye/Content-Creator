@@ -62,6 +62,22 @@ for (const id of ids) {
 }
 ok('registry');
 
+const castModels = listAssets({rigged: true});
+const identities = castModels.filter((a) => !a.variantOf).map((a) => a.id);
+assert.deepEqual(Object.keys(registry.identities).sort(), identities.sort(), 'one biography per identity');
+const names = new Set(), bios = new Set();
+for (const a of castModels) {
+  assert.equal(a.identityId, a.variantOf || a.id, a.id + ': costume identity');
+  const profile = registry.identities[a.identityId];
+  assert.ok(profile.name.trim() && profile.role.trim() && profile.bio.trim(), a.id + ': incomplete bio');
+  if (a.variantOf) continue;
+  if (a.review) assert.ok(fs.existsSync(path.join(publicDir, a.portrait)), a.id + ': missing portrait');
+  assert.ok(!names.has(profile.name) && !bios.has(profile.bio), a.id + ': duplicate identity');
+  names.add(profile.name);
+  bios.add(profile.bio);
+}
+ok('cast-identities');
+
 // category coverage the stories rely on
 for (const cat of ['character', 'entity', 'road', 'nature', 'building', 'prop', 'vehicle']) {
   assert.ok(listAssets({category: cat}).length > 0, `category ${cat} empty`);

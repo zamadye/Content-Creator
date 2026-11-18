@@ -7,6 +7,7 @@
  *   node scripts/test-studio-three.mjs
  */
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -119,6 +120,28 @@ function checkStudentActing(gltf, id) {
   }
 }
 
+// Compare just facial skin in rest pose, independent of costume, hairstyle and height.
+function faceSignature(scene) {
+  const left = scene.getObjectByName('eyeL').getWorldPosition(new THREE.Vector3());
+  const right = scene.getObjectByName('eyeR').getWorldPosition(new THREE.Vector3());
+  const spacing = left.distanceTo(right);
+  const center = left.lerp(right, 0.5);
+  const points = new Set();
+  const p = new THREE.Vector3();
+  scene.traverse((mesh) => {
+    if (!mesh.isMesh || mesh.material.name !== 'skin') return;
+    const pos = mesh.geometry.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      mesh.localToWorld(p.fromBufferAttribute(pos, i)).sub(center).divideScalar(spacing);
+      if (Math.abs(p.x) < 1.3 && p.y > -1.5 && p.y < 0.55 && p.z > -0.55)
+        points.add([p.x, p.y, p.z].map((v) => Math.round(v * 1000)).join(','));
+    }
+  });
+  assert.ok(points.size > 30, 'facial landmarks must include skin geometry');
+  return createHash('sha256').update([...points].sort().join('|')).digest('hex');
+}
+
+const faces = new Map();
 let files = 0;
 let clips = 0;
 let verts = 0;
@@ -138,6 +161,7 @@ for (const id of Object.keys(registry.assets)) {
   if (id === 'char.remaja-laki' || id === 'char.remaja-perempuan') checkStudentActing(gltf, id);
   const scene = gltf.scene;
   scene.updateMatrixWorld(true);
+  if (registry.assets[id].rig) faces.set(id, faceSignature(scene));
 
   let meshes = 0;
   let skinned = 0;
@@ -262,6 +286,14 @@ for (const id of Object.keys(registry.assets)) {
     }
   }
 }
+
+for (const [id, signature] of faces) {
+  const variant = registry.assets[id].variantOf;
+  if (variant) assert.equal(signature, faces.get(variant), id + ': a wardrobe change altered the face');
+}
+const originals = [...faces].filter(([id]) => !registry.assets[id].variantOf).map(([, signature]) => signature);
+assert.equal(new Set(originals).size, originals.length, 'different actors share a facial mesh');
+
 
 // Compile a story and feed every shot's camera through the renderer's maths.
 const story = JSON.parse(fs.readFileSync(path.join(root, 'stories/uji-kamera/story.json'), 'utf8'));

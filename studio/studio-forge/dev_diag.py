@@ -4,7 +4,8 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from forge import character, render, human
 
-spec = character.SPECS["char.male-dewasa-polo"]
+actor = "char.male-dewasa-polo"
+spec = character.SPECS[actor]
 cap = {}
 orig = character.write_skinned_glb
 
@@ -15,7 +16,7 @@ def c(path, name, parts, bones, clips, **kw):
 
 
 character.write_skinned_glb = c
-character.build("x", spec, "/tmp/assets", size=512)
+character.build(actor, spec, "/tmp/assets", size=512)
 parts = cap["parts"]
 
 def shot(sel, out, eye=(1.6, 1.2, 2.4), target=(0, 0.95, 0), fov=36, size=(420, 520)):

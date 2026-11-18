@@ -1,25 +1,27 @@
 import React, {lazy, Suspense, useState} from 'react';
-import {listAssets, thumbnailUri} from './library.js';
+import {listAssets, registry, thumbnailUri} from './library.js';
 import './catalog.css';
 
 const Inspector = lazy(() => import('./ModelInspector.jsx'));
-const cast = listAssets().filter((a) => ['character', 'entity'].includes(a.category));
-const names = {'char.remaja-perempuan': 'Nisa', 'char.remaja-laki': 'Bayu'};
+const models = listAssets().filter((a) => ['character', 'entity'].includes(a.category));
+const cast = models.filter((a) => !a.variantOf);
+const outfits = (actor) => models.filter((a) => a.identityId === actor.identityId);
+const person = (actor) => registry.identities[actor.identityId];
 const types = {character: 'Manusia', entity: 'Entitas horor'};
-const title = (a) => names[a.id] || a.title.split(' — ')[0];
-const description = (a) => a.title.split(' — ')[1] || a.id;
-const status = (a) =>
-  ({review: 'Dalam ulasan', draft: 'Draf', approved: 'Siap produksi'})[a.status] || a.status;
+const status = (a) => ({review: 'Dalam ulasan', draft: 'Draf', approved: 'Siap produksi'})[a.status] || a.status;
 const link = (id) => '#karakter/' + id;
 
 export default function CharacterCatalog({id}) {
   const [group, setGroup] = useState('all');
   const [query, setQuery] = useState('');
-  const actor = cast.find((a) => a.id === id);
+  const actor = models.find((a) => a.id === id);
   const filtered = cast.filter(
     (a) =>
       (group === 'all' || a.category === group) &&
-      [a.title, a.id, title(a), ...a.tags].join(' ').toLowerCase().includes(query.trim().toLowerCase()),
+      [...Object.values(person(a)), ...a.tags, ...outfits(a).flatMap((v) => [v.title, v.outfit, v.id])]
+        .join(' ')
+        .toLowerCase()
+        .includes(query.trim().toLowerCase()),
   );
   return (
     <div className="cast-app">
@@ -43,8 +45,8 @@ export default function CharacterCatalog({id}) {
             <div className="cast-heading">
               <div>
                 <div className="cast-kicker">{types[actor.category]}</div>
-                <h1>{title(actor)}</h1>
-                <p>{actor.title}</p>
+                <h1>{person(actor).name}</h1>
+                <p>{person(actor).role}</p>
               </div>
               <span className="cast-status">{status(actor)}</span>
             </div>
@@ -53,7 +55,19 @@ export default function CharacterCatalog({id}) {
                 <Inspector key={actor.id} actor={actor} />
               </Suspense>
               <div className="cast-notes">
-                <h2>Catatan model</h2>
+                <h2>Bio</h2>
+                <p>{person(actor).bio}</p>
+                {outfits(actor).length > 1 && (
+                  <nav className="cast-outfits" aria-label="Kostum">
+                    <h3>Kostum</h3>
+                    {outfits(actor).map((v) => (
+                      <a key={v.id} href={link(v.id)} aria-current={v.id === actor.id ? 'page' : undefined}>
+                        {v.outfit.replaceAll('-', ' ')}
+                      </a>
+                    ))}
+                  </nav>
+                )}
+                <h3>Catatan model</h3>
                 <dl>
                   <dt>Tinggi model</dt>
                   <dd>{actor.bounds.size[1].toFixed(2)} m</dd>
@@ -80,7 +94,10 @@ export default function CharacterCatalog({id}) {
               <div>
                 <div className="cast-kicker">STUDIO ANIMASI 3D</div>
                 <h1>Katalog karakter</h1>
-                <p>Pilih tokoh untuk memeriksa bentuk, material, dan geraknya.</p>
+                <p>
+                  {cast.length} tokoh · {models.length} model 3D. Pilih potret untuk membaca bio dan menguji
+                  geraknya.
+                </p>
               </div>
             </div>
             {id && <p role="alert">Karakter ini tidak ditemukan di katalog.</p>}
@@ -105,12 +122,12 @@ export default function CharacterCatalog({id}) {
               {filtered.map((a) => (
                 <a className="cast-card" key={a.id} href={link(a.id)}>
                   <div className="cast-photo">
-                    <img src={thumbnailUri(a.id)} alt="" loading="lazy" />
+                    <img src={a.portrait ? '/' + a.portrait : thumbnailUri(a.id)} alt="" loading="lazy" />
                     <span>{status(a)}</span>
                   </div>
                   <div className="cast-card-body">
-                    <h2>{title(a)}</h2>
-                    <p>{description(a)}</p>
+                    <h2>{person(a).name}</h2>
+                    <p>{person(a).role}</p>
                   </div>
                 </a>
               ))}

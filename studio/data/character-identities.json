@@ -1,0 +1,78 @@
+{
+  "char.male-dewasa-polo": {
+    "name": "Dimas", "role": "Pengendara malam",
+    "bio": "Dimas hafal jalan pulang lewat urutan tikungan dan bau tungku warung. Malam ketika warung yang sama muncul dua kali, ia mulai menghitung jarak lewat angka di odometer."
+  },
+  "char.female-dewasa": {
+    "name": "Ratih", "role": "Penjahit kampung",
+    "bio": "Ratih menyimpan sisa kain pelanggan sebagai penanda di buku pesanan. Ia masih menyisakan satu halaman untuk seragam yang selesai ia jahit bertahun-tahun lalu dan belum pernah diambil."
+  },
+  "char.male-muda-jaket": {
+    "name": "Raka", "role": "Anak kos dan teknisi radio",
+    "bio": "Raka membetulkan radio bekas di lantai kamar kos supaya uang kiriman cukup sampai akhir bulan. Kalau gugup ia terus memutar kenop, bahkan setelah orang yang diajaknya bicara berhenti menjawab."
+  },
+  "char.male-pekerja": {
+    "name": "Pak Idris", "role": "Mandor gudang",
+    "bio": "Pak Idris mengenali anak buahnya dari cara mereka mengetuk pintu besi. Sejak pernah mengunci seorang pekerja di dalam gudang, ia berkeliling sendiri sebelum menyerahkan kunci sif malam."
+  },
+  "char.male-lansia-kemeja": {
+    "name": "Pak Harun", "role": "Pensiunan petugas perlintasan",
+    "bio": "Pak Harun masih menyetel jam sakunya menurut peluit kereta barang. Cucunya mencatat jadwal itu untuk tugas sekolah dan menemukan satu jam keberangkatan yang hanya didengar kakeknya."
+  },
+  "char.female-lansia": {
+    "name": "Bu Sri", "role": "Pemilik warung malam",
+    "bio": "Bu Sri mengingat pelanggan lewat takaran gula mereka. Saat orang asing datang membawa kabar buruk, ia tetap menyodorkan teh dan membiarkan orang itu memilih sendiri kapan mau bercerita."
+  },
+  "char.remaja-perempuan": {
+    "name": "Nisa", "role": "Siswi kelas XI A",
+    "bio": "Nisa suka merekam suara sekolah untuk pembuka siaran radio siswa. Ketika bel berbunyi selepas jam pulang, ia memutar ulang rekamannya untuk memastikan Bayu juga mendengar jeda yang ganjil itu."
+  },
+  "char.remaja-laki": {
+    "name": "Bayu", "role": "Siswa kelas XI A",
+    "bio": "Bayu sering menirukan suara guru sampai teman sebangkunya tertawa. Saat takut ia malah kehabisan lelucon dan mencari alasan agar Nisa mau berjalan pulang bersamanya."
+  },
+  "char.anak-besar-laki": {
+    "name": "Jalu", "role": "Perakit layangan",
+    "bio": "Jalu menggambar peta atap kampung untuk mencari layangan putus. Di petanya ada satu genteng kosong yang sengaja ia lewatkan karena di sana ia pernah mendengar namanya dipanggil."
+  },
+  "char.anak-besar-perempuan": {
+    "name": "Laras", "role": "Penjaga gawang tim gang",
+    "bio": "Laras membawa kapur untuk menggambar gawang di tembok mana pun. Ia ingin anak yang paling kecil ikut bermain, jadi diam-diam ia menggeser tiang kapur saat anak itu mendapat giliran penalti."
+  },
+  "char.anak-laki": {
+    "name": "Bimo", "role": "Penggemar cap stasiun",
+    "bio": "Bimo melubangi karcis bekas dengan pensil lalu membagikannya ke penumpang khayalan di teras. Ayahnya selalu mendapat dua karcis supaya besok pasti pulang lagi."
+  },
+  "char.anak-perempuan": {
+    "name": "Yuni", "role": "Pendongeng kecil",
+    "bio": "Yuni membuat panggung boneka dari kardus belanja. Ia berani memberi suara raksasa kalau bersembunyi di balik kardus, tetapi berbisik saat ada penonton yang meminta namanya."
+  },
+  "char.balita-laki": {
+    "name": "Ucup", "role": "Adik yang baru belajar bicara",
+    "bio": "Ucup menyebut semua kendaraan roda dua dengan bunyi motor kakaknya. Setiap sore ia menyeret bangku plastik ke pagar supaya bisa melihat siapa yang pulang lebih dulu."
+  },
+  "char.balita-perempuan": {
+    "name": "Mimi", "role": "Teman makan si boneka",
+    "bio": "Mimi menyisakan potongan pisang terakhir untuk boneka kainnya. Kalau boneka itu jatuh, ia menepuk lututnya sendiri dulu, persis seperti yang dilakukan ibunya."
+  },
+  "entity.pale-standing": {
+    "name": "Penunggu Ambang", "role": "Sosok pucat di pintu",
+    "bio": "Dari ujung lorong, sosok ini tampak seperti orang yang menahan pintu untuk seseorang. Orang yang menoleh kembali selalu mendapati tangannya masih di kusen, meski pintunya sudah tertutup."
+  },
+  "entity.tall-limbs": {
+    "name": "Si Jangkung", "role": "Penghuni loteng",
+    "bio": "Penghuni rumah mengenalnya dari bunyi tiga papan plafon yang melengkung bergiliran. Di ruangan beratap rendah ia harus memiringkan kepala untuk mendengarkan orang di bawahnya."
+  },
+  "entity.veiled-seated": {
+    "name": "Penanti Berselendang", "role": "Penumpang di bangku ujung",
+    "bio": "Setiap bus terakhir lewat, perempuan berselendang ini menggeser duduknya untuk memberi tempat. Bekas hangat di bangku justru ada di sisi kosong yang ia tawarkan."
+  },
+  "entity.child": {
+    "name": "Anak Gema", "role": "Peniru suara di gang",
+    "bio": "Ia mengembalikan seruan anak-anak yang bermain petak umpet dengan satu hitungan terlambat. Kalau seseorang sengaja melewatkan angka, terdengar langkah kecil berlari untuk membetulkannya."
+  },
+  "entity.shadow-crouch": {
+    "name": "Bayang Bawah Tangga", "role": "Penghuni anak tangga pertama",
+    "bio": "Bayang ini melipat tubuh di ruang sempit tempat sandal biasa ditaruh. Orang rumah tahu ia sedang terjaga ketika semua sandal menghadap ke atas tangga pada pagi hari."
+  }
+}

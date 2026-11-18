@@ -9,22 +9,19 @@ Terakhir diperbarui: sesi build ini. Angka diambil langsung dari
 | | |
 |---|---|
 | Aset | **63** GLB + 63 thumbnail + registry + galeri HTML + pustaka 102 properti |
-| Ukuran | **± 88,4 MB** (character 56,6 MB · entity 14,8 MB · building 6,4 MB · prop 3,9 MB · road 3,3 MB · nature 2,7 MB · vehicle 0,7 MB) |
-| Geometri | 790.027 tris total (450.206 vertex) |
+| Ukuran | **± 88,7 MiB** (character 56,8 MiB · entity 14,9 MiB · building 6,4 MiB · prop 3,9 MiB · road 3,3 MiB · nature 2,7 MiB · vehicle 0,7 MiB) |
+| Geometri | 811.931 tris total (462.465 vertex) |
 | Rig | 163 tulang, 13 klip, 30 fps, `inverseBindMatrices` per klip |
 | Status | 55 `review`, 8 `draft` |
 | Kontrak | `studio.registry/2`, `studio.story/2`, `studio-humanoid-v1` |
 
 Per kategori: character **16** · entity 5 · building 10 · road 7 · nature 9 · prop 14 · vehicle 2.
 
-## Karakter (16 tokoh, satu rig)
+## Karakter (14 manusia, 16 model)
 
-Semua tokoh = satu mesh MakeHuman yang di-copy lalu di-parameteri: profil umur
-(`dewasa`, `lansia`, `remaja`, `anak`, `balita`), morph bentuk tubuh, kulit,
-rambut, dan outfit. Semuanya memakai 163 tulang & 13 klip yang sama.
+Dua pelajar memakai geometri kartun dan 12 manusia lain memakai basis MakeHuman. Setiap identitas punya profil wajah dan bio tersendiri. Semua model manusia memakai 163 tulang dan 13 klip.
 
-* Cakupan: 4 dewasa, 2 lansia, 2 remaja, 2 anak 5–6 th, 2 balita 2–3 th —
-  masing-masing laki-laki & perempuan; plus 2 varian outfit.
+* Katalog mencakup 4 dewasa, 2 lansia, 2 remaja, 2 anak 9–10 tahun, 2 anak 5–6 tahun, dan 2 balita. Dimas dan Ratih masing-masing punya dua kostum.
 * Pakaian = data (`WARDROBE`: 6 outfit dari 5 potongan kain prosedural +
   warna), bisa ditukar dari naskah lewat `cast.<ref>.outfit`. Kain dipotong
   dari permukaan tubuh sendiri, jadi tidak ada lubang crotch / badan menembus
@@ -320,8 +317,7 @@ Isinya dipakai — bukan pajangan:
 `npm run qc-topology` (`scripts/qc-topology.mjs`) memeriksa tiga hal sekaligus:
 tidak ada aset melewati anggaran, jumlah tri di GLB **sama** dengan registry, dan
 tabel di dokumen tidak basi (`--write` untuk menyegarkan). Hasil sekarang:
-60 aset, 0 pelanggaran; pemakaian tertinggi `char.anak-laki` 42.813 tri =
-**97 %** dari anggaran karakter 46.000; shot terberat `warung-malam/duduk-02` 79.044 tri = **66 %** anggaran.
+Semua 63 aset berada dalam anggaran. Model terberat, `char.anak-laki`, memakai 45.991 dari 46.000 tri. Shot terberat `warung-malam/duduk-02` memakai 85.956 tri (72 % anggaran).
 
 Grup tes `topology` di `npm run test:studio` juga membuktikan pagarnya **bisa
 gagal**: aset karangan 50.000 tri + tekstur 4096 px langsung dilaporkan sebagai

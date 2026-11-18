@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import hashlib
 import sys
 import time
 from pathlib import Path
@@ -113,6 +114,7 @@ def main(argv=None):
 def write_registry(rebuild_entries=False):
     every = registry.all_assets()
     entries = {}
+    reviews = json.loads((HERE.parent / "data/character-reviews.json").read_text())
     for aid, info in every.items():
         spec = info["spec"]
         kind = info["kind"]
@@ -156,6 +158,12 @@ def write_registry(rebuild_entries=False):
             variants = character.OUTFIT_VARIANTS.get(aid)
             if variants:
                 e["outfits"] = dict(variants)
+        if kind in ("character", "entity"):
+            review = reviews.get(aid, {})
+            digest = hashlib.sha256(glb.read_bytes()).hexdigest()
+            if review.get("sha256") == digest and review.get("status") in ("review", "draft", "approved"):
+                e["review"] = {"sha256": digest, "note": review["note"]}
+                e["status"] = review["status"]
         if rep["problems"]:
             e["status"] = "draft"
             e["problems"] = rep["problems"]
@@ -251,13 +259,14 @@ def write_gallery(doc):
         dims = "×".join(f"{v:g}" for v in size) if size else "-"
         tags = " ".join(e.get("tags", [])[:4])
         rig = f"{e['rig']['bones']} tulang · {len(e['rig']['clips'])} klip" if e.get("rig") else ""
+        inspect = f'<p><a href="/#karakter/{aid}">Uji karakter 3D →</a></p>' if e["category"] in ("character", "entity") else ""
         cards.append(
             f'<article class="card" data-cat="{e["category"]}" data-q="{aid} {e["title"]} {tags}">'
             f'<img loading="lazy" src="{aid and e["thumbnail"].split("/", 1)[1]}" alt="">'
             f'<div class="meta"><h3>{e["title"]}</h3><code>{aid}</code>'
             f'<p>{dims} m · {e.get("tris") or "-"} tris · {(e.get("bytes") or 0)/1048576:.2f} MB</p>'
             f'<p class="tags">{tags}{(" · " + rig) if rig else ""}</p>'
-            f'<span class="status {e["status"]}">{e["status"]}</span></div></article>'
+            f'{inspect}<span class="status {e["status"]}">{e["status"]}</span></div></article>'
         )
     cats = "".join(f'<option value="{c}">{c}</option>' for c in doc["categories"])
     html = f"""<!doctype html>
@@ -280,6 +289,7 @@ def write_gallery(doc):
  .meta h3 {{ margin:0 0 2px; font-size:14px; font-weight:600; }}
  .meta code {{ font-size:11px; color:#7fb8a0; }}
  .meta p {{ margin:4px 0 0; font-size:11.5px; color:#8e9aa2; }}
+ .card a {{ color:#a5d5b7; }}
  .tags {{ color:#65727c !important; }}
  .status {{ position:absolute; top:8px; right:10px; font-size:10px; text-transform:uppercase; letter-spacing:.06em; padding:2px 6px; border-radius:99px; background:#2a3540; color:#9fb0bd; }}
  .status.approved {{ background:#1e4034; color:#7fe0b0; }}

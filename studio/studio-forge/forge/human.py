@@ -1132,7 +1132,9 @@ def _band_scales(profile):
 def proportion_curve(profile):
     """Kurva y → (y', radial) yang sama untuk mesh, pakaian, dan tulang."""
     s_leg, s_torso, s_head, radial = _band_scales(profile)
-    leg_len = (Y_NECK - Y_HIP)  # untuk normalisasi transisi radial
+    # Growing only in Y stretches a child's eye sockets and skull vertically.
+    child = profile in (PROFILES["anak"], PROFILES["anak-besar"], PROFILES["balita"])
+    head_radius = s_head if child else 1.0
 
     def fn(y):
         y = np.asarray(y, F)
@@ -1151,6 +1153,9 @@ def proportion_curve(profile):
         # radial: badan mengikuti profil, kepala penuh (anak = kepala besar)
         t = np.clip((y - (Y_NECK - 0.9)) / 0.9, 0, 1)
         r = radial + (1.0 - radial) * t
+        # Keep the additional head width above the neckline so sleeves and
+        # shoulder joints keep their original span.
+        r += (head_radius - 1.0) * smoothstep(np.clip((y - Y_NECK) / 0.50, 0, 1))
         return out.astype(F), r.astype(F)
 
     return fn

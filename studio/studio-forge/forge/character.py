@@ -303,12 +303,15 @@ def _human_parts(spec, size, entities):
     uv = b["uv"]
 
     # ------------------------------------------------------------- textures
-    # The student portraits use landmarks in the original head coordinate system.
+    # Facial paint and the hairline share landmarks in the original head space.
     # Paint before changing head/torso lengths so eyelids and lips track their mesh.
-    portrait_space = shaped if spec.get("profile") == "remaja" else P
+    paint_before_proportions = spec.get("profile") in ("remaja", "anak", "anak-besar", "balita", "lansia")
+    portrait_space = shaped if paint_before_proportions else P
     pos_map, nrm_map, mask = uvpaint.rasterize_uv(portrait_space, uv, idx, size)
     filled, _ = uvpaint.fill_holes(pos_map, mask, 2)
     skin_spec = dict(spec["skin"])
+    if spec.get("profile") in ("anak", "anak-besar", "balita"):
+        skin_spec.setdefault("lash", 0.18)
     # Kulit kepala di bawah rambut dicat warna rambut (lihat paint_skin).
     skin_spec.setdefault("hair_style", spec.get("hair", {}).get("style", "short"))
     skin_spec.setdefault("hair_color", spec.get("hair", {}).get("color", "#151110"))
@@ -663,7 +666,7 @@ def _human_parts(spec, size, entities):
     hair_built = None if hs.get("style") == "bald" else build_hair_shell(portrait_space, None, idx, hs.get("style", "short"), hs.get("thickness", 0.03))
     if hair_built is not None:
         hpos, huvs, hidx, used, hw = hair_built
-        if portrait_space is shaped:
+        if paint_before_proportions:
             hpos = human.apply_proportions(hpos, profile)
         mp = to_m(hpos)
         alpha = _hair_alpha_hairline(hpos, huvs, hidx, hs.get("style", "short"))
@@ -689,12 +692,14 @@ def _human_parts(spec, size, entities):
             }
         )
     if hs.get("long", 0) > 0:
-        lpos, luv, lidx = build_long_hair(P, hs.get("style"), hs.get("thickness", 0.03), hs["long"])
+        lpos, luv, lidx = build_long_hair(portrait_space, hs.get("style"), hs.get("thickness", 0.03), hs["long"])
         if hs.get("style") == "ponytail":
             j = np.tile([name_to_i["head"], 0, 0, 0], (len(lpos), 1)).astype(np.uint16)
             w = np.tile([1, 0, 0, 0], (len(lpos), 1)).astype(F)
         else:
             j, w = _nearest_weights(lpos, b, bones)
+        if paint_before_proportions:
+            lpos = human.apply_proportions(lpos, profile)
         parts.append(
             {
                 "pos": to_m(lpos),

@@ -1,0 +1,107 @@
+{
+  "char.male-dewasa-polo": {
+    "sha256": "5c09729fd649b36aef3526b6fb25a5426618365f1a10ad2dc83985675081222e",
+    "status": "review",
+    "note": "Dari depan, polo dan celana menyatu di pinggul. Bentuk ulang batas kelim dan beri ruang di lutut agar jatuhnya celana terbaca saat melangkah."
+  },
+  "char.female-dewasa": {
+    "sha256": "0314b99280bbe97f5cc8c72ecbcaf83b101128c8ea3dd87e607afcb04f59d53d",
+    "status": "review",
+    "note": "Potongan polo panjang dan celana masih mengikuti kontur badan dengan ketat. Uji kelonggaran dari samping saat berjalan dan duduk."
+  },
+  "char.male-muda-jaket": {
+    "sha256": "37701c2514e13fa16cac5a458d3008b60333d854870881f5de76da8b9e38018a",
+    "status": "review",
+    "note": "Jaket serta celana gelap kehilangan batas di pinggang. Pisahkan nilai terang kain dan beri ketebalan di bukaan depan."
+  },
+  "char.male-pekerja": {
+    "sha256": "d9c8e5b6d0726dd3a8bedd523ba76e473bd1ae077a32e038f26151a60a8df8fc",
+    "status": "review",
+    "note": "Baju dan celana hijau terbaca sebagai satu bidang. Beri konstruksi saku kerja dan periksa ayunan pergelangan dari samping."
+  },
+  "char.male-lansia-kemeja": {
+    "sha256": "c915b2b9c200ebd50181262cdba378640d051e072ab7ecad309016bd3e8672f0",
+    "status": "review",
+    "note": "Garis rambut dan alis sudah mengikuti kepala. Pada klip jalan, langkah dan tinggi angkat tumit masih menyerupai tokoh dewasa muda."
+  },
+  "char.female-lansia": {
+    "sha256": "a947d6ccda78b0550877eccbb9df8141d2dbf7caa6849cd5bc01545000031cc4",
+    "status": "review",
+    "note": "Letak alis dan rambut abu-abu sudah dikoreksi. Rapikan bukaan lengan daster dan beri gerak bahu yang sesuai dengan karakter ini."
+  },
+  "char.remaja-laki": {
+    "sha256": "93e20d4ced815cfc1f19f078266ef9a62ca97a1d36d977fc64fecd71fc74cac4",
+    "status": "review",
+    "note": "Gestur bertanya sudah terbaca. Pada klip jalan, jari masih terbuka dan kedua siku terdorong ke depan. Rilekskan tangan di antara ayunan."
+  },
+  "char.remaja-perempuan": {
+    "sha256": "35c909df9f8f7d6826543ce0a9255435002c95e4e644b7970b5d4f6c1d894884",
+    "status": "review",
+    "note": "Wajah, kuncir dan dasi terbaca dari depan dan samping. Saat berjalan, kuncir menempel kaku pada kepala. Uji gerak susulan saat arah kepala berubah."
+  },
+  "char.anak-laki": {
+    "sha256": "1bd8118d5fb3dc552381b1c2e10fff34cd7c67de17754c6cfa08d31bdc8d2a79",
+    "status": "review",
+    "note": "Alis kini sejajar dengan mata. Dagu dan pipi masih menyerupai wajah dewasa, dan langkah samping terlalu panjang untuk usia 5–6 tahun."
+  },
+  "char.anak-perempuan": {
+    "sha256": "b9f5e2a57e468a443843e77f0a9b65788743a0db154b8851937aa81035c24018",
+    "status": "review",
+    "note": "Posisi fitur wajah sudah dikoreksi. Bentuk rahang dan potongan baju merah muda masih terlalu dekat dengan model dewasa."
+  },
+  "char.balita-laki": {
+    "sha256": "809662893fc4b9bb6ea9e2076f891dd02c0bb355d323d2c6d8ac938a926c362b",
+    "status": "review",
+    "note": "Kepala sudah lebih bulat dan alis kembali ke area mata. Kurangi panjang langkah dan lembutkan kontur hidung serta dagu untuk usia 2–3 tahun."
+  },
+  "char.balita-perempuan": {
+    "sha256": "b459239e1537670b7f46c4e390a556a6c4cde03c00034965625671e2bea34bb8",
+    "status": "review",
+    "note": "Tekstur wajah sudah mengikuti perubahan ukuran kepala. Kaki masih melangkah seperti orang dewasa. Uji langkah pendek dan keseimbangan badan."
+  },
+  "char.anak-besar-laki": {
+    "sha256": "5c932eed49ca4ceef92a983b6cd106098e6b5b071dc7768febfa975d7f6d8d09",
+    "status": "review",
+    "note": "Proporsi kepala dan mata sudah dikoreksi. Bagian atas dan bawah seragam biru masih menyatu. Perjelas batas celana dan lipatan lutut saat berjalan."
+  },
+  "char.anak-besar-perempuan": {
+    "sha256": "7de80179198691d25de83e939db93f0370e25e3dfd087c8b495c39c08e3b23a3",
+    "status": "review",
+    "note": "Dua kuncir belum mudah dikenali dari depan. Perjelas titik ikat dan periksa siluet rambut saat kepala menoleh."
+  },
+  "char.male-dewasa-kemeja": {
+    "sha256": "c8f35b277e1dbd04c6b179938359f0b45a91897e47b5fe15bf4af75eb9c0d1ed",
+    "status": "review",
+    "note": "Siluet kemeja biru masih dekat dengan varian polo. Pisahkan kerah dan plaket supaya dua kostum terbaca dari jarak satu badan."
+  },
+  "char.female-dewasa-daster": {
+    "sha256": "532557a06ac6dcd65a77c6d25c5d1326e0bd7dcb69860a57af08c03099072382",
+    "status": "review",
+    "note": "Bagian bawah daster merah muda terbagi seperti celana pendek. Buat kelim rok yang menyambung lalu periksa ulang saat duduk."
+  },
+  "entity.pale-standing": {
+    "sha256": "ca101abda20030a1964cdb311072a77d371f4dd600e1ec213805a0366573c1c4",
+    "status": "draft",
+    "note": "Pada pose duduk, lutut dan kaki keluar dari kain sementara kelim tetap vertikal. Perbaiki ikatan kain ke panggul dan lutut."
+  },
+  "entity.tall-limbs": {
+    "sha256": "dfbbd41f4712ccb799fca8d9a57568c5b7e049bccb094e1bf1fcf5121855d80b",
+    "status": "draft",
+    "note": "Tinggi tokoh menonjol, tetapi bentuk lengan belum cukup membedakan siluetnya. Uji panjang lengan dari samping dan lipatan kain saat duduk."
+  },
+  "entity.veiled-seated": {
+    "sha256": "9fad248b8e0ccf890d9b71024a9a9c3dadf9bf84efa0e5b0297feb60eb8aef57",
+    "status": "draft",
+    "note": "Kerudung membingkai wajah dari depan. Saat duduk, kain badan tetap tegak di belakang kaki. Prioritaskan jatuhnya kain di atas paha dan lutut."
+  },
+  "entity.child": {
+    "sha256": "c650c6a135834cdc9c87ad4b32cab7d08fb9d17ae5662455909214b16da13092",
+    "status": "draft",
+    "note": "Kain gelap menutupi bentuk badan dan garis leher terputus di bahu. Perjelas proporsi sosok anak dan sambungkan pakaian di bahu."
+  },
+  "entity.shadow-crouch": {
+    "sha256": "ac0d76a12aee144b272e6eead2d79953a17836001d5ca566f0423de0af783230",
+    "status": "draft",
+    "note": "Dalam pose dasar sosok masih berdiri tegak. Buat pose jongkok yang khas dan periksa siluet lipatan kain dari samping."
+  }
+}

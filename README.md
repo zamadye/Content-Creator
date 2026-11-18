@@ -1,5 +1,7 @@
 # Content-Creator
 
+Untuk pengembangan karakter, buka katalog dengan `cd studio && npm run preview`. Setiap model punya penampil 3D, klip gerak, dan catatan revisi. [Lembar ulasan 21 karakter](studio/docs/Ulasan-Karakter.pdf) · [Alur uji sebelum casting](studio/docs/AGENT-GUIDE.md#katalog-karakter-sebelum-casting)
+
 Kerangka produksi video cerita 3D: **naskah → shot → render**, dengan aset yang
 dibangun sendiri secara prosedural dan properti pendukung dari pustaka CC0.
 

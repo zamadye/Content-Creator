@@ -1,0 +1,50 @@
+.cast-app { color-scheme:light; background:#f5f4ee; color:#242d2a; min-height:100vh; font:15px/1.55 Inter,system-ui,sans-serif; }
+body { margin:0 }
+.cast-app * { box-sizing:border-box }
+.cast-app a { color:inherit }
+.cast-nav { min-height:68px; display:flex; align-items:center; justify-content:space-between; padding:12px clamp(16px,5vw,84px); gap:14px; background:#192a26; color:#fff; }
+.cast-brand { display:flex; align-items:center; gap:12px; font-size:12px; font-weight:750; letter-spacing:.12em; text-decoration:none; }
+.cast-brand b { background:#c3de9a; color:#192a26; padding:6px 9px; border-radius:5px; font-size:16px; letter-spacing:-.07em; }
+.cast-nav nav { display:flex; gap:20px; font-size:13px; }
+.cast-nav nav a { text-decoration:none; color:#c8d2c9 }
+.cast-nav nav a[aria-current] { color:#fff; border-bottom:2px solid #bfd48b }
+.cast-content { max-width:1500px; padding:clamp(24px,4vw,58px) clamp(16px,5vw,84px) 60px; margin:auto }
+.cast-back,.cast-kicker { font-size:12px; font-weight:650; }
+.cast-kicker { color:#526852; letter-spacing:.14em; text-transform:uppercase; }
+.cast-back { display:inline-block; margin-bottom:22px; }
+.cast-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:26px }
+.cast-heading h1 { font-family:Georgia,serif; font-weight:500; font-size:clamp(38px,5vw,68px); line-height:1.05; letter-spacing:-.05em; margin:5px 0 8px; }
+.cast-heading p,.cast-card-body p { margin:0; color:#51615a }
+.cast-tools { border-top:1px solid #cdd1c7; padding:20px 0; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.cast-tabs,.model-buttons { display:flex; gap:6px; flex-wrap:wrap }
+.cast-app button,.cast-app select,.cast-tools input { font:inherit; font-size:13px; color:#24392e; border:1px solid #c7cdc1; background:#fff; border-radius:6px; padding:7px 11px; }
+.cast-app button { cursor:pointer }
+.cast-app button[aria-pressed=true] { background:#2d4839; border-color:#2d4839; color:#fff }
+.cast-tabs span { opacity:.75; margin-left:5px }
+.cast-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,215px),1fr)); gap:25px 18px }
+.cast-card { text-decoration:none; min-width:0; }
+.cast-photo { position:relative; background:#1e272a; overflow:hidden; border-radius:8px; }
+.cast-photo img { width:100%; aspect-ratio:1; display:block; object-fit:cover }
+.cast-photo span,.cast-status { font-size:11px; background:#eff3e8; color:#38483b; border-radius:4px; padding:3px 7px }
+.cast-photo span { position:absolute; bottom:9px; left:9px }
+.cast-card-body h2,.cast-notes h2 { font-size:19px; margin:9px 0 2px; line-height:1.25; letter-spacing:-.035em }
+.cast-card-body p,.cast-notes p { font-size:13px; }
+.cast-card:hover h2 { text-decoration:underline }
+.cast-detail { display:grid; grid-template-columns:minmax(0, 3fr) minmax(220px,1fr); align-items:start; gap:24px }
+.model-test,.cast-notes { background:#fff; border:1px solid #d4d8ce; border-radius:8px; overflow:hidden }
+.model-stage { height:clamp(330px,52vh,600px); background:#e2e5dd; position:relative }
+.model-stage canvas { display:block; width:100%; height:100%; touch-action:none }
+.model-stage p { position:absolute; inset:auto 15px 10px; background:#fff; padding:8px; margin:0 }
+.model-panel,.cast-notes { padding:18px }
+.model-panel label,.model-panel select { font-size:13px }
+.model-row { display:flex; flex-wrap:wrap; align-items:center; gap:9px; margin-top:13px }
+.model-row input { flex:1; min-width:90px; accent-color:#36573c }
+.model-row output { min-width:82px; font:12px monospace; text-align:right }
+.cast-notes h2 { margin:0 0 15px }
+.cast-notes h3 { font-size:13px; margin:17px 0 4px }
+.cast-notes p { margin:3px 0 14px }
+.cast-notes code { font-size:12px; overflow-wrap:anywhere }
+.cast-notes dl { display:grid; grid-template-columns:1fr auto; gap:6px; font-size:13px; border-block:1px solid #dadfd5; padding:12px 0 }
+.cast-notes dd { margin:0; font-weight:600 }
+.cast-app :focus-visible { outline:3px solid #648d37; outline-offset:3px }
+@media(max-width:760px) { .cast-detail{grid-template-columns:1fr}.cast-brand{font-size:0;gap:0}.cast-nav nav{gap:14px}.cast-grid{grid-template-columns: repeat(2,minmax(0,1fr));gap:15px 10px}.cast-card-body h2{font-size:16px}.cast-content{padding-top:26px} }

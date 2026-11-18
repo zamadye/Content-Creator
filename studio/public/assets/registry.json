@@ -41,7 +41,7 @@
     ]
    },
    "tris": 41039,
-   "bytes": 3876192,
+   "bytes": 3874204,
    "tags": [
     "human",
     "male",
@@ -108,6 +108,10 @@
    "outfits": {
     "polo-kargo": "char.male-dewasa-polo",
     "kemeja-kasual": "char.male-dewasa-kemeja"
+   },
+   "review": {
+    "sha256": "5c09729fd649b36aef3526b6fb25a5426618365f1a10ad2dc83985675081222e",
+    "note": "Dari depan, polo dan celana menyatu di pinggul. Bentuk ulang batas kelim dan beri ruang di lutut agar jatuhnya celana terbaca saat melangkah."
    }
   },
   "char.female-dewasa": {
@@ -136,7 +140,7 @@
     ]
    },
    "tris": 41245,
-   "bytes": 4029424,
+   "bytes": 4027436,
    "tags": [
     "human",
     "female",
@@ -204,6 +208,10 @@
    "outfits": {
     "polo-kargo": "char.female-dewasa",
     "daster": "char.female-dewasa-daster"
+   },
+   "review": {
+    "sha256": "0314b99280bbe97f5cc8c72ecbcaf83b101128c8ea3dd87e607afcb04f59d53d",
+    "note": "Potongan polo panjang dan celana masih mengikuti kontur badan dengan ketat. Uji kelonggaran dari samping saat berjalan dan duduk."
    }
   },
   "char.male-muda-jaket": {
@@ -232,7 +240,7 @@
     ]
    },
    "tris": 42060,
-   "bytes": 3871220,
+   "bytes": 3869232,
    "tags": [
     "human",
     "male",
@@ -295,7 +303,11 @@
     "embeddedTextures": 36
    },
    "profile": "dewasa",
-   "outfit": "jaket"
+   "outfit": "jaket",
+   "review": {
+    "sha256": "37701c2514e13fa16cac5a458d3008b60333d854870881f5de76da8b9e38018a",
+    "note": "Jaket serta celana gelap kehilangan batas di pinggang. Pisahkan nilai terang kain dan beri ketebalan di bukaan depan."
+   }
   },
   "char.male-pekerja": {
    "id": "char.male-pekerja",
@@ -323,7 +335,7 @@
     ]
    },
    "tris": 42045,
-   "bytes": 3872440,
+   "bytes": 3870452,
    "tags": [
     "human",
     "male",
@@ -386,7 +398,11 @@
     "embeddedTextures": 36
    },
    "profile": "dewasa",
-   "outfit": "kerja"
+   "outfit": "kerja",
+   "review": {
+    "sha256": "d9c8e5b6d0726dd3a8bedd523ba76e473bd1ae077a32e038f26151a60a8df8fc",
+    "note": "Baju dan celana hijau terbaca sebagai satu bidang. Beri konstruksi saku kerja dan periksa ayunan pergelangan dari samping."
+   }
   },
   "char.male-lansia-kemeja": {
    "id": "char.male-lansia-kemeja",
@@ -409,12 +425,12 @@
     ],
     "size": [
      0.992,
-     1.677,
+     1.678,
      0.439
     ]
    },
-   "tris": 41952,
-   "bytes": 4018764,
+   "tris": 42014,
+   "bytes": 4020864,
    "tags": [
     "human",
     "male",
@@ -477,7 +493,11 @@
     "embeddedTextures": 36
    },
    "profile": "lansia",
-   "outfit": "kemeja-kasual"
+   "outfit": "kemeja-kasual",
+   "review": {
+    "sha256": "c915b2b9c200ebd50181262cdba378640d051e072ab7ecad309016bd3e8672f0",
+    "note": "Garis rambut dan alis sudah mengikuti kepala. Pada klip jalan, langkah dan tinggi angkat tumit masih menyerupai tokoh dewasa muda."
+   }
   },
   "char.female-lansia": {
    "id": "char.female-lansia",
@@ -495,17 +515,17 @@
     ],
     "max": [
      0.46,
-     1.55,
+     1.551,
      0.298
     ],
     "size": [
      0.921,
-     1.557,
+     1.558,
      0.412
     ]
    },
-   "tris": 39634,
-   "bytes": 4090012,
+   "tris": 39704,
+   "bytes": 4092668,
    "tags": [
     "human",
     "female",
@@ -568,7 +588,11 @@
     "embeddedTextures": 36
    },
    "profile": "lansia",
-   "outfit": "daster"
+   "outfit": "daster",
+   "review": {
+    "sha256": "a947d6ccda78b0550877eccbb9df8141d2dbf7caa6849cd5bc01545000031cc4",
+    "note": "Letak alis dan rambut abu-abu sudah dikoreksi. Rapikan bukaan lengan daster dan beri gerak bahu yang sesuai dengan karakter ini."
+   }
   },
   "char.remaja-laki": {
    "id": "char.remaja-laki",
@@ -663,7 +687,11 @@
     "embeddedTextures": 51
    },
    "profile": "remaja",
-   "outfit": "putih-abu"
+   "outfit": "putih-abu",
+   "review": {
+    "sha256": "93e20d4ced815cfc1f19f078266ef9a62ca97a1d36d977fc64fecd71fc74cac4",
+    "note": "Gestur bertanya sudah terbaca. Pada klip jalan, jari masih terbuka dan kedua siku terdorong ke depan. Rilekskan tangan di antara ayunan."
+   }
   },
   "char.remaja-perempuan": {
    "id": "char.remaja-perempuan",
@@ -758,7 +786,11 @@
     "embeddedTextures": 51
    },
    "profile": "remaja",
-   "outfit": "putih-abu"
+   "outfit": "putih-abu",
+   "review": {
+    "sha256": "35c909df9f8f7d6826543ce0a9255435002c95e4e644b7970b5d4f6c1d894884",
+    "note": "Wajah, kuncir dan dasi terbaca dari depan dan samping. Saat berjalan, kuncir menempel kaku pada kepala. Uji gerak susulan saat arah kepala berubah."
+   }
   },
   "char.anak-laki": {
    "id": "char.anak-laki",
@@ -776,17 +808,17 @@
     ],
     "max": [
      0.308,
-     1.154,
+     1.155,
      0.2
     ],
     "size": [
      0.617,
-     1.158,
+     1.16,
      0.274
     ]
    },
-   "tris": 40995,
-   "bytes": 3867012,
+   "tris": 41383,
+   "bytes": 3882032,
    "tags": [
     "human",
     "male",
@@ -849,7 +881,11 @@
     "embeddedTextures": 36
    },
    "profile": "anak",
-   "outfit": "seragam"
+   "outfit": "seragam",
+   "review": {
+    "sha256": "1bd8118d5fb3dc552381b1c2e10fff34cd7c67de17754c6cfa08d31bdc8d2a79",
+    "note": "Alis kini sejajar dengan mata. Dagu dan pipi masih menyerupai wajah dewasa, dan langkah samping terlalu panjang untuk usia 5–6 tahun."
+   }
   },
   "char.anak-perempuan": {
    "id": "char.anak-perempuan",
@@ -867,17 +903,17 @@
     ],
     "max": [
      0.3,
-     1.124,
+     1.125,
      0.195
     ],
     "size": [
      0.601,
-     1.128,
+     1.13,
      0.272
     ]
    },
-   "tris": 39527,
-   "bytes": 3923020,
+   "tris": 39665,
+   "bytes": 3926360,
    "tags": [
     "human",
     "female",
@@ -940,7 +976,11 @@
     "embeddedTextures": 36
    },
    "profile": "anak",
-   "outfit": "daster"
+   "outfit": "daster",
+   "review": {
+    "sha256": "b9f5e2a57e468a443843e77f0a9b65788743a0db154b8851937aa81035c24018",
+    "note": "Posisi fitur wajah sudah dikoreksi. Bentuk rahang dan potongan baju merah muda masih terlalu dekat dengan model dewasa."
+   }
   },
   "char.balita-laki": {
    "id": "char.balita-laki",
@@ -958,17 +998,17 @@
     ],
     "max": [
      0.241,
-     0.943,
+     0.944,
      0.156
     ],
     "size": [
      0.482,
-     0.946,
+     0.948,
      0.215
     ]
    },
-   "tris": 40921,
-   "bytes": 3851824,
+   "tris": 41359,
+   "bytes": 3871224,
    "tags": [
     "human",
     "male",
@@ -1031,7 +1071,11 @@
     "embeddedTextures": 36
    },
    "profile": "balita",
-   "outfit": "seragam"
+   "outfit": "seragam",
+   "review": {
+    "sha256": "809662893fc4b9bb6ea9e2076f891dd02c0bb355d323d2c6d8ac938a926c362b",
+    "note": "Kepala sudah lebih bulat dan alis kembali ke area mata. Kurangi panjang langkah dan lembutkan kontur hidung serta dagu untuk usia 2–3 tahun."
+   }
   },
   "char.balita-perempuan": {
    "id": "char.balita-perempuan",
@@ -1049,17 +1093,17 @@
     ],
     "max": [
      0.233,
-     0.913,
+     0.915,
      0.151
     ],
     "size": [
      0.466,
-     0.916,
+     0.918,
      0.212
     ]
    },
-   "tris": 39500,
-   "bytes": 3921256,
+   "tris": 39658,
+   "bytes": 3926832,
    "tags": [
     "human",
     "female",
@@ -1122,7 +1166,11 @@
     "embeddedTextures": 36
    },
    "profile": "balita",
-   "outfit": "daster"
+   "outfit": "daster",
+   "review": {
+    "sha256": "b459239e1537670b7f46c4e390a556a6c4cde03c00034965625671e2bea34bb8",
+    "note": "Tekstur wajah sudah mengikuti perubahan ukuran kepala. Kaki masih melangkah seperti orang dewasa. Uji langkah pendek dan keseimbangan badan."
+   }
   },
   "char.anak-besar-laki": {
    "id": "char.anak-besar-laki",
@@ -1140,17 +1188,17 @@
     ],
     "max": [
      0.377,
-     1.365,
+     1.366,
      0.244
     ],
     "size": [
      0.754,
-     1.37,
+     1.372,
      0.335
     ]
    },
-   "tris": 40981,
-   "bytes": 3864908,
+   "tris": 41171,
+   "bytes": 3868508,
    "tags": [
     "human",
     "male",
@@ -1213,7 +1261,11 @@
     "embeddedTextures": 36
    },
    "profile": "anak-besar",
-   "outfit": "seragam"
+   "outfit": "seragam",
+   "review": {
+    "sha256": "5c932eed49ca4ceef92a983b6cd106098e6b5b071dc7768febfa975d7f6d8d09",
+    "note": "Proporsi kepala dan mata sudah dikoreksi. Bagian atas dan bawah seragam biru masih menyatu. Perjelas batas celana dan lipatan lutut saat berjalan."
+   }
   },
   "char.anak-besar-perempuan": {
    "id": "char.anak-besar-perempuan",
@@ -1231,17 +1283,17 @@
     ],
     "max": [
      0.368,
-     1.335,
+     1.336,
      0.239
     ],
     "size": [
      0.737,
-     1.34,
+     1.342,
      0.328
     ]
    },
-   "tris": 41131,
-   "bytes": 4010168,
+   "tris": 41251,
+   "bytes": 4011124,
    "tags": [
     "human",
     "female",
@@ -1305,7 +1357,11 @@
     "embeddedTextures": 39
    },
    "profile": "anak-besar",
-   "outfit": "seragam"
+   "outfit": "seragam",
+   "review": {
+    "sha256": "7de80179198691d25de83e939db93f0370e25e3dfd087c8b495c39c08e3b23a3",
+    "note": "Dua kuncir belum mudah dikenali dari depan. Perjelas titik ikat dan periksa siluet rambut saat kepala menoleh."
+   }
   },
   "char.male-dewasa-kemeja": {
    "id": "char.male-dewasa-kemeja",
@@ -1333,7 +1389,7 @@
     ]
    },
    "tris": 42053,
-   "bytes": 3894640,
+   "bytes": 3892652,
    "tags": [
     "human",
     "male",
@@ -1396,7 +1452,11 @@
    },
    "profile": "dewasa",
    "outfit": "kemeja-kasual",
-   "variantOf": "char.male-dewasa-polo"
+   "variantOf": "char.male-dewasa-polo",
+   "review": {
+    "sha256": "c8f35b277e1dbd04c6b179938359f0b45a91897e47b5fe15bf4af75eb9c0d1ed",
+    "note": "Siluet kemeja biru masih dekat dengan varian polo. Pisahkan kerah dan plaket supaya dua kostum terbaca dari jarak satu badan."
+   }
   },
   "char.female-dewasa-daster": {
    "id": "char.female-dewasa-daster",
@@ -1424,7 +1484,7 @@
     ]
    },
    "tris": 39676,
-   "bytes": 3937328,
+   "bytes": 3935340,
    "tags": [
     "human",
     "female",
@@ -1487,7 +1547,11 @@
    },
    "profile": "dewasa",
    "outfit": "daster",
-   "variantOf": "char.female-dewasa"
+   "variantOf": "char.female-dewasa",
+   "review": {
+    "sha256": "532557a06ac6dcd65a77c6d25c5d1326e0bd7dcb69860a57af08c03099072382",
+    "note": "Bagian bawah daster merah muda terbagi seperti celana pendek. Buat kelim rok yang menyambung lalu periksa ulang saat duduk."
+   }
   },
   "entity.pale-standing": {
    "id": "entity.pale-standing",
@@ -1515,7 +1579,7 @@
     ]
    },
    "tris": 30334,
-   "bytes": 3273936,
+   "bytes": 3271948,
    "tags": [
     "ghost",
     "humanoid",
@@ -1570,6 +1634,10 @@
     "metallicRoughness": true,
     "emissive": false,
     "embeddedTextures": 21
+   },
+   "review": {
+    "sha256": "ca101abda20030a1964cdb311072a77d371f4dd600e1ec213805a0366573c1c4",
+    "note": "Pada pose duduk, lutut dan kaki keluar dari kain sementara kelim tetap vertikal. Perbaiki ikatan kain ke panggul dan lutut."
    }
   },
   "entity.tall-limbs": {
@@ -1598,7 +1666,7 @@
     ]
    },
    "tris": 29944,
-   "bytes": 2961700,
+   "bytes": 2959712,
    "tags": [
     "ghost",
     "humanoid",
@@ -1652,6 +1720,10 @@
     "metallicRoughness": true,
     "emissive": false,
     "embeddedTextures": 18
+   },
+   "review": {
+    "sha256": "dfbbd41f4712ccb799fca8d9a57568c5b7e049bccb094e1bf1fcf5121855d80b",
+    "note": "Tinggi tokoh menonjol, tetapi bentuk lengan belum cukup membedakan siluetnya. Uji panjang lengan dari samping dan lipatan kain saat duduk."
    }
   },
   "entity.veiled-seated": {
@@ -1680,7 +1752,7 @@
     ]
    },
    "tris": 30560,
-   "bytes": 3111884,
+   "bytes": 3109896,
    "tags": [
     "ghost",
     "humanoid",
@@ -1736,6 +1808,10 @@
     "metallicRoughness": true,
     "emissive": false,
     "embeddedTextures": 21
+   },
+   "review": {
+    "sha256": "9fad248b8e0ccf890d9b71024a9a9c3dadf9bf84efa0e5b0297feb60eb8aef57",
+    "note": "Kerudung membingkai wajah dari depan. Saat duduk, kain badan tetap tegak di belakang kaki. Prioritaskan jatuhnya kain di atas paha dan lutut."
    }
   },
   "entity.child": {
@@ -1764,7 +1840,7 @@
     ]
    },
    "tris": 30392,
-   "bytes": 3260632,
+   "bytes": 3258644,
    "tags": [
     "ghost",
     "child",
@@ -1818,6 +1894,10 @@
     "metallicRoughness": true,
     "emissive": false,
     "embeddedTextures": 21
+   },
+   "review": {
+    "sha256": "c650c6a135834cdc9c87ad4b32cab7d08fb9d17ae5662455909214b16da13092",
+    "note": "Kain gelap menutupi bentuk badan dan garis leher terputus di bahu. Perjelas proporsi sosok anak dan sambungkan pakaian di bahu."
    }
   },
   "entity.shadow-crouch": {
@@ -1846,7 +1926,7 @@
     ]
    },
    "tris": 29944,
-   "bytes": 2927888,
+   "bytes": 2925900,
    "tags": [
     "ghost",
     "shadow",
@@ -1900,6 +1980,10 @@
     "metallicRoughness": true,
     "emissive": false,
     "embeddedTextures": 18
+   },
+   "review": {
+    "sha256": "ac0d76a12aee144b272e6eead2d79953a17836001d5ca566f0423de0af783230",
+    "note": "Dalam pose dasar sosok masih berdiri tegak. Buat pose jongkok yang khas dan periksa siluet lipatan kain dari samping."
    }
   },
   "road.asphalt.straight": {

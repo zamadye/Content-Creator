@@ -10,6 +10,8 @@
  *   node scripts/studio.mjs new my-scene
  */
 import fs from 'node:fs';
+import {compositionId} from './lib/composition-id.mjs';
+import {productionIssues} from './lib/production-cast.mjs';
 import path from 'node:path';
 import {compileStory, summarize} from '../src/studio/compile.js';
 import {StoryError} from '../src/studio/schema.js';
@@ -171,14 +173,14 @@ function newCommand() {
     width: 1920,
     height: 1080,
     look: {preset: 'kampung-malam', fog: 0.035, exposure: 1.05, grain: 0.05},
-    cast: {aku: {asset: 'char.male-dewasa-polo'}},
+    cast: {},
     objects: {},
     shots: [
       {
         id: 'shot-01',
         duration: 4,
         set: [{asset: 'road.asphalt.straight', at: [0, 0, 0]}],
-        actors: [{ref: 'aku', at: [0, 0, 0], facing: '+Z', clip: 'walk'}],
+        actors: [],
         camera: {preset: 'dolly-in', fov: 42},
         light: {preset: 'malam'},
       },
@@ -189,6 +191,22 @@ function newCommand() {
   out(`wrote ${path.relative(root, file)} — next: node scripts/studio.mjs validate ${path.relative(root, file)}`);
 }
 
+function productionCommand() {
+  let file = positional[0];
+  if (!file) {
+    const id = process.env.STUDIO_COMPOSITION || 'StudioUjiKamera';
+    const dir = fs.readdirSync(path.join(root, 'stories'), {withFileTypes:true})
+      .find(entry => entry.isDirectory() && compositionId(entry.name) === id);
+    if (!dir) throw new Error('Paket cerita tidak ditemukan untuk ' + id);
+    file = path.join('stories', dir.name, 'story.json');
+  }
+  const raw = JSON.parse(fs.readFileSync(path.resolve(root, file), 'utf8'));
+  const compiled = compileStory(raw, {registry});
+  const issues = productionIssues(compiled, registry, path.join(root, 'public'));
+  if (issues.length) throw new Error('Periksa pemeran di Katalog karakter.\n' + issues.join('\n'));
+  out(file + ' — pemeran siap produksi');
+}
+
 function help() {
   out(`studio.mjs — story framework CLI
 
@@ -196,6 +214,7 @@ function help() {
   clips <asset-id>
   validate <story.json...>
   plan <story.json>
+  production [story.json]
   inspect <file.glb>
   new <story-id>
 
@@ -205,6 +224,9 @@ story schema: studio.story/2 — see docs/STORY-FORMAT.md`);
 
 try {
   switch (cmd) {
+    case 'production':
+      productionCommand();
+      break;
     case 'list':
       listCommand();
       break;

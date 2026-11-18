@@ -54,6 +54,32 @@ def sample_clip(clip, fps=30):
     return times, {k: np.array(v, F) for k, v in quats.items()}, np.array(roots, F)
 
 
+def skin_attributes(pos, normals, tangents, joints, weights):
+    """glTF requires unit frames, even at a pole or a collapsed UV island."""
+    n = np.asarray(normals, F).copy()
+    t = np.asarray(tangents, F).copy()
+    lengths = np.linalg.norm(n, axis=1)
+    missing = lengths < 1e-8
+    if missing.any():
+        # At UV seams a coincident vertex usually has the correct normal.
+        by_position = {tuple(p): v for p, v in zip(pos[~missing], n[~missing])}
+        n[missing] = [by_position.get(tuple(p), (0, 1, 0)) for p in pos[missing]]
+    n /= np.linalg.norm(n, axis=1, keepdims=True)
+    tangent = t[:, :3]
+    tangent -= n * np.sum(n * tangent, axis=1, keepdims=True)
+    missing = np.linalg.norm(tangent, axis=1) < 1e-6
+    if missing.any():
+        axis = np.eye(3, dtype=F)[np.argmin(np.abs(n[missing]), axis=1)]
+        tangent[missing] = np.cross(axis, n[missing])
+    tangent /= np.linalg.norm(tangent, axis=1, keepdims=True)
+    w = np.asarray(weights, F).copy()
+    total = w.sum(axis=1, keepdims=True)
+    if np.any(total <= 0):
+        raise ValueError("skinned vertex has no bone influence")
+    w /= total
+    return n, t, np.where(w > 0, joints, 0), w
+
+
 def write_skinned_glb(path, name, parts, bones, clips, extras=None, fps=30, anchors=None, generator="Content-Creator studio-forge", bake_ao=True):
     if bake_ao:
         from .bake import apply_to_material
@@ -77,16 +103,18 @@ def write_skinned_glb(path, name, parts, bones, clips, extras=None, fps=30, anch
         nrm = part.get("normals")
         if nrm is None:
             nrm = compute_normals(pos, idx)
+        tangent = compute_tangents(pos, uv, idx, nrm)
+        nrm, tangent, joints, weights = skin_attributes(pos, nrm, tangent, part["joints"], part["weights"])
         prims.append(
             Primitive(
                 positions=pos,
                 indices=idx,
                 normals=nrm,
                 uvs=uv,
-                tangents=compute_tangents(pos, uv, idx, nrm),
+                tangents=tangent,
                 material=mi,
-                joints=np.asarray(part["joints"], np.uint16),
-                weights=np.asarray(part["weights"], F),
+                joints=np.asarray(joints, np.uint16),
+                weights=weights,
             )
         )
         w.add_material(part["mat"])

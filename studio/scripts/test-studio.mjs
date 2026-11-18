@@ -8,6 +8,9 @@
  */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
+import gltfValidator from 'gltf-validator';
+import {productionIssues} from './lib/production-cast.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {registry, listAssets, clipsOf, asset} from '../src/studio/library.js';
@@ -47,6 +50,10 @@ for (const id of ids) {
   assert.ok(e.license && e.provenance, `${id}: license/provenance`);
   assert.ok(e.pbr.baseColor && e.pbr.normal && e.pbr.metallicRoughness, `${id}: PBR set incomplete`);
   if (e.rig) {
+    const file = fs.readFileSync(path.join(publicDir, e.uri));
+    const report = await gltfValidator.validateBytes(file, {maxIssues: 100000, writeTimestamp: false});
+    assert.equal(report.issues.numErrors, 0, `${id}: invalid GLB: ${report.issues.messages.find(m => m.severity === 0)?.message}`);
+    if (e.review) assert.equal(e.review.sha256, createHash('sha256').update(file).digest('hex'), id + ': stale review');
     assert.equal(e.rig.skeleton.length > 0, true, `${id}: rig skeleton`);
     // 163 tulang tubuh; entitas ber-shroud menambah rantai kain 3 tulang
     assert.ok(e.rig.bones === 163 || e.rig.bones === 166, `${id}: unexpected joint count ${e.rig.bones}`);
@@ -605,6 +612,14 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
   const compiled = compileStory(swapStory, {registry});
   const ids2 = new Set(compiled.shots.flatMap((s) => s.cast.map((c) => c.assetId)));
   assert.ok(ids2.has('char.male-dewasa-polo') && ids2.has(variantId), 'cerita uji harus memakai dua kostum tokoh yang sama');
+  const digest = createHash('sha256').update(fs.readFileSync(path.join(publicDir, variant.uri))).digest('hex');
+  const reviewed = {...variant, status:'approved', review:{sha256:digest}};
+  const assess = item => productionIssues({assetIds:[variantId]}, {assets:{[variantId]:item}}, publicDir);
+  assert.deepEqual(assess(reviewed), []);
+  assert.equal(assess({...reviewed, status:'review'}).length, 1);
+  assert.equal(assess({...reviewed, review:{sha256:'old'}}).length, 1);
+  const pendingVariant = {...registry.assets, [variantId]:{...reviewed, status:'draft'}};
+  assert.ok(productionIssues(compiled, {assets:pendingVariant}, publicDir).some(issue => issue.startsWith(variantId)));
   const outs = [registry.assets['char.male-dewasa-polo'].outfit, variant.outfit];
   assert.equal(new Set(outs).size, 2, 'dua shot harus memakai outfit berbeda');
   // Cerita lain tetap memakai outfit aslinya (bukan varian).

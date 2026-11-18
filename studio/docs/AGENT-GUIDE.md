@@ -6,6 +6,25 @@ renderer. Semua yang dibutuhkan ada di dua tempat:
 * `public/assets/registry.json` — katalog (sumber kebenaran)
 * `docs/STORY-FORMAT.md` — bahasa cerita
 
+## Katalog karakter sebelum casting
+
+Buka `npm run preview` untuk menguji satu GLB dalam cahaya netral. Periksa siluet
+dari depan, samping dan belakang, lalu wajah, tangan, dan kaki. Putar klip yang
+akan dipakai, jeda di kontak kaki atau tekukan sendi, dan periksa apakah pakaian
+menembus badan. Perbaiki sumber model, bangun ulang GLB, lalu ulangi uji
+pada sudut dan frame yang sama. Lembar pemeriksaan putaran pertama ada di
+[Ulasan karakter](Ulasan-Karakter.pdf).
+
+Catatan bersama berada di `data/character-reviews.json`. Setelah inspeksi, isi
+`note`, status (`draft`, `review`, atau `approved`), dan SHA-256 GLB yang diuji
+(dari `sha256sum <berkas.glb>`). Jalankan `python3 studio-forge/build.py --registry-only`.
+Ulasan hanya berlaku untuk isi GLB tersebut. Varian kostum adalah aset tersendiri.
+
+Mulai cerita dengan pemeran dari katalog yang sudah lulus. Jalankan
+`node scripts/studio.mjs production stories/<dir>/story.json` untuk memeriksa
+cast setelah resolusi outfit. `render:studio:h264` menjalankan pemeriksaan ini
+sebelum render final. Arsip adegan dan `render:studio` tersedia untuk pratinjau.
+
 ## 1. Alur kerja (5 langkah)
 
 ```bash
@@ -27,8 +46,8 @@ node scripts/studio.mjs plan stories/adegan-baru/story.json
 npm run qc:plan            # ukur + tulis docs/plans/<cerita>.json
 npm run qc:plan:png        # gambar denah tampak atas -> docs/plans/<cerita>.png
 
-# 5. render (Remotion)
-npm run render:studio -- StudioJalanPulang
+# 5. render produksi (Remotion)
+STUDIO_COMPOSITION=StudioJalanPulang npm run render:studio:h264
 ```
 
 `studio.mjs new <id>` membuat kerangka cerita siap-validasi.
@@ -125,7 +144,7 @@ Aturan builder:
 
 | kategori | jumlah | status | catatan |
 |---|---|---|---|
-| character | 6 | review | 163 tulang, 13 klip, PBR kulit/rambut/baju; jahitan lengan jaket masih terlihat |
+| character | 16 | review | 163 tulang, 13 klip, PBR kulit/rambut/baju; jahitan lengan jaket masih terlihat |
 | entity | 5 | draft | 166 tulang (163 + rantai kain `cloth01–03`), 13 klip, kain berayun prosedural; siluet kafan/kerudung masih kasar, rambut kaku |
 | building | 9 | review | atap pelana benar; interior kosong (butuh prop) |
 | road | 7 | review | marka + trotoar; belum ada varian rusak/berlubang |
@@ -133,7 +152,7 @@ Aturan builder:
 | prop | 14 | review | siluet terbaca; teks papan sudah dicat |
 | vehicle | 2 | draft | motor bebek terbaca; pikap masih kotak-kotak |
 
-Status `draft` berarti **jangan dipakai untuk hero shot**, hanya untuk latar.
+Untuk karakter dan entitas, status `approved` pada versi GLB yang diuji diperlukan untuk render produksi. Aset latar berstatus `draft` masih dapat dipakai untuk blockout.
 
 ## 6. Batas yang diketahui
 

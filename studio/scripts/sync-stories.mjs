@@ -11,19 +11,13 @@
  * sebagai berkas JS statis — cara yang sama seperti `src/studio/registry.generated.js`.
  */
 import fs from 'node:fs';
+import {compositionId} from './lib/composition-id.mjs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const storiesDir = path.join(root, 'stories');
 const outFile = path.join(storiesDir, 'packs.generated.js');
-
-const pascal = (dir) =>
-  dir
-    .split(/[-_.]/)
-    .filter(Boolean)
-    .map((s) => s[0].toUpperCase() + s.slice(1))
-    .join('');
 
 const dirs = fs
   .readdirSync(storiesDir, {withFileTypes: true})
@@ -38,7 +32,7 @@ for (const dir of dirs) {
   imports.push(`import ${id} from './${dir}/story.json';`);
   const hasCompositions = fs.existsSync(path.join(storiesDir, dir, 'compositions.jsx'));
   if (hasCompositions) imports.push(`import ${id}_compositions from './${dir}/compositions.jsx';`);
-  entries.push(`  {dir: ${JSON.stringify(dir)}, compositionId: ${JSON.stringify(`Studio${pascal(dir)}`)}, story: ${id}, compositions: ${hasCompositions ? `${id}_compositions` : '[]'}},`);
+  entries.push(`  {dir: ${JSON.stringify(dir)}, compositionId: ${JSON.stringify(compositionId(dir))}, story: ${id}, compositions: ${hasCompositions ? `${id}_compositions` : '[]'}},`);
 }
 
 const body = `// BERKAS INI DIHASILKAN OTOMATIS — jangan disunting tangan.

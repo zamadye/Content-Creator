@@ -38,6 +38,7 @@
     "calibrate:materials": "./.venv/bin/python studio-forge/dev_materials.py --write --sheet docs/material-calibration.png",
     "verify:chromium": "node scripts/qc-webgl.mjs",
     "shots:webgl": "node scripts/qc-webgl-shots.mjs",
+    "prerender:studio:h264": "node scripts/studio.mjs production",
     "render:studio:h264": "LD_LIBRARY_PATH=\"$(pwd)/../.studio-tools:$(pwd)/../.studio-tools/al2023/lib:$(pwd)/../.studio-tools/swiftshader${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}\" remotion render src/index.jsx ${STUDIO_COMPOSITION:-StudioUjiKamera} render/${STUDIO_COMPOSITION:-StudioUjiKamera}-h264.mp4 --browser-executable=../.studio-tools/chromium --concurrency=1 --gl=angle --chromium-flags='{\"enable-unsafe-swiftshader\":true,\"use-angle\":\"swiftshader\",\"ignore-gpu-blocklist\":true,\"disable-gpu-sandbox\":true}' --codec=h264 --crf=18 --pixel-format=yuv420p --color-space=bt709 --scale=0.5 --log=error",
     "stories:sync": "node scripts/sync-stories.mjs",
     "stories:check": "node scripts/sync-stories.mjs --check",

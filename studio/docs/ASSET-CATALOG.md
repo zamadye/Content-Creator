@@ -24,18 +24,18 @@ Total: **63 aset**. Unit meter, +Y atas, aset menghadap +Z.
 
 | ID | Judul | Ukuran (m) | Tris | Tekstur | Rig/Klip | Status |
 |----|-------|-----------|------|---------|----------|--------|
-| `char.anak-besar-laki` | Anak besar laki-laki (9–10 tahun) — seragam | 0.754×1.37×0.335 | 40981 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.anak-besar-perempuan` | Anak besar perempuan (9–10 tahun) — seragam | 0.737×1.34×0.328 | 41131 | 3/3 (+39 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.anak-laki` | Anak laki-laki (5–6 tahun) — kaos | 0.617×1.158×0.274 | 40995 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.anak-perempuan` | Anak perempuan (5–6 tahun) — kaos | 0.601×1.128×0.272 | 39527 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.balita-laki` | Balita laki-laki (2–3 tahun) | 0.482×0.946×0.215 | 40921 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.balita-perempuan` | Balita perempuan (2–3 tahun) | 0.466×0.916×0.212 | 39500 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.anak-besar-laki` | Anak besar laki-laki (9–10 tahun) — seragam | 0.754×1.372×0.335 | 41171 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.anak-besar-perempuan` | Anak besar perempuan (9–10 tahun) — seragam | 0.737×1.342×0.328 | 41251 | 3/3 (+39 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.anak-laki` | Anak laki-laki (5–6 tahun) — kaos | 0.617×1.16×0.274 | 41383 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.anak-perempuan` | Anak perempuan (5–6 tahun) — kaos | 0.601×1.13×0.272 | 39665 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.balita-laki` | Balita laki-laki (2–3 tahun) | 0.482×0.948×0.215 | 41359 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.balita-perempuan` | Balita perempuan (2–3 tahun) | 0.466×0.918×0.212 | 39658 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.female-dewasa` | Wanita dewasa — polo & kargo | 0.956×1.619×0.423 | 41245 | 3/3 (+39 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.female-dewasa-daster` | Wanita dewasa — daster (varian outfit) | 0.956×1.619×0.429 | 39676 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.female-lansia` | Wanita lansia — ibu | 0.921×1.557×0.412 | 39634 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.female-lansia` | Wanita lansia — ibu | 0.921×1.558×0.412 | 39704 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.male-dewasa-kemeja` | Pria dewasa — kemeja (varian outfit) | 1.025×1.733×0.454 | 42053 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.male-dewasa-polo` | Pria dewasa — polo & celana kargo | 1.025×1.733×0.454 | 41039 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.male-lansia-kemeja` | Pria lansia — kemeja lusuh | 0.992×1.677×0.439 | 41952 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.male-lansia-kemeja` | Pria lansia — kemeja lusuh | 0.992×1.678×0.439 | 42014 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.male-muda-jaket` | Pria muda — setelan kasual | 0.977×1.655×0.432 | 42060 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.male-pekerja` | Pekerja gudang — setelan kerja | 1.013×1.713×0.449 | 42045 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.remaja-laki` | Remaja laki-laki — seragam putih-abu | 0.892×1.598×0.404 | 20924 | 3/3 (+51 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |

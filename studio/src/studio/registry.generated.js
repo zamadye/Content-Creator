@@ -583,22 +583,22 @@ export default {
    "bounds": {
     "min": [
      -0.446,
-     -0.007,
-     -0.101
+     0.006,
+     -0.115
     ],
     "max": [
      0.446,
-     1.567,
+     1.605,
      0.289
     ],
     "size": [
      0.892,
-     1.574,
-     0.39
+     1.598,
+     0.404
     ]
    },
-   "tris": 33736,
-   "bytes": 3683752,
+   "tris": 20924,
+   "bytes": 2127912,
    "tags": [
     "human",
     "male",
@@ -642,22 +642,27 @@ export default {
    "materials": [
     "cloth-dasi",
     "cloth-kerah",
-    "cloth-pants-school",
-    "cloth-shirt-school",
-    "cloth-shoes01",
+    "eye.L",
+    "eye.R",
+    "fringe",
     "hair",
-    "iris-L",
-    "iris-R",
-    "sclera-L",
-    "sclera-R",
-    "skin"
+    "ink",
+    "mulut",
+    "pants",
+    "ribbon",
+    "shirt",
+    "shoe",
+    "skin",
+    "sole",
+    "warm",
+    "white"
    ],
    "pbr": {
     "baseColor": true,
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 33
+    "embeddedTextures": 51
    },
    "profile": "remaja",
    "outfit": "putih-abu"
@@ -673,22 +678,22 @@ export default {
    "bounds": {
     "min": [
      -0.429,
-     -0.007,
-     -0.113
+     0.006,
+     -0.227
     ],
     "max": [
      0.429,
-     1.506,
+     1.543,
      0.278
     ],
     "size": [
      0.858,
-     1.513,
-     0.391
+     1.537,
+     0.505
     ]
    },
-   "tris": 33794,
-   "bytes": 3856296,
+   "tris": 21884,
+   "bytes": 2163396,
    "tags": [
     "human",
     "female",
@@ -732,23 +737,27 @@ export default {
    "materials": [
     "cloth-dasi",
     "cloth-kerah",
-    "cloth-pants-school",
-    "cloth-shirt-school",
-    "cloth-shoes01",
+    "eye.L",
+    "eye.R",
+    "fringe",
     "hair",
-    "hair-long",
-    "iris-L",
-    "iris-R",
-    "sclera-L",
-    "sclera-R",
-    "skin"
+    "ink",
+    "mulut",
+    "pants",
+    "ribbon",
+    "shirt",
+    "shoe",
+    "skin",
+    "sole",
+    "warm",
+    "white"
    ],
    "pbr": {
     "baseColor": true,
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 36
+    "embeddedTextures": 51
    },
    "profile": "remaja",
    "outfit": "putih-abu"

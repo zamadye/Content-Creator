@@ -325,6 +325,11 @@ ke depan masing-masing:
 | `[x, y, z]` | pandang ke satu titik dunia (mis. layar TV, papan nama, sosok di kejauhan) |
 | tidak ada | leher mengikuti klip saja |
 
+Dengan `lookAt`, `gazeWeight` mengatur kekuatan koreksi pandangan. Nilai 0
+memakai gerak kepala dari klip, sedangkan 1 (bawaan) memakai koreksi penuh.
+Di close-up *Bel Terakhir*, nilai 0,52 membuat anggukan Nisa tetap terlihat
+saat ia memandang Bayu.
+
 Aturannya:
 
 * Sudah ditangani otomatis: kepala lawan bicara dibaca dari **pose terakhirnya**,

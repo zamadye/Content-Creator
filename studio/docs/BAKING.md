@@ -84,8 +84,8 @@ Gambar-gambar: `docs/bake-ao-maps.png` (peta AO per material satu rumah) dan
 | `char.male-lansia-kemeja` | 12 | 0.857 | 0.894 | +0.036 | 0.00 | 26.2% |
 | `char.male-muda-jaket` | 12 | 0.859 | 0.895 | +0.035 | 0.00 | 25.9% |
 | `char.male-pekerja` | 12 | 0.858 | 0.893 | +0.035 | 0.00 | 26.2% |
-| `char.remaja-laki` | 11 | 0.863 | 0.885 | +0.023 | 0.00 | 27.3% |
-| `char.remaja-perempuan` | 12 | 0.867 | 0.886 | +0.019 | 0.00 | 27.1% |
+| `char.remaja-laki` | 16 | 0.863 | 1.000 | +0.137 | 1.00 | 0.0% |
+| `char.remaja-perempuan` | 16 | 0.867 | 1.000 | +0.133 | 1.00 | 0.0% |
 | `entity.child` | 7 | 0.857 | 0.857 | +0.000 | 0.00 | 33.6% |
 | `entity.pale-standing` | 7 | 0.839 | 0.839 | +0.000 | 0.00 | 37.5% |
 | `entity.shadow-crouch` | 6 | 0.839 | 0.839 | +0.000 | 0.00 | 38.6% |

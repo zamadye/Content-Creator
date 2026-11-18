@@ -104,6 +104,11 @@ def write_skinned_glb(path, name, parts, bones, clips, extras=None, fps=30, anch
             if np.allclose(q, q[0]) and np.allclose(q[0], [0, 0, 0, 1], atol=1e-4):
                 continue
             channels.append({"node": name_to_index[bone], "path": "rotation", "times": times, "values": q})
+        if "scales" in clip:
+            scales = [clip["scales"](t) for t in np.linspace(0, 1, len(times))]
+            for bone in scales[0]:
+                values = np.asarray([pose[bone] for pose in scales], F)
+                channels.append({"node": name_to_index[bone], "path": "scale", "times": times, "values": values})
         if np.any(np.abs(roots_off) > 1e-6):
             root_bone = bones[roots[0]]
             base_t = np.asarray(root_bone["p"], F)

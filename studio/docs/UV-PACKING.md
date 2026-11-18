@@ -70,8 +70,8 @@ untuk aset tiling maupun atlas (tidak bergantung pada rasterisasi).
 | `char.male-lansia-kemeja` | character | 12 | 12 | 46% | 13.3% | 1.1× | 2048 | 2787 | daur-ulang |
 | `char.male-muda-jaket` | character | 12 | 12 | 46% | 13.2% | 1.1× | 2048 | 2829 | daur-ulang |
 | `char.male-pekerja` | character | 12 | 12 | 46% | 13.2% | 1.1× | 2048 | 2701 | daur-ulang |
-| `char.remaja-laki` | character | 11 | 11 | 62% | 10.9% | 1.1× | 2048 | 4002 | daur-ulang |
-| `char.remaja-perempuan` | character | 12 | 11 | 61% | 11.0% | 1.1× | 2048 | 5626 | daur-ulang |
+| `char.remaja-laki` | character | 17 | 17 | 55% | 0.0% | 1.0× | 384 | 833 | rapat |
+| `char.remaja-perempuan` | character | 17 | 17 | 52% | 0.0% | 1.0× | 384 | 827 | rapat |
 | `entity.child` | entity | 7 | 6 | 74% | 0.0% | 1.0× | 2048 | 3446 | rapat |
 | `entity.pale-standing` | entity | 7 | 6 | 73% | 0.0% | 1.0× | 2048 | 2440 | rapat |
 | `entity.shadow-crouch` | entity | 6 | 5 | 84% | 0.0% | 1.0× | 2048 | 2570 | rapat |

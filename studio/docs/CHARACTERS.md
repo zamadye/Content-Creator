@@ -1,9 +1,9 @@
 # KARAKTER — satu rig, banyak varian
 
-Semua tokoh manusia di studio ini berasal dari **satu mesh dasar** (MakeHuman,
-14.517 verteks, 163 tulang, 13 klip) yang di-**copy** menjadi varian lewat
-parameter. Tidak ada sepuluh model terpisah: yang berbeda hanya profil umur,
-bentuk tubuh (morph), kulit, rambut, dan pakaian.
+Tokoh manusia memakai rig MakeHuman dengan 163 tulang dan 13 klip. Mayoritas
+varian dibentuk dari mesh dasar MakeHuman lewat profil umur, bentuk tubuh,
+kulit, rambut, dan pakaian. Dua pelajar memakai model kartun yang dibangun
+pada rig yang sama.
 
 ```
 public/assets/characters/<asset-id>/
@@ -14,9 +14,15 @@ public/assets/characters/<asset-id>/
 Bukti rupa: `docs/character-lineup.png` (16 tokoh berjejer) dan still WebGL
 sungguhan di `docs/webgl-shots/StudioUjiKarakter-f*.png`.
 
-Di paket `stories/bel-terakhir/story.json`, Nisa dan Bayu memakai seragam SMA
-putih-abu. Dasi dan dua lipatan kerah mengambil bobot tulang dari kemeja pada
-titik tempelnya. Rambut ikat Nisa mengikuti tulang kepala. Set
+Di *Bel Terakhir*, bentuk wajah, rambut dan pola seragam Nisa serta Bayu
+dibangun di `studio-forge/forge/student.py`. Lengan kemeja tersambung ke
+badan di sepanjang lubang lengan. Kerah dan dasi mengikuti permukaan serta
+bobot tulang kemeja. Mata, alis, dan mulut dapat dianimasikan secara terpisah.
+
+Pada klip `talk` Bayu mengangkat telapak tangan saat bertanya. Nisa mengangguk
+di awal jawaban lalu mengulurkan tangan pada frasa kedua. Klip `idle` memberi
+pendengar kedipan dan perpindahan tumpuan. Di tiap shot, `gazeWeight` mengatur
+seberapa kuat kepala mengikuti `lookAt` pada rentang 0–1 (bawaan 1). Set
 `building.school.corridor` menghadap +Z dan lantai selasarnya berada di y=0.
 
 ---
@@ -73,8 +79,8 @@ klip `walk`/`run`/`sit` tidak perlu diubah per umur.
 | `char.male-pekerja` | dewasa | 1.71 m | `kerja` | perawakan besar, brewok |
 | `char.male-lansia-kemeja` | lansia | 1.68 m | `kemeja-kasual` | keriput, rambut menipis |
 | `char.female-lansia` | lansia | 1.56 m | `daster` | rambut sanggul |
-| `char.remaja-laki` | remaja | 1.57 m | `putih-abu` | pelajar |
-| `char.remaja-perempuan` | remaja | 1.51 m | `putih-abu` | pelajar, ekor kuda |
+| `char.remaja-laki` | remaja | 1.60 m | `putih-abu` | pelajar |
+| `char.remaja-perempuan` | remaja | 1.54 m | `putih-abu` | pelajar, ekor kuda |
 | `char.anak-laki` | anak | 1.16 m | `seragam` | bocil 5–6 th, potongan mangkuk |
 | `char.anak-perempuan` | anak | 1.13 m | `daster` | bocil 5–6 th, kuncir dua |
 | `char.balita-laki` | balita | 0.95 m | `seragam` | 2–3 th |

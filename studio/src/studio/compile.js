@@ -54,6 +54,7 @@ export function compileStory(raw, {registry = null} = {}) {
       travel: a.travel ?? 0,
       offset: a.offset ?? 0,
       lookAt: a.lookAt ?? null,
+      gazeWeight: a.gazeWeight ?? 1,
       hold: a.hold ?? null,
       holdHand: a.holdHand ?? 'R',
       holdOffset: a.holdOffset ?? [0, 0, 0],

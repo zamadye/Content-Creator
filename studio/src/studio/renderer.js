@@ -345,7 +345,7 @@ export class StudioRenderer {
       const target = Array.isArray(c.lookAt) ? c.lookAt : this.headPosition(`cast:${shot.id}:${c.lookAt}`);
       if (!target) continue;
       inst.root.updateMatrixWorld(true);
-      aimGaze(inst.root, target, {maxAngle: 1.05, maxPitch: 0.5});
+      aimGaze(inst.root, target, {maxAngle: 1.05, maxPitch: 0.5, weight: c.gazeWeight});
     }
 
     this.applyShotLight(shot.light);

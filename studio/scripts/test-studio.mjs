@@ -289,7 +289,14 @@ ok('stories');
   const compiled = compileStory(base, {registry});
   assert.equal(compiled.shots[0].cast[0].lookAt, 'aku', 'lookAt ref must survive compile');
 
+  assert.equal(compiled.shots[0].cast[0].gazeWeight, 1);
   const point = JSON.parse(JSON.stringify(base));
+  point.shots[0].actors[0].gazeWeight = 0;
+  assert.equal(compileStory(point, {registry}).shots[0].cast[0].gazeWeight, 0);
+  point.shots[0].actors[0].gazeWeight = 1.5;
+  assert.throws(() => validateStory(point, {registry}), /gazeWeight/);
+  point.shots[0].actors[0].gazeWeight = 0.52;
+  assert.equal(compileStory(point, {registry}).shots[0].cast[0].gazeWeight, 0.52);
   point.shots[0].actors[0].lookAt = [0, 1.4, 3];
   assert.deepEqual(compileStory(point, {registry}).shots[0].cast[0].lookAt, [0, 1.4, 3]);
 

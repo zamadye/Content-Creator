@@ -103,8 +103,8 @@ tidak cocok dengan isi GLB. `vert` = jumlah POSITION, `prim` = jumlah primitif,
 | `char.male-lansia-kemeja` | character | 41952 | 23239 | 12 | 12 | 2048 | 163 | 46000 | 91% |
 | `char.male-muda-jaket` | character | 42060 | 23296 | 12 | 12 | 2048 | 163 | 46000 | 91% |
 | `char.male-pekerja` | character | 42045 | 23290 | 12 | 12 | 2048 | 163 | 46000 | 91% |
-| `char.remaja-laki` | character | 33736 | 21748 | 11 | 11 | 2048 | 163 | 46000 | 73% |
-| `char.remaja-perempuan` | character | 33794 | 21816 | 12 | 12 | 2048 | 163 | 46000 | 73% |
+| `char.remaja-laki` | character | 20924 | 12160 | 17 | 17 | 384 | 163 | 46000 | 45% |
+| `char.remaja-perempuan` | character | 21884 | 12716 | 17 | 17 | 384 | 163 | 46000 | 48% |
 | `entity.child` | entity | 30392 | 16574 | 7 | 7 | 2048 | 166 | 34000 | 89% |
 | `entity.pale-standing` | entity | 30334 | 16546 | 7 | 7 | 2048 | 166 | 34000 | 89% |
 | `entity.shadow-crouch` | entity | 29944 | 16309 | 6 | 6 | 2048 | 166 | 34000 | 88% |

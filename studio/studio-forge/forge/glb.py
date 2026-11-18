@@ -116,7 +116,7 @@ class GLBWriter:
         accessors: list[dict] = []
         images: list[dict] = []
         textures: list[dict] = []
-        samplers = [{"magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497}]
+        texture_samplers = [{"magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497}]
 
         def add_view(data: bytes, target: int | None = None) -> int:
             blob.extend(b"\0" * ((-len(blob)) % 4))
@@ -278,7 +278,7 @@ class GLBWriter:
         if images:
             gltf["images"] = images
             gltf["textures"] = textures
-            gltf["samplers"] = samplers
+            gltf["samplers"] = texture_samplers
         if gl_skins:
             gltf["skins"] = gl_skins
         if gl_anims:

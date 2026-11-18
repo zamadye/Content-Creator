@@ -7,7 +7,7 @@ from pathlib import Path
 
 import numpy as np
 
-from . import human, tex, uvpaint
+from . import human, student, tex, uvpaint
 from .assemble import write_skinned_glb
 from .glb import Material
 from .human import CLIPS, build_hair_shell, build_long_hair, shape, to_metres
@@ -124,12 +124,12 @@ SPECS = {
         "Remaja laki-laki — seragam putih-abu", ["human", "male", "teen", "student", "indonesian"], "remaja", 1.56,
         dict(_TEEN_SHAPE, jaw_w=-0.1, brow=0.15, neck=0.05),
         dict(tone="#c39268", red="#b2604d", lip="#94504a", age=0.12, sex="male", stubble=0.05, lash=0.18, seed=71),
-        dict(style="fringe", color="#141010", thickness=0.038, long=0.0), "putih-abu"),
+        dict(style="fringe", color="#141010", thickness=0.038, long=0.0), "putih-abu", school_cast=True),
     "char.remaja-perempuan": _char(
         "Remaja perempuan — seragam putih-abu", ["human", "female", "teen", "student", "indonesian"], "remaja", 1.50,
         dict(_TEEN_SHAPE, shoulder=-0.5, waist=0.45, hip=0.55, jaw_w=-0.5, cheek=0.4, lip_full=0.5),
         dict(tone="#c99b76", red="#b2614f", lip="#a55a53", age=0.15, sex="female", stubble=0.0, lash=0.18, seed=73),
-        dict(style="ponytail", color="#171210", thickness=0.036, long=0.75), "putih-abu"),
+        dict(style="ponytail", color="#171210", thickness=0.036, long=0.75), "putih-abu", school_cast=True),
     # ---------------------------------------------------------------- anak
     "char.anak-laki": _char(
         "Anak laki-laki (5–6 tahun) — kaos", ["human", "male", "child", "kid", "indonesian"], "anak", 1.15,
@@ -276,7 +276,7 @@ def _sphere(center, radius, segs=28, rings=18):
     return np.array(verts, F), np.array(uvs, F), np.array(idx, np.int64)
 
 
-def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
+def _human_parts(spec, size, entities):
     b = human.base()
     shape_spec = dict(spec.get("shape", {}))
     # Mesh dasar = bentuk perempuan; tokoh pria diratakan dadanya. Ditaruh di
@@ -706,11 +706,26 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
             }
         )
 
+    return parts, bones
+
+
+def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
+    school_cast = spec.get("school_cast", False)
+    if school_cast:
+        rig = human.proportion_bones(human.base()["bones"], human.PROFILES[spec["profile"]])
+        bones, _, _ = _metres(rig, spec["height"])
+        parts = student.build(spec, bones)
+    else:
+        parts, bones = _human_parts(spec, size, entities)
+
     clips = {}
     for cname, cinfo in CLIPS.items():
         if cname in spec.get("skip_clips", []):
             continue
         clips[cname] = dict(cinfo)
+
+    if school_cast:
+        student.direct(clips, boy=spec["skin"]["sex"] == "male")
 
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -723,7 +738,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         "clips": sorted(clips.keys()),
         "provenance": "public/makehuman/PROVENANCE.md + generated layers (project-authored)",
     }
-    write_skinned_glb(glb_path, asset_id, parts, bones, clips, extras=extras, fps=fps, anchors=_anchor_nodes(bones))
+    write_skinned_glb(glb_path, asset_id, parts, bones, clips, extras=extras, fps=fps, anchors=_anchor_nodes(bones), bake_ao=not school_cast)
 
     meta = {
         "id": asset_id,
@@ -732,7 +747,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         "tags": spec.get("tags", []),
         "height": spec["height"],
         "clips": sorted(clips.keys()),
-        "tris": int(sum(len(p["idx"]) for p in parts) // 3),
+        "tris": sum(np.asarray(p["idx"]).size // 3 for p in parts),
         "bones": len(bones),
         "size": int(glb_path.stat().st_size),
         "parts": [p["mat"].name for p in parts],

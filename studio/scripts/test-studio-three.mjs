@@ -85,6 +85,40 @@ const allFinite = (arr) => {
   return true;
 };
 
+// A conversation has one speaking mouth, an attentive listener, and planted feet.
+function checkStudentActing(gltf, id) {
+  const instance = cloneSkeleton(gltf.scene);
+  const mouth = instance.getObjectByName('oris05');
+  const eye = instance.getObjectByName('eyeL');
+  const wrist = instance.getObjectByName('wristR');
+  const foot = instance.getObjectByName('footL');
+  for (const name of ['talk', 'idle']) {
+    const clip = gltf.animations.find((c) => c.name === name);
+    const sampler = createClipSampler(instance, clip);
+    sampler.apply(0);
+    const stance = foot.getWorldPosition(new THREE.Vector3());
+    const start = wrist.getWorldPosition(new THREE.Vector3());
+    const openings = [];
+    const eyelids = [];
+    let handTravel = 0;
+    for (let frame = 0; frame < Math.round(clip.duration * 30); frame++) {
+      sampler.apply(frame / 30);
+      openings.push(mouth.scale.y);
+      eyelids.push(eye.scale.y);
+      handTravel = Math.max(handTravel, wrist.getWorldPosition(new THREE.Vector3()).distanceTo(start));
+      assert.ok(foot.getWorldPosition(new THREE.Vector3()).distanceTo(stance) < 0.015, `${id}/${name}: foot drift`);
+    }
+    assert.ok(Math.min(...eyelids) < 0.15 && Math.max(...eyelids) > 0.95, `${id}/${name}: missing blink`);
+    assert.ok(Math.min(...openings) < 0.24, `${id}/${name}: mouth never rests`);
+    if (name === 'talk') {
+      assert.ok(Math.max(...openings) > 0.85, `${id}: mouth never opens during speech`);
+      assert.ok(handTravel > 0.18, `${id}: missing speaking gesture`);
+    } else {
+      assert.ok(Math.max(...openings) < 0.24, `${id}: listener appears to be speaking`);
+    }
+  }
+}
+
 let files = 0;
 let clips = 0;
 let verts = 0;
@@ -101,6 +135,7 @@ for (const id of Object.keys(registry.assets)) {
     continue;
   }
   files += 1;
+  if (id === 'char.remaja-laki' || id === 'char.remaja-perempuan') checkStudentActing(gltf, id);
   const scene = gltf.scene;
   scene.updateMatrixWorld(true);
 

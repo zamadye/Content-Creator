@@ -20,7 +20,7 @@ export const FIELDS = {
   objects: ['asset', 'scale', 'label'],
   shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'secondary', 'note', 'lookPreset'],
   set: ['asset', 'at', 'rot', 'scale', 'clip'],
-  actor: ['ref', 'at', 'facing', 'clip', 'offset', 'speed', 'travel', 'loop', 'lookAt', 'hold', 'holdHand', 'holdOffset', 'hidden'],
+  actor: ['ref', 'at', 'facing', 'clip', 'offset', 'speed', 'travel', 'loop', 'lookAt', 'gazeWeight', 'hold', 'holdHand', 'holdOffset', 'hidden'],
   object: ['ref', 'at', 'rot', 'scale', 'hidden'],
   camera: ['preset', 'from', 'to', 'target', 'fov', 'roll', 'shake', 'side', 'radius', 'startAngle', 'arc', 'distance', 'height'],
   light: ['preset', 'intensity', 'color'],
@@ -200,6 +200,9 @@ export function validateStory(raw, {registry = null} = {}) {
       if (a.speed !== undefined && !(a.speed > 0 && a.speed <= 4)) problems.push(`${w}.speed must be 0..4`);
       // travel: world metres per second along `facing` (0 = berjalan di tempat)
       if (a.travel !== undefined && !(a.travel >= 0 && a.travel <= 6)) problems.push(`${w}.travel must be 0..6`);
+      if (a.gazeWeight !== undefined && !(isNum(a.gazeWeight) && a.gazeWeight >= 0 && a.gazeWeight <= 1)) {
+        problems.push(`${w}.gazeWeight must be 0..1`);
+      }
       // lookAt: "ref" (nama di cast) atau titik dunia [x, y, z]
       if (a.lookAt !== undefined && a.lookAt !== null) {
         if (typeof a.lookAt === 'string') {

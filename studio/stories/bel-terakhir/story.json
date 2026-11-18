@@ -25,10 +25,10 @@
         {"asset": "road.dirt.straight", "at": [0, -0.20, 4.1], "rot": 1.5708, "scale": 1.25}
       ],
       "actors": [
-        {"ref": "bayu", "at": [-2.65, 0.01, 0.64], "facing": "+X", "clip": "talk", "lookAt": "nisa"},
-        {"ref": "nisa", "at": [-1.52, 0.01, 0.17], "facing": "+Z", "clip": "idle", "lookAt": "bayu"}
+        {"ref": "bayu", "at": [-2.65, 0.01, 0.64], "facing": "+X", "clip": "talk", "lookAt": "nisa", "gazeWeight": 0.42},
+        {"ref": "nisa", "at": [-1.52, 0.01, 0.17], "facing": "+Z", "clip": "idle", "lookAt": "bayu", "gazeWeight": 0.64}
       ],
-      "camera": {"preset": "pan", "from": [-2.95, 1.38, 4.12], "to": [-2.22, 1.38, 3.95], "target": [-2.02, 1.13, 0.29], "fov": 42},
+      "camera": {"preset": "pan", "from": [-0.70, 1.38, 4.12], "to": [-1.15, 1.38, 3.95], "target": [-2.02, 1.13, 0.29], "fov": 42},
       "light": {"preset": "sore", "color": "#fff0d8"},
       "text": {"style": "subtitle", "value": "“Nis, pintu XI A udah kamu kunci?”"}
     },
@@ -44,7 +44,7 @@
         {"asset": "kenney.furniture.pottedPlant", "at": [-4.04, 0, -0.64]}
       ],
       "actors": [
-        {"ref": "nisa", "at": [-1.52, 0.01, 0.17], "facing": "+Z", "clip": "talk", "lookAt": [-2.50, 1.50, 1.32]}
+        {"ref": "nisa", "at": [-1.52, 0.01, 0.17], "facing": "+Z", "clip": "talk", "lookAt": [-2.50, 1.50, 1.32], "gazeWeight": 0.52}
       ],
       "camera": {"preset": "dolly-in", "from": [-2.08, 1.43, 1.74], "to": [-2.02, 1.45, 1.52], "target": [-1.52, 1.27, 0.24], "fov": 32},
       "light": {"preset": "sore", "color": "#fff0d8"},

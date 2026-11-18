@@ -38,8 +38,8 @@ Total: **63 aset**. Unit meter, +Y atas, aset menghadap +Z.
 | `char.male-lansia-kemeja` | Pria lansia — kemeja lusuh | 0.992×1.677×0.439 | 41952 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.male-muda-jaket` | Pria muda — setelan kasual | 0.977×1.655×0.432 | 42060 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.male-pekerja` | Pekerja gudang — setelan kerja | 1.013×1.713×0.449 | 42045 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.remaja-laki` | Remaja laki-laki — seragam putih-abu | 0.892×1.574×0.39 | 33736 | 3/3 (+33 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.remaja-perempuan` | Remaja perempuan — seragam putih-abu | 0.858×1.513×0.391 | 33794 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.remaja-laki` | Remaja laki-laki — seragam putih-abu | 0.892×1.598×0.404 | 20924 | 3/3 (+51 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.remaja-perempuan` | Remaja perempuan — seragam putih-abu | 0.858×1.537×0.505 | 21884 | 3/3 (+51 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 
 ## entity
 

@@ -8,11 +8,11 @@ Terakhir diperbarui: sesi build ini. Angka diambil langsung dari
 
 | | |
 |---|---|
-| Aset | **60** GLB + 60 thumbnail + registry + galeri HTML + pustaka 102 properti |
-| Ukuran | **± 95,5 MB** (character 62,9 MB · entity 15,5 MB · building 6,0 MB · prop 4,1 MB · road 3,4 MB · nature 2,9 MB · vehicle 0,7 MB) |
-| Geometri | ± 827.000 tris total |
+| Aset | **63** GLB + 63 thumbnail + registry + galeri HTML + pustaka 102 properti |
+| Ukuran | **± 92,6 MB** (character 59,3 MB · entity 15,5 MB · building 6,7 MB · prop 4,1 MB · road 3,4 MB · nature 2,9 MB · vehicle 0,7 MB) |
+| Geometri | ± 788.500 tris total (449.432 vertex) |
 | Rig | 163 tulang, 13 klip, 30 fps, `inverseBindMatrices` per klip |
-| Status | 52 `review`, 8 `draft` |
+| Status | 55 `review`, 8 `draft` |
 | Kontrak | `studio.registry/2`, `studio.story/2`, `studio-humanoid-v1` |
 
 Per kategori: character **14** · entity 5 · building 9 · road 7 · nature 9 · prop 14 · vehicle 2.

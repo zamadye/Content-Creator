@@ -192,6 +192,21 @@ def build_hair_shell(P, N, idx, style, thickness, thr=0.13):
 
 def build_long_hair(P, style, thickness, length=0.42):
     """A curved back panel for long hair, following the skull then falling."""
+    if style == "ponytail":
+        crown = P[:, 1].max()
+        root_y = crown - 1.12
+        scalp = P[(abs(P[:, 1] - root_y) < 0.22) & (abs(P[:, 0]) < 0.38)]
+        root_z = scalp[:, 2].min() + thickness
+        # Gather at the nape, arc away from the neck, taper behind the shoulder.
+        offsets = np.array([(0, 0, 0), (0, 0.06, -0.22), (0.05, -0.04, -0.43),
+                            (0.12, -0.40, -0.58), (0.20, -1.0, -0.63),
+                            (0.26, -1.65, -0.70), (0.23, -2.25, -0.83)], F)
+        offsets[:, 1] *= length / 0.75
+        b = Builder()
+        b.add_tube("tail", offsets + (0, root_y, root_z),
+                   [0.19, 0.14, 0.27, 0.31, 0.27, 0.18, 0.035], sides=14)
+        tail = b.groups["tail"]
+        return np.vstack(tail.pos), np.vstack(tail.uv), np.concatenate(tail.idx).reshape(-1, 3)
     angles = np.linspace(-0.62, 0.62, 13)
     rows = []
     for i, yy in enumerate(np.linspace(0, 1, 11)):
@@ -331,6 +346,9 @@ PIECES = {
         reach=1.75, offset=0.165, flare=0.110,
     ),
 }
+
+PIECES["shirt-school"] = dict(PIECES["shirt-short"], y=(1.36, 5.85), buttons=())
+PIECES["pants-school"] = dict(PIECES["pants"], y=(-7.24, 1.80))
 
 
 def slice_by_field(P, idx, uv, skin_index, skin_weight, field, N=None):
@@ -948,6 +966,59 @@ def paint_pocket(base, pos_map, mask, target, half_u=0.42, half_v=0.50,
     out[inside] *= dark
     out[edge] *= line
     return out.reshape(base.shape)
+
+
+def school_neckwear(shirt, fit_y):
+    """Project the tie and collar onto the shirt and inherit its skinning."""
+    tri = shirt["indices"]
+    a, b, c = shirt["pos"][tri].transpose(1, 0, 2)
+    ab, ac = b - a, c - a
+    det = ab[:, 0] * ac[:, 1] - ac[:, 0] * ab[:, 1]
+    det = np.where(abs(det) > 1e-7, det, np.nan)
+
+    def fit(samples, uvs, faces, texture):
+        pos, joints, weights = [], [], []
+        for x, height, lift in samples:
+            y = fit_y(height)
+            dx, dy = x - a[:, 0], y - a[:, 1]
+            v = (dx * ac[:, 1] - dy * ac[:, 0]) / det
+            w = (ab[:, 0] * dy - ab[:, 1] * dx) / det
+            bary = np.stack([1 - v - w, v, w], axis=1)
+            depths = (bary * shirt["pos"][tri, 2]).sum(1)
+            hits = np.flatnonzero((bary >= -1e-6).all(1))
+            if not len(hits):
+                raise ValueError(f"Detail di luar permukaan kemeja pada ({x}, {y})")
+            hit = hits[np.argmax(depths[hits])]
+            pos.append((x, y, depths[hit] + lift))
+            ids = tri[hit]
+            mix = np.bincount(shirt["skinIndex"][ids].ravel(),
+                              weights=(bary[hit, :, None] * shirt["skinWeight"][ids]).ravel())
+            top = np.argsort(mix)[-4:][::-1]
+            joints.append(top)
+            weights.append(mix[top] / mix[top].sum())
+        return {"pos": np.array(pos, F), "uv": np.array(uvs, F), "indices": np.array(faces),
+                "skinIndex": np.array(joints), "skinWeight": np.array(weights, F), "tex": texture}
+
+    samples, uvs, faces = [], [], []
+    rows = [(5.56, .20), (5.37, .20), (5.17, .11), (5.04, .13),
+            (4.55, .17), (4.1, .22), (3.6, .26), (3.1, .30),
+            (2.65, .32), (2.40, .018)]
+    for row, (height, half_width) in enumerate(rows):
+        for col, side in enumerate((-1, 0, 1)):
+            samples.append((side * half_width, height, 0.10 if side == 0 else 0.045))
+            uvs.append((col / 2, row / (len(rows) - 1)))
+        if row:
+            for k in (row * 3 - 3, row * 3 - 2):
+                faces.extend([(k, k + 3, k + 1), (k + 1, k + 3, k + 4)])
+    tie = fit(samples, uvs, faces, fabric_texture("#475464", seed=29, size=128))
+
+    wing = [(0.07, 5.51, 0.12), (0.32, 5.76, 0.09), (0.58, 5.45, 0.07), (0.35, 5.04, 0.10)]
+    samples = wing + [(-x, y, lift) for x, y, lift in wing]
+    # Separate UV islands keep the normal-map tangent basis valid on both wings.
+    uv = [(0.02, 0.35), (0.20, 0.04), (0.46, 0.39), (0.26, 0.96)]
+    collar = fit(samples, uv + [(1 - u, v) for u, v in uv], [(0, 2, 1), (0, 3, 2), (4, 5, 6), (4, 6, 7)],
+                 flat_fabric("#cccec8"))
+    return {"dasi": tie, "kerah": collar}
 
 
 def fabric_texture(color="#cfd6dd", seed=7, size=512):

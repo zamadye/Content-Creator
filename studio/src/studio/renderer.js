@@ -92,8 +92,6 @@ export class StudioRenderer {
     this.sun.shadow.bias = -0.0008;
     this.scene.add(this.hemi, this.sun, this.sun.target);
 
-    this.applyLook(this.compiled.look);
-
     const ids = [...new Set(this.compiled.assetIds)];
     let done = 0;
     await Promise.all(
@@ -120,7 +118,7 @@ export class StudioRenderer {
         o.castShadow = true;
         o.receiveShadow = true;
         if (o.material) {
-          o.material.side = o.material.transparent ? THREE.DoubleSide : THREE.FrontSide;
+          if (o.material.transparent) o.material.side = THREE.DoubleSide;
           if (o.material.map) o.material.map.colorSpace = THREE.SRGBColorSpace;
         }
       }
@@ -237,7 +235,7 @@ export class StudioRenderer {
 
   applyShotLight(light) {
     const preset = LIGHTS[light.preset] ?? LIGHTS.siang;
-    this.sun.color.set(preset.color);
+    this.sun.color.set(light.color ?? preset.color);
     this.sun.intensity = preset.intensity * (light.intensity ?? 1);
     const el = preset.elevation;
     const az = preset.azimuth;
@@ -279,7 +277,10 @@ export class StudioRenderer {
   update(frame) {
     if (this.disposed) return;
     const shot = this.shotAtFrame(frame);
-    this.activeShot = shot;
+    if (shot !== this.activeShot) {
+      this.applyLook({...this.compiled.look, preset: shot.lookPreset ?? this.compiled.look.preset});
+      this.activeShot = shot;
+    }
     const local = frame - shot.from;
     const u = shot.durationInFrames > 1 ? local / (shot.durationInFrames - 1) : 0;
     const seconds = local / this.fps;

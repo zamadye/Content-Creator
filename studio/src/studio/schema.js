@@ -18,7 +18,7 @@ export const FIELDS = {
   look: ['preset', 'fog', 'exposure', 'grain', 'vignette', 'sky'],
   cast: ['asset', 'clip', 'palette', 'scale', 'label', 'note', 'outfit'],
   objects: ['asset', 'scale', 'label'],
-  shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'secondary', 'note'],
+  shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'secondary', 'note', 'lookPreset'],
   set: ['asset', 'at', 'rot', 'scale', 'clip'],
   actor: ['ref', 'at', 'facing', 'clip', 'offset', 'speed', 'travel', 'loop', 'lookAt', 'hold', 'holdHand', 'holdOffset', 'hidden'],
   object: ['ref', 'at', 'rot', 'scale', 'hidden'],
@@ -175,6 +175,9 @@ export function validateStory(raw, {registry = null} = {}) {
     if (ids.has(shot.id)) problems.push(`${where}: duplicate id "${shot.id}"`);
     ids.add(shot.id);
     if (!(isNum(shot.duration) && shot.duration >= 0.2 && shot.duration <= 120)) problems.push(`${where}: duration must be 0.2..120 s`);
+    if (shot.lookPreset !== undefined && !LOOK_PRESETS.includes(shot.lookPreset)) {
+      problems.push(`${where}.lookPreset must be one of ${LOOK_PRESETS.join('/')}`);
+    }
     total += isNum(shot.duration) ? shot.duration : 0;
 
     shot.set.forEach((item, j) => {

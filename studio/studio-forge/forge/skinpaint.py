@@ -325,6 +325,7 @@ def paint_skin(P, N, M, size, spec):
     # eyebrows + lashes
     base = base * (1 - edge[..., None] * 0.35) + (lip_col * 0.7) * (edge[..., None] * 0.35)
     base = base * (1 - brow_mask[..., None] * 0.88) + brow_col * (brow_mask[..., None] * 0.88)
+    lash_mask *= spec.get("lash", 1.0)
     base = base * (1 - lash_mask[..., None] * 0.85) + brow_col * (lash_mask[..., None] * 0.85)
 
     # feature darkening (sockets, folds, nostrils)

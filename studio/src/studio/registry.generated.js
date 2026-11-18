@@ -574,7 +574,7 @@ export default {
   },
   "char.remaja-laki": {
    "id": "char.remaja-laki",
-   "title": "Remaja laki-laki — seragam",
+   "title": "Remaja laki-laki — seragam putih-abu",
    "category": "character",
    "uri": "assets/characters/char.remaja-laki/char.remaja-laki.glb",
    "thumbnail": "assets/characters/char.remaja-laki/thumbnail.png",
@@ -584,21 +584,21 @@ export default {
     "min": [
      -0.446,
      -0.007,
-     -0.107
+     -0.101
     ],
     "max": [
      0.446,
-     1.566,
+     1.567,
      0.289
     ],
     "size": [
      0.892,
-     1.573,
-     0.396
+     1.574,
+     0.39
     ]
    },
-   "tris": 41073,
-   "bytes": 3848376,
+   "tris": 33736,
+   "bytes": 3683752,
    "tags": [
     "human",
     "male",
@@ -640,11 +640,10 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-pants",
-    "cloth-pants-trim",
-    "cloth-shirt-short",
-    "cloth-shirt-short-buttons",
-    "cloth-shirt-short-trim",
+    "cloth-dasi",
+    "cloth-kerah",
+    "cloth-pants-school",
+    "cloth-shirt-school",
     "cloth-shoes01",
     "hair",
     "iris-L",
@@ -658,14 +657,14 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 36
+    "embeddedTextures": 33
    },
    "profile": "remaja",
-   "outfit": "seragam"
+   "outfit": "putih-abu"
   },
   "char.remaja-perempuan": {
    "id": "char.remaja-perempuan",
-   "title": "Remaja perempuan — seragam",
+   "title": "Remaja perempuan — seragam putih-abu",
    "category": "character",
    "uri": "assets/characters/char.remaja-perempuan/char.remaja-perempuan.glb",
    "thumbnail": "assets/characters/char.remaja-perempuan/thumbnail.png",
@@ -675,7 +674,7 @@ export default {
     "min": [
      -0.429,
      -0.007,
-     -0.103
+     -0.113
     ],
     "max": [
      0.429,
@@ -684,12 +683,12 @@ export default {
     ],
     "size": [
      0.858,
-     1.512,
-     0.381
+     1.513,
+     0.391
     ]
    },
-   "tris": 41201,
-   "bytes": 4022656,
+   "tris": 33794,
+   "bytes": 3856296,
    "tags": [
     "human",
     "female",
@@ -731,11 +730,10 @@ export default {
     "anchor.eye.R"
    ],
    "materials": [
-    "cloth-pants",
-    "cloth-pants-trim",
-    "cloth-shirt-short",
-    "cloth-shirt-short-buttons",
-    "cloth-shirt-short-trim",
+    "cloth-dasi",
+    "cloth-kerah",
+    "cloth-pants-school",
+    "cloth-shirt-school",
     "cloth-shoes01",
     "hair",
     "hair-long",
@@ -750,10 +748,10 @@ export default {
     "normal": true,
     "metallicRoughness": true,
     "emissive": false,
-    "embeddedTextures": 39
+    "embeddedTextures": 36
    },
    "profile": "remaja",
-   "outfit": "seragam"
+   "outfit": "putih-abu"
   },
   "char.anak-laki": {
    "id": "char.anak-laki",
@@ -2744,6 +2742,61 @@ export default {
     "metallicRoughness": true,
     "emissive": false,
     "embeddedTextures": 6
+   }
+  },
+  "building.school.corridor": {
+   "id": "building.school.corridor",
+   "title": "Selasar kelas SMA",
+   "category": "building",
+   "uri": "assets/building/building.school.corridor/building.school.corridor.glb",
+   "thumbnail": "assets/building/building.school.corridor/thumbnail.png",
+   "status": "review",
+   "version": 1,
+   "bounds": {
+    "min": [
+     -4.66,
+     -0.18,
+     -2.09
+    ],
+    "max": [
+     4.66,
+     3.474,
+     2.32
+    ],
+    "size": [
+     9.32,
+     3.654,
+     4.41
+    ]
+   },
+   "tris": 894,
+   "bytes": 751380,
+   "tags": [
+    "school",
+    "sekolah",
+    "koridor",
+    "kelas"
+   ],
+   "license": "Dibuat pipeline ini (CC0-1.0).",
+   "provenance": "mesh + tekstur kayu/plester/baja dibuat pipeline ini",
+   "notes": "",
+   "materials": [
+    "atap",
+    "besi",
+    "cat-hijau",
+    "kusen-jati",
+    "mading",
+    "papan-XI-A",
+    "papan-XI-B",
+    "plester-krem",
+    "tegel"
+   ],
+   "pbr": {
+    "baseColor": true,
+    "normal": true,
+    "metallicRoughness": true,
+    "emissive": false,
+    "embeddedTextures": 27
    }
   },
   "building.house.village": {

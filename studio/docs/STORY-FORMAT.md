@@ -169,6 +169,11 @@ di `public/library/index.json` (`bounds.size`, satuan meter, pivot di alas).
 
 ## 6. Look & light
 
+Pakai `shots[].lookPreset` untuk mengganti warna langit, kabut dan cahaya
+lingkungan pada satu shot, misalnya `"kampung-malam"` setelah bel pulang.
+Nilainya diambil dari daftar `look.preset`. Shot berikutnya kembali memakai
+look cerita kecuali memiliki override sendiri.
+
 `look.preset`: `kampung-siang`, `kampung-sore`, `kampung-malam`,
 `interior-lampu`, `hutan-pagi`, `industri`.
 `fog` 0..0.2 (eksponensial), `exposure` 0.5..2, `grain` 0..0.3, `vignette` 0..1.

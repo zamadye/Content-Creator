@@ -132,6 +132,7 @@ const rejects = (mutate, pattern) => {
 };
 rejects((s) => (s.schema = 'studio.story/1'), /schema/);
 rejects((s) => (s.fps = 29), /fps/);
+rejects((s) => (s.shots[0].lookPreset = 'senja-palsu'), /lookPreset/);
 rejects((s) => (s.shots[0].bogus = 1), /unknown field/);
 rejects((s) => (s.cast.aku.asset = 'char.tidak-ada'), /unknown asset/);
 rejects((s) => (s.shots[0].actors[0].clip = 'terbang'), /not in char\.male-dewasa-polo/);

@@ -23,6 +23,12 @@
   "mean": 0.967,
   "min": 0.6667
  },
+ "building.school.corridor": {
+  "dark": 0.0079,
+  "materials": 9,
+  "mean": 0.9861,
+  "min": 0.6549
+ },
  "building.shop.warung": {
   "dark": 0.0549,
   "materials": 6,

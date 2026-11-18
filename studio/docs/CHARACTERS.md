@@ -14,6 +14,11 @@ public/assets/characters/<asset-id>/
 Bukti rupa: `docs/character-lineup.png` (16 tokoh berjejer) dan still WebGL
 sungguhan di `docs/webgl-shots/StudioUjiKarakter-f*.png`.
 
+Di paket `stories/bel-terakhir/story.json`, Nisa dan Bayu memakai seragam SMA
+putih-abu. Dasi dan dua lipatan kerah mengambil bobot tulang dari kemeja pada
+titik tempelnya. Rambut ikat Nisa mengikuti tulang kepala. Set
+`building.school.corridor` menghadap +Z dan lantai selasarnya berada di y=0.
+
 ---
 
 ## 1. Arsitektur: base → profil → varian
@@ -27,7 +32,7 @@ forge/human.py
   apply_proportions()   # regangkan pita vertikal + lebar badan
   proportion_bones()    # kurva yang sama untuk tulang → animasi tetap benar
 forge/character.py
-  WARDROBE              # 6 set pakaian = paket kain + tint
+  WARDROBE              # 7 set pakaian = paket kain + tint
   SPECS                 # 16 tokoh, satu baris per tokoh
   build(asset_id, spec) # copy base → proporsi → morph → kulit → pakaian → klip
 ```
@@ -68,8 +73,8 @@ klip `walk`/`run`/`sit` tidak perlu diubah per umur.
 | `char.male-pekerja` | dewasa | 1.71 m | `kerja` | perawakan besar, brewok |
 | `char.male-lansia-kemeja` | lansia | 1.68 m | `kemeja-kasual` | keriput, rambut menipis |
 | `char.female-lansia` | lansia | 1.56 m | `daster` | rambut sanggul |
-| `char.remaja-laki` | remaja | 1.57 m | `seragam` | pelajar |
-| `char.remaja-perempuan` | remaja | 1.51 m | `seragam` | pelajar, ekor kuda |
+| `char.remaja-laki` | remaja | 1.57 m | `putih-abu` | pelajar |
+| `char.remaja-perempuan` | remaja | 1.51 m | `putih-abu` | pelajar, ekor kuda |
 | `char.anak-laki` | anak | 1.16 m | `seragam` | bocil 5–6 th, potongan mangkuk |
 | `char.anak-perempuan` | anak | 1.13 m | `daster` | bocil 5–6 th, kuncir dua |
 | `char.balita-laki` | balita | 0.95 m | `seragam` | 2–3 th |
@@ -483,10 +488,9 @@ menambah tokoh ke-15 praktis hanya biaya build 21 detik.
    dada dan panggul masih terbaca. Percobaan bobot per payudara (Gauss pada x)
    membuat kerut keras di tepi atas dada, jadi dipakai bobot y saja. Solusi
    bersih: mesh dasar pria, atau deformer berbasis permukaan.
-6. **Rambut = cangkang skalp + panel belakang.** Gaya `ponytail`/`twin-tails`
-   belum benar-benar dua ekor; hanya panel di belakang kepala.
-7. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) dan belum ada
-   pakaian adat/seragam sekolah khas Indonesia.
+6. **Rambut = cangkang skalp + panel belakang.** Gaya `twin-tails`
+   masih memakai panel belakang. Profil remaja dengan `ponytail` memakai ekor tiga dimensi.
+7. **Belum ada variasi kulit tubuh** (tanda lahir, luka, tato) atau pakaian adat.
 8. **`anak-besar`** (8–12 th) profil tersedia tetapi belum ada tokohnya.
 9. **Sepatu** masih memakai paket kain jadi `shoes01`; yang lain prosedural.
 

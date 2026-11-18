@@ -6,7 +6,7 @@ dibangun sendiri secara prosedural dan properti pendukung dari pustaka CC0.
 ```
 studio/            kerangka + toolchain (React/Remotion/three.js + Python forge)
   stories/         paket cerita: satu folder = satu cerita
-  public/assets/   60 aset katalog buatan sendiri (registry.json)
+  public/assets/   63 aset katalog buatan sendiri (registry.json)
   public/library/  102 properti Kenney CC0 (index.json)
   docs/            FRAMEWORK, STORY-FORMAT, LIBRARY, CHROMIUM, PIPELINE-AUDIT, STATUS
 *.md               catatan pengetahuan produksi (storytelling, editing, audio, dst.)
@@ -28,3 +28,11 @@ npm run studio:validate                 # validasi semua paket cerita
 npm run test:studio                     # gerbang mutu
 STUDIO_COMPOSITION=StudioJalanPulang npm run render:studio:h264
 ```
+
+## Karakter dan dunia sekolah
+
+[Bel Terakhir](studio/stories/bel-terakhir/preview.mp4) memperlihatkan Nisa dan
+Bayu selesai piket di kelas XI A. Selasar yang sama muncul kembali setelah gelap.
+Paket [cerita](studio/stories/bel-terakhir/story.json) memakai
+`char.remaja-perempuan`, `char.remaja-laki`, dan `building.school.corridor`.
+Dari folder `studio`, jalankan `npm run preview` lalu pilih **09 · Bel Terakhir**.

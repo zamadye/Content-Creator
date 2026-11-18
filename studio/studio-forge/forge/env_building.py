@@ -304,6 +304,84 @@ def kos_room():
     return build
 
 
+def school_corridor():
+    """Two classroom bays, open to the courtyard (+Z). The walkway is at y=0."""
+    b = Builder()
+    plaster = tex.plaster(37, 0.24, 512, "#f1dcaa")
+    green = tex.plaster(42, 0.30, 512, "#398779")
+    floor = dict(tex.concrete(29, 0.20, 512))
+    y, x = np.indices((512, 512))
+    grout = (x % 128 < 3) | (y % 128 < 3)
+    floor["base"] = floor["base"] * np.array([1.18, 1.16, 1.04], F)
+    floor["base"][grout] *= 0.53
+    for paint, color in ((plaster, "#f1dcaa"), (green, "#398779")):
+        paint["base"] = 0.28 * paint["base"] + 0.72 * np.array(tex.hexc(color), F)
+    m = {
+        "cream": _std("plester-krem", plaster), "green": _std("cat-hijau", green),
+        "floor": _std("tegel", floor),
+        "timber": _std("kusen-jati", tex.wood_planks(19, 512, "#815239", planks=5)),
+        "metal": _std("besi", tex.painted_metal(21, 256, "#394c50", rust=0.08)),
+        "roof": _std("atap", tex.corrugated(11, 512, "#a25740", rust=0.18)),
+        "notice": _std("mading", tex.text_panel("PIKET", "KELAS XI A", bg="#285456", fg="#fff1c9")),
+    }
+    for mat in ("cream", "green", "timber", "floor"):
+        m[mat].normal_scale = 0.20
+    b.add_box("cream", (0, 1.58, -2.03), (9.0, 3.16, 0.12))
+    for end in (-4.44, 4.44):
+        b.add_box("cream", (end, 1.59, -1.62), (0.12, 3.18, 0.82))
+    b.add_box("floor", (0, -0.09, 0), (9.0, 0.18, 4), 1.8)
+    b.add_box("floor", (0, -0.13, 2.16), (9.0, 0.10, 0.32), 1.8)
+    b.add_box("roof", (0, 3.34, 0), (9.32, 0.12, 4.36), 1.0,
+              xform_matrix(rot=(0.035, 0, 0)))
+    b.add_box("green", (0, 3.10, 1.83), (9.0, 0.22, 0.18))
+    for x in (-4.38, 0, 4.38):
+        b.add_box("cream", (x, 1.51, 1.83), (0.20, 3.02, 0.20))
+        b.add_box("green", (x, 0.41, 1.83), (0.28, 0.82, 0.28))
+
+    def plaque(mat, x, y, w, h):
+        b.add_box("timber", (x, y, -1.11), (w + 0.07, h + 0.07, 0.075))
+        z = -1.068
+        b.add_quad(mat, (x-w/2, y-h/2, z), (x+w/2, y-h/2, z),
+                   (x+w/2, y+h/2, z), (x-w/2, y+h/2, z),
+                   uv=((0, 1), (1, 1), (1, 0), (0, 0)))
+
+    # Real door recesses, a dark classroom behind each window, and high vents.
+    for center, room in ((-2.25, "XI A"), (2.25, "XI B")):
+        left = center - 2.25
+        door = left + 0.83
+        window = left + 3.20
+        for start, end in ((left, door - 0.51), (door + 0.51, window - 0.95),
+                           (window + 0.95, left + 4.5)):
+            for mat, y, h in (("green", 0.45, 0.90), ("cream", 2.06, 2.32)):
+                b.add_box(mat, ((start + end) / 2, y, -1.23), (end - start, h, 0.18))
+        b.add_box("green", (window, 0.45, -1.23), (1.9, 0.90, 0.18))
+        b.add_box("cream", (window, 2.83, -1.23), (1.9, 0.78, 0.18))
+        b.add_box("cream", (door, 2.69, -1.23), (1.02, 1.06, 0.18))
+        b.add_box("metal", (window, 1.67, -1.91), (2.5, 1.75, 0.08))
+        for col in (-1, 0, 1):
+            b.add_box("timber", (window + col * 0.93, 1.67, -1.23), (0.06, 1.54, 0.12))
+        for y in (0.94, 1.72, 2.40):
+            b.add_box("timber", (window, y, -1.22), (1.92, 0.065, 0.14))
+        for y in (1.90, 2.10, 2.30):
+            b.add_box("green", (window, y, -1.24), (1.88, 0.105, 0.14))
+        door_leaf(b, "timber", (door - 0.50, 0, -1.26), 0, 1, 2.16, open_angle=0.40)
+        for x in (door - 0.53, door + 0.53):
+            b.add_box("timber", (x, 1.10, -1.12), (0.07, 2.2, 0.12))
+        b.add_box("timber", (door, 2.19, -1.12), (1.12, 0.08, 0.12))
+        b.add_box("metal", (door + 0.23, 1.02, -1.51), (0.16, 0.035, 0.14))
+        m[room] = _std("papan-" + room.replace(" ", "-"),
+                       tex.text_panel(room, w=256, h=128, bg="#284e49", fg="#fff2d6"))
+        plaque(room, door, 2.55, 0.76, 0.32)
+        if center < 0:
+            plaque("notice", left + 1.81, 1.69, 0.75, 0.56)
+        # Bench stays against the wall, leaving the length of the corridor clear.
+        for z in (-0.92, -0.73, -0.54):
+            b.add_box("timber", (window, 0.47, z), (1.85, 0.08, 0.17))
+        for x in (window - 0.73, window + 0.73):
+            b.add_box("metal", (x, 0.22, -0.73), (0.075, 0.44, 0.39))
+    return b, m
+
+
 # --------------------------------------------------------------------- kit
 def kit_wall_plain():
     def build():
@@ -348,6 +426,7 @@ def kit_floor():
 
 
 ASSETS = {
+    "building.school.corridor": dict(build=school_corridor, title="Selasar kelas SMA", tags=["school", "sekolah", "koridor", "kelas"], category="building"),
     "building.house.village": dict(build=house_village(), title="Rumah kampung papan", tags=["house", "village", "wood", "interior"], category="building"),
     "building.house.old": dict(build=house_old(), title="Rumah tua rusak", tags=["house", "old", "decay", "interior"], category="building"),
     "building.shop.warung": dict(build=shop_warung(), title="Warung kelontong menyala", tags=["shop", "warung", "interior", "night"], category="building"),

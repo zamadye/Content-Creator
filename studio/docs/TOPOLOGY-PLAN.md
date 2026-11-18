@@ -87,6 +87,7 @@ tidak cocok dengan isi GLB. `vert` = jumlah POSITION, `prim` = jumlah primitif,
 | `building.house.old` | building | 400 | 800 | 6 | 6 | 1024 | — | 3000 | 13% |
 | `building.house.village` | building | 532 | 1064 | 6 | 6 | 1024 | — | 3000 | 18% |
 | `building.industrial.warehouse` | building | 976 | 1952 | 4 | 4 | 512 | — | 3000 | 33% |
+| `building.school.corridor` | building | 894 | 1788 | 9 | 9 | 512 | — | 3000 | 30% |
 | `building.shop.warung` | building | 592 | 1124 | 6 | 6 | 1024 | — | 3000 | 20% |
 | `char.anak-besar-laki` | character | 40981 | 22711 | 12 | 12 | 2048 | 163 | 46000 | 89% |
 | `char.anak-besar-perempuan` | character | 41131 | 22816 | 13 | 13 | 2048 | 163 | 46000 | 89% |
@@ -102,8 +103,8 @@ tidak cocok dengan isi GLB. `vert` = jumlah POSITION, `prim` = jumlah primitif,
 | `char.male-lansia-kemeja` | character | 41952 | 23239 | 12 | 12 | 2048 | 163 | 46000 | 91% |
 | `char.male-muda-jaket` | character | 42060 | 23296 | 12 | 12 | 2048 | 163 | 46000 | 91% |
 | `char.male-pekerja` | character | 42045 | 23290 | 12 | 12 | 2048 | 163 | 46000 | 91% |
-| `char.remaja-laki` | character | 41073 | 22760 | 12 | 12 | 2048 | 163 | 46000 | 89% |
-| `char.remaja-perempuan` | character | 41201 | 22855 | 13 | 13 | 2048 | 163 | 46000 | 90% |
+| `char.remaja-laki` | character | 33736 | 21748 | 11 | 11 | 2048 | 163 | 46000 | 73% |
+| `char.remaja-perempuan` | character | 33794 | 21816 | 12 | 12 | 2048 | 163 | 46000 | 73% |
 | `entity.child` | entity | 30392 | 16574 | 7 | 7 | 2048 | 166 | 34000 | 89% |
 | `entity.pale-standing` | entity | 30334 | 16546 | 7 | 7 | 2048 | 166 | 34000 | 89% |
 | `entity.shadow-crouch` | entity | 29944 | 16309 | 6 | 6 | 2048 | 166 | 34000 | 88% |

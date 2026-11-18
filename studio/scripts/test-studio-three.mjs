@@ -117,6 +117,14 @@ for (const id of Object.keys(registry.assets)) {
     assert.ok(nrm && allFinite(nrm.array), `${id}: non-finite normals`);
     const uv = o.geometry.getAttribute('uv');
     assert.ok(uv, `${id}: missing uv`);
+    // A collapsed UV island produces zero tangents and a black collar in WebGL.
+    if (o.material.name === 'cloth-kerah' || o.material.name === 'cloth-dasi') {
+      const tangent = o.geometry.getAttribute('tangent');
+      for (let i = 0; i < tangent.count; i++) {
+        const length = Math.hypot(tangent.getX(i), tangent.getY(i), tangent.getZ(i));
+        assert.ok(Math.abs(length - 1) < 0.001, `${id}/${o.material.name}: invalid tangent at ${i}`);
+      }
+    }
     if (o.isSkinnedMesh) {
       skinned += 1;
       const expectedBones = registry.assets[id].rig?.bones;

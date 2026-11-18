@@ -26,12 +26,6 @@ import {registry} from '../src/studio/library.js';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const SAMPLES = [0, 0.25, 0.5, 0.75, 1];
-/** Titik yang wajib kelihatan: kepala dan dada. Kaki boleh terpotong (medium shot). */
-const BODY = [
-  {name: 'kepala', y: 1.72},
-  {name: 'dada', y: 1.2},
-];
-
 const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
 const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
 const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -89,13 +83,17 @@ export function framingIssues(story) {
 
     const actors = shot.cast.filter((c) => !c.hidden);
     for (const a of actors) {
+      // Bounds use local metres from the actor origin, which can be below the feet.
+      const bounds = registry.assets[a.assetId]?.bounds;
+      const headY = bounds?.max[1] ?? 1.72;
+      const chestY = bounds ? bounds.min[1] + 0.668 * bounds.size[1] : 1.2;
       const track = SAMPLES.map((u) => {
         const cam = shot.cameraSample(u);
         const point = actorPoint(a, u, seconds, 0);
         return {
           u,
-          head: project([point[0], point[1] + 1.72, point[2]], cam, aspect),
-          chest: project([point[0], point[1] + 1.2, point[2]], cam, aspect),
+          head: project([point[0], point[1] + headY, point[2]], cam, aspect),
+          chest: project([point[0], point[1] + chestY, point[2]], cam, aspect),
         };
       });
       const chestIn = track.filter((t) => t.chest.inside);

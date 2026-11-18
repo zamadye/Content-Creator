@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+from zlib import crc32
 from pathlib import Path
 
 import numpy as np
@@ -29,6 +30,7 @@ WARDROBE = {
     "kemeja-kasual": {"cloth": [("shirt-long", "#46536b"), ("pants", "#37414f")], "shoes": "shoes01"},
     "jaket": {"cloth": [("shirt-long", "#2f343d"), ("pants", "#262a31")], "shoes": "shoes01"},
     "seragam": {"cloth": [("shirt-short", "#93b8e6"), ("pants", "#5d7ea8")], "shoes": "shoes01"},
+    "putih-abu": {"cloth": [("shirt-school", "#eeeae0"), ("pants-school", "#626b76")], "shoes": "shoes01"},
     # Warna daster sengaja jauh dari warna kulit: dengan #e0a1a9 (pink pucat)
     # tokoh terbaca seperti telanjang di shot lebar, bukan memakai baju.
     "daster": {"cloth": [("tunic", "#bf5a72"), ("shorts", "#b0546a")], "shoes": "shoes01"},
@@ -119,15 +121,15 @@ SPECS = {
         dict(style="bun", color="#9a958c", thickness=0.032, long=0.55), "daster"),
     # ---------------------------------------------------------------- remaja
     "char.remaja-laki": _char(
-        "Remaja laki-laki — seragam", ["human", "male", "teen", "student", "indonesian"], "remaja", 1.56,
+        "Remaja laki-laki — seragam putih-abu", ["human", "male", "teen", "student", "indonesian"], "remaja", 1.56,
         dict(_TEEN_SHAPE, jaw_w=-0.1, brow=0.15, neck=0.05),
-        dict(tone="#c39268", red="#b2604d", lip="#94504a", age=0.12, sex="male", stubble=0.05, seed=71),
-        dict(style="fringe", color="#141010", thickness=0.038, long=0.0), "seragam"),
+        dict(tone="#c39268", red="#b2604d", lip="#94504a", age=0.12, sex="male", stubble=0.05, lash=0.18, seed=71),
+        dict(style="fringe", color="#141010", thickness=0.038, long=0.0), "putih-abu"),
     "char.remaja-perempuan": _char(
-        "Remaja perempuan — seragam", ["human", "female", "teen", "student", "indonesian"], "remaja", 1.50,
+        "Remaja perempuan — seragam putih-abu", ["human", "female", "teen", "student", "indonesian"], "remaja", 1.50,
         dict(_TEEN_SHAPE, shoulder=-0.5, waist=0.45, hip=0.55, jaw_w=-0.5, cheek=0.4, lip_full=0.5),
-        dict(tone="#c99b76", red="#b2614f", lip="#a55a53", age=0.15, sex="female", stubble=0.0, seed=73),
-        dict(style="ponytail", color="#171210", thickness=0.036, long=0.75), "seragam"),
+        dict(tone="#c99b76", red="#b2614f", lip="#a55a53", age=0.15, sex="female", stubble=0.0, lash=0.18, seed=73),
+        dict(style="ponytail", color="#171210", thickness=0.036, long=0.75), "putih-abu"),
     # ---------------------------------------------------------------- anak
     "char.anak-laki": _char(
         "Anak laki-laki (5–6 tahun) — kaos", ["human", "male", "child", "kid", "indonesian"], "anak", 1.15,
@@ -291,7 +293,8 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     # Proporsi umur diterapkan pada mesh, pakaian, dan tulang dengan kurva yang
     # sama; tanpa ini "anak" hanya orang dewasa yang diperkecil (kepala kecil,
     # kaki panjang) dan klipnya jadi aneh.
-    P = human.apply_proportions(shape(b["pos"], shape_spec), profile)
+    shaped = shape(b["pos"], shape_spec)
+    P = human.apply_proportions(shaped, profile)
     if entities:
         from .entity import shape_entity
 
@@ -300,7 +303,10 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     uv = b["uv"]
 
     # ------------------------------------------------------------- textures
-    pos_map, nrm_map, mask = uvpaint.rasterize_uv(P, uv, idx, size)
+    # The student portraits use landmarks in the original head coordinate system.
+    # Paint before changing head/torso lengths so eyelids and lips track their mesh.
+    portrait_space = shaped if spec.get("profile") == "remaja" else P
+    pos_map, nrm_map, mask = uvpaint.rasterize_uv(portrait_space, uv, idx, size)
     filled, _ = uvpaint.fill_holes(pos_map, mask, 2)
     skin_spec = dict(spec["skin"])
     # Kulit kepala di bawah rambut dicat warna rambut (lihat paint_skin).
@@ -333,7 +339,12 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         piece = human.body_cloth(b_cloth, P, Nbody, idx, uv, piece_spec)
         if piece is None:
             continue
-        piece["tex"] = human.fabric_texture(color, seed=abs(hash(piece_name + color)) % 997)
+        if piece_name == "pants-school":
+            # Taper the waistband under the overlapping hem.
+            taper = 1 - 0.13 * smoothstep((piece["pos"][:, 1] - _f_y(1.00)) / 0.35)
+            piece["pos"][:, 0] *= taper
+            piece["pos"][:, 2] = 0.35 + (piece["pos"][:, 2] - 0.35) * taper
+        piece["tex"] = human.fabric_texture(color, seed=crc32((piece_name + color).encode()) % 997)
         # Saku digambar ke albedo (bukan geometri): lihat `human.paint_pocket`.
         if human.PIECES[piece_name].get("pocket"):
             px, py = human.PIECES[piece_name]["pocket"]
@@ -341,6 +352,16 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
             piece["tex"]["base"] = human.paint_pocket(
                 piece["tex"]["base"], pmap, pmask, (float(px), _f_y(float(py)))
             )
+            if piece_name == "shirt-school":
+                # Lencana merah putih dijahit di atas saku kiri.
+                x, y, z = pmap.transpose(2, 0, 1)
+                badge_y = _f_y(py + 0.7)
+                badge = pmask & (z > 0) & (abs(x - px) < 0.32) & (abs(y - badge_y) < 0.18)
+                base_color = piece["tex"]["base"]
+                base_color[badge] = tex.hexc("#d0b586")
+                inside = badge & (abs(x - px) < 0.28) & (abs(y - badge_y) < 0.14)
+                base_color[inside & (y >= badge_y)] = tex.hexc("#af3639")
+                base_color[inside & (y < badge_y)] = tex.hexc("#fcf4dc")
         # Lubang kecil di garis leher/bahu (segitiga yang tulangnya beda) ditutup.
         from . import kit as _kit
 
@@ -356,6 +377,13 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         piece["uv"], piece["skinIndex"], piece["skinWeight"] = fixed["uv"], fixed["skinIndex"], fixed["skinWeight"]
         piece["normals"] = compute_normals_welded(gp2, fixed_idx)
         garment_parts.append((piece_name, piece, piece["pos"]))
+
+        if piece_name == "shirt-school":
+            for name, detail in human.school_neckwear(piece, _f_y).items():
+                garment_parts.append((name, detail, detail["pos"]))
+            continue
+        if piece_name == "pants-school":
+            continue
 
         # Kerah + kancing: dua detail yang membuat kain terbaca sebagai baju,
         # bukan bodysuit. Keduanya bagian terpisah dengan bahan lebih tua.
@@ -427,7 +455,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
 
     if spec.get("shoes"):
         gname = spec["shoes"]
-        pack = human.garment_pack(gname, hash(gname) % 1000)
+        pack = human.garment_pack(gname, crc32(gname.encode()) % 1000)
         gp = human.apply_proportions(shape(pack["positions"], shape_spec), profile)
         if entities:
             from .entity import shape_entity
@@ -452,6 +480,11 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         garment_parts.append((gname, pack, gp))
 
     body_idx = idx
+    if spec.get("outfit") == "putih-abu":
+        # The uniform is permanent on this GLB. Cull only skin concealed by
+        # trousers and closed shoes. Keep a margin at the waistband for bending.
+        covered = (P[:, 1] < _f_y(1.66)) & (np.abs(P[:, 0]) < 2.4)
+        body_idx = idx[~covered[idx].all(1)]
     bones, S, off = _metres(human.proportion_bones(b["bones"], profile), spec["height"])
     # Rantai tulang kain untuk shroud/veil. Sudah ada sejak awal supaya indeks
     # sendi di mesh bisa menunjuk ke sini; tanpa tulang, kain hanya bisa ikut
@@ -463,7 +496,7 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         return (np.asarray(p, F) - off) * S
 
     parts = []
-    body_normals = compute_normals_welded(to_m(P), body_idx)
+    body_normals = compute_normals_welded(to_m(P), idx)
     parts.append(
         {
             "pos": to_m(P),
@@ -627,9 +660,11 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
     # --------------------------------------------------------------- hair
     hs = spec.get("hair", {})
     hair_tex = human.hair_texture(512, hs.get("color", "#161210"), hs.get("style", "short"))
-    hair_built = None if hs.get("style") == "bald" else build_hair_shell(P, None, idx, hs.get("style", "short"), hs.get("thickness", 0.03))
+    hair_built = None if hs.get("style") == "bald" else build_hair_shell(portrait_space, None, idx, hs.get("style", "short"), hs.get("thickness", 0.03))
     if hair_built is not None:
         hpos, huvs, hidx, used, hw = hair_built
+        if portrait_space is shaped:
+            hpos = human.apply_proportions(hpos, profile)
         mp = to_m(hpos)
         alpha = _hair_alpha_hairline(hpos, huvs, hidx, hs.get("style", "short"))
         base_rgba = np.concatenate([hair_tex["base"], alpha[..., None]], -1)
@@ -655,7 +690,11 @@ def build(asset_id, spec, out_dir, size=2048, fps=30, entities=False):
         )
     if hs.get("long", 0) > 0:
         lpos, luv, lidx = build_long_hair(P, hs.get("style"), hs.get("thickness", 0.03), hs["long"])
-        j, w = _nearest_weights(lpos, b, bones)
+        if hs.get("style") == "ponytail":
+            j = np.tile([name_to_i["head"], 0, 0, 0], (len(lpos), 1)).astype(np.uint16)
+            w = np.tile([1, 0, 0, 0], (len(lpos), 1)).astype(F)
+        else:
+            j, w = _nearest_weights(lpos, b, bones)
         parts.append(
             {
                 "pos": to_m(lpos),

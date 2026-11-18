@@ -3,7 +3,7 @@
 Jangan edit manual: jalankan `python3 studio-forge/build.py --all`.
 Sumber kebenaran runtime adalah `public/assets/registry.json`.
 
-Total: **62 aset**. Unit meter, +Y atas, aset menghadap +Z.
+Total: **63 aset**. Unit meter, +Y atas, aset menghadap +Z.
 
 ## building
 
@@ -13,6 +13,7 @@ Total: **62 aset**. Unit meter, +Y atas, aset menghadap +Z.
 | `building.house.old` | Rumah tua rusak | 7.8×5.465×9.35 | 400 | 3/3 (+18 peta) | - | review |
 | `building.house.village` | Rumah kampung papan | 7×5.165×11.625 | 532 | 3/3 (+18 peta) | - | review |
 | `building.industrial.warehouse` | Gudang industri | 17×8.965×25.05 | 976 | 3/3 (+12 peta) | - | review |
+| `building.school.corridor` | Selasar kelas SMA | 9.32×3.654×4.41 | 894 | 3/3 (+27 peta) | - | review |
 | `building.shop.warung` | Warung kelontong menyala | 4.7×4.605×6.75 | 592 | 3/3 (+19 peta) | - | review |
 | `kit.floor.tile` | Modul lantai 4×4 m | 4×0.2×4 | 12 | 3/3 (+3 peta) | - | review |
 | `kit.wall.door` | Modul dinding + pintu | 4×3×0.18 | 60 | 3/3 (+6 peta) | - | review |
@@ -37,8 +38,8 @@ Total: **62 aset**. Unit meter, +Y atas, aset menghadap +Z.
 | `char.male-lansia-kemeja` | Pria lansia — kemeja lusuh | 0.992×1.677×0.439 | 41952 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.male-muda-jaket` | Pria muda — setelan kasual | 0.977×1.655×0.432 | 42060 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 | `char.male-pekerja` | Pekerja gudang — setelan kerja | 1.013×1.713×0.449 | 42045 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.remaja-laki` | Remaja laki-laki — seragam | 0.892×1.573×0.396 | 41073 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
-| `char.remaja-perempuan` | Remaja perempuan — seragam | 0.858×1.512×0.381 | 41201 | 3/3 (+39 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.remaja-laki` | Remaja laki-laki — seragam putih-abu | 0.892×1.574×0.39 | 33736 | 3/3 (+33 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
+| `char.remaja-perempuan` | Remaja perempuan — seragam putih-abu | 0.858×1.513×0.391 | 33794 | 3/3 (+36 peta) | 163 tulang · idle, walk, run, sit, ride, stand-up, talk, look, point, reach, collapse, float, vanish | review |
 
 ## entity
 

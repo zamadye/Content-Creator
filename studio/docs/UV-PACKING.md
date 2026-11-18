@@ -54,6 +54,7 @@ untuk aset tiling maupun atlas (tidak bergantung pada rasterisasi).
 | `building.house.old` | building | 6 | 0 | — | 0.0% | tiling | 1024 | 773 | tiling |
 | `building.house.village` | building | 6 | 0 | — | 0.0% | tiling | 1024 | 823 | tiling |
 | `building.industrial.warehouse` | building | 4 | 0 | — | 0.0% | tiling | 512 | 412 | tiling |
+| `building.school.corridor` | building | 9 | 3 | 77% | 0.0% | 1.0× | 512 | 471 | rapat |
 | `building.shop.warung` | building | 6 | 1 | 34% | 0.0% | 1.0× | 1024 | 854 | rapat |
 | `char.anak-besar-laki` | character | 12 | 12 | 47% | 13.2% | 1.1× | 2048 | 3618 | daur-ulang |
 | `char.anak-besar-perempuan` | character | 13 | 12 | 46% | 13.3% | 1.1× | 2048 | 4661 | daur-ulang |
@@ -69,8 +70,8 @@ untuk aset tiling maupun atlas (tidak bergantung pada rasterisasi).
 | `char.male-lansia-kemeja` | character | 12 | 12 | 46% | 13.3% | 1.1× | 2048 | 2787 | daur-ulang |
 | `char.male-muda-jaket` | character | 12 | 12 | 46% | 13.2% | 1.1× | 2048 | 2829 | daur-ulang |
 | `char.male-pekerja` | character | 12 | 12 | 46% | 13.2% | 1.1× | 2048 | 2701 | daur-ulang |
-| `char.remaja-laki` | character | 12 | 12 | 47% | 13.2% | 1.1× | 2048 | 3094 | daur-ulang |
-| `char.remaja-perempuan` | character | 13 | 12 | 46% | 13.3% | 1.1× | 2048 | 4034 | daur-ulang |
+| `char.remaja-laki` | character | 11 | 11 | 62% | 10.9% | 1.1× | 2048 | 4002 | daur-ulang |
+| `char.remaja-perempuan` | character | 12 | 11 | 61% | 11.0% | 1.1× | 2048 | 5626 | daur-ulang |
 | `entity.child` | entity | 7 | 6 | 74% | 0.0% | 1.0× | 2048 | 3446 | rapat |
 | `entity.pale-standing` | entity | 7 | 6 | 73% | 0.0% | 1.0× | 2048 | 2440 | rapat |
 | `entity.shadow-crouch` | entity | 6 | 5 | 84% | 0.0% | 1.0× | 2048 | 2570 | rapat |

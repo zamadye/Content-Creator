@@ -71,3 +71,11 @@ Notifikasi pinjol Rp 11.400.000. Nomor Bima mati. Nadin bicara terbata. Di layar
 * Twist dijaga: shot 8 sengaja menyebut "administrasi" satu kali dan tidak
   diulang, agar penonton menganggapnya detail kecil.
 * Naskah mesin: `stories/saldo-8-juta/story.json` (skema `studio.story/2`).
+
+---
+
+## Hasil render
+
+* Berkas repo: `docs/animasi/saldo-8-juta-72detik.mp4` (768×432, 30 fps, 72 detik, 26 MB)
+* Google Drive: <https://drive.google.com/file/d/1GcgKvDECGSjEPciig2O4n0kY6DMHMoZK/view>
+* Render penuh di mesin 2 vCPU tanpa GPU (Chromium + SwiftShader, ±2,2 s/frame).

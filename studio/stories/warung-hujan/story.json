@@ -971,16 +971,16 @@
       "camera": {
         "preset": "static",
         "from": [
-          -0.15,
-          1.42,
-          7.9
+          -0.05,
+          1.02,
+          6.26
         ],
         "target": [
-          -0.2,
-          1.0,
+          -0.17,
+          0.97,
           4.9
         ],
-        "fov": 24
+        "fov": 28
       },
       "light": {
         "preset": "lampu-teplok",
@@ -1172,16 +1172,16 @@
       "camera": {
         "preset": "static",
         "from": [
-          1.5,
-          1.42,
-          8.4
+          0.72,
+          0.98,
+          6.62
         ],
         "target": [
-          1.55,
-          1.0,
+          1.5,
+          0.92,
           5.55
         ],
-        "fov": 24.0
+        "fov": 28
       },
       "light": {
         "preset": "lampu-teplok",
@@ -1373,16 +1373,16 @@
       "camera": {
         "preset": "static",
         "from": [
-          -1.45,
-          1.42,
-          8.4
+          -0.5,
+          1.05,
+          6.5
         ],
         "target": [
-          -1.45,
+          -1.38,
           1.0,
           5.55
         ],
-        "fov": 27
+        "fov": 28
       },
       "light": {
         "preset": "lampu-teplok",
@@ -1574,21 +1574,21 @@
       "camera": {
         "preset": "dolly-in",
         "from": [
-          1.5,
-          1.4,
-          9.0
+          0.72,
+          1.0,
+          7.05
         ],
         "to": [
-          1.52,
-          1.44,
-          8.6
+          0.74,
+          0.98,
+          6.6
         ],
         "target": [
-          1.55,
-          1.02,
+          1.5,
+          0.92,
           5.55
         ],
-        "fov": 24.0
+        "fov": 28
       },
       "light": {
         "preset": "lampu-teplok",
@@ -1953,16 +1953,16 @@
       "camera": {
         "preset": "static",
         "from": [
-          -0.2,
-          1.5,
-          7.9
+          0.12,
+          1.48,
+          6.66
         ],
         "target": [
           -0.2,
-          1.15,
-          4.9
+          1.23,
+          4.98
         ],
-        "fov": 25.5
+        "fov": 28
       },
       "light": {
         "preset": "lampu-teplok",
@@ -2154,16 +2154,16 @@
       "camera": {
         "preset": "static",
         "from": [
-          1.5,
-          1.42,
-          8.5
+          0.8,
+          0.98,
+          6.68
         ],
         "target": [
-          1.55,
-          1.0,
+          1.5,
+          0.92,
           5.55
         ],
-        "fov": 24.0
+        "fov": 28
       },
       "light": {
         "preset": "lampu-teplok",
@@ -2348,16 +2348,16 @@
       "camera": {
         "preset": "low-angle",
         "from": [
-          -0.2,
-          1.12,
-          7.0
+          -0.05,
+          0.98,
+          6.6
         ],
         "target": [
           -0.2,
-          1.4,
+          1.25,
           4.95
         ],
-        "fov": 22.5
+        "fov": 30
       },
       "light": {
         "preset": "lampu-teplok",
@@ -2549,16 +2549,16 @@
       "camera": {
         "preset": "static",
         "from": [
-          -1.45,
-          1.42,
-          8.5
+          -0.5,
+          1.05,
+          6.5
         ],
         "target": [
-          -1.45,
-          1.02,
+          -1.38,
+          1.0,
           5.55
         ],
-        "fov": 24.0
+        "fov": 28
       },
       "light": {
         "preset": "lampu-teplok",
@@ -2750,16 +2750,16 @@
       "camera": {
         "preset": "static",
         "from": [
-          1.5,
-          1.42,
-          8.5
+          0.72,
+          0.98,
+          6.62
         ],
         "target": [
-          1.55,
-          1.0,
+          1.5,
+          0.92,
           5.55
         ],
-        "fov": 24.0
+        "fov": 28
       },
       "light": {
         "preset": "lampu-teplok",

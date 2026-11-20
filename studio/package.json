@@ -49,7 +49,8 @@
     "library:check": "node scripts/sync-library.mjs --check",
     "library:build": "./.venv/bin/python studio-forge/kenney_import.py --build && node scripts/sync-library.mjs && ./.venv/bin/python studio-forge/kenney_import.py --sheet docs/library-catalog.png",
     "library:qc": "./.venv/bin/python studio-forge/kenney_import.py --check && node scripts/sync-library.mjs --check",
-    "naskah:import": "node scripts/naskah-import.mjs"
+    "naskah:import": "node scripts/naskah-import.mjs",
+    "qc:subject": "node scripts/qc-subject.mjs"
   },
   "license": "ISC",
   "dependencies": {

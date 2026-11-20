@@ -102,11 +102,17 @@ export function framingIssues(story) {
         nearest = Math.min(nearest, t.chest.depth);
         farthest = Math.max(farthest, t.chest.depth);
       }
+      // Aktor yang duduk (`sit`) punya kepala jauh di bawah bbox aset yang
+      // berdiri tegak, jadi pemeriksaan kepala dari bbox akan salah: di
+      // `busri-05` ia menuduh kepala terpotong padahal render justru pas.
+      // Untuk mereka cukup dada yang diukur; ukuran kepala yang sebenarnya
+      // diperiksa `scripts/qc-subject.mjs` memakai pose klip.
+      const seated = /^sit/.test(String(a.clip ?? ''));
       if (!chestIn.length) {
         issues.push(`${a.ref} tak pernah masuk frame`);
       } else {
         insideCount++;
-        if (headOut.length) {
+        if (headOut.length && !seated) {
           const t = headOut[0];
           issues.push(`${a.ref} kepala terpotong di u=${t.u.toFixed(2)} ${fmt(t.head)}`);
         }

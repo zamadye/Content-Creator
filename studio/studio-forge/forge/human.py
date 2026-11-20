@@ -9,6 +9,7 @@ this pipeline and is original project work.
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 
 import numpy as np
@@ -1229,59 +1230,100 @@ def clip(name, frames, loop=True):
     return deco
 
 
-@clip("idle", 96)
-def _idle(t):
-    p = base_pose()
-    br = np.sin(t * 2 * np.pi)
-    sway = np.sin(t * 2 * np.pi + 0.6)
-    add(p, "spine02", rx=-0.02 * br)
-    add(p, "spine01", rx=0.015 * br)
-    add(p, "neck01", rx=0.02 * br, ry=0.05 * sway)
-    add(p, "head", ry=0.06 * sway, rx=-0.02 * br)
-    add(p, "upperarm01.L", rz=-0.03 * br, rx=0.03 * sway)
-    add(p, "upperarm01.R", rz=0.03 * br, rx=0.03 * sway)
-    add(p, "pelvis.L", rz=0.01 * sway)
-    return p, (0, 0.004 * br, 0)
+TAU = 2.0 * math.pi
 
 
-@clip("walk", 32)
-def _walk(t):
-    p = base_pose(arm_drop=0.30, finger_curl=0.6)
-    a = t * 2 * np.pi
-    for side, s, ph in (("L", 1, 0.0), ("R", -1, np.pi)):
-        swing = np.sin(a + ph)
-        lift = max(0.0, np.sin(a + ph + 0.7))
-        add(p, f"upperleg01.{side}", rx=-0.52 * swing)
-        add(p, f"lowerleg01.{side}", rx=0.30 + 0.85 * lift)
-        add(p, f"foot.{side}", rx=-0.18 * swing - 0.15 * lift)
-        add(p, f"upperarm01.{side}", rx=0.42 * swing, rz=-s * 0.05)
-        add(p, f"lowerarm01.{side}", rx=-0.25 - 0.18 * max(0, swing))
-    add(p, "pelvis.L", ry=0.10 * np.sin(a))
-    add(p, "spine01", ry=-0.07 * np.sin(a), rx=0.04)
-    add(p, "spine02", ry=-0.04 * np.sin(a))
-    add(p, "neck01", ry=0.05 * np.sin(a))
-    add(p, "head", ry=0.03 * np.sin(a))
-    bob = 0.018 * (0.5 - 0.5 * np.cos(2 * a))
-    return p, (0, bob, 0)
+def clamp01(x):
+    return 0.0 if x < 0 else (1.0 if x > 1 else x)
 
 
-@clip("run", 24)
-def _run(t):
-    p = base_pose(arm_drop=0.24, finger_curl=0.8)
-    a = t * 2 * np.pi
-    for side, s, ph in (("L", 1, 0.0), ("R", -1, np.pi)):
-        swing = np.sin(a + ph)
-        lift = max(0.0, np.sin(a + ph + 0.6))
-        add(p, f"upperleg01.{side}", rx=-0.85 * swing)
-        add(p, f"lowerleg01.{side}", rx=0.55 + 1.35 * lift)
-        add(p, f"foot.{side}", rx=-0.25 * swing - 0.3 * lift)
-        add(p, f"upperarm01.{side}", rx=0.95 * swing, rz=-s * 0.30)
-        add(p, f"lowerarm01.{side}", rx=-1.05)
-    add(p, "spine01", rx=0.16)
-    add(p, "spine02", rx=0.10, ry=-0.10 * np.sin(a))
-    add(p, "neck01", rx=-0.12)
-    add(p, "pelvis.L", ry=0.16 * np.sin(a))
-    return p, (0, 0.03 * (0.5 - 0.5 * np.cos(2 * a)), 0)
+def ease(x):
+    u = clamp01(x)
+    return u * u * (3.0 - 2.0 * u)
+
+
+def hold_wave(phase):
+    """Ayunan dengan *dwell* di ujung: berhenti sejenak lalu berbalik."""
+    s = math.sin(phase)
+    return math.copysign(abs(s) ** 0.55, s)
+
+
+def pulse(t, center, width):
+    """Pulsa 0..1 dengan naik cepat lalu turun pelan (aksi → settle)."""
+    d = abs(t - center)
+    if d >= width:
+        return 0.0
+    return ease(1.0 - d / width)
+
+
+def blink_curve(t, centers, dur=0.075):
+    best = 0.0
+    for c in centers:
+        d = abs(t - c)
+        if d < dur:
+            best = max(best, ease(1.0 - d / dur))
+    return best
+
+
+def blink_scales(t, centers, mouth=0.0):
+    """Kedip (dan bukaan mulut) lewat skala — konvensi rig: `eye.*.scale.y`."""
+    b = blink_curve(t, centers)
+    out = {
+        "eye.L": (1.0, 1.0 - 0.95 * b, 1.0),
+        "eye.R": (1.0, 1.0 - 0.95 * b, 1.0),
+    }
+    if mouth > 0.0:
+        out["oris05"] = (1.0 - 0.16 * mouth, 0.19 + 0.91 * mouth, 1.0)
+    return out
+
+
+def with_scales(name, fn):
+    CLIPS[name]["scales"] = fn
+
+
+# --------------------------------------------------------------- rantai tulang
+#
+# Rig ini punya dua segmen per pangkal (thigh/upper leg, shin, upper arm,
+# forearm) dan lima ruas tulang punggung. Klip lama hanya menulis segmen
+# pertama, jadi lutut/siku membengkok di satu titik dan badan bergerak sebagai
+# satu balok — itu sumber kesan kaku. Semua klip di bawah membagi putaran ke
+# seluruh rantai, jadi lengkungnya tersebar seperti otot, bukan seperti engsel.
+
+THIGH = ("upperleg01.{s}", "upperleg02.{s}")
+SHIN = ("lowerleg01.{s}", "lowerleg02.{s}")
+FOOT = ("foot.{s}",)
+UPPERARM = ("upperarm01.{s}", "upperarm02.{s}")
+FOREARM = ("lowerarm01.{s}", "lowerarm02.{s}")
+HAND = ("wrist.{s}",)
+SPINE = ("spine01", "spine02", "spine03", "spine04", "spine05")
+NECK = ("neck01", "neck02", "neck03")
+PELVIS = ("pelvis.L", "pelvis.R")
+
+
+def bend(pose, chain, weights, side="", rx=0.0, ry=0.0, rz=0.0):
+    """Bagikan satu putaran ke seluruh rantai dengan bobot segmen."""
+    names = [c.format(s=side) if "{s}" in c else c for c in chain]
+    total = sum(weights) or 1.0
+    for name, w in zip(names, weights):
+        k = w / total
+        add(pose, name, rx=rx * k, ry=ry * k, rz=rz * k)
+
+
+def spine_bend(pose, rx=0.0, ry=0.0, rz=0.0, weights=(0.26, 0.24, 0.20, 0.16, 0.14)):
+    bend(pose, SPINE, weights, rx=rx, ry=ry, rz=rz)
+
+
+def neck_bend(pose, rx=0.0, ry=0.0, rz=0.0, weights=(0.45, 0.33, 0.22)):
+    bend(pose, NECK, weights, rx=rx, ry=ry, rz=rz)
+
+
+def hands_settle(pose, t, amount=0.05):
+    """Jari-jari ikut hidup: keriting kecil yang tidak serempak."""
+    for side in ("L", "R"):
+        for f in range(1, 6):
+            for j in (1, 2, 3):
+                phase = 1.3 * f + 0.7 * j + (0.9 if side == "R" else 0.0)
+                add(pose, "finger{}-{}.{}".format(f, j, side), rx=amount * math.sin(TAU * t + phase))
 
 
 SIT_POSE = None
@@ -1290,148 +1332,415 @@ SIT_POSE = None
 def sit_pose(degree=1.0, hands="lap"):
     p = base_pose(arm_drop=0.30, finger_curl=0.5)
     for side, s in (("L", 1), ("R", -1)):
-        add(p, f"upperleg01.{side}", rx=-1.42 * degree)
-        add(p, f"lowerleg01.{side}", rx=1.40 * degree)
-        add(p, f"foot.{side}", rx=-0.12 * degree)
+        bend(p, THIGH, (0.60, 0.40), side=side, rx=-1.42 * degree)
+        bend(p, SHIN, (0.58, 0.42), side=side, rx=1.40 * degree)
+        bend(p, FOOT, (1.0,), side=side, rx=-0.12 * degree)
     add(p, "spine01", rx=0.10 * degree)
     add(p, "spine02", rx=0.06 * degree)
+    add(p, "spine03", rx=0.03 * degree)
     add(p, "neck01", rx=0.05 * degree)
     # Tangan: rz negatif menurunkan lengan kiri (lihat base_pose), rx negatif
     # mengayun ke depan. Nilai di bawah menaruh telapak di paha (y≈0,60, z≈0,33).
     if hands == "lap":
-        add(p, "upperarm01.L", rx=-0.60, rz=-0.20)
-        add(p, "upperarm01.R", rx=-0.60, rz=0.20)
-        add(p, "lowerarm01.L", rx=0.80, rz=-0.10)
-        add(p, "lowerarm01.R", rx=0.80, rz=0.10)
-    elif hands == "knees":
-        add(p, "upperarm01.L", rx=-0.70, rz=-0.25)
-        add(p, "upperarm01.R", rx=-0.70, rz=0.25)
-        add(p, "lowerarm01.L", rx=0.45)
-        add(p, "lowerarm01.R", rx=0.45)
-    elif hands == "grip":
-        add(p, "upperarm01.L", rx=-1.05, rz=-0.10)
-        add(p, "upperarm01.R", rx=-1.05, rz=0.10)
-        add(p, "lowerarm01.L", rx=0.55, rz=-0.10)
-        add(p, "lowerarm01.R", rx=0.55, rz=0.10)
         for side, s in (("L", 1), ("R", -1)):
+            bend(p, UPPERARM, (0.62, 0.38), side=side, rx=-0.60, rz=-s * 0.20)
+            bend(p, FOREARM, (0.58, 0.42), side=side, rx=0.80, rz=-s * 0.10)
+    elif hands == "knees":
+        for side, s in (("L", 1), ("R", -1)):
+            bend(p, UPPERARM, (0.62, 0.38), side=side, rx=-0.70, rz=-s * 0.25)
+            bend(p, FOREARM, (0.58, 0.42), side=side, rx=0.45)
+    elif hands == "grip":
+        for side, s in (("L", 1), ("R", -1)):
+            bend(p, UPPERARM, (0.62, 0.38), side=side, rx=-1.05, rz=-s * 0.10)
+            bend(p, FOREARM, (0.58, 0.42), side=side, rx=0.55, rz=-s * 0.10)
             for f in ("finger1", "finger2", "finger3", "finger4", "finger5"):
-                handle = p.setdefault(f"{f}-1.{side}", [0, 0, 0])
+                handle = p.setdefault("{}-1.{}".format(f, side), [0, 0, 0])
                 handle[2] = -s * 1.15
     return p
 
 
+# -------------------------------------------------------------------- klip
+
+
+
+def curve(phase, keys):
+    """Kurva kunci-ke-kunci, dengan penanda `lin` untuk ruas yang harus linear.
+
+    Siklus langkah nyata punya empat pose: kontak, turun (menyerap), lewat, naik.
+    Sinus tunggal tidak bisa menyusun itu, jadi klip jalan/run memakai daftar
+    (fase, nilai[, "lin"]). Ruas *stance* sengaja linear: selama kaki menapak,
+    sudut pinggul harus berubah dengan laju tetap supaya telapak tidak meluncur
+    saat aktor digeser dengan kecepatan konstan.
+    """
+    p = phase % 1.0
+    for i in range(len(keys) - 1):
+        k0, k1 = keys[i], keys[i + 1]
+        p0, v0 = k0[0], k0[1]
+        p1, v1 = k1[0], k1[1]
+        if p0 <= p <= p1:
+            u = (p - p0) / (p1 - p0) if p1 > p0 else 0.0
+            linear = (len(k0) > 2 and k0[2] == "lin") or (len(k1) > 2 and k1[2] == "lin")
+            return v0 + (v1 - v0) * (u if linear else ease(u))
+    return keys[-1][1]
+
+
+# Ruas 0.08-0.56 adalah *stance*: sudut pinggul berubah linear di situ.
+THIGH_KEYS = (
+    (0.0, -0.46),
+    (0.08, -0.40, "lin"),
+    (0.56, 0.34, "lin"),
+    (0.68, 0.40),
+    (0.88, -0.36),
+    (1.0, -0.46),
+)
+KNEE_KEYS = ((0.0, 0.06), (0.12, 0.26), (0.34, 0.04), (0.56, 0.26), (0.72, 1.00), (0.90, 0.30), (1.0, 0.06))
+FOOT_KEYS = ((0.0, -0.16), (0.10, 0.02), (0.44, 0.06), (0.58, 0.40), (0.72, -0.24), (0.88, -0.22), (1.0, -0.16))
+ARM_KEYS = ((0.0, 0.34), (0.50, -0.34), (1.0, 0.34))
+
+
+@clip("idle", 96)
+def _idle(t):
+    """Diam yang hidup: napas, tumpuan bergeser, kepala menyusul, jari bergerak."""
+    p = base_pose()
+    a = TAU * t
+    breath = math.sin(a)
+    sway = hold_wave(a + 0.6)
+
+    # napas menyebar dari panggul ke tulang belakang; bahu naik paling akhir
+    spine_bend(p, rx=-0.030 * breath)
+    add(p, "spine04", rx=-0.012 * breath)
+    for side, s in (("L", 1), ("R", -1)):
+        add(p, "clavicle." + side, rz=-s * 0.020 * math.sin(a - 0.45))
+        bend(p, UPPERARM, (0.62, 0.38), side=side, rz=s * 0.022 * breath)
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=-0.05 * math.sin(a - 0.8))
+
+    # tumpuan berat badan: panggul dulu, dada mengoreksi
+    add(p, "pelvis.L", rz=0.034 * sway)
+    add(p, "pelvis.R", rz=0.034 * sway)
+    spine_bend(p, rz=-0.040 * sway)
+    add(p, "spine04", rz=-0.012 * sway)
+    for side, s in (("L", 1), ("R", -1)):
+        add(p, "upperleg01." + side, rz=-s * 0.014 * sway)
+        bend(p, SHIN, (0.58, 0.42), side=side, rx=0.02 + 0.03 * max(0.0, s * sway))
+
+    # kepala datang terlambat dari dada, dan menahan pandangan tetap datar
+    neck_bend(p, ry=0.045 * math.sin(a - 0.5), rz=0.030 * sway, rx=0.014 * breath)
+    add(p, "head", rx=-0.022 * breath, rz=-0.030 * sway, ry=0.055 * math.sin(a + 1.1))
+    for side, s in (("L", 1), ("R", -1)):
+        add(p, "oculi01." + side, rz=s * 0.05 * math.sin(a * 0.6 + 0.4))
+
+    hands_settle(p, t, 0.035)
+    return p, (0.011 * sway, 0.003 * breath, 0.0)
+
+
+with_scales("idle", lambda t: blink_scales(t, (0.19, 0.62, 0.88)))
+
+
+@clip("walk", 32)
+def _walk(t):
+    """Siklus jalan penuh: kontak → turun → lewat → naik, dua langkah."""
+    p = base_pose(arm_drop=0.30, finger_curl=0.6)
+    a = TAU * t
+
+    for side, s, ph in (("L", 1, 0.0), ("R", -1, 0.5)):
+        phase = t + ph
+        swing = -curve(phase, THIGH_KEYS) / 0.34  # +1 = kaki di depan
+        bend(p, THIGH, (0.62, 0.38), side=side, rx=curve(phase, THIGH_KEYS))
+        bend(p, SHIN, (0.58, 0.42), side=side, rx=curve(phase, KNEE_KEYS))
+        bend(p, FOOT, (1.0,), side=side, rx=curve(phase, FOOT_KEYS))
+        # lengan mengayun berlawanan dengan kaki, siku menyusul (lag 8%)
+        arm = curve(phase + 0.5, ARM_KEYS)
+        bend(p, UPPERARM, (0.62, 0.38), side=side, rx=arm, rz=-s * 0.05)
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=-0.26 - 0.22 * max(0.0, arm))
+        add(p, "wrist." + side, rx=-0.10 * arm)
+        add(p, "clavicle." + side, rz=-s * 0.030 * arm)
+
+    # panggul berputar, punggung mengoreksi, bahu memimpin arah hadap
+    add(p, "pelvis.L", ry=0.13 * math.sin(a), rz=0.045 * math.sin(a + 0.4))
+    add(p, "pelvis.R", ry=0.13 * math.sin(a), rz=-0.045 * math.sin(a + 0.4))
+    spine_bend(p, ry=-0.16 * math.sin(a), rx=0.045)
+    add(p, "spine04", ry=0.14 * math.sin(a), rz=-0.045 * math.sin(a + 0.2))
+    add(p, "spine05", ry=0.08 * math.sin(a))
+
+    # kepala menstabilkan pandangan; bobbing-nya kecil dan terlambat
+    neck_bend(p, ry=0.10 * math.sin(a), rx=-0.03)
+    add(p, "head", ry=0.05 * math.sin(a - 0.5), rx=0.02 * math.cos(2 * a), rz=-0.02 * math.sin(a))
+
+    hands_settle(p, t, 0.04)
+    # badan naik saat kaki lurus (fase lewat) dan turun saat menapak
+    bob = 0.012 * (0.5 - 0.5 * math.cos(2 * a))
+    return p, (0.016 * math.sin(a), bob - 0.002, 0.0)
+
+with_scales("walk", lambda t: blink_scales(t, (0.31, 0.79)))
+
+
+@clip("run", 24)
+def _run(t):
+    p = base_pose(arm_drop=0.24, finger_curl=0.8)
+    a = TAU * t
+    for side, s, ph in (("L", 1, 0.0), ("R", -1, math.pi)):
+        swing = math.sin(a + ph)
+        knee = 0.55 + 1.25 * max(0.0, math.sin(a + ph + 2.0)) + 0.35 * max(0.0, math.sin(a + ph + 0.6))
+        bend(p, THIGH, (0.62, 0.38), side=side, rx=-0.85 * swing)
+        bend(p, SHIN, (0.58, 0.42), side=side, rx=knee)
+        bend(p, FOOT, (1.0,), side=side, rx=-0.30 * swing - 0.35 * max(0.0, math.sin(a + ph + 0.5)))
+        bend(p, UPPERARM, (0.62, 0.38), side=side, rx=0.95 * -swing, rz=-s * 0.22)
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=-1.05 - 0.20 * max(0.0, -swing))
+        add(p, "wrist." + side, rx=-0.18)
+        add(p, "clavicle." + side, rz=-s * 0.05)
+    add(p, "pelvis.L", ry=0.18 * math.sin(a))
+    add(p, "pelvis.R", ry=0.18 * math.sin(a))
+    spine_bend(p, rx=0.20, ry=-0.14 * math.sin(a))
+    neck_bend(p, rx=-0.16)
+    add(p, "head", rx=-0.04, ry=0.04 * math.sin(a - 0.4))
+    return p, (0.012 * math.sin(a), 0.034 * (0.5 - 0.5 * math.cos(2 * a)), 0.0)
+
+
+with_scales("run", lambda t: blink_scales(t, (0.42,)))
+
+
 @clip("sit", 60, loop=False)
 def _sit(t):
+    """Duduk: bukan pose statis. Tumpuan bergeser, napas, tangan dan kaki hidup."""
     p = sit_pose(1.0)
-    add(p, "spine02", rx=-0.02 * np.sin(t * 2 * np.pi))
-    add(p, "head", ry=0.05 * np.sin(t * 2 * np.pi))
-    return p, (0, -0.42, 0)
+    a = TAU * t
+    breath = math.sin(a)
+    sway = hold_wave(TAU * t * 0.5 + 0.35)
+    tap = max(0.0, math.sin(TAU * t * 2.0 + 0.4))
+
+    # napas: dada dan bahu, bukan seluruh badan
+    spine_bend(p, rx=-0.026 * breath)
+    add(p, "spine04", rx=-0.010 * breath)
+    for side, s in (("L", 1), ("R", -1)):
+        add(p, "clavicle." + side, rz=-s * 0.016 * math.sin(a - 0.4))
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=-0.03 * math.sin(a - 0.7))
+
+    # tumpuan bergeser ke satu sisi, bokong dan punggung mengikuti
+    add(p, "pelvis.L", rz=0.030 * sway)
+    add(p, "pelvis.R", rz=0.030 * sway)
+    spine_bend(p, rz=-0.034 * sway)
+    add(p, "spine04", rz=-0.010 * sway)
+    for side, s in (("L", 1), ("R", -1)):
+        add(p, "upperleg01." + side, rz=-s * 0.010 * sway)
+
+    # tangan: berat badan menekan paha, jari menyesuaikan
+    for side, s in (("L", 1), ("R", -1)):
+        bend(p, FOREARM, (0.58, 0.42), side=side, rz=-s * 0.03 * sway)
+        add(p, "wrist." + side, rx=0.05 * sway * s)
+
+    # kepala: menoleh pelan, menahan pandangan datar
+    neck_bend(p, ry=0.05 * math.sin(a - 0.6), rz=0.026 * sway, rx=0.012 * breath)
+    add(p, "head", rx=-0.018 * breath, rz=-0.024 * sway, ry=0.06 * math.sin(a + 0.9))
+    for side, s in (("L", 1), ("R", -1)):
+        add(p, "oculi01." + side, rz=s * 0.06 * math.sin(a * 0.7))
+
+    # kaki: sesekali ujung sepatu mengetuk (secondary action, kecil saja)
+    bend(p, FOOT, (1.0,), side="R", rx=-0.06 * tap)
+
+    hands_settle(p, t, 0.03)
+    return p, (0.009 * sway, -0.42 + 0.003 * breath, 0.0)
+
+
+with_scales("sit", lambda t: blink_scales(t, (0.24, 0.66, 0.93)))
 
 
 @clip("ride", 64)
 def _ride(t):
     p = sit_pose(1.0, hands="grip")
-    a = t * 2 * np.pi
-    add(p, "spine01", rx=0.22 + 0.02 * np.sin(a))
+    a = TAU * t
+    add(p, "spine01", rx=0.22 + 0.02 * math.sin(a))
     add(p, "spine02", rx=0.10)
-    add(p, "neck01", rx=-0.18)
-    add(p, "upperleg01.L", rx=0.10)
-    add(p, "upperleg01.R", rx=0.10)
-    add(p, "head", rx=-0.06 + 0.02 * np.sin(a * 2))
-    return p, (0, -0.40 + 0.006 * np.sin(a * 2), 0)
+    spine_bend(p, rz=0.02 * math.sin(a))
+    neck_bend(p, rx=-0.18 + 0.02 * math.sin(a + 0.8))
+    add(p, "head", rx=-0.06 + 0.02 * math.sin(a * 2), rz=-0.015 * math.sin(a))
+    for side, s in (("L", 1), ("R", -1)):
+        add(p, "upperleg01." + side, rx=0.10, rz=-s * 0.02 * math.sin(a))
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=-0.03 * math.sin(a + 0.5))
+    return p, (0.006 * math.sin(a), -0.40 + 0.006 * math.sin(a * 2), 0.0)
+
+
+with_scales("ride", lambda t: blink_scales(t, (0.21, 0.74)))
 
 
 @clip("stand-up", 40, loop=False)
 def _standup(t):
     s = sit_pose(1.0)
     st = base_pose()
-    p = mix(s, st, smoothstep(t))
-    add(p, "spine01", rx=0.28 * np.sin(np.pi * t))
-    return p, (0, -0.42 * (1 - smoothstep(t)), 0)
+    k = smoothstep(t)
+    p = mix(s, st, k)
+    # dorongan: lutut lurus dulu, badan menyusul, lalu sedikit overshoot
+    push = math.sin(math.pi * t) ** 0.8
+    bend(p, THIGH, (0.62, 0.38), side="L", rx=-0.26 * push)
+    bend(p, THIGH, (0.62, 0.38), side="R", rx=-0.26 * push)
+    bend(p, SHIN, (0.58, 0.42), side="L", rx=0.30 * push)
+    bend(p, SHIN, (0.58, 0.42), side="R", rx=0.30 * push)
+    spine_bend(p, rx=0.26 * push)
+    neck_bend(p, rx=-0.16 * push)
+    add(p, "head", rx=-0.10 * push)
+    for side, s2 in (("L", 1), ("R", -1)):
+        bend(p, UPPERARM, (0.62, 0.38), side=side, rx=-0.12 * push, rz=-s2 * 0.10 * push)
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=-0.18 * push)
+    return p, (0.0, -0.42 * (1 - k), 0.0)
+
+
+with_scales("stand-up", lambda t: blink_scales(t, (0.52,)))
 
 
 @clip("talk", 90)
 def _talk(t):
+    """Bicara dengan seluruh badan: tumpuan, bahu, siku, pergelangan, rahang."""
     p = base_pose()
-    a = t * 2 * np.pi
-    add(p, "head", rx=0.05 * np.sin(a * 2), ry=0.10 * np.sin(a), rz=0.03 * np.sin(a * 3))
-    add(p, "neck01", rx=0.03 * np.sin(a * 2 + 1), ry=0.05 * np.sin(a + 0.4))
-    add(p, "jaw", rx=0.14 * max(0, np.sin(a * 12)) + 0.05 * max(0, np.sin(a * 17)))
-    add(p, "upperarm01.L", rx=-0.18 + 0.10 * np.sin(a * 2), rz=-0.06)
-    add(p, "upperarm01.R", rx=-0.12 + 0.08 * np.sin(a * 2 + 1.2), rz=0.06)
-    add(p, "lowerarm01.L", rx=-0.55 + 0.22 * np.sin(a * 2 + 0.5))
-    add(p, "lowerarm01.R", rx=-0.45 + 0.20 * np.sin(a * 2 + 1.8))
-    add(p, "spine02", rx=0.02 * np.sin(a * 2))
-    return p, (0, 0, 0)
+    a = TAU * t
+    breath = math.sin(a)
+    shift = hold_wave(TAU * t * 0.5 + 0.15)
+    beat = pulse(t, 0.14, 0.11) + pulse(t, 0.46, 0.10) + pulse(t, 0.76, 0.09)
+    nod = pulse(t, 0.05, 0.08) + pulse(t, 0.33, 0.06) + pulse(t, 0.61, 0.07) + pulse(t, 0.88, 0.05)
+    mouth = max(0.0, math.sin(TAU * 6.4 * t)) * (0.55 + 0.45 * math.sin(TAU * 1.6 * t)) if t < 0.86 else 0.0
+
+    # tumpuan bicara: badan condong sedikit ke depan saat memberi tekanan
+    add(p, "pelvis.L", rz=0.026 * shift)
+    add(p, "pelvis.R", rz=0.026 * shift)
+    spine_bend(p, rz=-0.030 * shift - 0.012 * beat, rx=-0.026 * breath + 0.045 * beat, ry=-0.06 * beat)
+    neck_bend(p, rx=0.02 * breath + 0.05 * nod, ry=-0.05 * shift, rz=0.02 * shift)
+    add(p, "head", rx=-0.03 * breath + 0.09 * nod, ry=0.10 * beat - 0.04 * shift, rz=-0.03 * shift)
+
+    # rahang ikut kata; pipi/mulut lewat skala (lihat `with_scales` di bawah)
+    add(p, "jaw", rx=0.10 * mouth)
+
+    # lengan kanan memimpin, kiri menumpu (secondary action)
+    lead, quiet = "R", "L"
+    bend(p, UPPERARM, (0.62, 0.38), side=lead, rx=-0.10 - 0.52 * beat, rz=0.08 + 0.16 * beat)
+    bend(p, FOREARM, (0.58, 0.42), side=lead, rx=-0.24 - 0.62 * beat, ry=-0.16 * beat)
+    add(p, "wrist." + lead, rx=0.16 * beat, rz=-0.12 * beat)
+    add(p, "clavicle." + lead, rz=-0.04 - 0.06 * beat)
+    bend(p, UPPERARM, (0.62, 0.38), side=quiet, rx=-0.05 - 0.10 * shift, rz=-0.05)
+    bend(p, FOREARM, (0.58, 0.42), side=quiet, rx=-0.16 - 0.10 * shift)
+
+    # tangan terbuka saat memberi tekanan
+    for side in ("L", "R"):
+        openness = beat if side == lead else 0.25 * shift
+        for f in range(2, 6):
+            for j in range(1, 4):
+                add(p, "finger{}-{}.{}".format(f, j, side), rx=(0.06 + 0.02 * f) * (1 - 0.7 * openness))
+    for side in ("L", "R"):
+        add(p, "upperleg01." + side, rz=-(0.02 * shift))
+        bend(p, SHIN, (0.58, 0.42), side=side, rx=0.02 + 0.02 * max(0.0, shift))
+
+    return p, (0.010 * shift, 0.003 * breath, 0.0)
+
+
+with_scales("talk", lambda t: blink_scales(t, (0.17, 0.58, 0.91), mouth=max(0.0, math.sin(TAU * 6.4 * t)) * (0.55 + 0.45 * math.sin(TAU * 1.6 * t)) if t < 0.86 else 0.0))
 
 
 @clip("look", 72)
 def _look(t):
     p = base_pose()
     k = smoothstep(min(1, t * 1.6))
-    add(p, "head", ry=0.55 * k, rx=0.06 * k)
-    add(p, "neck01", ry=0.22 * k)
-    add(p, "spine01", ry=0.12 * k)
-    return p, (0, 0, 0)
+    # menoleh = panggul, punggung, leher, lalu kepala memimpin; mata lebih dulu
+    add(p, "pelvis.L", ry=0.06 * k)
+    add(p, "pelvis.R", ry=0.06 * k)
+    spine_bend(p, ry=0.22 * k, rx=0.02 * k)
+    neck_bend(p, ry=0.34 * k)
+    add(p, "head", ry=0.40 * k, rx=0.05 * k, rz=-0.03 * k)
+    for side, s in (("L", 1), ("R", -1)):
+        add(p, "oculi01." + side, rz=s * 0.18 * k)
+        bend(p, UPPERARM, (0.62, 0.38), side=side, rx=0.04 * k)
+    return p, (0.0, 0.0, 0.0)
+
+
+with_scales("look", lambda t: blink_scales(t, (0.35,)))
 
 
 @clip("point", 48)
 def _point(t):
     p = base_pose()
     k = smoothstep(min(1, t * 1.8))
-    add(p, "upperarm01.R", rx=-1.15 * k, rz=0.55 * k)
-    add(p, "lowerarm01.R", rx=-0.35 * k)
-    add(p, "head", ry=-0.12 * k)
-    add(p, "spine01", y=0) if False else None
-    add(p, "spine02", ry=-0.10 * k)
-    return p, (0, 0, 0)
+    bend(p, UPPERARM, (0.62, 0.38), side="R", rx=-1.15 * k, rz=0.55 * k)
+    bend(p, FOREARM, (0.58, 0.42), side="R", rx=-0.35 * k, rz=0.10 * k)
+    add(p, "wrist.R", rx=-0.10 * k)
+    add(p, "clavicle.R", rz=-0.10 * k)
+    spine_bend(p, ry=-0.14 * k, rz=-0.03 * k)
+    neck_bend(p, ry=-0.12 * k)
+    add(p, "head", ry=-0.16 * k, rx=-0.04 * k)
+    for side, s in (("L", 1), ("R", -1)):
+        add(p, "upperleg01." + side, rz=-(0.03 * k))
+    return p, (0.004 * k, 0.0, 0.0)
+
+
+with_scales("point", lambda t: blink_scales(t, (0.4,)))
 
 
 @clip("reach", 56)
 def _reach(t):
     p = base_pose()
     k = smoothstep(min(1, t * 1.5))
-    for side in ("L", "R"):
-        add(p, f"upperarm01.{side}", rx=-1.0 * k, rz=(0.12 if side == "L" else -0.12) * k)
-        add(p, f"lowerarm01.{side}", rx=-0.55 * k)
-    add(p, "spine02", rx=0.12 * k)
-    add(p, "neck01", rx=-0.08 * k)
-    return p, (0, 0, 0)
+    for side, s in (("L", 1), ("R", -1)):
+        bend(p, UPPERARM, (0.62, 0.38), side=side, rx=-1.0 * k, rz=s * 0.12 * k)
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=-0.55 * k)
+        add(p, "wrist." + side, rx=-0.12 * k)
+        add(p, "clavicle." + side, rz=-s * 0.07 * k)
+        for f in range(1, 6):
+            for j in (1, 2, 3):
+                add(p, "finger{}-{}.{}".format(f, j, side), rx=-0.10 * k)
+    spine_bend(p, rx=0.14 * k)
+    neck_bend(p, rx=-0.10 * k)
+    add(p, "head", rx=-0.06 * k)
+    return p, (0.0, -0.02 * k, 0.0)
+
+
+with_scales("reach", lambda t: blink_scales(t, (0.45,)))
 
 
 @clip("collapse", 60, loop=False)
 def _collapse(t):
     s = sit_pose(0.8)
-    p = mix(base_pose(), s, smoothstep(min(1, t * 1.3)))
-    add(p, "spine01", rx=0.7 * smoothstep(max(0, t - 0.4) / 0.6))
-    add(p, "neck01", rx=0.5 * smoothstep(max(0, t - 0.5) / 0.5))
-    add(p, "head", rx=0.3 * smoothstep(max(0, t - 0.6) / 0.4))
-    for side in ("L", "R"):
-        add(p, f"upperarm01.{side}", rx=0.35)
-    return p, (0, -0.42 * smoothstep(min(1, t * 1.3)), 0)
+    k = smoothstep(min(1, t * 1.3))
+    p = mix(base_pose(), s, k)
+    fall = smoothstep(max(0.0, t - 0.35) / 0.65)
+    spine_bend(p, rx=0.55 * fall)
+    neck_bend(p, rx=0.45 * fall)
+    add(p, "head", rx=0.30 * fall, rz=-0.12 * fall)
+    for side, s2 in (("L", 1), ("R", -1)):
+        bend(p, UPPERARM, (0.62, 0.38), side=side, rx=0.35 * fall, rz=-s2 * 0.12 * fall)
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=0.20 * fall)
+        bend(p, SHIN, (0.58, 0.42), side=side, rx=0.15 * fall)
+    return p, (0.0, -0.42 * k, 0.0)
+
+
+with_scales("collapse", lambda t: blink_scales(t, (0.2, 0.7)))
 
 
 @clip("float", 120)
 def _float(t):
     p = base_pose(arm_drop=0.30)
-    a = t * 2 * np.pi
-    add(p, "spine01", rx=0.05 * np.sin(a))
-    add(p, "neck01", rx=0.10 * np.sin(a + 1))
-    add(p, "head", rx=0.12 * np.sin(a + 2))
-    add(p, "upperarm01.L", rz=-0.22 + 0.05 * np.sin(a), rx=0.1 * np.sin(a * 2))
-    add(p, "upperarm01.R", rz=0.22 - 0.05 * np.sin(a), rx=0.1 * np.sin(a * 2))
-    add(p, "lowerleg01.L", rx=0.18 + 0.05 * np.sin(a))
-    add(p, "lowerleg01.R", rx=0.10 - 0.05 * np.sin(a))
-    return p, (0, 0.05 * np.sin(a), 0)
+    a = TAU * t
+    spine_bend(p, rx=0.06 * math.sin(a), rz=0.03 * math.sin(a + 0.7))
+    neck_bend(p, rx=0.10 * math.sin(a + 1.0), rz=-0.02 * math.sin(a + 0.7))
+    add(p, "head", rx=0.12 * math.sin(a + 2.0), ry=0.05 * math.sin(a * 0.5))
+    for side, s in (("L", 1), ("R", -1)):
+        bend(p, UPPERARM, (0.62, 0.38), side=side, rz=-s * (0.20 + 0.05 * math.sin(a)), rx=0.10 * math.sin(a * 2))
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=-0.12 + 0.06 * math.sin(a * 2 + 0.6))
+        bend(p, SHIN, (0.58, 0.42), side=side, rx=(0.18 if side == "L" else 0.10) + 0.05 * math.sin(a))
+        bend(p, FOOT, (1.0,), side=side, rx=0.08 * math.sin(a + 1.2))
+    hands_settle(p, t * 2.0, 0.05)
+    return p, (0.008 * math.sin(a * 0.5), 0.05 * math.sin(a), 0.0)
+
+
+with_scales("float", lambda t: blink_scales(t, (0.28, 0.77)))
 
 
 @clip("vanish", 50, loop=False)
 def _vanish(t):
     p = base_pose()
     k = smoothstep(t)
-    add(p, "neck01", rx=0.35 * k)
-    add(p, "head", rx=0.25 * k)
-    add(p, "spine01", rx=0.2 * k)
-    for side in ("L", "R"):
-        add(p, f"upperarm01.{side}", rz=(-0.25 if side == "L" else 0.25) * k)
-    return p, (0, -0.15 * k, 0)
+    spine_bend(p, rx=0.24 * k)
+    neck_bend(p, rx=0.30 * k)
+    add(p, "head", rx=0.25 * k, rz=-0.08 * k)
+    for side, s in (("L", 1), ("R", -1)):
+        bend(p, UPPERARM, (0.62, 0.38), side=side, rz=-s * 0.25 * k, rx=0.10 * k)
+        bend(p, FOREARM, (0.58, 0.42), side=side, rx=0.18 * k)
+        bend(p, SHIN, (0.58, 0.42), side=side, rx=0.12 * k)
+    return p, (0.0, -0.15 * k, 0.0)
+
+
+with_scales("vanish", lambda t: blink_scales(t, (0.35,)))

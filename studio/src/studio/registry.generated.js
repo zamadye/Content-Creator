@@ -140,7 +140,7 @@ export default {
     ]
    },
    "tris": 41039,
-   "bytes": 3873628,
+   "bytes": 4247584,
    "tags": [
     "human",
     "male",
@@ -208,12 +208,7 @@ export default {
     "polo-kargo": "char.male-dewasa-polo",
     "kemeja-kasual": "char.male-dewasa-kemeja"
    },
-   "identityId": "char.male-dewasa-polo",
-   "review": {
-    "sha256": "17071fee925f0d5c83fbf94d2ad2c54459c7aeee88344d951ead27bc086c3a09",
-    "note": "Dagu Dimas lebih lebar dan hidungnya lebih menonjol dari samping. Perjelas batas polo dan celana di pinggul saat ia melangkah."
-   },
-   "portrait": "assets/characters/char.male-dewasa-polo/portrait.jpg"
+   "identityId": "char.male-dewasa-polo"
   },
   "char.female-dewasa": {
    "id": "char.female-dewasa",
@@ -241,7 +236,7 @@ export default {
     ]
    },
    "tris": 42949,
-   "bytes": 3979200,
+   "bytes": 4353160,
    "tags": [
     "human",
     "female",
@@ -310,12 +305,7 @@ export default {
     "polo-kargo": "char.female-dewasa",
     "daster": "char.female-dewasa-daster"
    },
-   "identityId": "char.female-dewasa",
-   "review": {
-    "sha256": "faadaf5cdfdb6ea7af3cd5d5ed6e44df6cf93e75212d5f824c857079fb817d72",
-    "note": "Potongan bob membingkai pipi Ratih. Haluskan pertemuan lapisan rambut di puncak kepala dan periksa kelonggaran polo saat duduk."
-   },
-   "portrait": "assets/characters/char.female-dewasa/portrait.jpg"
+   "identityId": "char.female-dewasa"
   },
   "char.male-muda-jaket": {
    "id": "char.male-muda-jaket",
@@ -343,7 +333,7 @@ export default {
     ]
    },
    "tris": 44300,
-   "bytes": 3989060,
+   "bytes": 4363016,
    "tags": [
     "human",
     "male",
@@ -408,12 +398,7 @@ export default {
    },
    "profile": "dewasa",
    "outfit": "jaket",
-   "identityId": "char.male-muda-jaket",
-   "review": {
-    "sha256": "073ade93879c6a3746f34a4fb9c7e701e2538aff5fedcef95809156e23d45544",
-    "note": "Raka berwajah panjang dengan dagu sempit dan poni menyamping. Perhalus pertemuan pangkal poni dengan rambut di ubun-ubun."
-   },
-   "portrait": "assets/characters/char.male-muda-jaket/portrait.jpg"
+   "identityId": "char.male-muda-jaket"
   },
   "char.male-pekerja": {
    "id": "char.male-pekerja",
@@ -441,7 +426,7 @@ export default {
     ]
    },
    "tris": 42909,
-   "bytes": 3918740,
+   "bytes": 4292700,
    "tags": [
     "human",
     "male",
@@ -506,12 +491,7 @@ export default {
    },
    "profile": "dewasa",
    "outfit": "kerja",
-   "identityId": "char.male-pekerja",
-   "review": {
-    "sha256": "c8573fc323a5adb2249010d5962f8c654de5e5a64c4b0c072bd92527785913fa",
-    "note": "Rahang pendek dan kumis tipis membedakan Pak Idris dari Dimas. Lengkung kumis masih tampak seperti garis lurus pada sudut depan."
-   },
-   "portrait": "assets/characters/char.male-pekerja/portrait.jpg"
+   "identityId": "char.male-pekerja"
   },
   "char.male-lansia-kemeja": {
    "id": "char.male-lansia-kemeja",
@@ -539,7 +519,7 @@ export default {
     ]
    },
    "tris": 43716,
-   "bytes": 4120416,
+   "bytes": 4494372,
    "tags": [
     "human",
     "male",
@@ -604,12 +584,7 @@ export default {
    },
    "profile": "lansia",
    "outfit": "kemeja-kasual",
-   "identityId": "char.male-lansia-kemeja",
-   "review": {
-    "sha256": "aeba98a5f5ee6184bf1f5d5ba7ba22a04de938e45965569fb7c2f323c6a4aba7",
-    "note": "Bingkai bulat bertumpu di hidung Pak Harun yang panjang. Uji gagang kacamata dari belakang telinga dan pendekkan langkah pada klip jalan."
-   },
-   "portrait": "assets/characters/char.male-lansia-kemeja/portrait.jpg"
+   "identityId": "char.male-lansia-kemeja"
   },
   "char.female-lansia": {
    "id": "char.female-lansia",
@@ -637,7 +612,7 @@ export default {
     ]
    },
    "tris": 40064,
-   "bytes": 3950888,
+   "bytes": 4324844,
    "tags": [
     "human",
     "female",
@@ -701,12 +676,7 @@ export default {
    },
    "profile": "lansia",
    "outfit": "daster",
-   "identityId": "char.female-lansia",
-   "review": {
-    "sha256": "bc3553b0b5e696e2501a5f9aeb28454b7b716e8a83a65da64e3469b6618bafe2",
-    "note": "Bu Sri berpipi penuh dan bersanggul kelabu. Periksa sambungan sanggul saat kepala menoleh dan gerak bahu di balik daster."
-   },
-   "portrait": "assets/characters/char.female-lansia/portrait.jpg"
+   "identityId": "char.female-lansia"
   },
   "char.remaja-laki": {
    "id": "char.remaja-laki",
@@ -734,7 +704,7 @@ export default {
     ]
    },
    "tris": 20924,
-   "bytes": 2127916,
+   "bytes": 2375848,
    "tags": [
     "human",
     "male",
@@ -802,12 +772,7 @@ export default {
    },
    "profile": "remaja",
    "outfit": "putih-abu",
-   "identityId": "char.remaja-laki",
-   "review": {
-    "sha256": "21a9474516f576e0049098783b74631a9689b844525c24121863a90dd93546e0",
-    "note": "Mata Bayu lebih sempit, alisnya tebal, dan garis rahangnya lebar. Rilekskan jari di tengah ayunan lengan pada klip jalan."
-   },
-   "portrait": "assets/characters/char.remaja-laki/portrait.jpg"
+   "identityId": "char.remaja-laki"
   },
   "char.remaja-perempuan": {
    "id": "char.remaja-perempuan",
@@ -835,7 +800,7 @@ export default {
     ]
    },
    "tris": 21884,
-   "bytes": 2163376,
+   "bytes": 2411308,
    "tags": [
     "human",
     "female",
@@ -903,12 +868,7 @@ export default {
    },
    "profile": "remaja",
    "outfit": "putih-abu",
-   "identityId": "char.remaja-perempuan",
-   "review": {
-    "sha256": "dee5861d62d696d947e06d2541ad211c6047c184fc31e151c4297313403e9aaa",
-    "note": "Mata Nisa lebih terbuka dan jaraknya lebih lebar. Saat berjalan, kuncir masih mengikuti kepala terlalu rapat. Beri sedikit keterlambatan saat ia menoleh."
-   },
-   "portrait": "assets/characters/char.remaja-perempuan/portrait.jpg"
+   "identityId": "char.remaja-perempuan"
   },
   "char.anak-laki": {
    "id": "char.anak-laki",
@@ -936,7 +896,7 @@ export default {
     ]
    },
    "tris": 45991,
-   "bytes": 4121392,
+   "bytes": 4495348,
    "tags": [
     "human",
     "male",
@@ -1001,12 +961,7 @@ export default {
    },
    "profile": "anak",
    "outfit": "seragam",
-   "identityId": "char.anak-laki",
-   "review": {
-    "sha256": "6135d7ab6f21c36411fff01b36b6819fda1ed85732a883af4f7303427115c9cb",
-    "note": "Bimo berpipi bulat dengan bintik kecil di kedua pipi. Langkah sampingnya masih terlalu panjang untuk anak usia 5–6 tahun."
-   },
-   "portrait": "assets/characters/char.anak-laki/portrait.jpg"
+   "identityId": "char.anak-laki"
   },
   "char.anak-perempuan": {
    "id": "char.anak-perempuan",
@@ -1034,7 +989,7 @@ export default {
     ]
    },
    "tris": 41369,
-   "bytes": 3879480,
+   "bytes": 4253436,
    "tags": [
     "human",
     "female",
@@ -1098,12 +1053,7 @@ export default {
    },
    "profile": "anak",
    "outfit": "daster",
-   "identityId": "char.anak-perempuan",
-   "review": {
-    "sha256": "fdfa879c95db9d6953cfd1a737ba44a221a96b56505037b2c5f10d34a90beb4d",
-    "note": "Yuni bermata naik di sudut luar dan berdagu sempit. Potongan bob masih mirip Ratih. Beri garis ujung rambut yang lebih khas anak-anak."
-   },
-   "portrait": "assets/characters/char.anak-perempuan/portrait.jpg"
+   "identityId": "char.anak-perempuan"
   },
   "char.balita-laki": {
    "id": "char.balita-laki",
@@ -1131,7 +1081,7 @@ export default {
     ]
    },
    "tris": 42703,
-   "bytes": 3944852,
+   "bytes": 4318808,
    "tags": [
     "human",
     "male",
@@ -1196,12 +1146,7 @@ export default {
    },
    "profile": "balita",
    "outfit": "seragam",
-   "identityId": "char.balita-laki",
-   "review": {
-    "sha256": "8af14a2896401835e3d24da103ae52cdfc075dad0822b7d505701e10cd07b0f0",
-    "note": "Pipi Ucup berisi dan wajah bawahnya pendek. Uji lagi kontur dagu dari samping dan pendekkan langkahnya untuk usia 2–3 tahun."
-   },
-   "portrait": "assets/characters/char.balita-laki/portrait.jpg"
+   "identityId": "char.balita-laki"
   },
   "char.balita-perempuan": {
    "id": "char.balita-perempuan",
@@ -1229,7 +1174,7 @@ export default {
     ]
    },
    "tris": 40594,
-   "bytes": 3845128,
+   "bytes": 4219084,
    "tags": [
     "human",
     "female",
@@ -1293,12 +1238,7 @@ export default {
    },
    "profile": "balita",
    "outfit": "daster",
-   "identityId": "char.balita-perempuan",
-   "review": {
-    "sha256": "1e2b7be3a7627332f1f3afa76798129a672171997f393e9106f18487f7444539",
-    "note": "Dua cepol dan garis dagu kecil membedakan Mimi dari Ucup. Uji langkah pendek dan perpindahan tumpuan pada kaki."
-   },
-   "portrait": "assets/characters/char.balita-perempuan/portrait.jpg"
+   "identityId": "char.balita-perempuan"
   },
   "char.anak-besar-laki": {
    "id": "char.anak-besar-laki",
@@ -1326,7 +1266,7 @@ export default {
     ]
    },
    "tris": 43411,
-   "bytes": 3987760,
+   "bytes": 4361720,
    "tags": [
     "human",
     "male",
@@ -1391,12 +1331,7 @@ export default {
    },
    "profile": "anak-besar",
    "outfit": "seragam",
-   "identityId": "char.anak-besar-laki",
-   "review": {
-    "sha256": "e37fa7cee1b6e8e3a37d88fcba966b2ad7c29475bd3a240fcc0f83a7cd33f6b8",
-    "note": "Jalu punya belahan poni dan wajah yang lebih panjang daripada Bimo. Perjelas batas celana seragam saat lutut ditekuk."
-   },
-   "portrait": "assets/characters/char.anak-besar-laki/portrait.jpg"
+   "identityId": "char.anak-besar-laki"
   },
   "char.anak-besar-perempuan": {
    "id": "char.anak-besar-perempuan",
@@ -1424,7 +1359,7 @@ export default {
     ]
    },
    "tris": 41675,
-   "bytes": 3906172,
+   "bytes": 4280132,
    "tags": [
     "human",
     "female",
@@ -1489,12 +1424,7 @@ export default {
    },
    "profile": "anak-besar",
    "outfit": "seragam",
-   "identityId": "char.anak-besar-perempuan",
-   "review": {
-    "sha256": "4b2a9f5370c4c0895f74f263fd6459e15e891993a009b69977cdb68a18395837",
-    "note": "Dua ikat rambut Laras terletak di belakang telinga. Uji siluet dari tiga perempat dan pergerakan ujung kuncir saat kepala menoleh."
-   },
-   "portrait": "assets/characters/char.anak-besar-perempuan/portrait.jpg"
+   "identityId": "char.anak-besar-perempuan"
   },
   "char.male-dewasa-kemeja": {
    "id": "char.male-dewasa-kemeja",
@@ -1522,7 +1452,7 @@ export default {
     ]
    },
    "tris": 42053,
-   "bytes": 3891736,
+   "bytes": 4265696,
    "tags": [
     "human",
     "male",
@@ -1586,11 +1516,7 @@ export default {
    "profile": "dewasa",
    "outfit": "kemeja-kasual",
    "variantOf": "char.male-dewasa-polo",
-   "identityId": "char.male-dewasa-polo",
-   "review": {
-    "sha256": "2b46fa41a7715f38a9ea6322da14a3bf582715b727c77124b4c6bdd3b1539ea4",
-    "note": "Siluet kemeja biru masih dekat dengan varian polo. Pisahkan kerah dan plaket supaya dua kostum terbaca dari jarak satu badan."
-   }
+   "identityId": "char.male-dewasa-polo"
   },
   "char.female-dewasa-daster": {
    "id": "char.female-dewasa-daster",
@@ -1618,7 +1544,7 @@ export default {
     ]
    },
    "tris": 41380,
-   "bytes": 3887540,
+   "bytes": 4261500,
    "tags": [
     "human",
     "female",
@@ -1682,11 +1608,7 @@ export default {
    "profile": "dewasa",
    "outfit": "daster",
    "variantOf": "char.female-dewasa",
-   "identityId": "char.female-dewasa",
-   "review": {
-    "sha256": "a55289bfdac68c10f50473c0a977ba9762c64da2c0fd885fd67c33aa5fcf36b3",
-    "note": "Bagian bawah daster merah muda terbagi seperti celana pendek. Buat kelim rok yang menyambung lalu periksa ulang saat duduk."
-   }
+   "identityId": "char.female-dewasa"
   },
   "entity.pale-standing": {
    "id": "entity.pale-standing",

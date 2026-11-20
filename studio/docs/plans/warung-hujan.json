@@ -10,7 +10,7 @@
  "stats": {
   "shots": 18,
   "cameraSamples": 162,
-  "triangles": 13649,
+  "triangles": 13513,
   "nearestCamera": {
    "clearance": 0.63,
    "u": 0,
@@ -1151,9 +1151,9 @@
   },
   {
    "id": "bayu-datang-03",
-   "triangles": 915,
+   "triangles": 779,
    "nearestCamera": {
-    "clearance": 0.65,
+    "clearance": 2.86,
     "u": 1
    },
    "minActorGap": null,
@@ -1566,9 +1566,9 @@
       8.7
      ],
      "end": [
-      0.20000000000000095,
+      0.20000000000000046,
       0,
-      1.0999999999999996
+      5.1
      ],
      "yaw": 3.141592653589793,
      "clip": "walk",
@@ -1597,120 +1597,120 @@
      "position": [
       0.2,
       1.55,
-      11.35
+      11.85
      ],
      "target": [
       0.2,
       1.0675,
-      7.75
+      8.25
      ],
      "fov": 40,
-     "clearance": 5.46
+     "clearance": 5.95
     },
     {
      "u": 0.25,
      "position": [
       0.2,
       1.55,
-      10.4
+      11.4
      ],
      "target": [
       0.2,
       1.0675,
-      6.8
+      7.8
      ],
      "fov": 40,
-     "clearance": 4.52
+     "clearance": 5.51
     },
     {
      "u": 0.375,
      "position": [
       0.2,
       1.55,
-      9.45
+      10.95
      ],
      "target": [
       0.2,
       1.0675,
-      5.85
+      7.35
      ],
      "fov": 40,
-     "clearance": 3.59
+     "clearance": 5.06
     },
     {
      "u": 0.5,
      "position": [
       0.2,
       1.55,
-      8.5
+      10.5
      ],
      "target": [
       0.2,
       1.0675,
-      4.9
+      6.9
      ],
      "fov": 40,
-     "clearance": 2.67
+     "clearance": 4.62
     },
     {
      "u": 0.625,
      "position": [
       0.2,
       1.55,
-      7.55
+      10.05
      ],
      "target": [
       0.2,
       1.0675,
-      3.95
+      6.45
      ],
      "fov": 40,
-     "clearance": 1.79
+     "clearance": 4.18
     },
     {
      "u": 0.75,
      "position": [
       0.2,
       1.55,
-      6.6
+      9.6
      ],
      "target": [
       0.2,
       1.0675,
-      3
+      6
      ],
      "fov": 40,
-     "clearance": 1.02
+     "clearance": 3.74
     },
     {
      "u": 0.875,
      "position": [
       0.2,
       1.55,
-      5.65
+      9.15
      ],
      "target": [
       0.2,
       1.0675,
-      2.05
+      5.55
      ],
      "fov": 40,
-     "clearance": 0.79
+     "clearance": 3.3
     },
     {
      "u": 1,
      "position": [
       0.2,
       1.55,
-      4.7
+      8.7
      ],
      "target": [
       0.2,
       1.0675,
-      1.1
+      5.1
      ],
      "fov": 40,
-     "clearance": 0.65
+     "clearance": 2.86
     }
    ],
    "text": "BAYU — Bu Sri! Teh manis satu—yang panasnya nggak main-main."

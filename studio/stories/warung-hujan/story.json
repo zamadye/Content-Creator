@@ -590,8 +590,8 @@
           "facing": "-Z",
           "clip": "walk",
           "offset": 1.95,
-          "speed": 0.55,
-          "travel": 1.9
+          "speed": 1,
+          "travel": 0.9
         }
       ],
       "camera": {

@@ -1,101 +1,156 @@
-# Animasi hidup — lapisan gerak di atas klip
+# Animasi aktor — dari klip yang tidak lengkap ke gerak yang terbaca
 
-Dokumen ini menjelaskan **kenapa** aktor studio sempat terasa seperti patung,
-apa yang ditambahkan untuk memperbaikinya, dan bagaimana mengukurnya. Rujukan
-gayanya tetap [ANIMATION&MOTION.md](../../ANIMATION&MOTION.md) (§6 karakter,
-§9 irama per beat).
+Dokumen ini mencatat dua lapisan perbaikan pada gerak aktor di studio ini:
 
-## 1. Masalahnya, dengan angka
+1. **klip dasarnya** (`studio-forge/forge/human.py`) — dulu hanya menulis
+   sepertiga tulang, jadi seluruh tubuh bergerak seperti satu balok;
+2. **lapisan hidup** (`src/studio/life.js`) — gerak tambahan di atas klip
+   (napas, tumpuan, kedip, gestur bicara).
 
-Shot duduk di `warung-hujan` memakai klip `sit` — pose duduk yang praktis statis.
-Satu-satunya gerak yang tersisa berasal dari `secondary.js` dengan amplitudo
-±0,6°, yang di 768 px tidak terbaca. Terukur dengan `npm run qc:life`:
+Rujukan gaya tetap [ANIMATION&MOTION.md](../../ANIMATION&MOTION.md) §6 (karakter)
+dan §9 (irama per beat).
 
-| shot | aktor | sebelum (mm/frame) | sesudah | frame beku |
-| --- | --- | --- | --- | --- |
-| busri-05 | bu-sri | 0,53 | 4,21 (×7,9) | 7 → 0 |
-| nisa-06 | nisa | 0,54 | 5,74 (×10,7) | 5 → 0 |
-| nisa-08 | nisa | 0,53 | 7,07 (×13,3) | 6 → 0 |
-| bayu-07 | bayu | 0,59 | 7,69 (×13,0) | 4 → 0 |
-| dua-shot-16 | nisa | 0,53 | 1,26 (×2,4) | 8 → 0 |
+---
 
-`mm/frame` = perpindahan terbesar tulang kepala/tangan antar frame (30 fps).
-Ambang praktis: di bawah ±0,6 mm/frame sebuah shot dialog terbaca sebagai
-gambar diam. "Frame beku" = frame dengan perpindahan < 0,05 mm.
+## 1. Akar masalah: klip dasar tidak menulis seluruh tubuh
 
-## 2. Bug yang ditemukan saat mengukur
+Rig `studio-humanoid-v1` punya **163 tulang**, dan setiap lengan/kaki punya dua
+segmen (`upperarm01/02`, `lowerarm01/02`, `upperleg01/02`, `lowerleg01/02`)
+plus tulang punggung `spine01..05` dan leher `neck01..03`.
 
-1. **Reset pose per operasi** (`applySecondary`). Dua operasi pada tulang yang
-   sama saling menghapus — napas + ayunan + fidget tidak pernah bertemu.
-   Sekarang reset dilakukan sekali per tulang per panggilan (`Set`).
-2. **Tulang gestur tidak terdaftar.** `prepareSecondary` hanya menyiapkan
-   `SECONDARY_BONES`, sehingga putaran untuk `jaw`, `clavicle`, `upperarm02`,
-   `wrist`, `oculi01`, `oris05` dibuang diam-diam. Sekarang `LIFE_BONES` ikut.
-3. **Skala wajah menumpuk.** Rig membuka mulut lewat `oris05.scale.y` dan
-   memejamkan mata lewat `oculi01.scale.y`. Mengalikan skala tiap frame tanpa
-   mengembalikan pose istirahat membuat kelopak mata menyusut sampai 0 —
-   terukur **69 dari 150 frame buta**. Perbaikannya: `clip-sample.js` kini
-   memisahkan `scaleNodes` (node yang skalanya ditulis klip) dari
-   `animatedNodes`, dan `applySecondary` mengembalikan `restScale` lebih dulu.
-4. **Properti ikut bergoyang.** Geseran berat badan sempat diterapkan ke semua
-   instans ber-klip; sekarang dibatasi ke aktor manusia (`isCharacter`).
-5. **Bukaan mulut terlalu kecil.** Pose istirahat `oris05.scale.y` hanya 0,19,
-   jadi mengalikannya tidak pernah terbaca. Diganti operasi `scaleTo`
-   (lerp ke nilai absolut 0,78).
+Klip lama hanya menulis segmen **pertama** dari tiap rantai. Akibatnya:
 
-## 3. Isi lapisan (`src/studio/life.js`)
+* siku dan lutut membengkok di satu titik — terlihat seperti boneka kayu;
+* torso bergerak sebagai satu blok (hanya `spine01`/`spine02` yang ditulis);
+* kepala hanya menoleh dari `head`+`neck01`, tanpa `neck02/03`;
+* tidak ada kedip sama sekali pada karakter dewasa (tidak ada kanal skala);
+* beberapa klip praktis statis.
 
-| komponen | berkas/fungsi | dasar praktik |
+Diukur dengan `npm run qc:clips` (24 sampel per klip, sudut lokal tiap tulang):
+
+| klip | tulang aktif sebelum | sesudah | gerak total (rad) sebelum → sesudah |
+| --- | --- | --- | --- |
+| `sit` | 2 / 163 | **54** | 0,3 → **5,9** |
+| `idle` (lansia) | 7 / 163 | **59** | 1,3 → **6,8** |
+| `walk` | 15 / 163 | **63** | 14,7 → **24,9** |
+| `talk` (lansia) | 8 / 163 | **52** | 7,1 → **21,3** |
+| `float` | 7 / 163 | **53** | 3,5 → **17,3** |
+
+"Tulang aktif" = tulang yang benar-benar bergerak lebih dari ±0,5 rad selama
+satu siklus. Pada `sit` lama hanya **dua** tulang yang bergerak: aktor duduk
+benar-benar membeku selama shot.
+
+![duduk sebelum](animasi/klip-sebelum.gif)
+![duduk sesudah](animasi/klip-sesudah.gif)
+
+## 2. Apa yang diubah di klip dasar
+
+* **Putaran dibagi ke seluruh rantai.** `bend(pose, chain, weights, …)` membagi
+  satu sudut ke dua segmen dengan bobot panjang segmen (0,62/0,38 untuk paha,
+  0,58/0,42 untuk betis, dst). Lutut tidak lagi berengsel di satu titik.
+* **Tulang punggung dan leher dipakai semua.** `spine_bend()` dan `neck_bend()`
+  membagi lengkung ke lima ruas punggung dan tiga ruas leher; kepala jadi
+  *mengikuti* badan, bukan menempel di ujung balok.
+* **Jalan memakai empat pose kunci**, bukan satu sinus: kontak → turun →
+  lewat → naik. `curve(phase, keys)` mengevaluasi daftar `(fase, nilai)` dengan
+  ruas *stance* yang **linear** (0,08–0,56) supaya telapak tidak meluncur saat
+  aktor digeser dengan kecepatan tetap.
+* **Kontak kaki membaik**: kontak tanah naik dari 14 % → 23–27 % siklus, kaki
+  terendah turun dari 0,078 m → 0,065 m (lebih menapak).
+* **Kedip masuk ke semua klip** lewat kanal skala `eye.L/eye.R` (konvensi rig
+  yang sama dengan `student.py`), jadi karakter dewasa pun berkedip.
+* **Tangan hidup**: jari keriting kecil dengan fase berbeda per jari
+  (`hands_settle`), pergelangan ikut mengayun, klavikula terangkat saat gestur.
+* `run`, `stand-up`, `collapse`, `float`, `vanish`, `reach`, `look`, `point`
+  juga memakai rantai penuh, jadi tidak ada lagi klip yang "cuma lengan".
+
+Bukti siklus langkah (kamera uji dari samping, 8 frame berurutan):
+
+![jalan sebelum](animasi/walk-sebelum.png)
+![jalan sesudah](animasi/walk-sesudah.png)
+
+### Catatan blocking yang ikut diperbaiki
+
+`bayu-datang-03` dulu memakai `speed: 0.55` + `travel: 1.9` — aktor meluncur
+1,9 m/s sementara kakinya hanya bergerak setara ±0,5 m/s, jadi ia terlihat
+*skating*. Sekarang `speed: 1`, `travel: 0.9` (≈ kecepatan langkah yang
+tersirat klip), dengan kamera `follow` yang menjaga framing.
+
+## 3. Lapisan hidup (napas, tumpuan, gestur)
+
+Setelah klipnya lengkap, sisa masalahnya adalah shot duduk yang tetap tenang.
+`src/studio/life.js` menambahkan:
+
+| komponen | fungsi | dasar praktik |
 | --- | --- | --- |
-| napas 3,4–4,2 s | `A.breathChest`, `breathShoulder`, `breathBob` | siklus napas 2–4 s, dada mengembang, kepala nyaris diam |
-| tumpuan berat badan 7,2–9,4 s | `holdWave()` + `A.weightShift` | *moving hold* di ujung ayunan, bukan sinus rata |
-| kedip 2,6–4,4 s | `blinkAmount()`, `eye.L/eye.R` | tutup 0,07 s, jadwal tidak rata (bukan metronom) |
-| bicara | `speechGate()`, `mouthOpen()`, `scaleTo('oris05')` | frasa 2,4–3,5 s, suku kata semu dari dua osilator |
-| angguk bicara | `beatWave()` pada `head`/`neck03` | antisipasi → aksi → *moving hold* → *overshoot* → settle |
-| gestur tangan | `beatWave()` pada `upperarm01/02`, `lowerarm01/02`, `wrist` | lengan bergerak di busur (dua sumbu), tangan terlambat 110 ms |
-| mendengarkan | `beatWave()` amplitudo 55 % | pengangguk kecil, bukan gerakan penuh |
-| fidget 8,5–14 s | `fidget()` | variasi idle 2–4 gerakan supaya loop tidak terbaca |
-| mikro-gerak | `A.shimmer` (5,13 s & 2,71 s) | menjamin tidak ada frame identik |
+| napas 3,4–4,2 s | `A.breathChest`, `breathShoulder`, `breathBob` | siklus napas, dada mengembang, kepala nyaris diam |
+| tumpuan berat 7,2–9,4 s | `holdWave()` + `A.weightShift` | *moving hold* di ujung ayunan |
+| kedip 2,6–4,4 s | `blinkAmount()` | tutup 0,07 s, jadwal tidak rata; dimatikan bila klip sudah berkedip |
+| bicara | `speechGate()`, `mouthOpen()`, `scaleTo('oris05')` | frasa 2,4–3,5 s, suku kata semu |
+| angguk & gestur | `beatWave()` | antisipasi → aksi → *moving hold* → *overshoot* → settle |
+| mendengarkan | `beatWave()` 55 % | pengangguk kecil |
+| fidget 8,5–14 s | `fidget()` | variasi idle |
+| mikro-gerak | `A.shimmer` (5,13 s & 2,71 s) | tidak ada frame identik |
 
-Tulang ujung selalu **terlambat** dari pangkal (`lag` 0,07 s kepala, 0,11 s
-tangan) — itu *overlapping action*, sumber rasa "berat" yang wajar.
-Saat klip sudah mengayun lengan (`walk`/`run`), gestur bicara dikecilkan ke 25 %
-supaya tetap *subordinate* (prinsip *secondary action*).
+Tulang ujung selalu terlambat dari pangkal (kepala 70 ms, tangan 110 ms) —
+*overlapping action*. Saat klip sudah mengayun lengan (`walk`/`run`), gestur
+bicara dikecilkan ke 25 % agar tetap *subordinate*.
 
-Semua fungsi murni terhadap waktu lokal shot: Remotion merender frame dalam
-urutan acak dan paralel, jadi tidak boleh ada state yang menumpuk.
+Hasil pada shot duduk `warung-hujan` (`npm run qc:life`, rata-rata mm/frame,
+0 frame beku):
 
-## 4. Menyetel dan memeriksa
+| shot | sebelum lapisan hidup | sesudah |
+| --- | --- | --- |
+| busri-05 | 0,53 | **4,21** |
+| nisa-06 | 0,54 | **5,74** |
+| nisa-08 | 0,53 | **7,07** |
+| bayu-07 | 0,59 | **7,69** |
+
+## 4. Bug yang diperbaiki sepanjang jalan
+
+1. `applySecondary` me-reset pose **per operasi** → napas + ayunan + fidget pada
+   tulang yang sama saling menghapus. Sekarang reset sekali per tulang.
+2. Tulang gestur (`jaw`, `clavicle`, `upperarm02`, `wrist`, `oculi01`, `oris05`)
+   tidak pernah didaftarkan `prepareSecondary` → putarannya dibuang diam-diam.
+3. Skala wajah menumpuk pada tulang yang skalanya tidak dianimasikan klip:
+   kelopak mata menyusut sampai mata tertutup **69 dari 150 frame**.
+   `clip-sample.js` kini memisahkan `scaleNodes`, dan `applySecondary`
+   mengembalikan `restScale` lebih dulu.
+4. Geseran berat badan ikut menggeser akar properti (kain, lampu) → dibatasi ke
+   aktor manusia (`isCharacter`).
+5. Bukaan mulut memakai lerp ke nilai absolut, bukan pengali pose istirahat 0,19.
+
+## 5. Menyetel dan memeriksa
 
 ```bash
 cd studio
-npm run qc:life                       # angka: mm/frame + frame beku per shot
-npm run preview:cpu -- --shot busri-05 --range 540,689,2 --width 320 --gif
-npm run preview:cpu -- --shot nisa-08 --frames 968,996,1024 --width 384 --trail
-npm run test:studio                   # 34 grup asersi + three.js runtime
+npm run qc:clips                      # tulang aktif + besar gerak per klip
+npm run qc:life                       # mm/frame & frame beku per shot
+npm run qc:motion                     # kecepatan langkah tersirat + kontak kaki
+npm run preview:cpu -- --shot bayu-datang-03 --range 300,419,2 --width 320 --gif
+npm run preview:cpu -- --shot busri-05 --frames 560,600,640 --mode side
+npm run test:studio
+./.venv/bin/python studio-forge/build.py --category character --no-thumbs
 ```
 
-Knoop yang paling sering dipakai ada di tabel `A` (`life.js`): naikkan
-`breathChest`/`weightRoll` untuk aktor yang lebih ekspresif, turunkan
-`armBeat` untuk aktor yang sedang menahan diri. `intensity` per shot berasal
-dari `shot.secondary` di `story.json`.
+Amplitudo dan jadwal ada di tabel `A` (`life.js`) dan di `*_KEYS` (klip jalan).
+`intensity` per shot berasal dari `shot.secondary` di `story.json`.
 
-Bukti visual (raster CPU, bukan Chromium):
+Bukti visual lain (raster CPU, bukan Chromium):
 
-* ![busri-05 hidup](animasi/busri-05-hidup.gif) — bicara, gestur tangan + angguk
-* ![busri-05 tanpa](animasi/busri-05-tanpa.gif) — pembanding, pose klip saja
-* ![kepala nisa-06](animasi/nisa-06-kepala-hidup.gif) — kedip & mulut
-* `animasi/busri-05-hidup.png` / `animasi/busri-05-tanpa.png` — lembar kontak
-* `animasi/kepala-nisa-08-kedip2.png` — rangkaian kedip (frame 997–1004)
+* `animasi/busri-05-hidup.gif` / `busri-05-tanpa.gif` — pengaruh lapisan hidup
+* `animasi/nisa-06-kepala-hidup.gif` — kedip & mulut
+* `animasi/kepala-nisa-08-kedip2.png` — rangkaian kedip frame 997–1004
 * `animasi/dua-shot-16.png` — dua aktor duduk dalam satu shot
 
-## 5. Batas yang jujur
+## 6. Batas yang jujur
 
 * Gambar di atas berasal dari `scripts/preview-cpu.mjs`: raster CPU tanpa
-  tekstur dan tanpa look-dev. Gerak, pose, dan kamera **sama** dengan renderer;
-  warna dan cahaya tidak.
+  tekstur dan tanpa look-dev. Pose, gerak, kamera, dan proporsi **sama** dengan
+  renderer; warna dan cahaya tidak.
 * Chromium/SwiftShader untuk Remotion (`.studio-tools/`) tidak ada di sandbox
   ini dan unduhannya diblokir, jadi MP4 final belum bisa dibuat dari sini.
-  Begitu alat itu kembali, `npm run render:studio:h264` memakai lapisan baru
-  tanpa perubahan lain.
-* Lapisan ini bukan simulasi kain/fisika; ia prosedural dan deterministik.
+  `npm run render:studio:h264` akan memakai klip baru tanpa perubahan lain.
+* Kaki masih bisa meluncur sedikit saat stance (23–27 % kontak, kecepatan
+  stance bervariasi ±20 %). Solusi penuhnya foot-lock/IK kaki, belum dikerjakan.
+* Lapisan hidup bukan simulasi kain/fisika; ia prosedural dan deterministik.

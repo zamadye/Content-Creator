@@ -349,7 +349,10 @@ export class StudioRenderer {
         // lampu gantung) jangan ikut bergeser akarnya.
         if (inst.isCharacter) {
           if (inst.seed === undefined) inst.seed = seedOf(inst.ref);
+          const clipBlinks =
+            inst.sampler.scaleNodes.has('eyeL') || inst.sampler.scaleNodes.has('eye.L');
           const life = lifeTurns(seconds, {
+            blink: !clipBlinks,
             seed: inst.seed,
             speaking: speaker === inst.ref,
             listening: Boolean(speaker) && speaker !== inst.ref,

@@ -28,6 +28,7 @@
     "qc:framing": "node scripts/qc-framing.mjs",
     "qc:motion": "node scripts/qc-motion.mjs",
     "qc:life": "node scripts/qc-life.mjs",
+    "qc:clips": "node scripts/qc-clips.mjs",
     "preview:cpu": "node scripts/preview-cpu.mjs",
     "qc:plan": "node scripts/qc-plan.mjs",
     "qc:plan:png": "./.venv/bin/python studio-forge/dev_plan.py",

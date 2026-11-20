@@ -451,6 +451,20 @@ async function buildPanel({story, shot, frame, life, mode, width, camera}) {
   const headObj = findCharacterHead(scene);
   const headWorld = headObj ? headObj.getWorldPosition(new THREE.Vector3()) : null;
 
+  if (mode === 'side' && headWorld) {
+    // Kamera uji dari samping: untuk memeriksa siklus langkah (lutut, pergelangan,
+    // ayunan lengan) tanpa kamera cerita yang menyembunyikannya.
+    const yaw = leadFacing;
+    const fwd = new THREE.Vector3(Math.sin(yaw), 0, Math.cos(yaw));
+    const right = new THREE.Vector3(fwd.z, 0, -fwd.x);
+    const focus = new THREE.Vector3(headWorld.x, headWorld.y - 0.75, headWorld.z);
+    camera.position.copy(focus).addScaledVector(right, 3.4).add(new THREE.Vector3(0, 0.25, 0));
+    camera.fov = 38;
+    camera.updateProjectionMatrix();
+    camera.lookAt(focus);
+    camera.updateMatrixWorld(true);
+  }
+
   if (mode === 'head' && headWorld) {
     // Kamera ditaruh di depan wajah aktor (arah `yaw` aktor), bukan mengikuti
     // kamera shot: yang diperiksa di sini kelopak mata dan mulut.

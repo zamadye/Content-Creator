@@ -184,10 +184,11 @@ const A = {
  * @param {string} [opts.clip]      klip dasar (mis. `sit`, `idle`, `walk`) — dipakai
  *                                  untuk mengecilkan gestur saat berjalan
  * @param {number} [opts.intensity] 0 = mati, 1 = normal, 2 = dilebihkan
+ * @param {boolean} [opts.blink]    kedip prosedural (matikan bila klip sudah berkedip)
  * @returns {{turns: {bone: string, axis: 'x'|'y'|'z', angle: number}[], root: [number, number, number]}}
  */
 export function lifeTurns(seconds, opts = {}) {
-  const {seed = 0, speaking = false, listening = false, clip = '', intensity = 1} = opts;
+  const {seed = 0, speaking = false, listening = false, clip = '', intensity = 1, blink: allowBlink = true} = opts;
   if (!(intensity > 0) || !Number.isFinite(seconds)) return {turns: [], root: [0, 0, 0]};
   // Saat berjalan, lengan sudah mengayun dari klip; gestur bicara harus
   // subordinate (prinsip secondary action) supaya tidak tabrakan dengan ayunan.
@@ -234,7 +235,9 @@ export function lifeTurns(seconds, opts = {}) {
   const root = [A.weightShift * weight, 0, 0];
 
   // ----------------------------------------------------------- kedip
-  const blink = blinkAmount(t, seed);
+  // Klip yang sudah punya kedip sendiri (kanal skala `eye.*`) tidak perlu
+  // ditambah kedip prosedural — kalau ditumpuk, aktor berkedip dua kali lipat.
+  const blink = allowBlink ? blinkAmount(t, seed) : 0;
   if (blink > 0) {
     const shut = 1 - A.eyelidClose * blink;
     scale('oculi01.L', 'y', 1 - 0.55 * blink);

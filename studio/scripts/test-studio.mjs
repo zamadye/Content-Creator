@@ -209,17 +209,20 @@ for (const preset of ['static', 'dolly-in', 'dolly-out', 'pan', 'orbit', 'crane-
 ok('compile+camera');
 
 // --------------------------------------------------------------- 5. stories on disk
-const studioDir = path.join(root, 'stories');
-const storyFiles = fs.existsSync(studioDir)
-  ? fs
-      .readdirSync(studioDir, {withFileTypes: true})
-      .filter((d) => d.isDirectory() && fs.existsSync(path.join(studioDir, d.name, 'story.json')))
-      .map((d) => path.join('stories', d.name, 'story.json'))
-      .sort()
-  : [];
-assert.ok(storyFiles.length >= 3, 'expected example stories');
+// Cerita produksi ada di `stories/`, sedangkan fixture uji (kamera, hold, kostum)
+// dipindah ke `test/fixtures/` supaya `stories/` hanya berisi naskah sungguhan.
+const studioDir = path.join(root, 'test', 'fixtures');
+const collectStories = (dir) =>
+  fs.existsSync(dir)
+    ? fs
+        .readdirSync(dir, {withFileTypes: true})
+        .filter((d) => d.isDirectory() && fs.existsSync(path.join(dir, d.name, 'story.json')))
+        .map((d) => path.join(dir, d.name, 'story.json'))
+    : [];
+const storyFiles = [...collectStories(studioDir), ...collectStories(path.join(root, 'stories'))].sort();
+assert.ok(storyFiles.length >= 4, 'expected example stories plus at least one production naskah');
 for (const file of storyFiles) {
-  const raw = JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
+  const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
   const c = compileStory(raw, {registry});
   assert.ok(c.durationInFrames > 0);
   for (const id of c.assetIds) assert.ok(asset(id), `${file}: asset ${id}`);
@@ -566,7 +569,7 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
     .filter((d) => d.isDirectory() && fs.existsSync(path.join(root, 'stories', d.name, 'story.json')))
     .map((d) => d.name)
     .sort();
-  assert.ok(dirs.length >= 4, `paket cerita kurang: ${dirs.length}`);
+  assert.ok(dirs.length >= 1, `paket cerita kurang: ${dirs.length}`); // naskah produksi; fixture ada di test/fixtures
   for (const dir of dirs) {
     assert.ok(generated.includes(`'./${dir}/story.json'`), `${dir} tidak terdaftar di packs.generated.js`);
     const raw = JSON.parse(fs.readFileSync(path.join(root, 'stories', dir, 'story.json'), 'utf8'));
@@ -624,7 +627,7 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
   assert.equal(variant.rig.bones, base.rig.bones, 'varian outfit harus memakai rig yang sama');
   assert.equal(variant.meta?.profile ?? variant.profile, base.profile, 'varian outfit harus sama tubuhnya');
 
-  const swapStory = JSON.parse(fs.readFileSync(path.join(root, 'stories', 'uji-karakter', 'story.json'), 'utf8'));
+  const swapStory = JSON.parse(fs.readFileSync(path.join(studioDir, 'uji-karakter', 'story.json'), 'utf8'));
   const compiled = compileStory(swapStory, {registry});
   const ids2 = new Set(compiled.shots.flatMap((s) => s.cast.map((c) => c.assetId)));
   assert.ok(ids2.has('char.male-dewasa-polo') && ids2.has(variantId), 'cerita uji harus memakai dua kostum tokoh yang sama');

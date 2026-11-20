@@ -87,11 +87,13 @@ export function heaviestShot(stories) {
 }
 
 export function stories() {
+  // Satu naskah produksi = `stories/<dir>/story.json` (dulu `stories/studio/*.json`).
   return fs
-    .readdirSync(path.join(root, 'stories', 'studio'))
-    .filter((f) => f.endsWith('.json'))
+    .readdirSync(path.join(root, 'stories'), {withFileTypes: true})
+    .filter((d) => d.isDirectory() && fs.existsSync(path.join(root, 'stories', d.name, 'story.json')))
+    .map((d) => path.join(root, 'stories', d.name, 'story.json'))
     .sort()
-    .map((f) => ({file: f, story: JSON.parse(fs.readFileSync(path.join(root, 'stories', 'studio', f), 'utf8'))}));
+    .map((file) => ({file: path.relative(path.join(root, 'stories'), file), story: JSON.parse(fs.readFileSync(file, 'utf8'))}));
 }
 
 /** Pelanggaran anggaran untuk sembarang peta aset (dipakai juga oleh tes). */

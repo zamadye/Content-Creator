@@ -1,0 +1,6146 @@
+{
+ "schema": "studio.plan/1",
+ "story": {
+  "id": "saldo-8-juta",
+  "title": "Saldo 8 Juta",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080
+ },
+ "stats": {
+  "shots": 18,
+  "cameraSamples": 162,
+  "triangles": 11909,
+  "nearestCamera": {
+   "clearance": 0.4,
+   "u": 0,
+   "shot": "kor-07"
+  },
+  "minActorGap": 1.4
+ },
+ "shots": [
+  {
+   "id": "kos-01",
+   "triangles": 796,
+   "nearestCamera": {
+    "clearance": 1,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 0,
+   "durationInFrames": 120,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "end": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "yaw": 0,
+     "clip": "sit",
+     "radius": 0.28
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      -0.17,
+      0.97,
+      0.83
+     ],
+     "target": [
+      -1.11,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 1
+    },
+    {
+     "u": 0.125,
+     "position": [
+      -0.17,
+      0.97,
+      0.83
+     ],
+     "target": [
+      -1.11,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 1
+    },
+    {
+     "u": 0.25,
+     "position": [
+      -0.17,
+      0.97,
+      0.83
+     ],
+     "target": [
+      -1.11,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 1
+    },
+    {
+     "u": 0.375,
+     "position": [
+      -0.17,
+      0.97,
+      0.83
+     ],
+     "target": [
+      -1.11,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 1
+    },
+    {
+     "u": 0.5,
+     "position": [
+      -0.17,
+      0.97,
+      0.83
+     ],
+     "target": [
+      -1.11,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 1
+    },
+    {
+     "u": 0.625,
+     "position": [
+      -0.17,
+      0.97,
+      0.83
+     ],
+     "target": [
+      -1.11,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 1
+    },
+    {
+     "u": 0.75,
+     "position": [
+      -0.17,
+      0.97,
+      0.83
+     ],
+     "target": [
+      -1.11,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 1
+    },
+    {
+     "u": 0.875,
+     "position": [
+      -0.17,
+      0.97,
+      0.83
+     ],
+     "target": [
+      -1.11,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 1
+    },
+    {
+     "u": 1,
+     "position": [
+      -0.17,
+      0.97,
+      0.83
+     ],
+     "target": [
+      -1.11,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 1
+    }
+   ],
+   "text": "ALYA — Delapan juta. Tiga hari. Aku udah jual apa aja yang bisa dijual."
+  },
+  {
+   "id": "kos-02",
+   "triangles": 796,
+   "nearestCamera": {
+    "clearance": 0.62,
+    "u": 1
+   },
+   "minActorGap": null,
+   "index": 1,
+   "durationInFrames": 120,
+   "cameraPreset": "dolly-in",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "end": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "yaw": 0,
+     "clip": "sit",
+     "radius": 0.28
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      -0.19,
+      0.97,
+      0.84
+     ],
+     "target": [
+      -1.12,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 0.99
+    },
+    {
+     "u": 0.125,
+     "position": [
+      -0.1964,
+      0.9679,
+      0.825
+     ],
+     "target": [
+      -1.12,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 0.98
+    },
+    {
+     "u": 0.25,
+     "position": [
+      -0.2134,
+      0.9622,
+      0.7853
+     ],
+     "target": [
+      -1.12,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 0.94
+    },
+    {
+     "u": 0.375,
+     "position": [
+      -0.2375,
+      0.9542,
+      0.7293
+     ],
+     "target": [
+      -1.12,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 0.87
+    },
+    {
+     "u": 0.5,
+     "position": [
+      -0.265,
+      0.945,
+      0.665
+     ],
+     "target": [
+      -1.12,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 0.81
+    },
+    {
+     "u": 0.625,
+     "position": [
+      -0.2925,
+      0.9358,
+      0.6007
+     ],
+     "target": [
+      -1.12,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 0.74
+    },
+    {
+     "u": 0.75,
+     "position": [
+      -0.3166,
+      0.9278,
+      0.5447
+     ],
+     "target": [
+      -1.12,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 0.68
+    },
+    {
+     "u": 0.875,
+     "position": [
+      -0.3336,
+      0.9221,
+      0.505
+     ],
+     "target": [
+      -1.12,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 0.64
+    },
+    {
+     "u": 1,
+     "position": [
+      -0.34,
+      0.92,
+      0.49
+     ],
+     "target": [
+      -1.12,
+      0.76,
+      -0.12
+     ],
+     "fov": 30,
+     "clearance": 0.62
+    }
+   ],
+   "text": "ALYA — Bu, aku aman. UKT udah aku urus. Ibu jangan mikirin aku, mikirin lutut Ibu dulu."
+  },
+  {
+   "id": "kos-03",
+   "triangles": 642,
+   "nearestCamera": {
+    "clearance": 1.52,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 2,
+   "durationInFrames": 120,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "ratna",
+     "assetId": "char.female-dewasa-daster",
+     "at": [
+      1.55,
+      0,
+      0.55
+     ],
+     "end": [
+      1.55,
+      0,
+      0.55
+     ],
+     "yaw": -1.5707963267948966,
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.36
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.39,
+      1.51,
+      1.27
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.52
+     ],
+     "fov": 30,
+     "clearance": 1.52
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.39,
+      1.51,
+      1.27
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.52
+     ],
+     "fov": 30,
+     "clearance": 1.52
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.39,
+      1.51,
+      1.27
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.52
+     ],
+     "fov": 30,
+     "clearance": 1.52
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.39,
+      1.51,
+      1.27
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.52
+     ],
+     "fov": 30,
+     "clearance": 1.52
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.39,
+      1.51,
+      1.27
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.52
+     ],
+     "fov": 30,
+     "clearance": 1.52
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.39,
+      1.51,
+      1.27
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.52
+     ],
+     "fov": 30,
+     "clearance": 1.52
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.39,
+      1.51,
+      1.27
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.52
+     ],
+     "fov": 30,
+     "clearance": 1.52
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.39,
+      1.51,
+      1.27
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.52
+     ],
+     "fov": 30,
+     "clearance": 1.52
+    },
+    {
+     "u": 1,
+     "position": [
+      0.39,
+      1.51,
+      1.27
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.52
+     ],
+     "fov": 30,
+     "clearance": 1.52
+    }
+   ],
+   "text": "BU RATNA — Nak, kos bulan ini belum masuk. Ibu bukan bank, tapi Ibu juga bukan tembok."
+  },
+  {
+   "id": "kos-04",
+   "triangles": 796,
+   "nearestCamera": {
+    "clearance": 1.21,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 3,
+   "durationInFrames": 90,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "end": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "yaw": 0,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": 0.32
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      -0.15,
+      1.4,
+      0.88
+     ],
+     "target": [
+      -1.14,
+      1.19,
+      -0.17
+     ],
+     "fov": 28,
+     "clearance": 1.21
+    },
+    {
+     "u": 0.125,
+     "position": [
+      -0.15,
+      1.4,
+      0.88
+     ],
+     "target": [
+      -1.14,
+      1.19,
+      -0.17
+     ],
+     "fov": 28,
+     "clearance": 1.21
+    },
+    {
+     "u": 0.25,
+     "position": [
+      -0.15,
+      1.4,
+      0.88
+     ],
+     "target": [
+      -1.14,
+      1.19,
+      -0.17
+     ],
+     "fov": 28,
+     "clearance": 1.21
+    },
+    {
+     "u": 0.375,
+     "position": [
+      -0.15,
+      1.4,
+      0.88
+     ],
+     "target": [
+      -1.14,
+      1.19,
+      -0.17
+     ],
+     "fov": 28,
+     "clearance": 1.21
+    },
+    {
+     "u": 0.5,
+     "position": [
+      -0.15,
+      1.4,
+      0.88
+     ],
+     "target": [
+      -1.14,
+      1.19,
+      -0.17
+     ],
+     "fov": 28,
+     "clearance": 1.21
+    },
+    {
+     "u": 0.625,
+     "position": [
+      -0.15,
+      1.4,
+      0.88
+     ],
+     "target": [
+      -1.14,
+      1.19,
+      -0.17
+     ],
+     "fov": 28,
+     "clearance": 1.21
+    },
+    {
+     "u": 0.75,
+     "position": [
+      -0.15,
+      1.4,
+      0.88
+     ],
+     "target": [
+      -1.14,
+      1.19,
+      -0.17
+     ],
+     "fov": 28,
+     "clearance": 1.21
+    },
+    {
+     "u": 0.875,
+     "position": [
+      -0.15,
+      1.4,
+      0.88
+     ],
+     "target": [
+      -1.14,
+      1.19,
+      -0.17
+     ],
+     "fov": 28,
+     "clearance": 1.21
+    },
+    {
+     "u": 1,
+     "position": [
+      -0.15,
+      1.4,
+      0.88
+     ],
+     "target": [
+      -1.14,
+      1.19,
+      -0.17
+     ],
+     "fov": 28,
+     "clearance": 1.21
+    }
+   ],
+   "text": "ALYA — Sabtu, Bu. Sumpah. Kalau aku bohong, aku rela dipanggil anak kos teladan."
+  },
+  {
+   "id": "kor-05",
+   "triangles": 726,
+   "nearestCamera": {
+    "clearance": 1.58,
+    "u": 0
+   },
+   "minActorGap": 2.71,
+   "index": 4,
+   "durationInFrames": 120,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "building.school.corridor",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1.6,
+      2,
+      0.4
+     ],
+     "rot": 0,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.school.corridor",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": 0.11499999999999999,
+     "w": 9.32,
+     "d": 4.41,
+     "h": 3.654,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "bima",
+     "assetId": "char.male-muda-jaket",
+     "at": [
+      2.2,
+      0,
+      0.35
+     ],
+     "end": [
+      0.8000000000000003,
+      0,
+      0.3500000000000001
+     ],
+     "yaw": -1.5707963267948966,
+     "clip": "walk",
+     "radius": 0.28,
+     "clearance": 0.95
+    },
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -0.5,
+      0,
+      0.15
+     ],
+     "end": [
+      -0.5,
+      0,
+      0.15
+     ],
+     "yaw": 1.5707963267948966,
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.78
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      -2.6,
+      1.55,
+      2.3
+     ],
+     "target": [
+      0.6,
+      1.15,
+      0.25
+     ],
+     "fov": 38,
+     "clearance": 1.58
+    },
+    {
+     "u": 0.125,
+     "position": [
+      -2.6,
+      1.55,
+      2.3
+     ],
+     "target": [
+      0.6,
+      1.15,
+      0.25
+     ],
+     "fov": 38,
+     "clearance": 1.58
+    },
+    {
+     "u": 0.25,
+     "position": [
+      -2.6,
+      1.55,
+      2.3
+     ],
+     "target": [
+      0.6,
+      1.15,
+      0.25
+     ],
+     "fov": 38,
+     "clearance": 1.58
+    },
+    {
+     "u": 0.375,
+     "position": [
+      -2.6,
+      1.55,
+      2.3
+     ],
+     "target": [
+      0.6,
+      1.15,
+      0.25
+     ],
+     "fov": 38,
+     "clearance": 1.58
+    },
+    {
+     "u": 0.5,
+     "position": [
+      -2.6,
+      1.55,
+      2.3
+     ],
+     "target": [
+      0.6,
+      1.15,
+      0.25
+     ],
+     "fov": 38,
+     "clearance": 1.58
+    },
+    {
+     "u": 0.625,
+     "position": [
+      -2.6,
+      1.55,
+      2.3
+     ],
+     "target": [
+      0.6,
+      1.15,
+      0.25
+     ],
+     "fov": 38,
+     "clearance": 1.58
+    },
+    {
+     "u": 0.75,
+     "position": [
+      -2.6,
+      1.55,
+      2.3
+     ],
+     "target": [
+      0.6,
+      1.15,
+      0.25
+     ],
+     "fov": 38,
+     "clearance": 1.58
+    },
+    {
+     "u": 0.875,
+     "position": [
+      -2.6,
+      1.55,
+      2.3
+     ],
+     "target": [
+      0.6,
+      1.15,
+      0.25
+     ],
+     "fov": 38,
+     "clearance": 1.58
+    },
+    {
+     "u": 1,
+     "position": [
+      -2.6,
+      1.55,
+      2.3
+     ],
+     "target": [
+      0.6,
+      1.15,
+      0.25
+     ],
+     "fov": 38,
+     "clearance": 1.58
+    }
+   ],
+   "text": "Koridor gedung C · 21.40"
+  },
+  {
+   "id": "kor-06",
+   "triangles": 446,
+   "nearestCamera": {
+    "clearance": 0.51,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 5,
+   "durationInFrames": 120,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "building.school.corridor",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1.6,
+      2,
+      0.4
+     ],
+     "rot": 0,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.school.corridor",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": 0.11499999999999999,
+     "w": 9.32,
+     "d": 4.41,
+     "h": 3.654,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "bima",
+     "assetId": "char.male-muda-jaket",
+     "at": [
+      1.5,
+      0,
+      0.3
+     ],
+     "end": [
+      1.5,
+      0,
+      0.3
+     ],
+     "yaw": -1.5707963267948966,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": 1
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.49,
+      1.55,
+      1.4
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 28,
+     "clearance": 0.51
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.49,
+      1.55,
+      1.4
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 28,
+     "clearance": 0.51
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.49,
+      1.55,
+      1.4
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 28,
+     "clearance": 0.51
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.49,
+      1.55,
+      1.4
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 28,
+     "clearance": 0.51
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.49,
+      1.55,
+      1.4
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 28,
+     "clearance": 0.51
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.49,
+      1.55,
+      1.4
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 28,
+     "clearance": 0.51
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.49,
+      1.55,
+      1.4
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 28,
+     "clearance": 0.51
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.49,
+      1.55,
+      1.4
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 28,
+     "clearance": 0.51
+    },
+    {
+     "u": 1,
+     "position": [
+      0.49,
+      1.55,
+      1.4
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 28,
+     "clearance": 0.51
+    }
+   ],
+   "text": "BIMA — Aku dengar kamu lagi susah. Kamu tuh kalau ada masalah, cerita. Kita kan keluarga."
+  },
+  {
+   "id": "kor-07",
+   "triangles": 413,
+   "nearestCamera": {
+    "clearance": 0.4,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 6,
+   "durationInFrames": 120,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "building.school.corridor",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1.6,
+      2,
+      0.4
+     ],
+     "rot": 0,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.school.corridor",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": 0.11499999999999999,
+     "w": 9.32,
+     "d": 4.41,
+     "h": 3.654,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -0.5,
+      0,
+      0.15
+     ],
+     "end": [
+      -0.5,
+      0,
+      0.15
+     ],
+     "yaw": 1.5707963267948966,
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.78
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.32,
+      1.41,
+      1.39
+     ],
+     "target": [
+      -0.44,
+      1.2,
+      0.16
+     ],
+     "fov": 28,
+     "clearance": 0.4
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.32,
+      1.41,
+      1.39
+     ],
+     "target": [
+      -0.44,
+      1.2,
+      0.16
+     ],
+     "fov": 28,
+     "clearance": 0.4
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.32,
+      1.41,
+      1.39
+     ],
+     "target": [
+      -0.44,
+      1.2,
+      0.16
+     ],
+     "fov": 28,
+     "clearance": 0.4
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.32,
+      1.41,
+      1.39
+     ],
+     "target": [
+      -0.44,
+      1.2,
+      0.16
+     ],
+     "fov": 28,
+     "clearance": 0.4
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.32,
+      1.41,
+      1.39
+     ],
+     "target": [
+      -0.44,
+      1.2,
+      0.16
+     ],
+     "fov": 28,
+     "clearance": 0.4
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.32,
+      1.41,
+      1.39
+     ],
+     "target": [
+      -0.44,
+      1.2,
+      0.16
+     ],
+     "fov": 28,
+     "clearance": 0.4
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.32,
+      1.41,
+      1.39
+     ],
+     "target": [
+      -0.44,
+      1.2,
+      0.16
+     ],
+     "fov": 28,
+     "clearance": 0.4
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.32,
+      1.41,
+      1.39
+     ],
+     "target": [
+      -0.44,
+      1.2,
+      0.16
+     ],
+     "fov": 28,
+     "clearance": 0.4
+    },
+    {
+     "u": 1,
+     "position": [
+      0.32,
+      1.41,
+      1.39
+     ],
+     "target": [
+      -0.44,
+      1.2,
+      0.16
+     ],
+     "fov": 28,
+     "clearance": 0.4
+    }
+   ],
+   "text": "ALYA — Kak, aku gak mau ngutang. Bunga pinjol tuh kayak mantan: datengnya manis, perginya bikin miskin."
+  },
+  {
+   "id": "kor-08",
+   "triangles": 444,
+   "nearestCamera": {
+    "clearance": 0.61,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 7,
+   "durationInFrames": 120,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "building.school.corridor",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1.6,
+      2,
+      0.4
+     ],
+     "rot": 0,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "building.school.corridor",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": 0.11499999999999999,
+     "w": 9.32,
+     "d": 4.41,
+     "h": 3.654,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "bima",
+     "assetId": "char.male-muda-jaket",
+     "at": [
+      1.5,
+      0,
+      0.3
+     ],
+     "end": [
+      1.5,
+      0,
+      0.3
+     ],
+     "yaw": -1.5707963267948966,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": 1
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.51,
+      1.55,
+      1.28
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 30,
+     "clearance": 0.61
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.51,
+      1.55,
+      1.28
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 30,
+     "clearance": 0.61
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.51,
+      1.55,
+      1.28
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 30,
+     "clearance": 0.61
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.51,
+      1.55,
+      1.28
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 30,
+     "clearance": 0.61
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.51,
+      1.55,
+      1.28
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 30,
+     "clearance": 0.61
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.51,
+      1.55,
+      1.28
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 30,
+     "clearance": 0.61
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.51,
+      1.55,
+      1.28
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 30,
+     "clearance": 0.61
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.51,
+      1.55,
+      1.28
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 30,
+     "clearance": 0.61
+    },
+    {
+     "u": 1,
+     "position": [
+      0.51,
+      1.55,
+      1.28
+     ],
+     "target": [
+      1.45,
+      1.34,
+      0.32
+     ],
+     "fov": 30,
+     "clearance": 0.61
+    }
+   ],
+   "text": "BIMA — Bukan pinjol. Tabungan aku nganggur delapan juta. Cuma butuh KTP sama data kamu, buat administrasi."
+  },
+  {
+   "id": "kos-09",
+   "triangles": 723,
+   "nearestCamera": {
+    "clearance": 0.41,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 8,
+   "durationInFrames": 90,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "nadin",
+     "assetId": "char.female-dewasa",
+     "at": [
+      0.5,
+      0,
+      0.1
+     ],
+     "end": [
+      0.5,
+      0,
+      0.1
+     ],
+     "yaw": -1.5707963267948966,
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.4
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      1.5,
+      1.52,
+      1.1
+     ],
+     "target": [
+      0.44,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 0.41
+    },
+    {
+     "u": 0.125,
+     "position": [
+      1.5,
+      1.52,
+      1.1
+     ],
+     "target": [
+      0.44,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 0.41
+    },
+    {
+     "u": 0.25,
+     "position": [
+      1.5,
+      1.52,
+      1.1
+     ],
+     "target": [
+      0.44,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 0.41
+    },
+    {
+     "u": 0.375,
+     "position": [
+      1.5,
+      1.52,
+      1.1
+     ],
+     "target": [
+      0.44,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 0.41
+    },
+    {
+     "u": 0.5,
+     "position": [
+      1.5,
+      1.52,
+      1.1
+     ],
+     "target": [
+      0.44,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 0.41
+    },
+    {
+     "u": 0.625,
+     "position": [
+      1.5,
+      1.52,
+      1.1
+     ],
+     "target": [
+      0.44,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 0.41
+    },
+    {
+     "u": 0.75,
+     "position": [
+      1.5,
+      1.52,
+      1.1
+     ],
+     "target": [
+      0.44,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 0.41
+    },
+    {
+     "u": 0.875,
+     "position": [
+      1.5,
+      1.52,
+      1.1
+     ],
+     "target": [
+      0.44,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 0.41
+    },
+    {
+     "u": 1,
+     "position": [
+      1.5,
+      1.52,
+      1.1
+     ],
+     "target": [
+      0.44,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 0.41
+    }
+   ],
+   "text": "NADIN — Kak Bima tuh green flag banget sih. Cowok kayak gitu udah punah, bestie."
+  },
+  {
+   "id": "kos-10",
+   "triangles": 796,
+   "nearestCamera": {
+    "clearance": 1.1,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 9,
+   "durationInFrames": 90,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "end": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "yaw": 0,
+     "clip": "sit",
+     "radius": 0.28
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      -0.11,
+      0.98,
+      0.92
+     ],
+     "target": [
+      -1.1,
+      0.77,
+      -0.14
+     ],
+     "fov": 28,
+     "clearance": 1.1
+    },
+    {
+     "u": 0.125,
+     "position": [
+      -0.11,
+      0.98,
+      0.92
+     ],
+     "target": [
+      -1.1,
+      0.77,
+      -0.14
+     ],
+     "fov": 28,
+     "clearance": 1.1
+    },
+    {
+     "u": 0.25,
+     "position": [
+      -0.11,
+      0.98,
+      0.92
+     ],
+     "target": [
+      -1.1,
+      0.77,
+      -0.14
+     ],
+     "fov": 28,
+     "clearance": 1.1
+    },
+    {
+     "u": 0.375,
+     "position": [
+      -0.11,
+      0.98,
+      0.92
+     ],
+     "target": [
+      -1.1,
+      0.77,
+      -0.14
+     ],
+     "fov": 28,
+     "clearance": 1.1
+    },
+    {
+     "u": 0.5,
+     "position": [
+      -0.11,
+      0.98,
+      0.92
+     ],
+     "target": [
+      -1.1,
+      0.77,
+      -0.14
+     ],
+     "fov": 28,
+     "clearance": 1.1
+    },
+    {
+     "u": 0.625,
+     "position": [
+      -0.11,
+      0.98,
+      0.92
+     ],
+     "target": [
+      -1.1,
+      0.77,
+      -0.14
+     ],
+     "fov": 28,
+     "clearance": 1.1
+    },
+    {
+     "u": 0.75,
+     "position": [
+      -0.11,
+      0.98,
+      0.92
+     ],
+     "target": [
+      -1.1,
+      0.77,
+      -0.14
+     ],
+     "fov": 28,
+     "clearance": 1.1
+    },
+    {
+     "u": 0.875,
+     "position": [
+      -0.11,
+      0.98,
+      0.92
+     ],
+     "target": [
+      -1.1,
+      0.77,
+      -0.14
+     ],
+     "fov": 28,
+     "clearance": 1.1
+    },
+    {
+     "u": 1,
+     "position": [
+      -0.11,
+      0.98,
+      0.92
+     ],
+     "target": [
+      -1.1,
+      0.77,
+      -0.14
+     ],
+     "fov": 28,
+     "clearance": 1.1
+    }
+   ],
+   "text": "Transfer masuk · Rp 8.000.000 · “buat kamu, jangan dipikirin”"
+  },
+  {
+   "id": "kos-11",
+   "triangles": 796,
+   "nearestCamera": {
+    "clearance": 0.93,
+    "u": 1
+   },
+   "minActorGap": null,
+   "index": 10,
+   "durationInFrames": 120,
+   "cameraPreset": "dolly-in",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "end": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "yaw": 0,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": 0.32
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      -0.14,
+      1.41,
+      0.88
+     ],
+     "target": [
+      -1.1,
+      1.2,
+      -0.19
+     ],
+     "fov": 28,
+     "clearance": 1.22
+    },
+    {
+     "u": 0.125,
+     "position": [
+      -0.1464,
+      1.4087,
+      0.8671
+     ],
+     "target": [
+      -1.1,
+      1.2,
+      -0.19
+     ],
+     "fov": 28,
+     "clearance": 1.2
+    },
+    {
+     "u": 0.25,
+     "position": [
+      -0.1634,
+      1.4053,
+      0.8331
+     ],
+     "target": [
+      -1.1,
+      1.2,
+      -0.19
+     ],
+     "fov": 28,
+     "clearance": 1.17
+    },
+    {
+     "u": 0.375,
+     "position": [
+      -0.1875,
+      1.4005,
+      0.7851
+     ],
+     "target": [
+      -1.1,
+      1.2,
+      -0.19
+     ],
+     "fov": 28,
+     "clearance": 1.12
+    },
+    {
+     "u": 0.5,
+     "position": [
+      -0.215,
+      1.395,
+      0.73
+     ],
+     "target": [
+      -1.1,
+      1.2,
+      -0.19
+     ],
+     "fov": 28,
+     "clearance": 1.07
+    },
+    {
+     "u": 0.625,
+     "position": [
+      -0.2425,
+      1.3895,
+      0.6749
+     ],
+     "target": [
+      -1.1,
+      1.2,
+      -0.19
+     ],
+     "fov": 28,
+     "clearance": 1.02
+    },
+    {
+     "u": 0.75,
+     "position": [
+      -0.2666,
+      1.3847,
+      0.6269
+     ],
+     "target": [
+      -1.1,
+      1.2,
+      -0.19
+     ],
+     "fov": 28,
+     "clearance": 0.97
+    },
+    {
+     "u": 0.875,
+     "position": [
+      -0.2836,
+      1.3813,
+      0.5929
+     ],
+     "target": [
+      -1.1,
+      1.2,
+      -0.19
+     ],
+     "fov": 28,
+     "clearance": 0.94
+    },
+    {
+     "u": 1,
+     "position": [
+      -0.29,
+      1.38,
+      0.58
+     ],
+     "target": [
+      -1.1,
+      1.2,
+      -0.19
+     ],
+     "fov": 28,
+     "clearance": 0.93
+    }
+   ],
+   "text": "PINJOL · Tagihan Rp 11.400.000 · JATUH TEMPO HARI INI"
+  },
+  {
+   "id": "kos-12",
+   "triangles": 796,
+   "nearestCamera": {
+    "clearance": 1.25,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 11,
+   "durationInFrames": 120,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "end": [
+      -1.1,
+      0,
+      -0.25
+     ],
+     "yaw": 0,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": 0.32
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      -0.11,
+      1.41,
+      0.91
+     ],
+     "target": [
+      -1.12,
+      1.2,
+      -0.2
+     ],
+     "fov": 27,
+     "clearance": 1.25
+    },
+    {
+     "u": 0.125,
+     "position": [
+      -0.11,
+      1.41,
+      0.91
+     ],
+     "target": [
+      -1.12,
+      1.2,
+      -0.2
+     ],
+     "fov": 27,
+     "clearance": 1.25
+    },
+    {
+     "u": 0.25,
+     "position": [
+      -0.11,
+      1.41,
+      0.91
+     ],
+     "target": [
+      -1.12,
+      1.2,
+      -0.2
+     ],
+     "fov": 27,
+     "clearance": 1.25
+    },
+    {
+     "u": 0.375,
+     "position": [
+      -0.11,
+      1.41,
+      0.91
+     ],
+     "target": [
+      -1.12,
+      1.2,
+      -0.2
+     ],
+     "fov": 27,
+     "clearance": 1.25
+    },
+    {
+     "u": 0.5,
+     "position": [
+      -0.11,
+      1.41,
+      0.91
+     ],
+     "target": [
+      -1.12,
+      1.2,
+      -0.2
+     ],
+     "fov": 27,
+     "clearance": 1.25
+    },
+    {
+     "u": 0.625,
+     "position": [
+      -0.11,
+      1.41,
+      0.91
+     ],
+     "target": [
+      -1.12,
+      1.2,
+      -0.2
+     ],
+     "fov": 27,
+     "clearance": 1.25
+    },
+    {
+     "u": 0.75,
+     "position": [
+      -0.11,
+      1.41,
+      0.91
+     ],
+     "target": [
+      -1.12,
+      1.2,
+      -0.2
+     ],
+     "fov": 27,
+     "clearance": 1.25
+    },
+    {
+     "u": 0.875,
+     "position": [
+      -0.11,
+      1.41,
+      0.91
+     ],
+     "target": [
+      -1.12,
+      1.2,
+      -0.2
+     ],
+     "fov": 27,
+     "clearance": 1.25
+    },
+    {
+     "u": 1,
+     "position": [
+      -0.11,
+      1.41,
+      0.91
+     ],
+     "target": [
+      -1.12,
+      1.2,
+      -0.2
+     ],
+     "fov": 27,
+     "clearance": 1.25
+    }
+   ],
+   "text": "ALYA — Kak, ini apa? (…) “Nomor yang Anda tuju tidak aktif.” Keren. Banget."
+  },
+  {
+   "id": "kos-13",
+   "triangles": 796,
+   "nearestCamera": {
+    "clearance": 1.6,
+    "u": 0
+   },
+   "minActorGap": 1.4,
+   "index": 12,
+   "durationInFrames": 150,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -0.9,
+      0,
+      0.15
+     ],
+     "end": [
+      -0.9,
+      0,
+      0.15
+     ],
+     "yaw": 0,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": 0.26
+    },
+    {
+     "ref": "nadin",
+     "assetId": "char.female-dewasa",
+     "at": [
+      0.5,
+      0,
+      0.1
+     ],
+     "end": [
+      0.5,
+      0,
+      0.1
+     ],
+     "yaw": -1.5707963267948966,
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.4
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.35,
+      1.32,
+      2.35
+     ],
+     "target": [
+      -0.2,
+      1.12,
+      0.1
+     ],
+     "fov": 42,
+     "clearance": 1.6
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.35,
+      1.32,
+      2.35
+     ],
+     "target": [
+      -0.2,
+      1.12,
+      0.1
+     ],
+     "fov": 42,
+     "clearance": 1.6
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.35,
+      1.32,
+      2.35
+     ],
+     "target": [
+      -0.2,
+      1.12,
+      0.1
+     ],
+     "fov": 42,
+     "clearance": 1.6
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.35,
+      1.32,
+      2.35
+     ],
+     "target": [
+      -0.2,
+      1.12,
+      0.1
+     ],
+     "fov": 42,
+     "clearance": 1.6
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.35,
+      1.32,
+      2.35
+     ],
+     "target": [
+      -0.2,
+      1.12,
+      0.1
+     ],
+     "fov": 42,
+     "clearance": 1.6
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.35,
+      1.32,
+      2.35
+     ],
+     "target": [
+      -0.2,
+      1.12,
+      0.1
+     ],
+     "fov": 42,
+     "clearance": 1.6
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.35,
+      1.32,
+      2.35
+     ],
+     "target": [
+      -0.2,
+      1.12,
+      0.1
+     ],
+     "fov": 42,
+     "clearance": 1.6
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.35,
+      1.32,
+      2.35
+     ],
+     "target": [
+      -0.2,
+      1.12,
+      0.1
+     ],
+     "fov": 42,
+     "clearance": 1.6
+    },
+    {
+     "u": 1,
+     "position": [
+      0.35,
+      1.32,
+      2.35
+     ],
+     "target": [
+      -0.2,
+      1.12,
+      0.1
+     ],
+     "fov": 42,
+     "clearance": 1.6
+    }
+   ],
+   "text": "Grup “CONTENT PLAN” — BIMA: video dia nangis, fyp dijamin · NADIN: udah aku rekam dari tadi 😭"
+  },
+  {
+   "id": "kos-14",
+   "triangles": 796,
+   "nearestCamera": {
+    "clearance": 1.3,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 13,
+   "durationInFrames": 90,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "nadin",
+     "assetId": "char.female-dewasa",
+     "at": [
+      0.5,
+      0,
+      0.1
+     ],
+     "end": [
+      0.5,
+      0,
+      0.1
+     ],
+     "yaw": -1.5707963267948966,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": 0.4
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      -0.36,
+      1.52,
+      1.32
+     ],
+     "target": [
+      0.43,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 1.3
+    },
+    {
+     "u": 0.125,
+     "position": [
+      -0.36,
+      1.52,
+      1.32
+     ],
+     "target": [
+      0.43,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 1.3
+    },
+    {
+     "u": 0.25,
+     "position": [
+      -0.36,
+      1.52,
+      1.32
+     ],
+     "target": [
+      0.43,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 1.3
+    },
+    {
+     "u": 0.375,
+     "position": [
+      -0.36,
+      1.52,
+      1.32
+     ],
+     "target": [
+      0.43,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 1.3
+    },
+    {
+     "u": 0.5,
+     "position": [
+      -0.36,
+      1.52,
+      1.32
+     ],
+     "target": [
+      0.43,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 1.3
+    },
+    {
+     "u": 0.625,
+     "position": [
+      -0.36,
+      1.52,
+      1.32
+     ],
+     "target": [
+      0.43,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 1.3
+    },
+    {
+     "u": 0.75,
+     "position": [
+      -0.36,
+      1.52,
+      1.32
+     ],
+     "target": [
+      0.43,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 1.3
+    },
+    {
+     "u": 0.875,
+     "position": [
+      -0.36,
+      1.52,
+      1.32
+     ],
+     "target": [
+      0.43,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 1.3
+    },
+    {
+     "u": 1,
+     "position": [
+      -0.36,
+      1.52,
+      1.32
+     ],
+     "target": [
+      0.43,
+      1.31,
+      0.11
+     ],
+     "fov": 28,
+     "clearance": 1.3
+    }
+   ],
+   "text": "NADIN — Aku cuma bantu rekam, Al. Kamu jangan marah ya. Ini buat kita berdua kok."
+  },
+  {
+   "id": "kos-15",
+   "triangles": 696,
+   "nearestCamera": {
+    "clearance": 1.51,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 14,
+   "durationInFrames": 150,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "bima",
+     "assetId": "char.male-muda-jaket",
+     "at": [
+      1.5,
+      0,
+      0.5
+     ],
+     "end": [
+      1.5,
+      0,
+      0.5
+     ],
+     "yaw": -1.5707963267948966,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": 0.41
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.4,
+      1.54,
+      1.45
+     ],
+     "target": [
+      1.48,
+      1.33,
+      0.49
+     ],
+     "fov": 28,
+     "clearance": 1.51
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.4,
+      1.54,
+      1.45
+     ],
+     "target": [
+      1.48,
+      1.33,
+      0.49
+     ],
+     "fov": 28,
+     "clearance": 1.51
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.4,
+      1.54,
+      1.45
+     ],
+     "target": [
+      1.48,
+      1.33,
+      0.49
+     ],
+     "fov": 28,
+     "clearance": 1.51
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.4,
+      1.54,
+      1.45
+     ],
+     "target": [
+      1.48,
+      1.33,
+      0.49
+     ],
+     "fov": 28,
+     "clearance": 1.51
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.4,
+      1.54,
+      1.45
+     ],
+     "target": [
+      1.48,
+      1.33,
+      0.49
+     ],
+     "fov": 28,
+     "clearance": 1.51
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.4,
+      1.54,
+      1.45
+     ],
+     "target": [
+      1.48,
+      1.33,
+      0.49
+     ],
+     "fov": 28,
+     "clearance": 1.51
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.4,
+      1.54,
+      1.45
+     ],
+     "target": [
+      1.48,
+      1.33,
+      0.49
+     ],
+     "fov": 28,
+     "clearance": 1.51
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.4,
+      1.54,
+      1.45
+     ],
+     "target": [
+      1.48,
+      1.33,
+      0.49
+     ],
+     "fov": 28,
+     "clearance": 1.51
+    },
+    {
+     "u": 1,
+     "position": [
+      0.4,
+      1.54,
+      1.45
+     ],
+     "target": [
+      1.48,
+      1.33,
+      0.49
+     ],
+     "fov": 28,
+     "clearance": 1.51
+    }
+   ],
+   "text": "BIMA — Kamu tuh gampang banget dipercaya, Al. Itu masalah kamu, bukan aku."
+  },
+  {
+   "id": "kos-16",
+   "triangles": 796,
+   "nearestCamera": {
+    "clearance": 1.54,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 15,
+   "durationInFrames": 120,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      -0.9,
+      0,
+      0.15
+     ],
+     "end": [
+      -0.9,
+      0,
+      0.15
+     ],
+     "yaw": 0,
+     "clip": "talk",
+     "radius": 0.28,
+     "clearance": 0.26
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.15,
+      1.41,
+      1.17
+     ],
+     "target": [
+      -0.93,
+      1.2,
+      0.21
+     ],
+     "fov": 28,
+     "clearance": 1.54
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.15,
+      1.41,
+      1.17
+     ],
+     "target": [
+      -0.93,
+      1.2,
+      0.21
+     ],
+     "fov": 28,
+     "clearance": 1.54
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.15,
+      1.41,
+      1.17
+     ],
+     "target": [
+      -0.93,
+      1.2,
+      0.21
+     ],
+     "fov": 28,
+     "clearance": 1.54
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.15,
+      1.41,
+      1.17
+     ],
+     "target": [
+      -0.93,
+      1.2,
+      0.21
+     ],
+     "fov": 28,
+     "clearance": 1.54
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.15,
+      1.41,
+      1.17
+     ],
+     "target": [
+      -0.93,
+      1.2,
+      0.21
+     ],
+     "fov": 28,
+     "clearance": 1.54
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.15,
+      1.41,
+      1.17
+     ],
+     "target": [
+      -0.93,
+      1.2,
+      0.21
+     ],
+     "fov": 28,
+     "clearance": 1.54
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.15,
+      1.41,
+      1.17
+     ],
+     "target": [
+      -0.93,
+      1.2,
+      0.21
+     ],
+     "fov": 28,
+     "clearance": 1.54
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.15,
+      1.41,
+      1.17
+     ],
+     "target": [
+      -0.93,
+      1.2,
+      0.21
+     ],
+     "fov": 28,
+     "clearance": 1.54
+    },
+    {
+     "u": 1,
+     "position": [
+      0.15,
+      1.41,
+      1.17
+     ],
+     "target": [
+      -0.93,
+      1.2,
+      0.21
+     ],
+     "fov": 28,
+     "clearance": 1.54
+    }
+   ],
+   "text": "ALYA — Aku kehilangan uang, kamu dapat view. Selamat ya, Kak. Semoga viralnya berkah."
+  },
+  {
+   "id": "kos-17",
+   "triangles": 626,
+   "nearestCamera": {
+    "clearance": 1.47,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 16,
+   "durationInFrames": 120,
+   "cameraPreset": "static",
+   "set": [
+    {
+     "asset": "kit.floor.tile",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "rot": -1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "rot": 3.1416,
+     "scale": 1
+    },
+    {
+     "asset": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "rot": 1.5708,
+     "scale": 1
+    },
+    {
+     "asset": "prop.lamp.teplok",
+     "at": [
+      1,
+      0.761,
+      -1.2
+     ],
+     "rot": 0.4,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "kit.wall.window",
+     "at": [
+      0,
+      0,
+      -2
+     ],
+     "scale": 1,
+     "cx": 0,
+     "cz": -2,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.plain",
+     "at": [
+      -2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": -2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "kit.wall.door",
+     "at": [
+      2,
+      0,
+      0
+     ],
+     "scale": 1,
+     "cx": 2,
+     "cz": 0,
+     "w": 4,
+     "d": 0.18,
+     "h": 3,
+     "rot": -1.5708,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.bed",
+     "at": [
+      -1.2,
+      0,
+      -1
+     ],
+     "scale": 1,
+     "cx": -1.2,
+     "cz": -1,
+     "w": 0.95,
+     "d": 2.06,
+     "h": 0.77,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.table.wood",
+     "at": [
+      1,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -1.2,
+     "w": 1.2,
+     "d": 0.8,
+     "h": 0.761,
+     "rot": 0,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.chair.wood",
+     "at": [
+      1,
+      0,
+      -0.35
+     ],
+     "scale": 1,
+     "cx": 1,
+     "cz": -0.35,
+     "w": 0.42,
+     "d": 0.42,
+     "h": 0.938,
+     "rot": 3.1416,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "prop.shelves.steel",
+     "at": [
+      -1.95,
+      0,
+      0.9
+     ],
+     "scale": 1,
+     "cx": -1.95,
+     "cz": 0.9,
+     "w": 1.8,
+     "d": 0.6,
+     "h": 2,
+     "rot": 1.5708,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "ratna",
+     "assetId": "char.female-dewasa-daster",
+     "at": [
+      1.55,
+      0,
+      0.55
+     ],
+     "end": [
+      1.55,
+      0,
+      0.55
+     ],
+     "yaw": -1.5707963267948966,
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.36
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      0.44,
+      1.51,
+      1.5
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.51
+     ],
+     "fov": 28,
+     "clearance": 1.47
+    },
+    {
+     "u": 0.125,
+     "position": [
+      0.44,
+      1.51,
+      1.5
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.51
+     ],
+     "fov": 28,
+     "clearance": 1.47
+    },
+    {
+     "u": 0.25,
+     "position": [
+      0.44,
+      1.51,
+      1.5
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.51
+     ],
+     "fov": 28,
+     "clearance": 1.47
+    },
+    {
+     "u": 0.375,
+     "position": [
+      0.44,
+      1.51,
+      1.5
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.51
+     ],
+     "fov": 28,
+     "clearance": 1.47
+    },
+    {
+     "u": 0.5,
+     "position": [
+      0.44,
+      1.51,
+      1.5
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.51
+     ],
+     "fov": 28,
+     "clearance": 1.47
+    },
+    {
+     "u": 0.625,
+     "position": [
+      0.44,
+      1.51,
+      1.5
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.51
+     ],
+     "fov": 28,
+     "clearance": 1.47
+    },
+    {
+     "u": 0.75,
+     "position": [
+      0.44,
+      1.51,
+      1.5
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.51
+     ],
+     "fov": 28,
+     "clearance": 1.47
+    },
+    {
+     "u": 0.875,
+     "position": [
+      0.44,
+      1.51,
+      1.5
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.51
+     ],
+     "fov": 28,
+     "clearance": 1.47
+    },
+    {
+     "u": 1,
+     "position": [
+      0.44,
+      1.51,
+      1.5
+     ],
+     "target": [
+      1.5,
+      1.3,
+      0.51
+     ],
+     "fov": 28,
+     "clearance": 1.47
+    }
+   ],
+   "text": "BU RATNA — Keluar dari kos saya, Nak. Screenshot-nya sudah Ibu simpan semua. Kamu bukan penolong, kamu penipu."
+  },
+  {
+   "id": "luar-18",
+   "triangles": 29,
+   "nearestCamera": {
+    "clearance": 2.41,
+    "u": 0
+   },
+   "minActorGap": null,
+   "index": 17,
+   "durationInFrames": 180,
+   "cameraPreset": "crane-up",
+   "set": [
+    {
+     "asset": "road.asphalt.wet",
+     "at": [
+      0,
+      0,
+      0
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "road.sidewalk.segment",
+     "at": [
+      2.6,
+      0,
+      2
+     ],
+     "rot": 0,
+     "scale": 1
+    },
+    {
+     "asset": "road.prop.powerpole",
+     "at": [
+      3.4,
+      0,
+      -0.5
+     ],
+     "rot": 0.2,
+     "scale": 1
+    },
+    {
+     "asset": "nature.tree.palm",
+     "at": [
+      -3.6,
+      0,
+      -1.2
+     ],
+     "rot": 0.5,
+     "scale": 1
+    }
+   ],
+   "objects": [],
+   "blockers": [
+    {
+     "assetId": "road.prop.powerpole",
+     "at": [
+      3.4,
+      0,
+      -0.5
+     ],
+     "scale": 1,
+     "cx": 3.4,
+     "cz": -0.485,
+     "w": 2,
+     "d": 0.35,
+     "h": 8.004,
+     "rot": 0.2,
+     "floor": false,
+     "kind": "set"
+    },
+    {
+     "assetId": "nature.tree.palm",
+     "at": [
+      -3.6,
+      0,
+      -1.2
+     ],
+     "scale": 1,
+     "cx": -2.4465000000000003,
+     "cz": -1.0514999999999999,
+     "w": 6.813,
+     "d": 6.048,
+     "h": 10.544,
+     "rot": 0.5,
+     "floor": false,
+     "kind": "set"
+    }
+   ],
+   "actors": [
+    {
+     "ref": "alya",
+     "assetId": "char.remaja-perempuan",
+     "at": [
+      0,
+      0,
+      2.2
+     ],
+     "end": [
+      3.6739403974420594e-16,
+      0,
+      -0.7999999999999998
+     ],
+     "yaw": 3.141592653589793,
+     "clip": "walk",
+     "radius": 0.28,
+     "clearance": 4.18
+    }
+   ],
+   "samples": [
+    {
+     "u": 0,
+     "position": [
+      1.7,
+      1.15,
+      -2.4
+     ],
+     "target": [
+      0,
+      1.1,
+      1.2
+     ],
+     "fov": 40,
+     "clearance": 2.41
+    },
+    {
+     "u": 0.125,
+     "position": [
+      1.6914,
+      1.1994,
+      -2.4344
+     ],
+     "target": [
+      0,
+      1.1,
+      1.2
+     ],
+     "fov": 40,
+     "clearance": 2.45
+    },
+    {
+     "u": 0.25,
+     "position": [
+      1.6687,
+      1.3297,
+      -2.525
+     ],
+     "target": [
+      0,
+      1.1,
+      1.2
+     ],
+     "fov": 40,
+     "clearance": 2.53
+    },
+    {
+     "u": 0.375,
+     "position": [
+      1.6367,
+      1.5139,
+      -2.6531
+     ],
+     "target": [
+      0,
+      1.1,
+      1.2
+     ],
+     "fov": 40,
+     "clearance": 2.65
+    },
+    {
+     "u": 0.5,
+     "position": [
+      1.6,
+      1.725,
+      -2.8
+     ],
+     "target": [
+      0,
+      1.1,
+      1.2
+     ],
+     "fov": 40,
+     "clearance": 2.8
+    },
+    {
+     "u": 0.625,
+     "position": [
+      1.5633,
+      1.9361,
+      -2.9469
+     ],
+     "target": [
+      0,
+      1.1,
+      1.2
+     ],
+     "fov": 40,
+     "clearance": 2.94
+    },
+    {
+     "u": 0.75,
+     "position": [
+      1.5313,
+      2.1203,
+      -3.075
+     ],
+     "target": [
+      0,
+      1.1,
+      1.2
+     ],
+     "fov": 40,
+     "clearance": 3.07
+    },
+    {
+     "u": 0.875,
+     "position": [
+      1.5086,
+      2.2506,
+      -3.1656
+     ],
+     "target": [
+      0,
+      1.1,
+      1.2
+     ],
+     "fov": 40,
+     "clearance": 3.16
+    },
+    {
+     "u": 1,
+     "position": [
+      1.5,
+      2.3,
+      -3.2
+     ],
+     "target": [
+      0,
+      1.1,
+      1.2
+     ],
+     "fov": 40,
+     "clearance": 3.19
+    }
+   ],
+   "text": "Alya — “Aku kira aku punya teman. Ternyata aku cuma punya konten.” · 2,1 juta views"
+  }
+ ],
+ "problems": []
+}

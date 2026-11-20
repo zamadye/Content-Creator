@@ -227,7 +227,19 @@ async function solve(shot, story, {frameH = 0.72, ndcY = 0.42} = {}) {
 /* --------------------------------------------------------------------- CLI */
 
 async function main() {
-  const storyFile = arg('story', path.join(root, 'stories/warung-hujan/story.json'));
+  // Tanpa `--story`, periksa semua naskah produksi di `stories/*/story.json`.
+  const explicit = arg('story');
+  const storyFiles = explicit
+    ? [path.resolve(String(explicit))]
+    : fs
+        .readdirSync(path.join(root, 'stories'), {withFileTypes: true})
+        .filter((d) => d.isDirectory() && fs.existsSync(path.join(root, 'stories', d.name, 'story.json')))
+        .map((d) => path.join(root, 'stories', d.name, 'story.json'))
+        .sort();
+  for (const file of storyFiles) await probe(file);
+}
+
+async function probe(storyFile) {
   const raw = JSON.parse(fs.readFileSync(storyFile, 'utf8'));
   const story = compileStory(raw, {registry});
   const only = arg('shot');

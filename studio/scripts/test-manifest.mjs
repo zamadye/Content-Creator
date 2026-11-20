@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {validateManifest} from '../src/manifest.js';
-const {story}=JSON.parse(fs.readFileSync(new URL('../stories/example.json',import.meta.url)));
+const {story}=JSON.parse(fs.readFileSync(new URL('../test/fixtures/example.json',import.meta.url)));
 assert.equal(validateManifest(story).durationInFrames,270);
 const test=(change,pattern)=>{const s=structuredClone(story);change(s);assert.throws(()=>validateManifest(s),pattern)};
 test(s=>s.shots[1].from++,/expected from/);

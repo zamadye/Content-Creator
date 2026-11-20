@@ -1,5 +1,10 @@
 # FORMAT CERITA — `studio.story/2`
 
+> **Naskah aktif:** `stories/saldo-8-juta/story.json` (18 shot, 72 detik).
+> Contoh path `stories/jalan-pulang/...` di bawah hanya ilustrasi format; naskah
+> lama sudah dihapus. Fixture unit-test ada di `test/fixtures/`.
+
+
 Kontrak data untuk agen. Satu cerita = satu file JSON. Tidak ada kode, tidak ada
 path ke kode: semua aset dirujuk lewat **id katalog** (`public/assets/registry.json`).
 

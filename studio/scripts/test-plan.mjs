@@ -88,12 +88,13 @@ for (const file of storyFiles) {
 // jumlah shot ikut bertambah setiap paket cerita baru — hitung dari cerita, bukan konstanta
 const expectedShots = storyFiles.reduce((n, f) => n + readJson(f).shots.length, 0);
 assert.equal(shots, expectedShots, `${expectedShots} shot diperiksa, dapat ${shots}`);
-assert.ok(measured >= 190, `minimal 190 sampel terukur, dapat ${measured}`);
+// ambang diturunkan bersama penyusutan naskah (dulu 190 karena ada 9 paket contoh)
+assert.ok(measured >= 150, `minimal 150 sampel terukur, dapat ${measured}`);
 assert.ok(minCamera >= MIN_GEOMETRY_CLEARANCE, `jarak kamera terdekat ${minCamera.toFixed(2)} m`);
 ok();
 
 // ------------------------------------------------- 3. kerusakan buatan harus terdeteksi
-const base = readJson(path.join(root, 'stories', 'warung-malam', 'story.json'));
+const base = readJson(path.join(root, 'test', 'fixtures', 'warung-malam', 'story.json'));
 const clone = () => JSON.parse(JSON.stringify(base));
 
 /** Jalankan planStory, kembalikan daftar masalah (tanpa menyentuh disk). */

@@ -6,7 +6,7 @@ import validator from 'gltf-validator';
 import {ASSETS} from '../src/asset-catalog.js';
 import {validateStage} from '../src/stage-schema.js';
 const publicDir=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../public');
-const props=JSON.parse(await fs.readFile(new URL('../stories/modular-stage.json',import.meta.url),'utf8'));
+const props=JSON.parse(await fs.readFile(new URL('../test/fixtures/modular-stage.json',import.meta.url),'utf8'));
 assert.equal(validateStage(props.stage).durationInFrames,150);
 for(const mutate of [s=>s.instances[0].asset='missing',s=>s.instances[0].scale=0,s=>s.camera.from=[0,1],s=>s.instances[0].unknown=1]) {
  const s=structuredClone(props.stage);mutate(s);assert.throws(()=>validateStage(s));

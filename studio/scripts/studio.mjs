@@ -5,7 +5,7 @@
  *   node scripts/studio.mjs list [--category nature] [--tag road] [--query kayu] [--json]
  *   node scripts/studio.mjs clips <asset-id>
  *   node scripts/studio.mjs validate stories/<dir>/story.json
- *   node scripts/studio.mjs plan stories/jalan-pulang/story.json
+ *   node scripts/studio.mjs plan stories/saldo-8-juta/story.json
  *   node scripts/studio.mjs inspect public/assets/road/road.asphalt.straight/road.asphalt.straight.glb
  *   node scripts/studio.mjs new my-scene
  */
@@ -163,8 +163,9 @@ function inspectCommand() {
 
 function newCommand() {
   const id = positional[0] ?? 'new-scene';
-  const file = path.join(root, 'stories', 'studio', `${id}.json`);
+  const file = path.join(root, 'stories', id, 'story.json');
   if (fs.existsSync(file)) throw new Error(`${file} already exists`);
+  fs.mkdirSync(path.dirname(file), {recursive: true});
   const starter = {
     schema: 'studio.story/2',
     id,

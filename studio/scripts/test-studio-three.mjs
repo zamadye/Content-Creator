@@ -296,7 +296,7 @@ assert.equal(new Set(originals).size, originals.length, 'different actors share 
 
 
 // Compile a story and feed every shot's camera through the renderer's maths.
-const story = JSON.parse(fs.readFileSync(path.join(root, 'stories/uji-kamera/story.json'), 'utf8'));
+const story = JSON.parse(fs.readFileSync(path.join(root, 'test/fixtures/uji-kamera/story.json'), 'utf8'));
 const compiled = compileStory(story, {registry});
 for (const shot of compiled.shots) {
   for (let f = 0; f <= shot.durationInFrames; f += 5) {

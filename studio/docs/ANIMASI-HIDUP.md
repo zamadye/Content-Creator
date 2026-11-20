@@ -1,5 +1,13 @@
 # Animasi aktor — dari klip yang tidak lengkap ke gerak yang terbaca
 
+> **Catatan naskah (2026-11-20).** Seluruh naskah lama — termasuk `warung-hujan`
+> yang dipakai sebagai contoh di bawah — sudah dihapus atas permintaan pemilik
+> proyek: cerita itu tidak lagi dipakai untuk pengujian. Naskah produksi
+> sekarang `stories/saldo-8-juta` (drama Gen Z, 18 shot, 72 detik). Angka, tabel,
+> dan berkas `animasi/*.mp4` di halaman ini dipertahankan sebagai **arsip bukti**
+> prinsip animasi yang masih berlaku.
+
+
 Dokumen ini mencatat dua lapisan perbaikan pada gerak aktor di studio ini:
 
 1. **klip dasarnya** (`studio-forge/forge/human.py`) — dulu hanya menulis
@@ -182,13 +190,52 @@ lewat jalur yang sama: `animasi/warung-hujan-dialog-540-1499.mp4`
 | *line of action* | badan memutar (`spine03/04` ry) ke arah tangan yang memimpin |
 | ekspresi | alis (`levator03/05`), sipit mata (`oculi01`), sudut mulut (`oris01/02`) mengikuti aksen |
 | *squash* | `spine03` memadat 1,6 % tepat saat aksen mendarat |
-| *staging* | kamera dialog dirapatkan (fov 32 → 24, busri-05 24, busri-10 25,5) supaya akting terbaca |
+| *staging* | kamera dialog didekatkan sampai **wajah 26–38 % tinggi frame** (sebelumnya 18–20 %) — lihat bagian di bawah |
 | peran karakter | `energy`: lansia 0,78 · remaja/dewasa 1,05 · anak 1,2 |
+
+### Besar subjek di frame — diukur, bukan dikira
+
+Gaya kanal animasi remaja (Dhot Design dkk.) menaruh karakter **60–90 % tinggi
+frame**, bukan table-top yang mengecilkan akting. Menentukan itu dari kamera
+saja tidak cukup: `qc-framing.mjs` memakai *bounding box* aset yang berdiri
+tegak, sedangkan aktor duduk (`clip: "sit"`) kepalanya 40 cm lebih rendah —
+angka bbox bilang "kepala di NDC +0,51" padahal di render kepalanya keluar frame
+bawah. Karena itu ada alat baru:
+
+```bash
+npm run qc:subject                 # ndcX/ndcY kepala + %wajah per shot, pose asli
+npm run qc:subject -- --solve      # usul kamera: jarak & bidik dari tinggi kepala
+```
+
+`scripts/qc-subject.mjs` memuat GLB, menjalankan klip + lapisan sekunder + hidup
+persis seperti `renderer.js`, mengambil posisi tulang `head` dunia, lalu
+memproyeksikannya ke kamera shot.
+
+| shot | wajah (% tinggi frame) sebelum → sesudah | jarak kamera |
+| --- | --- | --- |
+| busri-05 | 19 → 36 | 2,97 → 1,36 m |
+| nisa-06 | 20 → 36 | 2,82 → 1,36 m |
+| bayu-07 | 18 → 38 | 2,81 → 1,34 m |
+| nisa-08 (dolly-in) | 18 → 32 | 3,23 → 1,40 m |
+| nisa-11 | 19 → 36 | 2,92 → 1,36 m |
+| busri-12 (low-angle) | 28 → 26 | 2,12 → 1,66 m |
+| bayu-13 | 19 → 38 | 2,91 → 1,34 m |
+| nisa-14 | 19 → 36 | 2,92 → 1,36 m |
+
+Sudut juga diperbaiki: `bayu-07`/`bayu-13` dulu memotret Bayu dari **belakang**
+(kamera di sisi yang salah dari arah hadapnya) sehingga yang terlihat punggung
+kepala; sekarang kamera 48° dari arah hadapnya, wajah terbaca.
+`qc-framing.mjs` kini melewati pemeriksaan kepala dari bbox untuk aktor `sit`
+dan menyerahkannya ke `qc-subject`.
+
 
 ## 7. Batas yang jujur
 
 * Foot-lock/IK kaki belum ada: saat stance, telapak masih bisa meluncur
   sedikit (kontak 23–27 % siklus, kecepatan bervariasi ±20 %).
-* `remotion render` penuh (2580 frame) belum dijalankan ulang; contoh 150 frame
-  di `animasi/` cukup untuk menilai gerak.
+* Render penuh 2580 frame dikerjakan bertahap per segmen (`0-539`, `540-689`,
+  `690-1499`, `1500-2579`) lalu digabung `ffmpeg -f concat`: satu kali render
+  utuh ±70 menit di mesin 2 vCPU tanpa GPU (SwiftShader, ±1,6 s/frame).
+* Kamera dekat berarti kamera duduk 0,4–0,5 m di belakang tepi meja. Kalau
+  nanti ada dolly menyamping, jalur itu harus diperiksa ulang (`qc:subject`).
 * Lapisan hidup prosedural dan deterministik — bukan simulasi kain/fisika.

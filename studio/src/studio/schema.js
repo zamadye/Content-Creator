@@ -14,11 +14,11 @@ export const FPS_CHOICES = [24, 25, 30];
 
 /** Fields allowed on each node. Unknown fields are errors: agents get feedback. */
 export const FIELDS = {
-  story: ['schema', 'id', 'title', 'fps', 'width', 'height', 'look', 'cast', 'objects', 'shots', 'meta'],
+  story: ['schema', 'id', 'title', 'fps', 'width', 'height', 'look', 'cast', 'objects', 'shots', 'meta', 'backdrops'],
   look: ['preset', 'fog', 'exposure', 'grain', 'vignette', 'sky', 'hemi'],
   cast: ['asset', 'clip', 'palette', 'scale', 'label', 'note', 'outfit'],
   objects: ['asset', 'scale', 'label'],
-  shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'secondary', 'note', 'lookPreset'],
+  shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'secondary', 'note', 'lookPreset', 'backdrop', 'backdropMotion'],
   set: ['asset', 'at', 'rot', 'scale', 'clip'],
   actor: ['ref', 'at', 'facing', 'clip', 'offset', 'speed', 'travel', 'loop', 'lookAt', 'gazeWeight', 'hold', 'holdHand', 'holdOffset', 'hidden'],
   object: ['ref', 'at', 'rot', 'scale', 'hidden'],

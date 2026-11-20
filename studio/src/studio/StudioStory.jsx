@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
-import {AbsoluteFill, Audio, Sequence, continueRender, delayRender, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, Img, Sequence, continueRender, delayRender, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {compileStory} from './compile.js';
 import {registry} from './library.js';
 import {createStudioRenderer} from './renderer.js';
@@ -67,6 +67,7 @@ export const StudioStory = ({story, hud = false, text = true}) => {
         canvas: canvasRef.current,
         baseUrl: staticFile(''),
         pixelRatio: 1,
+        cutout: Boolean(story.backdrops),
       });
       if (cancelled) {
         renderer.dispose();
@@ -95,6 +96,17 @@ export const StudioStory = ({story, hud = false, text = true}) => {
   }, [frame, ready]);
 
   const shot = compiled.shots.find((s) => frame >= s.from && frame < s.from + s.durationInFrames) ?? compiled.shots[0];
+  // Latar ilustrasi 2D: satu gambar per lokasi, digerakkan perlahan (Ken Burns)
+  // supaya shot terasa hidup tanpa kamera 3D menyentuh set.
+  const backdropId = shot?.backdrop ?? (story.backdrops ? Object.keys(story.backdrops)[0] : null);
+  const backdrop = story.backdrops?.[backdropId] ?? null;
+  const localFrame = shot ? frame - shot.from : 0;
+  const u = shot && shot.durationInFrames > 1 ? localFrame / (shot.durationInFrames - 1) : 0;
+  const motion = shot?.backdropMotion ?? {zoom: [1.02, 1.08], drift: [0, -0.012]};
+  const zoom = motion.zoom ? motion.zoom[0] + (motion.zoom[1] - motion.zoom[0]) * u : 1;
+  // drift dalam persen (bukan fraksi): nilai kecil = gerak halus 1–2 % per shot
+  const driftX = motion.drift ? motion.drift[0] * u : 0;
+  const driftY = motion.drift ? motion.drift[1] * u : 0;
   // VO tiap baris diletakkan sebagai klip terpisah dengan jeda masuk/keluar,
   // supaya editor bisa memotong per dialog tanpa memotong satu tarikan napas.
   const leadIn = VO_LEAD_IN_FRAMES;
@@ -102,17 +114,41 @@ export const StudioStory = ({story, hud = false, text = true}) => {
   const activeText = text && shot?.text ? shot.text : null;
 
   return (
-    <AbsoluteFill style={{backgroundColor: '#05080a'}}>
+    <AbsoluteFill style={{backgroundColor: '#05080a', overflow: 'hidden'}}>
+      {backdrop ? (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundImage: `url(${staticFile(backdrop.image)})`,
+            backgroundSize: 'cover',
+            backgroundPosition: backdrop.anchor
+              ? `${backdrop.anchor[0] * 100}% ${backdrop.anchor[1] * 100}%`
+              : '50% 55%',
+            transform: `scale(${zoom}) translate(${driftX}%, ${driftY}%)`,
+            transformOrigin: '50% 55%',
+            zIndex: 0,
+          }}
+        />
+      ) : null}
       {voClips.map((a) => (
         <Sequence key={a.shotId} from={a.from + leadIn} durationInFrames={Math.max(1, a.durationInFrames - leadIn)}>
           <Audio src={staticFile(a.vo)} />
         </Sequence>
       ))}
-      <canvas ref={canvasRef} width={width} height={height} style={{width: '100%', height: '100%'}} />
-      {activeText && activeText.style === 'subtitle' ? <div style={SUBTITLE}>{activeText.value}</div> : null}
+      <canvas
+        ref={canvasRef}
+        width={width}
+        height={height}
+        style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, filter: 'drop-shadow(0 10px 18px rgba(24,12,4,0.45))'}}
+      />
+      {activeText && activeText.style === 'subtitle' ? <div style={{...SUBTITLE, zIndex: 3}}>{activeText.value}</div> : null}
       {activeText && activeText.style === 'title' ? <div style={TITLE}>{activeText.value}</div> : null}
       {activeText && (activeText.style === 'caption' || activeText.style === 'sign') ? (
-        <div style={{...SUBTITLE, fontSize: 34, bottom: '5%', color: '#e8e2d2'}}>{activeText.value}</div>
+        <div style={{...SUBTITLE, fontSize: 34, bottom: '5%', color: '#e8e2d2', zIndex: 3}}>{activeText.value}</div>
       ) : null}
       {hud ? (
         <div

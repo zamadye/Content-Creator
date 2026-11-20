@@ -243,6 +243,10 @@ async function probe(storyFile) {
   const raw = JSON.parse(fs.readFileSync(storyFile, 'utf8'));
   const story = compileStory(raw, {registry});
   const only = arg('shot');
+// Vertikal 9:16 butuh tinggi frame lebih besar (wajah lebih kecil) dan kepala
+// duduk di sepertiga atas supaya badan muat di bawah.
+const frameHeight = Number(arg('frame-height', 0) || 0.72);
+const ndcYArg = Number(arg('ndc-y', 0) || 0.42);
   const wantSolve = has('solve');
   const wantWrite = has('write');
 
@@ -250,7 +254,7 @@ async function probe(storyFile) {
   let flagged = 0;
   if (wantSolve) {
     for (const shot of shots) {
-      const s = await solve(shot, story);
+      const s = await solve(shot, story, {frameH: frameHeight, ndcY: ndcYArg});
       if (!s) continue;
       console.log(
         `  ${shot.id.padEnd(13)} ${s.ref.padEnd(8)} from ${JSON.stringify(s.from)} target ${JSON.stringify(

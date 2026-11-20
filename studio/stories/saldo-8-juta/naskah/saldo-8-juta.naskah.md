@@ -1,7 +1,9 @@
 # SALDO 8 JUTA
 
 **Format:** dracin/FTV — drama emosional, satu twist di paruh akhir, bahasa Gen Z.
-**Target:** vertikal-friendly 16:9 · 1280×720 · 30 fps · ±2 menit 20 detik · 26 shot.
+**Target:** vertikal **720×1280 (9:16)** · 30 fps · ±2 menit 20 detik · 26 shot.
+**Visual:** 2.5D — latar ilustrasi 2D (gaya animasi remaja Indonesia, acuan kanal Dhot Design),
+karakter 3D dari katalog studio, komposit di Remotion.
 **Lokasi:** kamar kos 4B (malam), koridor gedung C kampus, jalan basah pukul 23.00.
 **Emosi:** kesal → marah → pahit. Bukan horor: yang menakutkan di sini adalah orang yang kelihatan baik.
 
@@ -92,6 +94,27 @@ Versi pertama punya lubang logika yang membuat ceritanya tidak nyambung:
   pemecahan per baris, urutan, dan tambahan kalimat penyambung logika (shot 2, 5, 18).
 
 ---
+
+## Latar 2D (2.5D)
+
+Setiap lokasi punya satu ilustrasi (768×1376, vertikal) di `studio/public/bg/`:
+
+| berkas | dipakai di | isi |
+| --- | --- | --- |
+| `kos-kamar.png` | kos-01, 04, 05, 07, 16, 18, 20–24 | kamar kos malam: kasur, meja belajar, rak mie instan, rice cooker, jendela kota |
+| `kos-pintu.png` | kos-03, 06, 25 | sisi dalam pintu kos: gantungan baju, galon, sandal, cahaya koridor |
+| `koridor.png` | kor-08 … kor-13 | koridor kampus malam, satu titik hilang |
+| `meja-hp.png` | kos-02, 14, 15, 17, 19 | meja kayu: HP, kertas tagihan, uang, lampu meja |
+| `jalan-malam.png` | luar-26 | jalan kota basah, neon, genangan |
+
+Teknis:
+* Kanvas WebGL dirender **transparan** (`cutout` di `renderer.js`: `alpha: true`, set 3D tidak
+  dibangun) sehingga karakter bisa ditempel di atas ilustrasi.
+* Latar digerakkan pelan per shot (`backdropMotion`, zoom 1,03→1,10 dan drift ±0,4 %) —
+  memberi kesan kamera hidup tanpa memindahkan set 3D.
+* Kamera karakter disetel ulang untuk 9:16 (`qc-subject --solve --frame-height 1,75 --ndc-y 0,36`)
+  supaya wajah ±14–16 % tinggi frame dan badan muat di bawah.
+* `light.fill` baru: lampu isi dari sisi berlawanan supaya pakaian gelap tidak menyatu dengan latar.
 
 ## Catatan produksi
 

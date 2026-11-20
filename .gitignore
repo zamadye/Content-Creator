@@ -4,7 +4,9 @@ node_modules/
 studio/assets/
 studio/render/
 google_drive/
-studio/public/vo/
+studio/public/vo/*
+!studio/public/vo/saldo-8-juta/
+!studio/public/vo/saldo-8-juta/*.mp3
 # Generated bundles, intermediate videos and locally rendered deliverables
 studio/build/
 studio/dist/

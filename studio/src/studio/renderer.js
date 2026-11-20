@@ -59,12 +59,15 @@ export function findAnchor(root, name) {
 }
 
 export class StudioRenderer {
-  constructor({compiled, canvas, baseUrl = DEFAULT_BASE_URL, onProgress, pixelRatio = 1}) {
+  constructor({compiled, canvas, baseUrl = DEFAULT_BASE_URL, onProgress, pixelRatio = 1, cutout = false}) {
     this.compiled = compiled;
     this.canvas = canvas;
     this.baseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
     this.onProgress = onProgress ?? (() => {});
     this.pixelRatio = pixelRatio;
+    // Mode `cutout`: kanvas transparan, set 3D tidak dibangun. Latar digambar
+    // sebagai ilustrasi 2D di belakang kanvas (2.5D), karakter tetap 3D.
+    this.cutout = cutout;
     this.instances = new Map(); // instanceKey -> {root, sampler, clip, speed, ...}
     this.placements = new Map(); // shotIndex -> [instanceKey]
     this.templateCache = new Map();
@@ -78,8 +81,9 @@ export class StudioRenderer {
       canvas: this.canvas,
       antialias: true,
       preserveDrawingBuffer: true,
-      alpha: false,
+      alpha: this.cutout,
     });
+    if (this.cutout) this.renderer.setClearColor(0x000000, 0);
     this.renderer.setPixelRatio(Math.min(2, this.pixelRatio));
     this.renderer.setSize(width, height, false);
     this.renderer.shadowMap.enabled = true;
@@ -87,9 +91,15 @@ export class StudioRenderer {
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
     this.scene = new THREE.Scene();
+    if (this.cutout) this.scene.background = null;
     this.camera = new THREE.PerspectiveCamera(40, width / height, 0.05, 400);
     this.hemi = new THREE.HemisphereLight(0xbfd4e6, 0x2c2a24, 1);
     this.sun = new THREE.DirectionalLight(0xffffff, 2.4);
+    // Fill light: menembak dari sisi berlawanan supaya jaket/hitam karakter tidak
+    // menyatu dengan latar ilustrasi. Intensitas diatur per shot (light.fill).
+    this.fill = new THREE.DirectionalLight(0xffd9b0, 0);
+    this.scene.add(this.fill);
+    this.fill.target.position.set(0, 0, 0);
     this.sun.castShadow = true;
     this.sun.shadow.mapSize.set(2048, 2048);
     this.sun.shadow.camera.near = 0.5;
@@ -184,7 +194,7 @@ export class StudioRenderer {
     };
 
     for (const item of shot.set ?? []) {
-      if (item.hidden) continue;
+      if (item.hidden || this.cutout) continue;
       add(`set:${shot.id}:${item.asset}:${item.at.join(',')}`, item.asset, {
         at: item.at,
         rot: item.rot ?? 0,
@@ -238,7 +248,7 @@ export class StudioRenderer {
 
   applyLook(look) {
     const preset = LOOKS[look.preset] ?? LOOKS['kampung-siang'];
-    this.scene.background = new THREE.Color(preset.sky);
+    this.scene.background = this.cutout ? null : new THREE.Color(preset.sky);
     this.scene.fog = new THREE.FogExp2(new THREE.Color(preset.fog), Math.max(0.0001, look.fog ?? 0.02));
     this.hemi.color.set(preset.sky);
     // `look.hemi` menimpa isi preset: fill ambient global. Tanpa ini, interior
@@ -261,6 +271,10 @@ export class StudioRenderer {
     // Bayangan boleh dimatikan per shot: di ruang tertutup, bayangan dinding
     // memakan seluruh ruangan dan aktor jadi siluet hitam.
     this.sun.castShadow = light.shadow ?? preset.intensity > 0.5;
+
+    const fillAmount = light.fill ?? 0.55;
+    this.fill.intensity = preset.intensity * fillAmount;
+    this.fill.position.set(-Math.cos(el) * Math.sin(az) * 12, Math.sin(el) * 6 + 3, -Math.cos(el) * Math.cos(az) * 12);
   }
 
   /**

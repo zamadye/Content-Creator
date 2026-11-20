@@ -4,26 +4,26 @@
   "id": "saldo-8-juta",
   "title": "Saldo 8 Juta",
   "fps": 30,
-  "width": 1280,
-  "height": 720
+  "width": 720,
+  "height": 1280
  },
  "stats": {
   "shots": 26,
   "cameraSamples": 234,
-  "triangles": 17595,
+  "triangles": 18090,
   "nearestCamera": {
-   "clearance": 0.4,
+   "clearance": 0.19,
    "u": 0,
-   "shot": "kor-11"
+   "shot": "kos-20"
   },
-  "minActorGap": 1.4
+  "minActorGap": null
  },
  "shots": [
   {
    "id": "kos-01",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.02,
+    "clearance": 0.82,
     "u": 0
    },
    "minActorGap": null,
@@ -296,154 +296,155 @@
       -0.25
      ],
      "yaw": 0,
-     "clip": "sit",
-     "radius": 0.28
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.39
     }
    ],
    "samples": [
     {
      "u": 0,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.09,
+      1.4,
+      2.17
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.12,
+      1.02,
+      -0.23
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.82
     },
     {
      "u": 0.125,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.09,
+      1.4,
+      2.17
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.12,
+      1.02,
+      -0.23
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.82
     },
     {
      "u": 0.25,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.09,
+      1.4,
+      2.17
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.12,
+      1.02,
+      -0.23
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.82
     },
     {
      "u": 0.375,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.09,
+      1.4,
+      2.17
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.12,
+      1.02,
+      -0.23
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.82
     },
     {
      "u": 0.5,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.09,
+      1.4,
+      2.17
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.12,
+      1.02,
+      -0.23
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.82
     },
     {
      "u": 0.625,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.09,
+      1.4,
+      2.17
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.12,
+      1.02,
+      -0.23
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.82
     },
     {
      "u": 0.75,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.09,
+      1.4,
+      2.17
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.12,
+      1.02,
+      -0.23
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.82
     },
     {
      "u": 0.875,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.09,
+      1.4,
+      2.17
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.12,
+      1.02,
+      -0.23
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.82
     },
     {
      "u": 1,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.09,
+      1.4,
+      2.17
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.12,
+      1.02,
+      -0.23
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.82
     }
    ],
    "text": "ALYA — Delapan juta. Tiga hari. Dan aku udah nggak punya apa-apa lagi buat dijual."
   },
   {
    "id": "kos-02",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.13,
+    "clearance": 0.71,
     "u": 0
    },
    "minActorGap": null,
@@ -716,154 +717,155 @@
       -0.25
      ],
      "yaw": 0,
-     "clip": "sit",
-     "radius": 0.28
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.39
     }
    ],
    "samples": [
     {
      "u": 0,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.2,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.04,
+      -0.25
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.71
     },
     {
      "u": 0.125,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.2,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.04,
+      -0.25
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.71
     },
     {
      "u": 0.25,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.2,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.04,
+      -0.25
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.71
     },
     {
      "u": 0.375,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.2,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.04,
+      -0.25
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.71
     },
     {
      "u": 0.5,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.2,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.04,
+      -0.25
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.71
     },
     {
      "u": 0.625,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.2,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.04,
+      -0.25
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.71
     },
     {
      "u": 0.75,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.2,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.04,
+      -0.25
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.71
     },
     {
      "u": 0.875,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.2,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.04,
+      -0.25
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.71
     },
     {
      "u": 1,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.2,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.04,
+      -0.25
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.71
     }
    ],
    "text": "ALYA — Laptop udah laku. Kamera udah laku. Sisanya delapan ratus ribu, buat makan seminggu."
   },
   {
    "id": "kos-03",
-   "triangles": 728,
+   "triangles": 731,
    "nearestCamera": {
-    "clearance": 0.41,
+    "clearance": 0.93,
     "u": 0
    },
    "minActorGap": null,
@@ -1145,146 +1147,146 @@
     {
      "u": 0,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
-      0.11
+      1.15,
+      0.12
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.125,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
-      0.11
+      1.15,
+      0.12
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.25,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
-      0.11
+      1.15,
+      0.12
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.375,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
-      0.11
+      1.15,
+      0.12
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.5,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
-      0.11
+      1.15,
+      0.12
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.625,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
-      0.11
+      1.15,
+      0.12
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.75,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
-      0.11
+      1.15,
+      0.12
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.875,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
-      0.11
+      1.15,
+      0.12
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 1,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
-      0.11
+      1.15,
+      0.12
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     }
    ],
    "text": "Kos 4B · 21.10 · UKT delapan juta, jatuh tempo tiga hari"
   },
   {
    "id": "kos-04",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.45,
+    "clearance": 0.36,
     "u": 0
    },
    "minActorGap": null,
@@ -1566,146 +1568,146 @@
     {
      "u": 0,
      "position": [
-      0.04,
-      1.4,
-      1.03
+      1.55,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.05,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.125,
      "position": [
-      0.04,
-      1.4,
-      1.03
+      1.55,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.05,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.25,
      "position": [
-      0.04,
-      1.4,
-      1.03
+      1.55,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.05,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.375,
      "position": [
-      0.04,
-      1.4,
-      1.03
+      1.55,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.05,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.5,
      "position": [
-      0.04,
-      1.4,
-      1.03
+      1.55,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.05,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.625,
      "position": [
-      0.04,
-      1.4,
-      1.03
+      1.55,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.05,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.75,
      "position": [
-      0.04,
-      1.4,
-      1.03
+      1.55,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.05,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.875,
      "position": [
-      0.04,
-      1.4,
-      1.03
+      1.55,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.05,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 1,
      "position": [
-      0.04,
-      1.4,
-      1.03
+      1.55,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.05,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     }
    ],
    "text": "ALYA — Bu, aku aman. UKT udah aku urus. Ibu jangan mikirin aku, mikirin lutut Ibu dulu."
   },
   {
    "id": "kos-05",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.02,
+    "clearance": 0.86,
     "u": 0
    },
    "minActorGap": null,
@@ -1978,154 +1980,155 @@
       -0.25
      ],
      "yaw": 0,
-     "clip": "sit",
-     "radius": 0.28
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.39
     }
    ],
    "samples": [
     {
      "u": 0,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.05,
+      1.41,
+      2.22
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.07,
+      1.03,
+      -0.25
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.86
     },
     {
      "u": 0.125,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.05,
+      1.41,
+      2.22
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.07,
+      1.03,
+      -0.25
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.86
     },
     {
      "u": 0.25,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.05,
+      1.41,
+      2.22
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.07,
+      1.03,
+      -0.25
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.86
     },
     {
      "u": 0.375,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.05,
+      1.41,
+      2.22
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.07,
+      1.03,
+      -0.25
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.86
     },
     {
      "u": 0.5,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.05,
+      1.41,
+      2.22
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.07,
+      1.03,
+      -0.25
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.86
     },
     {
      "u": 0.625,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.05,
+      1.41,
+      2.22
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.07,
+      1.03,
+      -0.25
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.86
     },
     {
      "u": 0.75,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.05,
+      1.41,
+      2.22
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.07,
+      1.03,
+      -0.25
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.86
     },
     {
      "u": 0.875,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.05,
+      1.41,
+      2.22
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.07,
+      1.03,
+      -0.25
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.86
     },
     {
      "u": 1,
      "position": [
-      -0.17,
-      0.97,
-      0.83
+      1.05,
+      1.41,
+      2.22
      ],
      "target": [
-      -1.11,
-      0.76,
-      -0.12
+      -1.07,
+      1.03,
+      -0.25
      ],
      "fov": 30,
-     "clearance": 1.02
+     "clearance": 0.86
     }
    ],
    "text": "IBU — Al, kalau kurang, Ibu jual aja gelang almarhum bapak. Ibu ikhlas, asal kamu tetap kuliah."
   },
   {
    "id": "kos-06",
-   "triangles": 645,
+   "triangles": 680,
    "nearestCamera": {
-    "clearance": 1.52,
+    "clearance": 0.68,
     "u": 0
    },
    "minActorGap": null,
@@ -2407,146 +2410,146 @@
     {
      "u": 0,
      "position": [
-      0.39,
+      -1.19,
       1.51,
-      1.27
+      2.29
      ],
      "target": [
-      1.5,
-      1.3,
-      0.52
+      1.55,
+      1.14,
+      0.51
      ],
      "fov": 30,
-     "clearance": 1.52
+     "clearance": 0.68
     },
     {
      "u": 0.125,
      "position": [
-      0.39,
+      -1.19,
       1.51,
-      1.27
+      2.29
      ],
      "target": [
-      1.5,
-      1.3,
-      0.52
+      1.55,
+      1.14,
+      0.51
      ],
      "fov": 30,
-     "clearance": 1.52
+     "clearance": 0.68
     },
     {
      "u": 0.25,
      "position": [
-      0.39,
+      -1.19,
       1.51,
-      1.27
+      2.29
      ],
      "target": [
-      1.5,
-      1.3,
-      0.52
+      1.55,
+      1.14,
+      0.51
      ],
      "fov": 30,
-     "clearance": 1.52
+     "clearance": 0.68
     },
     {
      "u": 0.375,
      "position": [
-      0.39,
+      -1.19,
       1.51,
-      1.27
+      2.29
      ],
      "target": [
-      1.5,
-      1.3,
-      0.52
+      1.55,
+      1.14,
+      0.51
      ],
      "fov": 30,
-     "clearance": 1.52
+     "clearance": 0.68
     },
     {
      "u": 0.5,
      "position": [
-      0.39,
+      -1.19,
       1.51,
-      1.27
+      2.29
      ],
      "target": [
-      1.5,
-      1.3,
-      0.52
+      1.55,
+      1.14,
+      0.51
      ],
      "fov": 30,
-     "clearance": 1.52
+     "clearance": 0.68
     },
     {
      "u": 0.625,
      "position": [
-      0.39,
+      -1.19,
       1.51,
-      1.27
+      2.29
      ],
      "target": [
-      1.5,
-      1.3,
-      0.52
+      1.55,
+      1.14,
+      0.51
      ],
      "fov": 30,
-     "clearance": 1.52
+     "clearance": 0.68
     },
     {
      "u": 0.75,
      "position": [
-      0.39,
+      -1.19,
       1.51,
-      1.27
+      2.29
      ],
      "target": [
-      1.5,
-      1.3,
-      0.52
+      1.55,
+      1.14,
+      0.51
      ],
      "fov": 30,
-     "clearance": 1.52
+     "clearance": 0.68
     },
     {
      "u": 0.875,
      "position": [
-      0.39,
+      -1.19,
       1.51,
-      1.27
+      2.29
      ],
      "target": [
-      1.5,
-      1.3,
-      0.52
+      1.55,
+      1.14,
+      0.51
      ],
      "fov": 30,
-     "clearance": 1.52
+     "clearance": 0.68
     },
     {
      "u": 1,
      "position": [
-      0.39,
+      -1.19,
       1.51,
-      1.27
+      2.29
      ],
      "target": [
-      1.5,
-      1.3,
-      0.52
+      1.55,
+      1.14,
+      0.51
      ],
      "fov": 30,
-     "clearance": 1.52
+     "clearance": 0.68
     }
    ],
    "text": "BU RATNA — Nak, kos bulan ini belum masuk. Ibu bukan bank, tapi Ibu juga bukan tembok."
   },
   {
    "id": "kos-07",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.45,
+    "clearance": 0.36,
     "u": 0
    },
    "minActorGap": null,
@@ -2828,149 +2831,149 @@
     {
      "u": 0,
      "position": [
-      0.04,
+      1.55,
       1.4,
-      1.03
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.06,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.125,
      "position": [
-      0.04,
+      1.55,
       1.4,
-      1.03
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.06,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.25,
      "position": [
-      0.04,
+      1.55,
       1.4,
-      1.03
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.06,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.375,
      "position": [
-      0.04,
+      1.55,
       1.4,
-      1.03
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.06,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.5,
      "position": [
-      0.04,
+      1.55,
       1.4,
-      1.03
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.06,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.625,
      "position": [
-      0.04,
+      1.55,
       1.4,
-      1.03
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.06,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.75,
      "position": [
-      0.04,
+      1.55,
       1.4,
-      1.03
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.06,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 0.875,
      "position": [
-      0.04,
+      1.55,
       1.4,
-      1.03
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.06,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     },
     {
      "u": 1,
      "position": [
-      0.04,
+      1.55,
       1.4,
-      1.03
+      2.39
      ],
      "target": [
-      -1.09,
-      1.19,
-      0.13
+      -1.06,
+      1.03,
+      0.04
      ],
      "fov": 28,
-     "clearance": 1.45
+     "clearance": 0.36
     }
    ],
    "text": "ALYA — Sabtu, Bu. Sumpah. Kalau aku bohong, aku rela dipanggil anak kos teladan."
   },
   {
    "id": "kor-08",
-   "triangles": 726,
+   "triangles": 590,
    "nearestCamera": {
-    "clearance": 1.58,
+    "clearance": 0.41,
     "u": 0
    },
-   "minActorGap": 2.71,
+   "minActorGap": null,
    "index": 7,
    "durationInFrames": 105,
    "cameraPreset": "static",
@@ -3034,170 +3037,152 @@
      "clip": "walk",
      "radius": 0.28,
      "clearance": 0.95
-    },
-    {
-     "ref": "alya",
-     "assetId": "char.remaja-perempuan",
-     "at": [
-      -0.5,
-      0,
-      0.15
-     ],
-     "end": [
-      -0.5,
-      0,
-      0.15
-     ],
-     "yaw": 1.5707963267948966,
-     "clip": "idle",
-     "radius": 0.28,
-     "clearance": 0.78
     }
    ],
    "samples": [
     {
      "u": 0,
      "position": [
-      -2.6,
+      -0.2,
       1.55,
-      2.3
+      1.33
      ],
      "target": [
-      0.6,
-      1.15,
-      0.25
+      2.15,
+      1.18,
+      0.37
      ],
      "fov": 38,
-     "clearance": 1.58
+     "clearance": 0.41
     },
     {
      "u": 0.125,
      "position": [
-      -2.6,
+      -0.2,
       1.55,
-      2.3
+      1.33
      ],
      "target": [
-      0.6,
-      1.15,
-      0.25
+      2.15,
+      1.18,
+      0.37
      ],
      "fov": 38,
-     "clearance": 1.58
+     "clearance": 0.41
     },
     {
      "u": 0.25,
      "position": [
-      -2.6,
+      -0.2,
       1.55,
-      2.3
+      1.33
      ],
      "target": [
-      0.6,
-      1.15,
-      0.25
+      2.15,
+      1.18,
+      0.37
      ],
      "fov": 38,
-     "clearance": 1.58
+     "clearance": 0.41
     },
     {
      "u": 0.375,
      "position": [
-      -2.6,
+      -0.2,
       1.55,
-      2.3
+      1.33
      ],
      "target": [
-      0.6,
-      1.15,
-      0.25
+      2.15,
+      1.18,
+      0.37
      ],
      "fov": 38,
-     "clearance": 1.58
+     "clearance": 0.41
     },
     {
      "u": 0.5,
      "position": [
-      -2.6,
+      -0.2,
       1.55,
-      2.3
+      1.33
      ],
      "target": [
-      0.6,
-      1.15,
-      0.25
+      2.15,
+      1.18,
+      0.37
      ],
      "fov": 38,
-     "clearance": 1.58
+     "clearance": 0.41
     },
     {
      "u": 0.625,
      "position": [
-      -2.6,
+      -0.2,
       1.55,
-      2.3
+      1.33
      ],
      "target": [
-      0.6,
-      1.15,
-      0.25
+      2.15,
+      1.18,
+      0.37
      ],
      "fov": 38,
-     "clearance": 1.58
+     "clearance": 0.41
     },
     {
      "u": 0.75,
      "position": [
-      -2.6,
+      -0.2,
       1.55,
-      2.3
+      1.33
      ],
      "target": [
-      0.6,
-      1.15,
-      0.25
+      2.15,
+      1.18,
+      0.37
      ],
      "fov": 38,
-     "clearance": 1.58
+     "clearance": 0.41
     },
     {
      "u": 0.875,
      "position": [
-      -2.6,
+      -0.2,
       1.55,
-      2.3
+      1.33
      ],
      "target": [
-      0.6,
-      1.15,
-      0.25
+      2.15,
+      1.18,
+      0.37
      ],
      "fov": 38,
-     "clearance": 1.58
+     "clearance": 0.41
     },
     {
      "u": 1,
      "position": [
-      -2.6,
+      -0.2,
       1.55,
-      2.3
+      1.33
      ],
      "target": [
-      0.6,
-      1.15,
-      0.25
+      2.15,
+      1.18,
+      0.37
      ],
      "fov": 38,
-     "clearance": 1.58
+     "clearance": 0.41
     }
    ],
    "text": "Koridor gedung C · 21.40 · Bima tahu aku lagi krisis"
   },
   {
    "id": "kor-09",
-   "triangles": 446,
+   "triangles": 535,
    "nearestCamera": {
-    "clearance": 0.51,
+    "clearance": 1.22,
     "u": 0
    },
    "minActorGap": null,
@@ -3270,146 +3255,146 @@
     {
      "u": 0,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.54,
+      2.88
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.5,
+      1.17,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.22
     },
     {
      "u": 0.125,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.54,
+      2.88
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.5,
+      1.17,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.22
     },
     {
      "u": 0.25,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.54,
+      2.88
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.5,
+      1.17,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.22
     },
     {
      "u": 0.375,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.54,
+      2.88
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.5,
+      1.17,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.22
     },
     {
      "u": 0.5,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.54,
+      2.88
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.5,
+      1.17,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.22
     },
     {
      "u": 0.625,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.54,
+      2.88
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.5,
+      1.17,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.22
     },
     {
      "u": 0.75,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.54,
+      2.88
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.5,
+      1.17,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.22
     },
     {
      "u": 0.875,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.54,
+      2.88
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.5,
+      1.17,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.22
     },
     {
      "u": 1,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.54,
+      2.88
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.5,
+      1.17,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.22
     }
    ],
    "text": "BIMA — Aku dengar kamu lagi susah. Kamu tuh kalau ada masalah, cerita."
   },
   {
    "id": "kor-10",
-   "triangles": 444,
+   "triangles": 535,
    "nearestCamera": {
-    "clearance": 0.61,
+    "clearance": 1.02,
     "u": 0
    },
    "minActorGap": null,
@@ -3482,146 +3467,146 @@
     {
      "u": 0,
      "position": [
-      0.51,
+      -0.83,
       1.55,
-      1.28
+      2.64
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.46,
+      1.17,
+      0.31
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 1.02
     },
     {
      "u": 0.125,
      "position": [
-      0.51,
+      -0.83,
       1.55,
-      1.28
+      2.64
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.46,
+      1.17,
+      0.31
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 1.02
     },
     {
      "u": 0.25,
      "position": [
-      0.51,
+      -0.83,
       1.55,
-      1.28
+      2.64
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.46,
+      1.17,
+      0.31
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 1.02
     },
     {
      "u": 0.375,
      "position": [
-      0.51,
+      -0.83,
       1.55,
-      1.28
+      2.64
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.46,
+      1.17,
+      0.31
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 1.02
     },
     {
      "u": 0.5,
      "position": [
-      0.51,
+      -0.83,
       1.55,
-      1.28
+      2.64
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.46,
+      1.17,
+      0.31
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 1.02
     },
     {
      "u": 0.625,
      "position": [
-      0.51,
+      -0.83,
       1.55,
-      1.28
+      2.64
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.46,
+      1.17,
+      0.31
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 1.02
     },
     {
      "u": 0.75,
      "position": [
-      0.51,
+      -0.83,
       1.55,
-      1.28
+      2.64
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.46,
+      1.17,
+      0.31
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 1.02
     },
     {
      "u": 0.875,
      "position": [
-      0.51,
+      -0.83,
       1.55,
-      1.28
+      2.64
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.46,
+      1.17,
+      0.31
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 1.02
     },
     {
      "u": 1,
      "position": [
-      0.51,
+      -0.83,
       1.55,
-      1.28
+      2.64
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.46,
+      1.17,
+      0.31
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 1.02
     }
    ],
    "text": "BIMA — Kita kan keluarga."
   },
   {
    "id": "kor-11",
-   "triangles": 413,
+   "triangles": 514,
    "nearestCamera": {
-    "clearance": 0.4,
+    "clearance": 1.65,
     "u": 0
    },
    "minActorGap": null,
@@ -3694,146 +3679,146 @@
     {
      "u": 0,
      "position": [
-      0.32,
-      1.41,
-      1.39
+      1.47,
+      1.4,
+      3.06
      ],
      "target": [
-      -0.44,
-      1.2,
+      -0.51,
+      1.03,
       0.16
      ],
      "fov": 28,
-     "clearance": 0.4
+     "clearance": 1.65
     },
     {
      "u": 0.125,
      "position": [
-      0.32,
-      1.41,
-      1.39
+      1.47,
+      1.4,
+      3.06
      ],
      "target": [
-      -0.44,
-      1.2,
+      -0.51,
+      1.03,
       0.16
      ],
      "fov": 28,
-     "clearance": 0.4
+     "clearance": 1.65
     },
     {
      "u": 0.25,
      "position": [
-      0.32,
-      1.41,
-      1.39
+      1.47,
+      1.4,
+      3.06
      ],
      "target": [
-      -0.44,
-      1.2,
+      -0.51,
+      1.03,
       0.16
      ],
      "fov": 28,
-     "clearance": 0.4
+     "clearance": 1.65
     },
     {
      "u": 0.375,
      "position": [
-      0.32,
-      1.41,
-      1.39
+      1.47,
+      1.4,
+      3.06
      ],
      "target": [
-      -0.44,
-      1.2,
+      -0.51,
+      1.03,
       0.16
      ],
      "fov": 28,
-     "clearance": 0.4
+     "clearance": 1.65
     },
     {
      "u": 0.5,
      "position": [
-      0.32,
-      1.41,
-      1.39
+      1.47,
+      1.4,
+      3.06
      ],
      "target": [
-      -0.44,
-      1.2,
+      -0.51,
+      1.03,
       0.16
      ],
      "fov": 28,
-     "clearance": 0.4
+     "clearance": 1.65
     },
     {
      "u": 0.625,
      "position": [
-      0.32,
-      1.41,
-      1.39
+      1.47,
+      1.4,
+      3.06
      ],
      "target": [
-      -0.44,
-      1.2,
+      -0.51,
+      1.03,
       0.16
      ],
      "fov": 28,
-     "clearance": 0.4
+     "clearance": 1.65
     },
     {
      "u": 0.75,
      "position": [
-      0.32,
-      1.41,
-      1.39
+      1.47,
+      1.4,
+      3.06
      ],
      "target": [
-      -0.44,
-      1.2,
+      -0.51,
+      1.03,
       0.16
      ],
      "fov": 28,
-     "clearance": 0.4
+     "clearance": 1.65
     },
     {
      "u": 0.875,
      "position": [
-      0.32,
-      1.41,
-      1.39
+      1.47,
+      1.4,
+      3.06
      ],
      "target": [
-      -0.44,
-      1.2,
+      -0.51,
+      1.03,
       0.16
      ],
      "fov": 28,
-     "clearance": 0.4
+     "clearance": 1.65
     },
     {
      "u": 1,
      "position": [
-      0.32,
-      1.41,
-      1.39
+      1.47,
+      1.4,
+      3.06
      ],
      "target": [
-      -0.44,
-      1.2,
+      -0.51,
+      1.03,
       0.16
      ],
      "fov": 28,
-     "clearance": 0.4
+     "clearance": 1.65
     }
    ],
    "text": "ALYA — Kak, aku gak mau ngutang. Bunga pinjol tuh kayak mantan: datengnya manis, perginya bikin miskin."
   },
   {
    "id": "kor-12",
-   "triangles": 446,
+   "triangles": 535,
    "nearestCamera": {
-    "clearance": 0.51,
+    "clearance": 1.23,
     "u": 0
    },
    "minActorGap": null,
@@ -3906,146 +3891,146 @@
     {
      "u": 0,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.53,
+      2.9
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.49,
+      1.16,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.23
     },
     {
      "u": 0.125,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.53,
+      2.9
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.49,
+      1.16,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.23
     },
     {
      "u": 0.25,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.53,
+      2.9
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.49,
+      1.16,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.23
     },
     {
      "u": 0.375,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.53,
+      2.9
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.49,
+      1.16,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.23
     },
     {
      "u": 0.5,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.53,
+      2.9
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.49,
+      1.16,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.23
     },
     {
      "u": 0.625,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.53,
+      2.9
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.49,
+      1.16,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.23
     },
     {
      "u": 0.75,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.53,
+      2.9
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.49,
+      1.16,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.23
     },
     {
      "u": 0.875,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.53,
+      2.9
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.49,
+      1.16,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.23
     },
     {
      "u": 1,
      "position": [
-      0.49,
-      1.55,
-      1.4
+      -0.86,
+      1.53,
+      2.9
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.49,
+      1.16,
+      0.29
      ],
      "fov": 28,
-     "clearance": 0.51
+     "clearance": 1.23
     }
    ],
    "text": "BIMA — Bukan pinjol. Tabungan aku nganggur delapan juta."
   },
   {
    "id": "kor-13",
-   "triangles": 444,
+   "triangles": 535,
    "nearestCamera": {
-    "clearance": 0.61,
+    "clearance": 0.99,
     "u": 0
    },
    "minActorGap": null,
@@ -4118,146 +4103,146 @@
     {
      "u": 0,
      "position": [
-      0.51,
-      1.55,
-      1.28
+      -0.82,
+      1.54,
+      2.61
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.48,
+      1.17,
+      0.29
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 0.99
     },
     {
      "u": 0.125,
      "position": [
-      0.51,
-      1.55,
-      1.28
+      -0.82,
+      1.54,
+      2.61
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.48,
+      1.17,
+      0.29
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 0.99
     },
     {
      "u": 0.25,
      "position": [
-      0.51,
-      1.55,
-      1.28
+      -0.82,
+      1.54,
+      2.61
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.48,
+      1.17,
+      0.29
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 0.99
     },
     {
      "u": 0.375,
      "position": [
-      0.51,
-      1.55,
-      1.28
+      -0.82,
+      1.54,
+      2.61
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.48,
+      1.17,
+      0.29
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 0.99
     },
     {
      "u": 0.5,
      "position": [
-      0.51,
-      1.55,
-      1.28
+      -0.82,
+      1.54,
+      2.61
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.48,
+      1.17,
+      0.29
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 0.99
     },
     {
      "u": 0.625,
      "position": [
-      0.51,
-      1.55,
-      1.28
+      -0.82,
+      1.54,
+      2.61
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.48,
+      1.17,
+      0.29
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 0.99
     },
     {
      "u": 0.75,
      "position": [
-      0.51,
-      1.55,
-      1.28
+      -0.82,
+      1.54,
+      2.61
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.48,
+      1.17,
+      0.29
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 0.99
     },
     {
      "u": 0.875,
      "position": [
-      0.51,
-      1.55,
-      1.28
+      -0.82,
+      1.54,
+      2.61
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.48,
+      1.17,
+      0.29
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 0.99
     },
     {
      "u": 1,
      "position": [
-      0.51,
-      1.55,
-      1.28
+      -0.82,
+      1.54,
+      2.61
      ],
      "target": [
-      1.45,
-      1.34,
-      0.32
+      1.48,
+      1.17,
+      0.29
      ],
      "fov": 30,
-     "clearance": 0.61
+     "clearance": 0.99
     }
    ],
    "text": "BIMA — Cuma butuh KTP sama data kamu, buat administrasi."
   },
   {
    "id": "kos-14",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.13,
+    "clearance": 0.64,
     "u": 0
    },
    "minActorGap": null,
@@ -4530,154 +4515,155 @@
       -0.25
      ],
      "yaw": 0,
-     "clip": "sit",
-     "radius": 0.28
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.39
     }
    ],
    "samples": [
     {
      "u": 0,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.125,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.25,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.375,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.5,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.625,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.75,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.875,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 1,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     }
    ],
    "text": "KTP diserahkan · “cuma buat administrasi”"
   },
   {
    "id": "kos-15",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.13,
+    "clearance": 0.66,
     "u": 0
    },
    "minActorGap": null,
@@ -4950,154 +4936,155 @@
       -0.25
      ],
      "yaw": 0,
-     "clip": "sit",
-     "radius": 0.28
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.39
     }
    ],
    "samples": [
     {
      "u": 0,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.25,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.66
     },
     {
      "u": 0.125,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.25,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.66
     },
     {
      "u": 0.25,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.25,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.66
     },
     {
      "u": 0.375,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.25,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.66
     },
     {
      "u": 0.5,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.25,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.66
     },
     {
      "u": 0.625,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.25,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.66
     },
     {
      "u": 0.75,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.25,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.66
     },
     {
      "u": 0.875,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.25,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.66
     },
     {
      "u": 1,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.25,
+      1.41,
+      2.4
      ],
      "target": [
       -1.1,
-      0.77,
-      -0.14
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.66
     }
    ],
    "text": "Transfer masuk · Rp 8.000.000 · “buat kamu, jangan dipikirin”"
   },
   {
    "id": "kos-16",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.3,
+    "clearance": 1.14,
     "u": 0
    },
    "minActorGap": null,
@@ -5379,146 +5366,146 @@
     {
      "u": 0,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.125,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.25,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.375,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.5,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.625,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.75,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.875,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 1,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     }
    ],
    "text": "NADIN — Kak Bima tuh green flag banget sih. Cowok kayak gitu udah punah, bestie."
   },
   {
    "id": "kos-17",
-   "triangles": 728,
+   "triangles": 731,
    "nearestCamera": {
-    "clearance": 0.41,
+    "clearance": 0.93,
     "u": 0
    },
    "minActorGap": null,
@@ -5800,146 +5787,146 @@
     {
      "u": 0,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
+      1.15,
       0.11
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.125,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
+      1.15,
       0.11
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.25,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
+      1.15,
       0.11
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.375,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
+      1.15,
       0.11
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.5,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
+      1.15,
       0.11
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.625,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
+      1.15,
       0.11
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.75,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
+      1.15,
       0.11
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 0.875,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
+      1.15,
       0.11
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     },
     {
      "u": 1,
      "position": [
-      1.5,
+      3.02,
       1.52,
-      1.1
+      2.5
      ],
      "target": [
       0.44,
-      1.31,
+      1.15,
       0.11
      ],
      "fov": 28,
-     "clearance": 0.41
+     "clearance": 0.93
     }
    ],
    "text": "UKT lunas · tiga minggu kemudian · PINJOL: tagihan Rp 11.400.000"
   },
   {
    "id": "kos-18",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.54,
+    "clearance": 0.26,
     "u": 0
    },
    "minActorGap": null,
@@ -6221,146 +6208,146 @@
     {
      "u": 0,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.125,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.25,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.375,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.5,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.625,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.75,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.875,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 1,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     }
    ],
    "text": "ALYA — Kak, ini apa? Pinjol atas nama aku? Aku kan cuma kasih KTP."
   },
   {
    "id": "kos-19",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.13,
+    "clearance": 0.64,
     "u": 0
    },
    "minActorGap": null,
@@ -6633,154 +6620,155 @@
       -0.25
      ],
      "yaw": 0,
-     "clip": "sit",
-     "radius": 0.28
+     "clip": "idle",
+     "radius": 0.28,
+     "clearance": 0.39
     }
    ],
    "samples": [
     {
      "u": 0,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.125,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.25,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.375,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.5,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.625,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.75,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 0.875,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     },
     {
      "u": 1,
      "position": [
-      -0.11,
-      0.98,
-      0.92
+      1.27,
+      1.41,
+      2.39
      ],
      "target": [
-      -1.1,
-      0.77,
-      -0.14
+      -1.11,
+      1.03,
+      -0.19
      ],
      "fov": 28,
-     "clearance": 1.13
+     "clearance": 0.64
     }
    ],
    "text": "“Nomor yang Anda tuju tidak aktif.”"
   },
   {
    "id": "kos-20",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.54,
+    "clearance": 0.19,
     "u": 0
    },
    "minActorGap": null,
@@ -7062,149 +7050,149 @@
     {
      "u": 0,
      "position": [
-      0.15,
-      1.41,
-      1.17
+      1.72,
+      1.4,
+      2.51
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.94,
+      1.02,
+      0.23
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.19
     },
     {
      "u": 0.125,
      "position": [
-      0.15,
-      1.41,
-      1.17
+      1.72,
+      1.4,
+      2.51
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.94,
+      1.02,
+      0.23
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.19
     },
     {
      "u": 0.25,
      "position": [
-      0.15,
-      1.41,
-      1.17
+      1.72,
+      1.4,
+      2.51
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.94,
+      1.02,
+      0.23
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.19
     },
     {
      "u": 0.375,
      "position": [
-      0.15,
-      1.41,
-      1.17
+      1.72,
+      1.4,
+      2.51
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.94,
+      1.02,
+      0.23
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.19
     },
     {
      "u": 0.5,
      "position": [
-      0.15,
-      1.41,
-      1.17
+      1.72,
+      1.4,
+      2.51
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.94,
+      1.02,
+      0.23
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.19
     },
     {
      "u": 0.625,
      "position": [
-      0.15,
-      1.41,
-      1.17
+      1.72,
+      1.4,
+      2.51
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.94,
+      1.02,
+      0.23
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.19
     },
     {
      "u": 0.75,
      "position": [
-      0.15,
-      1.41,
-      1.17
+      1.72,
+      1.4,
+      2.51
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.94,
+      1.02,
+      0.23
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.19
     },
     {
      "u": 0.875,
      "position": [
-      0.15,
-      1.41,
-      1.17
+      1.72,
+      1.4,
+      2.51
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.94,
+      1.02,
+      0.23
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.19
     },
     {
      "u": 1,
      "position": [
-      0.15,
-      1.41,
-      1.17
+      1.72,
+      1.4,
+      2.51
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.94,
+      1.02,
+      0.23
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.19
     }
    ],
    "text": "ALYA — Keren. Banget."
   },
   {
    "id": "kos-21",
-   "triangles": 804,
+   "triangles": 801,
    "nearestCamera": {
-    "clearance": 1.56,
+    "clearance": 1.78,
     "u": 0
    },
-   "minActorGap": 1.4,
+   "minActorGap": null,
    "index": 20,
    "durationInFrames": 165,
    "cameraPreset": "static",
@@ -7477,170 +7465,152 @@
      "clip": "idle",
      "radius": 0.28,
      "clearance": 0.34
-    },
-    {
-     "ref": "nadin",
-     "assetId": "char.female-dewasa",
-     "at": [
-      0.5,
-      0,
-      0.1
-     ],
-     "end": [
-      0.5,
-      0,
-      0.1
-     ],
-     "yaw": -1.5707963267948966,
-     "clip": "idle",
-     "radius": 0.28,
-     "clearance": 0.4
     }
    ],
    "samples": [
     {
      "u": 0,
      "position": [
-      0.35,
-      1.32,
-      2.35
+      0.12,
+      1.41,
+      1.97
      ],
      "target": [
-      -0.2,
-      1.12,
-      0.1
+      -0.9,
+      1.03,
+      0.18
      ],
-     "fov": 42,
-     "clearance": 1.56
+     "fov": 46,
+     "clearance": 1.78
     },
     {
      "u": 0.125,
      "position": [
-      0.35,
-      1.32,
-      2.35
+      0.12,
+      1.41,
+      1.97
      ],
      "target": [
-      -0.2,
-      1.12,
-      0.1
+      -0.9,
+      1.03,
+      0.18
      ],
-     "fov": 42,
-     "clearance": 1.56
+     "fov": 46,
+     "clearance": 1.78
     },
     {
      "u": 0.25,
      "position": [
-      0.35,
-      1.32,
-      2.35
+      0.12,
+      1.41,
+      1.97
      ],
      "target": [
-      -0.2,
-      1.12,
-      0.1
+      -0.9,
+      1.03,
+      0.18
      ],
-     "fov": 42,
-     "clearance": 1.56
+     "fov": 46,
+     "clearance": 1.78
     },
     {
      "u": 0.375,
      "position": [
-      0.35,
-      1.32,
-      2.35
+      0.12,
+      1.41,
+      1.97
      ],
      "target": [
-      -0.2,
-      1.12,
-      0.1
+      -0.9,
+      1.03,
+      0.18
      ],
-     "fov": 42,
-     "clearance": 1.56
+     "fov": 46,
+     "clearance": 1.78
     },
     {
      "u": 0.5,
      "position": [
-      0.35,
-      1.32,
-      2.35
+      0.12,
+      1.41,
+      1.97
      ],
      "target": [
-      -0.2,
-      1.12,
-      0.1
+      -0.9,
+      1.03,
+      0.18
      ],
-     "fov": 42,
-     "clearance": 1.56
+     "fov": 46,
+     "clearance": 1.78
     },
     {
      "u": 0.625,
      "position": [
-      0.35,
-      1.32,
-      2.35
+      0.12,
+      1.41,
+      1.97
      ],
      "target": [
-      -0.2,
-      1.12,
-      0.1
+      -0.9,
+      1.03,
+      0.18
      ],
-     "fov": 42,
-     "clearance": 1.56
+     "fov": 46,
+     "clearance": 1.78
     },
     {
      "u": 0.75,
      "position": [
-      0.35,
-      1.32,
-      2.35
+      0.12,
+      1.41,
+      1.97
      ],
      "target": [
-      -0.2,
-      1.12,
-      0.1
+      -0.9,
+      1.03,
+      0.18
      ],
-     "fov": 42,
-     "clearance": 1.56
+     "fov": 46,
+     "clearance": 1.78
     },
     {
      "u": 0.875,
      "position": [
-      0.35,
-      1.32,
-      2.35
+      0.12,
+      1.41,
+      1.97
      ],
      "target": [
-      -0.2,
-      1.12,
-      0.1
+      -0.9,
+      1.03,
+      0.18
      ],
-     "fov": 42,
-     "clearance": 1.56
+     "fov": 46,
+     "clearance": 1.78
     },
     {
      "u": 1,
      "position": [
-      0.35,
-      1.32,
-      2.35
+      0.12,
+      1.41,
+      1.97
      ],
      "target": [
-      -0.2,
-      1.12,
-      0.1
+      -0.9,
+      1.03,
+      0.18
      ],
-     "fov": 42,
-     "clearance": 1.56
+     "fov": 46,
+     "clearance": 1.78
     }
    ],
    "text": "Grup “CONTENT PLAN” — BIMA: video dia nangis, fyp dijamin · NADIN: udah aku rekam dari tadi 😭"
   },
   {
    "id": "kos-22",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.3,
+    "clearance": 1.14,
     "u": 0
    },
    "minActorGap": null,
@@ -7922,146 +7892,146 @@
     {
      "u": 0,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.125,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.25,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.375,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.5,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.625,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.75,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 0.875,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     },
     {
      "u": 1,
      "position": [
-      -0.36,
-      1.52,
-      1.32
+      -1.47,
+      1.51,
+      3.05
      ],
      "target": [
       0.43,
-      1.31,
-      0.11
+      1.13,
+      0.09
      ],
      "fov": 28,
-     "clearance": 1.3
+     "clearance": 1.14
     }
    ],
    "text": "NADIN — Aku cuma bantu rekam, Al. Kamu jangan marah ya. Ini buat kita berdua kok."
   },
   {
    "id": "kos-23",
-   "triangles": 700,
+   "triangles": 742,
    "nearestCamera": {
-    "clearance": 1.51,
+    "clearance": 1.12,
     "u": 0
    },
    "minActorGap": null,
@@ -8343,146 +8313,146 @@
     {
      "u": 0,
      "position": [
-      0.4,
+      -1.14,
       1.54,
-      1.45
+      2.82
      ],
      "target": [
       1.48,
-      1.33,
+      1.16,
       0.49
      ],
      "fov": 28,
-     "clearance": 1.51
+     "clearance": 1.12
     },
     {
      "u": 0.125,
      "position": [
-      0.4,
+      -1.14,
       1.54,
-      1.45
+      2.82
      ],
      "target": [
       1.48,
-      1.33,
+      1.16,
       0.49
      ],
      "fov": 28,
-     "clearance": 1.51
+     "clearance": 1.12
     },
     {
      "u": 0.25,
      "position": [
-      0.4,
+      -1.14,
       1.54,
-      1.45
+      2.82
      ],
      "target": [
       1.48,
-      1.33,
+      1.16,
       0.49
      ],
      "fov": 28,
-     "clearance": 1.51
+     "clearance": 1.12
     },
     {
      "u": 0.375,
      "position": [
-      0.4,
+      -1.14,
       1.54,
-      1.45
+      2.82
      ],
      "target": [
       1.48,
-      1.33,
+      1.16,
       0.49
      ],
      "fov": 28,
-     "clearance": 1.51
+     "clearance": 1.12
     },
     {
      "u": 0.5,
      "position": [
-      0.4,
+      -1.14,
       1.54,
-      1.45
+      2.82
      ],
      "target": [
       1.48,
-      1.33,
+      1.16,
       0.49
      ],
      "fov": 28,
-     "clearance": 1.51
+     "clearance": 1.12
     },
     {
      "u": 0.625,
      "position": [
-      0.4,
+      -1.14,
       1.54,
-      1.45
+      2.82
      ],
      "target": [
       1.48,
-      1.33,
+      1.16,
       0.49
      ],
      "fov": 28,
-     "clearance": 1.51
+     "clearance": 1.12
     },
     {
      "u": 0.75,
      "position": [
-      0.4,
+      -1.14,
       1.54,
-      1.45
+      2.82
      ],
      "target": [
       1.48,
-      1.33,
+      1.16,
       0.49
      ],
      "fov": 28,
-     "clearance": 1.51
+     "clearance": 1.12
     },
     {
      "u": 0.875,
      "position": [
-      0.4,
+      -1.14,
       1.54,
-      1.45
+      2.82
      ],
      "target": [
       1.48,
-      1.33,
+      1.16,
       0.49
      ],
      "fov": 28,
-     "clearance": 1.51
+     "clearance": 1.12
     },
     {
      "u": 1,
      "position": [
-      0.4,
+      -1.14,
       1.54,
-      1.45
+      2.82
      ],
      "target": [
       1.48,
-      1.33,
+      1.16,
       0.49
      ],
      "fov": 28,
-     "clearance": 1.51
+     "clearance": 1.12
     }
    ],
    "text": "BIMA — Kamu tuh gampang banget dipercaya, Al. Itu masalah kamu, bukan aku."
   },
   {
    "id": "kos-24",
-   "triangles": 801,
+   "triangles": 804,
    "nearestCamera": {
-    "clearance": 1.54,
+    "clearance": 0.26,
     "u": 0
    },
    "minActorGap": null,
@@ -8764,146 +8734,146 @@
     {
      "u": 0,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.125,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.25,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.375,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.5,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.625,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.75,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 0.875,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     },
     {
      "u": 1,
      "position": [
-      0.15,
+      1.65,
       1.41,
-      1.17
+      2.59
      ],
      "target": [
-      -0.93,
-      1.2,
-      0.21
+      -0.9,
+      1.03,
+      0.18
      ],
      "fov": 28,
-     "clearance": 1.54
+     "clearance": 0.26
     }
    ],
    "text": "ALYA — Aku kehilangan uang, kamu dapat view. Selamat ya, Kak. Semoga viralnya berkah."
   },
   {
    "id": "kos-25",
-   "triangles": 629,
+   "triangles": 680,
    "nearestCamera": {
-    "clearance": 1.47,
+    "clearance": 1.22,
     "u": 0
    },
    "minActorGap": null,
@@ -9185,137 +9155,137 @@
     {
      "u": 0,
      "position": [
-      0.44,
-      1.51,
-      1.5
+      -1.05,
+      1.52,
+      2.87
      ],
      "target": [
-      1.5,
-      1.3,
-      0.51
+      1.53,
+      1.14,
+      0.49
      ],
      "fov": 28,
-     "clearance": 1.47
+     "clearance": 1.22
     },
     {
      "u": 0.125,
      "position": [
-      0.44,
-      1.51,
-      1.5
+      -1.05,
+      1.52,
+      2.87
      ],
      "target": [
-      1.5,
-      1.3,
-      0.51
+      1.53,
+      1.14,
+      0.49
      ],
      "fov": 28,
-     "clearance": 1.47
+     "clearance": 1.22
     },
     {
      "u": 0.25,
      "position": [
-      0.44,
-      1.51,
-      1.5
+      -1.05,
+      1.52,
+      2.87
      ],
      "target": [
-      1.5,
-      1.3,
-      0.51
+      1.53,
+      1.14,
+      0.49
      ],
      "fov": 28,
-     "clearance": 1.47
+     "clearance": 1.22
     },
     {
      "u": 0.375,
      "position": [
-      0.44,
-      1.51,
-      1.5
+      -1.05,
+      1.52,
+      2.87
      ],
      "target": [
-      1.5,
-      1.3,
-      0.51
+      1.53,
+      1.14,
+      0.49
      ],
      "fov": 28,
-     "clearance": 1.47
+     "clearance": 1.22
     },
     {
      "u": 0.5,
      "position": [
-      0.44,
-      1.51,
-      1.5
+      -1.05,
+      1.52,
+      2.87
      ],
      "target": [
-      1.5,
-      1.3,
-      0.51
+      1.53,
+      1.14,
+      0.49
      ],
      "fov": 28,
-     "clearance": 1.47
+     "clearance": 1.22
     },
     {
      "u": 0.625,
      "position": [
-      0.44,
-      1.51,
-      1.5
+      -1.05,
+      1.52,
+      2.87
      ],
      "target": [
-      1.5,
-      1.3,
-      0.51
+      1.53,
+      1.14,
+      0.49
      ],
      "fov": 28,
-     "clearance": 1.47
+     "clearance": 1.22
     },
     {
      "u": 0.75,
      "position": [
-      0.44,
-      1.51,
-      1.5
+      -1.05,
+      1.52,
+      2.87
      ],
      "target": [
-      1.5,
-      1.3,
-      0.51
+      1.53,
+      1.14,
+      0.49
      ],
      "fov": 28,
-     "clearance": 1.47
+     "clearance": 1.22
     },
     {
      "u": 0.875,
      "position": [
-      0.44,
-      1.51,
-      1.5
+      -1.05,
+      1.52,
+      2.87
      ],
      "target": [
-      1.5,
-      1.3,
-      0.51
+      1.53,
+      1.14,
+      0.49
      ],
      "fov": 28,
-     "clearance": 1.47
+     "clearance": 1.22
     },
     {
      "u": 1,
      "position": [
-      0.44,
-      1.51,
-      1.5
+      -1.05,
+      1.52,
+      2.87
      ],
      "target": [
-      1.5,
-      1.3,
-      0.51
+      1.53,
+      1.14,
+      0.49
      ],
      "fov": 28,
-     "clearance": 1.47
+     "clearance": 1.22
     }
    ],
    "text": "BU RATNA — Keluar dari kos saya, Nak. Screenshot-nya sudah Ibu simpan semua. Kamu bukan penolong, kamu penipu."
@@ -9324,13 +9294,13 @@
    "id": "luar-26",
    "triangles": 29,
    "nearestCamera": {
-    "clearance": 1.64,
+    "clearance": 2.11,
     "u": 0
    },
    "minActorGap": null,
    "index": 25,
    "durationInFrames": 195,
-   "cameraPreset": "crane-up",
+   "cameraPreset": "static",
    "set": [
     {
      "asset": "road.asphalt.wet",
@@ -9420,9 +9390,9 @@
       2.2
      ],
      "end": [
-      3.9801020972288977e-16,
       0,
-      -1.0499999999999998
+      0,
+      2.2
      ],
      "yaw": 3.141592653589793,
      "clip": "walk",
@@ -9434,137 +9404,137 @@
     {
      "u": 0,
      "position": [
-      2,
-      1.25,
-      -1.6
+      1.16,
+      1.42,
+      -0.24
      ],
      "target": [
-      0.1,
-      1.12,
-      1.5
+      0,
+      1.04,
+      2.19
      ],
      "fov": 36,
-     "clearance": 1.64
+     "clearance": 2.11
     },
     {
      "u": 0.125,
      "position": [
-      1.9914,
-      1.2994,
-      -1.643
+      1.16,
+      1.42,
+      -0.24
      ],
      "target": [
-      0.1,
-      1.12,
-      1.5
+      0,
+      1.04,
+      2.19
      ],
      "fov": 36,
-     "clearance": 1.68
+     "clearance": 2.11
     },
     {
      "u": 0.25,
      "position": [
-      1.9688,
-      1.4297,
-      -1.7563
+      1.16,
+      1.42,
+      -0.24
      ],
      "target": [
-      0.1,
-      1.12,
-      1.5
+      0,
+      1.04,
+      2.19
      ],
      "fov": 36,
-     "clearance": 1.77
+     "clearance": 2.11
     },
     {
      "u": 0.375,
      "position": [
-      1.9367,
-      1.6139,
-      -1.9164
+      1.16,
+      1.42,
+      -0.24
      ],
      "target": [
-      0.1,
-      1.12,
-      1.5
+      0,
+      1.04,
+      2.19
      ],
      "fov": 36,
-     "clearance": 1.91
+     "clearance": 2.11
     },
     {
      "u": 0.5,
      "position": [
-      1.9,
-      1.825,
-      -2.1
+      1.16,
+      1.42,
+      -0.24
      ],
      "target": [
-      0.1,
-      1.12,
-      1.5
+      0,
+      1.04,
+      2.19
      ],
      "fov": 36,
-     "clearance": 2.07
+     "clearance": 2.11
     },
     {
      "u": 0.625,
      "position": [
-      1.8633,
-      2.0361,
-      -2.2836
+      1.16,
+      1.42,
+      -0.24
      ],
      "target": [
-      0.1,
-      1.12,
-      1.5
+      0,
+      1.04,
+      2.19
      ],
      "fov": 36,
-     "clearance": 2.24
+     "clearance": 2.11
     },
     {
      "u": 0.75,
      "position": [
-      1.8313,
-      2.2203,
-      -2.4438
+      1.16,
+      1.42,
+      -0.24
      ],
      "target": [
-      0.1,
-      1.12,
-      1.5
+      0,
+      1.04,
+      2.19
      ],
      "fov": 36,
-     "clearance": 2.38
+     "clearance": 2.11
     },
     {
      "u": 0.875,
      "position": [
-      1.8086,
-      2.3506,
-      -2.557
+      1.16,
+      1.42,
+      -0.24
      ],
      "target": [
-      0.1,
-      1.12,
-      1.5
+      0,
+      1.04,
+      2.19
      ],
      "fov": 36,
-     "clearance": 2.49
+     "clearance": 2.11
     },
     {
      "u": 1,
      "position": [
-      1.8,
-      2.4,
-      -2.6
+      1.16,
+      1.42,
+      -0.24
      ],
      "target": [
-      0.1,
-      1.12,
-      1.5
+      0,
+      1.04,
+      2.19
      ],
      "fov": 36,
-     "clearance": 2.53
+     "clearance": 2.11
     }
    ],
    "text": "“Aku kira aku punya teman. Ternyata aku cuma punya konten.” · 2,1 juta views"

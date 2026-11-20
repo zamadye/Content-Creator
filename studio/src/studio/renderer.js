@@ -241,7 +241,9 @@ export class StudioRenderer {
     this.scene.background = new THREE.Color(preset.sky);
     this.scene.fog = new THREE.FogExp2(new THREE.Color(preset.fog), Math.max(0.0001, look.fog ?? 0.02));
     this.hemi.color.set(preset.sky);
-    this.hemi.intensity = preset.hemi;
+    // `look.hemi` menimpa isi preset: fill ambient global. Tanpa ini, interior
+    // yang tidak kena sinar matahari jatuh ke hitam total (siluet).
+    this.hemi.intensity = look.hemi ?? preset.hemi;
     this.renderer.toneMappingExposure = (look.exposure ?? 1) * preset.exposure;
   }
 
@@ -249,12 +251,16 @@ export class StudioRenderer {
     const preset = LIGHTS[light.preset] ?? LIGHTS.siang;
     this.sun.color.set(light.color ?? preset.color);
     this.sun.intensity = preset.intensity * (light.intensity ?? 1);
-    const el = preset.elevation;
-    const az = preset.azimuth;
+    // Azimut/elevasi boleh ditimpa per shot: shot interior butuh key light dari
+    // sisi kamera supaya wajah terbaca, bukan dari balik dinding.
+    const el = light.elevation ?? preset.elevation;
+    const az = light.azimuth ?? preset.azimuth;
     const r = 18;
     this.sun.position.set(Math.cos(el) * Math.sin(az) * r, Math.sin(el) * r, Math.cos(el) * Math.cos(az) * r);
     this.sun.target.position.set(0, 0, 0);
-    this.sun.castShadow = preset.intensity > 0.5;
+    // Bayangan boleh dimatikan per shot: di ruang tertutup, bayangan dinding
+    // memakan seluruh ruangan dan aktor jadi siluet hitam.
+    this.sun.castShadow = light.shadow ?? preset.intensity > 0.5;
   }
 
   /**

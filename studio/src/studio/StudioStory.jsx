@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo, useRef, useState} from 'react';
-import {AbsoluteFill, continueRender, delayRender, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, Sequence, continueRender, delayRender, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {compileStory} from './compile.js';
 import {registry} from './library.js';
 import {createStudioRenderer} from './renderer.js';
@@ -14,6 +14,9 @@ export const studioMetadata = ({props}) => {
     height: compiled.height,
   };
 };
+
+/** Jeda masuk sebelum VO mulai, dalam frame (0,45 detik @30 fps). */
+const VO_LEAD_IN_FRAMES = 14;
 
 const SUBTITLE = {
   position: 'absolute',
@@ -92,10 +95,19 @@ export const StudioStory = ({story, hud = false, text = true}) => {
   }, [frame, ready]);
 
   const shot = compiled.shots.find((s) => frame >= s.from && frame < s.from + s.durationInFrames) ?? compiled.shots[0];
+  // VO tiap baris diletakkan sebagai klip terpisah dengan jeda masuk/keluar,
+  // supaya editor bisa memotong per dialog tanpa memotong satu tarikan napas.
+  const leadIn = VO_LEAD_IN_FRAMES;
+  const voClips = (compiled.audio || []).filter((a) => a.vo);
   const activeText = text && shot?.text ? shot.text : null;
 
   return (
     <AbsoluteFill style={{backgroundColor: '#05080a'}}>
+      {voClips.map((a) => (
+        <Sequence key={a.shotId} from={a.from + leadIn} durationInFrames={Math.max(1, a.durationInFrames - leadIn)}>
+          <Audio src={staticFile(a.vo)} />
+        </Sequence>
+      ))}
       <canvas ref={canvasRef} width={width} height={height} style={{width: '100%', height: '100%'}} />
       {activeText && activeText.style === 'subtitle' ? <div style={SUBTITLE}>{activeText.value}</div> : null}
       {activeText && activeText.style === 'title' ? <div style={TITLE}>{activeText.value}</div> : null}

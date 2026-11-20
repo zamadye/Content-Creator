@@ -15,7 +15,7 @@ export const FPS_CHOICES = [24, 25, 30];
 /** Fields allowed on each node. Unknown fields are errors: agents get feedback. */
 export const FIELDS = {
   story: ['schema', 'id', 'title', 'fps', 'width', 'height', 'look', 'cast', 'objects', 'shots', 'meta'],
-  look: ['preset', 'fog', 'exposure', 'grain', 'vignette', 'sky'],
+  look: ['preset', 'fog', 'exposure', 'grain', 'vignette', 'sky', 'hemi'],
   cast: ['asset', 'clip', 'palette', 'scale', 'label', 'note', 'outfit'],
   objects: ['asset', 'scale', 'label'],
   shot: ['id', 'duration', 'title', 'set', 'actors', 'objects', 'camera', 'light', 'audio', 'text', 'secondary', 'note', 'lookPreset'],
@@ -23,7 +23,7 @@ export const FIELDS = {
   actor: ['ref', 'at', 'facing', 'clip', 'offset', 'speed', 'travel', 'loop', 'lookAt', 'gazeWeight', 'hold', 'holdHand', 'holdOffset', 'hidden'],
   object: ['ref', 'at', 'rot', 'scale', 'hidden'],
   camera: ['preset', 'from', 'to', 'target', 'fov', 'roll', 'shake', 'side', 'radius', 'startAngle', 'arc', 'distance', 'height'],
-  light: ['preset', 'intensity', 'color'],
+  light: ['preset', 'intensity', 'color', 'azimuth', 'elevation', 'shadow', 'fill'],
   audio: ['vo', 'ambience', 'music', 'sfx'],
   text: ['id', 'style', 'value'],
   meta: ['author', 'notes', 'generatedBy', 'tags'],

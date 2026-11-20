@@ -207,6 +207,15 @@ export function lifeTurns(seconds, opts = {}) {
 
   const t = seconds;
   const turns = [];
+
+  // ------------------------------------------------------- stance saat berjalan
+  // Klip `walk` bawaan aset membuka kaki sampai 0,45 m (dua kali lebar panggul),
+  // jadi langkahnya terbaca "melebar ke samping" walau kakinya memang melangkah
+  // ke depan (ayunan Z 0,57 m). Rapatkan ke ±0,24 m — lebar langkah manusia.
+  if (/^(walk|run|jalan|lari)/.test(String(clip))) {
+    turns.push({bone: 'upperleg01.L', axis: 'z', angle: -0.14});
+    turns.push({bone: 'upperleg01.R', axis: 'z', angle: 0.14});
+  }
   // `energy` = karakter dasar aktor (lansia lebih tenang, remaja lebih besar).
   const amp = intensity * energy;
   const push = (bone, axis, angle) => {

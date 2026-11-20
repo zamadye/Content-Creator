@@ -109,5 +109,10 @@ Versi pertama punya lubang logika yang membuat ceritanya tidak nyambung:
 
 ## Hasil render
 
-* Berkas repo: `studio/docs/animasi/saldo-8-juta-720p.mp4`
-* Google Drive: <https://drive.google.com/file/d/1QmHNjPYNEdxaQfLyTJbuUI72vnFmCtGX/view>
+**Babak 1 dengan VO (uji audio, 48 detik, 512×288):**
+`studio/docs/animasi/saldo-8-juta-bab1-vo.mp4` (Drive: <https://drive.google.com/file/d/1IXTbZv1Acy62YE11iQ7kM1KAxs20G4vg/view>)
+— 7 baris dialog sudah bersuara,
+tiap baris satu klip, ada jeda sunyi di antara shot (terukur: detik 13–16 sunyi).
+
+**Film penuh 720p** dirender setelah 9 baris VO sisanya masuk
+(`kor-13`, `kos-16`, `kos-18`, `kos-20`, `kos-22`, `kos-23`, `kos-24`, `kos-25`, `luar-26`).

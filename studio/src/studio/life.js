@@ -69,12 +69,15 @@ const holdWave = (phase) => {
  */
 function beatWave(t, period, seed, duty = 1) {
   const p = (((t / period) + hash01(seed)) % 1 + 1) % 1;
-  const at = (u) => p < u;
-  if (at(0.16)) return -0.18 * smooth(p / 0.16) * duty;
-  if (at(0.3)) return (-0.18 + 1.18 * smooth((p - 0.16) / 0.14)) * duty;
-  if (at(0.52)) return (1 - 0.1 * smooth((p - 0.3) / 0.22)) * duty;
-  if (at(0.74)) return (0.9 - 1.02 * smooth((p - 0.52) / 0.22)) * duty;
-  return (-0.12 + 0.12 * smooth((p - 0.74) / 0.26)) * duty;
+  // 0,00–0,10 antisipasi ke arah berlawanan (cepat, jelas)
+  // 0,10–0,20 aksi: 8–10 frame pada periode 2,4 s — inilah "snap"
+  // 0,20–0,55 moving hold: pose ditahan, jadi penonton sempat membaca
+  // 0,55–0,68 overshoot melewati nol sebelum settle
+  if (p < 0.1) return -0.22 * smooth(p / 0.1) * duty;
+  if (p < 0.2) return (-0.22 + 1.34 * smooth((p - 0.1) / 0.1)) * duty;
+  if (p < 0.55) return (1.12 - 0.12 * smooth((p - 0.2) / 0.35)) * duty;
+  if (p < 0.68) return (1.0 - 1.18 * smooth((p - 0.55) / 0.13)) * duty;
+  return (-0.18 + 0.18 * smooth((p - 0.68) / 0.32)) * duty;
 }
 
 /** Gerbang frasa: bicara bergelombang, ada jeda pendek di ujung frasa. */
@@ -147,30 +150,38 @@ export const LIFE_BONES = [
   'orbicularis04.R',
   'oculi01.L',
   'oculi01.R',
+  'levator03.L',
+  'levator03.R',
+  'levator05.L',
+  'levator05.R',
   'eye.L',
   'eye.R',
 ];
 
 /** Amplitudo dasar (radian). Dipilih supaya terbaca di frame 0,4× (768 px). */
 const A = {
-  breathChest: 0.034,
-  breathShoulder: 0.017,
-  breathBob: 0.0028, // meter, naik-turun halus seluruh badan
-  weightRoll: 0.032,
-  weightShift: 0.017, // meter, geser panggul ke samping
-  headNod: 0.045,
-  headTurn: 0.06,
-  headTilt: 0.024,
-  shimmer: 0.0075,
-  jaw: 0.055,
+  breathChest: 0.036,
+  breathShoulder: 0.018,
+  breathBob: 0.003,
+  weightRoll: 0.034,
+  weightShift: 0.019,
+  headNod: 0.075,
+  headTurn: 0.09,
+  headTilt: 0.05,
+  jaw: 0.06,
   mouthOpen: 0.78,
   mouthWideScale: 0.1,
   eyelidClose: 0.94,
-  armBeat: 0.46,
-  armBeatUpper: 0.16,
-  armBeatWrist: 0.13,
-  leanIn: 0.02,
-  shoulderRoll: 0.05,
+  armBeat: 0.62,
+  armBeatUpper: 0.30,
+  armBeatWrist: 0.22,
+  leanIn: 0.035,
+  shoulderRoll: 0.09,
+  torsoTwist: 0.07,
+  brow: 0.10,
+  squint: 0.12,
+  squash: 0.016,
+  shimmer: 0.0075,
 };
 
 /**
@@ -188,7 +199,7 @@ const A = {
  * @returns {{turns: {bone: string, axis: 'x'|'y'|'z', angle: number}[], root: [number, number, number]}}
  */
 export function lifeTurns(seconds, opts = {}) {
-  const {seed = 0, speaking = false, listening = false, clip = '', intensity = 1, blink: allowBlink = true} = opts;
+  const {seed = 0, speaking = false, listening = false, clip = '', intensity = 1, energy = 1, blink: allowBlink = true} = opts;
   if (!(intensity > 0) || !Number.isFinite(seconds)) return {turns: [], root: [0, 0, 0]};
   // Saat berjalan, lengan sudah mengayun dari klip; gestur bicara harus
   // subordinate (prinsip secondary action) supaya tidak tabrakan dengan ayunan.
@@ -196,21 +207,23 @@ export function lifeTurns(seconds, opts = {}) {
 
   const t = seconds;
   const turns = [];
+  // `energy` = karakter dasar aktor (lansia lebih tenang, remaja lebih besar).
+  const amp = intensity * energy;
   const push = (bone, axis, angle) => {
-    if (Number.isFinite(angle) && Math.abs(angle) > 1e-6) turns.push({bone, axis, angle: angle * intensity});
+    if (Number.isFinite(angle) && Math.abs(angle) > 1e-6) turns.push({bone, axis, angle: angle * amp});
   };
   // Wajah memakai skala, bukan rotasi: rig kita membuka mulut dengan
   // `oris05.scale.y` dan memejamkan mata dengan `oculi01.scale.y`. Nilai di sini
   // adalah pengali pada pose klip, jadi 1 = tidak berubah.
   const scale = (bone, scaleAxis, factor) => {
-    const f = 1 + (factor - 1) * intensity;
+    const f = 1 + (factor - 1) * amp;
     if (Number.isFinite(f) && Math.abs(f - 1) > 1e-4) turns.push({bone, scaleAxis, scale: f});
   };
   // Lerp skala ke nilai absolut: mulut butuh bukaan yang pasti, bukan pengali
   // dari pose istirahat yang cuma 0,19.
   const scaleTo = (bone, scaleAxis, value, amount) => {
     if (!(amount > 0.001)) return;
-    turns.push({bone, scaleTo: {axis: scaleAxis, value, amount: amount * intensity}});
+    turns.push({bone, scaleTo: {axis: scaleAxis, value, amount: Math.min(1, amount * amp)}});
   };
 
   // ---------------------------------------------------------------- napas
@@ -256,11 +269,28 @@ export function lifeTurns(seconds, opts = {}) {
 
     // Kepala mengangguk pada beat frasa; kepala datang 70 ms setelah dada.
     const nod = beatWave(t - 0.07, 1.25 + 0.35 * hash01(seed + 17), seed + 19);
+    const arm_sign = hash01(seed + 71) > 0.5 ? 1 : -1;
     push('head', 'x', A.headNod * nod * (0.55 + 0.45 * gate));
     push('neck03', 'x', A.headNod * 0.4 * nod * (0.55 + 0.45 * gate));
 
-    // Badan condong sedikit ke depan saat bicara (bukan ke belakang).
+    // Badan condong sedikit ke depan saat bicara (bukan ke belakang), dan
+    // memutar ke arah tangan yang memimpin — pose jadi punya "line of action".
     push('spine04', 'z', A.leanIn * gate);
+    push('spine03', 'y', A.torsoTwist * arm_sign * nod);
+    push('spine04', 'y', A.torsoTwist * 0.6 * arm_sign * nod);
+
+    // Ekspresi: alis terangkat pada tekanan, mata menyipit sedikit. Ini yang
+    // membuat wajah tidak "datar" walau kamera jauh.
+    const browUp = Math.max(0, nod);
+    for (const side of ['L', 'R']) {
+      push(`levator03.${side}`, 'x', -A.brow * browUp);
+      push(`levator05.${side}`, 'x', -A.brow * 0.6 * browUp);
+      push(`oculi01.${side}`, 'z', (side === 'L' ? 1 : -1) * A.squint * browUp * 0.5);
+      push(`oris01`, 'z', A.squint * 0.35 * browUp * (side === 'L' ? 1 : -1));
+    }
+
+    // squash halus: badan memadat sedikit tepat saat aksen mendarat
+    scale('spine03', 'y', 1 - A.squash * browUp);
 
     // Gestur tangan: busur, bukan garis lurus — sumbu x dan z berbarengan,
     // tangan 110 ms setelah bahu.

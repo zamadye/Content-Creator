@@ -980,7 +980,7 @@
           1.0,
           4.9
         ],
-        "fov": 32
+        "fov": 24
       },
       "light": {
         "preset": "lampu-teplok",
@@ -1181,7 +1181,7 @@
           1.0,
           5.55
         ],
-        "fov": 32
+        "fov": 24.0
       },
       "light": {
         "preset": "lampu-teplok",
@@ -1382,7 +1382,7 @@
           1.0,
           5.55
         ],
-        "fov": 32
+        "fov": 27
       },
       "light": {
         "preset": "lampu-teplok",
@@ -1588,7 +1588,7 @@
           1.02,
           5.55
         ],
-        "fov": 32
+        "fov": 24.0
       },
       "light": {
         "preset": "lampu-teplok",
@@ -1962,7 +1962,7 @@
           1.15,
           4.9
         ],
-        "fov": 34
+        "fov": 25.5
       },
       "light": {
         "preset": "lampu-teplok",
@@ -2163,7 +2163,7 @@
           1.0,
           5.55
         ],
-        "fov": 32
+        "fov": 24.0
       },
       "light": {
         "preset": "lampu-teplok",
@@ -2357,7 +2357,7 @@
           1.4,
           4.95
         ],
-        "fov": 30
+        "fov": 22.5
       },
       "light": {
         "preset": "lampu-teplok",
@@ -2558,7 +2558,7 @@
           1.02,
           5.55
         ],
-        "fov": 32
+        "fov": 24.0
       },
       "light": {
         "preset": "lampu-teplok",
@@ -2759,7 +2759,7 @@
           1.0,
           5.55
         ],
-        "fov": 32
+        "fov": 24.0
       },
       "light": {
         "preset": "lampu-teplok",

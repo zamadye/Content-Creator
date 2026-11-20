@@ -177,6 +177,8 @@ export class StudioRenderer {
         travel,
         // aktor manusia (punya tulang kepala) → boleh dapat lapisan hidup
         isCharacter: Boolean(root.getObjectByName('head')),
+        // Karakter dasar tiap aset: lansia lebih tenang, anak lebih besar.
+        energy: /lansia/.test(assetId) ? 0.78 : /anak|balita/.test(assetId) ? 1.2 : 1.05,
       });
       keys.push(key);
     };
@@ -353,6 +355,7 @@ export class StudioRenderer {
             inst.sampler.scaleNodes.has('eyeL') || inst.sampler.scaleNodes.has('eye.L');
           const life = lifeTurns(seconds, {
             blink: !clipBlinks,
+            energy: inst.energy,
             seed: inst.seed,
             speaking: speaker === inst.ref,
             listening: Boolean(speaker) && speaker !== inst.ref,

@@ -143,14 +143,40 @@ Bukti visual lain (raster CPU, bukan Chromium):
 * `animasi/kepala-nisa-08-kedip2.png` — rangkaian kedip frame 997–1004
 * `animasi/dua-shot-16.png` — dua aktor duduk dalam satu shot
 
-## 6. Batas yang jujur
+## 6. Bukti render sungguhan (Chromium + SwiftShader)
 
-* Gambar di atas berasal dari `scripts/preview-cpu.mjs`: raster CPU tanpa
-  tekstur dan tanpa look-dev. Pose, gerak, kamera, dan proporsi **sama** dengan
-  renderer; warna dan cahaya tidak.
-* Chromium/SwiftShader untuk Remotion (`.studio-tools/`) tidak ada di sandbox
-  ini dan unduhannya diblokir, jadi MP4 final belum bisa dibuat dari sini.
-  `npm run render:studio:h264` akan memakai klip baru tanpa perubahan lain.
-* Kaki masih bisa meluncur sedikit saat stance (23–27 % kontak, kecepatan
-  stance bervariasi ±20 %). Solusi penuhnya foot-lock/IK kaki, belum dikerjakan.
-* Lapisan hidup bukan simulasi kain/fisika; ia prosedural dan deterministik.
+`@sparticuz/chromium` mengirim browser sebagai arsip brotli **di dalam paket
+npm**, jadi tidak perlu unduhan terpisah:
+
+```bash
+npm ci && npm run extract:chromium && npm run verify:chromium
+```
+
+`docs/CHROMIUM.md` memuat detailnya (binary + lib al2023 + SwiftShader harus
+duduk di samping binary). Dengan itu `remotion still` dan `remotion render`
+berjalan: ±0,7–1 s/frame pada `--scale=0.4`, `--concurrency=1`.
+
+Perbandingan langsung (shot `busri-05`, 150 frame, 5 detik):
+
+* `animasi/busri05-sebelum.mp4` — klip lama + lapisan hidup versi awal, fov 32
+* `animasi/busri05-sesudah.mp4` — klip penuh + timing *snap*, ekspresi, fov 24
+
+### Yang diubah pada putaran ini (mengikuti rujukan animasi komedi/remaja)
+
+| prinsip | penerapan |
+| --- | --- |
+| *snap & hold* | `beatWave` baru: aksi 10 % periode (≈8 frame), lalu *moving hold* 35 %, lalu *overshoot* |
+| *exaggeration* | amplitudo gestur tangan 0,46 → 0,62 rad; angguk 0,045 → 0,075; bahu 0,05 → 0,09 |
+| *line of action* | badan memutar (`spine03/04` ry) ke arah tangan yang memimpin |
+| ekspresi | alis (`levator03/05`), sipit mata (`oculi01`), sudut mulut (`oris01/02`) mengikuti aksen |
+| *squash* | `spine03` memadat 1,6 % tepat saat aksen mendarat |
+| *staging* | kamera dialog dirapatkan (fov 32 → 24, busri-05 24, busri-10 25,5) supaya akting terbaca |
+| peran karakter | `energy`: lansia 0,78 · remaja/dewasa 1,05 · anak 1,2 |
+
+## 7. Batas yang jujur
+
+* Foot-lock/IK kaki belum ada: saat stance, telapak masih bisa meluncur
+  sedikit (kontak 23–27 % siklus, kecepatan bervariasi ±20 %).
+* `remotion render` penuh (2580 frame) belum dijalankan ulang; contoh 150 frame
+  di `animasi/` cukup untuk menilai gerak.
+* Lapisan hidup prosedural dan deterministik — bukan simulasi kain/fisika.

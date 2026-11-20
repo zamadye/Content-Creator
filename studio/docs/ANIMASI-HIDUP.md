@@ -161,6 +161,18 @@ Perbandingan langsung (shot `busri-05`, 150 frame, 5 detik):
 * `animasi/busri05-sebelum.mp4` — klip lama + lapisan hidup versi awal, fov 32
 * `animasi/busri05-sesudah.mp4` — klip penuh + timing *snap*, ekspresi, fov 24
 
+Adegan dialog utuh (frame 540–1499 = 32 detik, 960 frame) juga dirender penuh
+lewat jalur yang sama: `animasi/warung-hujan-dialog-540-1499.mp4`
+(576×324, 30 fps, 4,9 MB, ±1,8 s/frame).
+
+### Tautan Google Drive (folder “Warung Hujan — Naskah & Adegan”)
+
+| berkas | isi | tautan |
+| --- | --- | --- |
+| `warung-hujan-busri05-SEBELUM.mp4` | shot busri-05 sebelum perubahan | <https://drive.google.com/file/d/1_TErjY-pOhtDx_nfHr2lfPto7G2Emby3/view> |
+| `warung-hujan-busri05-SESUDAH.mp4` | shot busri-05 sesudah perubahan | <https://drive.google.com/file/d/1q9HShxt7wenGgORYo51lh4pL5_ccv6fu/view> |
+| `warung-hujan-dialog-32detik.mp4` | adegan dialog 32 detik (render penuh) | <https://drive.google.com/file/d/14GgVJeakLkGHuU_pheztnjHYct4XATSm/view> |
+
 ### Yang diubah pada putaran ini (mengikuti rujukan animasi komedi/remaja)
 
 | prinsip | penerapan |

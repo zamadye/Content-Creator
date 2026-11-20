@@ -1,0 +1,53 @@
+name: KNOT THEORY · Zernio media pack
+on:
+  push:
+    branches: [codex/pack-optika-07e0c04c]
+    paths: [.github/workflows/pack.yml]
+permissions: {}
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Prepare two file-specific uploads in Zernio
+        env:
+          ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+          PACK_RECIPIENT: LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQm9qQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FZOEFNSUlCaWdLQ0FZRUEwY1k5bFVVUzk5cnMzU0RDMEh5Vwp2bFF4K0tHeHlvQlM4enNTNkwrVTdCaENjSXBGS2p4SnpseU1Canp4bys0dEM5NVgrZTVNZUVucnhOS0F2WW5KCkc2TXl0aEt5b3hnZE5XQVpuNWpDUlFhaVlCUjF6dkN5dk0rK2ZDa0Q2Yzd6S1pldWpFMmx4ZTl5U29NTkVFK1EKTFk1Szh2ckV0d1oxangyai9sMWxNcHdXeVR6VERGNWZIL3VCS2ZYeTRJcVFRWDVnc3RQeXloQmZkaDFkK0RnRwpCc1NEaVJabVlOMGlYY1ZPcWtYVC84L3FlTm4waGhqeVd6OVdVRFMyTlhqZDg5NjE1eVZTVndSSElidy9Uak0rClRPSkNBenE1S0svTHZrYU1LaWZSMUNHL0krd1NKWUYvZUhkYmJ5V1N1eThhQnhkMHlsV1hNUXVTZjVaSmw3VmIKYlZlYnlLTkhwWG91N2thTWtrS0ZnemZGa1Fma01LOG5vWTNtRmJwVVh1YmdLVHcrVUFnQTdwUGFoNWF1SmYyTwoxeGFEekNDZTdJK2FENzZNbldBc0Z1bXpxSGdyd05DeHZBUnY0bnJEZnluZ0ZKTlpJWVI2elVUSlZKMVU4Lzd4CjREWjhkRXBVTXMzczUwOXVYdzQ1UHRUd1ZsdnkzNUd2RDRsQmY1UXpmcHRWQWdNQkFBRT0KLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg==
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'JS'
+          import {publicEncrypt, randomBytes, createCipheriv, constants} from 'node:crypto';
+          import {writeFileSync} from 'node:fs';
+          const files = [
+            {name:'dindingnya-putih.mp4', size:3733533},
+            {name:'dindingnya-putih-fb-reel.mp4', size:2156374}
+          ];
+          if (!process.env.ZERNIO_API_KEY) throw Error('No Zernio connection');
+          const outputs = [];
+          for (const file of files) {
+            const res = await fetch('https://zernio.com/api/v1/media/presign', {
+              method:'POST', redirect:'error', signal:AbortSignal.timeout(20000),
+              headers:{Authorization:'Bearer '+process.env.ZERNIO_API_KEY, 'Content-Type':'application/json'},
+              body:JSON.stringify({filename:file.name,contentType:'video/mp4',size:file.size})
+            });
+            if (!res.ok) throw Error('Zernio presign returned HTTP '+res.status);
+            const reply=await res.json();
+            const data=reply.data ?? reply;
+            const destination=new URL(data.uploadUrl), result=new URL(data.publicUrl);
+            if(destination.protocol!=='https:' || result.protocol!=='https:') throw Error('Invalid media URLs');
+            outputs.push({name:file.name,uploadUrl:destination.href,publicUrl:result.href});
+          }
+          const aes=randomBytes(32), iv=randomBytes(12);
+          const cipher=createCipheriv('aes-256-gcm',aes,iv);
+          const ciphertext=Buffer.concat([cipher.update(JSON.stringify(outputs),'utf8'),cipher.final()]);
+          const wrapped=publicEncrypt({key:Buffer.from(process.env.PACK_RECIPIENT,'base64'),padding:constants.RSA_PKCS1_OAEP_PADDING,oaepHash:'sha256'},aes);
+          const envelope=Object.fromEntries(Object.entries({wrapped,iv,tag:cipher.getAuthTag(),ciphertext}).map(([k,v])=>[k,v.toString('base64')]));
+          writeFileSync('pack.json',JSON.stringify(envelope),{mode:0o600});
+          JS
+      - name: Return the sealed upload addresses to the laptop
+        uses: actions/upload-artifact@v4
+        with:
+          name: knot-optika-upload-addresses
+          path: pack.json
+          retention-days: 1

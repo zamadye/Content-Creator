@@ -77,5 +77,5 @@ Notifikasi pinjol Rp 11.400.000. Nomor Bima mati. Nadin bicara terbata. Di layar
 ## Hasil render
 
 * Berkas repo: `docs/animasi/saldo-8-juta-72detik.mp4` (768×432, 30 fps, 72 detik, 26 MB)
-* Google Drive: <https://drive.google.com/file/d/1GcgKvDECGSjEPciig2O4n0kY6DMHMoZK/view>
+* Google Drive: <https://drive.google.com/file/d/1QmHNjPYNEdxaQfLyTJbuUI72vnFmCtGX/view>
 * Render penuh di mesin 2 vCPU tanpa GPU (Chromium + SwiftShader, ±2,2 s/frame).

@@ -1035,8 +1035,8 @@
         "fov": 28
       },
       "light": {
-        "preset": "sore",
-        "intensity": 1.5
+        "preset": "lampu-teplok",
+        "intensity": 2.6
       },
       "text": {
         "style": "subtitle",
@@ -1748,8 +1748,8 @@
         "fov": 28
       },
       "light": {
-        "preset": "sore",
-        "intensity": 1.5
+        "preset": "lampu-teplok",
+        "intensity": 2.6
       },
       "text": {
         "style": "subtitle",

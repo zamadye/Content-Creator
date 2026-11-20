@@ -8,7 +8,7 @@
   "look": {
     "preset": "interior-lampu",
     "fog": 0.02,
-    "exposure": 1.04,
+    "exposure": 1.5,
     "grain": 0.03,
     "vignette": 0.24
   },
@@ -138,6 +138,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -259,6 +276,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -386,6 +420,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -426,8 +477,8 @@
         "fov": 30
       },
       "light": {
-        "preset": "lampu-teplok",
-        "intensity": 2.4
+        "preset": "sore",
+        "intensity": 1.5
       },
       "text": {
         "style": "subtitle",
@@ -518,6 +569,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -921,6 +989,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -950,8 +1035,8 @@
         "fov": 28
       },
       "light": {
-        "preset": "lampu-teplok",
-        "intensity": 2.4
+        "preset": "sore",
+        "intensity": 1.5
       },
       "text": {
         "style": "subtitle",
@@ -1042,6 +1127,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -1164,6 +1266,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -1291,6 +1410,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -1413,6 +1549,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -1549,6 +1702,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -1578,8 +1748,8 @@
         "fov": 28
       },
       "light": {
-        "preset": "lampu-teplok",
-        "intensity": 2.4
+        "preset": "sore",
+        "intensity": 1.5
       },
       "text": {
         "style": "subtitle",
@@ -1670,6 +1840,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -1699,8 +1886,8 @@
         "fov": 28
       },
       "light": {
-        "preset": "lampu-teplok",
-        "intensity": 2.4
+        "preset": "sore",
+        "intensity": 1.5
       },
       "text": {
         "style": "subtitle",
@@ -1791,6 +1978,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -1913,6 +2117,23 @@
             -1.2
           ],
           "rot": 0.4
+        },
+        {
+          "asset": "kit.floor.tile",
+          "at": [
+            0,
+            0,
+            3.9
+          ]
+        },
+        {
+          "asset": "kit.wall.plain",
+          "at": [
+            2.0,
+            0,
+            3.9
+          ],
+          "rot": -1.5708
         }
       ],
       "actors": [
@@ -1953,8 +2174,8 @@
         "fov": 28
       },
       "light": {
-        "preset": "lampu-teplok",
-        "intensity": 2.4
+        "preset": "sore",
+        "intensity": 1.5
       },
       "text": {
         "style": "subtitle",

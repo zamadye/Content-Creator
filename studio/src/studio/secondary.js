@@ -1,3 +1,5 @@
+import {LIFE_BONES} from './life.js';
+
 /**
  * Gerak sekunder prosedural.
  *
@@ -163,20 +165,35 @@ function resolveBone(root, name) {
  * @param {Set<string>} [animated]
  */
 export function prepareSecondary(root, animated = new Set()) {
+  // `animated` boleh berupa Set nama (cara lama) atau {nodes, scales} dari
+  // `createClipSampler` supaya skala wajah tidak tertukar dengan rotasi.
+  const animatedNodes = animated?.nodes ?? animated;
+  const animatedScaleNodes = animated?.scales ?? animated;
   const bones = new Map();
   const rest = new Map();
-  for (const name of SECONDARY_BONES) {
+  const restScale = new Map();
+  for (const name of [...SECONDARY_BONES, ...LIFE_BONES]) {
     const bone = resolveBone(root, name);
     if (!bone) continue;
     bones.set(name, bone);
     rest.set(name, bone.quaternion.clone());
+    restScale.set(name, bone.scale.clone());
   }
   const animatedNames = new Set();
+  const animatedScales = new Set();
   for (const name of bones.keys()) {
-    // `animated` berisi nama node three (titik sudah dibuang saat impor glTF)
-    if (animated.has(name) || animated.has(sanitize(name))) animatedNames.add(name);
+    // daftar berisi nama node three (titik sudah dibuang saat impor glTF)
+    if (animatedNodes.has(name) || animatedNodes.has(sanitize(name))) animatedNames.add(name);
+    if (animatedScaleNodes.has(name) || animatedScaleNodes.has(sanitize(name))) animatedScales.add(name);
   }
-  root.userData.secondary = {bones, rest, animated: animatedNames};
+  root.userData.secondary = {
+    bones,
+    rest,
+    restScale,
+    animated: animatedNames,
+    animatedScales,
+    all: [...bones.keys()],
+  };
   return root.userData.secondary;
 }
 
@@ -194,11 +211,51 @@ export function prepareSecondary(root, animated = new Set()) {
 export function applySecondary(root, turns) {
   if (!root || !turns?.length) return;
   const state = root.userData?.secondary ?? prepareSecondary(root);
+  // Reset SEKALI per tulang per panggilan. Kalau direset per operasi (versi
+  // lama), dua operasi pada tulang yang sama saling menghapus — gestur yang
+  // memakai napas + ayunan + fidget di satu tulang jadi hilang sebagian.
+  const reset = new Set();
+  const resetScale = new Set();
   for (const op of turns) {
-    if (!Number.isFinite(op.angle)) continue;
     const bone = state.bones.get(op.bone);
     if (!bone) continue;
-    if (!state.animated.has(op.bone)) bone.quaternion.copy(state.rest.get(op.bone));
+    // Operasi skala (wajah: kelopak mata & mulut) dikalikan pada pose klip —
+    // rig ini membuka mulut lewat `oris05.scale.y` dan memejamkan mata lewat
+    // `oculi01.scale.y`, jadi lapisan hidup harus mengalikan, bukan menimpa.
+    // Skala absolut (lerp ke target): dipakai mulut, karena pose istirahat
+    // rahang di rig ini hanya 0,19 — mengalikan nilainya membuat bukaan mulut
+    // terlalu kecil untuk terbaca di 768 px.
+    if (op.scaleTo) {
+      if (!(state.animatedScales?.has(op.bone) ?? state.animated.has(op.bone)) && !resetScale.has(op.bone)) {
+        const rest0 = state.restScale?.get(op.bone);
+        if (rest0) bone.scale.copy(rest0);
+        resetScale.add(op.bone);
+      }
+      const axis = op.scaleTo.axis;
+      const target = op.scaleTo.value;
+      const amount = Math.max(0, Math.min(1, op.scaleTo.amount));
+      bone.scale[axis] = bone.scale[axis] + (target - bone.scale[axis]) * amount;
+      continue;
+    }
+    if (op.scale) {
+      // Tulang wajah yang tidak dianimasikan klip harus dikembalikan dulu ke
+      // skala istirahat — kalau tidak, pengali menumpuk tiap frame dan kelopak
+      // mata menyusut sampai 0 (bug yang tertangkap qc-life: 69/150 frame buta).
+      if (!(state.animatedScales?.has(op.bone) ?? state.animated.has(op.bone)) && !resetScale.has(op.bone)) {
+        const rest0 = state.restScale?.get(op.bone);
+        if (rest0) bone.scale.copy(rest0);
+        resetScale.add(op.bone);
+      }
+      if (op.scaleAxis === 'y') bone.scale.y *= op.scale;
+      else if (op.scaleAxis === 'x') bone.scale.x *= op.scale;
+      else if (op.scaleAxis === 'z') bone.scale.z *= op.scale;
+      continue;
+    }
+    if (!Number.isFinite(op.angle)) continue;
+    if (!state.animated.has(op.bone) && !reset.has(op.bone)) {
+      bone.quaternion.copy(state.rest.get(op.bone));
+      reset.add(op.bone);
+    }
     if (op.axis === 'x') bone.rotateX(op.angle);
     else if (op.axis === 'y') bone.rotateY(op.angle);
     else if (op.axis === 'z') bone.rotateZ(op.angle);
@@ -217,5 +274,7 @@ export function resetSecondary(root) {
   if (!state) return;
   for (const [name, bone] of state.bones) {
     if (!state.animated.has(name)) bone.quaternion.copy(state.rest.get(name));
+    const rest0 = state.restScale?.get(name);
+    if (rest0 && !(state.animatedScales?.has(name) ?? state.animated.has(name))) bone.scale.copy(rest0);
   }
 }

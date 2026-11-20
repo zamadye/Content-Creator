@@ -17,6 +17,26 @@ export function shotTimings(shots, fps) {
   });
 }
 
+
+/**
+ * Tebak ref penutur dari teks shot ("BU SRI — ...").
+ *
+ * Sengaja konservatif: kalau tidak ada awalan nama yang cocok dengan label
+ * cast, hasilnya `null` dan tidak ada aktor yang diberi gestur bicara.
+ */
+function detectSpeaker(value, cast, storyCast) {
+  if (typeof value !== "string") return null;
+  const match = value.match(/^\s*([^—–:\-]{2,24}?)\s*(?:—|–|:|\s-)\s/);
+  if (!match) return null;
+  const label = match[1].trim().toLowerCase();
+  for (const c of cast) {
+    const castLabel = String(storyCast?.[c.ref]?.label ?? "").trim().toLowerCase();
+    if (!castLabel) continue;
+    if (castLabel === label || castLabel.startsWith(label) || label.startsWith(castLabel)) return c.ref;
+  }
+  return null;
+}
+
 export function compileStory(raw, {registry = null} = {}) {
   const story = normalizeStory(raw);
   const {warnings, durationInFrames} = validateStory(story, {registry});
@@ -68,12 +88,18 @@ export function compileStory(raw, {registry = null} = {}) {
       scale: o.scale ?? 1,
       hidden: Boolean(o.hidden),
     }));
+    // Siapa yang bicara di shot ini? Subtitle kita berformat "NAMA — kalimat".
+    // Dibaca dari label cast, bukan ditebak dari urutan aktor: lapisan gerak
+    // bicara (rahang, angguk, gestur) hanya hidup untuk penutur, dan aktor lain
+    // mendapat sikap mendengarkan.
+    const speaker = detectSpeaker(shot.text?.value, cast, story.cast);
     return {
       ...shot,
       index: i,
       from: timing.from,
       durationInFrames: timing.durationInFrames,
       subject,
+      speaker,
       cast,
       objectPlacements: objects,
       secondary: shot.secondary ?? 1,

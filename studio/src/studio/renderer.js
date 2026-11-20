@@ -9,6 +9,7 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {clone as cloneSkeleton} from 'three/examples/jsm/utils/SkeletonUtils.js';
 import {asset} from './library.js';
 import {secondaryTurns, applySecondary, prepareSecondary, resetSecondary} from './secondary.js';
+import {lifeTurns} from './life.js';
 import {createClipSampler} from './clip-sample.js';
 import {aimGaze} from './ik.js';
 import {attachToHand} from './attach.js';
@@ -33,6 +34,13 @@ export const LIGHTS = {
 };
 
 export const DEFAULT_BASE_URL = '/';
+
+/** Seed stabil per aktor: dipakai untuk jadwal napas/kedip/fidget. */
+function seedOf(ref) {
+  let h = 0;
+  for (let i = 0; i < String(ref).length; i += 1) h = (h * 31 + String(ref).charCodeAt(i)) % 9973;
+  return h / 97;
+}
 
 
 /**
@@ -149,7 +157,7 @@ export class StudioRenderer {
       if (clip && tpl.animations.length) {
         const found = THREE.AnimationClip.findByName(tpl.animations, clip) ?? tpl.animations[0];
         sampler = createClipSampler(root, found);
-        prepareSecondary(root, sampler.animatedNodes);
+        prepareSecondary(root, {nodes: sampler.animatedNodes, scales: sampler.scaleNodes});
       }
       this.instances.set(key, {
         root,
@@ -167,6 +175,8 @@ export class StudioRenderer {
         at,
         yaw,
         travel,
+        // aktor manusia (punya tulang kepala) → boleh dapat lapisan hidup
+        isCharacter: Boolean(root.getObjectByName('head')),
       });
       keys.push(key);
     };
@@ -317,6 +327,7 @@ export class StudioRenderer {
         }
         continue;
       }
+      const speaker = shot.speaker ?? null;
       for (const key of keys) {
         const inst = this.instances.get(key);
         if (!inst?.sampler) continue;
@@ -324,15 +335,38 @@ export class StudioRenderer {
         inst.sampler.apply(seconds * inst.speed + inst.offset);
         // gerak sekunder: kepala & tangan terlambat dari dada, plus napas.
         // Diterapkan setelah sampler menulis pose klip.
-        applySecondary(
-          inst.root,
-          secondaryTurns(seconds, {
+        const intensity = shot.secondary ?? 1;
+        const turns = secondaryTurns(seconds, {
+          clip: inst.clip,
+          duration: inst.clipDuration,
+          speed: inst.speed,
+          intensity,
+        });
+        // Lapisan hidup: napas yang terbaca, tumpuan berat badan, kedip,
+        // gestur bicara, sikap mendengarkan, dan fidget jarang. Aktor yang
+        // bicara dapat rahang + angguk + gestur tangan; yang lain mendengarkan.
+        // Lapisan hidup hanya untuk aktor manusia. Properti ber-klip (kain,
+        // lampu gantung) jangan ikut bergeser akarnya.
+        if (inst.isCharacter) {
+          if (inst.seed === undefined) inst.seed = seedOf(inst.ref);
+          const life = lifeTurns(seconds, {
+            seed: inst.seed,
+            speaking: speaker === inst.ref,
+            listening: Boolean(speaker) && speaker !== inst.ref,
             clip: inst.clip,
-            duration: inst.clipDuration,
-            speed: inst.speed,
-            intensity: shot.secondary ?? 1,
-          }),
-        );
+            intensity,
+          });
+          if (life.turns.length) turns.push(...life.turns);
+          applySecondary(inst.root, turns);
+          // bobot & geseran panggul menggeser seluruh badan beberapa milimeter —
+          // ini yang membuat diam tidak terasa seperti patung.
+          if (life.root[0] || life.root[1]) {
+            inst.root.position.x += life.root[0];
+            inst.root.position.y += life.root[1];
+          }
+        } else {
+          applySecondary(inst.root, turns);
+        }
       }
     }
 

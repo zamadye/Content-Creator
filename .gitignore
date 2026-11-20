@@ -12,3 +12,5 @@ studio/deliverables/
 # Python bytecode from studio-forge
 __pycache__/
 *.pyc
+# Pratinjau CPU & lembar kontak (dihasilkan ulang oleh npm run preview:cpu)
+studio/out/

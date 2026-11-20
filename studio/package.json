@@ -27,6 +27,8 @@
     "test:studio:three": "node scripts/test-studio-three.mjs",
     "qc:framing": "node scripts/qc-framing.mjs",
     "qc:motion": "node scripts/qc-motion.mjs",
+    "qc:life": "node scripts/qc-life.mjs",
+    "preview:cpu": "node scripts/preview-cpu.mjs",
     "qc:plan": "node scripts/qc-plan.mjs",
     "qc:plan:png": "./.venv/bin/python studio-forge/dev_plan.py",
     "test:plan": "node scripts/test-plan.mjs",

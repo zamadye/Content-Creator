@@ -480,7 +480,7 @@ for (const shot of compiled.shots) {
   assert.ok(touched > si.count * 0.5, `most shroud vertices must follow the cloth bones (${touched}/${si.count})`);
 
   const sampler = createClipSampler(inst, clip);
-  prepareSecondary(inst, sampler.animatedNodes);
+  prepareSecondary(inst, {nodes: sampler.animatedNodes, scales: sampler.scaleNodes});
   const pos = shroud.geometry.attributes.position;
   const step = Math.max(1, Math.floor(pos.count / 80));
   const indices = [];
@@ -524,7 +524,7 @@ for (const shot of compiled.shots) {
     if (/shroud/i.test(mat?.name ?? '')) shroud2 = o;
   });
   const sampler2 = createClipSampler(frozen, clip);
-  prepareSecondary(frozen, sampler2.animatedNodes);
+  prepareSecondary(frozen, {nodes: sampler2.animatedNodes, scales: sampler2.scaleNodes});
   sampler2.apply(0.6);
   applySecondary(frozen, secondaryTurns(0.5, {clip: 'walk', duration: clip.duration, intensity: 0}));
   frozen.updateMatrixWorld(true);
@@ -550,7 +550,7 @@ for (const shot of compiled.shots) {
     const inst = cloneSkeleton(gltf.scene);
     inst.updateMatrixWorld(true);
     const sampler = createClipSampler(inst, clip);
-    prepareSecondary(inst, sampler.animatedNodes);
+    prepareSecondary(inst, {nodes: sampler.animatedNodes, scales: sampler.scaleNodes});
     sampler.apply(0.7);
     inst.updateMatrixWorld(true);
     return inst;
@@ -633,7 +633,7 @@ for (const shot of compiled.shots) {
     const inst = cloneSkeleton(gltf.scene);
     inst.updateMatrixWorld(true);
     const sampler = createClipSampler(inst, clip);
-    prepareSecondary(inst, sampler.animatedNodes);
+    prepareSecondary(inst, {nodes: sampler.animatedNodes, scales: sampler.scaleNodes});
     const out = [];
     for (let f = 0; f <= 120; f += 1) {
       const t = f / 60;
@@ -677,7 +677,7 @@ for (const shot of compiled.shots) {
   const b = cloneSkeleton(gltf.scene);
   for (const inst of [a, b]) {
     const sampler = createClipSampler(inst, clip);
-    prepareSecondary(inst, sampler.animatedNodes);
+    prepareSecondary(inst, {nodes: sampler.animatedNodes, scales: sampler.scaleNodes});
     sampler.apply(0.9);
     applySecondary(inst, secondaryTurns(1.5, {clip: 'walk', duration: clip.duration, speed: 0.6, intensity: 1}));
     inst.updateMatrixWorld(true);

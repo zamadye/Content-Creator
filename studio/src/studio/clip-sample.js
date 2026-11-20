@@ -48,6 +48,13 @@ export function createClipSampler(root, clip) {
     /** Nama node yang ditulis klip; dipakai lapisan gerak sekunder. */
     animatedNodes: new Set(channels.map((c) => c.node.name)),
     /**
+     * Node yang **skalanya** ditulis klip. Dipisah dari `animatedNodes` karena
+     * lapisan hidup mengalikan skala wajah: kalau node-nya hanya dianimasikan
+     * rotasinya, pengali akan menumpuk tiap frame dan kelopak mata menyusut
+     * sampai mata tertutup permanen (bug yang tertangkap `qc-life`).
+     */
+    scaleNodes: new Set(channels.filter((c) => c.prop === 'scale').map((c) => c.node.name)),
+    /**
      * Tulis pose pada detik ke-`seconds` (boleh di luar 0..duration; diputar
      * ulang seperti animasi berulang).
      */

@@ -147,18 +147,20 @@ Teknis:
 
 ---
 
-## Hasil render (revisi naskah 26 shot)
+## Hasil render (animasi mulut)
 
-**Film:** `studio/docs/animasi/saldo-8-juta-2d-revisi-final.mp4`
-— 720×1280 (9:16) · 30 fps · 2 menit 50 detik · 26 shot · 42 baris dialog bersuara
-(5 suara berbeda: Alya, Bima, Nadin, Bu Ratna, Ibu).
+**Film:** `studio/docs/animasi/saldo-8-juta-2d-mulut-final.mp4`
+— 720×1280 (9:16) · 30 fps · 2 menit 50 detik · 26 shot · 42 baris VO.
 
-Naskah revisi lengkap (durasi, latar, VO per baris): `naskah/saldo-8-juta-naskah-v2.md`.
-
-Catatan teknis penting:
-- Renderer `studio.story2d/2`: satu shot boleh punya beberapa baris (`lines[]`), tiap baris
-  menentukan tokoh, pose, audio, dan durasi; audio di-offset `shot.from + line.start`.
-- Baris lewat telepon memakai `line.sprite` (yang tampil pendengar, label tetap pembicara).
-- Gerak diminimalkan: latar diam, napas 1,5 px / 5,2 s, lip-flap 10 frame per pose dan
-  berhenti tiap tick ke-4, tanpa sway.
-- Chip info (`shot.chip`) menandai nominal/status pada shot insert (mis. `Rp 11.400.000`).
+### Aturan gerak
+1. **Hanya mulut yang bergerak saat bicara.** Tiap karakter punya pasangan sprite
+   `chars/mouth/<nama>-closed.png` dan `-open.png` yang **badannya identik** — sprite
+   tertutup dibuat programatik dari sprite terbuka (`scripts/2d-mouth.mjs`: deteksi mulut,
+   cat area mulut dengan warna kulit + feather, gambar garis mulut tertutup). Selisih
+   piksel kedua gambar hanya di kotak mulut (diverifikasi otomatis, 0 piksel beda di luar).
+2. **Badan tidak berganti-ganti pose.** Pose `speak` dipakai untuk semua baris dialog;
+   lip-flap menukar pasangan mulut tiap 8 frame dan berhenti tiap tick ke-5.
+3. **Gerakan lain hanya kalau adegan menuntut** — shot gestur memakai pose dari
+   character sheet dan **tanpa animasi mulut**: s10 Bima mengangkat HP, s13 Nadin merekam,
+   s24 Alya menunjukkan pesan.
+4. Latar diam, tanpa sway, napas 1,5 px / 5,2 s, masuk shot fade 18 frame.

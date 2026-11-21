@@ -313,7 +313,7 @@
     },
     {
       "id": "s08",
-      "duration": 8.36,
+      "duration": 7.37,
       "backdrop": "koridor",
       "lines": [
         {
@@ -331,8 +331,10 @@
           "pose": "shock",
           "poseAlt": "talk",
           "text": "Kamu cerita?",
-          "duration": 2.75,
-          "id": "s08-2"
+          "duration": 1.76,
+          "id": "s08-2",
+          "audio": "vo/saldo-8-juta-v2/s08-2.mp3",
+          "audioDuration": 1.31
         }
       ],
       "actor": {
@@ -344,7 +346,7 @@
     },
     {
       "id": "s09",
-      "duration": 7.0,
+      "duration": 7.97,
       "backdrop": "koridor",
       "lines": [
         {
@@ -352,16 +354,20 @@
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Aku dengar UKT kamu belum lunas.",
-          "duration": 3.25,
-          "id": "s09-1"
+          "duration": 3.62,
+          "id": "s09-1",
+          "audio": "vo/saldo-8-juta-v2/s09-1.mp3",
+          "audioDuration": 3.17
         },
         {
           "who": "alya",
           "pose": "sad",
           "poseAlt": "talk",
           "text": "Iya, Kak. Tapi aku lagi cari cara.",
-          "duration": 3.25,
-          "id": "s09-2"
+          "duration": 3.85,
+          "id": "s09-2",
+          "audio": "vo/saldo-8-juta-v2/s09-2.mp3",
+          "audioDuration": 3.4
         }
       ],
       "actor": {
@@ -381,16 +387,20 @@
           "pose": "phone",
           "poseAlt": "talk",
           "text": "Ada cara supaya kamu bisa bayar hari ini.",
-          "duration": 2.75,
-          "id": "s10-1"
+          "duration": 3.71,
+          "id": "s10-1",
+          "audio": "vo/saldo-8-juta-v2/s10-1.mp3",
+          "audioDuration": 3.26
         },
         {
           "who": "alya",
           "pose": "think",
           "poseAlt": "talk",
           "text": "Dari mana uangnya?",
-          "duration": 2.75,
-          "id": "s10-2"
+          "duration": 1.76,
+          "id": "s10-2",
+          "audio": "vo/saldo-8-juta-v2/s10-2.mp3",
+          "audioDuration": 1.31
         }
       ],
       "actor": {
@@ -402,7 +412,7 @@
     },
     {
       "id": "s11",
-      "duration": 6.0,
+      "duration": 6.33,
       "backdrop": "koridor",
       "lines": [
         {
@@ -410,16 +420,20 @@
           "pose": "shock",
           "poseAlt": "talk",
           "text": "Ini utang atas nama aku, Kak?",
-          "duration": 2.75,
-          "id": "s11-1"
+          "duration": 2.33,
+          "id": "s11-1",
+          "audio": "vo/saldo-8-juta-v2/s11-1.mp3",
+          "audioDuration": 1.88
         },
         {
           "who": "bima",
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Iya. Tapi dengerin dulu.",
-          "duration": 2.75,
-          "id": "s11-2"
+          "duration": 3.5,
+          "id": "s11-2",
+          "audio": "vo/saldo-8-juta-v2/s11-2.mp3",
+          "audioDuration": 3.05
         }
       ],
       "actor": {
@@ -431,7 +445,7 @@
     },
     {
       "id": "s12",
-      "duration": 7.0,
+      "duration": 10.14,
       "backdrop": "koridor",
       "lines": [
         {
@@ -439,24 +453,30 @@
           "pose": "chest",
           "poseAlt": "talk",
           "text": "Aku yang bayar cicilannya. Jumat depan uangku masuk.",
-          "duration": 2.17,
-          "id": "s12-1"
+          "duration": 5.35,
+          "id": "s12-1",
+          "audio": "vo/saldo-8-juta-v2/s12-1.mp3",
+          "audioDuration": 4.9
         },
         {
           "who": "alya",
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Beneran, Kak?",
-          "duration": 2.17,
-          "id": "s12-2"
+          "duration": 1.39,
+          "id": "s12-2",
+          "audio": "vo/saldo-8-juta-v2/s12-2.mp3",
+          "audioDuration": 0.94
         },
         {
           "who": "bima",
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Iya, aku janji.",
-          "duration": 2.17,
-          "id": "s12-3"
+          "duration": 2.9,
+          "id": "s12-3",
+          "audio": "vo/saldo-8-juta-v2/s12-3.mp3",
+          "audioDuration": 2.45
         }
       ],
       "actor": {

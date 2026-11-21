@@ -63,17 +63,18 @@ const KineticLine = ({speaker, line, color, from, to, frame}) => {
         ) : null}
         <div style={{fontFamily: FONT, fontSize: 46, fontWeight: 800, lineHeight: 1.24, color: '#fff7e9'}}>
           {words.map((w, i) => (
-            <span
-              key={i}
-              style={{
-                opacity: i < shown ? 1 : 0,
-                color: i === activeIndex ? color : '#fff7e9',
-                textShadow: '0 3px 12px rgba(0,0,0,0.85)',
-                marginRight: 10,
-              }}
-            >
-              {w}
-            </span>
+            <React.Fragment key={i}>
+              <span
+                style={{
+                  opacity: i < shown ? 1 : 0,
+                  color: i === activeIndex ? color : '#fff7e9',
+                  textShadow: '0 3px 12px rgba(0,0,0,0.85)',
+                }}
+              >
+                {w}
+              </span>
+              {i < words.length - 1 ? ' ' : null}
+            </React.Fragment>
           ))}
         </div>
       </div>

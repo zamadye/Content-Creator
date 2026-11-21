@@ -488,7 +488,7 @@
     },
     {
       "id": "s13",
-      "duration": 6.0,
+      "duration": 6.5,
       "backdrop": "koridor",
       "lines": [
         {
@@ -496,16 +496,20 @@
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Din, jangan direkam dulu.",
-          "duration": 2.75,
-          "id": "s13-1"
+          "duration": 2.62,
+          "id": "s13-1",
+          "audio": "vo/saldo-8-juta-v2/s13-1.mp3",
+          "audioDuration": 2.17
         },
         {
           "who": "nadin",
           "pose": "record",
           "poseAlt": "talk",
           "text": "Kak Bima minta buat dokumentasi.",
-          "duration": 2.75,
-          "id": "s13-2"
+          "duration": 3.38,
+          "id": "s13-2",
+          "audio": "vo/saldo-8-juta-v2/s13-2.mp3",
+          "audioDuration": 2.93
         }
       ],
       "actor": {
@@ -525,8 +529,10 @@
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Buat laporan kegiatan aja. Nggak dipost.",
-          "duration": 4.5,
-          "id": "s14-1"
+          "duration": 3.83,
+          "id": "s14-1",
+          "audio": "vo/saldo-8-juta-v2/s14-1.mp3",
+          "audioDuration": 3.38
         }
       ],
       "actor": {
@@ -546,23 +552,27 @@
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Jumat jangan lupa, Kak.",
-          "duration": 2.25,
-          "id": "s15-1"
+          "duration": 2.23,
+          "id": "s15-1",
+          "audio": "vo/saldo-8-juta-v2/s15-1.mp3",
+          "audioDuration": 1.78
         },
         {
           "who": "bima",
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Tenang.",
-          "duration": 2.25,
-          "id": "s15-2"
+          "duration": 1.91,
+          "id": "s15-2",
+          "audio": "vo/saldo-8-juta-v2/s15-2.mp3",
+          "audioDuration": 1.46
         }
       ],
       "sprite": false
     },
     {
       "id": "s16",
-      "duration": 6.0,
+      "duration": 8.26,
       "backdrop": "meja-hp",
       "lines": [
         {
@@ -570,16 +580,20 @@
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Makasih, Kak. Aku nggak tahu harus bilang apa.",
-          "duration": 2.75,
-          "id": "s16-1"
+          "duration": 3.9,
+          "id": "s16-1",
+          "audio": "vo/saldo-8-juta-v2/s16-1.mp3",
+          "audioDuration": 3.45
         },
         {
           "who": "bima",
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Yang penting kamu lanjut kuliah.",
-          "duration": 2.75,
-          "id": "s16-2"
+          "duration": 3.86,
+          "id": "s16-2",
+          "audio": "vo/saldo-8-juta-v2/s16-2.mp3",
+          "audioDuration": 3.41
         }
       ],
       "sprite": false
@@ -594,15 +608,17 @@
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Akhirnya...",
-          "duration": 4.5,
-          "id": "s17-1"
+          "duration": 1.52,
+          "id": "s17-1",
+          "audio": "vo/saldo-8-juta-v2/s17-1.mp3",
+          "audioDuration": 1.07
         }
       ],
       "sprite": false
     },
     {
       "id": "s18",
-      "duration": 7.0,
+      "duration": 9.48,
       "backdrop": "kamar-nadin",
       "lines": [
         {
@@ -610,16 +626,20 @@
           "pose": "guilty",
           "poseAlt": "talk",
           "text": "Al bilang jangan dipost, Kak.",
-          "duration": 3.25,
-          "id": "s18-1"
+          "duration": 3.35,
+          "id": "s18-1",
+          "audio": "vo/saldo-8-juta-v2/s18-1.mp3",
+          "audioDuration": 2.9
         },
         {
           "who": "bima",
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Cuma cerita bantu mahasiswa. Nggak ada yang salah.",
-          "duration": 3.25,
-          "id": "s18-2"
+          "duration": 5.63,
+          "id": "s18-2",
+          "audio": "vo/saldo-8-juta-v2/s18-2.mp3",
+          "audioDuration": 5.18
         }
       ],
       "actor": {

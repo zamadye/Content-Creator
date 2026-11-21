@@ -147,17 +147,18 @@ Teknis:
 
 ---
 
-## Hasil render
+## Hasil render (revisi naskah 26 shot)
 
-**Film penuh 2D:** `studio/docs/animasi/saldo-8-juta-2d-151detik.mp4`
-— 720×1280 (9:16) · 30 fps · 2 menit 31 detik · 19 baris VO, satu klip per baris.
+**Film:** `studio/docs/animasi/saldo-8-juta-2d-revisi-final.mp4`
+— 720×1280 (9:16) · 30 fps · 2 menit 50 detik · 26 shot · 42 baris dialog bersuara
+(5 suara berbeda: Alya, Bima, Nadin, Bu Ratna, Ibu).
 
-Perbaikan setelah review frame-by-frame:
-1. **Irama gerak diperlambat** — lip-flap 4 → **8 frame per pose** (dengan jeda tiap 5 pose
-   seperti animasi "on twos"), masuk karakter 6 → **14 frame** (fade + naik 26 px),
-   Ken Burns 5 % → 4,5 % per shot, kartu caption 8 → 14 frame.
-2. **Latar tidak lagi bentrok** — `meja-hp` (close-up meja penuh alat tulis) sekarang
-   **hanya untuk insert properti tanpa karakter** (kos-14 KTP, kos-15 transfer,
-   kos-17 pinjol, kos-19 nomor mati). Dialog Alya di kos-02 dipindah ke latar kamar.
-3. **Kartu caption** tidak lagi memudar di tengah shot (bug durasi), latar kartu dibuat
-   lebih pekat (0,93) supaya terbaca di atas meja gelap.
+Naskah revisi lengkap (durasi, latar, VO per baris): `naskah/saldo-8-juta-naskah-v2.md`.
+
+Catatan teknis penting:
+- Renderer `studio.story2d/2`: satu shot boleh punya beberapa baris (`lines[]`), tiap baris
+  menentukan tokoh, pose, audio, dan durasi; audio di-offset `shot.from + line.start`.
+- Baris lewat telepon memakai `line.sprite` (yang tampil pendengar, label tetap pembicara).
+- Gerak diminimalkan: latar diam, napas 1,5 px / 5,2 s, lip-flap 10 frame per pose dan
+  berhenti tiap tick ke-4, tanpa sway.
+- Chip info (`shot.chip`) menandai nominal/status pada shot insert (mis. `Rp 11.400.000`).

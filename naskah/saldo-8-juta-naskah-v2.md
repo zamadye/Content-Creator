@@ -1,7 +1,7 @@
 # SALDO 8 JUTA — Naskah (revisi)
 
 Subjudul: *Ditolong di Depan Kamera* · drama sosial · vertikal 9:16 · 720×1280 · 30 fps
-26 shot · 168 detik · 42 baris dialog (suara berbeda per tokoh).
+26 shot · 170 detik · 42 baris dialog (suara berbeda per tokoh).
 
 Dokumen ini mengikuti naskah revisi terbaru, shot per shot. Kolom *Catatan* bisa dipakai untuk revisi berikutnya.
 
@@ -262,22 +262,22 @@ Latar: `kos-kamar`
 
 ---
 
-## SHOT 25 · s25 · 02:36–02:42 (5.7 detik)
+## SHOT 25 · s25 · 02:36–02:44 (7.3 detik)
 
 Latar: `kos-kamar`
 
 - **Alya** (3.0 s): “Bu... aku salah ambil keputusan.” — `vo/saldo-8-juta-v2/s25-1.mp3`
-- **Ibu** (2.3 s) *(yang tampil: Alya)*: “Cerita dulu, Nak. Ibu dengerin.” — *belum ada VO*
+- **Ibu** (3.9 s) *(yang tampil: Alya)*: “Cerita dulu, Nak. Ibu dengerin.” — `vo/saldo-8-juta-v2/s25-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 26 · s26 · 02:42–02:48 (6.0 detik)
+## SHOT 26 · s26 · 02:44–02:50 (6.0 detik)
 
 Latar: `meja-bukti` · insert properti (tanpa karakter)
 
-- **Alya** (5.5 s): “Aku nggak mau jadi konten orang lagi.” — *belum ada VO*
+- **Alya** (2.9 s): “Aku nggak mau jadi konten orang lagi.” — `vo/saldo-8-juta-v2/s26-1.mp3`
 
 **Catatan:**
 

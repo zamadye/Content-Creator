@@ -196,6 +196,10 @@
           "audioDuration": 2.85
         }
       ],
+      "chip": {
+        "label": "Jual cepat",
+        "value": "Laptop · kamera · sisa Rp 800.000"
+      },
       "sprite": false
     },
     {
@@ -568,6 +572,10 @@
           "audioDuration": 1.46
         }
       ],
+      "chip": {
+        "label": "Pinjaman",
+        "value": "Rp 8.000.000 cair atas nama Alya"
+      },
       "sprite": false
     },
     {
@@ -596,6 +604,10 @@
           "audioDuration": 3.41
         }
       ],
+      "chip": {
+        "label": "Transfer masuk",
+        "value": "Rp 8.000.000"
+      },
       "sprite": false
     },
     {
@@ -614,6 +626,10 @@
           "audioDuration": 1.07
         }
       ],
+      "chip": {
+        "label": "UKT",
+        "value": "Lunas"
+      },
       "sprite": false
     },
     {
@@ -665,6 +681,10 @@
           "audioDuration": 3.45
         }
       ],
+      "chip": {
+        "label": "Tagihan pinjol",
+        "value": "Rp 11.400.000"
+      },
       "sprite": false
     },
     {
@@ -706,6 +726,10 @@
           "audioDuration": 2.64
         }
       ],
+      "chip": {
+        "label": "Video viral",
+        "value": "2,1 juta views"
+      },
       "sprite": false
     },
     {
@@ -810,7 +834,7 @@
     },
     {
       "id": "s25",
-      "duration": 5.71,
+      "duration": 7.32,
       "backdrop": "kos-kamar",
       "lines": [
         {
@@ -828,9 +852,11 @@
           "pose": "neutral",
           "poseAlt": null,
           "text": "Cerita dulu, Nak. Ibu dengerin.",
-          "duration": 2.25,
+          "duration": 3.86,
           "sprite": "alya",
-          "id": "s25-2"
+          "id": "s25-2",
+          "audio": "vo/saldo-8-juta-v2/s25-2.mp3",
+          "audioDuration": 3.41
         }
       ],
       "actor": {
@@ -850,10 +876,16 @@
           "pose": "neutral",
           "poseAlt": "talk",
           "text": "Aku nggak mau jadi konten orang lagi.",
-          "duration": 5.5,
-          "id": "s26-1"
+          "duration": 2.91,
+          "id": "s26-1",
+          "audio": "vo/saldo-8-juta-v2/s26-1.mp3",
+          "audioDuration": 2.46
         }
       ],
+      "chip": {
+        "label": "Bukti",
+        "value": "Screenshot janji · tagihan · pengaduan"
+      },
       "sprite": false
     }
   ]

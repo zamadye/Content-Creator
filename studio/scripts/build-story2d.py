@@ -21,6 +21,16 @@ def phone(spoken_by, listener, text, seconds):
     pose, alt = poses.get(listener, ('neutral', None))
     return line(spoken_by, pose, alt, text, seconds, sprite=listener)
 
+CHIPS = {
+  's03': {'label': 'Jual cepat', 'value': 'Laptop · kamera · sisa Rp 800.000'},
+  's15': {'label': 'Pinjaman', 'value': 'Rp 8.000.000 cair atas nama Alya'},
+  's16': {'label': 'Transfer masuk', 'value': 'Rp 8.000.000'},
+  's17': {'label': 'UKT', 'value': 'Lunas'},
+  's19': {'label': 'Tagihan pinjol', 'value': 'Rp 11.400.000'},
+  's21': {'label': 'Video viral', 'value': '2,1 juta views'},
+  's26': {'label': 'Bukti', 'value': 'Screenshot janji · tagihan · pengaduan'},
+}
+
 # (id, backdrop, durasi, height, x, [baris])
 SPEC = [
  ('s01','kos-kamar',5.0,0.64,0.5,[line('alya','sad','talk','Katanya mau bantu. Kok sekarang aku yang ditagih?',5.0)]),
@@ -62,6 +72,8 @@ for sid, bg, dur, height, x, lines in SPEC:
             l['audio'] = f'vo/saldo-8-juta-v2/{sid}-{i+1}.mp3'
     no_sprite = height == 0.0
     shot = {'id': sid, 'duration': round(dur, 2), 'backdrop': bg, 'lines': lines}
+    if sid in CHIPS:
+        shot['chip'] = CHIPS[sid]
     if not no_sprite:
         shot['actor'] = {'x': x, 'y': 0.97, 'height': height}
     shot['sprite'] = not no_sprite

@@ -82,6 +82,36 @@ const KineticLine = ({speaker, line, color, from, to, frame}) => {
   );
 };
 
+
+/** Chip info di bagian atas: menandai objek yang sedang dilihat (nominal, status). */
+const InfoChip = ({label, value, color, frame}) => {
+  const inP = interpolate(frame, [6, 22], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        top: '11%',
+        left: '7%',
+        right: '7%',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 12,
+        padding: '14px 18px',
+        borderRadius: 18,
+        background: 'rgba(12,8,5,0.82)',
+        borderLeft: `6px solid ${color}`,
+        opacity: inP,
+        transform: `translateY(${(1 - inP) * -12}px)`,
+        fontFamily: FONT,
+      }}
+    >
+      <div style={{fontSize: 20, fontWeight: 800, letterSpacing: '0.14em', color, textTransform: 'uppercase', whiteSpace: 'nowrap'}}>{label}</div>
+      <div style={{width: 1, alignSelf: 'stretch', background: 'rgba(255,255,255,0.18)'}} />
+      <div style={{fontSize: 26, fontWeight: 700, color: '#fdf3e0', lineHeight: 1.2}}>{value}</div>
+    </div>
+  );
+};
+
 /** Kartu teks untuk shot properti/insert (tanpa dialog). */
 const CaptionCard = ({text, frame, duration, color}) => {
   const inP = clamp01(frame / 14);
@@ -184,7 +214,7 @@ export const Saldo2DStory = ({story, hud = false}) => {
 
       {lines.map((l) =>
         l.audio ? (
-          <Sequence key={l.index} from={l.start} durationInFrames={l.frames}>
+          <Sequence key={l.index} from={shot.from + l.start} durationInFrames={l.frames}>
             <Audio src={staticFile(l.audio)} />
           </Sequence>
         ) : null,
@@ -219,6 +249,12 @@ export const Saldo2DStory = ({story, hud = false}) => {
           }}
         >
           <Img src={staticFile(poseFile)} style={{display: 'block', height: `${actorHeight * 1280}px`, width: 'auto'}} />
+        </div>
+      ) : null}
+
+      {shot.chip ? (
+        <div style={{position: 'absolute', inset: 0, zIndex: 3}}>
+          <InfoChip label={shot.chip.label} value={shot.chip.value} color={shot.chip.color ?? color} frame={local} />
         </div>
       ) : null}
 

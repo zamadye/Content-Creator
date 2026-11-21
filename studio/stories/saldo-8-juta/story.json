@@ -1,54 +1,10 @@
 {
-  "schema": "studio.story2d/1",
-  "id": "saldo-8-juta",
+  "schema": "studio.story2d/2",
   "title": "Saldo 8 Juta",
-  "fps": 30,
+  "subtitle": "Ditolong di Depan Kamera",
   "width": 720,
   "height": 1280,
-  "backdrops": {
-    "kos-kamar": {
-      "image": "bg/kos-kamar.png",
-      "anchor": [
-        0.5,
-        0.62
-      ]
-    },
-    "kos-pintu": {
-      "image": "bg/kos-pintu.png",
-      "anchor": [
-        0.5,
-        0.6
-      ]
-    },
-    "koridor": {
-      "image": "bg/koridor.png",
-      "anchor": [
-        0.5,
-        0.55
-      ]
-    },
-    "jalan-malam": {
-      "image": "bg/jalan-malam.png",
-      "anchor": [
-        0.5,
-        0.62
-      ]
-    },
-    "meja-hp": {
-      "image": "bg/meja-hp.png",
-      "anchor": [
-        0.5,
-        0.55
-      ]
-    },
-    "rumah-ibu": {
-      "image": "bg/rumah-ibu.png",
-      "anchor": [
-        0.5,
-        0.6
-      ]
-    }
-  },
+  "fps": 30,
   "cast": {
     "alya": {
       "label": "Alya",
@@ -131,509 +87,714 @@
       }
     }
   },
+  "backdrops": {
+    "kos-kamar": {
+      "image": "bg/kos-kamar.png",
+      "anchor": [
+        0.5,
+        0.62
+      ]
+    },
+    "kos-pintu": {
+      "image": "bg/kos-pintu.png",
+      "anchor": [
+        0.5,
+        0.6
+      ]
+    },
+    "koridor": {
+      "image": "bg/koridor.png",
+      "anchor": [
+        0.5,
+        0.55
+      ]
+    },
+    "jalan-malam": {
+      "image": "bg/jalan-malam.png",
+      "anchor": [
+        0.5,
+        0.62
+      ]
+    },
+    "meja-hp": {
+      "image": "bg/meja-hp.png"
+    },
+    "rumah-ibu": {
+      "image": "bg/rumah-ibu.png",
+      "anchor": [
+        0.5,
+        0.6
+      ]
+    },
+    "kamar-nadin": {
+      "image": "bg/kamar-nadin.png"
+    },
+    "meja-bukti": {
+      "image": "bg/meja-bukti.png"
+    }
+  },
   "shots": [
     {
-      "id": "kos-01",
-      "duration": 5.5,
+      "id": "s01",
+      "duration": 5.0,
       "backdrop": "kos-kamar",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "sad",
+          "poseAlt": "talk",
+          "text": "Katanya mau bantu. Kok sekarang aku yang ditagih?",
+          "duration": 3.82,
+          "id": "s01-1",
+          "audio": "vo/saldo-8-juta-v2/s01-1.mp3",
+          "audioDuration": 3.37
+        }
+      ],
       "actor": {
-        "ref": "alya",
-        "pose": "talk",
-        "poseAlt": "neutral",
         "x": 0.5,
-        "y": 0.995,
-        "height": 0.68,
-        "scale": 1
+        "y": 0.97,
+        "height": 0.64
       },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Delapan juta. Tiga hari. Dan aku udah nggak punya apa-apa lagi buat dijual."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-01.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "kos-02",
-      "duration": 7.5,
+      "id": "s02",
+      "duration": 6.0,
       "backdrop": "kos-kamar",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "think",
+          "poseAlt": "talk",
+          "text": "Tiga hari lagi... delapan juta dari mana?",
+          "duration": 3.69,
+          "id": "s02-1",
+          "audio": "vo/saldo-8-juta-v2/s02-1.mp3",
+          "audioDuration": 3.24
+        }
+      ],
       "actor": {
-        "ref": "alya",
-        "pose": "sadHunch",
-        "poseAlt": "talk",
         "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
+        "y": 0.97,
+        "height": 0.64
       },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Laptop udah laku. Kamera udah laku. Sisanya delapan ratus ribu, buat makan seminggu."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-02.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "kos-03",
-      "duration": 3,
-      "backdrop": "kos-pintu",
-      "actor": {
-        "ref": "nadin",
-        "pose": "laugh",
-        "poseAlt": "neutral",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.62,
-        "scale": 1
-      },
-      "text": {
-        "style": "caption",
-        "value": "Kos 4B · 21.10 · UKT delapan juta, jatuh tempo tiga hari"
-      }
+      "id": "s03",
+      "duration": 5.0,
+      "backdrop": "meja-hp",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "sad",
+          "poseAlt": "talk",
+          "text": "Kalau ini dijual, masih kurang jauh.",
+          "duration": 3.3,
+          "id": "s03-1",
+          "audio": "vo/saldo-8-juta-v2/s03-1.mp3",
+          "audioDuration": 2.85
+        }
+      ],
+      "sprite": false
     },
     {
-      "id": "kos-04",
-      "duration": 10.0,
+      "id": "s04",
+      "duration": 6.0,
       "backdrop": "kos-kamar",
+      "lines": [
+        {
+          "who": "ibu",
+          "pose": "neutral",
+          "poseAlt": null,
+          "text": "Al, UKT-nya udah dibayar?",
+          "duration": 3.07,
+          "sprite": "alya",
+          "id": "s04-1",
+          "audio": "vo/saldo-8-juta-v2/s04-1.mp3",
+          "audioDuration": 2.62
+        },
+        {
+          "who": "alya",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Lagi diurus, Bu.",
+          "duration": 1.94,
+          "id": "s04-2",
+          "audio": "vo/saldo-8-juta-v2/s04-2.mp3",
+          "audioDuration": 1.49
+        }
+      ],
       "actor": {
-        "ref": "alya",
-        "pose": "talkB",
-        "poseAlt": "neutral",
         "x": 0.5,
-        "y": 0.995,
-        "height": 0.68,
-        "scale": 1
+        "y": 0.97,
+        "height": 0.64
       },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Bu, aku aman. UKT udah aku urus. Ibu jangan mikirin aku, mikirin lutut Ibu dulu."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-04.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "kos-05",
-      "duration": 9.5,
+      "id": "s05",
+      "duration": 6.0,
       "backdrop": "rumah-ibu",
+      "lines": [
+        {
+          "who": "ibu",
+          "pose": "sad",
+          "poseAlt": "worried",
+          "text": "Kalau belum cukup, gelang Bapak masih ada.",
+          "duration": 4.03,
+          "id": "s05-1",
+          "audio": "vo/saldo-8-juta-v2/s05-1.mp3",
+          "audioDuration": 3.58
+        }
+      ],
       "actor": {
-        "ref": "ibu",
-        "pose": "phoneTalk",
-        "poseAlt": "worried",
         "x": 0.5,
-        "y": 0.995,
-        "height": 0.68,
-        "scale": 1
+        "y": 0.97,
+        "height": 0.58
       },
-      "text": {
-        "style": "subtitle",
-        "value": "IBU — Al, kalau kurang, Ibu jual aja gelang almarhum bapak. Ibu ikhlas, asal kamu tetap kuliah."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-05.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "kos-06",
-      "duration": 6.5,
-      "backdrop": "kos-pintu",
-      "actor": {
-        "ref": "ratna",
-        "pose": "talk",
-        "poseAlt": "stern",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BU RATNA — Nak, kos bulan ini belum masuk. Ibu bukan bank, tapi Ibu juga bukan tembok."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-06.mp3"
-      }
-    },
-    {
-      "id": "kos-07",
-      "duration": 7.5,
+      "id": "s06",
+      "duration": 5.0,
       "backdrop": "kos-kamar",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "sadHunch",
+          "poseAlt": "talk",
+          "text": "Jangan, Bu. Itu satu-satunya peninggalan Bapak.",
+          "duration": 3.98,
+          "id": "s06-1",
+          "audio": "vo/saldo-8-juta-v2/s06-1.mp3",
+          "audioDuration": 3.53
+        }
+      ],
       "actor": {
-        "ref": "alya",
-        "pose": "talk",
-        "poseAlt": "talkB",
         "x": 0.5,
-        "y": 0.995,
-        "height": 0.68,
-        "scale": 1
+        "y": 0.97,
+        "height": 0.64
       },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Sabtu, Bu. Sumpah. Kalau aku bohong, aku rela dipanggil anak kos teladan."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-07.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "kor-08",
-      "duration": 3.5,
+      "id": "s07",
+      "duration": 6.45,
+      "backdrop": "kos-pintu",
+      "lines": [
+        {
+          "who": "ratna",
+          "pose": "stern",
+          "poseAlt": "talk",
+          "text": "Al, kosnya kapan bisa dibayar?",
+          "duration": 3.04,
+          "id": "s07-1",
+          "audio": "vo/saldo-8-juta-v2/s07-1.mp3",
+          "audioDuration": 2.59
+        },
+        {
+          "who": "alya",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Sabtu ya, Bu. Maaf.",
+          "duration": 2.91,
+          "id": "s07-2",
+          "audio": "vo/saldo-8-juta-v2/s07-2.mp3",
+          "audioDuration": 2.46
+        }
+      ],
+      "actor": {
+        "x": 0.44,
+        "y": 0.97,
+        "height": 0.62
+      },
+      "sprite": true
+    },
+    {
+      "id": "s08",
+      "duration": 8.36,
       "backdrop": "koridor",
+      "lines": [
+        {
+          "who": "nadin",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Al, aku cerita ke Kak Bima. Katanya dia bisa bantu.",
+          "duration": 5.11,
+          "id": "s08-1",
+          "audio": "vo/saldo-8-juta-v2/s08-1.mp3",
+          "audioDuration": 4.66
+        },
+        {
+          "who": "alya",
+          "pose": "shock",
+          "poseAlt": "talk",
+          "text": "Kamu cerita?",
+          "duration": 2.75,
+          "id": "s08-2"
+        }
+      ],
       "actor": {
-        "ref": "bima",
-        "pose": "walk",
-        "poseAlt": "talk",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.56,
-        "scale": 1
+        "x": 0.44,
+        "y": 0.97,
+        "height": 0.6
       },
-      "text": {
-        "style": "caption",
-        "value": "Koridor gedung C · 21.40 · Bima tahu aku lagi krisis"
-      }
+      "sprite": true
     },
     {
-      "id": "kor-09",
-      "duration": 7.5,
-      "backdrop": "koridor",
-      "actor": {
-        "ref": "bima",
-        "pose": "talk",
-        "poseAlt": "chest",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Aku dengar kamu lagi susah. Kamu tuh kalau ada masalah, cerita."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kor-09.mp3"
-      }
-    },
-    {
-      "id": "kor-10",
-      "duration": 3.5,
-      "backdrop": "koridor",
-      "actor": {
-        "ref": "bima",
-        "pose": "chest",
-        "poseAlt": "talk",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Kita kan keluarga."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kor-10.mp3"
-      }
-    },
-    {
-      "id": "kor-11",
+      "id": "s09",
       "duration": 7.0,
       "backdrop": "koridor",
+      "lines": [
+        {
+          "who": "bima",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Aku dengar UKT kamu belum lunas.",
+          "duration": 3.25,
+          "id": "s09-1"
+        },
+        {
+          "who": "alya",
+          "pose": "sad",
+          "poseAlt": "talk",
+          "text": "Iya, Kak. Tapi aku lagi cari cara.",
+          "duration": 3.25,
+          "id": "s09-2"
+        }
+      ],
       "actor": {
-        "ref": "alya",
-        "pose": "talkB",
-        "poseAlt": "talk",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
+        "x": 0.54,
+        "y": 0.97,
+        "height": 0.6
       },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Kak, aku gak mau ngutang. Bunga pinjol tuh kayak mantan: datengnya manis, perginya bikin miskin."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kor-11.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "kor-12",
+      "id": "s10",
       "duration": 6.0,
       "backdrop": "koridor",
+      "lines": [
+        {
+          "who": "bima",
+          "pose": "phone",
+          "poseAlt": "talk",
+          "text": "Ada cara supaya kamu bisa bayar hari ini.",
+          "duration": 2.75,
+          "id": "s10-1"
+        },
+        {
+          "who": "alya",
+          "pose": "think",
+          "poseAlt": "talk",
+          "text": "Dari mana uangnya?",
+          "duration": 2.75,
+          "id": "s10-2"
+        }
+      ],
       "actor": {
-        "ref": "bima",
-        "pose": "talk",
-        "poseAlt": "phone",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
+        "x": 0.54,
+        "y": 0.97,
+        "height": 0.6
       },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Bukan pinjol. Tabungan aku nganggur delapan juta."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kor-12.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "kor-13",
-      "duration": 5.5,
+      "id": "s11",
+      "duration": 6.0,
       "backdrop": "koridor",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "shock",
+          "poseAlt": "talk",
+          "text": "Ini utang atas nama aku, Kak?",
+          "duration": 2.75,
+          "id": "s11-1"
+        },
+        {
+          "who": "bima",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Iya. Tapi dengerin dulu.",
+          "duration": 2.75,
+          "id": "s11-2"
+        }
+      ],
       "actor": {
-        "ref": "bima",
-        "pose": "phone",
-        "poseAlt": "talk",
         "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
+        "y": 0.97,
+        "height": 0.6
       },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Cuma butuh KTP sama data kamu, buat administrasi."
+      "sprite": true
+    },
+    {
+      "id": "s12",
+      "duration": 7.0,
+      "backdrop": "koridor",
+      "lines": [
+        {
+          "who": "bima",
+          "pose": "chest",
+          "poseAlt": "talk",
+          "text": "Aku yang bayar cicilannya. Jumat depan uangku masuk.",
+          "duration": 2.17,
+          "id": "s12-1"
+        },
+        {
+          "who": "alya",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Beneran, Kak?",
+          "duration": 2.17,
+          "id": "s12-2"
+        },
+        {
+          "who": "bima",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Iya, aku janji.",
+          "duration": 2.17,
+          "id": "s12-3"
+        }
+      ],
+      "actor": {
+        "x": 0.54,
+        "y": 0.97,
+        "height": 0.6
       },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kor-13.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "kos-14",
-      "duration": 3,
+      "id": "s13",
+      "duration": 6.0,
+      "backdrop": "koridor",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Din, jangan direkam dulu.",
+          "duration": 2.75,
+          "id": "s13-1"
+        },
+        {
+          "who": "nadin",
+          "pose": "record",
+          "poseAlt": "talk",
+          "text": "Kak Bima minta buat dokumentasi.",
+          "duration": 2.75,
+          "id": "s13-2"
+        }
+      ],
+      "actor": {
+        "x": 0.5,
+        "y": 0.97,
+        "height": 0.6
+      },
+      "sprite": true
+    },
+    {
+      "id": "s14",
+      "duration": 5.0,
+      "backdrop": "koridor",
+      "lines": [
+        {
+          "who": "bima",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Buat laporan kegiatan aja. Nggak dipost.",
+          "duration": 4.5,
+          "id": "s14-1"
+        }
+      ],
+      "actor": {
+        "x": 0.54,
+        "y": 0.97,
+        "height": 0.6
+      },
+      "sprite": true
+    },
+    {
+      "id": "s15",
+      "duration": 5.0,
       "backdrop": "meja-hp",
-      "actor": null,
-      "text": {
-        "style": "caption",
-        "value": "KTP diserahkan · “cuma buat administrasi”"
-      }
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Jumat jangan lupa, Kak.",
+          "duration": 2.25,
+          "id": "s15-1"
+        },
+        {
+          "who": "bima",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Tenang.",
+          "duration": 2.25,
+          "id": "s15-2"
+        }
+      ],
+      "sprite": false
     },
     {
-      "id": "kos-15",
-      "duration": 3.5,
+      "id": "s16",
+      "duration": 6.0,
       "backdrop": "meja-hp",
-      "actor": null,
-      "text": {
-        "style": "caption",
-        "value": "Transfer masuk · Rp 8.000.000 · “buat kamu, jangan dipikirin”"
-      }
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Makasih, Kak. Aku nggak tahu harus bilang apa.",
+          "duration": 2.75,
+          "id": "s16-1"
+        },
+        {
+          "who": "bima",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Yang penting kamu lanjut kuliah.",
+          "duration": 2.75,
+          "id": "s16-2"
+        }
+      ],
+      "sprite": false
     },
     {
-      "id": "kos-16",
+      "id": "s17",
+      "duration": 5.0,
+      "backdrop": "meja-hp",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Akhirnya...",
+          "duration": 4.5,
+          "id": "s17-1"
+        }
+      ],
+      "sprite": false
+    },
+    {
+      "id": "s18",
+      "duration": 7.0,
+      "backdrop": "kamar-nadin",
+      "lines": [
+        {
+          "who": "nadin",
+          "pose": "guilty",
+          "poseAlt": "talk",
+          "text": "Al bilang jangan dipost, Kak.",
+          "duration": 3.25,
+          "id": "s18-1"
+        },
+        {
+          "who": "bima",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Cuma cerita bantu mahasiswa. Nggak ada yang salah.",
+          "duration": 3.25,
+          "id": "s18-2"
+        }
+      ],
+      "actor": {
+        "x": 0.5,
+        "y": 0.97,
+        "height": 0.62
+      },
+      "sprite": true
+    },
+    {
+      "id": "s19",
+      "duration": 6.0,
+      "backdrop": "meja-hp",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "shock2",
+          "poseAlt": "talk",
+          "text": "Sebelas juta empat ratus? Kak Bima belum bayar?",
+          "duration": 5.5,
+          "id": "s19-1"
+        }
+      ],
+      "sprite": false
+    },
+    {
+      "id": "s20",
       "duration": 7.0,
       "backdrop": "kos-kamar",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "angry",
+          "poseAlt": "talk",
+          "text": "Kak, kamu janji bayar. Aku yang dikejar tagihan sekarang.",
+          "duration": 6.5,
+          "id": "s20-1"
+        }
+      ],
       "actor": {
-        "ref": "nadin",
-        "pose": "talk",
-        "poseAlt": "laugh",
         "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
+        "y": 0.97,
+        "height": 0.64
       },
-      "text": {
-        "style": "subtitle",
-        "value": "NADIN — Kak Bima tuh green flag banget sih. Cowok kayak gitu udah punah, bestie."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-16.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "kos-17",
-      "duration": 3.5,
+      "id": "s21",
+      "duration": 5.0,
       "backdrop": "meja-hp",
-      "actor": null,
-      "text": {
-        "style": "caption",
-        "value": "UKT lunas · tiga minggu kemudian · PINJOL: tagihan Rp 11.400.000"
-      }
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "sad",
+          "poseAlt": "talk",
+          "text": "Jadi... ini yang kalian bikin?",
+          "duration": 4.5,
+          "id": "s21-1"
+        }
+      ],
+      "sprite": false
     },
     {
-      "id": "kos-18",
-      "duration": 7.0,
-      "backdrop": "kos-kamar",
-      "actor": {
-        "ref": "alya",
-        "pose": "talk",
-        "poseAlt": "shock",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Kak, ini apa? Pinjol atas nama aku? Aku kan cuma kasih KTP."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-18.mp3"
-      }
-    },
-    {
-      "id": "kos-19",
-      "duration": 3,
-      "backdrop": "meja-hp",
-      "actor": null,
-      "text": {
-        "style": "caption",
-        "value": "“Nomor yang Anda tuju tidak aktif.”"
-      }
-    },
-    {
-      "id": "kos-20",
-      "duration": 3.0,
-      "backdrop": "kos-kamar",
-      "actor": {
-        "ref": "alya",
-        "pose": "sad",
-        "poseAlt": "talk",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Keren. Banget."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-20.mp3"
-      }
-    },
-    {
-      "id": "kos-21",
-      "duration": 5.5,
-      "backdrop": "kos-kamar",
-      "actor": {
-        "ref": "nadin",
-        "pose": "showPhone",
-        "poseAlt": "laugh",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.64,
-        "scale": 1
-      },
-      "text": {
-        "style": "caption",
-        "value": "Grup “CONTENT PLAN” — BIMA: video dia nangis, fyp dijamin · NADIN: udah aku rekam dari tadi 😭"
-      }
-    },
-    {
-      "id": "kos-22",
-      "duration": 7.5,
-      "backdrop": "kos-kamar",
-      "actor": {
-        "ref": "nadin",
-        "pose": "guilty",
-        "poseAlt": "whisper",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "NADIN — Aku cuma bantu rekam, Al. Kamu jangan marah ya. Ini buat kita berdua kok."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-22.mp3"
-      }
-    },
-    {
-      "id": "kos-23",
-      "duration": 7.0,
-      "backdrop": "kos-kamar",
-      "actor": {
-        "ref": "bima",
-        "pose": "crossed",
-        "poseAlt": "talk",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Kamu tuh gampang banget dipercaya, Al. Itu masalah kamu, bukan aku."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-23.mp3"
-      }
-    },
-    {
-      "id": "kos-24",
-      "duration": 6.5,
-      "backdrop": "kos-kamar",
-      "actor": {
-        "ref": "alya",
-        "pose": "angry",
-        "poseAlt": "talk",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.66,
-        "scale": 1
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Aku kehilangan uang, kamu dapat view. Selamat ya, Kak. Semoga viralnya berkah."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-24.mp3"
-      }
-    },
-    {
-      "id": "kos-25",
-      "duration": 7.5,
+      "id": "s22",
+      "duration": 6.0,
       "backdrop": "kos-pintu",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "angry",
+          "poseAlt": "talk",
+          "text": "Kamu tahu dia posting video ini?",
+          "duration": 2.75,
+          "id": "s22-1"
+        },
+        {
+          "who": "nadin",
+          "pose": "guilty",
+          "poseAlt": "talk",
+          "text": "Aku yang kirim videonya ke dia.",
+          "duration": 2.75,
+          "id": "s22-2"
+        }
+      ],
       "actor": {
-        "ref": "ratna",
-        "pose": "shout",
-        "poseAlt": "point",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.68,
-        "scale": 1
+        "x": 0.44,
+        "y": 0.97,
+        "height": 0.62
       },
-      "text": {
-        "style": "subtitle",
-        "value": "BU RATNA — Keluar dari kos saya, Nak. Screenshot-nya sudah Ibu simpan semua. Kamu bukan penolong, kamu penipu."
-      },
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-25.mp3"
-      }
+      "sprite": true
     },
     {
-      "id": "luar-26",
-      "duration": 4.5,
-      "backdrop": "jalan-malam",
+      "id": "s23",
+      "duration": 6.0,
+      "backdrop": "kos-kamar",
+      "lines": [
+        {
+          "who": "bima",
+          "pose": "neutral",
+          "poseAlt": null,
+          "text": "Al, aku udah bantu cairin. Pinjamannya kan atas nama kamu.",
+          "duration": 2.75,
+          "sprite": "alya",
+          "id": "s23-1"
+        },
+        {
+          "who": "alya",
+          "pose": "sad",
+          "poseAlt": "talk",
+          "text": "Tapi kamu janji bayar...",
+          "duration": 2.75,
+          "id": "s23-2"
+        }
+      ],
       "actor": {
-        "ref": "alya",
-        "pose": "sad",
-        "poseAlt": "sad",
         "x": 0.5,
-        "y": 0.995,
-        "height": 0.52,
-        "scale": 1
+        "y": 0.97,
+        "height": 0.64
       },
-      "text": {
-        "style": "caption",
-        "value": "“Aku kira aku punya teman. Ternyata aku cuma punya konten.” · 2,1 juta views"
+      "sprite": true
+    },
+    {
+      "id": "s24",
+      "duration": 6.0,
+      "backdrop": "kos-kamar",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "sadHunch",
+          "poseAlt": "talk",
+          "text": "Ini pesannya. Dia sendiri yang bilang.",
+          "duration": 2.75,
+          "id": "s24-1"
+        },
+        {
+          "who": "nadin",
+          "pose": "guilty",
+          "poseAlt": "talk",
+          "text": "Aku bantu simpan buktinya, Al.",
+          "duration": 2.75,
+          "id": "s24-2"
+        }
+      ],
+      "actor": {
+        "x": 0.5,
+        "y": 0.97,
+        "height": 0.64
       },
-      "audio": {
-        "vo": "vo/saldo-8-juta/luar-26.mp3"
-      }
+      "sprite": true
+    },
+    {
+      "id": "s25",
+      "duration": 5.0,
+      "backdrop": "kos-kamar",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "sad",
+          "poseAlt": "talk",
+          "text": "Bu... aku salah ambil keputusan.",
+          "duration": 2.25,
+          "id": "s25-1"
+        },
+        {
+          "who": "ibu",
+          "pose": "neutral",
+          "poseAlt": null,
+          "text": "Cerita dulu, Nak. Ibu dengerin.",
+          "duration": 2.25,
+          "sprite": "alya",
+          "id": "s25-2"
+        }
+      ],
+      "actor": {
+        "x": 0.5,
+        "y": 0.97,
+        "height": 0.64
+      },
+      "sprite": true
+    },
+    {
+      "id": "s26",
+      "duration": 6.0,
+      "backdrop": "meja-bukti",
+      "lines": [
+        {
+          "who": "alya",
+          "pose": "neutral",
+          "poseAlt": "talk",
+          "text": "Aku nggak mau jadi konten orang lagi.",
+          "duration": 5.5,
+          "id": "s26-1"
+        }
+      ],
+      "sprite": false
     }
-  ],
-  "meta": {
-    "author": "arena-agent",
-    "notes": "2D cut-out ala animasi remaja Indonesia; satu dialog satu shot; VO per baris.",
-    "tags": [
-      "dracin",
-      "ftv",
-      "gen-z",
-      "2d"
-    ]
-  }
+  ]
 }

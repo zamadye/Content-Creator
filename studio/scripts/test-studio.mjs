@@ -284,22 +284,29 @@ ok('stories');
   assert.ok(dirs2d.length >= 1, 'minimal satu naskah 2D');
   for (const file of dirs2d) {
     const story = JSON.parse(fs.readFileSync(file, 'utf8'));
-    assert.equal(story.schema, 'studio.story2d/1');
+    assert.ok(String(story.schema).startsWith('studio.story2d/'), `${file}: skema 2D tidak dikenal`);
     assert.ok(story.shots.length > 0, `${file}: tanpa shot`);
     const total = story.shots.reduce((s, x) => s + x.duration, 0);
     assert.ok(total > 5, `${file}: durasi terlalu pendek`);
     for (const shot of story.shots) {
       assert.ok(story.backdrops[shot.backdrop], `${shot.id}: latar ${shot.backdrop} tidak dikenal`);
-      if (!shot.actor) continue; // insert properti: sengaja tanpa karakter
-      const cast = story.cast[shot.actor.ref];
-      assert.ok(cast, `${shot.id}: karakter ${shot.actor.ref} tidak ada`);
-      for (const key of [shot.actor.pose, shot.actor.poseAlt]) {
-        const sprite = cast.poses[key];
-        assert.ok(sprite, `${shot.id}: pose ${key} tidak ada di ${shot.actor.ref}`);
-        assert.ok(fs.existsSync(path.join(root, 'public', sprite)), `${shot.id}: sprite ${sprite} hilang`);
-      }
-      if (shot.audio?.vo) {
-        assert.ok(fs.existsSync(path.join(root, 'public', shot.audio.vo)), `${shot.id}: VO ${shot.audio.vo} hilang`);
+      const lines = shot.lines ?? (shot.text ? [{...shot.actor, text: shot.text.value}] : []);
+      assert.ok(lines.length > 0, `${shot.id}: tanpa baris dialog`);
+      for (const l of lines) {
+        assert.ok(l.duration > 0, `${shot.id}: durasi baris tidak valid`);
+        // baris bisa menampilkan karakter lain (mis. telepon: yang tampil Alya, yang bicara Ibu)
+        const spriteRef = l.sprite ?? l.who ?? shot.actor?.ref;
+        if (shot.sprite === false) continue; // insert properti: sengaja tanpa karakter
+        const cast = story.cast[spriteRef];
+        assert.ok(cast, `${shot.id}: karakter ${spriteRef} tidak ada`);
+        for (const key of [l.pose, l.poseAlt]) {
+          if (!key) continue;
+          const sprite = cast.poses[key];
+          assert.ok(sprite, `${shot.id}: pose ${key} tidak ada di ${spriteRef}`);
+          assert.ok(fs.existsSync(path.join(root, 'public', sprite)), `${shot.id}: sprite ${sprite} hilang`);
+        }
+        const vo = l.audio ?? shot.audio?.vo;
+        if (vo) assert.ok(fs.existsSync(path.join(root, 'public', vo)), `${shot.id}: VO ${vo} hilang`);
       }
     }
   }

@@ -24,6 +24,16 @@ import {splitGlb, buildGlb} from './lib/glb.mjs';
 import {compileStory} from '../src/studio/compile.js';
 import {registry} from '../src/studio/library.js';
 
+/** Story 2D (sprite + Remotion) tidak punya kamera 3D — lewati di QC 3D. */
+function is3dStoryFile(file) {
+  try {
+    return !String(JSON.parse(fs.readFileSync(file, 'utf8')).schema ?? '').startsWith('studio.story2d');
+  } catch {
+    return true;
+  }
+}
+
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const studioDir = path.join(root, 'stories');
 const planDir = path.join(root, 'docs', 'plans');
@@ -341,6 +351,7 @@ async function main() {
     .readdirSync(studioDir, {withFileTypes: true})
     .filter((d) => d.isDirectory())
     .map((d) => path.join(studioDir, d.name, 'story.json'))
+        .filter(is3dStoryFile)
     .filter((f) => fs.existsSync(f))
     .sort();
 

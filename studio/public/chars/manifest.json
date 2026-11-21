@@ -1,0 +1,272 @@
+{
+  "alya": [
+    {
+      "file": "chars/alya-1.png",
+      "width": 128,
+      "height": 357
+    },
+    {
+      "file": "chars/alya-2.png",
+      "width": 173,
+      "height": 353
+    },
+    {
+      "file": "chars/alya-3.png",
+      "width": 190,
+      "height": 353
+    },
+    {
+      "file": "chars/alya-4.png",
+      "width": 119,
+      "height": 356
+    },
+    {
+      "file": "chars/alya-5.png",
+      "width": 128,
+      "height": 353
+    },
+    {
+      "file": "chars/alya-6.png",
+      "width": 128,
+      "height": 360
+    },
+    {
+      "file": "chars/alya-7.png",
+      "width": 221,
+      "height": 356
+    },
+    {
+      "file": "chars/alya-8.png",
+      "width": 138,
+      "height": 355
+    },
+    {
+      "file": "chars/alya-9.png",
+      "width": 140,
+      "height": 354
+    },
+    {
+      "file": "chars/alya-10.png",
+      "width": 135,
+      "height": 355
+    }
+  ],
+  "bima": [
+    {
+      "file": "chars/bima-1.png",
+      "width": 139,
+      "height": 366
+    },
+    {
+      "file": "chars/bima-2.png",
+      "width": 194,
+      "height": 368
+    },
+    {
+      "file": "chars/bima-3.png",
+      "width": 144,
+      "height": 367
+    },
+    {
+      "file": "chars/bima-4.png",
+      "width": 143,
+      "height": 366
+    },
+    {
+      "file": "chars/bima-5.png",
+      "width": 123,
+      "height": 366
+    },
+    {
+      "file": "chars/bima-6.png",
+      "width": 139,
+      "height": 366
+    },
+    {
+      "file": "chars/bima-7.png",
+      "width": 204,
+      "height": 363
+    },
+    {
+      "file": "chars/bima-8.png",
+      "width": 177,
+      "height": 365
+    },
+    {
+      "file": "chars/bima-9.png",
+      "width": 164,
+      "height": 365
+    },
+    {
+      "file": "chars/bima-10.png",
+      "width": 132,
+      "height": 365
+    },
+    {
+      "file": "chars/bima-11.png",
+      "width": 174,
+      "height": 361
+    },
+    {
+      "file": "chars/bima-12.png",
+      "width": 215,
+      "height": 356
+    }
+  ],
+  "nadin": [
+    {
+      "file": "chars/nadin-1.png",
+      "width": 132,
+      "height": 351
+    },
+    {
+      "file": "chars/nadin-2.png",
+      "width": 175,
+      "height": 352
+    },
+    {
+      "file": "chars/nadin-3.png",
+      "width": 169,
+      "height": 352
+    },
+    {
+      "file": "chars/nadin-4.png",
+      "width": 158,
+      "height": 353
+    },
+    {
+      "file": "chars/nadin-5.png",
+      "width": 142,
+      "height": 348
+    },
+    {
+      "file": "chars/nadin-6.png",
+      "width": 160,
+      "height": 348
+    },
+    {
+      "file": "chars/nadin-7.png",
+      "width": 203,
+      "height": 348
+    },
+    {
+      "file": "chars/nadin-8.png",
+      "width": 141,
+      "height": 349
+    },
+    {
+      "file": "chars/nadin-9.png",
+      "width": 142,
+      "height": 349
+    },
+    {
+      "file": "chars/nadin-10.png",
+      "width": 172,
+      "height": 341
+    }
+  ],
+  "ratna": [
+    {
+      "file": "chars/ratna-1.png",
+      "width": 163,
+      "height": 363
+    },
+    {
+      "file": "chars/ratna-2.png",
+      "width": 244,
+      "height": 363
+    },
+    {
+      "file": "chars/ratna-3.png",
+      "width": 255,
+      "height": 362
+    },
+    {
+      "file": "chars/ratna-4.png",
+      "width": 193,
+      "height": 363
+    },
+    {
+      "file": "chars/ratna-5.png",
+      "width": 244,
+      "height": 363
+    },
+    {
+      "file": "chars/ratna-6.png",
+      "width": 196,
+      "height": 358
+    },
+    {
+      "file": "chars/ratna-7.png",
+      "width": 219,
+      "height": 354
+    },
+    {
+      "file": "chars/ratna-8.png",
+      "width": 179,
+      "height": 355
+    },
+    {
+      "file": "chars/ratna-9.png",
+      "width": 128,
+      "height": 356
+    },
+    {
+      "file": "chars/ratna-10.png",
+      "width": 269,
+      "height": 356
+    }
+  ],
+  "ibu": [
+    {
+      "file": "chars/ibu-1.png",
+      "width": 157,
+      "height": 338
+    },
+    {
+      "file": "chars/ibu-2.png",
+      "width": 163,
+      "height": 338
+    },
+    {
+      "file": "chars/ibu-3.png",
+      "width": 155,
+      "height": 338
+    },
+    {
+      "file": "chars/ibu-4.png",
+      "width": 148,
+      "height": 332
+    },
+    {
+      "file": "chars/ibu-5.png",
+      "width": 161,
+      "height": 337
+    },
+    {
+      "file": "chars/ibu-6.png",
+      "width": 188,
+      "height": 343
+    },
+    {
+      "file": "chars/ibu-7.png",
+      "width": 190,
+      "height": 344
+    },
+    {
+      "file": "chars/ibu-8.png",
+      "width": 143,
+      "height": 341
+    },
+    {
+      "file": "chars/ibu-9.png",
+      "width": 143,
+      "height": 339
+    },
+    {
+      "file": "chars/ibu-10.png",
+      "width": 176,
+      "height": 343
+    }
+  ]
+}

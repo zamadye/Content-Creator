@@ -1,9 +1,10 @@
 // BERKAS INI DIHASILKAN OTOMATIS — jangan disunting tangan.
 // Sumber: folder stories/<dir>/story.json · jalankan: npm run stories:sync
 import story_saldo_8_juta from './saldo-8-juta/story.json';
+import story_saldo_8_juta_compositions from './saldo-8-juta/compositions.jsx';
 
 export const storyPacks = [
-  {dir: "saldo-8-juta", compositionId: "StudioSaldo8Juta", story: story_saldo_8_juta, compositions: []},
+  {dir: "saldo-8-juta", compositionId: "StudioSaldo8Juta", story: story_saldo_8_juta, compositions: story_saldo_8_juta_compositions},
 ];
 
 export const findStory = (id) => storyPacks.find((p) => p.dir === id || p.story.id === id);

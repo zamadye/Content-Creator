@@ -1,3548 +1,10 @@
 {
-  "schema": "studio.story/2",
+  "schema": "studio.story2d/1",
   "id": "saldo-8-juta",
   "title": "Saldo 8 Juta",
   "fps": 30,
   "width": 720,
   "height": 1280,
-  "look": {
-    "preset": "interior-lampu",
-    "fog": 0,
-    "exposure": 2.1,
-    "hemi": 1.35,
-    "grain": 0.02,
-    "vignette": 0.12
-  },
-  "cast": {
-    "alya": {
-      "asset": "char.remaja-perempuan",
-      "label": "Alya",
-      "note": "20 th, mahasiswa Desain semester 4, anak rantau dari Banjarmasin, barista paruh waktu. Persona: sarkas, cepat, gengsi tinggi, pantang ngutang; kalau panik justru makin banyak ngomong. Bahasa: 'gak', 'banget', 'sumpah', 'relate', 'btw'."
-    },
-    "bima": {
-      "asset": "char.male-muda-jaket",
-      "label": "Bima",
-      "note": "23 th, kakak tingkat, wajah baik, brand ambassador kampus. Persona: kalem, memakai diksi moral ('kita kan keluarga'), gemar menolong di depan orang banyak. Di balik itu: transaksional dan dingin. Bahasa: 'kamu tuh', 'santai', 'ada aku'."
-    },
-    "nadin": {
-      "asset": "char.female-dewasa",
-      "label": "Nadin",
-      "note": "21 th, teman sekamar Alya, pembuat konten kecil-kecilan. Persona: ceria di depan, haus validasi, mudah ikut arus demi view. Bahasa: 'bestie', 'fyp', 'aesthetic', 'jangan marah ya'."
-    },
-    "ratna": {
-      "asset": "char.female-dewasa-daster",
-      "label": "Bu Ratna",
-      "note": "48 th, pemilik kos. Persona: jutek, to-the-point, tapi adil; tidak suka drama, sangat menghormati bukti. Bahasa: datar, tanpa gaul, memanggil 'Nak'."
-    },
-    "ibu": {
-      "asset": "char.female-lansia",
-      "label": "Ibu",
-      "note": "62 th, ibu Alya di Banjarmasin, sakit lutut, tidak tahu kondisi keuangan anaknya. Persona: hangat, banyak menyembunyikan rasa sakit. Hanya muncul di panggilan video."
-    }
-  },
-  "objects": {},
-  "meta": {
-    "author": "arena-agent",
-    "notes": "Dracin/FTV Gen Z, satu dialog satu shot supaya VO bisa dipotong.",
-    "generatedBy": "studio.story/2",
-    "tags": [
-      "dracin",
-      "ftv",
-      "gen-z",
-      "twist"
-    ]
-  },
-  "shots": [
-    {
-      "title": "Kos 4B, malam — delapan juta",
-      "duration": 6,
-      "secondary": 1.2,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -1.1,
-            0,
-            -0.25
-          ],
-          "facing": "+Z",
-          "clip": "idle"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.09,
-          1.4,
-          2.17
-        ],
-        "target": [
-          -1.12,
-          1.02,
-          -0.23
-        ],
-        "fov": 30
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.711,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Delapan juta. Tiga hari. Dan aku udah nggak punya apa-apa lagi buat dijual."
-      },
-      "id": "kos-01",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-01.mp3"
-      },
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Transfer masuk",
-      "duration": 7.5,
-      "secondary": 1.1,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -1.1,
-            0,
-            -0.25
-          ],
-          "facing": "+Z",
-          "clip": "idle",
-          "offset": 1.1
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.2,
-          1.41,
-          2.4
-        ],
-        "target": [
-          -1.1,
-          1.04,
-          -0.25
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.702,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Laptop udah laku. Kamera udah laku. Sisanya delapan ratus ribu, buat makan seminggu."
-      },
-      "id": "kos-02",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-02.mp3"
-      },
-      "backdrop": "meja-hp",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Nadin memuji Bima",
-      "duration": 3,
-      "secondary": 1.3,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "nadin",
-          "at": [
-            0.5,
-            0,
-            0.1
-          ],
-          "facing": "-X",
-          "clip": "idle"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          3.02,
-          1.52,
-          2.5
-        ],
-        "target": [
-          0.44,
-          1.15,
-          0.12
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.785,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "caption",
-        "value": "Kos 4B · 21.10 · UKT delapan juta, jatuh tempo tiga hari"
-      },
-      "id": "kos-03",
-      "backdrop": "kos-pintu",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Janji Alya",
-      "duration": 7.5,
-      "secondary": 1.3,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -1.05,
-            0,
-            0.05
-          ],
-          "facing": "+Z",
-          "clip": "talk",
-          "offset": 0.2
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.55,
-          1.41,
-          2.39
-        ],
-        "target": [
-          -1.05,
-          1.03,
-          0.04
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.838,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Bu, aku aman. UKT udah aku urus. Ibu jangan mikirin aku, mikirin lutut Ibu dulu."
-      },
-      "id": "kos-04",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-04.mp3"
-      },
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Kos 4B, malam — delapan juta",
-      "duration": 9.5,
-      "secondary": 1.2,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -1.1,
-            0,
-            -0.25
-          ],
-          "facing": "+Z",
-          "clip": "idle"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.05,
-          1.41,
-          2.22
-        ],
-        "target": [
-          -1.07,
-          1.03,
-          -0.25
-        ],
-        "fov": 30
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.711,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "IBU — Al, kalau kurang, Ibu jual aja gelang almarhum bapak. Ibu ikhlas, asal kamu tetap kuliah."
-      },
-      "id": "kos-05",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-05.mp3"
-      },
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Bu Ratna menagih",
-      "duration": 7.5,
-      "secondary": 1.15,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "ratna",
-          "at": [
-            1.55,
-            0,
-            0.55
-          ],
-          "facing": "-X",
-          "clip": "idle"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -1.19,
-          1.51,
-          2.29
-        ],
-        "target": [
-          1.55,
-          1.14,
-          0.51
-        ],
-        "fov": 30
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -1.015,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BU RATNA — Nak, kos bulan ini belum masuk. Ibu bukan bank, tapi Ibu juga bukan tembok."
-      },
-      "id": "kos-06",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-06.mp3"
-      },
-      "backdrop": "kos-pintu",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Janji Alya",
-      "duration": 7,
-      "secondary": 1.3,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -1.05,
-            0,
-            0.05
-          ],
-          "facing": "+Z",
-          "clip": "talk",
-          "offset": 0.2
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.55,
-          1.4,
-          2.39
-        ],
-        "target": [
-          -1.06,
-          1.03,
-          0.04
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.838,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Sabtu, Bu. Sumpah. Kalau aku bohong, aku rela dipanggil anak kos teladan."
-      },
-      "id": "kos-07",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kos-07.mp3"
-      },
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Koridor kampus — Bima datang",
-      "duration": 3.5,
-      "secondary": 1.1,
-      "set": [
-        {
-          "asset": "building.school.corridor",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1.6,
-            2,
-            0.4
-          ]
-        }
-      ],
-      "actors": [
-        {
-          "ref": "bima",
-          "at": [
-            2.2,
-            0,
-            0.35
-          ],
-          "facing": "-X",
-          "clip": "walk",
-          "travel": 0
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -0.2,
-          1.55,
-          1.33
-        ],
-        "target": [
-          2.15,
-          1.18,
-          0.37
-        ],
-        "fov": 38
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -1.185,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "caption",
-        "value": "Koridor gedung C · 21.40 · Bima tahu aku lagi krisis"
-      },
-      "id": "kor-08",
-      "backdrop": "koridor",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Bima menawarkan diri",
-      "duration": 7.5,
-      "secondary": 1.2,
-      "set": [
-        {
-          "asset": "building.school.corridor",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1.6,
-            2,
-            0.4
-          ]
-        }
-      ],
-      "actors": [
-        {
-          "ref": "bima",
-          "at": [
-            1.5,
-            0,
-            0.3
-          ],
-          "facing": "-X",
-          "clip": "talk"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -0.86,
-          1.54,
-          2.88
-        ],
-        "target": [
-          1.5,
-          1.17,
-          0.29
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -0.743,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Aku dengar kamu lagi susah. Kamu tuh kalau ada masalah, cerita."
-      },
-      "id": "kor-09",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kor-09.mp3"
-      },
-      "backdrop": "koridor",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Syarat: data kamu",
-      "duration": 3.5,
-      "secondary": 1.25,
-      "set": [
-        {
-          "asset": "building.school.corridor",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1.6,
-            2,
-            0.4
-          ]
-        }
-      ],
-      "actors": [
-        {
-          "ref": "bima",
-          "at": [
-            1.5,
-            0,
-            0.3
-          ],
-          "facing": "-X",
-          "clip": "talk",
-          "lookAt": [
-            -0.5,
-            1.15,
-            0.15
-          ]
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -0.83,
-          1.55,
-          2.64
-        ],
-        "target": [
-          1.46,
-          1.17,
-          0.31
-        ],
-        "fov": 30
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -0.79,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Kita kan keluarga."
-      },
-      "id": "kor-10",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kor-10.mp3"
-      },
-      "backdrop": "koridor",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Alya menolak utang",
-      "duration": 7,
-      "secondary": 1.35,
-      "set": [
-        {
-          "asset": "building.school.corridor",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1.6,
-            2,
-            0.4
-          ]
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -0.5,
-            0,
-            0.15
-          ],
-          "facing": "+X",
-          "clip": "talk"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.47,
-          1.4,
-          3.06
-        ],
-        "target": [
-          -0.51,
-          1.03,
-          0.16
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.584,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Kak, aku gak mau ngutang. Bunga pinjol tuh kayak mantan: datengnya manis, perginya bikin miskin."
-      },
-      "id": "kor-11",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kor-11.mp3"
-      },
-      "backdrop": "koridor",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Bima menawarkan diri",
-      "duration": 6,
-      "secondary": 1.2,
-      "set": [
-        {
-          "asset": "building.school.corridor",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1.6,
-            2,
-            0.4
-          ]
-        }
-      ],
-      "actors": [
-        {
-          "ref": "bima",
-          "at": [
-            1.5,
-            0,
-            0.3
-          ],
-          "facing": "-X",
-          "clip": "talk"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -0.86,
-          1.53,
-          2.9
-        ],
-        "target": [
-          1.49,
-          1.16,
-          0.29
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -0.743,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Bukan pinjol. Tabungan aku nganggur delapan juta."
-      },
-      "id": "kor-12",
-      "audio": {
-        "vo": "vo/saldo-8-juta/kor-12.mp3"
-      },
-      "backdrop": "koridor",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Syarat: data kamu",
-      "duration": 5,
-      "secondary": 1.25,
-      "set": [
-        {
-          "asset": "building.school.corridor",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1.6,
-            2,
-            0.4
-          ]
-        }
-      ],
-      "actors": [
-        {
-          "ref": "bima",
-          "at": [
-            1.5,
-            0,
-            0.3
-          ],
-          "facing": "-X",
-          "clip": "talk",
-          "lookAt": [
-            -0.5,
-            1.15,
-            0.15
-          ]
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -0.82,
-          1.54,
-          2.61
-        ],
-        "target": [
-          1.48,
-          1.17,
-          0.29
-        ],
-        "fov": 30
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -0.79,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Cuma butuh KTP sama data kamu, buat administrasi."
-      },
-      "id": "kor-13",
-      "backdrop": "koridor",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Transfer masuk",
-      "duration": 3,
-      "secondary": 1.1,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -1.1,
-            0,
-            -0.25
-          ],
-          "facing": "+Z",
-          "clip": "idle",
-          "offset": 1.1
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.27,
-          1.41,
-          2.39
-        ],
-        "target": [
-          -1.11,
-          1.03,
-          -0.19
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.702,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "caption",
-        "value": "KTP diserahkan · “cuma buat administrasi”"
-      },
-      "id": "kos-14",
-      "backdrop": "meja-hp",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Transfer masuk",
-      "duration": 3.5,
-      "secondary": 1.1,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -1.1,
-            0,
-            -0.25
-          ],
-          "facing": "+Z",
-          "clip": "idle",
-          "offset": 1.1
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.25,
-          1.41,
-          2.4
-        ],
-        "target": [
-          -1.1,
-          1.03,
-          -0.19
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.702,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "caption",
-        "value": "Transfer masuk · Rp 8.000.000 · “buat kamu, jangan dipikirin”"
-      },
-      "id": "kos-15",
-      "backdrop": "meja-hp",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Nadin mengaku",
-      "duration": 4.5,
-      "secondary": 1.4,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "nadin",
-          "at": [
-            0.5,
-            0,
-            0.1
-          ],
-          "facing": "-X",
-          "clip": "talk"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -1.47,
-          1.51,
-          3.05
-        ],
-        "target": [
-          0.43,
-          1.13,
-          0.09
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -0.614,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "NADIN — Kak Bima tuh green flag banget sih. Cowok kayak gitu udah punah, bestie."
-      },
-      "id": "kos-16",
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Nadin memuji Bima",
-      "duration": 3.5,
-      "secondary": 1.3,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "nadin",
-          "at": [
-            0.5,
-            0,
-            0.1
-          ],
-          "facing": "-X",
-          "clip": "idle"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          3.02,
-          1.52,
-          2.5
-        ],
-        "target": [
-          0.44,
-          1.15,
-          0.11
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.785,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "caption",
-        "value": "UKT lunas · tiga minggu kemudian · PINJOL: tagihan Rp 11.400.000"
-      },
-      "id": "kos-17",
-      "backdrop": "meja-hp",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Alya menjawab",
-      "duration": 5,
-      "secondary": 1.5,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -0.9,
-            0,
-            0.15
-          ],
-          "facing": "+Z",
-          "clip": "talk",
-          "offset": 0.6
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.65,
-          1.41,
-          2.59
-        ],
-        "target": [
-          -0.9,
-          1.03,
-          0.18
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.8,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Kak, ini apa? Pinjol atas nama aku? Aku kan cuma kasih KTP."
-      },
-      "id": "kos-18",
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Transfer masuk",
-      "duration": 3,
-      "secondary": 1.1,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -1.1,
-            0,
-            -0.25
-          ],
-          "facing": "+Z",
-          "clip": "idle",
-          "offset": 1.1
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.27,
-          1.41,
-          2.39
-        ],
-        "target": [
-          -1.11,
-          1.03,
-          -0.19
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.702,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "caption",
-        "value": "“Nomor yang Anda tuju tidak aktif.”"
-      },
-      "id": "kos-19",
-      "backdrop": "meja-hp",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Alya menjawab",
-      "duration": 3,
-      "secondary": 1.5,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -0.9,
-            0,
-            0.15
-          ],
-          "facing": "+Z",
-          "clip": "talk",
-          "offset": 0.6
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.72,
-          1.4,
-          2.51
-        ],
-        "target": [
-          -0.94,
-          1.02,
-          0.23
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.8,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Keren. Banget."
-      },
-      "id": "kos-20",
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Layar HP Nadin",
-      "duration": 5.5,
-      "secondary": 1.45,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -0.9,
-            0,
-            0.15
-          ],
-          "facing": "+Z",
-          "clip": "idle"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          0.12,
-          1.41,
-          1.97
-        ],
-        "target": [
-          -0.9,
-          1.03,
-          0.18
-        ],
-        "fov": 46
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.517,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "caption",
-        "value": "Grup “CONTENT PLAN” — BIMA: video dia nangis, fyp dijamin · NADIN: udah aku rekam dari tadi 😭"
-      },
-      "id": "kos-21",
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Nadin mengaku",
-      "duration": 4.5,
-      "secondary": 1.4,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "nadin",
-          "at": [
-            0.5,
-            0,
-            0.1
-          ],
-          "facing": "-X",
-          "clip": "talk"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -1.47,
-          1.51,
-          3.05
-        ],
-        "target": [
-          0.43,
-          1.13,
-          0.09
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -0.614,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "NADIN — Aku cuma bantu rekam, Al. Kamu jangan marah ya. Ini buat kita berdua kok."
-      },
-      "id": "kos-22",
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Bima dingin",
-      "duration": 5,
-      "secondary": 1.5,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "bima",
-          "at": [
-            1.5,
-            0,
-            0.5
-          ],
-          "facing": "-X",
-          "clip": "talk"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -1.14,
-          1.54,
-          2.82
-        ],
-        "target": [
-          1.48,
-          1.16,
-          0.49
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -0.858,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BIMA — Kamu tuh gampang banget dipercaya, Al. Itu masalah kamu, bukan aku."
-      },
-      "id": "kos-23",
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Alya menjawab",
-      "duration": 5,
-      "secondary": 1.5,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            -0.9,
-            0,
-            0.15
-          ],
-          "facing": "+Z",
-          "clip": "talk",
-          "offset": 0.6
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.65,
-          1.41,
-          2.59
-        ],
-        "target": [
-          -0.9,
-          1.03,
-          0.18
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.8,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "ALYA — Aku kehilangan uang, kamu dapat view. Selamat ya, Kak. Semoga viralnya berkah."
-      },
-      "id": "kos-24",
-      "backdrop": "kos-kamar",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Bu Ratna mengusir",
-      "duration": 6,
-      "secondary": 1.3,
-      "set": [
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "kit.wall.window",
-          "at": [
-            0,
-            0,
-            -2
-          ],
-          "rot": 0
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            -2,
-            0,
-            0
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "kit.wall.door",
-          "at": [
-            2,
-            0,
-            0
-          ],
-          "rot": -1.5708
-        },
-        {
-          "asset": "prop.bed",
-          "at": [
-            -1.2,
-            0,
-            -1
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.table.wood",
-          "at": [
-            1,
-            0,
-            -1.2
-          ]
-        },
-        {
-          "asset": "prop.chair.wood",
-          "at": [
-            1,
-            0,
-            -0.35
-          ],
-          "rot": 3.1416
-        },
-        {
-          "asset": "prop.shelves.steel",
-          "at": [
-            -1.95,
-            0,
-            0.9
-          ],
-          "rot": 1.5708
-        },
-        {
-          "asset": "prop.lamp.teplok",
-          "at": [
-            1,
-            0.761,
-            -1.2
-          ],
-          "rot": 0.4
-        },
-        {
-          "asset": "kit.floor.tile",
-          "at": [
-            0,
-            0,
-            3.9
-          ]
-        },
-        {
-          "asset": "kit.wall.plain",
-          "at": [
-            2,
-            0,
-            3.9
-          ],
-          "rot": -1.5708
-        }
-      ],
-      "actors": [
-        {
-          "ref": "ratna",
-          "at": [
-            1.55,
-            0,
-            0.55
-          ],
-          "facing": "-X",
-          "clip": "idle"
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          -1.05,
-          1.52,
-          2.87
-        ],
-        "target": [
-          1.53,
-          1.14,
-          0.49
-        ],
-        "fov": 28
-      },
-      "light": {
-        "preset": "lampu-teplok",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": -0.863,
-        "elevation": 0.42,
-        "fill": 1.8
-      },
-      "text": {
-        "style": "subtitle",
-        "value": "BU RATNA — Keluar dari kos saya, Nak. Screenshot-nya sudah Ibu simpan semua. Kamu bukan penolong, kamu penipu."
-      },
-      "id": "kos-25",
-      "backdrop": "kos-pintu",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          -0.4,
-          -1.2
-        ]
-      }
-    },
-    {
-      "title": "Jalan basah, pukul sebelas",
-      "duration": 6.5,
-      "secondary": 1.2,
-      "set": [
-        {
-          "asset": "road.asphalt.wet",
-          "at": [
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "asset": "road.sidewalk.segment",
-          "at": [
-            2.6,
-            0,
-            2
-          ]
-        },
-        {
-          "asset": "road.prop.powerpole",
-          "at": [
-            3.4,
-            0,
-            -0.5
-          ],
-          "rot": 0.2
-        },
-        {
-          "asset": "nature.tree.palm",
-          "at": [
-            -3.6,
-            0,
-            -1.2
-          ],
-          "rot": 0.5
-        }
-      ],
-      "actors": [
-        {
-          "ref": "alya",
-          "at": [
-            0,
-            0,
-            2.2
-          ],
-          "facing": "-Z",
-          "clip": "walk",
-          "speed": 0.62,
-          "travel": 0
-        }
-      ],
-      "camera": {
-        "preset": "static",
-        "from": [
-          1.16,
-          1.42,
-          -0.24
-        ],
-        "target": [
-          0,
-          1.04,
-          2.19
-        ],
-        "fov": 36
-      },
-      "light": {
-        "preset": "sore",
-        "intensity": 3.4,
-        "shadow": false,
-        "azimuth": 0.4,
-        "elevation": 0.4,
-        "fill": 1.8
-      },
-      "lookPreset": "kampung-malam",
-      "text": {
-        "style": "caption",
-        "value": "“Aku kira aku punya teman. Ternyata aku cuma punya konten.” · 2,1 juta views"
-      },
-      "id": "luar-26",
-      "backdrop": "jalan-malam",
-      "backdropMotion": {
-        "zoom": [
-          1.03,
-          1.1
-        ],
-        "drift": [
-          0.4,
-          -1.2
-        ]
-      }
-    }
-  ],
   "backdrops": {
     "kos-kamar": {
       "image": "bg/kos-kamar.png",
@@ -3578,6 +40,605 @@
         0.5,
         0.55
       ]
+    },
+    "rumah-ibu": {
+      "image": "bg/rumah-ibu.png",
+      "anchor": [
+        0.5,
+        0.6
+      ]
     }
+  },
+  "cast": {
+    "alya": {
+      "label": "Alya",
+      "sprite": "alya",
+      "color": "#ffd166",
+      "poses": {
+        "neutral": "chars/alya-1.png",
+        "talk": "chars/alya-3.png",
+        "talkB": "chars/alya-2.png",
+        "sad": "chars/alya-4.png",
+        "shock": "chars/alya-5.png",
+        "sadHunch": "chars/alya-6.png",
+        "angry": "chars/alya-7.png",
+        "shock2": "chars/alya-8.png",
+        "think": "chars/alya-9.png",
+        "profile": "chars/alya-10.png"
+      }
+    },
+    "bima": {
+      "label": "Bima",
+      "sprite": "bima",
+      "color": "#7ec8ff",
+      "poses": {
+        "neutral": "chars/bima-1.png",
+        "talk": "chars/bima-2.png",
+        "pockets": "chars/bima-3.png",
+        "chest": "chars/bima-4.png",
+        "crossed": "chars/bima-5.png",
+        "walk": "chars/bima-11.png",
+        "angry": "chars/bima-7.png",
+        "surprise": "chars/bima-8.png",
+        "phone": "chars/bima-9.png"
+      }
+    },
+    "nadin": {
+      "label": "Nadin",
+      "sprite": "nadin",
+      "color": "#ffa8d8",
+      "poses": {
+        "neutral": "chars/nadin-1.png",
+        "talk": "chars/nadin-2.png",
+        "record": "chars/nadin-3.png",
+        "laugh": "chars/nadin-4.png",
+        "guilty": "chars/nadin-5.png",
+        "whisper": "chars/nadin-6.png",
+        "showPhone": "chars/nadin-7.png",
+        "shock": "chars/nadin-8.png",
+        "profile": "chars/nadin-9.png"
+      }
+    },
+    "ratna": {
+      "label": "Bu Ratna",
+      "sprite": "ratna",
+      "color": "#a8e6a1",
+      "poses": {
+        "stern": "chars/ratna-1.png",
+        "talk": "chars/ratna-2.png",
+        "point": "chars/ratna-3.png",
+        "hip": "chars/ratna-4.png",
+        "phone": "chars/ratna-5.png",
+        "shout": "chars/ratna-6.png",
+        "headshake": "chars/ratna-7.png",
+        "money": "chars/ratna-8.png",
+        "profile": "chars/ratna-9.png"
+      }
+    },
+    "ibu": {
+      "label": "Ibu",
+      "sprite": "ibu",
+      "color": "#ffc48a",
+      "poses": {
+        "smile": "chars/ibu-1.png",
+        "phoneTalk": "chars/ibu-2.png",
+        "worried": "chars/ibu-3.png",
+        "sad": "chars/ibu-4.png",
+        "tearful": "chars/ibu-5.png",
+        "sit": "chars/ibu-6.png",
+        "bracelet": "chars/ibu-7.png",
+        "pray": "chars/ibu-8.png"
+      }
+    }
+  },
+  "shots": [
+    {
+      "id": "kos-01",
+      "duration": 6,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "alya",
+        "pose": "talk",
+        "poseAlt": "neutral",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.68,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "ALYA — Delapan juta. Tiga hari. Dan aku udah nggak punya apa-apa lagi buat dijual."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-01.mp3"
+      }
+    },
+    {
+      "id": "kos-02",
+      "duration": 7.5,
+      "backdrop": "meja-hp",
+      "actor": {
+        "ref": "alya",
+        "pose": "sadHunch",
+        "poseAlt": "talk",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "ALYA — Laptop udah laku. Kamera udah laku. Sisanya delapan ratus ribu, buat makan seminggu."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-02.mp3"
+      }
+    },
+    {
+      "id": "kos-03",
+      "duration": 3,
+      "backdrop": "kos-pintu",
+      "actor": {
+        "ref": "nadin",
+        "pose": "laugh",
+        "poseAlt": "neutral",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.62,
+        "scale": 1
+      },
+      "text": {
+        "style": "caption",
+        "value": "Kos 4B · 21.10 · UKT delapan juta, jatuh tempo tiga hari"
+      }
+    },
+    {
+      "id": "kos-04",
+      "duration": 7.5,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "alya",
+        "pose": "talkB",
+        "poseAlt": "neutral",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.68,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "ALYA — Bu, aku aman. UKT udah aku urus. Ibu jangan mikirin aku, mikirin lutut Ibu dulu."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-04.mp3"
+      }
+    },
+    {
+      "id": "kos-05",
+      "duration": 9.5,
+      "backdrop": "rumah-ibu",
+      "actor": {
+        "ref": "ibu",
+        "pose": "phoneTalk",
+        "poseAlt": "worried",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.68,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "IBU — Al, kalau kurang, Ibu jual aja gelang almarhum bapak. Ibu ikhlas, asal kamu tetap kuliah."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-05.mp3"
+      }
+    },
+    {
+      "id": "kos-06",
+      "duration": 7.5,
+      "backdrop": "kos-pintu",
+      "actor": {
+        "ref": "ratna",
+        "pose": "talk",
+        "poseAlt": "stern",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "BU RATNA — Nak, kos bulan ini belum masuk. Ibu bukan bank, tapi Ibu juga bukan tembok."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-06.mp3"
+      }
+    },
+    {
+      "id": "kos-07",
+      "duration": 7,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "alya",
+        "pose": "talk",
+        "poseAlt": "talkB",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.68,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "ALYA — Sabtu, Bu. Sumpah. Kalau aku bohong, aku rela dipanggil anak kos teladan."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-07.mp3"
+      }
+    },
+    {
+      "id": "kor-08",
+      "duration": 3.5,
+      "backdrop": "koridor",
+      "actor": {
+        "ref": "bima",
+        "pose": "walk",
+        "poseAlt": "talk",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.56,
+        "scale": 1
+      },
+      "text": {
+        "style": "caption",
+        "value": "Koridor gedung C · 21.40 · Bima tahu aku lagi krisis"
+      }
+    },
+    {
+      "id": "kor-09",
+      "duration": 7.5,
+      "backdrop": "koridor",
+      "actor": {
+        "ref": "bima",
+        "pose": "talk",
+        "poseAlt": "chest",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "BIMA — Aku dengar kamu lagi susah. Kamu tuh kalau ada masalah, cerita."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kor-09.mp3"
+      }
+    },
+    {
+      "id": "kor-10",
+      "duration": 3.5,
+      "backdrop": "koridor",
+      "actor": {
+        "ref": "bima",
+        "pose": "chest",
+        "poseAlt": "talk",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "BIMA — Kita kan keluarga."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kor-10.mp3"
+      }
+    },
+    {
+      "id": "kor-11",
+      "duration": 7,
+      "backdrop": "koridor",
+      "actor": {
+        "ref": "alya",
+        "pose": "talkB",
+        "poseAlt": "talk",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "ALYA — Kak, aku gak mau ngutang. Bunga pinjol tuh kayak mantan: datengnya manis, perginya bikin miskin."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kor-11.mp3"
+      }
+    },
+    {
+      "id": "kor-12",
+      "duration": 6,
+      "backdrop": "koridor",
+      "actor": {
+        "ref": "bima",
+        "pose": "talk",
+        "poseAlt": "phone",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "BIMA — Bukan pinjol. Tabungan aku nganggur delapan juta."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kor-12.mp3"
+      }
+    },
+    {
+      "id": "kor-13",
+      "duration": 5,
+      "backdrop": "koridor",
+      "actor": {
+        "ref": "bima",
+        "pose": "phone",
+        "poseAlt": "talk",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "BIMA — Cuma butuh KTP sama data kamu, buat administrasi."
+      }
+    },
+    {
+      "id": "kos-14",
+      "duration": 3,
+      "backdrop": "meja-hp",
+      "actor": {
+        "ref": "alya",
+        "pose": "sadHunch",
+        "poseAlt": "neutral",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.64,
+        "scale": 1
+      },
+      "text": {
+        "style": "caption",
+        "value": "KTP diserahkan · “cuma buat administrasi”"
+      }
+    },
+    {
+      "id": "kos-15",
+      "duration": 3.5,
+      "backdrop": "meja-hp",
+      "actor": {
+        "ref": "alya",
+        "pose": "neutral",
+        "poseAlt": "neutral",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.64,
+        "scale": 1
+      },
+      "text": {
+        "style": "caption",
+        "value": "Transfer masuk · Rp 8.000.000 · “buat kamu, jangan dipikirin”"
+      }
+    },
+    {
+      "id": "kos-16",
+      "duration": 4.5,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "nadin",
+        "pose": "talk",
+        "poseAlt": "laugh",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "NADIN — Kak Bima tuh green flag banget sih. Cowok kayak gitu udah punah, bestie."
+      }
+    },
+    {
+      "id": "kos-17",
+      "duration": 3.5,
+      "backdrop": "meja-hp",
+      "actor": {
+        "ref": "alya",
+        "pose": "sad",
+        "poseAlt": "neutral",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.64,
+        "scale": 1
+      },
+      "text": {
+        "style": "caption",
+        "value": "UKT lunas · tiga minggu kemudian · PINJOL: tagihan Rp 11.400.000"
+      }
+    },
+    {
+      "id": "kos-18",
+      "duration": 5,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "alya",
+        "pose": "talk",
+        "poseAlt": "shock",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "ALYA — Kak, ini apa? Pinjol atas nama aku? Aku kan cuma kasih KTP."
+      }
+    },
+    {
+      "id": "kos-19",
+      "duration": 3,
+      "backdrop": "meja-hp",
+      "actor": {
+        "ref": "alya",
+        "pose": "shock",
+        "poseAlt": "shock2",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.64,
+        "scale": 1
+      },
+      "text": {
+        "style": "caption",
+        "value": "“Nomor yang Anda tuju tidak aktif.”"
+      }
+    },
+    {
+      "id": "kos-20",
+      "duration": 3,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "alya",
+        "pose": "sad",
+        "poseAlt": "talk",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "ALYA — Keren. Banget."
+      }
+    },
+    {
+      "id": "kos-21",
+      "duration": 5.5,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "nadin",
+        "pose": "showPhone",
+        "poseAlt": "laugh",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.64,
+        "scale": 1
+      },
+      "text": {
+        "style": "caption",
+        "value": "Grup “CONTENT PLAN” — BIMA: video dia nangis, fyp dijamin · NADIN: udah aku rekam dari tadi 😭"
+      }
+    },
+    {
+      "id": "kos-22",
+      "duration": 4.5,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "nadin",
+        "pose": "guilty",
+        "poseAlt": "whisper",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "NADIN — Aku cuma bantu rekam, Al. Kamu jangan marah ya. Ini buat kita berdua kok."
+      }
+    },
+    {
+      "id": "kos-23",
+      "duration": 5,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "bima",
+        "pose": "crossed",
+        "poseAlt": "talk",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "BIMA — Kamu tuh gampang banget dipercaya, Al. Itu masalah kamu, bukan aku."
+      }
+    },
+    {
+      "id": "kos-24",
+      "duration": 5,
+      "backdrop": "kos-kamar",
+      "actor": {
+        "ref": "alya",
+        "pose": "angry",
+        "poseAlt": "talk",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.66,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "ALYA — Aku kehilangan uang, kamu dapat view. Selamat ya, Kak. Semoga viralnya berkah."
+      }
+    },
+    {
+      "id": "kos-25",
+      "duration": 6,
+      "backdrop": "kos-pintu",
+      "actor": {
+        "ref": "ratna",
+        "pose": "shout",
+        "poseAlt": "point",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.68,
+        "scale": 1
+      },
+      "text": {
+        "style": "subtitle",
+        "value": "BU RATNA — Keluar dari kos saya, Nak. Screenshot-nya sudah Ibu simpan semua. Kamu bukan penolong, kamu penipu."
+      }
+    },
+    {
+      "id": "luar-26",
+      "duration": 6.5,
+      "backdrop": "jalan-malam",
+      "actor": {
+        "ref": "alya",
+        "pose": "sad",
+        "poseAlt": "sad",
+        "x": 0.5,
+        "y": 0.995,
+        "height": 0.52,
+        "scale": 1
+      },
+      "text": {
+        "style": "caption",
+        "value": "“Aku kira aku punya teman. Ternyata aku cuma punya konten.” · 2,1 juta views"
+      }
+    }
+  ],
+  "meta": {
+    "author": "arena-agent",
+    "notes": "2D cut-out ala animasi remaja Indonesia; satu dialog satu shot; VO per baris.",
+    "tags": [
+      "dracin",
+      "ftv",
+      "gen-z",
+      "2d"
+    ]
   }
 }

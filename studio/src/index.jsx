@@ -28,7 +28,9 @@ const RawComposition = ({id, component, defaultProps, durationInFrames, width, h
 
 const Root = () => (
   <>
-    {storyPacks.map((pack) => (
+    {storyPacks
+      .filter((pack) => !String(pack.story?.schema ?? '').startsWith('studio.story2d'))
+      .map((pack) => (
       <Composition
         key={pack.compositionId}
         id={pack.compositionId}

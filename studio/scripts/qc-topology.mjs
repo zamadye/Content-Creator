@@ -14,6 +14,16 @@ import {registry} from '../src/studio/library.js';
 import {compileStory} from '../src/studio/compile.js';
 import {BUDGETS, SHOT_TRI_BUDGET, measureRegistry} from './lib/topology.mjs';
 
+/** Story 2D (sprite + Remotion) tidak punya kamera 3D — lewati di QC 3D. */
+function is3dStoryFile(file) {
+  try {
+    return !String(JSON.parse(fs.readFileSync(file, 'utf8')).schema ?? '').startsWith('studio.story2d');
+  } catch {
+    return true;
+  }
+}
+
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const docPath = path.join(root, 'docs', 'TOPOLOGY-PLAN.md');
 const BEGIN = '<!-- BEGIN:assets -->';
@@ -92,6 +102,7 @@ export function stories() {
     .readdirSync(path.join(root, 'stories'), {withFileTypes: true})
     .filter((d) => d.isDirectory() && fs.existsSync(path.join(root, 'stories', d.name, 'story.json')))
     .map((d) => path.join(root, 'stories', d.name, 'story.json'))
+        .filter(is3dStoryFile)
     .sort()
     .map((file) => ({file: path.relative(path.join(root, 'stories'), file), story: JSON.parse(fs.readFileSync(file, 'utf8'))}));
 }

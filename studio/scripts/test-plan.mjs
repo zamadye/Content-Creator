@@ -33,8 +33,14 @@ const storyFiles = fs
   .filter((d) => d.isDirectory())
   .map((d) => path.join(root, 'stories', d.name, 'story.json'))
   .filter((f) => fs.existsSync(f))
+  // story 2D (sprite + Remotion) tidak punya denah/kamera 3D
+  .filter((f) => !String(JSON.parse(fs.readFileSync(f, 'utf8')).schema ?? '').startsWith('studio.story2d'))
   .sort();
 
+// Naskah produksi kini 2D; untuk grup deterministik pakai fixture 3D bila kosong.
+const probeStory = storyFiles[0] ?? path.join(root, 'test/fixtures/uji-kamera/story.json');
+
+// Naskah produksi kini 2D; untuk grup deterministik pakai fixture 3D bila kosong.
 let groups = 0;
 const ok = () => (groups += 1);
 
@@ -89,7 +95,10 @@ for (const file of storyFiles) {
 const expectedShots = storyFiles.reduce((n, f) => n + readJson(f).shots.length, 0);
 assert.equal(shots, expectedShots, `${expectedShots} shot diperiksa, dapat ${shots}`);
 // ambang diturunkan bersama penyusutan naskah (dulu 190 karena ada 9 paket contoh)
-assert.ok(measured >= 150, `minimal 150 sampel terukur, dapat ${measured}`);
+// Naskah produksi sudah 2D; yang tersisa hanya fixture 3D, jadi ambang diturunkan.
+// Naskah produksi sudah 2D; kalau tidak ada naskah 3D sama sekali, tidak ada
+// sampel yang bisa diukur — pemeriksa denah tetap diuji di grup 1 & 3.
+assert.ok(storyFiles.length === 0 || measured >= 40, `minimal 40 sampel terukur, dapat ${measured}`);
 assert.ok(minCamera >= MIN_GEOMETRY_CLEARANCE, `jarak kamera terdekat ${minCamera.toFixed(2)} m`);
 ok();
 
@@ -209,7 +218,7 @@ const wall = wallTri.c.map((v) => +v.toFixed(3));
 
 // ------------------------------------------------- 5. deterministik
 {
-  const compiled = compileStory(readJson(storyFiles[0]), {registry});
+  const compiled = compileStory(readJson(probeStory), {registry});
   const a = JSON.stringify(await planStory(compiled));
   const b = JSON.stringify(await planStory(compiled));
   assert.equal(a, b, 'planStory harus deterministik');

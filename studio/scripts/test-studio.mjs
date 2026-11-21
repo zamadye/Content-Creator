@@ -212,15 +212,25 @@ ok('compile+camera');
 // Cerita produksi ada di `stories/`, sedangkan fixture uji (kamera, hold, kostum)
 // dipindah ke `test/fixtures/` supaya `stories/` hanya berisi naskah sungguhan.
 const studioDir = path.join(root, 'test', 'fixtures');
+// Story 2D (`studio.story2d/1`) tidak punya set/kamera 3D, jadi tidak lewat
+// compiler 3D — sprite & teksnya dianimasikan langsung di Remotion.
+const is2d = (file) => {
+  try {
+    return String(JSON.parse(fs.readFileSync(file, 'utf8')).schema ?? '').startsWith('studio.story2d');
+  } catch {
+    return false;
+  }
+};
 const collectStories = (dir) =>
   fs.existsSync(dir)
     ? fs
         .readdirSync(dir, {withFileTypes: true})
         .filter((d) => d.isDirectory() && fs.existsSync(path.join(dir, d.name, 'story.json')))
         .map((d) => path.join(dir, d.name, 'story.json'))
+        .filter((f) => !is2d(f))
     : [];
 const storyFiles = [...collectStories(studioDir), ...collectStories(path.join(root, 'stories'))].sort();
-assert.ok(storyFiles.length >= 4, 'expected example stories plus at least one production naskah');
+assert.ok(storyFiles.length >= 3, 'expected the 3D fixture stories');
 for (const file of storyFiles) {
   const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
   const c = compileStory(raw, {registry});
@@ -263,6 +273,37 @@ for (const file of storyFiles) {
 ok('camera follow');
 
 ok('stories');
+
+// --------------------------------------------------------------- 5b. story 2D
+{
+  const dirs2d = fs
+    .readdirSync(path.join(root, 'stories'), {withFileTypes: true})
+    .filter((d) => d.isDirectory() && fs.existsSync(path.join(root, 'stories', d.name, 'story.json')))
+    .map((d) => path.join(root, 'stories', d.name, 'story.json'))
+    .filter(is2d);
+  assert.ok(dirs2d.length >= 1, 'minimal satu naskah 2D');
+  for (const file of dirs2d) {
+    const story = JSON.parse(fs.readFileSync(file, 'utf8'));
+    assert.equal(story.schema, 'studio.story2d/1');
+    assert.ok(story.shots.length > 0, `${file}: tanpa shot`);
+    const total = story.shots.reduce((s, x) => s + x.duration, 0);
+    assert.ok(total > 5, `${file}: durasi terlalu pendek`);
+    for (const shot of story.shots) {
+      assert.ok(story.backdrops[shot.backdrop], `${shot.id}: latar ${shot.backdrop} tidak dikenal`);
+      const cast = story.cast[shot.actor.ref];
+      assert.ok(cast, `${shot.id}: karakter ${shot.actor.ref} tidak ada`);
+      for (const key of [shot.actor.pose, shot.actor.poseAlt]) {
+        const sprite = cast.poses[key];
+        assert.ok(sprite, `${shot.id}: pose ${key} tidak ada di ${shot.actor.ref}`);
+        assert.ok(fs.existsSync(path.join(root, 'public', sprite)), `${shot.id}: sprite ${sprite} hilang`);
+      }
+      if (shot.audio?.vo) {
+        assert.ok(fs.existsSync(path.join(root, 'public', shot.audio.vo)), `${shot.id}: VO ${shot.audio.vo} hilang`);
+      }
+    }
+  }
+  ok('stories 2D');
+}
 
 // -------------------------------------------------------------------- 5e. hold
 {
@@ -415,7 +456,8 @@ ok('stories');
       assert.deepEqual(row.issues, [], `${file} ${row.id}: ${row.issues.join('; ')}`);
     }
   }
-  assert.ok(shots >= 20, `expected at least 20 shots to check, got ${shots}`);
+  // Naskah produksi kini 2D (tidak memakai kamera 3D), jadi tinggal fixture yang dicek.
+  assert.ok(shots >= 12, `expected at least 12 shots to check, got ${shots}`);
   ok('framing');
 }
 
@@ -431,7 +473,8 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
   const {problems, heavy} = violations();
   assert.deepEqual(problems, [], `anggaran topologi: ${problems.join('; ')}`);
   assert.equal(topoIds.length, ids.length, 'semua aset diukur');
-  assert.ok(heavy.tris > 0 && heavy.tris <= 120000, `shot terberat ${heavy.where} = ${heavy.tris} tri`);
+  // Tanpa naskah 3D produksi, tidak ada shot untuk ditimbang — nol itu sah.
+  assert.ok(heavy.tris >= 0 && heavy.tris <= 120000, `shot terberat ${heavy.where} = ${heavy.tris} tri`);
   const per = summary();
   assert.equal(Object.keys(per).length, registry.categories.length, 'semua kategori punya anggaran');
   // pagar ini harus bisa gagal: aset karangan yang melewati anggaran wajib terdeteksi
@@ -571,6 +614,10 @@ for (const key of ['studio.story/2', 'camera', 'actors']) assert.ok(storyDoc.inc
     .sort();
   assert.ok(dirs.length >= 1, `paket cerita kurang: ${dirs.length}`); // naskah produksi; fixture ada di test/fixtures
   for (const dir of dirs) {
+    if (is2d(path.join(root, 'stories', dir, 'story.json'))) {
+      assert.ok(generated.includes(`'./${dir}/story.json'`), `${dir} tidak terdaftar di packs.generated.js`);
+      continue;
+    }
     assert.ok(generated.includes(`'./${dir}/story.json'`), `${dir} tidak terdaftar di packs.generated.js`);
     const raw = JSON.parse(fs.readFileSync(path.join(root, 'stories', dir, 'story.json'), 'utf8'));
     const compiled = compileStory(raw, {registry});

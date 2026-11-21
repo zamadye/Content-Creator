@@ -26,6 +26,16 @@ import {createClipSampler} from '../src/studio/clip-sample.js';
 import {secondaryTurns, applySecondary, prepareSecondary} from '../src/studio/secondary.js';
 import {lifeTurns} from '../src/studio/life.js';
 
+/** Story 2D (sprite + Remotion) tidak punya kamera 3D — lewati di QC 3D. */
+function is3dStoryFile(file) {
+  try {
+    return !String(JSON.parse(fs.readFileSync(file, 'utf8')).schema ?? '').startsWith('studio.story2d');
+  } catch {
+    return true;
+  }
+}
+
+
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
 
@@ -170,6 +180,7 @@ async function main() {
         .readdirSync(path.join(root, 'stories'), {withFileTypes: true})
         .filter((d) => d.isDirectory())
         .map((d) => path.join(root, 'stories', d.name, 'story.json'))
+        .filter(is3dStoryFile)
         .filter((f) => fs.existsSync(f))
         .sort();
 

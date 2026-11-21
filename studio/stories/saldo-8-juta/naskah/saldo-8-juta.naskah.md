@@ -2,8 +2,9 @@
 
 **Format:** dracin/FTV — drama emosional, satu twist di paruh akhir, bahasa Gen Z.
 **Target:** vertikal **720×1280 (9:16)** · 30 fps · ±2 menit 20 detik · 26 shot.
-**Visual:** 2.5D — latar ilustrasi 2D (gaya animasi remaja Indonesia, acuan kanal Dhot Design),
-karakter 3D dari katalog studio, komposit di Remotion.
+**Visual:** 100 % 2D — latar ilustrasi + karakter sprite (animation sheet) digerakkan Remotion.
+Gaya acuan: animasi remaja Indonesia (Dhot Design). **Pipeline 3D dihapus** untuk film ini:
+render 3D butuh resource besar dan hasilnya tidak menyatu dengan latar.
 **Lokasi:** kamar kos 4B (malam), koridor gedung C kampus, jalan basah pukul 23.00.
 **Emosi:** kesal → marah → pahit. Bukan horor: yang menakutkan di sini adalah orang yang kelihatan baik.
 
@@ -95,7 +96,23 @@ Versi pertama punya lubang logika yang membuat ceritanya tidak nyambung:
 
 ---
 
-## Latar 2D (2.5D)
+## Karakter 2D (animation sheet)
+
+Setiap karakter punya satu *character sheet* (10–12 pose, latar putih rata) di
+`studio/public/chars/sheet-<nama>.png`. Skrip `scripts/2d-sprites.mjs` memotongnya
+otomatis per pose (connected components), membuang latar putih lewat flood fill
+dari tepi (baju putih tetap utuh) dan memberi tepi anti-alias lembut:
+
+```
+node scripts/2d-sprites.mjs public/chars/sheet-alya.png alya
+→ public/chars/alya-1.png … alya-10.png  +  manifest.json
+```
+
+Pose dipakai per shot (mis. `talk` untuk bicara, `shock`, `angry`, `phone`,
+`crossed`), dan **lip-flap** dibuat dengan menukar pose `pose` ↔ `poseAlt`
+tiap 4 frame selama baris VO berbunyi.
+
+## Latar ilustrasi
 
 Setiap lokasi punya satu ilustrasi (768×1376, vertikal) di `studio/public/bg/`:
 

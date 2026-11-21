@@ -659,8 +659,10 @@
           "pose": "shock2",
           "poseAlt": "talk",
           "text": "Sebelas juta empat ratus? Kak Bima belum bayar?",
-          "duration": 5.5,
-          "id": "s19-1"
+          "duration": 3.9,
+          "id": "s19-1",
+          "audio": "vo/saldo-8-juta-v2/s19-1.mp3",
+          "audioDuration": 3.45
         }
       ],
       "sprite": false
@@ -675,8 +677,10 @@
           "pose": "angry",
           "poseAlt": "talk",
           "text": "Kak, kamu janji bayar. Aku yang dikejar tagihan sekarang.",
-          "duration": 6.5,
-          "id": "s20-1"
+          "duration": 4.76,
+          "id": "s20-1",
+          "audio": "vo/saldo-8-juta-v2/s20-1.mp3",
+          "audioDuration": 4.31
         }
       ],
       "actor": {
@@ -696,15 +700,17 @@
           "pose": "sad",
           "poseAlt": "talk",
           "text": "Jadi... ini yang kalian bikin?",
-          "duration": 4.5,
-          "id": "s21-1"
+          "duration": 3.09,
+          "id": "s21-1",
+          "audio": "vo/saldo-8-juta-v2/s21-1.mp3",
+          "audioDuration": 2.64
         }
       ],
       "sprite": false
     },
     {
       "id": "s22",
-      "duration": 6.0,
+      "duration": 6.72,
       "backdrop": "kos-pintu",
       "lines": [
         {
@@ -713,15 +719,19 @@
           "poseAlt": "talk",
           "text": "Kamu tahu dia posting video ini?",
           "duration": 2.75,
-          "id": "s22-1"
+          "id": "s22-1",
+          "audio": "vo/saldo-8-juta-v2/s22-1.mp3",
+          "audioDuration": 2.3
         },
         {
           "who": "nadin",
           "pose": "guilty",
           "poseAlt": "talk",
           "text": "Aku yang kirim videonya ke dia.",
-          "duration": 2.75,
-          "id": "s22-2"
+          "duration": 3.47,
+          "id": "s22-2",
+          "audio": "vo/saldo-8-juta-v2/s22-2.mp3",
+          "audioDuration": 3.02
         }
       ],
       "actor": {
@@ -733,7 +743,7 @@
     },
     {
       "id": "s23",
-      "duration": 6.0,
+      "duration": 8.77,
       "backdrop": "kos-kamar",
       "lines": [
         {
@@ -741,17 +751,21 @@
           "pose": "neutral",
           "poseAlt": null,
           "text": "Al, aku udah bantu cairin. Pinjamannya kan atas nama kamu.",
-          "duration": 2.75,
+          "duration": 6.07,
           "sprite": "alya",
-          "id": "s23-1"
+          "id": "s23-1",
+          "audio": "vo/saldo-8-juta-v2/s23-1.mp3",
+          "audioDuration": 5.62
         },
         {
           "who": "alya",
           "pose": "sad",
           "poseAlt": "talk",
           "text": "Tapi kamu janji bayar...",
-          "duration": 2.75,
-          "id": "s23-2"
+          "duration": 2.2,
+          "id": "s23-2",
+          "audio": "vo/saldo-8-juta-v2/s23-2.mp3",
+          "audioDuration": 1.75
         }
       ],
       "actor": {
@@ -763,7 +777,7 @@
     },
     {
       "id": "s24",
-      "duration": 6.0,
+      "duration": 6.44,
       "backdrop": "kos-kamar",
       "lines": [
         {
@@ -771,16 +785,20 @@
           "pose": "sadHunch",
           "poseAlt": "talk",
           "text": "Ini pesannya. Dia sendiri yang bilang.",
-          "duration": 2.75,
-          "id": "s24-1"
+          "duration": 3.04,
+          "id": "s24-1",
+          "audio": "vo/saldo-8-juta-v2/s24-1.mp3",
+          "audioDuration": 2.59
         },
         {
           "who": "nadin",
           "pose": "guilty",
           "poseAlt": "talk",
           "text": "Aku bantu simpan buktinya, Al.",
-          "duration": 2.75,
-          "id": "s24-2"
+          "duration": 2.9,
+          "id": "s24-2",
+          "audio": "vo/saldo-8-juta-v2/s24-2.mp3",
+          "audioDuration": 2.45
         }
       ],
       "actor": {
@@ -792,7 +810,7 @@
     },
     {
       "id": "s25",
-      "duration": 5.0,
+      "duration": 5.71,
       "backdrop": "kos-kamar",
       "lines": [
         {
@@ -800,8 +818,10 @@
           "pose": "sad",
           "poseAlt": "talk",
           "text": "Bu... aku salah ambil keputusan.",
-          "duration": 2.25,
-          "id": "s25-1"
+          "duration": 2.96,
+          "id": "s25-1",
+          "audio": "vo/saldo-8-juta-v2/s25-1.mp3",
+          "audioDuration": 2.51
         },
         {
           "who": "ibu",

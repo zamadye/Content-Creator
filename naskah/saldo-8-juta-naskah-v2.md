@@ -1,7 +1,7 @@
 # SALDO 8 JUTA — Naskah (revisi)
 
 Subjudul: *Ditolong di Depan Kamera* · drama sosial · vertikal 9:16 · 720×1280 · 30 fps
-26 shot · 155 detik · 42 baris dialog (suara berbeda per tokoh).
+26 shot · 168 detik · 42 baris dialog (suara berbeda per tokoh).
 
 Dokumen ini mengikuti naskah revisi terbaru, shot per shot. Kolom *Catatan* bisa dipakai untuk revisi berikutnya.
 
@@ -79,23 +79,23 @@ Latar: `kos-pintu`
 
 ---
 
-## SHOT 08 · s08 · 00:39–00:48 (8.4 detik)
+## SHOT 08 · s08 · 00:39–00:47 (7.4 detik)
 
 Latar: `koridor`
 
 - **Nadin** (5.1 s): “Al, aku cerita ke Kak Bima. Katanya dia bisa bantu.” — `vo/saldo-8-juta-v2/s08-1.mp3`
-- **Alya** (2.8 s): “Kamu cerita?” — *belum ada VO*
+- **Alya** (1.8 s): “Kamu cerita?” — `vo/saldo-8-juta-v2/s08-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 09 · s09 · 00:48–00:55 (7.0 detik)
+## SHOT 09 · s09 · 00:47–00:55 (8.0 detik)
 
 Latar: `koridor`
 
-- **Bima** (3.3 s): “Aku dengar UKT kamu belum lunas.” — *belum ada VO*
-- **Alya** (3.3 s): “Iya, Kak. Tapi aku lagi cari cara.” — *belum ada VO*
+- **Bima** (3.6 s): “Aku dengar UKT kamu belum lunas.” — `vo/saldo-8-juta-v2/s09-1.mp3`
+- **Alya** (3.9 s): “Iya, Kak. Tapi aku lagi cari cara.” — `vo/saldo-8-juta-v2/s09-2.mp3`
 
 **Catatan:**
 
@@ -105,175 +105,175 @@ Latar: `koridor`
 
 Latar: `koridor`
 
-- **Bima** (2.8 s): “Ada cara supaya kamu bisa bayar hari ini.” — *belum ada VO*
-- **Alya** (2.8 s): “Dari mana uangnya?” — *belum ada VO*
+- **Bima** (3.7 s): “Ada cara supaya kamu bisa bayar hari ini.” — `vo/saldo-8-juta-v2/s10-1.mp3`
+- **Alya** (1.8 s): “Dari mana uangnya?” — `vo/saldo-8-juta-v2/s10-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 11 · s11 · 01:01–01:07 (6.0 detik)
+## SHOT 11 · s11 · 01:01–01:07 (6.3 detik)
 
 Latar: `koridor`
 
-- **Alya** (2.8 s): “Ini utang atas nama aku, Kak?” — *belum ada VO*
-- **Bima** (2.8 s): “Iya. Tapi dengerin dulu.” — *belum ada VO*
+- **Alya** (2.3 s): “Ini utang atas nama aku, Kak?” — `vo/saldo-8-juta-v2/s11-1.mp3`
+- **Bima** (3.5 s): “Iya. Tapi dengerin dulu.” — `vo/saldo-8-juta-v2/s11-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 12 · s12 · 01:07–01:14 (7.0 detik)
+## SHOT 12 · s12 · 01:07–01:17 (10.1 detik)
 
 Latar: `koridor`
 
-- **Bima** (2.2 s): “Aku yang bayar cicilannya. Jumat depan uangku masuk.” — *belum ada VO*
-- **Alya** (2.2 s): “Beneran, Kak?” — *belum ada VO*
-- **Bima** (2.2 s): “Iya, aku janji.” — *belum ada VO*
+- **Bima** (5.3 s): “Aku yang bayar cicilannya. Jumat depan uangku masuk.” — `vo/saldo-8-juta-v2/s12-1.mp3`
+- **Alya** (1.4 s): “Beneran, Kak?” — `vo/saldo-8-juta-v2/s12-2.mp3`
+- **Bima** (2.9 s): “Iya, aku janji.” — `vo/saldo-8-juta-v2/s12-3.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 13 · s13 · 01:14–01:20 (6.0 detik)
+## SHOT 13 · s13 · 01:17–01:24 (6.5 detik)
 
 Latar: `koridor`
 
-- **Alya** (2.8 s): “Din, jangan direkam dulu.” — *belum ada VO*
-- **Nadin** (2.8 s): “Kak Bima minta buat dokumentasi.” — *belum ada VO*
+- **Alya** (2.6 s): “Din, jangan direkam dulu.” — `vo/saldo-8-juta-v2/s13-1.mp3`
+- **Nadin** (3.4 s): “Kak Bima minta buat dokumentasi.” — `vo/saldo-8-juta-v2/s13-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 14 · s14 · 01:20–01:25 (5.0 detik)
+## SHOT 14 · s14 · 01:24–01:29 (5.0 detik)
 
 Latar: `koridor`
 
-- **Bima** (4.5 s): “Buat laporan kegiatan aja. Nggak dipost.” — *belum ada VO*
+- **Bima** (3.8 s): “Buat laporan kegiatan aja. Nggak dipost.” — `vo/saldo-8-juta-v2/s14-1.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 15 · s15 · 01:25–01:30 (5.0 detik)
+## SHOT 15 · s15 · 01:29–01:34 (5.0 detik)
 
 Latar: `meja-hp` · insert properti (tanpa karakter)
 
-- **Alya** (2.3 s): “Jumat jangan lupa, Kak.” — *belum ada VO*
-- **Bima** (2.3 s): “Tenang.” — *belum ada VO*
+- **Alya** (2.2 s): “Jumat jangan lupa, Kak.” — `vo/saldo-8-juta-v2/s15-1.mp3`
+- **Bima** (1.9 s): “Tenang.” — `vo/saldo-8-juta-v2/s15-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 16 · s16 · 01:30–01:36 (6.0 detik)
+## SHOT 16 · s16 · 01:34–01:42 (8.3 detik)
 
 Latar: `meja-hp` · insert properti (tanpa karakter)
 
-- **Alya** (2.8 s): “Makasih, Kak. Aku nggak tahu harus bilang apa.” — *belum ada VO*
-- **Bima** (2.8 s): “Yang penting kamu lanjut kuliah.” — *belum ada VO*
+- **Alya** (3.9 s): “Makasih, Kak. Aku nggak tahu harus bilang apa.” — `vo/saldo-8-juta-v2/s16-1.mp3`
+- **Bima** (3.9 s): “Yang penting kamu lanjut kuliah.” — `vo/saldo-8-juta-v2/s16-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 17 · s17 · 01:36–01:41 (5.0 detik)
+## SHOT 17 · s17 · 01:42–01:47 (5.0 detik)
 
 Latar: `meja-hp` · insert properti (tanpa karakter)
 
-- **Alya** (4.5 s): “Akhirnya...” — *belum ada VO*
+- **Alya** (1.5 s): “Akhirnya...” — `vo/saldo-8-juta-v2/s17-1.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 18 · s18 · 01:41–01:48 (7.0 detik)
+## SHOT 18 · s18 · 01:47–01:57 (9.5 detik)
 
 Latar: `kamar-nadin`
 
-- **Nadin** (3.3 s): “Al bilang jangan dipost, Kak.” — *belum ada VO*
-- **Bima** (3.3 s): “Cuma cerita bantu mahasiswa. Nggak ada yang salah.” — *belum ada VO*
+- **Nadin** (3.4 s): “Al bilang jangan dipost, Kak.” — `vo/saldo-8-juta-v2/s18-1.mp3`
+- **Bima** (5.6 s): “Cuma cerita bantu mahasiswa. Nggak ada yang salah.” — `vo/saldo-8-juta-v2/s18-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 19 · s19 · 01:48–01:54 (6.0 detik)
+## SHOT 19 · s19 · 01:57–02:03 (6.0 detik)
 
 Latar: `meja-hp` · insert properti (tanpa karakter)
 
-- **Alya** (5.5 s): “Sebelas juta empat ratus? Kak Bima belum bayar?” — *belum ada VO*
+- **Alya** (3.9 s): “Sebelas juta empat ratus? Kak Bima belum bayar?” — `vo/saldo-8-juta-v2/s19-1.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 20 · s20 · 01:54–02:01 (7.0 detik)
+## SHOT 20 · s20 · 02:03–02:10 (7.0 detik)
 
 Latar: `kos-kamar`
 
-- **Alya** (6.5 s): “Kak, kamu janji bayar. Aku yang dikejar tagihan sekarang.” — *belum ada VO*
+- **Alya** (4.8 s): “Kak, kamu janji bayar. Aku yang dikejar tagihan sekarang.” — `vo/saldo-8-juta-v2/s20-1.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 21 · s21 · 02:01–02:06 (5.0 detik)
+## SHOT 21 · s21 · 02:10–02:15 (5.0 detik)
 
 Latar: `meja-hp` · insert properti (tanpa karakter)
 
-- **Alya** (4.5 s): “Jadi... ini yang kalian bikin?” — *belum ada VO*
+- **Alya** (3.1 s): “Jadi... ini yang kalian bikin?” — `vo/saldo-8-juta-v2/s21-1.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 22 · s22 · 02:06–02:12 (6.0 detik)
+## SHOT 22 · s22 · 02:15–02:21 (6.7 detik)
 
 Latar: `kos-pintu`
 
-- **Alya** (2.8 s): “Kamu tahu dia posting video ini?” — *belum ada VO*
-- **Nadin** (2.8 s): “Aku yang kirim videonya ke dia.” — *belum ada VO*
+- **Alya** (2.8 s): “Kamu tahu dia posting video ini?” — `vo/saldo-8-juta-v2/s22-1.mp3`
+- **Nadin** (3.5 s): “Aku yang kirim videonya ke dia.” — `vo/saldo-8-juta-v2/s22-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 23 · s23 · 02:12–02:18 (6.0 detik)
+## SHOT 23 · s23 · 02:21–02:30 (8.8 detik)
 
 Latar: `kos-kamar`
 
-- **Bima** (2.8 s) *(yang tampil: Alya)*: “Al, aku udah bantu cairin. Pinjamannya kan atas nama kamu.” — *belum ada VO*
-- **Alya** (2.8 s): “Tapi kamu janji bayar...” — *belum ada VO*
+- **Bima** (6.1 s) *(yang tampil: Alya)*: “Al, aku udah bantu cairin. Pinjamannya kan atas nama kamu.” — `vo/saldo-8-juta-v2/s23-1.mp3`
+- **Alya** (2.2 s): “Tapi kamu janji bayar...” — `vo/saldo-8-juta-v2/s23-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 24 · s24 · 02:18–02:24 (6.0 detik)
+## SHOT 24 · s24 · 02:30–02:36 (6.4 detik)
 
 Latar: `kos-kamar`
 
-- **Alya** (2.8 s): “Ini pesannya. Dia sendiri yang bilang.” — *belum ada VO*
-- **Nadin** (2.8 s): “Aku bantu simpan buktinya, Al.” — *belum ada VO*
+- **Alya** (3.0 s): “Ini pesannya. Dia sendiri yang bilang.” — `vo/saldo-8-juta-v2/s24-1.mp3`
+- **Nadin** (2.9 s): “Aku bantu simpan buktinya, Al.” — `vo/saldo-8-juta-v2/s24-2.mp3`
 
 **Catatan:**
 
 ---
 
-## SHOT 25 · s25 · 02:24–02:29 (5.0 detik)
+## SHOT 25 · s25 · 02:36–02:42 (5.7 detik)
 
 Latar: `kos-kamar`
 
-- **Alya** (2.3 s): “Bu... aku salah ambil keputusan.” — *belum ada VO*
+- **Alya** (3.0 s): “Bu... aku salah ambil keputusan.” — `vo/saldo-8-juta-v2/s25-1.mp3`
 - **Ibu** (2.3 s) *(yang tampil: Alya)*: “Cerita dulu, Nak. Ibu dengerin.” — *belum ada VO*
 
 **Catatan:**
 
 ---
 
-## SHOT 26 · s26 · 02:29–02:35 (6.0 detik)
+## SHOT 26 · s26 · 02:42–02:48 (6.0 detik)
 
 Latar: `meja-bukti` · insert properti (tanpa karakter)
 

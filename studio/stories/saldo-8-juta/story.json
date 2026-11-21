@@ -134,7 +134,7 @@
   "shots": [
     {
       "id": "kos-01",
-      "duration": 6,
+      "duration": 5.5,
       "backdrop": "kos-kamar",
       "actor": {
         "ref": "alya",
@@ -156,7 +156,7 @@
     {
       "id": "kos-02",
       "duration": 7.5,
-      "backdrop": "meja-hp",
+      "backdrop": "kos-kamar",
       "actor": {
         "ref": "alya",
         "pose": "sadHunch",
@@ -194,7 +194,7 @@
     },
     {
       "id": "kos-04",
-      "duration": 7.5,
+      "duration": 10.0,
       "backdrop": "kos-kamar",
       "actor": {
         "ref": "alya",
@@ -236,7 +236,7 @@
     },
     {
       "id": "kos-06",
-      "duration": 7.5,
+      "duration": 6.5,
       "backdrop": "kos-pintu",
       "actor": {
         "ref": "ratna",
@@ -257,7 +257,7 @@
     },
     {
       "id": "kos-07",
-      "duration": 7,
+      "duration": 7.5,
       "backdrop": "kos-kamar",
       "actor": {
         "ref": "alya",
@@ -338,7 +338,7 @@
     },
     {
       "id": "kor-11",
-      "duration": 7,
+      "duration": 7.0,
       "backdrop": "koridor",
       "actor": {
         "ref": "alya",
@@ -359,7 +359,7 @@
     },
     {
       "id": "kor-12",
-      "duration": 6,
+      "duration": 6.0,
       "backdrop": "koridor",
       "actor": {
         "ref": "bima",
@@ -380,7 +380,7 @@
     },
     {
       "id": "kor-13",
-      "duration": 5,
+      "duration": 5.5,
       "backdrop": "koridor",
       "actor": {
         "ref": "bima",
@@ -394,21 +394,16 @@
       "text": {
         "style": "subtitle",
         "value": "BIMA — Cuma butuh KTP sama data kamu, buat administrasi."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kor-13.mp3"
       }
     },
     {
       "id": "kos-14",
       "duration": 3,
       "backdrop": "meja-hp",
-      "actor": {
-        "ref": "alya",
-        "pose": "sadHunch",
-        "poseAlt": "neutral",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.64,
-        "scale": 1
-      },
+      "actor": null,
       "text": {
         "style": "caption",
         "value": "KTP diserahkan · “cuma buat administrasi”"
@@ -418,15 +413,7 @@
       "id": "kos-15",
       "duration": 3.5,
       "backdrop": "meja-hp",
-      "actor": {
-        "ref": "alya",
-        "pose": "neutral",
-        "poseAlt": "neutral",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.64,
-        "scale": 1
-      },
+      "actor": null,
       "text": {
         "style": "caption",
         "value": "Transfer masuk · Rp 8.000.000 · “buat kamu, jangan dipikirin”"
@@ -434,7 +421,7 @@
     },
     {
       "id": "kos-16",
-      "duration": 4.5,
+      "duration": 7.0,
       "backdrop": "kos-kamar",
       "actor": {
         "ref": "nadin",
@@ -448,21 +435,16 @@
       "text": {
         "style": "subtitle",
         "value": "NADIN — Kak Bima tuh green flag banget sih. Cowok kayak gitu udah punah, bestie."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-16.mp3"
       }
     },
     {
       "id": "kos-17",
       "duration": 3.5,
       "backdrop": "meja-hp",
-      "actor": {
-        "ref": "alya",
-        "pose": "sad",
-        "poseAlt": "neutral",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.64,
-        "scale": 1
-      },
+      "actor": null,
       "text": {
         "style": "caption",
         "value": "UKT lunas · tiga minggu kemudian · PINJOL: tagihan Rp 11.400.000"
@@ -470,7 +452,7 @@
     },
     {
       "id": "kos-18",
-      "duration": 5,
+      "duration": 7.0,
       "backdrop": "kos-kamar",
       "actor": {
         "ref": "alya",
@@ -484,21 +466,16 @@
       "text": {
         "style": "subtitle",
         "value": "ALYA — Kak, ini apa? Pinjol atas nama aku? Aku kan cuma kasih KTP."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-18.mp3"
       }
     },
     {
       "id": "kos-19",
       "duration": 3,
       "backdrop": "meja-hp",
-      "actor": {
-        "ref": "alya",
-        "pose": "shock",
-        "poseAlt": "shock2",
-        "x": 0.5,
-        "y": 0.995,
-        "height": 0.64,
-        "scale": 1
-      },
+      "actor": null,
       "text": {
         "style": "caption",
         "value": "“Nomor yang Anda tuju tidak aktif.”"
@@ -506,7 +483,7 @@
     },
     {
       "id": "kos-20",
-      "duration": 3,
+      "duration": 3.0,
       "backdrop": "kos-kamar",
       "actor": {
         "ref": "alya",
@@ -520,6 +497,9 @@
       "text": {
         "style": "subtitle",
         "value": "ALYA — Keren. Banget."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-20.mp3"
       }
     },
     {
@@ -542,7 +522,7 @@
     },
     {
       "id": "kos-22",
-      "duration": 4.5,
+      "duration": 7.5,
       "backdrop": "kos-kamar",
       "actor": {
         "ref": "nadin",
@@ -556,11 +536,14 @@
       "text": {
         "style": "subtitle",
         "value": "NADIN — Aku cuma bantu rekam, Al. Kamu jangan marah ya. Ini buat kita berdua kok."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-22.mp3"
       }
     },
     {
       "id": "kos-23",
-      "duration": 5,
+      "duration": 7.0,
       "backdrop": "kos-kamar",
       "actor": {
         "ref": "bima",
@@ -574,11 +557,14 @@
       "text": {
         "style": "subtitle",
         "value": "BIMA — Kamu tuh gampang banget dipercaya, Al. Itu masalah kamu, bukan aku."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-23.mp3"
       }
     },
     {
       "id": "kos-24",
-      "duration": 5,
+      "duration": 6.5,
       "backdrop": "kos-kamar",
       "actor": {
         "ref": "alya",
@@ -592,11 +578,14 @@
       "text": {
         "style": "subtitle",
         "value": "ALYA — Aku kehilangan uang, kamu dapat view. Selamat ya, Kak. Semoga viralnya berkah."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-24.mp3"
       }
     },
     {
       "id": "kos-25",
-      "duration": 6,
+      "duration": 7.5,
       "backdrop": "kos-pintu",
       "actor": {
         "ref": "ratna",
@@ -610,11 +599,14 @@
       "text": {
         "style": "subtitle",
         "value": "BU RATNA — Keluar dari kos saya, Nak. Screenshot-nya sudah Ibu simpan semua. Kamu bukan penolong, kamu penipu."
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/kos-25.mp3"
       }
     },
     {
       "id": "luar-26",
-      "duration": 6.5,
+      "duration": 4.5,
       "backdrop": "jalan-malam",
       "actor": {
         "ref": "alya",
@@ -628,6 +620,9 @@
       "text": {
         "style": "caption",
         "value": "“Aku kira aku punya teman. Ternyata aku cuma punya konten.” · 2,1 juta views"
+      },
+      "audio": {
+        "vo": "vo/saldo-8-juta/luar-26.mp3"
       }
     }
   ],

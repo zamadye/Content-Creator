@@ -290,6 +290,7 @@ ok('stories');
     assert.ok(total > 5, `${file}: durasi terlalu pendek`);
     for (const shot of story.shots) {
       assert.ok(story.backdrops[shot.backdrop], `${shot.id}: latar ${shot.backdrop} tidak dikenal`);
+      if (!shot.actor) continue; // insert properti: sengaja tanpa karakter
       const cast = story.cast[shot.actor.ref];
       assert.ok(cast, `${shot.id}: karakter ${shot.actor.ref} tidak ada`);
       for (const key of [shot.actor.pose, shot.actor.poseAlt]) {

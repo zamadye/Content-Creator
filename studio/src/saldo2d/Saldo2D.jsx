@@ -105,10 +105,11 @@ const KineticLine = ({speaker, line, color, from, to, frame}) => {
 };
 
 /** Kartu caption bergaya UI: notifikasi, chat, atau judul babak. */
-const CaptionCard = ({text, frame, from, color}) => {
+const CaptionCard = ({text, frame, from, duration, color}) => {
   const local = frame - from;
-  const inP = clamp01(local / 8);
-  const outP = clamp01((local - 40) / 10);
+  const inP = clamp01(local / 14);
+  // kartu baru memudar di 10 frame terakhir shot, bukan setelah 40 frame
+  const outP = clamp01((local - (duration - 10)) / 10);
   const y = (1 - inP) * 40;
   const kicker = String(text).split('·')[0]?.trim();
   const body = String(text).slice(kicker?.length ?? 0).replace(/^·\s*/, '');
@@ -121,8 +122,8 @@ const CaptionCard = ({text, frame, from, color}) => {
         bottom: '13%',
         padding: '26px 30px',
         borderRadius: 26,
-        background: 'rgba(18,12,8,0.82)',
-        border: `3px solid ${color}`,
+        background: 'rgba(14,9,6,0.93)',
+        border: `4px solid ${color}`,
         boxShadow: `0 18px 46px rgba(0,0,0,0.55), 0 0 0 6px rgba(0,0,0,0.25)`,
         transform: `translateY(${y}px) scale(${0.96 + inP * 0.04})`,
         opacity: inP * (1 - outP),
@@ -158,7 +159,13 @@ export const Saldo2DStory = ({story, hud = false}) => {
   const speaking = Boolean(shot.text) && shot.text.style === 'subtitle';
 
   // lip-flap: ganti pose tiap 4 frame saat karakter sedang bicara
-  const flap = speaking && local > VO_LEAD_IN && Math.floor(local / 4) % 2 === 1;
+  // Lip-flap ala animasi 2D: satu pose ditahan 8 frame (±1,9 pose/detik) dan
+  // sesekali mulut berhenti menutup — ritmenya jadi seperti orang bicara,
+  // bukan kedipan mesin.
+  const speakClock = local - VO_LEAD_IN;
+  const holdTick = Math.floor(speakClock / 8);
+  const breathingPause = holdTick % 5 === 0;
+  const flap = speaking && speakClock > 0 && !breathingPause && holdTick % 2 === 1;
   const poseKey = flap ? shot.actor?.poseAlt ?? shot.actor?.pose : shot.actor?.pose;
   const poseList = castEntry?.poses ?? {};
   const poseFile = poseList[poseKey] ?? Object.values(poseList)[0];
@@ -167,8 +174,11 @@ export const Saldo2DStory = ({story, hud = false}) => {
   const color = castEntry?.color ?? shot.actor?.color ?? '#ffd166';
 
   // gerak masuk: pop 6 frame, lalu napas halus
-  const popIn = interpolate(local, [0, 6], [1.05, 1], {extrapolateRight: 'clamp'});
-  const bob = Math.sin((localSeconds * Math.PI * 2) / 3.4) * 3;
+  const inP = interpolate(local, [0, 14], [0, 1], {extrapolateRight: 'clamp'});
+  const popIn = 1 + (1 - inP) * 0.02;
+  const riseY = (1 - inP) * 26;
+  const bob = Math.sin((localSeconds * Math.PI * 2) / 3.8) * 2.2;
+  const sway = Math.sin((localSeconds * Math.PI * 2) / 6.1) * 0.35;
 
   const vo = shot.audio?.vo ?? null;
   const audioStart = shot.from + VO_LEAD_IN;
@@ -188,7 +198,7 @@ export const Saldo2DStory = ({story, hud = false}) => {
             height: '100%',
             objectFit: 'cover',
             objectPosition: '50% 55%',
-            transform: `scale(${1.04 + 0.05 * clamp01(local / shot.durationInFrames)})`,
+            transform: `scale(${1.02 + 0.045 * clamp01(local / shot.durationInFrames)})`,
             zIndex: 0,
           }}
         />
@@ -224,7 +234,8 @@ export const Saldo2DStory = ({story, hud = false}) => {
             position: 'absolute',
             left: `${(shot.actor.x ?? 0.5) * 100}%`,
             bottom: `${(1 - (shot.actor.y ?? 0.97)) * 100}%`,
-            transform: `translate(-50%, ${bob}px) scale(${(shot.actor.scale ?? 1) * popIn})`,
+            transform: `translate(-50%, ${bob + riseY}px) rotate(${sway}deg) scale(${(shot.actor.scale ?? 1) * popIn})`,
+            opacity: inP,
             transformOrigin: 'bottom center',
             zIndex: 2,
             filter: 'drop-shadow(0 18px 22px rgba(0,0,0,0.45))',
@@ -242,7 +253,7 @@ export const Saldo2DStory = ({story, hud = false}) => {
       ) : null}
       {shot.text && shot.text.style !== 'subtitle' ? (
         <div style={{position: 'absolute', inset: 0, zIndex: 3}}>
-          <CaptionCard text={shot.text.value} frame={local} from={4} color={color} />
+          <CaptionCard text={shot.text.value} frame={local} from={4} duration={shot.durationInFrames} color={color} />
         </div>
       ) : null}
 

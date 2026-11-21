@@ -149,10 +149,15 @@ Teknis:
 
 ## Hasil render
 
-**Babak 1 dengan VO (uji audio, 48 detik, 512×288):**
-`studio/docs/animasi/saldo-8-juta-bab1-vo.mp4` (Drive: <https://drive.google.com/file/d/1IXTbZv1Acy62YE11iQ7kM1KAxs20G4vg/view>)
-— 7 baris dialog sudah bersuara,
-tiap baris satu klip, ada jeda sunyi di antara shot (terukur: detik 13–16 sunyi).
+**Film penuh 2D:** `studio/docs/animasi/saldo-8-juta-2d-151detik.mp4`
+— 720×1280 (9:16) · 30 fps · 2 menit 31 detik · 19 baris VO, satu klip per baris.
 
-**Film penuh 720p** dirender setelah 9 baris VO sisanya masuk
-(`kor-13`, `kos-16`, `kos-18`, `kos-20`, `kos-22`, `kos-23`, `kos-24`, `kos-25`, `luar-26`).
+Perbaikan setelah review frame-by-frame:
+1. **Irama gerak diperlambat** — lip-flap 4 → **8 frame per pose** (dengan jeda tiap 5 pose
+   seperti animasi "on twos"), masuk karakter 6 → **14 frame** (fade + naik 26 px),
+   Ken Burns 5 % → 4,5 % per shot, kartu caption 8 → 14 frame.
+2. **Latar tidak lagi bentrok** — `meja-hp` (close-up meja penuh alat tulis) sekarang
+   **hanya untuk insert properti tanpa karakter** (kos-14 KTP, kos-15 transfer,
+   kos-17 pinjol, kos-19 nomor mati). Dialog Alya di kos-02 dipindah ke latar kamar.
+3. **Kartu caption** tidak lagi memudar di tengah shot (bug durasi), latar kartu dibuat
+   lebih pekat (0,93) supaya terbaca di atas meja gelap.

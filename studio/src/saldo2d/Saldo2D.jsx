@@ -180,13 +180,25 @@ export const Saldo2DStory = ({story, hud = false}) => {
   const poseList = castEntry?.poses ?? {};
   const hasAudioLine = Boolean(active?.audio);
 
-  // Lip-flap: 10 frame per pose, dan diam tiap tick ke-4. Tanpa poseAlt → diam.
+  // Mulut: hanya mulut yang bergerak. Badan tetap satu gambar yang sama, mulut
+  // dibuka/tutup dengan menukar sprite pasangan (selisihnya hanya di area mulut).
   const lineLocal = active ? local - active.start : 0;
-  const holdTick = Math.floor(lineLocal / 10);
-  const flap = hasAudioLine && Boolean(poseAltKey) && holdTick % 4 !== 0 && holdTick % 2 === 1;
+  const holdTick = Math.floor(lineLocal / 8);
+  const speakingNow = hasAudioLine && lineLocal < (active?.audioDuration ?? 99) * fps;
+  const mouthPair = castEntry?.mouth ?? null;
+  const useMouthPair = poseKey === 'speak' && Boolean(mouthPair);
+  const mouthOpen = useMouthPair && speakingNow && holdTick % 5 !== 0 && holdTick % 2 === 1;
+
+  // pose gestur (menunjuk, merekam) tetap statis — tidak ada gerakan mulut.
+  const flap = !useMouthPair && hasAudioLine && Boolean(poseAltKey) && holdTick % 4 !== 0 && holdTick % 2 === 1;
   const activePoseKey = flap ? poseAltKey : poseKey;
   const spriteOn = shot.sprite !== false;
-  const poseFile = spriteOn ? (poseList[activePoseKey] ?? poseList[poseKey] ?? Object.values(poseList)[0] ?? null) : null;
+  let poseFile = null;
+  if (spriteOn) {
+    poseFile = useMouthPair
+      ? (mouthOpen ? mouthPair.open : mouthPair.closed)
+      : (poseList[activePoseKey] ?? poseList[poseKey] ?? Object.values(poseList)[0] ?? null);
+  }
 
   const color = voiceCast?.color ?? castEntry?.color ?? '#ffd166';
   const speaker = voiceCast?.label ?? active?.label ?? null;

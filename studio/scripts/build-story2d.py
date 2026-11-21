@@ -2,8 +2,12 @@ import json, os
 
 old = json.load(open('stories/saldo-8-juta/story.json'))
 cast = old['cast']
-for k,v in cast.items():
+for k, v in cast.items():
     v['sprite'] = v['sprite']
+    v['mouth'] = {'closed': f'chars/mouth/{k}-closed.png', 'open': f'chars/mouth/{k}-open.png'}
+
+# Pose yang dipakai saat bicara: 'speak' = pasangan badan sama, hanya mulut berganti.
+SPEAK = 'speak'
 backdrops = old['backdrops']
 backdrops['kamar-nadin'] = {'image': 'bg/kamar-nadin.png'}
 backdrops['meja-bukti'] = {'image': 'bg/meja-bukti.png'}
@@ -20,6 +24,10 @@ def phone(spoken_by, listener, text, seconds):
     poses = {'alya': ('neutral', None), 'bima': ('neutral', None)}
     pose, alt = poses.get(listener, ('neutral', None))
     return line(spoken_by, pose, alt, text, seconds, sprite=listener)
+
+# Shot yang memang butuh gestur khusus (menunjuk, merekam, memegang HP):
+# pose tetap dari character sheet, mulut tidak dianimasikan.
+GESTURE_SHOTS = {'s10', 's13', 's24'}
 
 CHIPS = {
   's03': {'label': 'Jual cepat', 'value': 'Laptop · kamera · sisa Rp 800.000'},
@@ -66,6 +74,9 @@ for sid, bg, dur, height, x, lines in SPEC:
     share = round((dur - 0.5) / max(1, len(lines)), 2)
     for i, l in enumerate(lines):
         l['id'] = f'{sid}-{i+1}'
+        if sid not in GESTURE_SHOTS:
+            l['pose'] = SPEAK
+            l['poseAlt'] = None
         l['duration'] = share
         p = f'public/vo/saldo-8-juta-v2/{sid}-{i+1}.mp3'
         if os.path.exists(p):

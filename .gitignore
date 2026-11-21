@@ -7,6 +7,8 @@ google_drive/
 studio/public/vo/*
 !studio/public/vo/saldo-8-juta/
 !studio/public/vo/saldo-8-juta/*.mp3
+!studio/public/vo/saldo-8-juta-v2/
+!studio/public/vo/saldo-8-juta-v2/*
 # Generated bundles, intermediate videos and locally rendered deliverables
 studio/build/
 studio/dist/

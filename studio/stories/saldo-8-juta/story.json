@@ -21,6 +21,10 @@
         "shock2": "chars/alya-8.png",
         "think": "chars/alya-9.png",
         "profile": "chars/alya-10.png"
+      },
+      "mouth": {
+        "closed": "chars/mouth/alya-closed.png",
+        "open": "chars/mouth/alya-open.png"
       }
     },
     "bima": {
@@ -37,6 +41,10 @@
         "angry": "chars/bima-7.png",
         "surprise": "chars/bima-8.png",
         "phone": "chars/bima-9.png"
+      },
+      "mouth": {
+        "closed": "chars/mouth/bima-closed.png",
+        "open": "chars/mouth/bima-open.png"
       }
     },
     "nadin": {
@@ -53,6 +61,10 @@
         "showPhone": "chars/nadin-7.png",
         "shock": "chars/nadin-8.png",
         "profile": "chars/nadin-9.png"
+      },
+      "mouth": {
+        "closed": "chars/mouth/nadin-closed.png",
+        "open": "chars/mouth/nadin-open.png"
       }
     },
     "ratna": {
@@ -69,6 +81,10 @@
         "headshake": "chars/ratna-7.png",
         "money": "chars/ratna-8.png",
         "profile": "chars/ratna-9.png"
+      },
+      "mouth": {
+        "closed": "chars/mouth/ratna-closed.png",
+        "open": "chars/mouth/ratna-open.png"
       }
     },
     "ibu": {
@@ -84,6 +100,10 @@
         "sit": "chars/ibu-6.png",
         "bracelet": "chars/ibu-7.png",
         "pray": "chars/ibu-8.png"
+      },
+      "mouth": {
+        "closed": "chars/mouth/ibu-closed.png",
+        "open": "chars/mouth/ibu-open.png"
       }
     }
   },
@@ -141,8 +161,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "sad",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Katanya mau bantu. Kok sekarang aku yang ditagih?",
           "duration": 3.82,
           "id": "s01-1",
@@ -164,8 +184,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "think",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Tiga hari lagi... delapan juta dari mana?",
           "duration": 3.69,
           "id": "s02-1",
@@ -187,8 +207,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "sad",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Kalau ini dijual, masih kurang jauh.",
           "duration": 3.3,
           "id": "s03-1",
@@ -209,7 +229,7 @@
       "lines": [
         {
           "who": "ibu",
-          "pose": "neutral",
+          "pose": "speak",
           "poseAlt": null,
           "text": "Al, UKT-nya udah dibayar?",
           "duration": 3.07,
@@ -220,8 +240,8 @@
         },
         {
           "who": "alya",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Lagi diurus, Bu.",
           "duration": 1.94,
           "id": "s04-2",
@@ -243,8 +263,8 @@
       "lines": [
         {
           "who": "ibu",
-          "pose": "sad",
-          "poseAlt": "worried",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Kalau belum cukup, gelang Bapak masih ada.",
           "duration": 4.03,
           "id": "s05-1",
@@ -266,8 +286,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "sadHunch",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Jangan, Bu. Itu satu-satunya peninggalan Bapak.",
           "duration": 3.98,
           "id": "s06-1",
@@ -289,8 +309,8 @@
       "lines": [
         {
           "who": "ratna",
-          "pose": "stern",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Al, kosnya kapan bisa dibayar?",
           "duration": 3.04,
           "id": "s07-1",
@@ -299,8 +319,8 @@
         },
         {
           "who": "alya",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Sabtu ya, Bu. Maaf.",
           "duration": 2.91,
           "id": "s07-2",
@@ -322,8 +342,8 @@
       "lines": [
         {
           "who": "nadin",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Al, aku cerita ke Kak Bima. Katanya dia bisa bantu.",
           "duration": 5.11,
           "id": "s08-1",
@@ -332,8 +352,8 @@
         },
         {
           "who": "alya",
-          "pose": "shock",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Kamu cerita?",
           "duration": 1.76,
           "id": "s08-2",
@@ -355,8 +375,8 @@
       "lines": [
         {
           "who": "bima",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Aku dengar UKT kamu belum lunas.",
           "duration": 3.62,
           "id": "s09-1",
@@ -365,8 +385,8 @@
         },
         {
           "who": "alya",
-          "pose": "sad",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Iya, Kak. Tapi aku lagi cari cara.",
           "duration": 3.85,
           "id": "s09-2",
@@ -421,8 +441,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "shock",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Ini utang atas nama aku, Kak?",
           "duration": 2.33,
           "id": "s11-1",
@@ -431,8 +451,8 @@
         },
         {
           "who": "bima",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Iya. Tapi dengerin dulu.",
           "duration": 3.5,
           "id": "s11-2",
@@ -454,8 +474,8 @@
       "lines": [
         {
           "who": "bima",
-          "pose": "chest",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Aku yang bayar cicilannya. Jumat depan uangku masuk.",
           "duration": 5.35,
           "id": "s12-1",
@@ -464,8 +484,8 @@
         },
         {
           "who": "alya",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Beneran, Kak?",
           "duration": 1.39,
           "id": "s12-2",
@@ -474,8 +494,8 @@
         },
         {
           "who": "bima",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Iya, aku janji.",
           "duration": 2.9,
           "id": "s12-3",
@@ -530,8 +550,8 @@
       "lines": [
         {
           "who": "bima",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Buat laporan kegiatan aja. Nggak dipost.",
           "duration": 3.83,
           "id": "s14-1",
@@ -553,8 +573,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Jumat jangan lupa, Kak.",
           "duration": 2.23,
           "id": "s15-1",
@@ -563,8 +583,8 @@
         },
         {
           "who": "bima",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Tenang.",
           "duration": 1.91,
           "id": "s15-2",
@@ -585,8 +605,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Makasih, Kak. Aku nggak tahu harus bilang apa.",
           "duration": 3.9,
           "id": "s16-1",
@@ -595,8 +615,8 @@
         },
         {
           "who": "bima",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Yang penting kamu lanjut kuliah.",
           "duration": 3.86,
           "id": "s16-2",
@@ -617,8 +637,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Akhirnya...",
           "duration": 1.52,
           "id": "s17-1",
@@ -639,8 +659,8 @@
       "lines": [
         {
           "who": "nadin",
-          "pose": "guilty",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Al bilang jangan dipost, Kak.",
           "duration": 3.35,
           "id": "s18-1",
@@ -649,8 +669,8 @@
         },
         {
           "who": "bima",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Cuma cerita bantu mahasiswa. Nggak ada yang salah.",
           "duration": 5.63,
           "id": "s18-2",
@@ -672,8 +692,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "shock2",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Sebelas juta empat ratus? Kak Bima belum bayar?",
           "duration": 3.9,
           "id": "s19-1",
@@ -694,8 +714,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "angry",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Kak, kamu janji bayar. Aku yang dikejar tagihan sekarang.",
           "duration": 4.76,
           "id": "s20-1",
@@ -717,8 +737,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "sad",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Jadi... ini yang kalian bikin?",
           "duration": 3.09,
           "id": "s21-1",
@@ -739,8 +759,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "angry",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Kamu tahu dia posting video ini?",
           "duration": 2.75,
           "id": "s22-1",
@@ -749,8 +769,8 @@
         },
         {
           "who": "nadin",
-          "pose": "guilty",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Aku yang kirim videonya ke dia.",
           "duration": 3.47,
           "id": "s22-2",
@@ -772,7 +792,7 @@
       "lines": [
         {
           "who": "bima",
-          "pose": "neutral",
+          "pose": "speak",
           "poseAlt": null,
           "text": "Al, aku udah bantu cairin. Pinjamannya kan atas nama kamu.",
           "duration": 6.07,
@@ -783,8 +803,8 @@
         },
         {
           "who": "alya",
-          "pose": "sad",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Tapi kamu janji bayar...",
           "duration": 2.2,
           "id": "s23-2",
@@ -839,8 +859,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "sad",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Bu... aku salah ambil keputusan.",
           "duration": 2.96,
           "id": "s25-1",
@@ -849,7 +869,7 @@
         },
         {
           "who": "ibu",
-          "pose": "neutral",
+          "pose": "speak",
           "poseAlt": null,
           "text": "Cerita dulu, Nak. Ibu dengerin.",
           "duration": 3.86,
@@ -873,8 +893,8 @@
       "lines": [
         {
           "who": "alya",
-          "pose": "neutral",
-          "poseAlt": "talk",
+          "pose": "speak",
+          "poseAlt": null,
           "text": "Aku nggak mau jadi konten orang lagi.",
           "duration": 2.91,
           "id": "s26-1",
